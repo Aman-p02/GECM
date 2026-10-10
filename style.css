@@ -480,11 +480,17 @@ h1, h2, h3, h4 {
     color: #fff;
     padding: 10px;
     text-align: center;
-    border-radius: 8px;
-    min-width: 65px;
+    border-radius: 50%;
+    min-width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-weight: 500;
     font-size: 0.9rem;
-    line-height: 1.2;
+    line-height: 1.1;
+    flex-shrink: 0;
 }
 
 .notice-list .date span {
