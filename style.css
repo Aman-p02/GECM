@@ -452,18 +452,17 @@ h1, h2, h3, h4 {
     position: relative;
 }
 
-.notice-list {
-    animation: scrollUp 15s linear infinite;
-    padding-bottom: 20px;
+.notice-marquee {
+    animation: scrollUp 20s linear infinite;
 }
 
-.notice-scroll-container:hover .notice-list {
+.notice-marquee:hover {
     animation-play-state: paused;
 }
 
 @keyframes scrollUp {
-    0% { transform: translateY(100%); }
-    100% { transform: translateY(-100%); }
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
 }
 
 .notice-list li {
@@ -488,7 +487,7 @@ h1, h2, h3, h4 {
 .notice-list .date {
     background: var(--primary-light);
     color: #fff;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     border-radius: 50%;
     min-width: 70px;
@@ -499,13 +498,14 @@ h1, h2, h3, h4 {
     align-items: center;
     font-weight: 500;
     font-size: 0.9rem;
-    line-height: 1.1;
+    line-height: 1;
     flex-shrink: 0;
 }
 
-.notice-list .date span {
+.notice-list .date .day {
     font-size: 1.4rem;
     font-weight: 700;
+    margin-bottom: 2px;
 }
 
 .notice-text a {
