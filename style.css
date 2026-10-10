@@ -443,7 +443,7 @@ h1, h2, h3, h4 {
     background: var(--bg-white);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .notice-scroll-container {
@@ -539,7 +539,7 @@ h1, h2, h3, h4 {
     background: var(--bg-white);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
 }
