@@ -206,6 +206,16 @@ h1, h2, h3, h4 {
     margin: 0;
 }
 
+.affiliated-logo {
+    height: 55px; /* Adjust height to match nicely with the text */
+    object-fit: contain;
+    margin-left: 15px;
+}
+
+.desktop-only {
+    display: block;
+}
+
 .college-name br {
     display: none; /* Hide <br> on PC so it stays in one line */
 }
@@ -949,6 +959,10 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+
     .section {
         padding: 30px 0; /* Reduced from 50px to close gaps between sections */
     }
