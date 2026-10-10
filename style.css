@@ -436,6 +436,26 @@ h1, h2, h3, h4 {
     box-shadow: var(--shadow);
 }
 
+.notice-scroll-container {
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+}
+
+.notice-list {
+    animation: scrollUp 15s linear infinite;
+    padding-bottom: 20px;
+}
+
+.notice-scroll-container:hover .notice-list {
+    animation-play-state: paused;
+}
+
+@keyframes scrollUp {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(-100%); }
+}
+
 .notice-list li {
     display: flex;
     align-items: flex-start;
