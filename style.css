@@ -467,7 +467,7 @@ h1, h2, h3, h4 {
 
 .notice-list li {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
     padding: 15px 0;
     border-bottom: 1px dashed var(--border-color);
