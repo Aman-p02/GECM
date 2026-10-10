@@ -102,7 +102,7 @@ const deptGrid = document.querySelector('.dept-grid');
 let deptScrollInterval;
 
 function startDeptAutoScroll() {
-    if (window.innerWidth <= 768 && deptGrid) {
+    if (deptGrid) {
         if (deptScrollInterval) clearInterval(deptScrollInterval);
         deptScrollInterval = setInterval(() => {
             // Card width + gap (15px)
