@@ -198,8 +198,6 @@ h1, h2, h3, h4 {
 .logo {
     height: 75px;
     object-fit: contain;
-    /* Turns the grey logo into our primary navy blue color (#0c3b6d) */
-    filter: brightness(0) saturate(100%) invert(14%) sepia(89%) saturate(2257%) hue-rotate(192deg) brightness(97%) contrast(101%);
 }
 
 .college-name h1 {
