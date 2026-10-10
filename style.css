@@ -1,8 +1,10 @@
 /* Custom Properties / Variables */
 :root {
-    --primary-color: #0c3b6d; /* Deep Navy Blue suitable for education */
+    --primary-color: #0c3b6d;
+    /* Deep Navy Blue suitable for education */
     --primary-light: #1b5b9c;
-    --secondary-color: #f39c12; /* Vibrant Orange/Gold accent */
+    --secondary-color: #f39c12;
+    /* Vibrant Orange/Gold accent */
     --secondary-hover: #d68910;
     --text-dark: #333333;
     --text-light: #666666;
@@ -10,8 +12,8 @@
     --bg-white: #ffffff;
     --border-color: #e5e5e5;
     --transition: all 0.3s ease;
-    --shadow: 0 4px 6px rgba(0,0,0,0.05);
-    --shadow-hover: 0 10px 20px rgba(0,0,0,0.1);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.1);
     --font-main: 'Poppins', sans-serif;
 }
 
@@ -21,11 +23,13 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     font-family: var(--font-main);
     color: var(--text-dark);
     line-height: 1.6;
-    overflow-x: clip; /* clip allows position: sticky to work, unlike hidden */
+    overflow-x: clip;
+    /* clip allows position: sticky to work, unlike hidden */
     max-width: 100%;
     background-color: var(--bg-white);
 }
@@ -68,7 +72,10 @@ ul {
 }
 
 /* Typography & Titles */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-weight: 600;
     color: var(--primary-color);
 }
@@ -77,7 +84,8 @@ h1, h2, h3, h4 {
     margin-bottom: 50px;
 }
 
-.section-title h2, .section-title h3 {
+.section-title h2,
+.section-title h3 {
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
@@ -207,7 +215,8 @@ h1, h2, h3, h4 {
 }
 
 .affiliated-logo {
-    height: 55px; /* Adjust height to match nicely with the text */
+    height: 55px;
+    /* Adjust height to match nicely with the text */
     object-fit: contain;
     margin-left: 15px;
 }
@@ -217,7 +226,8 @@ h1, h2, h3, h4 {
 }
 
 .college-name br {
-    display: none; /* Hide <br> on PC so it stays in one line */
+    display: none;
+    /* Hide <br> on PC so it stays in one line */
 }
 
 .college-name p {
@@ -268,7 +278,8 @@ h1, h2, h3, h4 {
 .hamburger {
     display: none;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent; /* Removes blue tap highlight */
+    -webkit-tap-highlight-color: transparent;
+    /* Removes blue tap highlight */
 }
 
 .hamburger .bar {
@@ -327,7 +338,7 @@ h1, h2, h3, h4 {
     font-size: 3.2rem;
     font-weight: 700;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     line-height: 1.3;
 }
 
@@ -356,8 +367,13 @@ h1, h2, h3, h4 {
     animation: fadeInUp 1s ease forwards;
 }
 
-.delay-1 { animation-delay: 0.3s; }
-.delay-2 { animation-delay: 0.6s; }
+.delay-1 {
+    animation-delay: 0.3s;
+}
+
+.delay-2 {
+    animation-delay: 0.6s;
+}
 
 @keyframes fadeInUp {
     to {
@@ -391,7 +407,8 @@ h1, h2, h3, h4 {
     align-items: center;
     padding: 0 20px;
     overflow: hidden;
-    min-width: 0; /* Fixes flexbox overflow issue with long marquee */
+    min-width: 0;
+    /* Fixes flexbox overflow issue with long marquee */
 }
 
 .ticker-content marquee span {
@@ -399,6 +416,7 @@ h1, h2, h3, h4 {
     color: var(--primary-color);
     font-weight: 500;
 }
+
 .ticker-content marquee span i {
     color: var(--secondary-color);
     margin-right: 8px;
@@ -410,8 +428,10 @@ h1, h2, h3, h4 {
     grid-template-columns: 2fr 1fr;
     gap: 40px;
 }
-.two-col-layout > div {
-    min-width: 0; /* Fix CSS Grid blowout */
+
+.two-col-layout>div {
+    min-width: 0;
+    /* Fix CSS Grid blowout */
 }
 
 .section-header {
@@ -434,6 +454,7 @@ h1, h2, h3, h4 {
     color: var(--secondary-color);
     font-weight: 500;
 }
+
 .view-all:hover {
     text-decoration: underline;
 }
@@ -443,7 +464,7 @@ h1, h2, h3, h4 {
     background: var(--bg-white);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .notice-scroll-container {
@@ -461,8 +482,13 @@ h1, h2, h3, h4 {
 }
 
 @keyframes scrollUp {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
 }
 
 .notice-list li {
@@ -529,9 +555,17 @@ h1, h2, h3, h4 {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Recent Events Slider */
@@ -539,7 +573,7 @@ h1, h2, h3, h4 {
     background: var(--bg-white);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
 }
@@ -649,9 +683,12 @@ h1, h2, h3, h4 {
     gap: 30px;
     padding: 10px 0 20px 0;
     /* Hide scrollbars for a clean look */
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
+
 .dept-grid::-webkit-scrollbar {
     display: none;
 }
@@ -661,7 +698,7 @@ h1, h2, h3, h4 {
     padding: 40px 30px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
     border-bottom: 4px solid transparent;
     min-width: 300px;
@@ -671,7 +708,7 @@ h1, h2, h3, h4 {
 
 .dept-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     border-bottom-color: var(--secondary-color);
 }
 
@@ -730,7 +767,10 @@ h1, h2, h3, h4 {
 .alumni-section::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: radial-gradient(var(--primary-light) 1px, transparent 1px);
     background-size: 30px 30px;
     opacity: 0.05;
@@ -764,8 +804,13 @@ h1, h2, h3, h4 {
     background: var(--secondary-color);
 }
 
-.left-btn { left: 0; }
-.right-btn { right: 0; }
+.left-btn {
+    left: 0;
+}
+
+.right-btn {
+    right: 0;
+}
 
 .alumni-carousel {
     display: flex;
@@ -773,8 +818,10 @@ h1, h2, h3, h4 {
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: 20px 0;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .alumni-carousel::-webkit-scrollbar {
@@ -824,6 +871,7 @@ h1, h2, h3, h4 {
     font-weight: 500;
     color: var(--text-dark);
 }
+
 .alumni-card .company i {
     margin-right: 5px;
     color: var(--secondary-color);
@@ -905,15 +953,35 @@ h1, h2, h3, h4 {
 }
 
 /* Brand Colors */
-.footer-socials a:nth-child(1) { background: #1877f2; } /* Facebook */
-.footer-socials a:nth-child(2) { background: #1da1f2; } /* Twitter */
-.footer-socials a:nth-child(3) { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); } /* Instagram */
-.footer-socials a:nth-child(4) { background: #0077b5; } /* LinkedIn */
-.footer-socials a:nth-child(5) { background: #FF0000; } /* YouTube */
+.footer-socials a:nth-child(1) {
+    background: #1877f2;
+}
+
+/* Facebook */
+.footer-socials a:nth-child(2) {
+    background: #1da1f2;
+}
+
+/* Twitter */
+.footer-socials a:nth-child(3) {
+    background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+}
+
+/* Instagram */
+.footer-socials a:nth-child(4) {
+    background: #0077b5;
+}
+
+/* LinkedIn */
+.footer-socials a:nth-child(5) {
+    background: #FF0000;
+}
+
+/* YouTube */
 
 .footer-socials a:hover {
     transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .links-col ul li {
@@ -949,10 +1017,12 @@ h1, h2, h3, h4 {
 
 /* Responsive Design */
 @media (max-width: 992px) {
-    .two-col-layout, .footer-grid {
+
+    .two-col-layout,
+    .footer-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .hero-title {
         font-size: 2.8rem;
     }
@@ -964,9 +1034,10 @@ h1, h2, h3, h4 {
     }
 
     .section {
-        padding: 30px 0; /* Reduced from 50px to close gaps between sections */
+        padding: 30px 0;
+        /* Reduced from 50px to close gaps between sections */
     }
-    
+
     .nav-links {
         position: absolute;
         top: 100%;
@@ -976,7 +1047,7 @@ h1, h2, h3, h4 {
         flex-direction: column;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
         padding: 20px 0;
     }
 
@@ -988,28 +1059,43 @@ h1, h2, h3, h4 {
         display: block;
     }
 
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
 
     .top-bar {
         display: none;
     }
-    
+
     /* Header Fixes for Mobile */
     .nav-container {
-        padding: 12px 15px 8px; /* Shifts the header content slightly downwards with side padding */
+        padding: 12px 15px 8px;
+        /* Shifts the header content slightly downwards with side padding */
     }
+
     .logo {
         height: 55px;
     }
+
     .college-name h1 {
         font-size: 1.15rem;
-        margin-top: 4px; /* Shift text slightly down */
+        margin-top: 4px;
+        /* Shift text slightly down */
     }
+
     .college-name br {
-        display: initial; /* Show <br> on mobile so it breaks into 2 lines */
+        display: initial;
+        /* Show <br> on mobile so it breaks into 2 lines */
     }
+
     .college-name p {
         font-size: 0.8rem;
     }
@@ -1018,25 +1104,37 @@ h1, h2, h3, h4 {
         width: 100%;
         padding: 0 15px;
     }
-    
+
+    .full-width-container {
+        padding: 0;
+    }
+
     /* General mobile fixes */
     .section-title {
-        margin-bottom: 25px; /* Brings titles closer to their content */
+        margin-bottom: 25px;
+        padding: 0 15px;
+        /* Brings titles closer to their content */
     }
+
     .title-underline {
         width: 60px;
         height: 3px;
-        margin: 10px auto 0; /* Makes underline tighter */
+        margin: 10px auto 0;
+        /* Makes underline tighter */
     }
-    .section-title h2, .section-title h3,
-    .section-header h2, .section-header h3 {
+
+    .section-title h2,
+    .section-title h3,
+    .section-header h2,
+    .section-header h3 {
         font-size: 1.8rem;
         font-weight: 700;
         letter-spacing: -0.5px;
     }
 
     /* Edge-to-edge cards on mobile */
-    .notice-board, .recent-events-card {
+    .notice-board,
+    .recent-events-card {
         margin-left: -15px;
         margin-right: -15px;
         width: calc(100% + 30px);
@@ -1052,27 +1150,32 @@ h1, h2, h3, h4 {
         min-height: auto;
         padding: 20px 0 30px;
     }
+
     .hero-badge {
         font-size: 0.8rem;
         margin-bottom: 15px;
         padding: 5px 12px;
     }
+
     .hero-title {
         font-size: 1.4rem;
         line-height: 1.4;
     }
+
     .hero-subtitle {
         font-size: 0.8rem;
         margin-bottom: 30px;
         line-height: 1.5;
         padding: 0 10px;
     }
+
     .hero-buttons {
         flex-direction: column;
         width: 100%;
         gap: 12px;
         padding: 0 20px;
     }
+
     .hero-buttons .btn {
         width: 100%;
         padding: 12px 15px;
@@ -1082,6 +1185,7 @@ h1, h2, h3, h4 {
     .alumni-wrapper {
         padding: 0;
     }
+
     .scroll-btn {
         display: none;
     }
