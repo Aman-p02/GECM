@@ -142,7 +142,6 @@ const heroSlides = document.querySelectorAll(".hero-slide");
 const heroDots = document.querySelectorAll(".hero-dot");
 const heroPrevBtn = document.getElementById("heroPrevBtn");
 const heroNextBtn = document.getElementById("heroNextBtn");
-const heroCaptionText = document.getElementById("heroCaptionText");
 
 if (heroSlides.length > 0) {
     let currentHeroIndex = 0;
@@ -174,16 +173,6 @@ if (heroSlides.length > 0) {
                 dot.classList.remove("active");
             }
         });
-
-        // Update caption label smoothly
-        if (heroCaptionText && heroSlides[currentHeroIndex]) {
-            const label = heroSlides[currentHeroIndex].getAttribute("data-label") || "GEC Modasa Campus";
-            heroCaptionText.style.opacity = "0";
-            setTimeout(() => {
-                heroCaptionText.textContent = label;
-                heroCaptionText.style.opacity = "1";
-            }, 250);
-        }
     }
 
     function nextHeroSlide() {
