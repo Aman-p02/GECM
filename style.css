@@ -567,55 +567,100 @@ h4 {
     margin-right: 8px;
 }
 
-/* Two Column Layout (Notice Board & Links) */
-.two-col-layout {
+/* Home Grid Layout (3-Column Showcase: Notice Board, Recent Events, Latest Shots) */
+.two-col-layout,
+.home-grid-layout {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1.15fr 1fr 1fr;
+    gap: 25px;
+    align-items: stretch;
 }
 
-.two-col-layout>div {
+.two-col-layout > div,
+.home-grid-layout > div {
     min-width: 0;
-    /* Fix CSS Grid blowout */
 }
 
 .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    border-bottom: 2px solid #eef2f6;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
 }
 
-.section-header h2 {
-    font-size: 1.5rem;
+.section-header h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.section-header h4 i {
+    color: var(--secondary-color);
 }
 
 .view-all {
-    color: var(--secondary-color);
-    font-weight: 500;
+    color: var(--primary-light);
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: var(--transition);
 }
 
 .view-all:hover {
+    color: var(--secondary-color);
     text-decoration: underline;
 }
 
-/* Notice Board List */
-.notice-board {
-    background: var(--bg-white);
-    padding: 30px;
+.badge-tag {
+    font-size: 0.75rem;
+    background: rgba(243, 156, 18, 0.12);
+    color: var(--secondary-hover);
+    padding: 3px 10px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
+.badge-tag i {
+    font-size: 0.45rem;
+    color: var(--secondary-color);
+    animation: pulse 2s infinite;
+}
+
+/* Card Common Styling */
+.notice-board,
+.recent-events-card,
+.latest-shots-card {
+    background: var(--bg-white);
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notice-board:hover,
+.recent-events-card:hover,
+.latest-shots-card:hover {
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Notice Board Compact Adjustments */
 .notice-scroll-container {
-    height: 320px;
+    height: 330px;
     overflow: hidden;
     position: relative;
+    flex-grow: 1;
 }
 
 .notice-marquee {
@@ -630,7 +675,6 @@ h4 {
     0% {
         transform: translateY(0);
     }
-
     100% {
         transform: translateY(-50%);
     }
@@ -639,8 +683,8 @@ h4 {
 .notice-list li {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 15px 0;
+    gap: 14px;
+    padding: 11px 0;
     border-bottom: 1px dashed var(--border-color);
     transition: var(--transition);
 }
@@ -652,31 +696,44 @@ h4 {
 .notice-list li:hover {
     background-color: #f8fbff;
     border-radius: 8px;
-    padding-left: 10px;
+    padding-left: 8px;
 }
 
 .notice-list .date {
-    background: var(--primary-light);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
     color: #fff;
-    padding: 5px;
+    padding: 4px;
     text-align: center;
     border-radius: 50%;
-    min-width: 70px;
-    height: 70px;
+    min-width: 56px;
+    height: 56px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1;
     flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(12, 59, 109, 0.2);
 }
 
 .notice-list .date .day {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 2px;
+}
+
+.notice-list .date .month {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.notice-text {
+    flex-grow: 1;
+    font-size: 0.92rem;
+    line-height: 1.35;
 }
 
 .notice-text a {
@@ -692,38 +749,22 @@ h4 {
 .badge.new {
     background: #e74c3c;
     color: white;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     padding: 2px 6px;
     border-radius: 4px;
-    margin-left: 10px;
+    margin-left: 8px;
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-/* Recent Events Slider */
-.recent-events-card {
-    background: var(--bg-white);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-}
-
-.events-slider-container {
+/* Recent Events & Latest Shots Sliders */
+.events-slider-container,
+.shots-slider-container {
     position: relative;
     flex-grow: 1;
     display: flex;
@@ -733,54 +774,91 @@ h4 {
     min-width: 0;
 }
 
-.events-slider {
+.events-slider,
+.shots-slider {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     width: 100%;
 }
 
-.event-slide {
+.event-slide,
+.shot-slide {
     min-width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
-    background: var(--bg-light);
-    border: 1px solid var(--border-color);
+    background: #f8fafc;
+    border: 1px solid #eef2f6;
+    display: flex;
+    flex-direction: column;
 }
 
-.event-slide img {
+.event-slide img,
+.shot-img-wrapper img {
     width: 100%;
-    height: 180px;
+    height: 165px;
     object-fit: cover;
+    display: block;
 }
 
-.slide-content {
-    padding: 15px;
+.shot-img-wrapper {
+    position: relative;
+    overflow: hidden;
 }
 
-.slide-content h4 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
+.shot-pill {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(12, 59, 109, 0.88);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 0.72rem;
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slide-content,
+.shot-content {
+    padding: 14px 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-content h4,
+.shot-content h4 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
     color: var(--primary-color);
+    font-weight: 600;
 }
 
-.slide-content p {
-    font-size: 0.9rem;
+.slide-content p,
+.shot-content p {
+    font-size: 0.85rem;
     color: var(--text-light);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    line-height: 1.45;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    flex-grow: 1;
 }
 
 .view-full-btn {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 7px 14px;
     background-color: var(--secondary-color);
     color: #fff;
-    border-radius: 4px;
-    font-size: 0.85rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
     font-weight: 500;
+    width: fit-content;
     transition: var(--transition);
 }
 
@@ -800,22 +878,22 @@ h4 {
 .slider-dots {
     display: flex;
     justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
+    gap: 7px;
+    margin-top: 12px;
 }
 
 .slider-dots .dot {
-    width: 10px;
-    height: 10px;
-    background-color: #ccc;
+    width: 8px;
+    height: 8px;
+    background-color: #cbd5e1;
     border-radius: 50%;
     cursor: pointer;
     transition: var(--transition);
 }
 
 .slider-dots .dot.active {
-    background-color: var(--primary-color);
-    width: 20px;
+    background-color: var(--secondary-color);
+    width: 22px;
     border-radius: 5px;
 }
 
@@ -1164,6 +1242,7 @@ h4 {
 @media (max-width: 992px) {
 
     .two-col-layout,
+    .home-grid-layout,
     .footer-grid {
         grid-template-columns: 1fr;
     }
@@ -1279,7 +1358,8 @@ h4 {
 
     /* Edge-to-edge cards on mobile */
     .notice-board,
-    .recent-events-card {
+    .recent-events-card,
+    .latest-shots-card {
         margin-left: -15px;
         margin-right: -15px;
         width: calc(100% + 30px);

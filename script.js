@@ -97,6 +97,55 @@ if (eventsSlider && sliderDotsContainer) {
     });
 }
 
+// Latest Shots Slider
+const shotsSlider = document.getElementById("shotsSlider");
+const shotsSliderDotsContainer = document.getElementById("shotsSliderDots");
+
+if (shotsSlider && shotsSliderDotsContainer) {
+    const shotSlides = shotsSlider.querySelectorAll(".shot-slide");
+    const totalShotSlides = shotSlides.length;
+    let currentShotSlide = 0;
+    
+    // Generate Dots
+    shotSlides.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        if(index === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+            goToShotSlide(index);
+        });
+        shotsSliderDotsContainer.appendChild(dot);
+    });
+    
+    const shotDots = shotsSliderDotsContainer.querySelectorAll(".dot");
+    
+    function goToShotSlide(index) {
+        currentShotSlide = index;
+        shotsSlider.style.transform = `translateX(-${currentShotSlide * 100}%)`;
+        
+        // Update Dots
+        shotDots.forEach(dot => dot.classList.remove("active"));
+        if(shotDots[currentShotSlide]) shotDots[currentShotSlide].classList.add("active");
+    }
+    
+    function nextShotSlide() {
+        currentShotSlide = (currentShotSlide + 1) % totalShotSlides;
+        goToShotSlide(currentShotSlide);
+    }
+    
+    // Auto scroll every 3.5 seconds
+    let shotSlideInterval = setInterval(nextShotSlide, 3500);
+    
+    // Pause on hover
+    shotsSlider.parentElement.addEventListener("mouseenter", () => {
+        clearInterval(shotSlideInterval);
+    });
+    
+    shotsSlider.parentElement.addEventListener("mouseleave", () => {
+        shotSlideInterval = setInterval(nextShotSlide, 3500);
+    });
+}
+
 // Department Auto-Scroll on Mobile
 const deptGrid = document.querySelector('.dept-grid');
 let deptScrollInterval;
