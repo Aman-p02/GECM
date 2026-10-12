@@ -133,3 +133,135 @@ if (deptGrid) {
         setTimeout(startDeptAutoScroll, 2000); // Resume after 2 seconds
     });
 }
+
+// ==============================================================
+// Hero Background Carousel
+// ==============================================================
+const heroSection = document.getElementById("about");
+const heroSlides = document.querySelectorAll(".hero-slide");
+const heroDots = document.querySelectorAll(".hero-dot");
+const heroPrevBtn = document.getElementById("heroPrevBtn");
+const heroNextBtn = document.getElementById("heroNextBtn");
+const heroCaptionText = document.getElementById("heroCaptionText");
+
+if (heroSlides.length > 0) {
+    let currentHeroIndex = 0;
+    let heroTimer = null;
+
+    function showHeroSlide(index) {
+        if (index >= heroSlides.length) {
+            currentHeroIndex = 0;
+        } else if (index < 0) {
+            currentHeroIndex = heroSlides.length - 1;
+        } else {
+            currentHeroIndex = index;
+        }
+
+        // Toggle active class on slides
+        heroSlides.forEach((slide, i) => {
+            if (i === currentHeroIndex) {
+                slide.classList.add("active");
+            } else {
+                slide.classList.remove("active");
+            }
+        });
+
+        // Toggle active class on indicators
+        heroDots.forEach((dot, i) => {
+            if (i === currentHeroIndex) {
+                dot.classList.add("active");
+            } else {
+                dot.classList.remove("active");
+            }
+        });
+
+        // Update caption label smoothly
+        if (heroCaptionText && heroSlides[currentHeroIndex]) {
+            const label = heroSlides[currentHeroIndex].getAttribute("data-label") || "GEC Modasa Campus";
+            heroCaptionText.style.opacity = "0";
+            setTimeout(() => {
+                heroCaptionText.textContent = label;
+                heroCaptionText.style.opacity = "1";
+            }, 250);
+        }
+    }
+
+    function nextHeroSlide() {
+        showHeroSlide(currentHeroIndex + 1);
+    }
+
+    function prevHeroSlide() {
+        showHeroSlide(currentHeroIndex - 1);
+    }
+
+    function startHeroAutoplay() {
+        stopHeroAutoplay();
+        heroTimer = setInterval(nextHeroSlide, 4500); // Rotate every 4.5 seconds
+    }
+
+    function stopHeroAutoplay() {
+        if (heroTimer) {
+            clearInterval(heroTimer);
+            heroTimer = null;
+        }
+    }
+
+    // Navigation buttons
+    if (heroPrevBtn) {
+        heroPrevBtn.addEventListener("click", () => {
+            prevHeroSlide();
+            startHeroAutoplay();
+        });
+    }
+
+    if (heroNextBtn) {
+        heroNextBtn.addEventListener("click", () => {
+            nextHeroSlide();
+            startHeroAutoplay();
+        });
+    }
+
+    // Dot indicators
+    heroDots.forEach(dot => {
+        dot.addEventListener("click", (e) => {
+            const idx = parseInt(e.currentTarget.getAttribute("data-index"), 10);
+            if (!isNaN(idx)) {
+                showHeroSlide(idx);
+                startHeroAutoplay();
+            }
+        });
+    });
+
+    // Pause on hover
+    if (heroSection) {
+        heroSection.addEventListener("mouseenter", stopHeroAutoplay);
+        heroSection.addEventListener("mouseleave", startHeroAutoplay);
+
+        // Mobile touch swipe gesture support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        heroSection.addEventListener("touchstart", (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopHeroAutoplay();
+        }, { passive: true });
+
+        heroSection.addEventListener("touchend", (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diffX = touchStartX - touchEndX;
+
+            if (Math.abs(diffX) > 40) {
+                if (diffX > 0) {
+                    nextHeroSlide(); // Swiped left -> next
+                } else {
+                    prevHeroSlide(); // Swiped right -> prev
+                }
+            }
+            startHeroAutoplay();
+        }, { passive: true });
+    }
+
+    // Initialize Autoplay
+    startHeroAutoplay();
+}
+

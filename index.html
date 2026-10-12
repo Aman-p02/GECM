@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Government Engineering College, Modasa</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -47,10 +47,22 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="about" class="hero govt-hero">
+    <!-- Hero Section with Background Carousel -->
+    <section id="about" class="hero govt-hero" aria-label="Campus Showcase">
+        <!-- Hero Image Carousel Slides -->
+        <div class="hero-slider" id="heroSlider">
+            <div class="hero-slide active" style="background-image: url('images/hero_campus_1.jpg');" data-label="Main Campus & Admin Block"></div>
+            <div class="hero-slide" style="background-image: url('images/hero_campus_2.jpg');" data-label="Engineering Academic Complex"></div>
+            <div class="hero-slide" style="background-image: url('images/hero_campus_3.jpg');" data-label="Central Library & Auditorium"></div>
+            <div class="hero-slide" style="background-image: url('images/hero_campus_4.jpg');" data-label="Lush Green Campus Aerial View"></div>
+        </div>
+
         <div class="hero-overlay"></div>
+
         <div class="hero-content">
+            <div class="hero-badge fade-in-up">
+                <i class="fas fa-graduation-cap"></i> Premier Technical Institute &bull; Estd. 1984
+            </div>
             <h1 class="hero-title fade-in-up delay-1">Welcome to <br> Government Engineering College, Modasa</h1>
             <p class="hero-subtitle fade-in-up delay-2">Affiliated to Gujarat Technological University (GTU) &bull;
                 Approved by AICTE, New Delhi</p>
@@ -59,6 +71,27 @@
                 <a href="#" class="btn btn-primary"><i class="fas fa-user-graduate"></i> Admissions 2024-25</a>
                 <a href="#" class="btn btn-secondary"><i class="fas fa-file-alt"></i> Mandatory Disclosures</a>
             </div>
+
+            <!-- Current Slide Caption Pill -->
+            <div class="hero-slide-caption fade-in-up delay-3" id="heroSlideCaption">
+                <i class="fas fa-map-marker-alt"></i> <span id="heroCaptionText">Main Campus & Admin Block</span>
+            </div>
+        </div>
+
+        <!-- Carousel Navigation Arrows -->
+        <button class="hero-nav hero-prev" id="heroPrevBtn" aria-label="Previous Slide">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="hero-nav hero-next" id="heroNextBtn" aria-label="Next Slide">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Carousel Indicators (Dots) -->
+        <div class="hero-indicators" id="heroIndicators">
+            <button class="hero-dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="hero-dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="hero-dot" data-index="2" aria-label="Slide 3"></button>
+            <button class="hero-dot" data-index="3" aria-label="Slide 4"></button>
         </div>
     </section>
 
@@ -409,7 +442,7 @@
     </footer>
 
     <!-- JS -->
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 
 </html>
