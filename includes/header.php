@@ -40,13 +40,13 @@ if (!isset($active_page)) {
         <div class="nav-container">
             <div class="logo-container">
                 <a href="index.php" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit;">
-                    <img src="logoGrey.png" alt="GEC Modasa Logo" class="logo">
+                    <img src="logos/logoGrey.png" alt="GEC Modasa Logo" class="logo">
                     <div class="college-name">
                         <h1>Government Engineering College, Modasa</h1>
                         <p>Modasa, Gujarat</p>
                     </div>
                 </a>
-                <img src="affiliated.png" alt="Affiliated to GTU" class="affiliated-logo desktop-only">
+                <img src="logos/affiliated.png" alt="Affiliated to GTU" class="affiliated-logo desktop-only">
             </div>
             <nav class="navbar">
                 <ul class="nav-links">

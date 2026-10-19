@@ -5,7 +5,7 @@
                 <div class="footer-col about-col">
                     <div class="footer-logo-container">
                         <div class="footer-logo-bg">
-                            <img src="logoGrey.png" alt="Logo" class="footer-logo">
+                            <img src="logos/logoGrey.png" alt="Logo" class="footer-logo">
                         </div>
                         <span class="footer-logo-text">GEC Modasa, Gujarat</span>
                     </div>
