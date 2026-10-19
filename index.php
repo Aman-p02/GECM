@@ -10,7 +10,7 @@ include_once __DIR__ . '/includes/header.php';
 <section id="about" class="hero govt-hero" aria-label="Campus Showcase">
     <!-- Hero Image Carousel Slides -->
     <div class="hero-slider" id="heroSlider">
-        <div class="hero-slide active" style="background-image: url('images/hero_campus_1.jpg');"
+        <div class="hero-slide active" style="background-image: url('images/hero_campus_1.webp');"
             data-label="Main Campus & Admin Block"></div>
         <div class="hero-slide" style="background-image: url('images/hero_campus_2.jpg');"
             data-label="Engineering Academic Complex"></div>
@@ -66,7 +66,7 @@ include_once __DIR__ . '/includes/header.php';
 <section id="events" class="section container two-col-layout">
     <div class="notice-board">
         <div class="section-header">
-            <h4><span class="card-icon-pill icon-blue"><i class="fas fa-clipboard-list"></i></span> Notice Board</h4>
+            <h4>Notice Board</h4>
             <a href="#" class="view-all">View All</a>
         </div>
         <div class="notice-scroll-container">
@@ -181,7 +181,7 @@ include_once __DIR__ . '/includes/header.php';
     </div>
     <div class="recent-events-card">
         <div class="section-header">
-            <h4><span class="card-icon-pill icon-gold"><i class="fas fa-calendar-alt"></i></span> Recent Events</h4>
+            <h4>Recent Events</h4>
             <a href="#" class="view-all">All Events</a>
         </div>
         <div class="events-slider-container">
@@ -223,8 +223,8 @@ include_once __DIR__ . '/includes/header.php';
     <!-- 3. Latest Shots Carousel -->
     <div class="latest-shots-card">
         <div class="section-header">
-            <h4><span class="card-icon-pill icon-teal"><i class="fas fa-camera-retro"></i></span> Latest Shots</h4>
-            <span class="badge-tag"><i class="fas fa-circle"></i> Campus Life</span>
+            <h4>Latest Shots</h4>
+            <a href="#" class="view-all">View Gallery</a>
         </div>
         <div class="shots-slider-container">
             <div class="shots-slider" id="shotsSlider">
@@ -232,7 +232,6 @@ include_once __DIR__ . '/includes/header.php';
                     <div class="shot-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                             alt="Robotics & Innovation">
-                        <span class="shot-pill">Tech Expo</span>
                     </div>
                     <div class="shot-content">
                         <h4>Robotics & Innovation</h4>
@@ -243,7 +242,6 @@ include_once __DIR__ . '/includes/header.php';
                     <div class="shot-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                             alt="Annual Sports Tournament">
-                        <span class="shot-pill">Sports Gala</span>
                     </div>
                     <div class="shot-content">
                         <h4>Annual Sports Meet</h4>
@@ -254,7 +252,6 @@ include_once __DIR__ . '/includes/header.php';
                     <div class="shot-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                             alt="Cultural Youth Fest">
-                        <span class="shot-pill">Cultural Fest</span>
                     </div>
                     <div class="shot-content">
                         <h4>Prarambh Youth Fest</h4>
@@ -265,7 +262,6 @@ include_once __DIR__ . '/includes/header.php';
                     <div class="shot-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                             alt="Engineering Workshop">
-                        <span class="shot-pill">Workshop</span>
                     </div>
                     <div class="shot-content">
                         <h4>Engineering Workshop</h4>
@@ -288,7 +284,8 @@ include_once __DIR__ . '/includes/header.php';
             <div class="title-underline"></div>
         </div>
         <div class="dept-wrapper">
-            <button class="scroll-btn dept-btn left-btn" id="deptLeftBtn" aria-label="Previous Department"><i class="fas fa-chevron-left"></i></button>
+            <button class="scroll-btn dept-btn left-btn" id="deptLeftBtn" aria-label="Previous Department"><i
+                    class="fas fa-chevron-left"></i></button>
             <div class="dept-grid" id="deptGrid">
                 <div class="dept-card">
                     <div class="dept-icon"><i class="fas fa-desktop"></i></div>
@@ -326,7 +323,8 @@ include_once __DIR__ . '/includes/header.php';
                     <a href="#" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <button class="scroll-btn dept-btn right-btn" id="deptRightBtn" aria-label="Next Department"><i class="fas fa-chevron-right"></i></button>
+            <button class="scroll-btn dept-btn right-btn" id="deptRightBtn" aria-label="Next Department"><i
+                    class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 </section>
@@ -341,66 +339,68 @@ include_once __DIR__ . '/includes/header.php';
         </div>
 
         <div class="alumni-wrapper">
-            <button class="scroll-btn left-btn" id="alumniLeftBtn" aria-label="Previous Alumni"><i class="fas fa-chevron-left"></i></button>
+            <button class="scroll-btn left-btn" id="alumniLeftBtn" aria-label="Previous Alumni"><i
+                    class="fas fa-chevron-left"></i></button>
             <div class="alumni-carousel" id="alumniCarousel">
                 <div class="alumni-card">
                     <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
                         alt="Rahul Sharma">
                     <h4>Rahul Sharma</h4>
                     <p class="batch">Computer Engg. &bull; 2015</p>
-                    <p class="company"><i class="fab fa-google"></i> Google, USA</p>
+                    <p class="company">Google, USA</p>
                 </div>
                 <div class="alumni-card">
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
                         alt="Priya Patel">
                     <h4>Priya Patel</h4>
                     <p class="batch">IT Engg. &bull; 2018</p>
-                    <p class="company"><i class="fab fa-microsoft"></i> Microsoft, India</p>
+                    <p class="company">Microsoft, India</p>
                 </div>
                 <div class="alumni-card">
                     <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
                         alt="Amit Kumar">
                     <h4>Amit Kumar</h4>
                     <p class="batch">Mechanical Engg. &bull; 2012</p>
-                    <p class="company"><i class="fas fa-car"></i> Tata Motors</p>
+                    <p class="company">Tata Motors</p>
                 </div>
                 <div class="alumni-card">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
                         alt="Sneha Desai">
                     <h4>Sneha Desai</h4>
                     <p class="batch">Civil Engg. &bull; 2016</p>
-                    <p class="company"><i class="fas fa-hard-hat"></i> L&T Construction</p>
+                    <p class="company">L&T Construction</p>
                 </div>
                 <div class="alumni-card">
                     <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
                         alt="Karan Singh">
                     <h4>Karan Singh</h4>
                     <p class="batch">Electrical Engg. &bull; 2019</p>
-                    <p class="company"><i class="fas fa-industry"></i> Reliance Ind.</p>
+                    <p class="company">Reliance Industries</p>
                 </div>
                 <div class="alumni-card">
                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
                         alt="Pooja Mehta">
                     <h4>Pooja Mehta</h4>
                     <p class="batch">Electronics & Comm. &bull; 2017</p>
-                    <p class="company"><i class="fas fa-microchip"></i> Intel Corp.</p>
+                    <p class="company">Intel Corporation</p>
                 </div>
                 <div class="alumni-card">
                     <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
                         alt="Darshan Joshi">
                     <h4>Darshan Joshi</h4>
                     <p class="batch">Automobile Engg. &bull; 2014</p>
-                    <p class="company"><i class="fas fa-car-side"></i> Mahindra R&D</p>
+                    <p class="company">Mahindra R&D</p>
                 </div>
                 <div class="alumni-card">
                     <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
                         alt="Riya Trivedi">
                     <h4>Riya Trivedi</h4>
                     <p class="batch">Computer Engg. &bull; 2021</p>
-                    <p class="company"><i class="fab fa-amazon"></i> Amazon AWS</p>
+                    <p class="company">Amazon AWS</p>
                 </div>
             </div>
-            <button class="scroll-btn right-btn" id="alumniRightBtn" aria-label="Next Alumni"><i class="fas fa-chevron-right"></i></button>
+            <button class="scroll-btn right-btn" id="alumniRightBtn" aria-label="Next Alumni"><i
+                    class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 </section>
