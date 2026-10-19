@@ -63,8 +63,17 @@
         </div>
     </footer>
 
-    <!-- JS -->
-    <script src="script.js?v=6"></script>
+    <!-- Global JS -->
+    <script src="js/global.js?v=1"></script>
+<?php if (isset($extra_js)): ?>
+    <?php if (is_array($extra_js)): ?>
+        <?php foreach ($extra_js as $js_file): ?>
+    <script src="<?php echo htmlspecialchars($js_file); ?>?v=1"></script>
+        <?php endforeach; ?>
+    <?php else: ?>
+    <script src="<?php echo htmlspecialchars($extra_js); ?>?v=1"></script>
+    <?php endif; ?>
+<?php endif; ?>
 </body>
 
 </html>

@@ -2,6 +2,7 @@
 $page_title = "Government Engineering College, Modasa";
 $active_page = "home";
 $extra_css = "css/home.css";
+$extra_js = "js/home.js";
 include_once __DIR__ . '/includes/header.php';
 ?>
 
