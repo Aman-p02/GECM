@@ -15,8 +15,17 @@ if (!isset($active_page)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($page_title); ?></title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=6">
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/global.css?v=1">
+<?php if (isset($extra_css)): ?>
+    <?php if (is_array($extra_css)): ?>
+        <?php foreach ($extra_css as $css_file): ?>
+    <link rel="stylesheet" href="<?php echo htmlspecialchars($css_file); ?>?v=1">
+        <?php endforeach; ?>
+    <?php else: ?>
+    <link rel="stylesheet" href="<?php echo htmlspecialchars($extra_css); ?>?v=1">
+    <?php endif; ?>
+<?php endif; ?>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">

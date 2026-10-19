@@ -1,6 +1,7 @@
 <?php
 $page_title = "Government Engineering College, Modasa";
 $active_page = "home";
+$extra_css = "css/home.css";
 include_once __DIR__ . '/includes/header.php';
 ?>
 
