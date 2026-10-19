@@ -230,8 +230,10 @@
 .home-grid-layout {
     display: grid;
     grid-template-columns: 1.15fr 1fr 1fr;
-    gap: 30px;
+    gap: 36px;
     align-items: stretch;
+    padding-top: 45px;
+    padding-bottom: 55px;
 }
 
 .two-col-layout > div,
@@ -239,27 +241,50 @@
     min-width: 0;
 }
 
+/* Card Section Header */
 .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #eef2f6;
-    padding-bottom: 12px;
-    margin-bottom: 18px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
 }
 
 .section-header h4 {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     margin: 0;
     color: var(--primary-color);
 }
 
-.section-header h4 i {
-    color: var(--secondary-color);
+.card-icon-pill {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+
+.card-icon-pill.icon-blue {
+    background: rgba(12, 59, 109, 0.09);
+    color: var(--primary-color);
+}
+
+.card-icon-pill.icon-gold {
+    background: rgba(243, 156, 18, 0.15);
+    color: var(--secondary-hover);
+}
+
+.card-icon-pill.icon-teal {
+    background: rgba(2, 132, 199, 0.12);
+    color: #0284c7;
 }
 
 .view-all {
@@ -278,7 +303,7 @@
     font-size: 0.75rem;
     background: rgba(243, 156, 18, 0.12);
     color: var(--secondary-hover);
-    padding: 3px 10px;
+    padding: 4px 11px;
     border-radius: 12px;
     font-weight: 600;
     display: inline-flex;
@@ -292,26 +317,59 @@
     animation: pulse 2s infinite;
 }
 
-/* Card Common Styling */
+/* Card Common Styling with Multi-Layer Soft Shadows & Top Accent Stripes */
 .notice-board,
 .recent-events-card,
 .latest-shots-card {
     background: var(--bg-white);
-    padding: 24px;
-    border-radius: 14px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 26px 24px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px -5px rgba(12, 59, 109, 0.08), 0 20px 40px -10px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(12, 59, 109, 0.08);
     display: flex;
     flex-direction: column;
     height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+
+.notice-board::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0c3b6d 0%, #2563eb 60%, #f39c12 100%);
+}
+
+.recent-events-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f39c12 0%, #e67e22 100%);
+}
+
+.latest-shots-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0284c7 0%, #06b6d4 100%);
 }
 
 .notice-board:hover,
 .recent-events-card:hover,
 .latest-shots-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14), 0 8px 16px rgba(0, 0, 0, 0.07);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px -8px rgba(12, 59, 109, 0.16), 0 8px 18px -4px rgba(0, 0, 0, 0.08);
+    border-color: rgba(12, 59, 109, 0.15);
 }
 
 /* Notice Board Compact Adjustments */
@@ -339,9 +397,11 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 11px 0;
-    border-bottom: 1px dashed var(--border-color);
-    transition: var(--transition);
+    padding: 10px 8px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+    transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .notice-list li:last-child {
@@ -350,39 +410,39 @@
 
 .notice-list li:hover {
     background-color: #f8fbff;
-    border-radius: 8px;
-    padding-left: 8px;
+    transform: translateX(4px);
 }
 
 .notice-list .date {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    background: linear-gradient(135deg, var(--primary-color), #1b5b9c);
     color: #fff;
     padding: 4px;
     text-align: center;
-    border-radius: 50%;
-    min-width: 56px;
-    height: 56px;
+    border-radius: 12px;
+    min-width: 52px;
+    height: 52px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-weight: 500;
     font-size: 0.8rem;
-    line-height: 1;
     flex-shrink: 0;
-    box-shadow: 0 3px 8px rgba(12, 59, 109, 0.2);
+    box-shadow: 0 4px 10px rgba(12, 59, 109, 0.2);
 }
 
 .notice-list .date .day {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 700;
-    margin-bottom: 2px;
+    line-height: 1;
 }
 
 .notice-list .date .month {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     text-transform: uppercase;
+    font-weight: 600;
     letter-spacing: 0.5px;
+    color: #f39c12;
 }
 
 .notice-text {
@@ -552,16 +612,25 @@
     border-radius: 5px;
 }
 
-/* Departments Grid */
+/* Departments Section */
+.dept-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 45px;
+}
+
 .dept-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    gap: 30px;
-    padding: 10px 0 20px 0;
+    -webkit-overflow-scrolling: touch;
+    gap: 26px;
+    padding: 20px 10px 30px;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    width: 100%;
 }
 
 .dept-grid::-webkit-scrollbar {
@@ -569,52 +638,84 @@
 }
 
 .dept-card {
-    flex: 0 0 calc((100% - 90px) / 4);
-    min-width: 240px;
+    flex: 0 0 calc((100% - (26px * 3)) / 4);
+    min-width: 250px;
     scroll-snap-align: start;
     background: var(--bg-white);
-    padding: 30px 20px;
-    border-radius: 8px;
+    padding: 36px 24px;
+    border-radius: 18px;
     text-align: center;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    border-bottom: 3px solid transparent;
+    box-shadow: 0 10px 25px -4px rgba(12, 59, 109, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(12, 59, 109, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+
+.dept-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: transparent;
+    transition: background 0.35s ease;
 }
 
 .dept-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-    border-bottom-color: var(--secondary-color);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px -6px rgba(12, 59, 109, 0.16), 0 6px 14px rgba(0, 0, 0, 0.06);
+    border-color: rgba(243, 156, 18, 0.4);
+}
+
+.dept-card:hover::before {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
 
 .dept-icon {
-    font-size: 2.5rem;
-    color: var(--primary-light);
-    margin-bottom: 15px;
-    transition: var(--transition);
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba(12, 59, 109, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.1rem;
+    color: var(--primary-color);
+    transition: all 0.35s ease;
 }
 
 .dept-card:hover .dept-icon {
-    color: var(--secondary-color);
-    transform: scale(1.1);
+    background: rgba(243, 156, 18, 0.16);
+    color: var(--secondary-hover);
+    transform: scale(1.1) rotate(4deg);
 }
 
 .dept-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
+    font-size: 1.18rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--primary-color);
 }
 
 .dept-link {
     color: var(--secondary-color);
-    font-weight: 500;
-    font-size: 0.9rem;
+    font-weight: 600;
+    font-size: 0.92rem;
     display: inline-flex;
     align-items: center;
+    gap: 6px;
+    transition: var(--transition);
 }
 
 .dept-link i {
-    margin-left: 5px;
-    transition: var(--transition);
+    transition: transform 0.3s ease;
+}
+
+.dept-card:hover .dept-link {
+    color: var(--secondary-hover);
 }
 
 .dept-card:hover .dept-link i {
@@ -623,26 +724,28 @@
 
 /* Alumni Section */
 .alumni-section {
-    background: #eef2f5;
+    background: #eef3f8;
     position: relative;
+    padding: 60px 0 70px;
 }
 
 .alumni-wrapper {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 45px;
 }
 
 .alumni-carousel {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 20px 10px;
+    scroll-behavior: auto; /* Handled smoothly by JS RAF loop */
+    padding: 25px 10px 35px;
     width: 100%;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
 }
 
 .alumni-carousel::-webkit-scrollbar {
@@ -650,60 +753,81 @@
 }
 
 .alumni-card {
-    min-width: 220px;
+    min-width: 280px;
+    width: 280px;
     background: #ffffff;
-    border-radius: 10px;
-    padding: 20px 15px;
+    border-radius: 18px;
+    padding: 30px 22px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 25px -4px rgba(12, 59, 109, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
     flex-shrink: 0;
-    transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    border: 1px solid rgba(12, 59, 109, 0.07);
+    position: relative;
 }
 
 .alumni-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px -6px rgba(12, 59, 109, 0.16), 0 6px 14px rgba(0, 0, 0, 0.06);
+    border-color: rgba(243, 156, 18, 0.45);
 }
 
 .alumni-card img {
-    width: 80px;
-    height: 80px;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 12px;
-    border: 3px solid var(--secondary-color);
-    padding: 2px;
+    margin: 0 auto 16px;
+    border: 3.5px solid var(--secondary-color);
+    padding: 3px;
+    background: #fff;
+    display: block;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transition: transform 0.35s ease;
+}
+
+.alumni-card:hover img {
+    transform: scale(1.08);
 }
 
 .alumni-card h4 {
-    font-size: 1.05rem;
-    margin-bottom: 4px;
+    font-size: 1.18rem;
+    font-weight: 600;
+    margin-bottom: 6px;
     color: var(--primary-color);
 }
 
 .alumni-card .batch {
-    font-size: 0.8rem;
+    font-size: 0.86rem;
     color: var(--text-light);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    font-weight: 500;
 }
 
 .alumni-card .company {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--primary-light);
-    background: #f0f4f8;
-    padding: 4px 10px;
-    border-radius: 15px;
-    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: #eef4fb;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid rgba(12, 59, 109, 0.08);
 }
 
+.alumni-card .company i {
+    color: var(--secondary-color);
+}
+
+/* Scroll Buttons for Departments and Alumni */
 .scroll-btn {
     background: var(--primary-color);
     color: #fff;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     cursor: pointer;
     position: absolute;
@@ -712,11 +836,14 @@
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 16px rgba(12, 59, 109, 0.28);
+    font-size: 1.05rem;
 }
 
 .scroll-btn:hover {
     background: var(--secondary-color);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(243, 156, 18, 0.4);
 }
 
 .left-btn {
@@ -728,10 +855,17 @@
 }
 
 /* Home Responsive Fixes */
+@media (max-width: 1100px) {
+    .dept-card {
+        flex: 0 0 calc((100% - 52px) / 3);
+    }
+}
+
 @media (max-width: 992px) {
     .two-col-layout,
     .home-grid-layout {
         grid-template-columns: 1fr;
+        gap: 28px;
     }
 
     .hero-title {
@@ -739,22 +873,24 @@
     }
 
     .dept-card {
-        flex: 0 0 calc((100% - 30px) / 2);
+        flex: 0 0 calc((100% - 26px) / 2);
     }
 }
 
 @media (max-width: 768px) {
+    .two-col-layout,
+    .home-grid-layout {
+        gap: 24px;
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+
     .notice-board,
     .recent-events-card,
     .latest-shots-card {
-        margin-left: -15px;
-        margin-right: -15px;
-        width: calc(100% + 30px);
-        border-radius: 0;
-        padding: 20px 15px;
-        box-shadow: none;
-        border-top: 1px solid var(--border-color);
-        border-bottom: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 22px 18px;
+        box-shadow: 0 8px 20px -3px rgba(0, 0, 0, 0.08);
     }
 
     .hero {
@@ -809,16 +945,50 @@
         gap: 8px;
     }
 
-    .dept-card {
-        flex: 0 0 85%;
-        margin-right: 0;
+    /* Departments Mobile: Exactly 1 Centered Card */
+    .dept-wrapper {
+        padding: 0;
     }
 
+    .dept-wrapper .scroll-btn {
+        display: none;
+    }
+
+    .dept-grid {
+        gap: 16px;
+        padding: 15px 7.5vw 30px;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .dept-card {
+        flex: 0 0 85vw;
+        max-width: 325px;
+        min-width: 0;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        padding: 30px 18px;
+        margin: 0 auto;
+    }
+
+    /* Alumni Mobile */
     .alumni-wrapper {
         padding: 0;
     }
 
-    .scroll-btn {
+    .alumni-wrapper .scroll-btn {
         display: none;
+    }
+
+    .alumni-carousel {
+        padding: 20px 7.5vw 30px;
+        gap: 16px;
+    }
+
+    .alumni-card {
+        min-width: 260px;
+        width: 260px;
+        padding: 25px 18px;
     }
 }

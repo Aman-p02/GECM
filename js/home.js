@@ -9,20 +9,75 @@
  */
 document.addEventListener("DOMContentLoaded", () => {
     // ==============================================================
-    // 1. Alumni Carousel Scrolling
+    // 1. Alumni Carousel Butter Smooth Infinite Auto-Scrolling (60 FPS)
     // ==============================================================
-    const carousel = document.getElementById("alumniCarousel");
-    const leftBtn = document.querySelector(".left-btn");
-    const rightBtn = document.querySelector(".right-btn");
+    const alumniCarousel = document.getElementById("alumniCarousel");
+    const alumniLeftBtn = document.getElementById("alumniLeftBtn") || document.querySelector(".alumni-wrapper .left-btn");
+    const alumniRightBtn = document.getElementById("alumniRightBtn") || document.querySelector(".alumni-wrapper .right-btn");
 
-    if (carousel && leftBtn && rightBtn) {
-        leftBtn.addEventListener("click", () => {
-            carousel.scrollBy({ left: -300, behavior: "smooth" });
+    if (alumniCarousel) {
+        // Clone cards once to form an infinite seamless wrap
+        const originalAlumniCards = Array.from(alumniCarousel.children);
+        originalAlumniCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+            alumniCarousel.appendChild(clone);
         });
 
-        rightBtn.addEventListener("click", () => {
-            carousel.scrollBy({ left: 300, behavior: "smooth" });
+        let isAlumniPaused = false;
+        let alumniSpeed = 0.85; // Continuous butter-smooth pixel advancement
+        let alumniRafId = null;
+
+        function autoScrollAlumni() {
+            if (!isAlumniPaused) {
+                alumniCarousel.scrollLeft += alumniSpeed;
+                const halfWidth = alumniCarousel.scrollWidth / 2;
+                if (alumniCarousel.scrollLeft >= halfWidth) {
+                    alumniCarousel.scrollLeft -= halfWidth;
+                } else if (alumniCarousel.scrollLeft <= 0) {
+                    alumniCarousel.scrollLeft += halfWidth;
+                }
+            }
+            alumniRafId = requestAnimationFrame(autoScrollAlumni);
+        }
+
+        alumniRafId = requestAnimationFrame(autoScrollAlumni);
+
+        // Pause on mouse hover & mobile touch
+        alumniCarousel.addEventListener("mouseenter", () => {
+            isAlumniPaused = true;
         });
+
+        alumniCarousel.addEventListener("mouseleave", () => {
+            isAlumniPaused = false;
+        });
+
+        alumniCarousel.addEventListener("touchstart", () => {
+            isAlumniPaused = true;
+        }, { passive: true });
+
+        alumniCarousel.addEventListener("touchend", () => {
+            setTimeout(() => {
+                isAlumniPaused = false;
+            }, 1800);
+        }, { passive: true });
+
+        // Left / Right Scroll Buttons
+        if (alumniLeftBtn && alumniRightBtn) {
+            alumniLeftBtn.addEventListener("click", () => {
+                isAlumniPaused = true;
+                const scrollAmount = 304; // Card width + gap
+                alumniCarousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+                setTimeout(() => { isAlumniPaused = false; }, 2200);
+            });
+
+            alumniRightBtn.addEventListener("click", () => {
+                isAlumniPaused = true;
+                const scrollAmount = 304;
+                alumniCarousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+                setTimeout(() => { isAlumniPaused = false; }, 2200);
+            });
+        }
     }
 
     // ==============================================================
@@ -124,32 +179,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==============================================================
-    // 4. Department Auto-Scroll on Mobile
+    // 4. Department Section Desktop Smooth Controls
     // ==============================================================
-    const deptGrid = document.querySelector(".dept-grid");
-    let deptScrollInterval;
+    const deptGrid = document.getElementById("deptGrid");
+    const deptLeftBtn = document.getElementById("deptLeftBtn");
+    const deptRightBtn = document.getElementById("deptRightBtn");
 
-    function startDeptAutoScroll() {
-        if (deptGrid) {
-            if (deptScrollInterval) clearInterval(deptScrollInterval);
-            deptScrollInterval = setInterval(() => {
-                const scrollAmount = deptGrid.clientWidth + 15;
-                if (deptGrid.scrollLeft + deptGrid.clientWidth >= deptGrid.scrollWidth - 20) {
-                    deptGrid.scrollTo({ left: 0, behavior: "smooth" });
-                } else {
-                    deptGrid.scrollBy({ left: scrollAmount, behavior: "smooth" });
-                }
-            }, 3000);
-        }
-    }
+    if (deptGrid && deptLeftBtn && deptRightBtn) {
+        deptLeftBtn.addEventListener("click", () => {
+            const card = deptGrid.querySelector(".dept-card");
+            const scrollDistance = card ? card.offsetWidth + 26 : 280;
+            deptGrid.scrollBy({ left: -scrollDistance, behavior: "smooth" });
+        });
 
-    startDeptAutoScroll();
-    window.addEventListener("resize", startDeptAutoScroll);
-
-    if (deptGrid) {
-        deptGrid.addEventListener("touchstart", () => clearInterval(deptScrollInterval));
-        deptGrid.addEventListener("touchend", () => {
-            setTimeout(startDeptAutoScroll, 2000);
+        deptRightBtn.addEventListener("click", () => {
+            const card = deptGrid.querySelector(".dept-card");
+            const scrollDistance = card ? card.offsetWidth + 26 : 280;
+            deptGrid.scrollBy({ left: scrollDistance, behavior: "smooth" });
         });
     }
 
