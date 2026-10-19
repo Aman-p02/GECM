@@ -39,7 +39,7 @@ if (!isset($active_page)) {
     <header class="header">
         <div class="nav-container">
             <div class="logo-container">
-                <a href="index.php" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit;">
+                <a href="./" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit;">
                     <img src="logos/logoGrey.png" alt="GEC Modasa Logo" class="logo">
                     <div class="college-name">
                         <h1>Government Engineering College, Modasa</h1>
@@ -50,11 +50,11 @@ if (!isset($active_page)) {
             </div>
             <nav class="navbar">
                 <ul class="nav-links">
-                    <li><a href="index.php" class="<?php echo ($active_page === 'home') ? 'active' : ''; ?>">Home</a></li>
-                    <li><a href="index.php#about" class="<?php echo ($active_page === 'about') ? 'active' : ''; ?>">About</a></li>
-                    <li><a href="index.php#departments" class="<?php echo ($active_page === 'departments') ? 'active' : ''; ?>">Departments</a></li>
-                    <li><a href="index.php#events" class="<?php echo ($active_page === 'events') ? 'active' : ''; ?>">Events</a></li>
-                    <li><a href="index.php#alumni" class="<?php echo ($active_page === 'alumni') ? 'active' : ''; ?>">Alumni</a></li>
+                    <li><a href="./" class="<?php echo ($active_page === 'home') ? 'active' : ''; ?>">Home</a></li>
+                    <li><a href="#about" class="<?php echo ($active_page === 'about') ? 'active' : ''; ?>">About</a></li>
+                    <li><a href="#departments" class="<?php echo ($active_page === 'departments') ? 'active' : ''; ?>">Departments</a></li>
+                    <li><a href="#events" class="<?php echo ($active_page === 'events') ? 'active' : ''; ?>">Events</a></li>
+                    <li><a href="#alumni" class="<?php echo ($active_page === 'alumni') ? 'active' : ''; ?>">Alumni</a></li>
                     <li><a href="#contact" class="<?php echo ($active_page === 'contact') ? 'active' : ''; ?>">Contact</a></li>
                 </ul>
                 <div class="hamburger">
