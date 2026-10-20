@@ -192,10 +192,6 @@ include_once __DIR__ . '/includes/header.php';
                 <ul class="notice-list">
                     <?php $renderNoticeItems($noticesList); ?>
                 </ul>
-                <!-- Duplicated list for seamless looping -->
-                <ul class="notice-list" aria-hidden="true">
-                    <?php $renderNoticeItems($noticesList); ?>
-                </ul>
             </div>
         </div>
     </div>

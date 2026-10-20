@@ -311,4 +311,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         startHeroAutoplay();
     }
+
+    // ==============================================================
+    // 6. Notice Board Smart Overflow Auto-Scroll (No duplicate when <= 4)
+    // ==============================================================
+    const noticeContainer = document.querySelector(".notice-scroll-container");
+    const noticeMarquee = document.querySelector(".notice-marquee");
+    const noticeList = document.querySelector(".notice-list");
+
+    if (noticeContainer && noticeMarquee && noticeList) {
+        // Only activate marquee scrolling and clone if items exceed container capacity (> 4)
+        if (noticeList.children.length > 4 && noticeList.offsetHeight > noticeContainer.offsetHeight) {
+            const cloneList = noticeList.cloneNode(true);
+            cloneList.setAttribute("aria-hidden", "true");
+            noticeMarquee.appendChild(cloneList);
+            noticeMarquee.classList.add("is-scrolling");
+        } else {
+            noticeMarquee.classList.remove("is-scrolling");
+        }
+    }
 });
