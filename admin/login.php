@@ -83,18 +83,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     <style>
         :root {
-            --primary: #1e88e5;
-            --primary-dark: #1565c0;
-            --primary-light: #42a5f5;
-            --accent: #f59e0b;
-            --dark-bg: #0a1424;
-            --surface: rgba(15, 27, 48, 0.82);
-            --surface-border: rgba(255, 255, 255, 0.12);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --input-bg: rgba(255, 255, 255, 0.05);
-            --input-border: rgba(255, 255, 255, 0.14);
-            --danger: #ef4444;
+            --card-navy-start: #0c3b6d;
+            --card-navy-end: #062346;
+            --accent-btn: #1e88e5;
+            --accent-hover: #1565c0;
+            --page-bg: #f4f6fa;
         }
 
         * {
@@ -105,44 +98,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         body.admin-login-body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, rgba(7, 17, 34, 0.92) 0%, rgba(13, 29, 56, 0.95) 100%),
-                        url('../images/hero_campus_1.webp') center center / cover no-repeat fixed;
+            background-color: var(--page-bg);
+            background-image: radial-gradient(#e2e8f0 1.2px, transparent 1.2px);
+            background-size: 24px 24px;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 30px 20px;
-            color: var(--text-main);
-            position: relative;
-            overflow-x: hidden;
+            padding: 40px 20px;
+            color: #1e293b;
         }
 
-        /* Ambient Lighting Accents */
-        .ambient-glow-1 {
-            position: absolute;
-            top: 10%;
-            left: 15%;
-            width: 380px;
-            height: 380px;
-            background: radial-gradient(circle, rgba(30, 136, 229, 0.22) 0%, rgba(30, 136, 229, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            filter: blur(40px);
-        }
-
-        .ambient-glow-2 {
-            position: absolute;
-            bottom: 10%;
-            right: 15%;
-            width: 340px;
-            height: 340px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.14) 0%, rgba(245, 158, 11, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            filter: blur(40px);
-        }
-
-        /* Login Card */
+        /* Login Card Wrapper */
         .login-wrapper {
             position: relative;
             z-index: 10;
@@ -150,35 +117,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             max-width: 440px;
         }
 
+        /* The Colored Login Card */
         .login-card-container {
-            background: var(--surface);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--surface-border);
-            border-radius: 20px;
+            background: linear-gradient(155deg, var(--card-navy-start) 0%, var(--card-navy-end) 100%);
+            border-radius: 22px;
             padding: 42px 38px;
-            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 
-                        0 0 1px 1px rgba(255, 255, 255, 0.08);
-            transition: transform 0.3s ease;
+            box-shadow: 0 20px 45px -10px rgba(12, 59, 109, 0.4), 
+                        0 8px 20px -6px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            transition: transform 0.25s ease;
         }
 
         /* Header / Brand */
         .login-header-group {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .brand-logo-pill {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 68px;
-            height: 68px;
+            width: 72px;
+            height: 72px;
             background: #ffffff;
-            border-radius: 18px;
-            padding: 8px;
-            margin-bottom: 18px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
         }
 
         .brand-logo-pill img {
@@ -189,16 +156,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .login-institution-title {
             font-family: 'Poppins', sans-serif;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.3px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .login-portal-subtitle {
             font-size: 13px;
-            color: var(--text-muted);
+            color: #bfdbfe;
             font-weight: 500;
             margin-bottom: 12px;
         }
@@ -207,9 +174,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(30, 136, 229, 0.12);
-            color: #60a5fa;
-            border: 1px solid rgba(30, 136, 229, 0.25);
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.22);
             font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
@@ -223,9 +190,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(239, 68, 68, 0.14);
-            border: 1px solid rgba(239, 68, 68, 0.35);
-            color: #fca5a5;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.45);
+            color: #fecaca;
             padding: 12px 14px;
             border-radius: 10px;
             font-size: 13px;
@@ -235,18 +202,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .login-alert i {
             font-size: 15px;
             flex-shrink: 0;
+            color: #f87171;
         }
 
         /* Form Controls */
         .form-group-field {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .form-group-field label {
             display: block;
             font-size: 13px;
-            font-weight: 500;
-            color: #cbd5e1;
+            font-weight: 600;
+            color: #e2e8f0;
             margin-bottom: 8px;
         }
 
@@ -259,38 +227,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .input-leading-icon {
             position: absolute;
             left: 14px;
-            color: #64748b;
-            font-size: 14px;
+            color: #0c3b6d;
+            font-size: 15px;
             pointer-events: none;
-            transition: color 0.2s;
+            z-index: 2;
         }
 
         .form-input-control {
             width: 100%;
-            height: 46px;
-            background: var(--input-bg);
-            border: 1px solid var(--input-border);
+            height: 48px;
+            background: #ffffff;
+            border: 1.5px solid transparent;
             border-radius: 10px;
-            padding: 0 42px 0 40px;
+            padding: 0 42px 0 42px;
             font-size: 14px;
-            color: #ffffff;
+            color: #0f172a;
             font-family: inherit;
+            font-weight: 500;
             outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
             transition: all 0.2s ease;
         }
 
         .form-input-control::placeholder {
-            color: #64748b;
+            color: #94a3b8;
+            font-weight: 400;
         }
 
         .form-input-control:focus {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--primary-light);
-            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.25);
-        }
-
-        .form-input-control:focus ~ .input-leading-icon {
-            color: var(--primary-light);
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 3.5px rgba(56, 189, 248, 0.4);
         }
 
         .toggle-password-btn {
@@ -306,19 +272,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center;
             justify-content: center;
             border-radius: 6px;
+            z-index: 2;
             transition: color 0.2s;
         }
 
         .toggle-password-btn:hover {
-            color: #cbd5e1;
+            color: #0c3b6d;
         }
 
-        /* Remember Row */
+        /* Options */
         .form-options-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
             font-size: 13px;
         }
 
@@ -326,13 +293,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #94a3b8;
+            color: #cbd5e1;
             cursor: pointer;
             user-select: none;
         }
 
         .checkbox-label input[type="checkbox"] {
-            accent-color: var(--primary);
+            accent-color: #38bdf8;
             width: 16px;
             height: 16px;
             cursor: pointer;
@@ -342,8 +309,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .btn-submit-login {
             width: 100%;
             height: 48px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border: none;
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             border-radius: 10px;
             color: #ffffff;
             font-size: 15px;
@@ -354,34 +321,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 16px rgba(30, 136, 229, 0.35);
-            transition: all 0.25s ease;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            transition: all 0.2s ease;
         }
 
         .btn-submit-login:hover {
-            background: linear-gradient(135deg, #2196f3 0%, var(--primary) 100%);
-            box-shadow: 0 6px 22px rgba(30, 136, 229, 0.5);
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
             transform: translateY(-1px);
         }
 
         .btn-submit-login:active {
             transform: translateY(1px);
-            box-shadow: 0 2px 10px rgba(30, 136, 229, 0.3);
         }
 
         /* Footer Links */
         .login-footer-nav {
             text-align: center;
             margin-top: 24px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .link-back-site {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--text-muted);
+            color: #bfdbfe;
             text-decoration: none;
             font-size: 13px;
             font-weight: 500;
@@ -395,13 +361,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .portal-meta-note {
             text-align: center;
             margin-top: 22px;
-            font-size: 11px;
+            font-size: 12px;
             color: #64748b;
-            letter-spacing: 0.3px;
+            font-weight: 500;
         }
 
         .portal-meta-note i {
             margin-right: 4px;
+            color: #1e88e5;
         }
 
         @media (max-width: 480px) {
@@ -409,15 +376,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 padding: 32px 24px;
             }
             .login-institution-title {
-                font-size: 18px;
+                font-size: 19px;
             }
         }
     </style>
 </head>
 <body class="admin-login-body">
-
-<div class="ambient-glow-1"></div>
-<div class="ambient-glow-2"></div>
 
 <div class="login-wrapper">
     <div class="login-card-container">
@@ -496,7 +460,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 icon.classList.add('fa-eye-slash');
             } else {
                 icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye-arrow');
                 icon.classList.add('fa-eye');
             }
         });
