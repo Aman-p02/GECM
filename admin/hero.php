@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/upload_helper.php';
 checkAdminAuth();
 
 $pdo = getDBConnection();
@@ -12,10 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'add') {
         $title = trim($_POST['title'] ?? 'Welcome to <br> Government Engineering College, Modasa');
         $subtitle = trim($_POST['subtitle'] ?? 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi');
-        $image_url = trim($_POST['image_url'] ?? '');
         $label = trim($_POST['label'] ?? '');
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
+
+        // Handle image upload from PC
+        $upload = handleImageUpload('slide_file', 'hero', null, $_POST['image_url'] ?? null);
+        if (!$upload['success']) {
+            setFlashMessage('danger', $upload['error']);
+            header('Location: hero.php');
+            exit;
+        }
+        $image_url = $upload['path'];
 
         if (!empty($image_url)) {
             $stmt = $pdo->prepare("INSERT INTO hero_slides (title, subtitle, image_url, label, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?)");
@@ -24,16 +33,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: hero.php');
             exit;
         } else {
-            setFlashMessage('danger', 'Slide image URL or path is required.');
+            setFlashMessage('danger', 'Slide image is required.');
         }
     } elseif ($action === 'edit') {
         $id = (int)$_POST['id'];
         $title = trim($_POST['title'] ?? '');
         $subtitle = trim($_POST['subtitle'] ?? '');
-        $image_url = trim($_POST['image_url'] ?? '');
         $label = trim($_POST['label'] ?? '');
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
+        $existingImage = trim($_POST['existing_image'] ?? '');
+
+        // Handle image upload from PC (keeps existing if no new file selected)
+        $upload = handleImageUpload('slide_file', 'hero', $existingImage, $_POST['image_url'] ?? null);
+        if (!$upload['success']) {
+            setFlashMessage('danger', $upload['error']);
+            header('Location: hero.php');
+            exit;
+        }
+        $image_url = $upload['path'];
 
         if (!empty($image_url) && $id > 0) {
             $stmt = $pdo->prepare("UPDATE hero_slides SET title = ?, subtitle = ?, image_url = ?, label = ?, display_order = ?, is_active = ? WHERE id = ?");
@@ -140,7 +158,7 @@ require_once __DIR__ . '/includes/header.php';
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
                     <td style="font-weight: 700; color: #1e88e5; text-align: center;">#<?= $row['display_order'] ?></td>
                     <td>
-                        <img src="../<?= htmlspecialchars($row['image_url']) ?>" alt="Preview" style="width: 70px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/70x42?text=Slide';">
+                        <img src="<?= htmlspecialchars(getAdminImageSrc($row['image_url'])) ?>" alt="Preview" style="width: 70px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/70x42?text=Slide';">
                     </td>
                     <td style="font-weight: 600; color: #1a263d;">
                         <?= htmlspecialchars($row['label']) ?>
@@ -186,7 +204,7 @@ require_once __DIR__ . '/includes/header.php';
             <h3 class="modal-title"><i class="fas fa-plus-circle" style="color: #1e88e5;"></i> Add Campus Slide</h3>
             <button type="button" class="modal-close" onclick="closeModal('addSlideModal')">&times;</button>
         </div>
-        <form method="POST" action="hero.php">
+        <form method="POST" action="hero.php" enctype="multipart/form-data">
             <input type="hidden" name="action" value="add">
             <div class="modal-body">
                 <div class="form-group">
@@ -195,9 +213,12 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="image_url">Image Path / URL <span class="required">*</span></label>
-                    <input type="text" name="image_url" id="image_url" class="form-control" placeholder="e.g. images/hero_campus_1.webp" required>
-                    <small style="color: #6c757d; font-size: 11.5px; margin-top: 3px; display: block;">Place local images in images/ folder and reference as images/filename.jpg</small>
+                    <label class="form-label" for="slide_file">Upload Slide Image from PC <span class="required">*</span></label>
+                    <input type="file" name="slide_file" id="slide_file" class="form-control" accept="image/*" required>
+                    <div style="font-size: 11.5px; color: #6c757d; margin-top: 5px;">
+                        Choose image file (WEBP, JPG, PNG) from your PC, or specify path/URL below:
+                    </div>
+                    <input type="text" name="image_url" id="image_url" class="form-control" placeholder="Or local path / URL (e.g. images/hero_campus_1.webp)" style="margin-top: 6px;">
                 </div>
 
                 <div class="form-group">
@@ -240,9 +261,10 @@ require_once __DIR__ . '/includes/header.php';
             <h3 class="modal-title"><i class="fas fa-edit" style="color: #1e88e5;"></i> Edit Slide #<?= $editItem['id'] ?></h3>
             <a href="hero.php" class="modal-close">&times;</a>
         </div>
-        <form method="POST" action="hero.php">
+        <form method="POST" action="hero.php" enctype="multipart/form-data">
             <input type="hidden" name="action" value="edit">
             <input type="hidden" name="id" value="<?= $editItem['id'] ?>">
+            <input type="hidden" name="existing_image" value="<?= htmlspecialchars($editItem['image_url']) ?>">
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label" for="edit_label">Slide Label <span class="required">*</span></label>
@@ -250,8 +272,14 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="edit_image_url">Image Path / URL <span class="required">*</span></label>
-                    <input type="text" name="image_url" id="edit_image_url" class="form-control" value="<?= htmlspecialchars($editItem['image_url']) ?>" required>
+                    <label class="form-label">Current Slide Image</label>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                        <img src="<?= htmlspecialchars(getAdminImageSrc($editItem['image_url'])) ?>" alt="Current" style="width: 80px; height: 48px; border-radius: 4px; object-fit: cover; border: 1px solid #ddd;">
+                        <span style="font-size: 12px; color: #666; font-family: monospace;"><?= htmlspecialchars($editItem['image_url']) ?></span>
+                    </div>
+                    <label class="form-label" for="edit_slide_file">Upload New Image from PC (optional)</label>
+                    <input type="file" name="slide_file" id="edit_slide_file" class="form-control" accept="image/*">
+                    <input type="text" name="image_url" id="edit_image_url" class="form-control" value="<?= htmlspecialchars($editItem['image_url']) ?>" placeholder="Or path / URL" style="margin-top: 6px;">
                 </div>
 
                 <div class="form-group">
