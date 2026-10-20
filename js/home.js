@@ -16,13 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const alumniRightBtn = document.getElementById("alumniRightBtn") || document.querySelector(".alumni-wrapper .right-btn");
 
     if (alumniCarousel) {
-        // Clone cards once to form an infinite seamless wrap
         const originalAlumniCards = Array.from(alumniCarousel.children);
-        originalAlumniCards.forEach(card => {
-            const clone = card.cloneNode(true);
-            clone.setAttribute("aria-hidden", "true");
-            alumniCarousel.appendChild(clone);
-        });
+        if (originalAlumniCards.length > 0) {
+            originalAlumniCards.forEach(card => {
+                const clone = card.cloneNode(true);
+                clone.setAttribute("aria-hidden", "true");
+                alumniCarousel.appendChild(clone);
+            });
 
         let isAlumniPaused = false;
         let alumniSpeed = 0.85; // Continuous butter-smooth pixel advancement
@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
+}
 
     // ==============================================================
     // 2. Recent Events Slider

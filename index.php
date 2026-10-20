@@ -31,76 +31,10 @@ if ($pdo) {
     }
 }
 
-// Fallback arrays if database is temporarily unavailable or tables are empty
+// Fallback only for hero banner if table has 0 slides
 if (empty($heroSlides)) {
     $heroSlides = [
-        ['image_url' => 'images/hero_campus_1.webp', 'label' => 'Main Campus & Admin Block', 'title' => 'Welcome to <br> Government Engineering College, Modasa', 'subtitle' => 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi'],
-        ['image_url' => 'images/hero_campus_2.jpg', 'label' => 'Engineering Academic Complex', 'title' => 'Welcome to <br> Government Engineering College, Modasa', 'subtitle' => 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi'],
-        ['image_url' => 'images/hero_campus_3.jpg', 'label' => 'Central Library & Auditorium', 'title' => 'Welcome to <br> Government Engineering College, Modasa', 'subtitle' => 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi'],
-        ['image_url' => 'images/hero_campus_4.jpg', 'label' => 'Lush Green Campus Aerial View', 'title' => 'Welcome to <br> Government Engineering College, Modasa', 'subtitle' => 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi'],
-    ];
-}
-
-if (empty($newsTickers)) {
-    $newsTickers = [
-        ['message' => 'Admission open for BE First Year 2024-25.', 'link_url' => '#'],
-        ['message' => 'Mid-Semester Exams schedule has been released. Check notice board for details.', 'link_url' => '#'],
-        ['message' => 'State Level Hackathon 2024 registrations are now open!', 'link_url' => '#'],
-    ];
-}
-
-if (empty($noticesList)) {
-    $noticesList = [
-        ['title' => 'Guidelines for AICTE Pragati & Saksham Scholarship Schemes 2024-25', 'publish_date' => '2026-10-15', 'badge' => 'New', 'link_url' => '#'],
-        ['title' => 'Timetable for B.E. Semester 5 Mid-Semester Examination', 'publish_date' => '2026-10-10', 'badge' => 'None', 'link_url' => '#'],
-        ['title' => 'Result Declaration: BE Sem-6 Regular Summer 2024', 'publish_date' => '2026-10-02', 'badge' => 'None', 'link_url' => '#'],
-        ['title' => 'Academic Calendar for Odd Semester 2024-25', 'publish_date' => '2026-09-28', 'badge' => 'None', 'link_url' => '#'],
-        ['title' => 'Submission of Scholarship Forms for SC/ST Students', 'publish_date' => '2026-09-20', 'badge' => 'Urgent', 'link_url' => '#'],
-        ['title' => 'Hostel Admission Merit List Announced for First Year Students', 'publish_date' => '2026-09-15', 'badge' => 'None', 'link_url' => '#'],
-        ['title' => 'GTU TechFest 2024 Participation Registration Open', 'publish_date' => '2026-09-10', 'badge' => 'None', 'link_url' => '#'],
-        ['title' => 'Revised Syllabus for Engineering Mechanics (Civil Dept)', 'publish_date' => '2026-09-05', 'badge' => 'None', 'link_url' => '#'],
-    ];
-}
-
-if (empty($recentEvents)) {
-    $recentEvents = [
-        ['title' => 'TechFest 2024', 'description' => 'Annual Technical Symposium with 50+ inter-college events.', 'image_url' => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'view_url' => '#'],
-        ['title' => 'Convocation Ceremony', 'description' => 'Batch of 2020-2024 engineering graduation day.', 'image_url' => 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'view_url' => '#'],
-        ['title' => 'State Level Hackathon', 'description' => '24-hour innovation sprint held at GEC Modasa campus.', 'image_url' => 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', 'view_url' => '#'],
-    ];
-}
-
-if (empty($latestShots)) {
-    $latestShots = [
-        ['title' => 'Robotics & Innovation', 'description' => 'Students demonstrating autonomous robotics and IoT prototypes.', 'image_url' => 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'],
-        ['title' => 'Annual Sports Meet', 'description' => 'Inter-department athletics championship and cricket tournament.', 'image_url' => 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'],
-        ['title' => 'Prarambh Youth Fest', 'description' => 'Vibrant stage performances, music, drama, and celebrations.', 'image_url' => 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'],
-        ['title' => 'Engineering Workshop', 'description' => 'Hands-on practical machining and metal fabrication sessions.', 'image_url' => 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'],
-    ];
-}
-
-if (empty($departmentsList)) {
-    $departmentsList = [
-        ['name' => 'Computer Engineering', 'icon_class' => 'fas fa-desktop', 'learn_more_url' => '#'],
-        ['name' => 'Information Technology', 'icon_class' => 'fas fa-network-wired', 'learn_more_url' => '#'],
-        ['name' => 'Mechanical Engineering', 'icon_class' => 'fas fa-cogs', 'learn_more_url' => '#'],
-        ['name' => 'Automobile Engineering', 'icon_class' => 'fas fa-car-side', 'learn_more_url' => '#'],
-        ['name' => 'Civil Engineering', 'icon_class' => 'fas fa-building', 'learn_more_url' => '#'],
-        ['name' => 'Electrical Engineering', 'icon_class' => 'fas fa-bolt', 'learn_more_url' => '#'],
-        ['name' => 'Electronics & Comm.', 'icon_class' => 'fas fa-microchip', 'learn_more_url' => '#'],
-    ];
-}
-
-if (empty($alumniList)) {
-    $alumniList = [
-        ['name' => 'Rahul Sharma', 'branch' => 'Computer Engg.', 'graduation_year' => 2015, 'company' => 'Google, USA', 'photo_url' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80'],
-        ['name' => 'Priya Patel', 'branch' => 'IT Engg.', 'graduation_year' => 2018, 'company' => 'Microsoft, India', 'photo_url' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80'],
-        ['name' => 'Amit Kumar', 'branch' => 'Mechanical Engg.', 'graduation_year' => 2012, 'company' => 'Tata Motors', 'photo_url' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80'],
-        ['name' => 'Sneha Desai', 'branch' => 'Civil Engg.', 'graduation_year' => 2016, 'company' => 'L&T Construction', 'photo_url' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80'],
-        ['name' => 'Karan Singh', 'branch' => 'Electrical Engg.', 'graduation_year' => 2019, 'company' => 'Reliance Industries', 'photo_url' => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80'],
-        ['name' => 'Pooja Mehta', 'branch' => 'Electronics & Comm.', 'graduation_year' => 2017, 'company' => 'Intel Corporation', 'photo_url' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80'],
-        ['name' => 'Darshan Joshi', 'branch' => 'Automobile Engg.', 'graduation_year' => 2014, 'company' => 'Mahindra R&D', 'photo_url' => 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80'],
-        ['name' => 'Riya Trivedi', 'branch' => 'Computer Engg.', 'graduation_year' => 2021, 'company' => 'Amazon AWS', 'photo_url' => 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80'],
+        ['image_url' => 'images/hero_campus_1.webp', 'label' => 'Main Campus & Admin Block', 'title' => 'Welcome to <br> Government Engineering College, Modasa', 'subtitle' => 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi']
     ];
 }
 
@@ -273,6 +207,7 @@ include_once __DIR__ . '/includes/header.php';
     </div>
 </section>
 
+<?php if (!empty($alumniList)): ?>
 <!-- Alumni Section -->
 <section id="alumni" class="section alumni-section">
     <div class="full-width-container">
@@ -300,6 +235,7 @@ include_once __DIR__ . '/includes/header.php';
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <?php
 include_once __DIR__ . '/includes/footer.php';
