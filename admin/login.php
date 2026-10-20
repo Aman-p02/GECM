@@ -110,28 +110,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: #ffffff;
             border: 1px solid #dbe2ea;
             border-radius: 14px;
-            padding: 34px 32px 30px;
+            padding: 36px 32px;
             box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.12),
-                0 4px 12px -2px rgba(15, 23, 42, 0.05);
+                        0 4px 12px -2px rgba(15, 23, 42, 0.05);
             color: #1e293b;
+            position: relative;
         }
 
         .login-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .brand-logo-frame {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 7px;
-            margin-bottom: 12px;
+            padding: 8px;
+            margin-bottom: 14px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
 
@@ -166,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding: 12px 14px;
             border-radius: 8px;
             font-size: 13.5px;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             box-shadow: 0 2px 6px rgba(239, 68, 68, 0.08);
             transform-origin: top;
             transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease, margin 0.5s ease, padding 0.5s ease;
@@ -180,7 +181,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         /* Form elements */
         .form-field {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            position: relative;
         }
 
         .form-label {
@@ -212,7 +214,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background: #ffffff;
             border: 1.5px solid #cbd5e1;
             border-radius: 8px;
-            padding: 0 16px 0 40px;
+            padding: 0 46px 0 40px;
             font-size: 14px;
             color: #0f172a;
             font-family: inherit;
@@ -229,98 +231,132 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-shadow: 0 0 0 3.5px rgba(30, 136, 229, 0.2);
         }
 
-        /* Full Body Sitting Monkey Mascot Stage */
-        .monkey-stage {
+        /* Monkey inside Password Input (Right Side) */
+        .monkey-input-slot {
+            position: absolute;
+            right: 10px;
+            width: 36px;
+            height: 36px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: flex-end;
-            height: 98px;
-            margin-bottom: 2px;
-            margin-top: 4px;
-            pointer-events: none;
-            /* Clicking on monkey does nothing */
+            pointer-events: none; /* Clicking on monkey does nothing */
             user-select: none;
+            z-index: 3;
         }
 
-        .monkey-mascot-wrapper {
-            display: inline-flex;
-            align-items: flex-end;
-            transform-origin: center bottom;
-            pointer-events: none;
-        }
-
-        .monkey-full-svg {
-            width: 90px;
-            height: 98px;
+        .monkey-svg {
+            width: 34px;
+            height: 34px;
             overflow: visible;
-            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08));
+            transition: transform 0.22s ease;
         }
 
-        /* Hands Animation (Down vs Covering Eyes) */
-        .hands-down {
-            transition: opacity 0.22s ease, transform 0.22s ease;
-            transform-origin: 50px 75px;
-            opacity: 1;
-        }
-
-        .monkey-full-svg.covering .hands-down {
+        /* Thought Cloud Floating over Monkey's head when typing username */
+        .thought-cloud {
+            position: absolute;
+            right: 0px;
+            bottom: 48px;
+            background: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 18px;
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1e293b;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            white-space: nowrap;
             opacity: 0;
-            transform: translateY(6px) scale(0.9);
+            transform: translateY(6px) scale(0.85);
+            transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            z-index: 10;
         }
 
-        .hands-up {
-            transition: opacity 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-            transform-origin: 50px 65px;
-            transform: translateY(22px) scale(0.7);
-            opacity: 0;
+        /* Comic thought bubble dots */
+        .thought-cloud::before {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            right: 22px;
+            width: 7px;
+            height: 7px;
+            background: #ffffff;
+            border-right: 1.5px solid #cbd5e1;
+            border-bottom: 1.5px solid #cbd5e1;
+            border-radius: 50%;
         }
 
-        .monkey-full-svg.covering .hands-up {
+        .thought-cloud::after {
+            content: '';
+            position: absolute;
+            bottom: -11px;
+            right: 18px;
+            width: 4px;
+            height: 4px;
+            background: #ffffff;
+            border-right: 1.5px solid #cbd5e1;
+            border-bottom: 1.5px solid #cbd5e1;
+            border-radius: 50%;
+        }
+
+        .thought-cloud.active {
             opacity: 1;
             transform: translateY(0) scale(1);
         }
 
-        /* Tail Wag Animation */
+        /* Thinking Pose: Head tilts up towards thought cloud */
+        .monkey-head-group {
+            transform-origin: 32px 34px;
+            transition: transform 0.25s ease;
+        }
+
+        .monkey-svg.thinking .monkey-head-group {
+            transform: rotate(-10deg) translateY(-2px);
+        }
+
+        .monkey-eyes {
+            transition: transform 0.25s ease;
+        }
+
+        .monkey-svg.thinking .monkey-eyes {
+            transform: translateY(-2px);
+        }
+
+        /* Hands Covering Eyes (When typing password) */
+        .monkey-hands {
+            transform-origin: 32px 52px;
+            transform: translateY(22px) scale(0.65);
+            opacity: 0;
+            transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        .monkey-svg.covering .monkey-hands {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        /* Tail Wag Animation on Submit (NO JUMPING) */
         .monkey-tail-wrap {
-            transform-origin: 32px 84px;
+            transform-origin: 18px 48px;
             transition: transform 0.15s ease;
         }
 
-        .monkey-full-svg.wagging .monkey-tail-wrap {
-            animation: tailWagFast 0.14s infinite alternate ease-in-out;
+        .monkey-svg.wagging .monkey-tail-wrap {
+            animation: monkeyTailWag 0.12s infinite alternate ease-in-out;
         }
 
-        @keyframes tailWagFast {
-            0% {
-                transform: rotate(-30deg);
-            }
-
-            100% {
-                transform: rotate(34deg);
-            }
-        }
-
-        /* Jump Animation on Sign In */
-        .monkey-mascot-wrapper.jumping {
-            animation: monkeyJumpAnim 0.28s infinite alternate ease-in-out;
-        }
-
-        @keyframes monkeyJumpAnim {
-            0% {
-                transform: translateY(0) scale(1);
-            }
-
-            100% {
-                transform: translateY(-18px) scale(1.05);
-            }
+        @keyframes monkeyTailWag {
+            0% { transform: rotate(-26deg); }
+            100% { transform: rotate(30deg); }
         }
 
         .form-options {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             font-size: 13px;
         }
 
@@ -372,8 +408,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         /* Footer link */
         .login-footer {
             text-align: center;
-            margin-top: 20px;
-            padding-top: 16px;
+            margin-top: 22px;
+            padding-top: 18px;
             border-top: 1px solid #e2e8f0;
         }
 
@@ -394,14 +430,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .disclaimer-text {
             text-align: center;
-            margin-top: 18px;
+            margin-top: 20px;
             font-size: 12px;
             color: #64748b;
         }
 
         @media (max-width: 480px) {
             .login-card {
-                padding: 26px 20px;
+                padding: 28px 22px;
             }
 
             .login-title {
@@ -420,7 +456,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <img src="../logos/logoGrey.png" alt="GEC Modasa">
                 </div>
                 <h1 class="login-title">GEC Modasa</h1>
-                <p class="login-subtitle">Government Engineering College Administration Portal</p>
+                <p class="login-subtitle">Government Engineering College — Administration Portal</p>
             </div>
 
             <?php if (!empty($error)): ?>
@@ -435,102 +471,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label class="form-label" for="username">Username or Official Email</label>
                     <div class="input-group">
                         <i class="fas fa-user field-icon"></i>
-                        <input type="text" id="username" name="username" class="form-input" placeholder="Enter username"
-                            value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" required autofocus>
-                    </div>
-                </div>
-
-                <!-- Full Body Sitting Monkey Mascot (Sitting with hands, feet, tail) -->
-                <div class="monkey-stage">
-                    <div class="monkey-mascot-wrapper" id="monkeyMascot">
-                        <svg class="monkey-full-svg" id="monkeySvg" viewBox="0 0 100 110">
-                            <!-- Curled Tail behind body -->
-                            <g class="monkey-tail-wrap">
-                                <path d="M 34 86 C 18 84, 8 72, 10 56 C 12 44, 22 45, 20 54 C 18 62, 24 74, 32 80"
-                                    fill="none" stroke="#78421c" stroke-width="5" stroke-linecap="round" />
-                            </g>
-
-                            <!-- Sitting Legs & Feet (Pair) -->
-                            <!-- Left Foot -->
-                            <ellipse cx="28" cy="91" rx="14" ry="9" fill="#8d532d" />
-                            <ellipse cx="26" cy="92" rx="8" ry="5.5" fill="#f6c8a5" />
-                            <circle cx="20" cy="88" r="2.4" fill="#f6c8a5" />
-                            <circle cx="25" cy="86" r="2.4" fill="#f6c8a5" />
-                            <circle cx="30" cy="87" r="2.4" fill="#f6c8a5" />
-
-                            <!-- Right Foot -->
-                            <ellipse cx="72" cy="91" rx="14" ry="9" fill="#8d532d" />
-                            <ellipse cx="74" cy="92" rx="8" ry="5.5" fill="#f6c8a5" />
-                            <circle cx="70" cy="87" r="2.4" fill="#f6c8a5" />
-                            <circle cx="75" cy="86" r="2.4" fill="#f6c8a5" />
-                            <circle cx="80" cy="88" r="2.4" fill="#f6c8a5" />
-
-                            <!-- Torso / Body -->
-                            <ellipse cx="50" cy="72" rx="23" ry="21" fill="#8d532d" />
-                            <!-- Tummy / Belly -->
-                            <ellipse cx="50" cy="74" rx="15" ry="14" fill="#f6c8a5" />
-
-                            <!-- Resting Hands / Arms (Hath down on knees/belly) -->
-                            <g class="hands-down" id="handsDown">
-                                <!-- Left Arm Down -->
-                                <path d="M 30 62 C 26 68, 28 80, 36 82 C 40 83, 42 79, 38 75 C 35 71, 35 65, 33 62 Z"
-                                    fill="#7a4320" />
-                                <circle cx="37" cy="80" r="4.5" fill="#f6c8a5" />
-                                <!-- Right Arm Down -->
-                                <path d="M 70 62 C 74 68, 72 80, 64 82 C 60 83, 58 79, 62 75 C 65 71, 65 65, 67 62 Z"
-                                    fill="#7a4320" />
-                                <circle cx="63" cy="80" r="4.5" fill="#f6c8a5" />
-                            </g>
-
-                            <!-- Head Group -->
-                            <!-- Left Ear -->
-                            <circle cx="22" cy="34" r="11" fill="#8d532d" />
-                            <circle cx="22" cy="34" r="7" fill="#f6c8a5" />
-
-                            <!-- Right Ear -->
-                            <circle cx="78" cy="34" r="11" fill="#8d532d" />
-                            <circle cx="78" cy="34" r="7" fill="#f6c8a5" />
-
-                            <!-- Head Base -->
-                            <circle cx="50" cy="36" r="25" fill="#8d532d" />
-
-                            <!-- Face Mask (Muzzle & cheeks) -->
-                            <ellipse cx="42" cy="33" rx="10" ry="12" fill="#f6c8a5" />
-                            <ellipse cx="58" cy="33" rx="10" ry="12" fill="#f6c8a5" />
-                            <ellipse cx="50" cy="43" rx="15" ry="11" fill="#f6c8a5" />
-
-                            <!-- Eyes (Big friendly monkey eyes) -->
-                            <g class="monkey-eyes">
-                                <ellipse cx="42" cy="31" rx="4" ry="5.5" fill="#221b18" />
-                                <circle cx="40.5" cy="29.5" r="1.6" fill="#ffffff" />
-                                <ellipse cx="58" cy="31" rx="4" ry="5.5" fill="#221b18" />
-                                <circle cx="56.5" cy="29.5" r="1.6" fill="#ffffff" />
-                            </g>
-
-                            <!-- Nose & Smile -->
-                            <ellipse cx="50" cy="40" rx="3.2" ry="2" fill="#5a3118" />
-                            <path d="M 44 45 Q 50 50 56 45" fill="none" stroke="#5a3118" stroke-width="2"
-                                stroke-linecap="round" />
-
-                            <!-- Hands Covering Eyes (Hath on Eyes when typing password) -->
-                            <g class="hands-up" id="handsUp">
-                                <!-- Left Arm Reaching Eyes -->
-                                <path d="M 28 62 C 24 50, 28 38, 36 32 C 40 29, 46 30, 48 35 C 49 40, 42 45, 36 52 Z"
-                                    fill="#7a4320" stroke="#5a3118" stroke-width="0.8" />
-                                <circle cx="42" cy="32" r="5.2" fill="#f6c8a5" />
-                                <circle cx="39" cy="28" r="2.5" fill="#f6c8a5" />
-                                <circle cx="43" cy="27" r="2.5" fill="#f6c8a5" />
-                                <circle cx="46" cy="29" r="2.5" fill="#f6c8a5" />
-
-                                <!-- Right Arm Reaching Eyes -->
-                                <path d="M 72 62 C 76 50, 72 38, 64 32 C 60 29, 54 30, 52 35 C 51 40, 58 45, 64 52 Z"
-                                    fill="#7a4320" stroke="#5a3118" stroke-width="0.8" />
-                                <circle cx="58" cy="32" r="5.2" fill="#f6c8a5" />
-                                <circle cx="61" cy="28" r="2.5" fill="#f6c8a5" />
-                                <circle cx="57" cy="27" r="2.5" fill="#f6c8a5" />
-                                <circle cx="54" cy="29" r="2.5" fill="#f6c8a5" />
-                            </g>
-                        </svg>
+                        <input type="text" id="username" name="username" class="form-input"
+                            placeholder="Enter username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
+                            required autofocus>
                     </div>
                 </div>
 
@@ -540,6 +483,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <i class="fas fa-lock field-icon"></i>
                         <input type="password" id="password" name="password" class="form-input"
                             placeholder="Enter password" required>
+
+                        <!-- Thought Cloud when typing username: "ohh its username ?" -->
+                        <div class="thought-cloud" id="thoughtCloud">
+                            ohh its username ?
+                        </div>
+
+                        <!-- Monkey sitting inside the password box (right side, no click action) -->
+                        <div class="monkey-input-slot" id="monkeySlot">
+                            <svg class="monkey-svg" id="monkeySvg" viewBox="0 0 64 64">
+                                <!-- Tail on side -->
+                                <g class="monkey-tail-wrap">
+                                    <path d="M 17 50 C 7 46, 3 34, 6 25 C 8 19, 15 21, 14 27 C 12 32, 16 40, 20 46" fill="none" stroke="#7a441e" stroke-width="4.5" stroke-linecap="round" />
+                                </g>
+
+                                <!-- Ears -->
+                                <circle cx="14" cy="28" r="8" fill="#8d532d" />
+                                <circle cx="14" cy="28" r="5" fill="#f6c8a5" />
+                                <circle cx="50" cy="28" r="8" fill="#8d532d" />
+                                <circle cx="50" cy="28" r="5" fill="#f6c8a5" />
+
+                                <!-- Head Group (tilts when thinking) -->
+                                <g class="monkey-head-group">
+                                    <ellipse cx="32" cy="30" rx="19" ry="17" fill="#8d532d" />
+
+                                    <!-- Face Mask / Muzzle -->
+                                    <ellipse cx="26" cy="27" rx="8" ry="10" fill="#f6c8a5" />
+                                    <ellipse cx="38" cy="27" rx="8" ry="10" fill="#f6c8a5" />
+                                    <ellipse cx="32" cy="36" rx="12" ry="9" fill="#f6c8a5" />
+
+                                    <!-- Eyes (glance up when thinking) -->
+                                    <g class="monkey-eyes">
+                                        <ellipse cx="26" cy="26" rx="3.5" ry="4.5" fill="#221b18" />
+                                        <circle cx="25" cy="24.5" r="1.3" fill="#ffffff" />
+                                        <ellipse cx="38" cy="26" rx="3.5" ry="4.5" fill="#221b18" />
+                                        <circle cx="37" cy="24.5" r="1.3" fill="#ffffff" />
+                                    </g>
+
+                                    <!-- Nose & Smile -->
+                                    <ellipse cx="32" cy="33.5" rx="2.4" ry="1.7" fill="#5a3118" />
+                                    <path d="M 28 37.5 Q 32 41 36 37.5" fill="none" stroke="#5a3118" stroke-width="1.8" stroke-linecap="round" />
+                                </g>
+
+                                <!-- Hands Covering Eyes (when typing password) -->
+                                <g class="monkey-hands" id="monkeyHands">
+                                    <!-- Left Hand -->
+                                    <path d="M 17 48 C 17 48, 18 36, 21 28 C 22 24, 26 23, 29 27 C 31 30, 27 38, 23 44 Z" fill="#7a4320" stroke="#5a3118" stroke-width="0.8" />
+                                    <circle cx="27" cy="26" r="3.2" fill="#f6c8a5" />
+
+                                    <!-- Right Hand -->
+                                    <path d="M 47 48 C 47 48, 46 36, 43 28 C 42 24, 38 23, 35 27 C 33 30, 37 38, 41 44 Z" fill="#7a4320" stroke="#5a3118" stroke-width="0.8" />
+                                    <circle cx="37" cy="26" r="3.2" fill="#f6c8a5" />
+                                </g>
+                            </svg>
+                        </div>
                     </div>
                 </div>
 
@@ -584,55 +581,89 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }, 2000);
         }
 
-        // 2. Full Body Sitting Monkey Password Interaction
+        // 2. Interactive Elements
         const monkeySvg = document.getElementById('monkeySvg');
-        const monkeyMascot = document.getElementById('monkeyMascot');
+        const thoughtCloud = document.getElementById('thoughtCloud');
+        const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('password');
         const loginForm = document.getElementById('loginForm');
         const submitBtn = document.getElementById('submitBtn');
 
-        let typingTimer = null;
+        let usernameTimer = null;
+        let passwordTimer = null;
 
-        // When admin types in password field -> monkey puts hands over eyes
+        // A. When Admin types username -> Monkey thinks & thought cloud appears: "ohh its username ?"
+        usernameInput.addEventListener('input', function () {
+            thoughtCloud.classList.add('active');
+            monkeySvg.classList.add('thinking');
+
+            clearTimeout(usernameTimer);
+            // When stops typing for 1.2s -> cloud disappears and stops thinking
+            usernameTimer = setTimeout(() => {
+                thoughtCloud.classList.remove('active');
+                monkeySvg.classList.remove('thinking');
+            }, 1200);
+        });
+
+        usernameInput.addEventListener('focus', function () {
+            if (usernameInput.value.length > 0) {
+                thoughtCloud.classList.add('active');
+                monkeySvg.classList.add('thinking');
+            }
+        });
+
+        usernameInput.addEventListener('blur', function () {
+            clearTimeout(usernameTimer);
+            thoughtCloud.classList.remove('active');
+            monkeySvg.classList.remove('thinking');
+        });
+
+        // B. When Admin types password -> Monkey puts hands over eyes
         passwordInput.addEventListener('input', function () {
+            // Dismiss thought cloud if open
+            thoughtCloud.classList.remove('active');
+            monkeySvg.classList.remove('thinking');
+
+            // Hands cover eyes
             monkeySvg.classList.add('covering');
 
-            clearTimeout(typingTimer);
-            // When admin stops typing for 1 second -> monkey removes hands from eyes
-            typingTimer = setTimeout(() => {
+            clearTimeout(passwordTimer);
+            // When admin stops typing for 1 second -> hands leave eyes
+            passwordTimer = setTimeout(() => {
                 monkeySvg.classList.remove('covering');
             }, 1000);
         });
 
-        // When user focuses on password, if text exists -> cover eyes
         passwordInput.addEventListener('focus', function () {
+            thoughtCloud.classList.remove('active');
+            monkeySvg.classList.remove('thinking');
             if (passwordInput.value.length > 0) {
                 monkeySvg.classList.add('covering');
             }
         });
 
-        // When user leaves password field (blur) -> remove hands from eyes
         passwordInput.addEventListener('blur', function () {
-            clearTimeout(typingTimer);
+            clearTimeout(passwordTimer);
             monkeySvg.classList.remove('covering');
         });
 
-        // 3. When admin submits password -> monkey wags tail AND jumps, then submits
+        // C. When Admin submits form -> Tail wagging only (JUMP REMOVED)
         loginForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Hands down, tail wagging + jumping excitedly!
+            // Hide clouds, hands down, tail wags!
+            thoughtCloud.classList.remove('active');
             monkeySvg.classList.remove('covering');
+            monkeySvg.classList.remove('thinking');
             monkeySvg.classList.add('wagging');
-            monkeyMascot.classList.add('jumping');
 
             submitBtn.disabled = true;
             submitBtn.textContent = 'Signing in...';
 
-            // Wait brief moment for jump & tail wag animation, then submit form
+            // Wait a brief moment for tail wag animation, then submit form
             setTimeout(() => {
                 loginForm.submit();
-            }, 800);
+            }, 600);
         });
     </script>
 
