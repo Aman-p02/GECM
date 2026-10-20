@@ -449,9 +449,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
 
-        <div class="portal-meta-note">
-            <i class="fas fa-shield-halved"></i> 256-Bit SSL Encrypted &bull; Official Institution Administration System
-        </div>
+
     </div>
 
     <script>
