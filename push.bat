@@ -1,21 +1,25 @@
 @echo off
 title GitHub Push - GECM
-echo ===================================================
-echo             GECM - GIT PUSH SCRIPT
-echo ===================================================
-echo.
 
-git status
-echo.
+if not "%~1"=="" (
+    set "commit_msg=%*"
+) else (
+    echo ===================================================
+    echo             GECM - GIT PUSH SCRIPT
+    echo ===================================================
+    echo.
+    git status
+    echo.
+    set /p commit_msg="Enter commit message (Press Enter for auto-message): "
+)
 
-set /p commit_msg="Enter commit message (Press Enter for auto-message): "
 if "%commit_msg%"=="" set commit_msg=Update project changes (%date% %time%)
 
 echo.
 echo [+] Staging changes (git add -A)...
 git add -A
 
-echo [+] Committing changes...
+echo [+] Committing: "%commit_msg%"
 git commit -m "%commit_msg%"
 
 echo [+] Pushing to origin main...
@@ -32,4 +36,4 @@ if %errorlevel% equ 0 (
     echo ===================================================
 )
 echo.
-pause
+if "%~1"=="" pause
