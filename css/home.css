@@ -645,6 +645,11 @@
     -webkit-overflow-scrolling: touch;
 }
 
+.alumni-carousel.no-overflow {
+    justify-content: center;
+}
+
+
 .alumni-carousel::-webkit-scrollbar {
     display: none;
 }
