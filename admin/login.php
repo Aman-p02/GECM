@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         body.admin-login-body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #f1f5f9;
+            background: linear-gradient(135deg, #eef2f6 0%, #e2e8f0 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -105,20 +105,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             max-width: 420px;
         }
 
-        /* Institutional colored card */
+        /* Clean White Login Box (stands out from the light-grey background) */
         .login-card {
-            background-color: #0f2744;
-            border: 1px solid #1e3a5f;
-            border-radius: 12px;
+            background-color: #ffffff;
+            border: 1px solid #dbe2ea;
+            border-radius: 14px;
             padding: 36px 32px;
-            box-shadow: 0 12px 30px -4px rgba(15, 39, 68, 0.28),
-                        0 4px 10px -2px rgba(0, 0, 0, 0.08);
-            color: #ffffff;
+            box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.12),
+                        0 4px 12px -2px rgba(15, 23, 42, 0.05);
+            color: #1e293b;
         }
 
         .login-header {
             text-align: center;
-            margin-bottom: 26px;
+            margin-bottom: 24px;
         }
 
         .brand-logo-frame {
@@ -128,10 +128,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             width: 64px;
             height: 64px;
             background: #ffffff;
-            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
             padding: 8px;
             margin-bottom: 14px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
 
         .brand-logo-frame img {
@@ -143,34 +144,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .login-title {
             font-size: 21px;
             font-weight: 700;
-            color: #ffffff;
+            color: #0f172a;
             letter-spacing: -0.2px;
             margin-bottom: 4px;
         }
 
         .login-subtitle {
             font-size: 13px;
-            color: #94a3b8;
+            color: #64748b;
             font-weight: 400;
         }
 
-        /* Alert message */
+        /* Alert message - Auto disappears after 2 seconds */
         .login-alert {
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(220, 38, 38, 0.18);
-            border: 1px solid rgba(239, 68, 68, 0.4);
-            color: #fecaca;
-            padding: 11px 14px;
-            border-radius: 6px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: 12px 14px;
+            border-radius: 8px;
             font-size: 13.5px;
             margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(239, 68, 68, 0.08);
+            transform-origin: top;
+            transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease, margin 0.5s ease, padding 0.5s ease;
         }
 
         .login-alert i {
-            font-size: 14px;
-            color: #f87171;
+            font-size: 15px;
+            color: #dc2626;
             flex-shrink: 0;
         }
 
@@ -182,8 +186,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .form-label {
             display: block;
             font-size: 13.5px;
-            font-weight: 500;
-            color: #cbd5e1;
+            font-weight: 600;
+            color: #334155;
             margin-bottom: 7px;
         }
 
@@ -195,19 +199,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .input-group .field-icon {
             position: absolute;
-            left: 13px;
-            color: #64748b;
+            left: 14px;
+            color: #94a3b8;
             font-size: 14px;
             pointer-events: none;
+            z-index: 1;
         }
 
         .form-input {
             width: 100%;
-            height: 44px;
+            height: 46px;
             background: #ffffff;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            padding: 0 40px 0 38px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 0 48px 0 40px;
             font-size: 14px;
             color: #0f172a;
             font-family: inherit;
@@ -221,25 +226,80 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .form-input:focus {
             border-color: #1e88e5;
-            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.25);
+            box-shadow: 0 0 0 3.5px rgba(30, 136, 229, 0.2);
         }
 
-        .toggle-btn {
+        /* Interactive Monkey Button */
+        .monkey-toggle-btn {
             position: absolute;
-            right: 10px;
-            background: none;
+            right: 8px;
+            width: 36px;
+            height: 36px;
+            background: transparent;
             border: none;
-            color: #64748b;
-            font-size: 14px;
             cursor: pointer;
-            padding: 6px;
+            padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 50%;
+            transition: transform 0.15s ease, background-color 0.15s ease;
+            z-index: 2;
         }
 
-        .toggle-btn:hover {
-            color: #1e293b;
+        .monkey-toggle-btn:hover {
+            background-color: #f1f5f9;
+            transform: scale(1.08);
+        }
+
+        .monkey-svg {
+            width: 34px;
+            height: 34px;
+            overflow: visible;
+        }
+
+        /* Monkey hands animation (covering eyes when typing) */
+        .monkey-hands {
+            transform-origin: 32px 52px;
+            transform: translateY(22px) scale(0.65);
+            opacity: 0;
+            transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        .monkey-svg.covering .monkey-hands {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        /* Peek mode if user toggles show password */
+        .monkey-svg.peeking .monkey-hands {
+            transform: translateY(8px) scale(0.9);
+            opacity: 0.9;
+        }
+
+        /* Monkey Tail Wag Animation on Submit */
+        .monkey-tail-group {
+            transform-origin: 20px 48px;
+            transition: transform 0.15s ease;
+        }
+
+        .monkey-svg.wagging .monkey-tail-group {
+            animation: monkeyTailWag 0.14s infinite alternate ease-in-out;
+        }
+
+        .monkey-svg.wagging {
+            animation: monkeyBounce 0.28s infinite alternate ease-in-out;
+        }
+
+        @keyframes monkeyTailWag {
+            0% { transform: rotate(-24deg); }
+            100% { transform: rotate(28deg); }
+        }
+
+        @keyframes monkeyBounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-3px); }
         }
 
         .form-options {
@@ -254,42 +314,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #94a3b8;
+            color: #64748b;
             cursor: pointer;
             user-select: none;
+            font-size: 13.5px;
         }
 
         .checkbox-item input[type="checkbox"] {
             accent-color: #1e88e5;
-            width: 15px;
-            height: 15px;
+            width: 16px;
+            height: 16px;
             cursor: pointer;
         }
 
         /* Submit Button */
         .btn-submit {
             width: 100%;
-            height: 44px;
+            height: 46px;
             background-color: #1e88e5;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             color: #ffffff;
-            font-size: 14.5px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: background-color 0.15s ease;
+            box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
+            transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
         }
 
         .btn-submit:hover {
             background-color: #1565c0;
+            box-shadow: 0 6px 16px rgba(30, 136, 229, 0.35);
         }
 
         .btn-submit:active {
-            background-color: #0d47a1;
+            transform: translateY(1px);
         }
 
         /* Footer link */
@@ -297,22 +360,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             text-align: center;
             margin-top: 22px;
             padding-top: 18px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #e2e8f0;
         }
 
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: #94a3b8;
+            color: #64748b;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 500;
             transition: color 0.15s ease;
         }
 
         .back-link:hover {
-            color: #ffffff;
+            color: #0f172a;
         }
 
         .disclaimer-text {
@@ -347,13 +410,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <?php if (!empty($error)): ?>
-                <div class="login-alert">
+                <div class="login-alert" id="loginAlert">
                     <i class="fas fa-exclamation-circle"></i>
                     <span><?= $error ?></span>
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="login.php" autocomplete="off">
+            <form method="POST" action="login.php" id="loginForm" autocomplete="off">
                 <div class="form-field">
                     <label class="form-label" for="username">Username or Official Email</label>
                     <div class="input-group">
@@ -370,9 +433,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <i class="fas fa-lock field-icon"></i>
                         <input type="password" id="password" name="password" class="form-input"
                             placeholder="Enter password" required>
-                        <button type="button" class="toggle-btn" id="togglePassword"
-                            aria-label="Toggle password visibility">
-                            <i class="fas fa-eye"></i>
+                        
+                        <!-- Animated Monkey in place of the eye button -->
+                        <button type="button" class="monkey-toggle-btn" id="monkeyBtn" aria-label="Toggle password visibility" title="Monkey: click to peek / hide password">
+                            <svg class="monkey-svg" id="monkeySvg" viewBox="0 0 64 64">
+                                <!-- Tail behind body -->
+                                <g class="monkey-tail-group" id="monkeyTail">
+                                    <path d="M 17 50 C 7 46, 3 34, 6 25 C 8 19, 15 21, 14 27 C 12 32, 16 40, 20 46" fill="none" stroke="#7a441e" stroke-width="4.5" stroke-linecap="round" />
+                                </g>
+
+                                <!-- Left Ear -->
+                                <circle cx="14" cy="28" r="8" fill="#8d532d" />
+                                <circle cx="14" cy="28" r="5" fill="#f6c8a5" />
+
+                                <!-- Right Ear -->
+                                <circle cx="50" cy="28" r="8" fill="#8d532d" />
+                                <circle cx="50" cy="28" r="5" fill="#f6c8a5" />
+
+                                <!-- Head Base -->
+                                <ellipse cx="32" cy="30" rx="19" ry="17" fill="#8d532d" />
+
+                                <!-- Face Mask / Muzzle -->
+                                <ellipse cx="26" cy="27" rx="8" ry="10" fill="#f6c8a5" />
+                                <ellipse cx="38" cy="27" rx="8" ry="10" fill="#f6c8a5" />
+                                <ellipse cx="32" cy="36" rx="12" ry="9" fill="#f6c8a5" />
+
+                                <!-- Eyes -->
+                                <g class="monkey-eyes">
+                                    <ellipse cx="26" cy="26" rx="3.5" ry="4.5" fill="#221b18" />
+                                    <circle cx="25" cy="24.5" r="1.3" fill="#ffffff" />
+                                    <ellipse cx="38" cy="26" rx="3.5" ry="4.5" fill="#221b18" />
+                                    <circle cx="37" cy="24.5" r="1.3" fill="#ffffff" />
+                                </g>
+
+                                <!-- Nose & Smile -->
+                                <ellipse cx="32" cy="33.5" rx="2.4" ry="1.7" fill="#5a3118" />
+                                <path d="M 28 37.5 Q 32 41 36 37.5" fill="none" stroke="#5a3118" stroke-width="1.8" stroke-linecap="round" />
+
+                                <!-- Hands Covering Eyes (animated on typing) -->
+                                <g class="monkey-hands" id="monkeyHands">
+                                    <!-- Left Hand & Paw -->
+                                    <path d="M 17 48 C 17 48, 18 36, 21 28 C 22 24, 26 23, 29 27 C 31 30, 27 38, 23 44 Z" fill="#7a4320" stroke="#5a3118" stroke-width="0.8" />
+                                    <circle cx="27" cy="26" r="3.2" fill="#f6c8a5" />
+
+                                    <!-- Right Hand & Paw -->
+                                    <path d="M 47 48 C 47 48, 46 36, 43 28 C 42 24, 38 23, 35 27 C 33 30, 37 38, 41 44 Z" fill="#7a4320" stroke="#5a3118" stroke-width="0.8" />
+                                    <circle cx="37" cy="26" r="3.2" fill="#f6c8a5" />
+                                </g>
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -384,7 +492,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </label>
                 </div>
 
-                <button type="submit" class="btn-submit">
+                <button type="submit" class="btn-submit" id="submitBtn">
                     Sign In
                 </button>
             </form>
@@ -402,22 +510,99 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <script>
-        const toggleBtn = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
-        if (toggleBtn && passwordInput) {
-            toggleBtn.addEventListener('click', function () {
-                const isPassword = passwordInput.getAttribute('type') === 'password';
-                passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
-                const icon = this.querySelector('i');
-                if (isPassword) {
-                    icon.classList.remove('fa-eye');
-                    icon.classList.add('fa-eye-slash');
-                } else {
-                    icon.classList.remove('fa-eye-slash');
-                    icon.classList.add('fa-eye');
-                }
-            });
+        // 1. Auto-remove red alert / warning after exactly 2 seconds
+        const alertEl = document.getElementById('loginAlert');
+        if (alertEl) {
+            setTimeout(() => {
+                alertEl.style.opacity = '0';
+                alertEl.style.transform = 'translateY(-10px)';
+                alertEl.style.maxHeight = '0';
+                alertEl.style.paddingTop = '0';
+                alertEl.style.paddingBottom = '0';
+                alertEl.style.marginTop = '0';
+                alertEl.style.marginBottom = '0';
+                alertEl.style.overflow = 'hidden';
+                setTimeout(() => alertEl.remove(), 500);
+            }, 2000);
         }
+
+        // 2. Monkey Password Interactive Logic
+        const monkeyBtn = document.getElementById('monkeyBtn');
+        const monkeySvg = document.getElementById('monkeySvg');
+        const passwordInput = document.getElementById('password');
+        const loginForm = document.getElementById('loginForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        let typingTimer = null;
+        let isPeeking = false;
+
+        // When admin types in password field -> monkey covers eyes with hands
+        passwordInput.addEventListener('input', function () {
+            if (isPeeking) return;
+
+            monkeySvg.classList.add('covering');
+
+            // Clear previous typing timer
+            clearTimeout(typingTimer);
+
+            // When admin stops typing for 1 second, hands move away from eyes
+            typingTimer = setTimeout(() => {
+                if (!isPeeking) {
+                    monkeySvg.classList.remove('covering');
+                }
+            }, 1000);
+        });
+
+        // When user focuses on password, if there is text, cover eyes
+        passwordInput.addEventListener('focus', function () {
+            if (!isPeeking && passwordInput.value.length > 0) {
+                monkeySvg.classList.add('covering');
+            }
+        });
+
+        // When user clicks away (blur), hands leave eyes
+        passwordInput.addEventListener('blur', function () {
+            clearTimeout(typingTimer);
+            if (!isPeeking) {
+                monkeySvg.classList.remove('covering');
+            }
+        });
+
+        // Clicking monkey toggles show/hide password and peeking
+        monkeyBtn.addEventListener('click', function () {
+            const isPassword = passwordInput.getAttribute('type') === 'password';
+            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+            isPeeking = isPassword;
+
+            if (isPeeking) {
+                // Peek mode: hands lower so monkey looks
+                monkeySvg.classList.remove('covering');
+                monkeySvg.classList.add('peeking');
+            } else {
+                monkeySvg.classList.remove('peeking');
+                if (passwordInput.value.length > 0 && document.activeElement === passwordInput) {
+                    monkeySvg.classList.add('covering');
+                }
+            }
+        });
+
+        // 3. When admin submits password -> monkey wags its tail, then login proceeds
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Hands down, tail wagging excitedly
+            monkeySvg.classList.remove('covering');
+            monkeySvg.classList.remove('peeking');
+            monkeySvg.classList.add('wagging');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Signing in...';
+
+            // Wait a brief moment for tail wag animation, then submit form
+            setTimeout(() => {
+                loginForm.submit();
+            }, 600);
+        });
     </script>
 
 </body>
