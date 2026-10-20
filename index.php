@@ -3,6 +3,52 @@ $page_title = "Government Engineering College, Modasa";
 $active_page = "home";
 $extra_css = "css/home.css";
 $extra_js = "js/home.js";
+
+// Include Database Handler
+require_once __DIR__ . '/includes/db.php';
+$pdo = getDBConnection();
+
+// Fetch Dynamic Records from Database
+$heroSlides = [];
+$newsTickers = [];
+$noticesList = [];
+$recentEvents = [];
+$latestShots = [];
+$departmentsList = [];
+$alumniList = [];
+
+if ($pdo) {
+    try {
+        $heroSlides = $pdo->query("SELECT * FROM hero_slides WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
+        $newsTickers = $pdo->query("SELECT * FROM news_ticker WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
+        $noticesList = $pdo->query("SELECT * FROM notices WHERE is_active = 1 ORDER BY publish_date DESC, id DESC")->fetchAll();
+        $recentEvents = $pdo->query("SELECT * FROM events WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
+        $latestShots = $pdo->query("SELECT * FROM latest_shots WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
+        $departmentsList = $pdo->query("SELECT * FROM departments WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
+        $alumniList = $pdo->query("SELECT * FROM alumni WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
+    } catch (Exception $e) {
+        error_log("DB Query Error: " . $e->getMessage());
+    }
+}
+
+// Fallback only for hero banner if table has 0 slides
+if (empty($heroSlides)) {
+    $heroSlides = [
+        ['image_url' => 'images/hero_campus_1.webp', 'label' => 'Main Campus & Admin Block', 'title' => 'Welcome to <br> Government Engineering College, Modasa', 'subtitle' => 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi']
+    ];
+}
+
+// Department Logos mapping
+$deptLogos = [
+    'Computer Engineering'   => 'logos/computer-department.png',
+    'Information Technology' => 'logos/it-department.png',
+    'Mechanical Engineering' => 'logos/mechanical-department.png',
+    'Automobile Engineering' => 'logos/automobile-department.png',
+    'Civil Engineering'      => 'logos/civil-department.png',
+    'Electrical Engineering' => 'logos/electrical-department.png',
+    'Electronics & Comm.'    => 'logos/ec-department.png',
+];
+
 include_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -10,14 +56,10 @@ include_once __DIR__ . '/includes/header.php';
 <section id="about" class="hero govt-hero" aria-label="Campus Showcase">
     <!-- Hero Image Carousel Slides -->
     <div class="hero-slider" id="heroSlider">
-        <div class="hero-slide active" style="background-image: url('images/hero_campus_1.webp');"
-            data-label="Main Campus & Admin Block"></div>
-        <div class="hero-slide" style="background-image: url('images/hero_campus_2.jpg');"
-            data-label="Engineering Academic Complex"></div>
-        <div class="hero-slide" style="background-image: url('images/hero_campus_3.jpg');"
-            data-label="Central Library & Auditorium"></div>
-        <div class="hero-slide" style="background-image: url('images/hero_campus_4.jpg');"
-            data-label="Lush Green Campus Aerial View"></div>
+        <?php foreach ($heroSlides as $i => $slide): ?>
+            <div class="hero-slide <?= ($i === 0) ? 'active' : '' ?>" style="background-image: url('<?= htmlspecialchars($slide['image_url']) ?>');"
+                data-label="<?= htmlspecialchars($slide['label'] ?? '') ?>"></div>
+        <?php endforeach; ?>
     </div>
 
     <div class="hero-overlay"></div>
@@ -27,7 +69,7 @@ include_once __DIR__ . '/includes/header.php';
         <p class="hero-subtitle fade-in-up delay-2"><?= htmlspecialchars(str_replace('???', '•', $heroSlides[0]['subtitle'] ?? 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi')) ?></p>
 
         <div class="hero-buttons fade-in-up delay-3">
-            <a href="#" class="btn btn-primary"><i class="fas fa-street-view"></i> Virtual Tour</a>
+            <a href="<?= htmlspecialchars($heroSlides[0]['virtual_tour_url'] ?? '#') ?>" class="btn btn-primary"><i class="fas fa-street-view"></i> Virtual Tour</a>
         </div>
     </div>
 
@@ -41,10 +83,9 @@ include_once __DIR__ . '/includes/header.php';
 
     <!-- Carousel Indicators (Dots) -->
     <div class="hero-indicators" id="heroIndicators">
-        <button class="hero-dot active" data-index="0" aria-label="Slide 1"></button>
-        <button class="hero-dot" data-index="1" aria-label="Slide 2"></button>
-        <button class="hero-dot" data-index="2" aria-label="Slide 3"></button>
-        <button class="hero-dot" data-index="3" aria-label="Slide 4"></button>
+        <?php foreach ($heroSlides as $i => $slide): ?>
+            <button class="hero-dot <?= ($i === 0) ? 'active' : '' ?>" data-index="<?= $i ?>" aria-label="Slide <?= $i + 1 ?>"></button>
+        <?php endforeach; ?>
     </div>
 </section>
 
@@ -53,10 +94,9 @@ include_once __DIR__ . '/includes/header.php';
     <div class="ticker-title">Updates</div>
     <div class="ticker-content">
         <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
-            <span><i class="fas fa-bell"></i> Admission open for BE First Year 2024-25.</span>
-            <span><i class="fas fa-bell"></i> Mid-Semester Exams schedule has been released. Check notice board for
-                details.</span>
-            <span><i class="fas fa-bell"></i> State Level Hackathon 2024 registrations are now open!</span>
+            <?php foreach ($newsTickers as $tick): ?>
+                <span><i class="fas fa-bell"></i> <?= htmlspecialchars($tick['message']) ?></span>
+            <?php endforeach; ?>
         </marquee>
     </div>
 </div>
@@ -70,114 +110,38 @@ include_once __DIR__ . '/includes/header.php';
         </div>
         <div class="notice-scroll-container">
             <div class="notice-marquee">
+                <?php
+                // Helper to render notice item list
+                $renderNoticeItems = function($notices) {
+                    foreach ($notices as $row) {
+                        $dateTs = !empty($row['publish_date']) ? strtotime($row['publish_date']) : time();
+                        $day = date('d', $dateTs);
+                        $month = date('M', $dateTs);
+                        $badge = $row['badge'] ?? 'None';
+                        $link = (!empty($row['link_url']) && $row['link_url'] !== '#') ? htmlspecialchars($row['link_url']) : '#';
+                        $target = ($link !== '#') ? ' target="_blank"' : '';
+                        echo '<li>';
+                        echo '<div class="date"><span class="day">' . $day . '</span><span class="month">' . $month . '</span></div>';
+                        echo '<div class="notice-text">';
+                        echo '<a href="' . $link . '"' . $target . '>' . htmlspecialchars($row['title']) . '</a>';
+                        if ($badge === 'New') {
+                            echo '<span class="badge new">New</span>';
+                        } elseif ($badge === 'Urgent') {
+                            echo '<span class="badge new" style="background: #e53935;">Urgent</span>';
+                        }
+                        echo '</div>';
+                        echo '</li>';
+                    }
+                };
+                ?>
                 <ul class="notice-list">
-                    <li>
-                        <div class="date"><span class="day">15</span><span class="month">Oct</span></div>
-                        <div class="notice-text">
-                            <a href="#">Guidelines for AICTE Pragati & Saksham Scholarship Schemes 2024-25</a>
-                            <span class="badge new">New</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">10</span><span class="month">Oct</span></div>
-                        <div class="notice-text">
-                            <a href="#">Timetable for B.E. Semester 5 Mid-Semester Examination</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">02</span><span class="month">Oct</span></div>
-                        <div class="notice-text">
-                            <a href="#">Result Declaration: BE Sem-6 Regular Summer 2024</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">28</span><span class="month">Sep</span></div>
-                        <div class="notice-text">
-                            <a href="#">Academic Calendar for Odd Semester 2024-25</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">20</span><span class="month">Sep</span></div>
-                        <div class="notice-text">
-                            <a href="#">Submission of Scholarship Forms for SC/ST Students</a>
-                            <span class="badge new">Urgent</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">15</span><span class="month">Sep</span></div>
-                        <div class="notice-text">
-                            <a href="#">Hostel Admission Merit List Announced for First Year Students</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">10</span><span class="month">Sep</span></div>
-                        <div class="notice-text">
-                            <a href="#">GTU TechFest 2024 Participation Registration Open</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">05</span><span class="month">Sep</span></div>
-                        <div class="notice-text">
-                            <a href="#">Revised Syllabus for Engineering Mechanics (Civil Dept)</a>
-                        </div>
-                    </li>
-                </ul>
-                <!-- Duplicated list for seamless looping -->
-                <ul class="notice-list" aria-hidden="true">
-                    <li>
-                        <div class="date"><span class="day">15</span><span class="month">Oct</span></div>
-                        <div class="notice-text">
-                            <a href="#">Guidelines for AICTE Pragati & Saksham Scholarship Schemes 2024-25</a>
-                            <span class="badge new">New</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">10</span><span class="month">Oct</span></div>
-                        <div class="notice-text">
-                            <a href="#">Timetable for B.E. Semester 5 Mid-Semester Examination</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">02</span><span class="month">Oct</span></div>
-                        <div class="notice-text">
-                            <a href="#">Result Declaration: BE Sem-6 Regular Summer 2024</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">28</span><span class="month">Sep</span></div>
-                        <div class="notice-text">
-                            <a href="#">Academic Calendar for Odd Semester 2024-25</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">20</span><span class="month">Sep</span></div>
-                        <div class="notice-text">
-                            <a href="#">Submission of Scholarship Forms for SC/ST Students</a>
-                            <span class="badge new">Urgent</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">15</span><span class="month">Sep</span></div>
-                        <div class="notice-text">
-                            <a href="#">Hostel Admission Merit List Announced for First Year Students</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">10</span><span class="month">Sep</span></div>
-                        <div class="notice-text">
-                            <a href="#">GTU TechFest 2024 Participation Registration Open</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="date"><span class="day">05</span><span class="month">Sep</span></div>
-                        <div class="notice-text">
-                            <a href="#">Revised Syllabus for Engineering Mechanics (Civil Dept)</a>
-                        </div>
-                    </li>
+                    <?php $renderNoticeItems($noticesList); ?>
                 </ul>
             </div>
         </div>
     </div>
+
+    <!-- 2. Recent Events Carousel -->
     <div class="recent-events-card">
         <div class="section-header">
             <h4>Recent Events</h4>
@@ -185,33 +149,16 @@ include_once __DIR__ . '/includes/header.php';
         </div>
         <div class="events-slider-container">
             <div class="events-slider" id="eventsSlider">
+                <?php foreach ($recentEvents as $ev): ?>
                 <div class="event-slide">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="TechFest">
+                    <img src="<?= htmlspecialchars($ev['image_url']) ?>" alt="<?= htmlspecialchars($ev['title']) ?>">
                     <div class="slide-content">
-                        <h4>TechFest 2024</h4>
-                        <p>Annual Technical Symposium with 50+ inter-college events.</p>
-                        <a href="#" class="view-full-btn">View Full <i class="fas fa-arrow-right"></i></a>
+                        <h4><?= htmlspecialchars($ev['title']) ?></h4>
+                        <p><?= htmlspecialchars($ev['description']) ?></p>
+                        <a href="<?= htmlspecialchars($ev['view_url'] ?? '#') ?>" class="view-full-btn">View Full <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="event-slide">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Convocation">
-                    <div class="slide-content">
-                        <h4>Convocation Ceremony</h4>
-                        <p>Batch of 2020-2024 engineering graduation day.</p>
-                        <a href="#" class="view-full-btn">View Full <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="event-slide">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Hackathon">
-                    <div class="slide-content">
-                        <h4>State Level Hackathon</h4>
-                        <p>24-hour innovation sprint held at GEC Modasa campus.</p>
-                        <a href="#" class="view-full-btn">View Full <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
             <div class="slider-dots" id="sliderDots">
                 <!-- Dots will be generated by JS -->
@@ -227,46 +174,17 @@ include_once __DIR__ . '/includes/header.php';
         </div>
         <div class="shots-slider-container">
             <div class="shots-slider" id="shotsSlider">
+                <?php foreach ($latestShots as $shot): ?>
                 <div class="shot-slide">
                     <div class="shot-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Robotics & Innovation">
+                        <img src="<?= htmlspecialchars($shot['image_url']) ?>" alt="<?= htmlspecialchars($shot['title']) ?>">
                     </div>
                     <div class="shot-content">
-                        <h4>Robotics & Innovation</h4>
-                        <p>Students demonstrating autonomous robotics and IoT prototypes.</p>
+                        <h4><?= htmlspecialchars($shot['title']) ?></h4>
+                        <p><?= htmlspecialchars($shot['description']) ?></p>
                     </div>
                 </div>
-                <div class="shot-slide">
-                    <div class="shot-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Annual Sports Tournament">
-                    </div>
-                    <div class="shot-content">
-                        <h4>Annual Sports Meet</h4>
-                        <p>Inter-department athletics championship and cricket tournament.</p>
-                    </div>
-                </div>
-                <div class="shot-slide">
-                    <div class="shot-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Cultural Youth Fest">
-                    </div>
-                    <div class="shot-content">
-                        <h4>Prarambh Youth Fest</h4>
-                        <p>Vibrant stage performances, music, drama, and celebrations.</p>
-                    </div>
-                </div>
-                <div class="shot-slide">
-                    <div class="shot-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            alt="Engineering Workshop">
-                    </div>
-                    <div class="shot-content">
-                        <h4>Engineering Workshop</h4>
-                        <p>Hands-on practical machining and metal fabrication sessions.</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
             <div class="slider-dots" id="shotsSliderDots">
                 <!-- Dots will be generated by JS -->
@@ -286,41 +204,19 @@ include_once __DIR__ . '/includes/header.php';
             <button class="scroll-btn dept-btn left-btn" id="deptLeftBtn" aria-label="Previous Department"><i
                     class="fas fa-chevron-left"></i></button>
             <div class="dept-grid" id="deptGrid">
+                <?php foreach ($departmentsList as $dept): ?>
                 <div class="dept-card">
-                    <div class="dept-icon"><img src="logos/computer-department.png" alt="Computer Engineering Icon" class="dept-img-icon"></div>
-                    <h3>Computer Engineering</h3>
-                    <a href="#" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <div class="dept-icon">
+                        <?php if (!empty($deptLogos[$dept['name']]) && file_exists(__DIR__ . '/' . $deptLogos[$dept['name']])): ?>
+                            <img src="<?= htmlspecialchars($deptLogos[$dept['name']]) ?>" alt="<?= htmlspecialchars($dept['name']) ?> Icon" class="dept-img-icon">
+                        <?php else: ?>
+                            <i class="<?= htmlspecialchars($dept['icon_class'] ?? 'fas fa-graduation-cap') ?>"></i>
+                        <?php endif; ?>
+                    </div>
+                    <h3><?= htmlspecialchars($dept['name']) ?></h3>
+                    <a href="<?= htmlspecialchars($dept['learn_more_url'] ?? '#') ?>" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="dept-card">
-                    <div class="dept-icon"><img src="logos/it-department.png" alt="Information Technology Icon" class="dept-img-icon"></div>
-                    <h3>Information Technology</h3>
-                    <a href="#" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="dept-card">
-                    <div class="dept-icon"><img src="logos/mechanical-department.png" alt="Mechanical Engineering Icon" class="dept-img-icon"></div>
-                    <h3>Mechanical Engineering</h3>
-                    <a href="#" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="dept-card">
-                    <div class="dept-icon"><img src="logos/automobile-department.png" alt="Automobile Engineering Icon" class="dept-img-icon"></div>
-                    <h3>Automobile Engineering</h3>
-                    <a href="#" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="dept-card">
-                    <div class="dept-icon"><img src="logos/civil-department.png" alt="Civil Engineering Icon" class="dept-img-icon"></div>
-                    <h3>Civil Engineering</h3>
-                    <a href="#" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="dept-card">
-                    <div class="dept-icon"><img src="logos/electrical-department.png" alt="Electrical Engineering Icon" class="dept-img-icon"></div>
-                    <h3>Electrical Engineering</h3>
-                    <a href="#" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="dept-card">
-                    <div class="dept-icon"><img src="logos/ec-department.png" alt="Electronics & Comm. Icon" class="dept-img-icon"></div>
-                    <h3>Electronics & Comm.</h3>
-                    <a href="#" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                </div>
+                <?php endforeach; ?>
             </div>
             <button class="scroll-btn dept-btn right-btn" id="deptRightBtn" aria-label="Next Department"><i
                     class="fas fa-chevron-right"></i></button>
@@ -328,6 +224,7 @@ include_once __DIR__ . '/includes/header.php';
     </div>
 </section>
 
+<?php if (!empty($alumniList)): ?>
 <!-- Alumni Section -->
 <section id="alumni" class="section alumni-section">
     <div class="full-width-container">
@@ -341,68 +238,21 @@ include_once __DIR__ . '/includes/header.php';
             <button class="scroll-btn left-btn" id="alumniLeftBtn" aria-label="Previous Alumni"><i
                     class="fas fa-chevron-left"></i></button>
             <div class="alumni-carousel" id="alumniCarousel">
+                <?php foreach ($alumniList as $alumnus): ?>
                 <div class="alumni-card">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
-                        alt="Rahul Sharma">
-                    <h4>Rahul Sharma</h4>
-                    <p class="batch">Computer Engg. &bull; 2015</p>
-                    <p class="company">Google, USA</p>
+                    <img src="<?= htmlspecialchars($alumnus['photo_url']) ?>" alt="<?= htmlspecialchars($alumnus['name']) ?>">
+                    <h4><?= htmlspecialchars($alumnus['name']) ?></h4>
+                    <p class="batch"><?= htmlspecialchars($alumnus['branch']) ?> &bull; <?= htmlspecialchars($alumnus['graduation_year']) ?></p>
+                    <p class="company"><?= htmlspecialchars($alumnus['company']) ?></p>
                 </div>
-                <div class="alumni-card">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
-                        alt="Priya Patel">
-                    <h4>Priya Patel</h4>
-                    <p class="batch">IT Engg. &bull; 2018</p>
-                    <p class="company">Microsoft, India</p>
-                </div>
-                <div class="alumni-card">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
-                        alt="Amit Kumar">
-                    <h4>Amit Kumar</h4>
-                    <p class="batch">Mechanical Engg. &bull; 2012</p>
-                    <p class="company">Tata Motors</p>
-                </div>
-                <div class="alumni-card">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
-                        alt="Sneha Desai">
-                    <h4>Sneha Desai</h4>
-                    <p class="batch">Civil Engg. &bull; 2016</p>
-                    <p class="company">L&T Construction</p>
-                </div>
-                <div class="alumni-card">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
-                        alt="Karan Singh">
-                    <h4>Karan Singh</h4>
-                    <p class="batch">Electrical Engg. &bull; 2019</p>
-                    <p class="company">Reliance Industries</p>
-                </div>
-                <div class="alumni-card">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
-                        alt="Pooja Mehta">
-                    <h4>Pooja Mehta</h4>
-                    <p class="batch">Electronics & Comm. &bull; 2017</p>
-                    <p class="company">Intel Corporation</p>
-                </div>
-                <div class="alumni-card">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
-                        alt="Darshan Joshi">
-                    <h4>Darshan Joshi</h4>
-                    <p class="batch">Automobile Engg. &bull; 2014</p>
-                    <p class="company">Mahindra R&D</p>
-                </div>
-                <div class="alumni-card">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80"
-                        alt="Riya Trivedi">
-                    <h4>Riya Trivedi</h4>
-                    <p class="batch">Computer Engg. &bull; 2021</p>
-                    <p class="company">Amazon AWS</p>
-                </div>
+                <?php endforeach; ?>
             </div>
             <button class="scroll-btn right-btn" id="alumniRightBtn" aria-label="Next Alumni"><i
                     class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <?php
 include_once __DIR__ . '/includes/footer.php';
