@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,9 +79,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
         :root {
             --card-navy-start: #0c3b6d;
@@ -122,8 +125,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background: linear-gradient(155deg, var(--card-navy-start) 0%, var(--card-navy-end) 100%);
             border-radius: 22px;
             padding: 42px 38px;
-            box-shadow: 0 20px 45px -10px rgba(12, 59, 109, 0.4), 
-                        0 8px 20px -6px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 45px -10px rgba(12, 59, 109, 0.4),
+                0 8px 20px -6px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.18);
             color: #ffffff;
             transition: transform 0.25s ease;
@@ -375,96 +378,101 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             .login-card-container {
                 padding: 32px 24px;
             }
+
             .login-institution-title {
                 font-size: 19px;
             }
         }
     </style>
 </head>
+
 <body class="admin-login-body">
 
-<div class="login-wrapper">
-    <div class="login-card-container">
-        <div class="login-header-group">
-            <div class="brand-logo-pill">
-                <img src="../logos/logoGrey.png" alt="GEC Modasa Emblem">
+    <div class="login-wrapper">
+        <div class="login-card-container">
+            <div class="login-header-group">
+                <div class="brand-logo-pill">
+                    <img src="../logos/logoGrey.png" alt="GEC Modasa Emblem">
+                </div>
+                <h1 class="login-institution-title">GEC Modasa</h1>
+                <p class="login-portal-subtitle">Government Engineering College, Modasa</p>
+
             </div>
-            <h1 class="login-institution-title">GEC Modasa</h1>
-            <p class="login-portal-subtitle">Government Engineering College, Modasa</p>
-            <div class="security-badge">
-                <i class="fas fa-lock"></i> Admin Portal
+
+            <?php if (!empty($error)): ?>
+                <div class="login-alert">
+                    <i class="fas fa-circle-exclamation"></i>
+                    <span><?= $error ?></span>
+                </div>
+            <?php endif; ?>
+
+            <form method="POST" action="login.php" autocomplete="off">
+                <div class="form-group-field">
+                    <label for="username">Admin Username or Email</label>
+                    <div class="input-with-icon">
+                        <input type="text" id="username" name="username" class="form-input-control"
+                            placeholder="Enter username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
+                            required autofocus>
+                        <i class="fas fa-user input-leading-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-group-field">
+                    <label for="password">Password</label>
+                    <div class="input-with-icon">
+                        <input type="password" id="password" name="password" class="form-input-control"
+                            placeholder="Enter password" required>
+                        <i class="fas fa-key input-leading-icon"></i>
+                        <button type="button" class="toggle-password-btn" id="togglePassword"
+                            aria-label="Toggle password visibility">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-options-row">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember" checked>
+                        <span>Keep me logged in</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit-login">
+                    <i class="fas fa-arrow-right-to-bracket"></i> Sign In to Dashboard
+                </button>
+            </form>
+
+            <div class="login-footer-nav">
+                <a href="../index.php" class="link-back-site">
+                    <i class="fas fa-arrow-left"></i> Return to Main Website
+                </a>
             </div>
         </div>
 
-        <?php if (!empty($error)): ?>
-            <div class="login-alert">
-                <i class="fas fa-circle-exclamation"></i>
-                <span><?= $error ?></span>
-            </div>
-        <?php endif; ?>
-
-        <form method="POST" action="login.php" autocomplete="off">
-            <div class="form-group-field">
-                <label for="username">Admin Username or Email</label>
-                <div class="input-with-icon">
-                    <input type="text" id="username" name="username" class="form-input-control" placeholder="Enter username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" required autofocus>
-                    <i class="fas fa-user input-leading-icon"></i>
-                </div>
-            </div>
-
-            <div class="form-group-field">
-                <label for="password">Password</label>
-                <div class="input-with-icon">
-                    <input type="password" id="password" name="password" class="form-input-control" placeholder="Enter password" required>
-                    <i class="fas fa-key input-leading-icon"></i>
-                    <button type="button" class="toggle-password-btn" id="togglePassword" aria-label="Toggle password visibility">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="form-options-row">
-                <label class="checkbox-label">
-                    <input type="checkbox" name="remember" checked>
-                    <span>Keep me logged in</span>
-                </label>
-            </div>
-
-            <button type="submit" class="btn-submit-login">
-                <i class="fas fa-arrow-right-to-bracket"></i> Sign In to Dashboard
-            </button>
-        </form>
-
-        <div class="login-footer-nav">
-            <a href="../index.php" class="link-back-site">
-                <i class="fas fa-arrow-left"></i> Return to Main Website
-            </a>
+        <div class="portal-meta-note">
+            <i class="fas fa-shield-halved"></i> 256-Bit SSL Encrypted &bull; Official Institution Administration System
         </div>
     </div>
 
-    <div class="portal-meta-note">
-        <i class="fas fa-shield-halved"></i> 256-Bit SSL Encrypted &bull; Official Institution Administration System
-    </div>
-</div>
-
-<script>
-    const toggleBtn = document.getElementById('togglePassword');
-    const passwordInput = document.getElementById('password');
-    if (toggleBtn && passwordInput) {
-        toggleBtn.addEventListener('click', function() {
-            const isPassword = passwordInput.getAttribute('type') === 'password';
-            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
-            const icon = this.querySelector('i');
-            if (isPassword) {
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        });
-    }
-</script>
+    <script>
+        const toggleBtn = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        if (toggleBtn && passwordInput) {
+            toggleBtn.addEventListener('click', function () {
+                const isPassword = passwordInput.getAttribute('type') === 'password';
+                passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+                const icon = this.querySelector('i');
+                if (isPassword) {
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+    </script>
 
 </body>
+
 </html>
