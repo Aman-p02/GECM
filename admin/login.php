@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Portal Login — GEC Modasa</title>
+    <title>Admin Portal Login GEC Modasa</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 14px;
             padding: 36px 32px;
             box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.12),
-                        0 4px 12px -2px rgba(15, 23, 42, 0.05);
+                0 4px 12px -2px rgba(15, 23, 42, 0.05);
             color: #1e293b;
             position: relative;
         }
@@ -240,7 +240,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: flex;
             align-items: center;
             justify-content: center;
-            pointer-events: none; /* Clicking on monkey does nothing */
+            pointer-events: none;
+            /* Clicking on monkey does nothing */
             user-select: none;
             z-index: 3;
         }
@@ -348,8 +349,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         @keyframes monkeyTailWag {
-            0% { transform: rotate(-26deg); }
-            100% { transform: rotate(30deg); }
+            0% {
+                transform: rotate(-26deg);
+            }
+
+            100% {
+                transform: rotate(30deg);
+            }
         }
 
         .form-options {
@@ -456,7 +462,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <img src="../logos/logoGrey.png" alt="GEC Modasa">
                 </div>
                 <h1 class="login-title">GEC Modasa</h1>
-                <p class="login-subtitle">Government Engineering College — Administration Portal</p>
+                <p class="login-subtitle">Government Engineering College Administration Portal</p>
             </div>
 
             <?php if (!empty($error)): ?>
@@ -471,9 +477,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label class="form-label" for="username">Username or Official Email</label>
                     <div class="input-group">
                         <i class="fas fa-user field-icon"></i>
-                        <input type="text" id="username" name="username" class="form-input"
-                            placeholder="Enter username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
-                            required autofocus>
+                        <input type="text" id="username" name="username" class="form-input" placeholder="Enter username"
+                            value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" required autofocus>
                     </div>
                 </div>
 
@@ -494,7 +499,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <svg class="monkey-svg" id="monkeySvg" viewBox="0 0 64 64">
                                 <!-- Tail on side -->
                                 <g class="monkey-tail-wrap">
-                                    <path d="M 17 50 C 7 46, 3 34, 6 25 C 8 19, 15 21, 14 27 C 12 32, 16 40, 20 46" fill="none" stroke="#7a441e" stroke-width="4.5" stroke-linecap="round" />
+                                    <path d="M 17 50 C 7 46, 3 34, 6 25 C 8 19, 15 21, 14 27 C 12 32, 16 40, 20 46"
+                                        fill="none" stroke="#7a441e" stroke-width="4.5" stroke-linecap="round" />
                                 </g>
 
                                 <!-- Ears -->
@@ -522,17 +528,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                     <!-- Nose & Smile -->
                                     <ellipse cx="32" cy="33.5" rx="2.4" ry="1.7" fill="#5a3118" />
-                                    <path d="M 28 37.5 Q 32 41 36 37.5" fill="none" stroke="#5a3118" stroke-width="1.8" stroke-linecap="round" />
+                                    <path d="M 28 37.5 Q 32 41 36 37.5" fill="none" stroke="#5a3118" stroke-width="1.8"
+                                        stroke-linecap="round" />
                                 </g>
 
                                 <!-- Hands Covering Eyes (when typing password) -->
                                 <g class="monkey-hands" id="monkeyHands">
                                     <!-- Left Hand -->
-                                    <path d="M 17 48 C 17 48, 18 36, 21 28 C 22 24, 26 23, 29 27 C 31 30, 27 38, 23 44 Z" fill="#7a4320" stroke="#5a3118" stroke-width="0.8" />
+                                    <path
+                                        d="M 17 48 C 17 48, 18 36, 21 28 C 22 24, 26 23, 29 27 C 31 30, 27 38, 23 44 Z"
+                                        fill="#7a4320" stroke="#5a3118" stroke-width="0.8" />
                                     <circle cx="27" cy="26" r="3.2" fill="#f6c8a5" />
 
                                     <!-- Right Hand -->
-                                    <path d="M 47 48 C 47 48, 46 36, 43 28 C 42 24, 38 23, 35 27 C 33 30, 37 38, 41 44 Z" fill="#7a4320" stroke="#5a3118" stroke-width="0.8" />
+                                    <path
+                                        d="M 47 48 C 47 48, 46 36, 43 28 C 42 24, 38 23, 35 27 C 33 30, 37 38, 41 44 Z"
+                                        fill="#7a4320" stroke="#5a3118" stroke-width="0.8" />
                                     <circle cx="37" cy="26" r="3.2" fill="#f6c8a5" />
                                 </g>
                             </svg>
