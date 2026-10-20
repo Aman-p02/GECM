@@ -305,14 +305,10 @@
 }
 
 .notice-marquee {
-    transform: translateY(0);
+    animation: scrollUp 20s linear infinite;
 }
 
-.notice-marquee.is-scrolling {
-    animation: scrollUp 24s linear infinite;
-}
-
-.notice-marquee.is-scrolling:hover {
+.notice-marquee:hover {
     animation-play-state: paused;
 }
 
