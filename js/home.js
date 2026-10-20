@@ -16,32 +16,46 @@ document.addEventListener("DOMContentLoaded", () => {
     const alumniRightBtn = document.getElementById("alumniRightBtn") || document.querySelector(".alumni-wrapper .right-btn");
 
     if (alumniCarousel) {
-        const originalAlumniCards = Array.from(alumniCarousel.children);
-        if (originalAlumniCards.length > 0) {
-            originalAlumniCards.forEach(card => {
-                const clone = card.cloneNode(true);
-                clone.setAttribute("aria-hidden", "true");
-                alumniCarousel.appendChild(clone);
-            });
+        const cards = Array.from(alumniCarousel.children);
 
-        let isAlumniPaused = false;
-        let alumniSpeed = 0.85; // Continuous butter-smooth pixel advancement
-        let alumniRafId = null;
-
-        function autoScrollAlumni() {
-            if (!isAlumniPaused) {
-                alumniCarousel.scrollLeft += alumniSpeed;
-                const halfWidth = alumniCarousel.scrollWidth / 2;
-                if (alumniCarousel.scrollLeft >= halfWidth) {
-                    alumniCarousel.scrollLeft -= halfWidth;
-                } else if (alumniCarousel.scrollLeft <= 0) {
-                    alumniCarousel.scrollLeft += halfWidth;
-                }
+        function checkAlumniOverflow() {
+            const hasOverflow = alumniCarousel.scrollWidth > alumniCarousel.clientWidth + 5;
+            if (!hasOverflow) {
+                alumniCarousel.classList.add("no-overflow");
+                if (alumniLeftBtn) alumniLeftBtn.style.display = "none";
+                if (alumniRightBtn) alumniRightBtn.style.display = "none";
+            } else {
+                alumniCarousel.classList.remove("no-overflow");
+                if (alumniLeftBtn) alumniLeftBtn.style.display = "flex";
+                if (alumniRightBtn) alumniRightBtn.style.display = "flex";
             }
-            alumniRafId = requestAnimationFrame(autoScrollAlumni);
+            return hasOverflow;
         }
 
-        alumniRafId = requestAnimationFrame(autoScrollAlumni);
+        checkAlumniOverflow();
+        window.addEventListener("resize", checkAlumniOverflow);
+
+        let isAlumniPaused = false;
+        let scrollDirection = 1; // 1: right, -1: left
+        let alumniSpeed = 0.75;
+
+        function autoScrollAlumni() {
+            if (!isAlumniPaused && checkAlumniOverflow()) {
+                alumniCarousel.scrollLeft += alumniSpeed * scrollDirection;
+                const maxScroll = alumniCarousel.scrollWidth - alumniCarousel.clientWidth;
+                if (alumniCarousel.scrollLeft >= maxScroll - 2) {
+                    scrollDirection = -1;
+                } else if (alumniCarousel.scrollLeft <= 2) {
+                    scrollDirection = 1;
+                }
+            }
+            requestAnimationFrame(autoScrollAlumni);
+        }
+
+        // Only auto-scroll if there are multiple cards and they actually overflow
+        if (cards.length > 3) {
+            requestAnimationFrame(autoScrollAlumni);
+        }
 
         // Pause on mouse hover & mobile touch
         alumniCarousel.addEventListener("mouseenter", () => {
@@ -59,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alumniCarousel.addEventListener("touchend", () => {
             setTimeout(() => {
                 isAlumniPaused = false;
-            }, 1800);
+            }, 2000);
         }, { passive: true });
 
         // Left / Right Scroll Buttons
@@ -68,18 +82,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 isAlumniPaused = true;
                 const scrollAmount = 304; // Card width + gap
                 alumniCarousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-                setTimeout(() => { isAlumniPaused = false; }, 2200);
+                setTimeout(() => { isAlumniPaused = false; }, 2500);
             });
 
             alumniRightBtn.addEventListener("click", () => {
                 isAlumniPaused = true;
                 const scrollAmount = 304;
                 alumniCarousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
-                setTimeout(() => { isAlumniPaused = false; }, 2200);
+                setTimeout(() => { isAlumniPaused = false; }, 2500);
             });
         }
     }
-}
 
     // ==============================================================
     // 2. Recent Events Slider
@@ -249,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function startHeroAutoplay() {
             stopHeroAutoplay();
-            heroTimer = setInterval(nextHeroSlide, 4500);
+            heroTimer = setInterval(nextHeroSlide, 3000);
         }
 
         function stopHeroAutoplay() {
@@ -264,6 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 prevHeroSlide();
                 startHeroAutoplay();
             });
+            heroPrevBtn.addEventListener("mouseenter", stopHeroAutoplay);
+            heroPrevBtn.addEventListener("mouseleave", startHeroAutoplay);
         }
 
         if (heroNextBtn) {
@@ -271,6 +286,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextHeroSlide();
                 startHeroAutoplay();
             });
+            heroNextBtn.addEventListener("mouseenter", stopHeroAutoplay);
+            heroNextBtn.addEventListener("mouseleave", startHeroAutoplay);
         }
 
         heroDots.forEach(dot => {
@@ -281,18 +298,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     startHeroAutoplay();
                 }
             });
-        });
+            dot.addEventListener("mouseenter", stopHeroAutoplay);
+            dot.addEventListener("mouseleave", startHeroAutoplay);
+        } );
 
         if (heroSection) {
-            heroSection.addEventListener("mouseenter", stopHeroAutoplay);
-            heroSection.addEventListener("mouseleave", startHeroAutoplay);
-
             let touchStartX = 0;
             let touchEndX = 0;
 
             heroSection.addEventListener("touchstart", (e) => {
                 touchStartX = e.changedTouches[0].screenX;
-                stopHeroAutoplay();
             }, { passive: true });
 
             heroSection.addEventListener("touchend", (e) => {

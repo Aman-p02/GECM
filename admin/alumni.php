@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/upload_helper.php';
 checkAdminAuth();
 
 $pdo = getDBConnection();
@@ -13,9 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $branch = trim($_POST['branch'] ?? '');
         $graduation_year = (int)($_POST['graduation_year'] ?? date('Y'));
         $company = trim($_POST['company'] ?? '');
-        $photo_url = trim($_POST['photo_url'] ?? '');
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
+
+        // Handle image file upload from PC
+        $upload = handleImageUpload('photo_file', 'alumni', null, $_POST['photo_url'] ?? null);
+
+        if (!$upload['success']) {
+            setFlashMessage('danger', $upload['error']);
+            header('Location: alumni.php');
+            exit;
+        }
+
+        $photo_url = $upload['path'];
 
         if (!empty($name) && !empty($company) && !empty($photo_url)) {
             $stmt = $pdo->prepare("INSERT INTO alumni (name, branch, graduation_year, company, photo_url, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -24,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: alumni.php');
             exit;
         } else {
-            setFlashMessage('danger', 'Name, company, and photo URL are required.');
+            setFlashMessage('danger', 'Name, company, and photo are required.');
         }
     } elseif ($action === 'edit') {
         $id = (int)$_POST['id'];
@@ -32,9 +43,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $branch = trim($_POST['branch'] ?? '');
         $graduation_year = (int)($_POST['graduation_year'] ?? date('Y'));
         $company = trim($_POST['company'] ?? '');
-        $photo_url = trim($_POST['photo_url'] ?? '');
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
+        $existingPhoto = trim($_POST['existing_photo'] ?? '');
+
+        // Handle image file upload from PC (keeps existing if no new file uploaded)
+        $upload = handleImageUpload('photo_file', 'alumni', $existingPhoto, $_POST['photo_url'] ?? null);
+
+        if (!$upload['success']) {
+            setFlashMessage('danger', $upload['error']);
+            header('Location: alumni.php');
+            exit;
+        }
+
+        $photo_url = $upload['path'];
 
         if (!empty($name) && !empty($company) && !empty($photo_url) && $id > 0) {
             $stmt = $pdo->prepare("UPDATE alumni SET name = ?, branch = ?, graduation_year = ?, company = ?, photo_url = ?, display_order = ?, is_active = ? WHERE id = ?");
@@ -141,7 +163,7 @@ require_once __DIR__ . '/includes/header.php';
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
                     <td style="font-weight: 700; color: #1e88e5; text-align: center;">#<?= $row['display_order'] ?></td>
                     <td>
-                        <img src="<?= htmlspecialchars($row['photo_url']) ?>" alt="Photo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/40?text=A';">
+                        <img src="<?= htmlspecialchars(getAdminImageSrc($row['photo_url'])) ?>" alt="Photo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/40?text=A';">
                     </td>
                     <td style="font-weight: 600; color: #1a263d;">
                         <?= htmlspecialchars($row['name']) ?>
@@ -175,7 +197,7 @@ require_once __DIR__ . '/includes/header.php';
                 <?php endforeach; ?>
                 <?php if (empty($alumniList)): ?>
                 <tr class="no-records-row">
-                    <td colspan="8" style="text-align: center; color: #888; padding: 30px;">No alumni records found.</td>
+                    <td colspan="8" style="text-align: center; color: #888; padding: 30px;">No alumni records found. Click "Add Notable Alumni" to upload from your PC.</td>
                 </tr>
                 <?php endif; ?>
             </tbody>
@@ -190,7 +212,7 @@ require_once __DIR__ . '/includes/header.php';
             <h3 class="modal-title"><i class="fas fa-plus-circle" style="color: #1e88e5;"></i> Add Notable Alumni</h3>
             <button type="button" class="modal-close" onclick="closeModal('addAlumniModal')">&times;</button>
         </div>
-        <form method="POST" action="alumni.php">
+        <form method="POST" action="alumni.php" enctype="multipart/form-data">
             <input type="hidden" name="action" value="add">
             <div class="modal-body">
                 <div class="form-group">
@@ -216,8 +238,12 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="photo_url">Profile Photo URL <span class="required">*</span></label>
-                    <input type="text" name="photo_url" id="photo_url" class="form-control" placeholder="https://images.unsplash.com/..." required>
+                    <label class="form-label" for="photo_file">Profile Photo from PC <span class="required">*</span></label>
+                    <input type="file" name="photo_file" id="photo_file" class="form-control" accept="image/*" required>
+                    <div style="font-size: 11.5px; color: #6c757d; margin-top: 5px;">
+                        Select photo (JPG, PNG, WEBP) directly from your computer, or paste URL below if hosted online:
+                    </div>
+                    <input type="text" name="photo_url" id="photo_url" class="form-control" placeholder="Optional external image URL (https://...)" style="margin-top: 6px;">
                 </div>
 
                 <div class="form-row">
@@ -250,9 +276,10 @@ require_once __DIR__ . '/includes/header.php';
             <h3 class="modal-title"><i class="fas fa-edit" style="color: #1e88e5;"></i> Edit Alumni</h3>
             <a href="alumni.php" class="modal-close">&times;</a>
         </div>
-        <form method="POST" action="alumni.php">
+        <form method="POST" action="alumni.php" enctype="multipart/form-data">
             <input type="hidden" name="action" value="edit">
             <input type="hidden" name="id" value="<?= $editItem['id'] ?>">
+            <input type="hidden" name="existing_photo" value="<?= htmlspecialchars($editItem['photo_url']) ?>">
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label" for="edit_name">Alumni Full Name <span class="required">*</span></label>
@@ -277,8 +304,14 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="edit_photo_url">Profile Photo URL <span class="required">*</span></label>
-                    <input type="text" name="photo_url" id="edit_photo_url" class="form-control" value="<?= htmlspecialchars($editItem['photo_url']) ?>" required>
+                    <label class="form-label">Current Photo</label>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                        <img src="<?= htmlspecialchars(getAdminImageSrc($editItem['photo_url'])) ?>" alt="Current" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd;">
+                        <span style="font-size: 12px; color: #666; font-family: monospace;"><?= htmlspecialchars($editItem['photo_url']) ?></span>
+                    </div>
+                    <label class="form-label" for="edit_photo_file">Upload New Photo from PC (optional)</label>
+                    <input type="file" name="photo_file" id="edit_photo_file" class="form-control" accept="image/*">
+                    <input type="text" name="photo_url" id="edit_photo_url" class="form-control" value="<?= htmlspecialchars($editItem['photo_url']) ?>" placeholder="Or external photo URL" style="margin-top: 6px;">
                 </div>
 
                 <div class="form-row">

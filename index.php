@@ -23,9 +23,8 @@ include_once __DIR__ . '/includes/header.php';
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-        <h1 class="hero-title fade-in-up delay-1">Welcome to <br> Government Engineering College, Modasa</h1>
-        <p class="hero-subtitle fade-in-up delay-2">Affiliated to Gujarat Technological University (GTU) &bull;
-            Approved by AICTE, New Delhi</p>
+        <h1 class="hero-title fade-in-up delay-1"><?= $heroSlides[0]['title'] ?? 'Welcome to <br> Government Engineering College, Modasa' ?></h1>
+        <p class="hero-subtitle fade-in-up delay-2"><?= htmlspecialchars(str_replace('???', '•', $heroSlides[0]['subtitle'] ?? 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi')) ?></p>
 
         <div class="hero-buttons fade-in-up delay-3">
             <a href="#" class="btn btn-primary"><i class="fas fa-street-view"></i> Virtual Tour</a>

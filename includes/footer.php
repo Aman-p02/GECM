@@ -64,14 +64,14 @@
     </footer>
 
     <!-- Global JS -->
-    <script src="js/global.js?v=1"></script>
+    <script src="js/global.js?v=<?= file_exists(__DIR__ . '/../js/global.js') ? filemtime(__DIR__ . '/../js/global.js') : time() ?>"></script>
 <?php if (isset($extra_js)): ?>
     <?php if (is_array($extra_js)): ?>
         <?php foreach ($extra_js as $js_file): ?>
-    <script src="<?php echo htmlspecialchars($js_file); ?>?v=1"></script>
+    <script src="<?php echo htmlspecialchars($js_file); ?>?v=<?= file_exists(__DIR__ . '/../' . $js_file) ? filemtime(__DIR__ . '/../' . $js_file) : time() ?>"></script>
         <?php endforeach; ?>
     <?php else: ?>
-    <script src="<?php echo htmlspecialchars($extra_js); ?>?v=1"></script>
+    <script src="<?php echo htmlspecialchars($extra_js); ?>?v=<?= file_exists(__DIR__ . '/../' . $extra_js) ? filemtime(__DIR__ . '/../' . $extra_js) : time() ?>"></script>
     <?php endif; ?>
 <?php endif; ?>
 </body>

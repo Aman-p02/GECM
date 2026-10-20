@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/upload_helper.php';
 checkAdminAuth();
 
 $pdo = getDBConnection();
@@ -11,11 +12,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'add') {
         $title = trim($_POST['title'] ?? '');
         $description = trim($_POST['description'] ?? '');
-        $image_url = trim($_POST['image_url'] ?? '');
         $event_date = !empty($_POST['event_date']) ? $_POST['event_date'] : null;
         $view_url = trim($_POST['view_url'] ?? '#');
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
+
+        // Handle image upload from PC
+        $upload = handleImageUpload('event_image', 'events', null, $_POST['image_url'] ?? null);
+        if (!$upload['success']) {
+            setFlashMessage('danger', $upload['error']);
+            header('Location: events.php');
+            exit;
+        }
+
+        $image_url = $upload['path'];
 
         if (!empty($title) && !empty($image_url)) {
             $stmt = $pdo->prepare("INSERT INTO events (title, description, image_url, event_date, view_url, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -24,17 +34,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: events.php');
             exit;
         } else {
-            setFlashMessage('danger', 'Event title and image URL are required.');
+            setFlashMessage('danger', 'Event title and image are required.');
         }
     } elseif ($action === 'edit') {
         $id = (int)$_POST['id'];
         $title = trim($_POST['title'] ?? '');
         $description = trim($_POST['description'] ?? '');
-        $image_url = trim($_POST['image_url'] ?? '');
+        $existingImage = trim($_POST['existing_image'] ?? '');
         $event_date = !empty($_POST['event_date']) ? $_POST['event_date'] : null;
         $view_url = trim($_POST['view_url'] ?? '#');
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
+
+        // Handle image upload from PC (keeps existing if no new file selected)
+        $upload = handleImageUpload('event_image', 'events', $existingImage, $_POST['image_url'] ?? null);
+        if (!$upload['success']) {
+            setFlashMessage('danger', $upload['error']);
+            header('Location: events.php?edit=' . $id);
+            exit;
+        }
+
+        $image_url = $upload['path'];
 
         if (!empty($title) && !empty($image_url) && $id > 0) {
             $stmt = $pdo->prepare("UPDATE events SET title = ?, description = ?, image_url = ?, event_date = ?, view_url = ?, display_order = ?, is_active = ? WHERE id = ?");
@@ -139,7 +159,7 @@ require_once __DIR__ . '/includes/header.php';
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
                     <td style="font-weight: 700; color: #1e88e5; text-align: center;">#<?= $row['display_order'] ?></td>
                     <td>
-                        <img src="<?= htmlspecialchars($row['image_url']) ?>" alt="Event Cover" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Event';">
+                        <img src="<?= htmlspecialchars(getAdminImageSrc($row['image_url'])) ?>" alt="Event Cover" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Event';">
                     </td>
                     <td style="font-weight: 600; color: #1a263d;">
                         <?= htmlspecialchars($row['title']) ?>
@@ -185,7 +205,7 @@ require_once __DIR__ . '/includes/header.php';
             <h3 class="modal-title"><i class="fas fa-plus-circle" style="color: #1e88e5;"></i> Add Recent Event</h3>
             <button type="button" class="modal-close" onclick="closeModal('addEventModal')">&times;</button>
         </div>
-        <form method="POST" action="events.php">
+        <form method="POST" action="events.php" enctype="multipart/form-data">
             <input type="hidden" name="action" value="add">
             <div class="modal-body">
                 <div class="form-group">
@@ -199,8 +219,12 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="image_url">Image URL <span class="required">*</span></label>
-                    <input type="text" name="image_url" id="image_url" class="form-control" placeholder="https://images.unsplash.com/..." required>
+                    <label class="form-label" for="event_image">Upload Event Cover from PC <span class="required">*</span></label>
+                    <input type="file" name="event_image" id="event_image" class="form-control" accept="image/*" required>
+                    <small style="color: #777; font-size: 12px; display: block; margin-top: 4px;">
+                        Choose image file (WEBP, JPG, PNG) from your PC, or specify URL below:
+                    </small>
+                    <input type="text" name="image_url" id="image_url" class="form-control" placeholder="Or enter image URL (optional fallback)" style="margin-top: 6px;">
                 </div>
 
                 <div class="form-row">
@@ -238,9 +262,10 @@ require_once __DIR__ . '/includes/header.php';
             <h3 class="modal-title"><i class="fas fa-edit" style="color: #1e88e5;"></i> Edit Event #<?= $editItem['id'] ?></h3>
             <a href="events.php" class="modal-close">&times;</a>
         </div>
-        <form method="POST" action="events.php">
+        <form method="POST" action="events.php" enctype="multipart/form-data">
             <input type="hidden" name="action" value="edit">
             <input type="hidden" name="id" value="<?= $editItem['id'] ?>">
+            <input type="hidden" name="existing_image" value="<?= htmlspecialchars($editItem['image_url']) ?>">
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label" for="edit_title">Event Title <span class="required">*</span></label>
@@ -253,8 +278,14 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="edit_image_url">Image URL <span class="required">*</span></label>
-                    <input type="text" name="image_url" id="edit_image_url" class="form-control" value="<?= htmlspecialchars($editItem['image_url']) ?>" required>
+                    <label class="form-label">Current Event Cover</label>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                        <img src="<?= htmlspecialchars(getAdminImageSrc($editItem['image_url'])) ?>" alt="Current Cover" style="width: 80px; height: 50px; border-radius: 4px; object-fit: cover; border: 1px solid #ddd;">
+                        <span style="font-size: 12px; color: #666; font-family: monospace;"><?= htmlspecialchars($editItem['image_url']) ?></span>
+                    </div>
+                    <label class="form-label" for="edit_event_image">Upload New Image from PC (optional)</label>
+                    <input type="file" name="event_image" id="edit_event_image" class="form-control" accept="image/*">
+                    <input type="text" name="image_url" id="edit_image_url" class="form-control" value="<?= htmlspecialchars($editItem['image_url']) ?>" placeholder="Or image URL" style="margin-top: 6px;">
                 </div>
 
                 <div class="form-row">
