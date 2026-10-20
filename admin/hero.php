@@ -1,7 +1,6 @@
 <?php
-$current_page = 'hero';
-$page_title = 'Hero Slides Management';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/auth.php';
+checkAdminAuth();
 
 $pdo = getDBConnection();
 $editItem = null;
@@ -84,6 +83,10 @@ if ($pdo) {
     $stmt = $pdo->query("SELECT * FROM hero_slides ORDER BY display_order ASC, id ASC");
     $slides = $stmt->fetchAll();
 }
+
+$current_page = 'hero';
+$page_title = 'Hero Slides Management';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="admin-card">

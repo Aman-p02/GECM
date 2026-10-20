@@ -1,7 +1,6 @@
 <?php
-$current_page = 'notices';
-$page_title = 'Notice Board Management';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/auth.php';
+checkAdminAuth();
 
 $pdo = getDBConnection();
 $editItem = null;
@@ -84,6 +83,10 @@ if ($pdo) {
     $stmt = $pdo->query("SELECT * FROM notices ORDER BY publish_date DESC, id DESC");
     $notices = $stmt->fetchAll();
 }
+
+$current_page = 'notices';
+$page_title = 'Notice Board Management';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="admin-card">

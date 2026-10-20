@@ -1,7 +1,6 @@
 <?php
-$current_page = 'settings';
-$page_title = 'Site Settings';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/auth.php';
+checkAdminAuth();
 
 $pdo = getDBConnection();
 
@@ -31,6 +30,10 @@ if ($pdo) {
         $settings[$r['setting_key']] = $r['setting_value'];
     }
 }
+
+$current_page = 'settings';
+$page_title = 'Site Settings';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="admin-card" style="max-width: 800px; margin: 0 auto;">

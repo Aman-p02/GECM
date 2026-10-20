@@ -1,7 +1,6 @@
 <?php
-$current_page = 'shots';
-$page_title = 'Latest Shots Management';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/auth.php';
+checkAdminAuth();
 
 $pdo = getDBConnection();
 $editItem = null;
@@ -79,6 +78,10 @@ if ($pdo) {
     $stmt = $pdo->query("SELECT * FROM latest_shots ORDER BY display_order ASC, id ASC");
     $shots = $stmt->fetchAll();
 }
+
+$current_page = 'shots';
+$page_title = 'Latest Shots Management';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="admin-card">

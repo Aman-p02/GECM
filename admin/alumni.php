@@ -1,7 +1,6 @@
 <?php
-$current_page = 'alumni';
-$page_title = 'Manage Alumni';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/auth.php';
+checkAdminAuth();
 
 $pdo = getDBConnection();
 $editItem = null;
@@ -83,6 +82,10 @@ if ($pdo) {
     $stmt = $pdo->query("SELECT * FROM alumni ORDER BY display_order ASC, id ASC");
     $alumniList = $stmt->fetchAll();
 }
+
+$current_page = 'alumni';
+$page_title = 'Manage Alumni';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="admin-card">

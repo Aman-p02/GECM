@@ -1,7 +1,6 @@
 <?php
-$current_page = 'ticker';
-$page_title = 'News Ticker Management';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/auth.php';
+checkAdminAuth();
 
 $pdo = getDBConnection();
 $editItem = null;
@@ -77,6 +76,10 @@ if ($pdo) {
     $stmt = $pdo->query("SELECT * FROM news_ticker ORDER BY display_order ASC, id ASC");
     $tickers = $stmt->fetchAll();
 }
+
+$current_page = 'ticker';
+$page_title = 'News Ticker Management';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="admin-card">

@@ -1,7 +1,6 @@
 <?php
-$current_page = 'departments';
-$page_title = 'Departments Management';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/auth.php';
+checkAdminAuth();
 
 $pdo = getDBConnection();
 $editItem = null;
@@ -89,6 +88,10 @@ if ($pdo) {
     $stmt = $pdo->query("SELECT * FROM departments ORDER BY display_order ASC, id ASC");
     $departments = $stmt->fetchAll();
 }
+
+$current_page = 'departments';
+$page_title = 'Departments Management';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="admin-card">

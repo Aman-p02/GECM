@@ -1,7 +1,6 @@
 <?php
-$current_page = 'admins';
-$page_title = 'Admin Users Management';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/auth.php';
+checkAdminAuth();
 
 $pdo = getDBConnection();
 $editItem = null;
@@ -95,6 +94,10 @@ if ($pdo) {
     $stmt = $pdo->query("SELECT id, username, email, role, is_active, created_at FROM admins ORDER BY id ASC");
     $admins = $stmt->fetchAll();
 }
+
+$current_page = 'admins';
+$page_title = 'Admin Users Management';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="admin-card">
