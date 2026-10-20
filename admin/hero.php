@@ -120,19 +120,7 @@ require_once __DIR__ . '/includes/header.php';
 
     <!-- Actions & Filter Row -->
     <div class="card-actions-row">
-        <div class="btn-group-export">
-            <button type="button" class="btn-export btn-export-excel" data-target-table="heroTable">
-                <i class="fas fa-file-excel"></i> Excel
-            </button>
-            <button type="button" class="btn-export btn-export-pdf">
-                <i class="fas fa-file-pdf"></i> PDF
-            </button>
-            <button type="button" class="btn-export btn-export-print">
-                <i class="fas fa-print"></i> Print
-            </button>
-        </div>
-
-        <div class="card-filters">
+        <div class="card-filters" style="margin-left: auto;">
             <div class="search-input-group">
                 <i class="fas fa-search"></i>
                 <input type="text" class="search-input" placeholder="Search slides..." data-table-search="heroTable">

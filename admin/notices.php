@@ -102,19 +102,7 @@ require_once __DIR__ . '/includes/header.php';
 
     <!-- Actions & Filter Row -->
     <div class="card-actions-row">
-        <div class="btn-group-export">
-            <button type="button" class="btn-export btn-export-excel" data-target-table="noticesTable">
-                <i class="fas fa-file-excel"></i> Excel
-            </button>
-            <button type="button" class="btn-export btn-export-pdf">
-                <i class="fas fa-file-pdf"></i> PDF
-            </button>
-            <button type="button" class="btn-export btn-export-print">
-                <i class="fas fa-print"></i> Print
-            </button>
-        </div>
-
-        <div class="card-filters">
+        <div class="card-filters" style="margin-left: auto;">
             <select class="filter-select" data-table-filter="noticesTable">
                 <option value="all">All Categories</option>
                 <option value="Exam">Exam</option>
