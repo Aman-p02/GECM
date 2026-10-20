@@ -111,11 +111,10 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top">
         <div class="card-title-group">
-            <i class="fas fa-calendar-alt"></i>
             <h2 class="card-title">Manage Recent Events</h2>
         </div>
         <button type="button" class="btn-add-new" onclick="openModal('addEventModal')">
-            <i class="fas fa-plus"></i> Add New Event
+            + Add New Event
         </button>
     </div>
 
@@ -190,7 +189,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal-overlay" id="addEventModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title"><i class="fas fa-plus-circle" style="color: #1e88e5;"></i> Add Recent Event</h3>
+            <h3 class="modal-title">Add Recent Event</h3>
             <button type="button" class="modal-close" onclick="closeModal('addEventModal')">&times;</button>
         </div>
         <form method="POST" action="events.php" enctype="multipart/form-data">
@@ -247,7 +246,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal-overlay active" id="editEventModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title"><i class="fas fa-edit" style="color: #1e88e5;"></i> Edit Event #<?= $editItem['id'] ?></h3>
+            <h3 class="modal-title">Edit Event #<?= $editItem['id'] ?></h3>
             <a href="events.php" class="modal-close">&times;</a>
         </div>
         <form method="POST" action="events.php" enctype="multipart/form-data">

@@ -39,7 +39,6 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card" style="max-width: 800px; margin: 0 auto;">
     <div class="card-top">
         <div class="card-title-group">
-            <i class="fas fa-sliders-h"></i>
             <h2 class="card-title">General Institution Settings</h2>
         </div>
     </div>
@@ -81,7 +80,7 @@ require_once __DIR__ . '/includes/header.php';
 
         <div style="margin-top: 24px; text-align: right;">
             <button type="submit" class="btn-primary" style="padding: 10px 24px;">
-                <i class="fas fa-save"></i> Save Site Settings
+                Save Site Settings
             </button>
         </div>
     </form>

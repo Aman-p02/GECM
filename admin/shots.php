@@ -107,11 +107,10 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top">
         <div class="card-title-group">
-            <i class="fas fa-camera-retro"></i>
             <h2 class="card-title">Latest Shots / Campus Gallery</h2>
         </div>
         <button type="button" class="btn-add-new" onclick="openModal('addShotModal')">
-            <i class="fas fa-plus"></i> Add New Shot
+            + Add New Shot
         </button>
     </div>
 
@@ -186,7 +185,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal-overlay" id="addShotModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title"><i class="fas fa-plus-circle" style="color: #1e88e5;"></i> Add Campus Shot</h3>
+            <h3 class="modal-title">Add Campus Shot</h3>
             <button type="button" class="modal-close" onclick="closeModal('addShotModal')">&times;</button>
         </div>
         <form method="POST" action="shots.php" enctype="multipart/form-data">
@@ -238,7 +237,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal-overlay active" id="editShotModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title"><i class="fas fa-edit" style="color: #1e88e5;"></i> Edit Shot #<?= $editItem['id'] ?></h3>
+            <h3 class="modal-title">Edit Shot #<?= $editItem['id'] ?></h3>
             <a href="shots.php" class="modal-close">&times;</a>
         </div>
         <form method="POST" action="shots.php" enctype="multipart/form-data">

@@ -85,11 +85,10 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top">
         <div class="card-title-group">
-            <i class="fas fa-broadcast-tower"></i>
             <h2 class="card-title">Marquee News Ticker Updates</h2>
         </div>
         <button type="button" class="btn-add-new" onclick="openModal('addTickerModal')">
-            <i class="fas fa-plus"></i> Add Ticker Update
+            + Add Ticker Update
         </button>
     </div>
 
@@ -161,7 +160,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal-overlay" id="addTickerModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title"><i class="fas fa-plus-circle" style="color: #1e88e5;"></i> Add News Ticker Update</h3>
+            <h3 class="modal-title">Add News Ticker Update</h3>
             <button type="button" class="modal-close" onclick="closeModal('addTickerModal')">&times;</button>
         </div>
         <form method="POST" action="ticker.php">
@@ -204,7 +203,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal-overlay active" id="editTickerModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title"><i class="fas fa-edit" style="color: #1e88e5;"></i> Edit Ticker #<?= $editItem['id'] ?></h3>
+            <h3 class="modal-title">Edit Ticker #<?= $editItem['id'] ?></h3>
             <a href="ticker.php" class="modal-close">&times;</a>
         </div>
         <form method="POST" action="ticker.php">

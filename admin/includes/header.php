@@ -31,7 +31,7 @@ $page_title = $page_title ?? 'Dashboard Overview';
     <aside class="admin-sidebar" id="adminSidebar">
         <div class="sidebar-header">
             <a href="dashboard.php" class="sidebar-brand">
-                <i class="fas fa-university"></i> GEC Admin
+                GEC Admin
             </a>
         </div>
 
@@ -39,7 +39,6 @@ $page_title = $page_title ?? 'Dashboard Overview';
             <li class="menu-category">Main Navigation</li>
             <li class="menu-item <?= ($current_page === 'dashboard') ? 'active' : '' ?>">
                 <a href="dashboard.php" class="menu-link">
-                    <i class="fas fa-chart-pie"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
@@ -47,43 +46,36 @@ $page_title = $page_title ?? 'Dashboard Overview';
             <li class="menu-category">Content Management</li>
             <li class="menu-item <?= ($current_page === 'hero') ? 'active' : '' ?>">
                 <a href="hero.php" class="menu-link">
-                    <i class="fas fa-images"></i>
                     <span>Hero Slides</span>
                 </a>
             </li>
             <li class="menu-item <?= ($current_page === 'notices') ? 'active' : '' ?>">
                 <a href="notices.php" class="menu-link">
-                    <i class="fas fa-bullhorn"></i>
                     <span>Notice Board</span>
                 </a>
             </li>
             <li class="menu-item <?= ($current_page === 'ticker') ? 'active' : '' ?>">
                 <a href="ticker.php" class="menu-link">
-                    <i class="fas fa-broadcast-tower"></i>
                     <span>News Ticker</span>
                 </a>
             </li>
             <li class="menu-item <?= ($current_page === 'events') ? 'active' : '' ?>">
                 <a href="events.php" class="menu-link">
-                    <i class="fas fa-calendar-alt"></i>
                     <span>Recent Events</span>
                 </a>
             </li>
             <li class="menu-item <?= ($current_page === 'shots') ? 'active' : '' ?>">
                 <a href="shots.php" class="menu-link">
-                    <i class="fas fa-camera-retro"></i>
                     <span>Latest Shots</span>
                 </a>
             </li>
             <li class="menu-item <?= ($current_page === 'departments') ? 'active' : '' ?>">
                 <a href="departments.php" class="menu-link">
-                    <i class="fas fa-graduation-cap"></i>
                     <span>Departments</span>
                 </a>
             </li>
             <li class="menu-item <?= ($current_page === 'alumni') ? 'active' : '' ?>">
                 <a href="alumni.php" class="menu-link">
-                    <i class="fas fa-user-graduate"></i>
                     <span>Manage Alumni</span>
                 </a>
             </li>
@@ -91,19 +83,16 @@ $page_title = $page_title ?? 'Dashboard Overview';
             <li class="menu-category">System & Settings</li>
             <li class="menu-item <?= ($current_page === 'settings') ? 'active' : '' ?>">
                 <a href="settings.php" class="menu-link">
-                    <i class="fas fa-sliders-h"></i>
                     <span>Site Settings</span>
                 </a>
             </li>
             <li class="menu-item <?= ($current_page === 'admins') ? 'active' : '' ?>">
                 <a href="admins.php" class="menu-link">
-                    <i class="fas fa-users-cog"></i>
                     <span>Admin Users</span>
                 </a>
             </li>
             <li class="menu-item">
                 <a href="../index.php" target="_blank" class="menu-link">
-                    <i class="fas fa-external-link-alt"></i>
                     <span>View Website</span>
                 </a>
             </li>

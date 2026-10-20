@@ -113,11 +113,10 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top">
         <div class="card-title-group">
-            <i class="fas fa-user-graduate"></i>
             <h2 class="card-title">Manage Notable Alumni</h2>
         </div>
         <button type="button" class="btn-add-new" onclick="openModal('addAlumniModal')">
-            <i class="fas fa-plus"></i> Add Notable Alumni
+            + Add Notable Alumni
         </button>
     </div>
 
@@ -197,7 +196,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal-overlay" id="addAlumniModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title"><i class="fas fa-plus-circle" style="color: #1e88e5;"></i> Add Notable Alumni</h3>
+            <h3 class="modal-title">Add Notable Alumni</h3>
             <button type="button" class="modal-close" onclick="closeModal('addAlumniModal')">&times;</button>
         </div>
         <form method="POST" action="alumni.php" enctype="multipart/form-data">
@@ -261,7 +260,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal-overlay active" id="editAlumniModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title"><i class="fas fa-edit" style="color: #1e88e5;"></i> Edit Alumni</h3>
+            <h3 class="modal-title">Edit Alumni</h3>
             <a href="alumni.php" class="modal-close">&times;</a>
         </div>
         <form method="POST" action="alumni.php" enctype="multipart/form-data">

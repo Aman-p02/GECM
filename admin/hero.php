@@ -110,11 +110,10 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top">
         <div class="card-title-group">
-            <i class="fas fa-images"></i>
             <h2 class="card-title">Campus Hero Carousel Slides</h2>
         </div>
         <button type="button" class="btn-add-new" onclick="openModal('addSlideModal')">
-            <i class="fas fa-plus"></i> Add New Slide
+            + Add New Slide
         </button>
     </div>
 
@@ -189,7 +188,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal-overlay" id="addSlideModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title"><i class="fas fa-plus-circle" style="color: #1e88e5;"></i> Add Campus Slide</h3>
+            <h3 class="modal-title">Add Campus Slide</h3>
             <button type="button" class="modal-close" onclick="closeModal('addSlideModal')">&times;</button>
         </div>
         <form method="POST" action="hero.php" enctype="multipart/form-data">
@@ -235,7 +234,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn-secondary" onclick="closeModal('addSlideModal')">Cancel</button>
-                <button type="submit" class="btn-primary"><i class="fas fa-check"></i> Add Slide</button>
+                <button type="submit" class="btn-primary">Add Slide</button>
             </div>
         </form>
     </div>
@@ -246,7 +245,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="modal-overlay active" id="editSlideModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title"><i class="fas fa-edit" style="color: #1e88e5;"></i> Edit Slide #<?= $editItem['id'] ?></h3>
+            <h3 class="modal-title">Edit Slide #<?= $editItem['id'] ?></h3>
             <a href="hero.php" class="modal-close">&times;</a>
         </div>
         <form method="POST" action="hero.php" enctype="multipart/form-data">
