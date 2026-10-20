@@ -16,14 +16,14 @@ if (!isset($active_page)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($page_title); ?></title>
     <!-- Global CSS -->
-    <link rel="stylesheet" href="css/global.css?v=1">
+    <link rel="stylesheet" href="css/global.css?v=<?= file_exists(__DIR__ . '/../css/global.css') ? filemtime(__DIR__ . '/../css/global.css') : time() ?>">
 <?php if (isset($extra_css)): ?>
     <?php if (is_array($extra_css)): ?>
         <?php foreach ($extra_css as $css_file): ?>
-    <link rel="stylesheet" href="<?php echo htmlspecialchars($css_file); ?>?v=1">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars($css_file); ?>?v=<?= file_exists(__DIR__ . '/../' . $css_file) ? filemtime(__DIR__ . '/../' . $css_file) : time() ?>">
         <?php endforeach; ?>
     <?php else: ?>
-    <link rel="stylesheet" href="<?php echo htmlspecialchars($extra_css); ?>?v=1">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars($extra_css); ?>?v=<?= file_exists(__DIR__ . '/../' . $extra_css) ? filemtime(__DIR__ . '/../' . $extra_css) : time() ?>">
     <?php endif; ?>
 <?php endif; ?>
     <!-- Google Fonts -->

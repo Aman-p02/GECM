@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function startHeroAutoplay() {
             stopHeroAutoplay();
-            heroTimer = setInterval(nextHeroSlide, 4500);
+            heroTimer = setInterval(nextHeroSlide, 3000);
         }
 
         function stopHeroAutoplay() {
@@ -277,6 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 prevHeroSlide();
                 startHeroAutoplay();
             });
+            heroPrevBtn.addEventListener("mouseenter", stopHeroAutoplay);
+            heroPrevBtn.addEventListener("mouseleave", startHeroAutoplay);
         }
 
         if (heroNextBtn) {
@@ -284,6 +286,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 nextHeroSlide();
                 startHeroAutoplay();
             });
+            heroNextBtn.addEventListener("mouseenter", stopHeroAutoplay);
+            heroNextBtn.addEventListener("mouseleave", startHeroAutoplay);
         }
 
         heroDots.forEach(dot => {
@@ -294,18 +298,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     startHeroAutoplay();
                 }
             });
-        });
+            dot.addEventListener("mouseenter", stopHeroAutoplay);
+            dot.addEventListener("mouseleave", startHeroAutoplay);
+        } );
 
         if (heroSection) {
-            heroSection.addEventListener("mouseenter", stopHeroAutoplay);
-            heroSection.addEventListener("mouseleave", startHeroAutoplay);
-
             let touchStartX = 0;
             let touchEndX = 0;
 
             heroSection.addEventListener("touchstart", (e) => {
                 touchStartX = e.changedTouches[0].screenX;
-                stopHeroAutoplay();
             }, { passive: true });
 
             heroSection.addEventListener("touchend", (e) => {
