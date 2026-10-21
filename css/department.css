@@ -375,6 +375,66 @@
     color: #1e293b;
 }
 
+/* Under Graduate / Post Graduate Courses Table Card matching screenshot */
+.courses-card {
+    border: 1px solid #1e6091;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.courses-card-header {
+    background: #1e6091;
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 1.12rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.courses-table-wrapper {
+    overflow-x: auto;
+    background: #ffffff;
+    padding: 15px 20px 20px;
+}
+
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.courses-table th,
+.courses-table td {
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+}
+
+.courses-table th {
+    background: #ffffff;
+    color: #1e293b;
+    font-weight: 600;
+    text-align: center;
+}
+
+.courses-table th:first-child,
+.courses-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+.courses-table td {
+    text-align: center;
+    color: #334155;
+}
+
+.courses-table tbody tr:hover {
+    background: #f8fafc;
+}
+
 /* Faculty Grid */
 .faculty-grid {
     display: grid;

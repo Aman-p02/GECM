@@ -114,33 +114,47 @@ include_once __DIR__ . '/includes/header.php';
                         About the Programme
                     </div>
 
-                    <div class="programme-cards-grid">
-                        <div class="prog-card">
-                            <h4><i class="fas fa-graduation-cap"></i> Under Graduate (B.E.)</h4>
-                            <p style="font-size: 0.93rem; color: #475569; margin-bottom: 15px;">
-                                Bachelor of Engineering in Computer Engineering
-                            </p>
-                            <ul class="prog-meta-list">
-                                <li><span>Intake Capacity:</span> <strong>120 Seats</strong></li>
-                                <li><span>Duration:</span> <strong>4 Years (8 Semesters)</strong></li>
-                                <li><span>Starting Year:</span> <strong>2001</strong></li>
-                                <li><span>Affiliation:</span> <strong>GTU, Ahmedabad</strong></li>
-                                <li><span>Approval:</span> <strong>AICTE, New Delhi</strong></li>
-                            </ul>
-                        </div>
+                    <p class="dept-text-body">
+                        Computer engineering blends together computer science and electrical engineering to further advancements in digital technology, computer networking, and computer systems. In turn, computer engineers use their extensive knowledge of hardware and software design and computer programming to make computing platforms and applications more efficient and effective. Seamlessly integrating the latest innovations, computer engineers develop new computer hardware, design and implement software applications, and enhance the capabilities of networks and communications systems.
+                    </p>
 
-                        <div class="prog-card">
-                            <h4><i class="fas fa-user-graduate"></i> Post Graduate (M.E.)</h4>
-                            <p style="font-size: 0.93rem; color: #475569; margin-bottom: 15px;">
-                                Master of Engineering in Computer Science &amp; Engineering
-                            </p>
-                            <ul class="prog-meta-list">
-                                <li><span>Intake Capacity:</span> <strong>18 Seats</strong></li>
-                                <li><span>Duration:</span> <strong>2 Years (4 Semesters)</strong></li>
-                                <li><span>Starting Year:</span> <strong>2010</strong></li>
-                                <li><span>Affiliation:</span> <strong>GTU, Ahmedabad</strong></li>
-                                <li><span>Approval:</span> <strong>AICTE, New Delhi</strong></li>
-                            </ul>
+                    <p class="dept-text-body">
+                        Computer engineers work with hardware and software, ensuring that the two are seamlessly integrated and functioning properly. Computer engineers focus on innovation—making computing systems safer, faster and more powerfull. At the career level, there are two main avenues: hardware and software engineering. Hardware engineers focus their skills on computer systems and components, designing microprocessors, circuit boards, routers and other embedded devices. On the software side, these engineers create, test and debug programs and applications that run on computers, mobile devices and more.
+                    </p>
+
+                    <!-- Under Graduate/Post Graduate Courses Table Card -->
+                    <div class="courses-card">
+                        <div class="courses-card-header">
+                            <i class="fas fa-bars"></i> Under Graduate/Post Graduate Courses
+                        </div>
+                        <div class="courses-table-wrapper">
+                            <table class="courses-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name of Course</th>
+                                        <th>Type</th>
+                                        <th>Period (Years)</th>
+                                        <th>Intake</th>
+                                        <th>Year of Starting</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Computer Engineering</td>
+                                        <td>UG</td>
+                                        <td>4</td>
+                                        <td>120</td>
+                                        <td>2001</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Computer Engineering (Software Engineering)</td>
+                                        <td>PG</td>
+                                        <td>2</td>
+                                        <td>18</td>
+                                        <td>2010</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </section>
