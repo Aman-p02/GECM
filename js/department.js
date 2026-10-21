@@ -5,21 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.dept-nav-link');
-    const tabPanes = document.querySelectorAll('.dept-tab-content');
-    const pageTitle = document.getElementById('deptPageTitle');
-
-    // Title mappings for each tab
-    const tabTitles = {
-        'about': 'About Department',
-        'vision-mission': 'Vision and Mission',
-        'syllabus': 'Syllabus & Curriculum',
-        'faculty': 'Faculty Members',
-        'activities': 'Department Activities',
-        'facilities': 'Laboratories & Facilities',
-        'publications': 'Research & Publications',
-        'advisory-board': 'Industry Advisory Board',
-        'newsletters': 'Department Newsletters'
-    };
+    const tabPanes = document.querySelectorAll('.dept-tab-pane, .dept-tab-content');
 
     function activateTab(tabId) {
         if (!tabId) return;
@@ -49,16 +35,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         targetPane.classList.add('active');
 
-        // Update Top Bar Title
-        if (pageTitle && tabTitles[tabId]) {
-            pageTitle.textContent = tabTitles[tabId];
-        }
-
-        // Scroll into view on mobile screens smoothly
-        if (window.innerWidth < 992) {
-            const contentCard = document.querySelector('.dept-content-card');
-            if (contentCard) {
-                contentCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Scroll to content on small screens
+        if (window.innerWidth < 900) {
+            const panel = document.querySelector('.dept-content-panel');
+            if (panel) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
     }
@@ -81,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hash && document.getElementById('tab-' + hash)) {
             activateTab(hash);
         } else {
-            // Default to about tab
             activateTab('about');
         }
     }
