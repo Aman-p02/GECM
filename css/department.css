@@ -450,6 +450,59 @@
     color: #ffffff;
 }
 
+/* Centered Divider Heading matching screenshot */
+.dept-divider-heading {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 40px 0 24px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #333333;
+}
+
+.dept-divider-heading::before,
+.dept-divider-heading::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #d5dbe1;
+}
+
+.dept-divider-heading span {
+    padding: 0 22px;
+}
+
+/* Facilities 2-Column List matching screenshot */
+.dept-facilities-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 40px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.facility-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.facility-items-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.94rem;
+    color: #444444;
+    padding: 8px 0;
+    line-height: 1.5;
+}
+
+.facility-items-list li i {
+    color: #0288d1;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .dept-main-grid {

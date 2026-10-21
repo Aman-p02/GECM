@@ -167,6 +167,28 @@ include_once __DIR__ . '/includes/header.php';
                             </table>
                         </div>
                     </div>
+
+                    <!-- Facilities Section below Courses Table matching screenshot -->
+                    <div class="dept-divider-heading">
+                        <span>Facilities</span>
+                    </div>
+
+                    <div class="dept-facilities-dual-grid">
+                        <ul class="facility-items-list">
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Wi-Fi enabled Department</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>System Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Programming Language Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Digital Logic Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Seminar Halls</span></li>
+                        </ul>
+                        <ul class="facility-items-list">
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Campus Wide Fiber Optic Cable Network</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Network Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>DBMS Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Operating System Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Digital Learning Lab</span></li>
+                        </ul>
+                    </div>
                 </section>
 
                 <!-- ========================================================
@@ -375,6 +397,26 @@ include_once __DIR__ . '/includes/header.php';
                     <p class="dept-content-text">
                         The department is equipped with 10 computer laboratories with over 250 high-end networked systems, dedicated servers, and high-speed campus-wide Wi-Fi access.
                     </p>
+
+                    <div class="dept-facilities-dual-grid" style="margin-bottom: 30px;">
+                        <ul class="facility-items-list">
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Wi-Fi enabled Department</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>System Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Programming Language Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Digital Logic Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Seminar Halls</span></li>
+                        </ul>
+                        <ul class="facility-items-list">
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Campus Wide Fiber Optic Cable Network</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Network Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>DBMS Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Operating System Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Digital Learning Lab</span></li>
+                        </ul>
+                    </div>
+
+                    <h4 class="dept-subtitle-line" style="margin-top: 10px;">Key Laboratories Details</h4>
+                    <div class="dept-title-line"></div>
 
                     <div class="dept-facility-grid">
                         <div class="dept-facility-box">
