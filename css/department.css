@@ -1,163 +1,351 @@
 /* ==============================================================
-   GECM Department Detail Page Stylesheet
-   Crafted to match the GECM website theme (Navy Blue & Gold)
-   Clean, institutional, human-designed college portal layout
+   GECM Department Detail Page - Premium Academic Portal Stylesheet
+   Rich, Modern, State-of-the-Art College Design
+   Cohesive with GECM Brand (Deep Navy #0c3b6d & Vibrant Gold #f39c12)
    ============================================================== */
 
-/* Breadcrumb Bar */
-.dept-breadcrumb-bar {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 12px 0;
-    font-size: 0.9rem;
+/* -------------------------------------------------------------
+   1. Department Hero Banner (Rich Institutional Header)
+   ------------------------------------------------------------- */
+.dept-hero-section {
+    background: radial-gradient(circle at 85% 20%, rgba(27, 91, 156, 0.45) 0%, transparent 60%),
+                radial-gradient(circle at 15% 80%, rgba(243, 156, 18, 0.12) 0%, transparent 50%),
+                linear-gradient(135deg, #071f3a 0%, #0c3b6d 55%, #154f8f 100%);
+    color: #ffffff;
+    padding: 42px 0 38px;
+    position: relative;
+    border-bottom: 4px solid var(--secondary-color, #f39c12);
+    box-shadow: 0 10px 30px rgba(7, 31, 58, 0.25);
+    overflow: hidden;
 }
 
-.dept-breadcrumb-bar .breadcrumb-list {
+.dept-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.dept-hero-container {
+    position: relative;
+    z-index: 2;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.dept-hero-text {
+    max-width: 740px;
+}
+
+.dept-pill-badge {
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    color: var(--text-light, #666);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
 }
 
-.dept-breadcrumb-bar a {
-    color: var(--primary-color, #0c3b6d);
+.dept-pill-badge i {
+    color: #f39c12;
+}
+
+.dept-hero-h1 {
+    font-size: 2.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.dept-hero-h1 span.highlight {
+    background: linear-gradient(120deg, #ffffff 40%, #ffc107 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dept-hero-p {
+    font-size: 1.02rem;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0 0 14px 0;
+    line-height: 1.6;
+}
+
+.dept-tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dept-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dept-tag i {
+    color: #f39c12;
+}
+
+/* Breadcrumbs pill */
+.dept-breadcrumb-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(5, 23, 44, 0.45);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-size: 0.88rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dept-breadcrumb-pill a {
+    color: #ffffff;
     text-decoration: none;
     transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.dept-breadcrumb-bar a:hover {
-    color: var(--secondary-color, #f39c12);
-    text-decoration: underline;
+.dept-breadcrumb-pill a:hover {
+    color: #f39c12;
 }
 
-.dept-breadcrumb-bar .separator {
-    color: #aaa;
+.dept-breadcrumb-pill .sep {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
 }
 
-.dept-breadcrumb-bar .active-item {
-    color: #333;
-    font-weight: 500;
-}
-
-/* Page Wrapper */
-.dept-page-container {
-    padding: 35px 0 60px;
-    background-color: #ffffff;
-}
-
-/* 2-Column Layout */
-.dept-main-grid {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
+.dept-breadcrumb-pill .current {
+    color: #f39c12;
+    font-weight: 600;
 }
 
 /* -------------------------------------------------------------
-   Left Sidebar Navigation
+   2. Main Layout Workspace
    ------------------------------------------------------------- */
-.dept-sidebar {
-    width: 270px;
-    flex-shrink: 0;
-    background: #ffffff;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+.dept-page-wrapper {
+    background-color: #f8fafc;
+    min-height: calc(100vh - 350px);
+    padding: 40px 0 75px;
 }
 
-.dept-sidebar-title {
-    background-color: var(--primary-color, #0c3b6d);
+.dept-layout-grid {
+    display: grid;
+    grid-template-columns: 295px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* -------------------------------------------------------------
+   3. Premium Left Sidebar Navigation
+   ------------------------------------------------------------- */
+.dept-sidebar {
+    position: sticky;
+    top: 90px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid rgba(12, 59, 109, 0.1);
+    box-shadow: 0 12px 30px -5px rgba(12, 59, 109, 0.08), 0 4px 10px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+}
+
+.dept-sidebar-header {
+    background: linear-gradient(135deg, #0c3b6d 0%, #175394 100%);
+    padding: 18px 22px;
     color: #ffffff;
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 3px solid #f39c12;
+}
+
+.sidebar-header-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(243, 156, 18, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f39c12;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.sidebar-header-text h4 {
+    font-size: 1.05rem;
     font-weight: 600;
-    padding: 14px 18px;
+    color: #ffffff;
     margin: 0;
-    border-bottom: 2px solid var(--secondary-color, #f39c12);
+    line-height: 1.2;
+}
+
+.sidebar-header-text small {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.75);
+    display: block;
+    margin-top: 2px;
 }
 
 .dept-sidebar-menu {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 10px 8px;
 }
 
 .dept-sidebar-menu li {
-    border-bottom: 1px solid #edf0f2;
-}
-
-.dept-sidebar-menu li:last-child {
-    border-bottom: none;
+    margin: 3px 0;
 }
 
 .dept-nav-link {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 12px 18px;
-    color: #333333;
-    font-size: 0.92rem;
+    justify-content: space-between;
+    padding: 12px 16px;
+    font-size: 0.94rem;
     font-weight: 500;
+    color: #334155;
     text-decoration: none;
-    transition: background-color 0.2s, color 0.2s, padding-left 0.2s;
+    border-radius: 8px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
+    background: transparent;
+    border-left: 3px solid transparent;
+}
+
+.dept-nav-link-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dept-nav-link-left i {
+    width: 22px;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.98rem;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .dept-nav-link:hover {
-    background-color: #f8f9fa;
-    color: var(--primary-color, #0c3b6d);
-    padding-left: 22px;
+    background: rgba(12, 59, 109, 0.05);
+    color: #0c3b6d;
+    transform: translateX(4px);
 }
 
-/* Active Menu Item matching Theme Navy Blue */
+.dept-nav-link:hover .dept-nav-link-left i {
+    color: #0c3b6d;
+}
+
+/* Active State matching Theme Navy Blue & Gold */
 .dept-sidebar-menu li.active .dept-nav-link,
 .dept-nav-link.active {
-    background-color: var(--primary-color, #0c3b6d);
+    background: linear-gradient(90deg, #0c3b6d 0%, #154e8a 100%);
     color: #ffffff !important;
     font-weight: 600;
+    border-left: 4px solid #f39c12;
+    box-shadow: 0 4px 15px rgba(12, 59, 109, 0.22);
 }
 
-.dept-nav-link .arrow-icon {
-    font-size: 0.75rem;
-    color: #888;
-    transition: transform 0.2s;
+.dept-nav-link.active .dept-nav-link-left i {
+    color: #f39c12 !important;
 }
 
-.dept-nav-link.active .arrow-icon {
+.dept-nav-link.active .chevron-icon {
     color: #ffffff;
     transform: rotate(90deg);
 }
 
-/* Sidebar Contact Box */
-.dept-sidebar-info {
-    padding: 15px 18px;
-    background-color: #f8f9fa;
-    border-top: 1px solid #dee2e6;
-    font-size: 0.85rem;
-    color: #555;
-    line-height: 1.6;
+.chevron-icon {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    transition: transform 0.25s ease, color 0.2s ease;
 }
 
-.dept-sidebar-info strong {
-    color: var(--primary-color, #0c3b6d);
-    display: block;
-    margin-bottom: 5px;
-    font-size: 0.88rem;
+/* Sidebar Contact Footer */
+.dept-sidebar-info {
+    margin: 12px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+.dept-sidebar-info h5 {
+    color: #0c3b6d;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dept-sidebar-info h5 i {
+    color: #f39c12;
+}
+
+.dept-sidebar-info p {
+    margin: 0 0 5px 0;
+    line-height: 1.5;
+}
+
+.dept-sidebar-info a {
+    color: #0c3b6d;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.dept-sidebar-info a:hover {
+    color: #f39c12;
+    text-decoration: underline;
 }
 
 /* -------------------------------------------------------------
-   Right Content Box
+   4. Right Content Panel (Elevated Card Design)
    ------------------------------------------------------------- */
 .dept-content-panel {
-    flex: 1;
-    min-width: 0;
     background: #ffffff;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 32px 35px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(12, 59, 109, 0.08);
+    padding: 38px 44px;
+    box-shadow: 0 15px 40px -10px rgba(12, 59, 109, 0.07), 0 2px 6px rgba(0, 0, 0, 0.02);
+    min-height: 600px;
 }
 
 .dept-tab-pane {
@@ -166,13 +354,13 @@
 
 .dept-tab-pane.active {
     display: block;
-    animation: fadeInPane 0.25s ease-in-out;
+    animation: fadeInTab 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes fadeInPane {
+@keyframes fadeInTab {
     from {
         opacity: 0;
-        transform: translateY(4px);
+        transform: translateY(6px);
     }
     to {
         opacity: 1;
@@ -180,340 +368,569 @@
     }
 }
 
-/* Section Headings with Gold Underline (Matching Homepage Design) */
-.dept-section-title {
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--primary-color, #0c3b6d);
-    margin: 0 0 6px 0;
+/* Tab Header Strip */
+.tab-header-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #edf2f7;
+    position: relative;
 }
 
-.dept-title-line {
-    width: 50px;
+.tab-header-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 65px;
     height: 3px;
-    background-color: var(--secondary-color, #f39c12);
-    margin-bottom: 22px;
+    background: #f39c12;
+    border-radius: 2px;
 }
 
-.dept-subtitle-line {
-    font-size: 1.2rem;
+.tab-header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tab-header-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(12, 59, 109, 0.08) 0%, rgba(27, 91, 156, 0.12) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0c3b6d;
+    font-size: 1.35rem;
+    flex-shrink: 0;
+}
+
+.tab-header-text h3 {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #0c3b6d;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.tab-header-text p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 3px 0 0 0;
+}
+
+/* Quick Department Metrics Strip */
+.dept-metrics-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.metric-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    border-color: #0c3b6d;
+    box-shadow: 0 8px 18px rgba(12, 59, 109, 0.08);
+}
+
+.metric-num {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #0c3b6d;
+    line-height: 1.15;
+    margin-bottom: 4px;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: #64748b;
     font-weight: 600;
-    color: var(--primary-color, #0c3b6d);
-    margin: 32px 0 6px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Paragraphs */
+/* Clean Readable Paragraphs */
 .dept-content-text {
-    font-size: 0.95rem;
-    color: #444444;
-    line-height: 1.8;
-    margin-bottom: 18px;
-    text-align: justify;
-}
-
-/* Vision Box */
-.dept-vision-box {
-    background-color: #f8f9fa;
-    border-left: 4px solid var(--primary-color, #0c3b6d);
-    padding: 16px 20px;
-    margin-bottom: 25px;
-    font-size: 0.98rem;
-    color: #333333;
-    line-height: 1.75;
-    text-align: justify;
-}
-
-/* Mission Bullet List */
-.dept-mission-list {
-    margin: 0 0 30px 20px;
-    padding: 0;
-}
-
-.dept-mission-list li {
-    font-size: 0.95rem;
-    color: #444444;
-    line-height: 1.75;
-    margin-bottom: 12px;
-    text-align: justify;
-}
-
-/* Official Academic Tables & Cards */
-.dept-academic-card {
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-.dept-card-header {
-    background-color: var(--primary-color, #0c3b6d);
-    color: #ffffff;
     font-size: 1rem;
-    font-weight: 600;
-    padding: 11px 18px;
+    color: #334155;
+    line-height: 1.85;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Subheadings */
+.dept-subheading {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0c3b6d;
+    margin: 35px 0 16px 0;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.dept-card-body {
-    padding: 20px;
-    background-color: #ffffff;
+.dept-subheading i {
+    color: #f39c12;
 }
 
-.peo-list {
-    margin: 10px 0 0 20px;
-    padding: 0;
+/* -------------------------------------------------------------
+   5. Official Courses Table (Under Graduate / Post Graduate)
+   ------------------------------------------------------------- */
+.dept-academic-card {
+    border: 1px solid rgba(12, 59, 109, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 25px rgba(12, 59, 109, 0.07);
 }
 
-.peo-list li {
-    font-size: 0.95rem;
-    color: #444444;
-    line-height: 1.7;
-    margin-bottom: 12px;
-    text-align: justify;
+.dept-card-header {
+    background: linear-gradient(135deg, #0c3b6d 0%, #154f8f 100%);
+    color: #ffffff;
+    font-size: 1.08rem;
+    font-weight: 600;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 2px solid #f39c12;
 }
 
-.peo-list strong {
-    color: var(--primary-color, #0c3b6d);
+.dept-card-header i {
+    color: #f39c12;
 }
 
-/* Courses & Syllabus Data Table */
 .dept-table-responsive {
     overflow-x: auto;
+    background: #ffffff;
 }
 
 .dept-data-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     margin: 0;
 }
 
 .dept-data-table th,
 .dept-data-table td {
-    padding: 11px 15px;
-    border: 1px solid #dee2e6;
+    padding: 15px 20px;
+    border-bottom: 1px solid #edf2f7;
 }
 
 .dept-data-table th {
-    background-color: #f8f9fa;
-    color: #333333;
-    font-weight: 600;
+    background: #f8fafc;
+    color: #1e293b;
+    font-weight: 700;
     text-align: center;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-bottom: 2px solid #e2e8f0;
 }
 
 .dept-data-table th:first-child,
 .dept-data-table td:first-child {
     text-align: left;
+    font-weight: 600;
+    color: #0c3b6d;
 }
 
 .dept-data-table td {
     text-align: center;
-    color: #444444;
+    color: #334155;
+    font-size: 0.96rem;
 }
 
-.dept-data-table tr:hover {
-    background-color: #fafafa;
+.dept-data-table tbody tr:hover {
+    background: #f8fafc;
 }
 
-/* Badge for UG/PG */
+/* Badges for UG/PG */
 .badge-program {
     display: inline-block;
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-size: 0.78rem;
-    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .badge-program.ug {
-    background-color: #e8f5e9;
-    color: #2e7d32;
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .badge-program.pg {
-    background-color: #e3f2fd;
-    color: #1565c0;
+    background: rgba(12, 59, 109, 0.12);
+    color: #0c3b6d;
+    border: 1px solid rgba(12, 59, 109, 0.25);
 }
 
-/* Faculty Grid */
-.dept-faculty-grid {
+/* -------------------------------------------------------------
+   6. Interactive Facilities Grid (Rich Modern Look)
+   ------------------------------------------------------------- */
+.facilities-interactive-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
-.dept-faculty-item {
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 20px;
-    text-align: center;
+.facility-card-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     background: #ffffff;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 18px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dept-faculty-item:hover {
-    border-color: var(--primary-color, #0c3b6d);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+.facility-card-item:hover {
+    transform: translateY(-3px);
+    border-color: #0c3b6d;
+    box-shadow: 0 8px 20px rgba(12, 59, 109, 0.09);
+    background: #f8fafc;
 }
 
-.faculty-img-placeholder {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: #f1f3f5;
-    color: var(--primary-color, #0c3b6d);
+.facility-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(12, 59, 109, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    margin: 0 auto 14px;
-    border: 2px solid #e9ecef;
+    color: #0c3b6d;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
 }
 
-.dept-faculty-item h5 {
-    font-size: 1.02rem;
-    color: var(--primary-color, #0c3b6d);
-    margin: 0 0 4px 0;
+.facility-card-item:hover .facility-icon-wrap {
+    background: #0c3b6d;
+    color: #f39c12;
+    transform: scale(1.05);
 }
 
-.dept-faculty-item .designation {
-    font-size: 0.85rem;
+.facility-name {
+    font-size: 0.95rem;
     font-weight: 600;
-    color: var(--secondary-color, #f39c12);
-    margin: 0 0 6px 0;
+    color: #1e293b;
+    line-height: 1.4;
 }
 
-.dept-faculty-item .qualification {
-    font-size: 0.85rem;
-    color: #666;
-    margin: 0 0 8px 0;
+/* -------------------------------------------------------------
+   7. Vision & Mission Cards
+   ------------------------------------------------------------- */
+.vision-banner-card {
+    background: linear-gradient(135deg, rgba(12, 59, 109, 0.05) 0%, rgba(243, 156, 18, 0.07) 100%);
+    border-left: 5px solid #0c3b6d;
+    border-radius: 0 12px 12px 0;
+    padding: 26px 30px;
+    margin-bottom: 32px;
+    position: relative;
+    border-top: 1px solid rgba(12, 59, 109, 0.08);
+    border-right: 1px solid rgba(12, 59, 109, 0.08);
+    border-bottom: 1px solid rgba(12, 59, 109, 0.08);
 }
 
-.dept-faculty-item .contact-email {
-    font-size: 0.82rem;
-    color: #555;
-    word-break: break-all;
-}
-
-/* Facilities Grid */
-.dept-facility-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 18px;
-    margin-top: 20px;
-}
-
-.dept-facility-box {
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 18px;
-    background-color: #fdfdfd;
-}
-
-.dept-facility-box h5 {
-    color: var(--primary-color, #0c3b6d);
-    font-size: 0.98rem;
-    margin: 0 0 8px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.dept-facility-box h5 i {
-    color: var(--secondary-color, #f39c12);
-}
-
-.dept-facility-box p {
-    font-size: 0.88rem;
-    color: #555;
-    line-height: 1.6;
+.vision-banner-card p {
+    font-size: 1.1rem;
+    color: #0c3b6d;
+    line-height: 1.85;
     margin: 0;
+    font-weight: 500;
+    font-style: italic;
 }
 
-/* Button style */
-.btn-table-action {
-    display: inline-block;
-    padding: 5px 12px;
-    background-color: var(--primary-color, #0c3b6d);
-    color: #ffffff;
-    font-size: 0.82rem;
-    border-radius: 3px;
-    text-decoration: none;
-    transition: background-color 0.2s;
+.mission-cards-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 35px;
 }
 
-.btn-table-action:hover {
-    background-color: var(--secondary-color, #f39c12);
-    color: #ffffff;
+.mission-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px 22px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s ease;
 }
 
-/* Centered Divider Heading matching screenshot */
-.dept-divider-heading {
+.mission-card:hover {
+    border-color: #0c3b6d;
+    transform: translateX(4px);
+    box-shadow: 0 6px 16px rgba(12, 59, 109, 0.06);
+}
+
+.mission-badge-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0c3b6d 0%, #175394 100%);
+    color: #f39c12;
     display: flex;
     align-items: center;
-    text-align: center;
-    margin: 40px 0 24px;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: #333333;
+    justify-content: center;
+    font-size: 0.92rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
 }
 
-.dept-divider-heading::before,
-.dept-divider-heading::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid #d5dbe1;
+.mission-card p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #334155;
+    text-align: justify;
 }
 
-.dept-divider-heading span {
-    padding: 0 22px;
+/* PEOs Banner Card */
+.peo-card-body {
+    padding: 24px 28px;
+    background: #ffffff;
 }
 
-/* Facilities 2-Column List matching screenshot */
-.dept-facilities-dual-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px 40px;
-    margin-top: 15px;
-    margin-bottom: 25px;
+.peo-intro-line {
+    font-weight: 700;
+    color: #0c3b6d;
+    margin-bottom: 16px;
+    font-size: 1.02rem;
 }
 
-.facility-items-list {
+.peo-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.facility-items-list li {
+.peo-list li {
+    position: relative;
+    padding-left: 36px;
+    margin-bottom: 16px;
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: #334155;
+    text-align: justify;
+}
+
+.peo-list li strong {
+    color: #0c3b6d;
+}
+
+.peo-list li::before {
+    content: '\f058';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 4px;
+    top: 2px;
+    color: #0c3b6d;
+    font-size: 1.15rem;
+}
+
+/* -------------------------------------------------------------
+   8. Faculty & Lab Grid Layouts
+   ------------------------------------------------------------- */
+.dept-faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 24px;
+}
+
+.dept-faculty-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dept-faculty-card:hover {
+    border-color: #0c3b6d;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(12, 59, 109, 0.1);
+}
+
+.faculty-avatar-circle {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    background: #f1f5f9;
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 0.94rem;
-    color: #444444;
-    padding: 8px 0;
-    line-height: 1.5;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: #0c3b6d;
+    border: 3px solid rgba(12, 59, 109, 0.15);
 }
 
-.facility-items-list li i {
-    color: #0288d1;
+.faculty-card-name {
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #0c3b6d;
+    margin: 0 0 4px 0;
+}
+
+.faculty-card-role {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #f39c12;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.faculty-card-qual {
+    font-size: 0.88rem;
+    color: #64748b;
+    margin: 0 0 10px 0;
+}
+
+.faculty-card-contact {
+    font-size: 0.85rem;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed #edf2f7;
+}
+
+/* Detailed Lab Cards */
+.dept-lab-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.dept-lab-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 22px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.dept-lab-box:hover {
+    border-color: #0c3b6d;
+    background: #f8fafc;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(12, 59, 109, 0.08);
+}
+
+.dept-lab-box h5 {
+    color: #0c3b6d;
     font-size: 1.05rem;
-    flex-shrink: 0;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .dept-main-grid {
-        flex-direction: column;
+.dept-lab-box h5 i {
+    color: #f39c12;
+}
+
+.dept-lab-box p {
+    font-size: 0.92rem;
+    color: #475569;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* Button */
+.btn-action-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background-color: #0c3b6d;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-action-primary:hover {
+    background-color: #f39c12;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* -------------------------------------------------------------
+   9. Responsive Media Queries
+   ------------------------------------------------------------- */
+@media (max-width: 991px) {
+    .dept-layout-grid {
+        grid-template-columns: 1fr;
     }
 
     .dept-sidebar {
-        width: 100%;
+        position: static;
+        margin-bottom: 25px;
     }
 
     .dept-content-panel {
-        padding: 24px 20px;
+        padding: 30px 22px;
+    }
+
+    .dept-hero-h1 {
+        font-size: 1.85rem;
+    }
+
+    .dept-hero-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 640px) {
+    .dept-metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .facilities-interactive-grid {
+        grid-template-columns: 1fr;
     }
 }
