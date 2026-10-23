@@ -5,7 +5,7 @@
                 <div class="footer-col about-col">
                     <div class="footer-logo-container">
                         <div class="footer-logo-bg">
-                            <img src="logos/logoGrey.png" alt="Logo" class="footer-logo">
+                            <img src="<?= $root_path ?? '' ?>logos/logoGrey.png" alt="Logo" class="footer-logo">
                         </div>
                         <span class="footer-logo-text">GEC Modasa, Gujarat</span>
                     </div>
@@ -22,9 +22,9 @@
                 <div class="footer-col links-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.php#about"><i class="fas fa-angle-right"></i> About GECM</a></li>
+                        <li><a href="<?= $root_path ?? '' ?>#about"><i class="fas fa-angle-right"></i> About GECM</a></li>
                         <li><a href="#"><i class="fas fa-angle-right"></i> Admissions</a></li>
-                        <li><a href="index.php#departments"><i class="fas fa-angle-right"></i> Academics</a></li>
+                        <li><a href="<?= $root_path ?? '' ?>#departments"><i class="fas fa-angle-right"></i> Academics</a></li>
                         <li><a href="#"><i class="fas fa-angle-right"></i> Placements</a></li>
                         <li><a href="#"><i class="fas fa-angle-right"></i> Anti-Ragging Cell</a></li>
                         <li><a href="#"><i class="fas fa-angle-right"></i> Grievance Redressal</a></li>
@@ -64,14 +64,14 @@
     </footer>
 
     <!-- Global JS -->
-    <script src="js/global.js?v=<?= file_exists(__DIR__ . '/../js/global.js') ? filemtime(__DIR__ . '/../js/global.js') : time() ?>"></script>
+    <script src="<?= $root_path ?? '' ?>js/global.js?v=<?= file_exists(__DIR__ . '/../js/global.js') ? filemtime(__DIR__ . '/../js/global.js') : time() ?>"></script>
 <?php if (isset($extra_js)): ?>
     <?php if (is_array($extra_js)): ?>
         <?php foreach ($extra_js as $js_file): ?>
-    <script src="<?php echo htmlspecialchars($js_file); ?>?v=<?= file_exists(__DIR__ . '/../' . $js_file) ? filemtime(__DIR__ . '/../' . $js_file) : time() ?>"></script>
+    <script src="<?= ($root_path ?? '') . htmlspecialchars($js_file); ?>?v=<?= file_exists(__DIR__ . '/../' . $js_file) ? filemtime(__DIR__ . '/../' . $js_file) : time() ?>"></script>
         <?php endforeach; ?>
     <?php else: ?>
-    <script src="<?php echo htmlspecialchars($extra_js); ?>?v=<?= file_exists(__DIR__ . '/../' . $extra_js) ? filemtime(__DIR__ . '/../' . $extra_js) : time() ?>"></script>
+    <script src="<?= ($root_path ?? '') . htmlspecialchars($extra_js); ?>?v=<?= file_exists(__DIR__ . '/../' . $extra_js) ? filemtime(__DIR__ . '/../' . $extra_js) : time() ?>"></script>
     <?php endif; ?>
 <?php endif; ?>
 </body>
