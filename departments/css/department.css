@@ -243,13 +243,17 @@
     margin-left: 20px;
 }
 
-/* Standard Paragraphs matching screenshot */
+/* Standard Paragraphs matching screenshot (Justified & Even on both sides) */
 .dept-text-body {
     font-size: 0.95rem;
     color: #3f4750;
     line-height: 1.75;
     margin-bottom: 16px;
     text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    word-break: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
     box-sizing: border-box;
@@ -378,6 +382,8 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    text-align: justify;
+    text-justify: inter-word;
     word-break: break-word;
 }
 
@@ -731,8 +737,11 @@
 
     .dept-text-body {
         font-size: 0.93rem;
-        line-height: 1.65;
-        text-align: left; /* Left align prevents wide gaps on mobile */
+        line-height: 1.7;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
     }
 
     /* Facilities Single Column on Tablets & Mobile */
@@ -793,9 +802,12 @@
     }
 
     .dept-text-body {
-        font-size: 0.90rem;
-        line-height: 1.6;
-        text-align: left;
+        font-size: 0.91rem;
+        line-height: 1.68;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
         margin-bottom: 14px;
     }
 
@@ -820,6 +832,8 @@
         padding: 12px 14px;
         line-height: 1.6;
         margin: 12px 0 22px;
+        text-align: justify;
+        text-justify: inter-word;
     }
 
     .mission-bullet-list {
