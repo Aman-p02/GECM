@@ -459,7 +459,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="login-card">
             <div class="login-header">
                 <div class="brand-logo-frame">
-                    <img src="../logos/logoGrey.png" alt="GEC Modasa">
+                    <img src="../logos/logo.png" alt="GEC Modasa">
                 </div>
                 <h1 class="login-title">GEC Modasa</h1>
                 <p class="login-subtitle">Government Engineering College Administration Portal</p>
