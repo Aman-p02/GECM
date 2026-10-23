@@ -1,6 +1,6 @@
 /* ==============================================================
    GECM Department Detail Page Interactions
-   Tabs navigation, dynamic top heading update, and smooth deep linking
+   Tabs navigation, dynamic top heading update, and smooth mobile scrolling
    ============================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'newsletters': 'News Letters'
     };
 
-    function activateTab(tabId) {
+    function activateTab(tabId, shouldScroll = false) {
         if (!tabId) return;
 
         // Clean tabId (remove leading #)
@@ -54,11 +54,23 @@ document.addEventListener('DOMContentLoaded', function () {
             pageTitle.textContent = titleMap[tabId];
         }
 
-        // Scroll to content on small screens
-        if (window.innerWidth < 900) {
-            const panel = document.querySelector('.dept-content-panel');
-            if (panel) {
-                panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // On mobile / small screens, center the active pill in the horizontal nav
+        if (window.innerWidth <= 768 && targetLink) {
+            try {
+                targetLink.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            } catch (err) {
+                // fallback
+            }
+        }
+
+        // Smooth scroll to content top if triggered by user click on mobile
+        if (shouldScroll && window.innerWidth <= 768) {
+            const topBar = document.querySelector('.dept-top-bar');
+            if (topBar) {
+                const stickyNav = document.querySelector('.dept-sidebar');
+                const navHeight = stickyNav ? stickyNav.offsetHeight : 50;
+                const targetY = topBar.getBoundingClientRect().top + window.pageYOffset - navHeight - 15;
+                window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
             }
         }
     }
@@ -69,8 +81,12 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             const tabId = this.getAttribute('data-tab');
             if (tabId) {
-                window.location.hash = tabId;
-                activateTab(tabId);
+                if (history.pushState) {
+                    history.pushState(null, null, '#' + tabId);
+                } else {
+                    window.location.hash = tabId;
+                }
+                activateTab(tabId, true);
             }
         });
     });
@@ -79,9 +95,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function checkHash() {
         const hash = window.location.hash.substring(1);
         if (hash && document.getElementById('tab-' + hash)) {
-            activateTab(hash);
+            activateTab(hash, false);
         } else {
-            activateTab('about');
+            activateTab('about', false);
         }
     }
 

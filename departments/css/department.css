@@ -1,7 +1,7 @@
 /* ==============================================================
    GECM Department Detail Page Stylesheet
-   Clean, clear, authentic institutional portal UI directly matching screenshots
-   No AI gimmicks, no SaaS gradients, no metric counter cards
+   Clean, authentic institutional portal UI directly matching screenshots
+   Fully responsive across all screen sizes (Desktop, Tablet, Mobile)
    ============================================================== */
 
 /* Page Wrapper */
@@ -12,7 +12,7 @@
 }
 
 /* -------------------------------------------------------------
-   2-Column Layout
+   Layout Grid (Desktop First)
    ------------------------------------------------------------- */
 .dept-layout-grid {
     display: grid;
@@ -126,6 +126,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    flex-wrap: wrap;
 }
 
 .dept-breadcrumb a {
@@ -208,6 +209,7 @@
     border-radius: 0;
     overflow: hidden;
     margin: 26px 0 30px;
+    background: #ffffff;
 }
 
 .courses-card-header {
@@ -223,6 +225,7 @@
 
 .courses-table-wrapper {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     background: #ffffff;
 }
 
@@ -298,32 +301,44 @@
    ------------------------------------------------------------- */
 .vision-text-block {
     font-size: 0.96rem;
+    color: #444444;
     line-height: 1.8;
-    color: #333333;
-    text-align: justify;
-    margin: 0 0 25px;
+    background-color: #f5f8fa;
+    border-left: 4px solid #1e6091;
+    padding: 18px 24px;
+    margin: 15px 0 30px;
 }
 
 .mission-bullet-list {
-    list-style-type: disc;
-    margin: 0 0 30px 22px;
+    list-style: none;
     padding: 0;
+    margin: 15px 0 35px;
 }
 
 .mission-bullet-list li {
-    font-size: 0.95rem;
-    color: #333333;
-    line-height: 1.8;
-    margin-bottom: 8px;
-    text-align: justify;
+    position: relative;
+    padding: 8px 0 8px 28px;
+    font-size: 0.94rem;
+    color: #444444;
+    line-height: 1.7;
 }
 
-/* PEOs Banner Card matching screenshot */
+.mission-bullet-list li::before {
+    content: '\f105';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 8px;
+    color: #1e88e5;
+    font-size: 1rem;
+}
+
+/* PEOs Card matching screenshot media_1792588864122.png */
 .peo-card {
     border: 1px solid #1e6091;
     border-radius: 0;
     overflow: hidden;
-    margin: 28px 0;
+    margin: 25px 0 30px;
 }
 
 .peo-card-header {
@@ -338,15 +353,15 @@
 }
 
 .peo-card-body {
-    padding: 16px 20px;
+    padding: 20px 24px;
     background: #ffffff;
 }
 
 .peo-intro {
-    font-weight: 600;
-    color: #222222;
-    margin-bottom: 12px;
     font-size: 0.95rem;
+    font-weight: 600;
+    color: #2b3a4a;
+    margin-bottom: 12px;
 }
 
 .peo-list {
@@ -356,30 +371,25 @@
 }
 
 .peo-list li {
-    position: relative;
-    padding-left: 24px;
-    margin-bottom: 10px;
-    font-size: 0.93rem;
+    font-size: 0.92rem;
+    color: #4a4a4a;
     line-height: 1.7;
-    color: #333333;
-    text-align: justify;
-}
-
-.peo-list li strong {
-    color: #1e6091;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
 }
 
 .peo-list li::before {
     content: '•';
-    position: absolute;
-    left: 6px;
-    top: -1px;
-    font-size: 1.25rem;
     color: #1e6091;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 4px;
+    top: -2px;
 }
 
 /* -------------------------------------------------------------
-   Faculty, Labs & Other Academic Tables
+   Faculty, Labs & Other Academic Sections
    ------------------------------------------------------------- */
 .faculty-simple-grid {
     display: grid;
@@ -395,6 +405,7 @@
     text-align: center;
     background: #ffffff;
     transition: box-shadow 0.2s, border-color 0.2s;
+    word-break: break-word;
 }
 
 .faculty-simple-card:hover {
@@ -439,6 +450,7 @@
 .faculty-simple-card .email {
     font-size: 0.82rem;
     color: #444;
+    word-break: break-all;
 }
 
 /* Simple Labs Grid */
@@ -470,7 +482,7 @@
     margin: 0;
 }
 
-/* Button */
+/* Action Button */
 .btn-action-simple {
     display: inline-block;
     padding: 5px 12px;
@@ -480,6 +492,7 @@
     border-radius: 2px;
     text-decoration: none;
     transition: background-color 0.2s;
+    white-space: nowrap;
 }
 
 .btn-action-simple:hover {
@@ -487,17 +500,249 @@
     color: #ffffff;
 }
 
-/* -------------------------------------------------------------
-   Responsive Breakpoints
-   ------------------------------------------------------------- */
-@media (max-width: 900px) {
+/* =============================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ============================================================= */
+
+/* Medium Devices / Tablets Landscape (901px - 1050px) */
+@media (max-width: 1050px) {
     .dept-layout-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 220px 1fr;
+        gap: 25px;
     }
 
     .dept-facilities-dual-grid {
+        padding-left: 15px;
+        gap: 8px 25px;
+    }
+}
+
+/* Tablets Portrait (769px - 900px) */
+@media (max-width: 900px) {
+    .dept-layout-grid {
+        grid-template-columns: 200px 1fr;
+        gap: 20px;
+    }
+
+    .dept-facilities-dual-grid {
+        padding-left: 8px;
+        gap: 8px 15px;
+    }
+
+    .faculty-simple-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile & Small Tablets (<= 768px) */
+@media (max-width: 768px) {
+    .dept-page-wrapper {
+        padding: 15px 0 45px;
+    }
+
+    .dept-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Mobile Sidebar as Horizontal Scrollable Tab Bar */
+    .dept-sidebar {
+        border-radius: 4px;
+        border: 1px solid #d2dbe5;
+        margin-bottom: 5px;
+        position: sticky;
+        top: 0;
+        z-index: 95;
+        background: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .dept-sidebar-header {
+        padding: 9px 14px;
+        font-size: 0.92rem;
+        background: #e9f2fb;
+        color: #0c3b6d;
+        border-bottom: 1px solid #d0e2f5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .dept-sidebar-header::after {
+        content: '\f078';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 0.75rem;
+        color: #0c3b6d;
+        opacity: 0.7;
+    }
+
+    .dept-sidebar-menu {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        background: #ffffff;
+        padding: 8px 10px;
+        gap: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .dept-sidebar-menu::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    .dept-sidebar-menu li {
+        flex: 0 0 auto;
+        border-bottom: none;
+    }
+
+    .dept-nav-link {
+        padding: 7px 14px;
+        border-radius: 20px;
+        border: 1px solid #d9e2ec;
+        font-size: 0.86rem;
+        background: #f8fafc;
+        color: #334e68;
+    }
+
+    .dept-nav-link:hover {
+        background: #eef2f7;
+    }
+
+    .dept-sidebar-menu li.active .dept-nav-link,
+    .dept-nav-link.active {
+        background: #0c3b6d !important;
+        color: #ffffff !important;
+        border-color: #0c3b6d;
+    }
+
+    .dept-nav-link .arrow-icon {
+        display: none;
+    }
+
+    /* Content Area on Mobile */
+    .dept-content-panel {
+        min-height: auto;
+    }
+
+    .dept-top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding-bottom: 12px;
+        margin-bottom: 14px;
+        border-bottom: 1px solid #eceff1;
+    }
+
+    .dept-page-title {
+        font-size: 1.25rem;
+    }
+
+    .dept-breadcrumb {
+        font-size: 0.82rem;
+    }
+
+    /* Facilities Single Column on Mobile */
+    .dept-facilities-dual-grid {
         grid-template-columns: 1fr;
         padding-left: 0;
-        gap: 0;
+        gap: 2px;
+        margin: 15px 0 25px;
+    }
+
+    .facility-items-list li {
+        align-items: flex-start;
+        padding: 6px 0;
+    }
+
+    .facility-items-list li i {
+        margin-top: 3px;
+    }
+
+    /* Labs on Mobile */
+    .labs-simple-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    /* Courses Table min-width to ensure horizontal scrollability */
+    .courses-table {
+        min-width: 520px;
+    }
+
+    .courses-card {
+        margin: 20px 0;
+    }
+}
+
+/* Small Mobile Screens (<= 520px) */
+@media (max-width: 520px) {
+    .dept-page-wrapper {
+        padding: 10px 0 35px;
+    }
+
+    .dept-divider-title {
+        font-size: 1.2rem;
+        margin: 20px 0 14px;
+    }
+
+    .dept-divider-title:not(:empty)::before {
+        margin-right: 12px;
+    }
+
+    .dept-divider-title:not(:empty)::after {
+        margin-left: 12px;
+    }
+
+    .dept-text-body {
+        font-size: 0.91rem;
+        line-height: 1.65;
+        text-align: left;
+        margin-bottom: 14px;
+    }
+
+    .courses-card-header,
+    .peo-card-header {
+        font-size: 0.95rem;
+        padding: 9px 12px;
+    }
+
+    .courses-table th,
+    .courses-table td {
+        padding: 8px 10px;
+        font-size: 0.84rem;
+    }
+
+    .peo-card-body {
+        padding: 14px;
+    }
+
+    .vision-text-block {
+        font-size: 0.91rem;
+        padding: 14px 16px;
+        line-height: 1.65;
+    }
+
+    .mission-bullet-list li {
+        padding: 6px 0 6px 22px;
+        font-size: 0.9rem;
+    }
+
+    .mission-bullet-list li::before {
+        left: 4px;
+    }
+
+    .faculty-simple-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .faculty-simple-card {
+        padding: 16px 12px;
+    }
+
+    .faculty-simple-card .email {
+        font-size: 0.78rem;
     }
 }
