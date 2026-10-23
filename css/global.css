@@ -30,7 +30,8 @@ body {
     font-family: var(--font-main);
     color: var(--text-dark);
     line-height: 1.6;
-    overflow-x: clip;
+    overflow-x: hidden;
+    width: 100%;
     max-width: 100%;
     background-color: var(--bg-white);
 }
