@@ -30,10 +30,11 @@ if (!isset($active_page)) {
     <link rel="stylesheet" href="<?= $root_path . htmlspecialchars($extra_css); ?>?v=<?= file_exists(__DIR__ . '/../' . $extra_css) ? filemtime(__DIR__ . '/../' . $extra_css) : time() ?>">
     <?php endif; ?>
 <?php endif; ?>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <!-- FontAwesome for Icons -->
+    <!-- Google Fonts (Source Sans 3 & Inter for Clean Academic Typography) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Authentic Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -41,18 +42,30 @@ if (!isset($active_page)) {
 
     <!-- Header / Navbar -->
     <header class="header">
-        <div class="nav-container">
-            <div class="logo-container">
-                <a href="<?= $root_path ?>" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit;">
-                    <img src="<?= $root_path ?>logos/logoGrey.png" alt="GEC Modasa Logo" class="logo">
+        <!-- Top Institutional Identity Row -->
+        <div class="header-brand-bar">
+            <div class="container header-brand-container">
+                <a href="<?= $root_path ?>" class="brand-link" title="Government Engineering College, Modasa">
+                    <img src="<?= $root_path ?>logos/logoGrey.png" alt="GEC Modasa Seal" class="logo">
                     <div class="college-name">
                         <h1>Government Engineering College, Modasa</h1>
-                        <p>Modasa, Gujarat</p>
+                        <p class="college-sub">Modasa, Gujarat &bull; Estd. 1984</p>
                     </div>
                 </a>
-                <img src="<?= $root_path ?>logos/affiliated.png" alt="Affiliated to GTU" class="affiliated-logo desktop-only">
+                <div class="header-right-badges">
+                    <img src="<?= $root_path ?>logos/affiliated.png" alt="Approved by AICTE | Affiliated to GTU | Administered by Govt. of Gujarat" class="affiliated-logo desktop-only">
+                    <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
             </div>
-            <nav class="navbar">
+        </div>
+
+        <!-- Dedicated Institutional Navigation Bar -->
+        <nav class="header-nav-bar" id="primaryNav" aria-label="Main Navigation">
+            <div class="container nav-inner-container">
                 <ul class="nav-links">
                     <li><a href="<?= $root_path ?>" class="<?php echo ($active_page === 'home') ? 'active' : ''; ?>">Home</a></li>
                     <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>" class="<?php echo ($active_page === 'about') ? 'active' : ''; ?>">About</a></li>
@@ -61,11 +74,6 @@ if (!isset($active_page)) {
                     <li><a href="<?php echo ($active_page === 'home') ? '#alumni' : $root_path . '#alumni'; ?>" class="<?php echo ($active_page === 'alumni') ? 'active' : ''; ?>">Alumni</a></li>
                     <li><a href="<?php echo ($active_page === 'home') ? '#contact' : $root_path . '#contact'; ?>" class="<?php echo ($active_page === 'contact') ? 'active' : ''; ?>">Contact</a></li>
                 </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
