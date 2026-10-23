@@ -51,11 +51,11 @@ if (!isset($active_page)) {
             <nav class="navbar">
                 <ul class="nav-links">
                     <li><a href="./" class="<?php echo ($active_page === 'home') ? 'active' : ''; ?>">Home</a></li>
-                    <li><a href="#about" class="<?php echo ($active_page === 'about') ? 'active' : ''; ?>">About</a></li>
-                    <li><a href="#departments" class="<?php echo ($active_page === 'departments') ? 'active' : ''; ?>">Departments</a></li>
-                    <li><a href="#events" class="<?php echo ($active_page === 'events') ? 'active' : ''; ?>">Events</a></li>
-                    <li><a href="#alumni" class="<?php echo ($active_page === 'alumni') ? 'active' : ''; ?>">Alumni</a></li>
-                    <li><a href="#contact" class="<?php echo ($active_page === 'contact') ? 'active' : ''; ?>">Contact</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#about' : './#about'; ?>" class="<?php echo ($active_page === 'about') ? 'active' : ''; ?>">About</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#departments' : './#departments'; ?>" class="<?php echo ($active_page === 'departments') ? 'active' : ''; ?>">Departments</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#events' : './#events'; ?>" class="<?php echo ($active_page === 'events') ? 'active' : ''; ?>">Events</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#alumni' : './#alumni'; ?>" class="<?php echo ($active_page === 'alumni') ? 'active' : ''; ?>">Alumni</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#contact' : './#contact'; ?>" class="<?php echo ($active_page === 'contact') ? 'active' : ''; ?>">Contact</a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>

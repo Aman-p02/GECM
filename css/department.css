@@ -260,8 +260,38 @@
     background-color: #f9fbfd;
 }
 
-
 /* -------------------------------------------------------------
+   Facilities 2-Column List directly matching screenshot
+   ------------------------------------------------------------- */
+.dept-facilities-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 40px;
+    margin: 20px 0 35px;
+    padding-left: 40px;
+}
+
+.facility-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.facility-items-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.94rem;
+    color: #4a4a4a;
+    padding: 7px 0;
+    line-height: 1.5;
+}
+
+.facility-items-list li i {
+    color: #1e88e5; /* Bright blue circular chevron right from screenshot */
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
    Vision & Mission Tab matching screenshot media_1792588855857.png
    ------------------------------------------------------------- */
 .vision-text-block {
@@ -463,5 +493,10 @@
         grid-template-columns: 1fr;
     }
 
+    .dept-facilities-dual-grid {
+        grid-template-columns: 1fr;
+        padding-left: 0;
+        gap: 0;
+    }
 }
 

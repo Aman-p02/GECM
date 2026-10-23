@@ -146,96 +146,21 @@ include_once __DIR__ . '/includes/header.php';
                     <!-- Facilities Section below Courses Table -->
                     <div class="dept-divider-title">Facilities</div>
 
-                    <div class="courses-card">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>Department Laboratories &amp; Facilities</span>
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 50px;">#</th>
-                                        <th>Laboratory / Facility</th>
-                                        <th>Major Equipment &amp; Software Details</th>
-                                        <th style="width: 140px;">Capacity / Nodes</th>
-                                        <th style="width: 160px;">Faculty In-charge</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><strong>Wi-Fi Campus Network</strong></td>
-                                        <td>30+ High-speed Access Points, Hardware Controller, AICTE Grant Setup</td>
-                                        <td>Campus Wide</td>
-                                        <td>Prof. A. S. Shah</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><strong>Campus Fiber Optic Backbone</strong></td>
-                                        <td>Gigabit Fiber Backbone, Cisco Core Layer-3 Switches, Hardware Firewall</td>
-                                        <td>250+ Nodes</td>
-                                        <td>Prof. R. K. Prajapati</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><strong>System Laboratory</strong></td>
-                                        <td>Intel Core i7 Workstations, Dual OS (Linux / Windows), Multimedia Setup</td>
-                                        <td>30 Systems</td>
-                                        <td>Prof. P. N. Mehta</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><strong>Network &amp; Security Lab</strong></td>
-                                        <td>Cisco 2900 Routers, 24-Port Managed Switches, Wireshark, Packet Tracer Testbeds</td>
-                                        <td>25 Systems</td>
-                                        <td>Prof. A. S. Shah</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td><strong>Programming Language Lab</strong></td>
-                                        <td>GCC, OpenJDK 17, Python 3, Eclipse, VS Code, NetBeans, C/C++ Compilers</td>
-                                        <td>35 Systems</td>
-                                        <td>Prof. S. D. Joshi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td><strong>Database Management Systems Lab</strong></td>
-                                        <td>Oracle 19c Enterprise, MySQL Server, PostgreSQL, MongoDB, phpMyAdmin</td>
-                                        <td>30 Systems</td>
-                                        <td>Prof. M. B. Patel</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td><strong>Digital Logic &amp; Microprocessor Lab</strong></td>
-                                        <td>8085 / 8086 Microprocessor Kits, Digital IC Trainer Boards, Logic Analyzers</td>
-                                        <td>25 Setups</td>
-                                        <td>Prof. R. K. Prajapati</td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td><strong>Operating System Lab</strong></td>
-                                        <td>Ubuntu LTS / CentOS Linux Workstations, POSIX Toolchains, Shell Scripting</td>
-                                        <td>30 Systems</td>
-                                        <td>Prof. P. N. Mehta</td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td><strong>Department Seminar Halls</strong></td>
-                                        <td>2 AC Seminar Halls, Digital Interactive Podium, HD Projectors, Surround Sound</td>
-                                        <td>150 Seating</td>
-                                        <td>Dr. H. M. Patel</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td><strong>Digital Learning &amp; Research Lab</strong></td>
-                                        <td>High-Speed Terminals, Local NPTEL Video Streaming Server, E-Journal Portal</td>
-                                        <td>20 Systems</td>
-                                        <td>Prof. S. D. Joshi</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="dept-facilities-dual-grid">
+                        <ul class="facility-items-list">
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Wi-Fi enabled Department</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>System Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Programming Language Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Digital Logic Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Seminar Halls</span></li>
+                        </ul>
+                        <ul class="facility-items-list">
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Campus Wide Fiber Optic Cable Network</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Network Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>DBMS Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Operating System Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Digital Learning Lab</span></li>
+                        </ul>
                     </div>
                 </section>
 
@@ -446,96 +371,21 @@ include_once __DIR__ . '/includes/header.php';
                         The department is equipped with 10 computer laboratories with over 250 high-end networked systems, dedicated servers, and high-speed campus-wide Wi-Fi access.
                     </p>
 
-                    <div class="courses-card">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>Department Laboratories &amp; Facilities</span>
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 50px;">#</th>
-                                        <th>Laboratory / Facility</th>
-                                        <th>Major Equipment &amp; Software Details</th>
-                                        <th style="width: 140px;">Capacity / Nodes</th>
-                                        <th style="width: 160px;">Faculty In-charge</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><strong>Wi-Fi Campus Network</strong></td>
-                                        <td>30+ High-speed Access Points, Hardware Controller, AICTE Grant Setup</td>
-                                        <td>Campus Wide</td>
-                                        <td>Prof. A. S. Shah</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><strong>Campus Fiber Optic Backbone</strong></td>
-                                        <td>Gigabit Fiber Backbone, Cisco Core Layer-3 Switches, Hardware Firewall</td>
-                                        <td>250+ Nodes</td>
-                                        <td>Prof. R. K. Prajapati</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><strong>System Laboratory</strong></td>
-                                        <td>Intel Core i7 Workstations, Dual OS (Linux / Windows), Multimedia Setup</td>
-                                        <td>30 Systems</td>
-                                        <td>Prof. P. N. Mehta</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><strong>Network &amp; Security Lab</strong></td>
-                                        <td>Cisco 2900 Routers, 24-Port Managed Switches, Wireshark, Packet Tracer Testbeds</td>
-                                        <td>25 Systems</td>
-                                        <td>Prof. A. S. Shah</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td><strong>Programming Language Lab</strong></td>
-                                        <td>GCC, OpenJDK 17, Python 3, Eclipse, VS Code, NetBeans, C/C++ Compilers</td>
-                                        <td>35 Systems</td>
-                                        <td>Prof. S. D. Joshi</td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td><strong>Database Management Systems Lab</strong></td>
-                                        <td>Oracle 19c Enterprise, MySQL Server, PostgreSQL, MongoDB, phpMyAdmin</td>
-                                        <td>30 Systems</td>
-                                        <td>Prof. M. B. Patel</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td><strong>Digital Logic &amp; Microprocessor Lab</strong></td>
-                                        <td>8085 / 8086 Microprocessor Kits, Digital IC Trainer Boards, Logic Analyzers</td>
-                                        <td>25 Setups</td>
-                                        <td>Prof. R. K. Prajapati</td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td><strong>Operating System Lab</strong></td>
-                                        <td>Ubuntu LTS / CentOS Linux Workstations, POSIX Toolchains, Shell Scripting</td>
-                                        <td>30 Systems</td>
-                                        <td>Prof. P. N. Mehta</td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td><strong>Department Seminar Halls</strong></td>
-                                        <td>2 AC Seminar Halls, Digital Interactive Podium, HD Projectors, Surround Sound</td>
-                                        <td>150 Seating</td>
-                                        <td>Dr. H. M. Patel</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td><strong>Digital Learning &amp; Research Lab</strong></td>
-                                        <td>High-Speed Terminals, Local NPTEL Video Streaming Server, E-Journal Portal</td>
-                                        <td>20 Systems</td>
-                                        <td>Prof. S. D. Joshi</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="dept-facilities-dual-grid">
+                        <ul class="facility-items-list">
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Wi-Fi enabled Department</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>System Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Programming Language Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Digital Logic Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Seminar Halls</span></li>
+                        </ul>
+                        <ul class="facility-items-list">
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Campus Wide Fiber Optic Cable Network</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Network Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>DBMS Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Operating System Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i><span>Digital Learning Lab</span></li>
+                        </ul>
                     </div>
 
                     <div class="dept-divider-title">Detailed Laboratory Configurations</div>
