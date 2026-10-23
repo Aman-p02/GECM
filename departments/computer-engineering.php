@@ -64,16 +64,13 @@ include_once __DIR__ . '/../includes/header.php';
 
                 <!-- Top Breadcrumb & Section Header Row -->
                 <div class="dept-top-bar">
-                    <div class="dept-title-group">
-                        <span class="dept-super-title">Department of Computer Engineering</span>
-                        <h2 class="dept-page-title" id="deptPageTitle">About Department</h2>
-                    </div>
+                    <h2 class="dept-page-title" id="deptPageTitle">About Department</h2>
                     <ul class="dept-breadcrumb">
-                        <li><a href="../" title="Home"><i class="fas fa-home"></i> Home</a></li>
-                        <li class="separator"><i class="fas fa-chevron-right"></i></li>
+                        <li><a href="../" title="Home"><i class="fas fa-home"></i></a></li>
+                        <li class="separator">/</li>
                         <li><a href="../#departments">Departments</a></li>
-                        <li class="separator"><i class="fas fa-chevron-right"></i></li>
-                        <li class="active-crumb">Computer Engineering</li>
+                        <li class="separator">/</li>
+                        <li class="active-crumb">Computer Engineering Department</li>
                     </ul>
                 </div>
 
@@ -81,6 +78,8 @@ include_once __DIR__ . '/../includes/header.php';
                      1. ABOUT DEPARTMENT TAB
                      ======================================================== -->
                 <section class="dept-tab-content active" id="tab-about">
+                    <div class="dept-divider-title">About Department</div>
+
                     <p class="dept-text-body">
                         This department is running from 2001. The staff has developed required laboratories in the areas like Computer Hardware, Computer Networking &amp; Security, Database Management System, Computer Graphics and Internet Technology in tune with real-time systems.
                     </p>
@@ -206,6 +205,8 @@ include_once __DIR__ . '/../includes/header.php';
                      3. SYLLABUS TAB
                      ======================================================== -->
                 <section class="dept-tab-content" id="tab-syllabus">
+                    <div class="dept-divider-title">Syllabus</div>
+
                     <p class="dept-text-body">
                         The curriculum of Bachelor of Engineering (Computer Engineering) follows Gujarat Technological University (GTU) guidelines aligned with the National Education Policy (NEP) and AICTE model curriculum.
                     </p>
@@ -278,6 +279,8 @@ include_once __DIR__ . '/../includes/header.php';
                      4. FACULTY TAB
                      ======================================================== -->
                 <section class="dept-tab-content" id="tab-faculty">
+                    <div class="dept-divider-title">Faculty</div>
+
                     <p class="dept-text-body">
                         The Computer Engineering department possesses highly qualified, experienced, and dedicated teaching faculty members with specializations across diverse domains.
                     </p>
@@ -337,6 +340,8 @@ include_once __DIR__ . '/../includes/header.php';
                      5. ACTIVITIES TAB
                      ======================================================== -->
                 <section class="dept-tab-content" id="tab-activities">
+                    <div class="dept-divider-title">Activities</div>
+
                     <p class="dept-text-body">
                         The department regularly organizes workshops, hackathons, expert lectures by industry leaders, and technical competitions under the banner of student developer clubs and societies.
                     </p>
@@ -361,6 +366,8 @@ include_once __DIR__ . '/../includes/header.php';
                      6. FACILITIES TAB
                      ======================================================== -->
                 <section class="dept-tab-content" id="tab-facilities">
+                    <div class="dept-divider-title">Facilities</div>
+
                     <p class="dept-text-body">
                         The department is equipped with 10 computer laboratories with over 250 high-end networked systems, dedicated servers, and high-speed campus-wide Wi-Fi access.
                     </p>
@@ -416,6 +423,8 @@ include_once __DIR__ . '/../includes/header.php';
                      7. PUBLICATIONS TAB
                      ======================================================== -->
                 <section class="dept-tab-content" id="tab-publications">
+                    <div class="dept-divider-title">Publications</div>
+
                     <p class="dept-text-body">
                         Faculties and students of the Computer Engineering department actively publish research articles in peer-reviewed journals and conferences.
                     </p>
@@ -475,6 +484,8 @@ include_once __DIR__ . '/../includes/header.php';
                      8. INDUSTRY ADVISORY BOARD TAB
                      ======================================================== -->
                 <section class="dept-tab-content" id="tab-advisory-board">
+                    <div class="dept-divider-title">Industry Advisory Board</div>
+
                     <p class="dept-text-body">
                         The Industry Advisory Board bridges the gap between academic curriculum and current industry demands, reviewing syllabi and capstone projects periodically.
                     </p>
@@ -499,6 +510,8 @@ include_once __DIR__ . '/../includes/header.php';
                      9. NEWS LETTERS TAB
                      ======================================================== -->
                 <section class="dept-tab-content" id="tab-newsletters">
+                    <div class="dept-divider-title">News Letters</div>
+
                     <p class="dept-text-body">
                         The biannual departmental newsletter <strong>"COMP-CONNECT"</strong> chronicles academic achievements, faculty publications, student awards, and technological developments.
                     </p>
