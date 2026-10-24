@@ -507,7 +507,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <input type="text" id="pubSearchInput" placeholder="Search publications by title or author...">
                         </div>
                         <div class="publications-count-badge" id="pubCountBadge">
-                            <i class="fas fa-file-alt"></i> 144 Publications
+                            <i class="fas fa-file-alt"></i> 150 Publications
                         </div>
                     </div>
 
@@ -2646,6 +2646,91 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <div class="publication-date">
                                     <i class="far fa-calendar-alt"></i>
                                     <span>2009</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 145 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Improvement in Lip Detection and Feature Extraction in Dynamic Lighting Conditions and Complex Background</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Parul Tandel, Hetal Chudasama</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2009</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 146 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Ear Recognition Using Force Field Feature Extraction</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Japen Pathak</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2009</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 147 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Classification Using Adaptive Decision Tree Induction Algorithm For accuracy and scale-up measure</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Uttam Chauhan, Amit Ganatra, Amit Thakkar</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2009</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 148 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Artificial Neural Network in Data Mining</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Mukesh Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2008</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 149 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Image Encryption Using Chaotic Cryptosystems and Artificial Neural Network Cryptosystems: A Review</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Minal Chauhan, Rashmin Prajapati</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>May-2014</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 150 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Novel Approach of Mining Frequent Sequential Pattern from Customized Web Log Preprocessing</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Manisha Valera</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>January - February 2013</span>
                                 </div>
                             </div>
                         </article>
