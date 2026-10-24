@@ -30,7 +30,10 @@ include_once __DIR__ . '/../includes/header.php';
                         <a class="dept-nav-link" data-tab="vision-mission">Vision &amp; Mission</a>
                     </li>
                     <li>
-                        <a class="dept-nav-link" data-tab="syllabus">Syllabus</a>
+                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-nav-link">
+                            <span>Syllabus</span>
+                            <i class="fas fa-external-link-alt arrow-icon"></i>
+                        </a>
                     </li>
                     <li>
                         <a class="dept-nav-link" data-tab="faculty">Faculty</a>
@@ -237,95 +240,7 @@ include_once __DIR__ . '/../includes/header.php';
                     </div>
                 </section>
 
-                <!-- ========================================================
-                     3. SYLLABUS TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-syllabus">
-                    <div class="dept-divider-title">Syllabus</div>
 
-                    <p class="dept-text-body">
-                        The curriculum of Bachelor of Engineering (Computer Engineering) follows Gujarat Technological University (GTU) guidelines aligned with the National Education Policy (NEP) and AICTE model curriculum. For official syllabus, course codes, and teaching schemes, visit the university syllabus portal:
-                    </p>
-
-                    <!-- Official University Redirect Box -->
-                    <div style="background: #f0f7fd; border: 1px solid #1e6091; border-left: 5px solid #1e6091; padding: 16px 20px; margin: 18px 0 26px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-radius: 2px;">
-                        <div>
-                            <div style="color: #0c3b6d; font-weight: 600; font-size: 1.02rem; margin-bottom: 4px;">
-                                <i class="fas fa-external-link-alt" style="margin-right: 8px;"></i> Official GTU Syllabus Portal
-                            </div>
-                            <div style="color: #444; font-size: 0.9rem;">
-                                Direct access to Gujarat Technological University official teaching schemes &amp; syllabus:
-                                <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" style="color: #0288d1; font-weight: 600; text-decoration: underline; margin-left: 4px;">https://syllabus.gtu.ac.in/</a>
-                            </div>
-                        </div>
-                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="btn-action-simple" style="padding: 9px 18px; font-size: 0.88rem; font-weight: 600; background-color: #1e6091;">
-                            <i class="fas fa-external-link-alt" style="margin-right: 6px;"></i> Open University Website
-                        </a>
-                    </div>
-
-                    <div class="courses-card">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>GTU Teaching Scheme &amp; Syllabus by Semester</span>
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table">
-                                <thead>
-                                    <tr>
-                                        <th>Semester</th>
-                                        <th>Key Subjects Included</th>
-                                        <th>Pattern</th>
-                                        <th>Curriculum</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Semester I &amp; II</strong></td>
-                                        <td>Basic Engineering, Mathematics, Programming for Problem Solving (C Language), Engineering Graphics</td>
-                                        <td>GTU NEP / AICTE</td>
-                                        <td><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="btn-action-simple"><i class="fas fa-external-link-alt"></i> View</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Semester III</strong></td>
-                                        <td>Data Structures, Digital Fundamentals, Database Management Systems, Discrete Mathematics</td>
-                                        <td>GTU Revised</td>
-                                        <td><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="btn-action-simple"><i class="fas fa-external-link-alt"></i> View</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Semester IV</strong></td>
-                                        <td>Operating Systems, Object Oriented Programming with Java, Computer Organization, Principles of Economics</td>
-                                        <td>GTU Revised</td>
-                                        <td><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="btn-action-simple"><i class="fas fa-external-link-alt"></i> View</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Semester V</strong></td>
-                                        <td>Computer Networks, Software Engineering, Design &amp; Analysis of Algorithms, Professional Elective I</td>
-                                        <td>GTU Revised</td>
-                                        <td><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="btn-action-simple"><i class="fas fa-external-link-alt"></i> View</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Semester VI</strong></td>
-                                        <td>Theory of Computation, Web Technology, Advanced Java / Python, Cyber Security, Professional Elective II</td>
-                                        <td>GTU Revised</td>
-                                        <td><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="btn-action-simple"><i class="fas fa-external-link-alt"></i> View</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Semester VII</strong></td>
-                                        <td>Artificial Intelligence &amp; Machine Learning, Cloud Computing, Compiler Design, Project - I</td>
-                                        <td>GTU Revised</td>
-                                        <td><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="btn-action-simple"><i class="fas fa-external-link-alt"></i> View</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Semester VIII</strong></td>
-                                        <td>Big Data Analytics / Internet of Things, Major Project / Full Semester Industry Internship</td>
-                                        <td>GTU Revised</td>
-                                        <td><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="btn-action-simple"><i class="fas fa-external-link-alt"></i> View</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
 
                 <!-- ========================================================
                      4. FACULTY TAB

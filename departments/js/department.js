@@ -78,9 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach click listeners to sidebar links
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
             const tabId = this.getAttribute('data-tab');
             if (tabId) {
+                e.preventDefault();
                 if (history.pushState) {
                     history.pushState(null, null, '#' + tabId);
                 } else {
@@ -88,12 +88,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 activateTab(tabId, true);
             }
+            // Links without data-tab (like Syllabus) naturally open their href in new tab
         });
     });
 
     // Handle Hash changes & initial load
     function checkHash() {
         const hash = window.location.hash.substring(1);
+        if (hash === 'syllabus') {
+            window.location.href = 'https://syllabus.gtu.ac.in/';
+            return;
+        }
         if (hash && document.getElementById('tab-' + hash)) {
             activateTab(hash, false);
         } else {
