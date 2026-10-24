@@ -507,7 +507,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <input type="text" id="pubSearchInput" placeholder="Search publications by title or author...">
                         </div>
                         <div class="publications-count-badge" id="pubCountBadge">
-                            <i class="fas fa-file-alt"></i> 47 Publications
+                            <i class="fas fa-file-alt"></i> 72 Publications
                         </div>
                     </div>
 
@@ -1215,6 +1215,381 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <div class="publication-date">
                                     <i class="far fa-calendar-alt"></i>
                                     <span>2022</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 48 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Fraud Detection in Credit Card Data using Unsupervised & Supervised Machine Learning-Based Algorithms</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>PDF Prasanna Kumar Lakineni; Keyurkumar M Nayak; Harikumar Pallathadka; Kamal Gulati; Kapil Pandey; Pinal J. Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2022</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 49 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Coverless Information Hiding: A Review</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nitin Kanzariya, Gaurang Lakhani, Dhaval Jadhav, Uttam Chauhan, Lokesh Gagani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2021</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 50 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Topic Modeling Using Latent Dirichlet Allocation: A Survey</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Uttam Chauhan, Apurva Shah</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2021</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 51 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">ResTS: Residual Deep Interpretable Architecture for Plant Disease Detection</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Dhruvil Shah, Vishvesh Trivedi, Vinay Sheth, Aakash Shah, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2021</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 52 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Improving Semantic Coherence of Gujarati Text Topic Model Using Inflectional Forms Reduction and Single-letter Words Removal</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Uttam Chauhan, Apurva Shah</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2021</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 53 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Ant Colony Optimization for Travelling Salesman Problem with Modified Pheromone Update Formula</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Rahil Parmar, Naitik Panchal, Dhruval Patel, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2020</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 54 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Advancement of Text Summarization Using Machine Learning and Deep Learning: A Review</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Rishi Kotadiya, Shivangi Bhatt, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 55 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Survey on Architecture of Deep Convolution Neural Network</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Prachi Pandya Pinal J. Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 56 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Semi Supervised PU learning method for deceptive detection using MKNN</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Priyanka Patani Pinal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 57 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Review on Crop Yield Prediction using Data Mining Focusing on Groundnut Crop and Naive Bayes Technique</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Haresh L. Siju, Pinal J. Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2018</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 58 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Biclustering of web usage data using Genetic Algorithm</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mayuree Rathva</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 59 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Speech based Watermark relational databases</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mayuree Rathva</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 60 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Hybrid Approach for Data Denoising on Image Segmentation</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Minal Chauhan, Binal Bhatt</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 61 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Solar power forecasting : Analysis of trends in modeling techniques and error minimization</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Archana Gondalia</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 62 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">AON: A Survey on Emergency Communication Systems during a Catastrophic Disaster</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Vasani Yash Kishorbhai, Nagekar Nainesh Vasantbhai</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 63 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">The Architecture for Optimizing Semantic Topical Coherence in Gujarati Text Topic Modeling</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Uttam Chauhan, Apurva Shah, Uday Yadav</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 64 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Survey - Sophisticated Topic Modeling</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Uttam Chauhan, Apurva Shah, Uday Yadav</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 65 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Performance analysis of neural networks for intrusion detection system</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Pinal J. Patel, J.S.Shah and Jinul Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 66 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Survey of Models and Tools for Project Monitoring and Control</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>H. L. Siju Pinal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 67 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">SOFTWARE MAINTENANCE</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Ketan Sangadiya and Pinal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 68 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Intrusion detection system using BackPropagation Neural Network</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Pinal Patel , Dr. J.S.Shah</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 69 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">RMMM: A SURVEY</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Krishna Dilip Suchak pinal patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 70 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A COMPARATIVE STUDY ON INTERNAL & EXTERNAL QUALITY FOR SOFTWARE PROJECT</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Komal Prajapati, Pinal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 71 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Survey on Node Scheduling Methods for Wireless Sensor Network</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Neha Patel, Shweta Singh</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 72 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Survey on Techniques for Collision Avoidance in VANET</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Neha Patel, Shweta Singh</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
                                 </div>
                             </div>
                         </article>
