@@ -507,7 +507,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <input type="text" id="pubSearchInput" placeholder="Search publications by title or author...">
                         </div>
                         <div class="publications-count-badge" id="pubCountBadge">
-                            <i class="fas fa-file-alt"></i> 119 Publications
+                            <i class="fas fa-file-alt"></i> 144 Publications
                         </div>
                     </div>
 
@@ -2295,6 +2295,357 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <div class="publication-date">
                                     <i class="far fa-calendar-alt"></i>
                                     <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 120 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Detail Study of Digital Image Watermarking Techniques</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Swati Patel, Anil Kathrotiya, Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 121 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Survey on Digital Video Watermarking</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Swati Patel, Anil Kathrotiya, Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 122 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Chain Code Based Hand Written Character Recognition System Using Neural Network and Support Vector Machine</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 123 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">3D Face Recognition Techniques - A Review</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Preeti B. Sharma, Mahesh M. Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 124 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Chain code and holistic features based OCR system for printed Devanagari script using ANN and SVM</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Gunvantsinh Gohil, Rekha Teraiya and Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 125 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Euler Number, Symmetry and Histogram Based Hierarchical Approach for English OCR</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh M Goyani, Rekha R Teraiya, Trusha Y Gajjar, Gunvantsinh D Gohil</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 126 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Comparision between DCT and DWT algorithms of Digital Watermarking</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Swati Patel, Anilkumar Katharotiya, Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 127 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Face recognition using PCA and Modified PCA</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Preeti B. Sharma, Mahesh M. Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 128 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A survey optimize visual image search for sematic web</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Jaimin MShroff Prof. Bhaumik Nagar Prof Parth Shah</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 129 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A review on sla and various approaches for efficient cloud service provider selection</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Shreyas Patel, Prof. Gordhan B. Jethava</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 130 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Host Selection Strategy Based On Propagation Delay in Cloud</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Dodiya Aniruddhsinh Karshanbhai</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 131 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Host Selection Technique for Data Intensive Application in Cloud Computing</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Dodiya Aniruddhsinh Karshanbhai</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 132 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Analysis of Multiple path TCP over Heterogeneous networks</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>P R Gamit</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 133 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Load Sharing Optimization of Multipath TCP in heterogeneous Networks</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>P R Gamit</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 134 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">An Adaptive Classification approach to filter spam E-mail using Vector Space Model</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nakul Dave, Uttam Chauhan, Avani Nakul Dave</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 135 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Review of spam filtering based on unstructured classification</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nakul Dave, Uttam Chauhan, Dhaval Varia</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 136 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Comprehensive study and review of image mosaicing methods</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mrs. Hetal M. Patel, Prof. Pinal. J. Patel, Prof. Mr. Sandip G. Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 137 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Survey paper on Architecture of Deep Convolutional Network</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Prachi Pandya , Pinal J. Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 138 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">PCA Based Handwritten Character Recognition System Using Support Vector Machine & Neural Network</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Ravi Sheth, N C Chauhan, Mahesh M Goyani, Kinjal A Mehta</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2011</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 139 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">An analysis and study of decision tree induction operating under adaptive mode to enhance accuracy and uptime in a dataset introduced to spontaneous variation in data attributes</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Uttam Chauhan, Y P Kosta, Amit Ganatra, Amit Thakkar</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2011</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 140 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Performance Enhancement in Lip Synchronization Using MFCC Parameters</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Narendra Patel, Mukesh Zaveri</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2010</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 141 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Acceptance / Rejection Rule Based Algorithm for Multiple Face Detection in Color Images</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Brijesh Joshi, Gitam Sikkenawis</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2010</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 142 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Performance Analysis of LPC, PLP and MFCC Parameters in Speech Recognition</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Namrata Dave</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2010</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 143 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Performance improvement in Lip Synchronization using LPC, MFCC and PLP Speech Parameters</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Namrata Dave, Narendra Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2010</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Publication 144 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Real Time Lip Synchronization</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2009</span>
                                 </div>
                             </div>
                         </article>
