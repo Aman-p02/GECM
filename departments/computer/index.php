@@ -507,7 +507,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <input type="text" id="pubSearchInput" placeholder="Search publications by title or author...">
                         </div>
                         <div class="publications-count-badge" id="pubCountBadge">
-                            <i class="fas fa-file-alt"></i> 96 Publications
+                            <i class="fas fa-file-alt"></i> 119 Publications
                         </div>
                     </div>
 
@@ -610,7 +610,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <div class="publication-meta-row">
                                 <div class="publication-authors">
                                     <i class="fas fa-user"></i>
-                                    <span>Manisha Valera</span>
+                                    <span>Manisha Valera, Uttam Chauhan, Kirit Rathod</span>
                                 </div>
                                 <div class="publication-date">
                                     <i class="far fa-calendar-alt"></i>
@@ -670,7 +670,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <div class="publication-meta-row">
                                 <div class="publication-authors">
                                     <i class="fas fa-user"></i>
-                                    <span>Manisha Valera</span>
+                                    <span>Manisha Valera, Uttam Chauhan</span>
                                 </div>
                                 <div class="publication-date">
                                     <i class="far fa-calendar-alt"></i>
@@ -1950,6 +1950,351 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <div class="publication-date">
                                     <i class="far fa-calendar-alt"></i>
                                     <span>2014</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 97 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Detection and prevention zero-day attack in honeypot system for virtualization</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Ankit Patel, Pinal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2014</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 98 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Corporate Governance and financial performance</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Gaurang Patel, Pinal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2014</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 99 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A literature survey on Facial Expression Recognition using Global Features</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Vaibhavkumar J. Mistry, Mahesh M. Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 100 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Comparison of different image retrieval techniques in CBIR</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Chauhan Nandish, Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 101 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Facial Expression Recognition using Gabor Filter by minimizing Feature Vector</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Vaibhavkumar J. Mistry, Mahesh M. Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 102 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Enhanced Multistage Content Based Image Retrieval</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nandish Chauhan, Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 103 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Handwritten Character Recognition - A Comprehensive Review</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Harsh Dani, Chahna Dixit</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 104 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Novel Approach as Multi-place Watermarking for security in Database</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mayuree Rathva</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 105 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Reducing Avarage Waiting Time for Processes in Distributed System Using Dynamic Priority and Multiple Token Algorithm</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Ami Patel, Uttam Chauhan, Sanjay Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 106 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Text Based Fuzzy Clustering Algorithm to Filter Spam E- mail</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nakul Dave, Uttam Chauhan, Avani Nakul Dave</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 107 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Panoramic Image Mosaicing</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mrs. Hetal M.Patel, Prof. Pinal. J. Patel, Prof. Mr. Sandip G. Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 108 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Secure Cloud using Homomorphic Encryption Scheme</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Ms. Parin V. Patel, Mr. Hitesh D. Patel, Prof. Pinal J. Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 109 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Cancer Detection Using Modified Watershed</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Shanti L. Kadachha, Pinal J. Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 110 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Performance Analysis of FDA Based Face Recognition Using Correlation, ANN and SVM</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Akash Dhorajiya, Ronak Paun</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 111 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Comparative Analysis Between DCT & DWT Techniques of Image Compression</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Anil Kathrotiya, Swati Patel, Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 112 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Key Frame Detection Based Semantic Event Detection and Classification Using Hierarchical Approach for Cricket Sport Video Indexing</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Shreyash Dutta, Payal Raj</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 113 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Performance Analysis of Block and Non Block Based Approach of Invisible Image Watermarking Using SVD in DCT Domain</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Gunvantsinh Gohil</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 114 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Geometry and Skin Color Based Hybrid Approach for Face Tracking in Color Environment</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Gitam Sikkenawis, Brijesh Joshi</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 115 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Review on Handwritten Character Recognition Systems</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 116 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Wicket fall Concept Mining From Cricket Video Using A-Priori Algorithm</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Shreyash Dutta, Gunvantsinh Gohil, Sapan Naik</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 117 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Handwritten Character Recognition System Using Correlation Coefficient</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 118 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Robust Face Recognition in Low Dimensional Subspace Using Reconstructive and Discriminative Features</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Gunvantsinh Gohil, Amit Chaudhari</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 119 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Top Down Hierarchical Histogram Based Approach for Printed Devanagari Script Character Isolation</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Trusha Gajjar, Rekha Teraiya, Gunvantsinh Gohil, Mahesh Goyani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
                                 </div>
                             </div>
                         </article>
