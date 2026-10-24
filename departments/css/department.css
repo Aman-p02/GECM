@@ -14,8 +14,8 @@ html {
    ============================================================== */
 .dept-scroll-reveal {
     opacity: 0;
-    transform: translateY(38px);
-    transition: opacity 1.15s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(48px);
+    transition: opacity 1.65s cubic-bezier(0.22, 1, 0.36, 1), transform 1.65s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
 }
 
