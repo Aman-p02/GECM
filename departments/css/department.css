@@ -1228,41 +1228,6 @@ html {
     pointer-events: none;
 }
 
-.publications-search-box {
-    position: relative;
-    flex: 1 1 200px;
-    max-width: 280px;
-}
-
-.publications-search-box input {
-    width: 100%;
-    padding: 9px 14px 9px 36px;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    font-size: 0.90rem;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    background: #ffffff;
-    box-sizing: border-box;
-    color: #1e293b;
-}
-
-.publications-search-box input:focus {
-    border-color: #0288d1;
-    box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.12);
-}
-
-.publications-search-box i {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #8c9ba5;
-    font-size: 0.88rem;
-    pointer-events: none;
-}
-
 .publications-count-badge {
     display: inline-flex;
     align-items: center;

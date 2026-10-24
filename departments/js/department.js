@@ -237,9 +237,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Year-Wise Filter for Publications (Strictly Year-Based)
+    // Year-Wise Dropdown Filter for Publications
     const pubYearSelect = document.getElementById('pubYearSelect');
-    const pubSearchInput = document.getElementById('pubSearchInput');
     const pubCards = document.querySelectorAll('.publication-card');
     const pubCount = document.getElementById('pubCountBadge');
 
@@ -255,53 +254,24 @@ document.addEventListener('DOMContentLoaded', function () {
             card.setAttribute('data-pub-year', year);
         });
 
-        function applyYearFilter() {
-            const searchVal = pubSearchInput ? pubSearchInput.value.trim() : '';
-            const selectVal = pubYearSelect ? pubYearSelect.value : 'all';
-
-            // Active year query: input takes precedence if typed, otherwise select dropdown
-            let targetYear = '';
-            if (searchVal) {
-                targetYear = searchVal;
-            } else if (selectVal !== 'all') {
-                targetYear = selectVal;
-            }
-
-            let visibleCount = 0;
-            pubCards.forEach(card => {
-                const cardYear = card.getAttribute('data-pub-year') || '';
-                // STRICTLY Year-wise matching only
-                const matches = !targetYear || cardYear.includes(targetYear);
-
-                if (matches) {
-                    card.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            if (pubCount) {
-                pubCount.innerHTML = '<i class="fas fa-file-alt"></i> ' + visibleCount + ' Publications';
-            }
-        }
-
-        if (pubSearchInput) {
-            pubSearchInput.addEventListener('input', function () {
-                if (pubYearSelect) {
-                    const matchOption = pubYearSelect.querySelector(`option[value="${this.value.trim()}"]`);
-                    pubYearSelect.value = matchOption ? this.value.trim() : 'all';
-                }
-                applyYearFilter();
-            });
-        }
-
         if (pubYearSelect) {
             pubYearSelect.addEventListener('change', function () {
-                if (pubSearchInput) {
-                    pubSearchInput.value = '';
+                const selectedYear = this.value;
+                let visibleCount = 0;
+
+                pubCards.forEach(card => {
+                    const cardYear = card.getAttribute('data-pub-year') || '';
+                    if (selectedYear === 'all' || cardYear === selectedYear) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (pubCount) {
+                    pubCount.innerHTML = '<i class="fas fa-file-alt"></i> ' + visibleCount + ' Publications';
                 }
-                applyYearFilter();
             });
         }
     }
