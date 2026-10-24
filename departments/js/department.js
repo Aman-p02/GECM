@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }, {
             root: null,
-            rootMargin: '0px 0px -30px 0px', // Trigger smoothly just before coming into view
-            threshold: 0.08
+            rootMargin: '0px 0px -70px 0px', // Trigger when element is well inside the viewport
+            threshold: 0.12
         });
     }
 
@@ -90,13 +90,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Check if element is currently within the visible viewport window
             const rect = el.getBoundingClientRect();
-            if (rect.top >= 0 && rect.top < window.innerHeight - 30) {
-                // Stagger reveal for initial viewport items
+            if (rect.top >= 0 && rect.top < window.innerHeight - 50) {
+                // Gentle, slow stagger cascade for initial viewport items
                 setTimeout(() => {
                     el.classList.add('is-revealed');
-                }, Math.min(index * 80, 400));
+                }, Math.min(index * 130, 650));
             } else {
-                // For items below the screen, reveal as user scrolls down!
+                // For items below the screen, smoothly reveal as user scrolls down!
                 if (revealObserver) {
                     revealObserver.observe(el);
                 } else {
