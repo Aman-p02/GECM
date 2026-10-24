@@ -388,8 +388,8 @@
 }
 
 .mission-bullet-list {
-    list-style: none;
-    padding: 0;
+    list-style: disc;
+    padding-left: 28px;
     margin: 15px 0 35px;
     width: 100%;
     max-width: 100%;
@@ -397,25 +397,16 @@
 }
 
 .mission-bullet-list li {
-    position: relative;
-    padding: 8px 0 8px 28px;
     font-size: 0.94rem;
-    color: #444444;
+    color: #3f4750;
     line-height: 1.7;
+    margin-bottom: 8px;
+    text-align: justify;
+    text-justify: inter-word;
     word-break: break-word;
 }
 
-.mission-bullet-list li::before {
-    content: '\f105';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: absolute;
-    left: 8px;
-    color: #1e88e5;
-    font-size: 1rem;
-}
-
-/* PEOs Card matching screenshot media_1792588864122.png */
+/* PEOs & PSOs Cards matching user screenshot */
 .peo-card {
     border: 1px solid #1e6091;
     border-radius: 0;
@@ -424,6 +415,7 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    background: #ffffff;
 }
 
 .peo-card-header {
@@ -438,42 +430,43 @@
     box-sizing: border-box;
 }
 
-.peo-card-body {
-    padding: 20px 24px;
+.peo-card-intro {
     background: #ffffff;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 0.94rem;
+    color: #333333;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
     box-sizing: border-box;
 }
 
-.peo-intro {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #2b3a4a;
-    margin-bottom: 12px;
-}
-
-.peo-list {
-    list-style: none;
-    padding: 0;
+.peo-table {
+    width: 100%;
+    border-collapse: collapse;
     margin: 0;
 }
 
-.peo-list li {
+.peo-table td {
+    padding: 11px 16px;
+    border: 1px solid #e0e0e0;
     font-size: 0.92rem;
-    color: #4a4a4a;
-    line-height: 1.7;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 20px;
-    word-break: break-word;
+    line-height: 1.6;
+    color: #333333;
+    text-align: left;
 }
 
-.peo-list li::before {
-    content: '•';
-    color: #1e6091;
-    font-size: 1.2rem;
-    position: absolute;
-    left: 4px;
-    top: -2px;
+.peo-table td.peo-label {
+    width: 85px;
+    min-width: 75px;
+    font-weight: 600;
+    color: #222222;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.peo-table tbody tr:hover {
+    background-color: #f9fbfd;
 }
 
 /* -------------------------------------------------------------

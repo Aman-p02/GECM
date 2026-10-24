@@ -161,7 +161,7 @@ include_once __DIR__ . '/../includes/header.php';
                 <section class="dept-tab-content" id="tab-vision-mission">
                     <div class="dept-divider-title">Vision</div>
 
-                    <p class="vision-text-block">
+                    <p class="dept-text-body">
                         To become a prominent department producing competent professionals with research, innovation and entrepreneurial skills, inculcating moral values and societal concerns.
                     </p>
 
@@ -171,22 +171,68 @@ include_once __DIR__ . '/../includes/header.php';
                         <li>To create globally competent students having ability to design, develop and test world class software, keeping pace with the latest technological developments.</li>
                         <li>Create facilities and expertise in advanced computer technology thereby promote research.</li>
                         <li>Enhance Industry Institute Interaction programme to get acquainted with corporate culture.</li>
-                        <li>Induce moral, ethical values and spirit of social commitment.</li>
+                        <li>Induce moral , ethical values and spirit of social commitment.</li>
                     </ul>
 
-                    <!-- PEOs Card -->
+                    <!-- Program Educational Objectives PEOs Card -->
                     <div class="peo-card">
                         <div class="peo-card-header">
-                            <i class="fas fa-bars"></i>
+                            <i class="fas fa-server"></i>
                             <span>Program Educational Objectives PEOs</span>
                         </div>
-                        <div class="peo-card-body">
-                            <div class="peo-intro">Graduates will</div>
-                            <ul class="peo-list">
-                                <li><strong>PEO 1:</strong> Establish themselves as successful professionals in computer engineering or allied fields.</li>
-                                <li><strong>PEO 2:</strong> Pursue lifelong learning, higher education, research and adapt to evolving technologies.</li>
-                                <li><strong>PEO 3:</strong> Practice professional ethics, leadership qualities, and contribute responsibly to societal development.</li>
-                            </ul>
+                        <div class="peo-card-intro">
+                            Graduates will
+                        </div>
+                        <div class="courses-table-wrapper">
+                            <table class="courses-table peo-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="peo-label">PEO1</td>
+                                        <td>Be an efficient Software developer in diverse fields and will be a successful professional and/or pursue higher studies.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="peo-label">PEO2</td>
+                                        <td>be capable to adapt advanced state of the art computing technology for professional excellence and Research and be a lifelong learner.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="peo-label">PEO3</td>
+                                        <td>Work productively exhibiting ethical qualities for the betterment of society.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="peo-label">PEO4</td>
+                                        <td>Possess leadership and entrepreneurial qualities, work harmoniously as a team member with effective communication skills.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Program Specific Outcomes PSOs Card -->
+                    <div class="peo-card">
+                        <div class="peo-card-header">
+                            <i class="fas fa-server"></i>
+                            <span>Program Specific Outcomes PSOs</span>
+                        </div>
+                        <div class="peo-card-intro">
+                            Computer Engineering Graduate will be able to:
+                        </div>
+                        <div class="courses-table-wrapper">
+                            <table class="courses-table peo-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="peo-label">PSO1</td>
+                                        <td>Gain capability to use current / advanced technology, skills and tools necessary for carrying out Real- World Multidisciplinary projects.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="peo-label">PSO2</td>
+                                        <td>Achieve an ability to build a computer based system, process or a component that meets the desired needs.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="peo-label">PSO3</td>
+                                        <td>Apply concepts of core areas of Computer Engineering– Data Structures, Database Management Systems, Operating Systems, Computer Architecture and Software Engineering to provide innovative solution.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </section>
