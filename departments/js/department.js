@@ -65,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Smooth scroll to content top if triggered by user click on mobile
         if (shouldScroll && window.innerWidth <= 768) {
-            const topBar = document.querySelector('.dept-top-bar');
-            if (topBar) {
+            const contentPanel = document.querySelector('.dept-content-panel');
+            if (contentPanel) {
                 const stickyNav = document.querySelector('.dept-sidebar');
                 const navHeight = stickyNav ? stickyNav.offsetHeight : 50;
-                const targetY = topBar.getBoundingClientRect().top + window.pageYOffset - navHeight - 15;
+                const targetY = contentPanel.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
                 window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
             }
         }
