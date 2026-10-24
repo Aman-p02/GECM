@@ -106,16 +106,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Clean Minimal Facility Sub-tabs Handler (Laboratories, Seminar Room, Server Room)
-    const facilityTabLinks = document.querySelectorAll('.facility-tab-link');
+    // Modern Segmented Facility Sub-tabs Handler (Laboratories, Seminar Room, Server Room)
+    const facilityTabBtns = document.querySelectorAll('.facility-tab-btn');
     const facilityPanes = document.querySelectorAll('.facility-pane');
 
-    facilityTabLinks.forEach(link => {
-        link.addEventListener('click', function () {
+    facilityTabBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
             const subtabKey = this.getAttribute('data-subtab');
             if (!subtabKey) return;
 
-            facilityTabLinks.forEach(l => l.classList.remove('active'));
+            facilityTabBtns.forEach(b => b.classList.remove('active'));
             facilityPanes.forEach(p => p.classList.remove('active'));
 
             this.classList.add('active');

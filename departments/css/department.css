@@ -591,174 +591,223 @@
 }
 
 /* -------------------------------------------------------------
-   Facilities: Minimal Editorial Layout
+   Facilities: Modern Minimal UI & Segmented Controls
    ------------------------------------------------------------- */
-.facility-tabs-bar {
+.facility-tabs-container {
     display: flex;
-    align-items: flex-end;
-    gap: 0;
-    border-bottom: 2px solid #2980b9;
-    margin: 15px 0 25px 0;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 15px 0 28px 0;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 14px;
+}
+
+.facility-segmented-tabs {
+    display: inline-flex;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 8px;
+    gap: 3px;
+    border: 1px solid #e2e8f0;
+    max-width: 100%;
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
 }
 
-.facility-tabs-bar::-webkit-scrollbar {
+.facility-segmented-tabs::-webkit-scrollbar {
     display: none;
 }
 
-.facility-tab-link {
+.facility-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
     border: none;
     background: transparent;
-    padding: 8px 18px;
-    font-size: 0.95rem;
+    color: #64748b;
+    font-size: 0.90rem;
     font-weight: 500;
-    color: #4b5563;
+    border-radius: 6px;
     cursor: pointer;
-    border-radius: 2px 2px 0 0;
-    transition: background 0.15s, color 0.15s;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     outline: none;
     white-space: nowrap;
 }
 
-.facility-tab-link:hover {
-    color: #1e6091;
-    background: #f1f5f9;
+.facility-tab-btn:hover {
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.5);
 }
 
-.facility-tab-link.active {
-    background: #2980b9;
-    color: #ffffff;
+.facility-tab-btn.active {
+    background: #ffffff;
+    color: #0f172a;
     font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.tab-count-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    background: #e2e8f0;
+    color: #475569;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.facility-tab-btn.active .tab-count-badge {
+    background: #e0f2fe;
+    color: #0369a1;
 }
 
 .facility-pane {
     display: none;
+    animation: fadeInSubtab 0.2s ease-in-out;
 }
 
 .facility-pane.active {
     display: block;
 }
 
-.facility-lead-text {
+@keyframes fadeInSubtab {
+    from {
+        opacity: 0;
+        transform: translateY(3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.facility-lead-intro {
     font-size: 0.94rem;
-    line-height: 1.7;
-    color: #374151;
-    margin: 0 0 25px 0;
+    line-height: 1.75;
+    color: #475569;
+    margin: 0 0 30px 0;
     text-align: justify;
     text-justify: inter-word;
+    padding-left: 14px;
+    border-left: 2px solid #cbd5e1;
 }
 
-/* Minimal Lab Rows (Alternating Layout matching real college sites) */
-.facility-labs-list {
+/* Modern Minimal Lab Cards */
+.modern-labs-stack {
     display: flex;
     flex-direction: column;
+    gap: 28px;
 }
 
-.lab-row {
+.modern-lab-card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 28px;
     align-items: center;
-    padding: 24px 16px;
-    border-top: 1px solid #eef2f6;
-    border-radius: 4px;
-    transition: background-color 0.25s ease;
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
 }
 
-.lab-row:first-child {
-    border-top: none;
-    padding-top: 12px;
+.modern-lab-card:hover {
+    border-color: #e2e8f0;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 4px 10px -4px rgba(0, 0, 0, 0.03);
+    transform: translateY(-2px);
 }
 
-.lab-row:hover {
-    background-color: #f8fafc;
+.modern-lab-card-reverse {
+    grid-template-columns: 1.15fr 1fr;
 }
 
-.lab-row.lab-row-reverse .lab-info {
+.modern-lab-card-reverse .modern-photo-wrap {
     order: 2;
 }
 
-.lab-row.lab-row-reverse .lab-media {
+.modern-lab-card-reverse .modern-lab-body {
     order: 1;
 }
 
-.lab-name {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #2980b9;
-    margin: 0 0 12px 0;
-    letter-spacing: -0.2px;
-    transition: color 0.2s ease;
-}
-
-.lab-row:hover .lab-name {
-    color: #1a6d9e;
-}
-
-.lab-description {
-    font-size: 0.93rem;
-    line-height: 1.7;
-    color: #4b5563;
-    margin: 0;
-    text-align: justify;
-    text-justify: inter-word;
-}
-
-/* Photo Container & Placeholder with Smooth Hover Effects */
-.lab-photo-frame {
-    width: 100%;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 4px;
+.modern-photo-wrap {
+    position: relative;
+    border-radius: 6px;
     overflow: hidden;
+    background: #f8fafc;
+    border: 1px solid #eef2f6;
+    aspect-ratio: 16 / 10;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease, border-color 0.3s ease;
-    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-.lab-photo-frame:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    border-color: #cbd5e1;
-}
-
-.lab-photo-img {
+.modern-photo-img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
     object-fit: cover;
-    max-height: 290px;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.lab-photo-frame:hover .lab-photo-img {
-    transform: scale(1.04);
+.modern-lab-card:hover .modern-photo-img {
+    transform: scale(1.035);
 }
 
-.lab-photo-placeholder {
+.modern-photo-placeholder {
     width: 100%;
+    height: 100%;
     min-height: 200px;
     background: #f8fafc;
     border: 1px dashed #cbd5e1;
-    border-radius: 4px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #64748b;
     font-size: 0.9rem;
     letter-spacing: 0.3px;
-    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    box-sizing: border-box;
 }
 
-.lab-photo-placeholder:hover {
-    background-color: #f1f5f9;
-    border-color: #94a3b8;
-    color: #334155;
+.modern-room-pill {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #475569;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+}
+
+.modern-lab-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.015em;
+    transition: color 0.2s ease;
+}
+
+.modern-lab-card:hover .modern-lab-title {
+    color: #0c3b6d;
+}
+
+.modern-lab-text {
+    font-size: 0.93rem;
+    line-height: 1.72;
+    color: #475569;
+    margin: 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* =============================================================
@@ -1030,24 +1079,29 @@
         grid-template-columns: 1fr;
     }
 
-    /* Clean Minimal Facilities on Mobile */
-    .lab-row,
-    .lab-row.lab-row-reverse {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 20px 0;
+    /* Modern Minimal Facilities on Mobile */
+    .facility-tabs-container {
+        overflow-x: auto;
+        padding-bottom: 8px;
     }
 
-    .lab-row.lab-row-reverse .lab-info {
+    .modern-lab-card,
+    .modern-lab-card-reverse {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .modern-lab-card-reverse .modern-photo-wrap {
         order: 1;
     }
 
-    .lab-row.lab-row-reverse .lab-media {
+    .modern-lab-card-reverse .modern-lab-body {
         order: 2;
     }
 
-    .facility-tab-link {
-        padding: 7px 14px;
-        font-size: 0.88rem;
+    .facility-tab-btn {
+        padding: 6px 12px;
+        font-size: 0.84rem;
     }
 }
