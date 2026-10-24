@@ -810,6 +810,18 @@
     text-justify: inter-word;
 }
 
+.modern-lab-location {
+    margin-top: 14px;
+    font-size: 0.90rem;
+    color: #334155;
+    font-weight: 500;
+}
+
+.modern-lab-location strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
 /* =============================================================
    RESPONSIVE DESIGN BREAKPOINTS
    ============================================================= */

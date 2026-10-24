@@ -455,11 +455,14 @@ include_once __DIR__ . '/../../includes/header.php';
                                 </div>
                             </div>
                             <div class="modern-lab-body">
-                                <span class="modern-room-pill">Presentation Facility</span>
-                                <h3 class="modern-lab-title">Department Seminar Room</h3>
+                                <span class="modern-room-pill">Room 8119 (Ground Floor)</span>
+                                <h3 class="modern-lab-title">Seminar Room - 1</h3>
                                 <p class="modern-lab-text">
-                                    The department has a dedicated Seminar Room equipped with modern audio-visual presentation systems, LCD projector, and public address system. It is utilized for departmental seminars, workshops, expert lectures, student presentations, and group discussions.
+                                    The Seminar Room is a space that seats up to around 120 people. Featuring a large whiteboard, 2 medium-sized tables, a podium, and a projector and small speaker set (in the media closet), fully air-conditioned, the Seminar Room is the ideal location for a guest lecture, a meeting, or a conference. The seminar room is one of the state-of-art facility in the college. It is equipped with the audio system and projection facilities. Lectures of prominent people, seminars and discussions are organized here. The hall is often used for Debates, Seminars, Council meeting and society's events etc.
                                 </p>
+                                <div class="modern-lab-location">
+                                    <strong>Seminar Room-1 No.:</strong> 8119 (Ground Floor)
+                                </div>
                             </div>
                         </article>
                     </div>
@@ -474,11 +477,14 @@ include_once __DIR__ . '/../../includes/header.php';
                                 </div>
                             </div>
                             <div class="modern-lab-body">
-                                <span class="modern-room-pill">Central Infrastructure</span>
-                                <h3 class="modern-lab-title">Central Server Room</h3>
+                                <span class="modern-room-pill">Room 8103 (Ground Floor)</span>
+                                <h3 class="modern-lab-title">Server Room</h3>
                                 <p class="modern-lab-text">
-                                    The department features a centralized Server Room maintaining high-capacity servers, network racks, managed switches, and centralized firewall systems. It provides network management, proxy services, academic software licenses, and high-speed internet connectivity across all laboratories.
+                                    The department maintains campus wide networking and INTERNET facility of institute. The INTERNET line is provided by NKN (National Knowledge Network) with speed up to 100 MBPS. Server room contains two high end servers, routers, Fortinet firewall system, switches and Wi-Fi controller.
                                 </p>
+                                <div class="modern-lab-location">
+                                    <strong>Server Room No.:</strong> 8103 (Ground Floor)
+                                </div>
                             </div>
                         </article>
                     </div>
