@@ -1,8 +1,7 @@
 /* ==============================================================
    GECM Department Detail Page Interactions
-   - Scroll-triggered reveal loading for department elements
-   - Smooth, slow, and graceful scrolling behavior
-   - Tabs navigation, dynamic heading updates, and facility sub-tabs
+   - Scroll-triggered reveal loading across ALL department tabs
+   - Smooth navigation scrolling and facility sub-tabs
    ============================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -48,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ==========================================================
-       3. Scroll-Triggered Reveal Animation (Load on Scroll)
+       2. Scroll-Triggered Reveal Animation (Load on Scroll for ALL Tabs)
        ========================================================== */
     const revealSelectors = [
         '.dept-divider-title',
@@ -57,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '.peo-card',
         '.vision-quote-box',
         '.mission-bullet-list',
+        '.mission-bullet-list li',
         '.faculty-simple-card',
         '.lab-simple-item',
         '.modern-lab-card',
@@ -75,35 +75,39 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }, {
             root: null,
-            rootMargin: '0px 0px -40px 0px', // trigger smoothly as user scrolls towards element
+            rootMargin: '0px 0px -30px 0px', // Trigger smoothly just before coming into view
             threshold: 0.08
         });
     }
 
-    function initScrollReveal(scope = document) {
-        const elements = scope.querySelectorAll(revealSelectors);
+    function setupTabReveal(container) {
+        if (!container) return;
+
+        const elements = container.querySelectorAll(revealSelectors);
         elements.forEach((el, index) => {
-            if (!el.classList.contains('dept-scroll-reveal')) {
-                el.classList.add('dept-scroll-reveal');
-            }
-            if (revealObserver) {
-                // If element is already in the viewport right now, reveal it with slight stagger
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 30) {
-                    setTimeout(() => {
-                        el.classList.add('is-revealed');
-                    }, Math.min(index * 60, 300));
-                } else {
-                    revealObserver.observe(el);
-                }
+            el.classList.add('dept-scroll-reveal');
+            el.classList.remove('is-revealed');
+
+            // Check if element is currently within the visible viewport window
+            const rect = el.getBoundingClientRect();
+            if (rect.top >= 0 && rect.top < window.innerHeight - 30) {
+                // Stagger reveal for initial viewport items
+                setTimeout(() => {
+                    el.classList.add('is-revealed');
+                }, Math.min(index * 80, 400));
             } else {
-                el.classList.add('is-revealed');
+                // For items below the screen, reveal as user scrolls down!
+                if (revealObserver) {
+                    revealObserver.observe(el);
+                } else {
+                    el.classList.add('is-revealed');
+                }
             }
         });
     }
 
     /* ==========================================================
-       4. Tab Activation & Navigation
+       3. Tab Activation & Navigation
        ========================================================== */
     function activateTab(tabId, shouldScroll = false) {
         if (!tabId) return;
@@ -139,9 +143,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Initialize scroll reveal on newly activated pane
-        setTimeout(() => {
-            initScrollReveal(targetPane);
-        }, 50);
+        requestAnimationFrame(() => {
+            setupTabReveal(targetPane);
+        });
 
         // On mobile / small screens, center the active pill in the horizontal nav
         if (window.innerWidth <= 768 && targetLink) {
@@ -152,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Smooth slow scroll to content top if triggered by user click on mobile
+        // Smooth scroll to content top if triggered by user click on mobile
         if (shouldScroll && window.innerWidth <= 768) {
             const contentPanel = document.querySelector('.dept-content-panel');
             if (contentPanel) {
@@ -196,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ==========================================================
-       5. Facilities Segmented Sub-tabs Handler
+       4. Facilities Segmented Sub-tabs Handler
        ========================================================== */
     const facilityTabBtns = document.querySelectorAll('.facility-tab-btn');
     const facilityPanes = document.querySelectorAll('.facility-pane');
@@ -214,9 +218,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetPane = document.getElementById('subtab-' + subtabKey);
             if (targetPane) {
                 targetPane.classList.add('active');
-                setTimeout(() => {
-                    initScrollReveal(targetPane);
-                }, 50);
+                requestAnimationFrame(() => {
+                    setupTabReveal(targetPane);
+                });
             }
         });
     });
@@ -224,6 +228,11 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('hashchange', checkHash);
     checkHash();
 
-    // Initial reveal of visible elements
-    initScrollReveal(document);
+    // Initial reveal on the active tab
+    const initialActivePane = document.querySelector('.dept-tab-content.active');
+    if (initialActivePane) {
+        requestAnimationFrame(() => {
+            setupTabReveal(initialActivePane);
+        });
+    }
 });
