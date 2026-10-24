@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     /* ==========================================================
-       1. Custom Smooth Slow Scroll Function (Easing Curve)
+       1. Smooth Scroll Helper Function
        ========================================================== */
-    function smoothSlowScrollTo(targetY, duration = 850) {
+    function smoothScrollTo(targetY, duration = 400) {
         const startY = window.pageYOffset;
         const diff = targetY - startY;
         let startTime = null;
@@ -35,10 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!startTime) startTime = timestamp;
             const elapsed = timestamp - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // Ease-in-out cubic curve: slow start, graceful glide, gentle deceleration
-            const ease = progress < 0.5
-                ? 4 * progress * progress * progress
-                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+            // Smooth natural easeOutCubic curve
+            const ease = 1 - Math.pow(1 - progress, 3);
 
             window.scrollTo(0, startY + (diff * ease));
 
@@ -47,50 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         requestAnimationFrame(step);
-    }
-
-    /* ==========================================================
-       2. Smooth Slow Mouse Wheel Scroll Enhancer
-       ========================================================== */
-    let isWheeling = false;
-    let targetScrollY = window.pageYOffset;
-
-    window.addEventListener('scroll', function () {
-        if (!isWheeling) {
-            targetScrollY = window.pageYOffset;
-        }
-    }, { passive: true });
-
-    window.addEventListener('wheel', function (e) {
-        // Allow default zoom / special keys
-        if (e.ctrlKey || e.altKey) return;
-
-        const delta = e.deltaY;
-        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-
-        // Slow down step multiplier (0.75 gives controlled, slow motion)
-        targetScrollY = Math.max(0, Math.min(targetScrollY + delta * 0.75, maxScroll));
-
-        if (!isWheeling) {
-            isWheeling = true;
-            runSmoothWheel();
-        }
-        e.preventDefault();
-    }, { passive: false });
-
-    function runSmoothWheel() {
-        const currentY = window.pageYOffset;
-        const diff = targetScrollY - currentY;
-
-        if (Math.abs(diff) < 0.6) {
-            window.scrollTo(0, targetScrollY);
-            isWheeling = false;
-            return;
-        }
-
-        // 0.085 interpolation factor gives a luxurious, slow, silky glide
-        window.scrollTo(0, currentY + diff * 0.085);
-        requestAnimationFrame(runSmoothWheel);
     }
 
     /* ==========================================================
@@ -205,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const stickyNav = document.querySelector('.dept-sidebar');
                 const navHeight = stickyNav ? stickyNav.offsetHeight : 50;
                 const targetY = contentPanel.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
-                smoothSlowScrollTo(Math.max(0, targetY), 800);
+                smoothScrollTo(Math.max(0, targetY), 400);
             }
         }
     }
