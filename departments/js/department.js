@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
         '.lab-simple-item',
         '.modern-lab-card',
         '.facility-tabs-container',
-        '.facility-lead-intro'
+        '.facility-lead-intro',
+        '.publication-card'
     ].join(', ');
 
     let revealObserver = null;
@@ -233,6 +234,32 @@ document.addEventListener('DOMContentLoaded', function () {
     if (initialActivePane) {
         requestAnimationFrame(() => {
             setupTabReveal(initialActivePane);
+        });
+    }
+
+    // Live Search Filter for Publications
+    const pubSearchInput = document.getElementById('pubSearchInput');
+    const pubCards = document.querySelectorAll('.publication-card');
+    const pubCount = document.getElementById('pubCountBadge');
+
+    if (pubSearchInput && pubCards.length > 0) {
+        pubSearchInput.addEventListener('input', function () {
+            const query = this.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            pubCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (pubCount) {
+                pubCount.innerHTML = '<i class="fas fa-file-alt"></i> ' + visibleCount + ' Publications';
+            }
         });
     }
 });

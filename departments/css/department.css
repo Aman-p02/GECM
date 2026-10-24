@@ -1157,3 +1157,151 @@ html {
         font-size: 0.84rem;
     }
 }
+
+/* ==============================================================
+   Publications Cards UI (Authentic Institutional Style)
+   Directly matching user screenshot with blue border accent
+   ============================================================== */
+.publications-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 18px 0 24px;
+}
+
+.publications-search-box {
+    position: relative;
+    flex: 1 1 280px;
+    max-width: 380px;
+}
+
+.publications-search-box input {
+    width: 100%;
+    padding: 9px 14px 9px 36px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 0.90rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #ffffff;
+    box-sizing: border-box;
+    color: #1e293b;
+}
+
+.publications-search-box input:focus {
+    border-color: #0288d1;
+    box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.12);
+}
+
+.publications-search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8c9ba5;
+    font-size: 0.88rem;
+    pointer-events: none;
+}
+
+.publications-count-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.86rem;
+    color: #475569;
+    font-weight: 600;
+    background: #f1f5f9;
+    padding: 6px 14px;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.publications-list-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.publication-card {
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-left: 3.5px solid #0288d1; /* Clean blue accent bar directly matching screenshot */
+    border-radius: 0 4px 4px 0;
+    padding: 18px 22px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
+    box-sizing: border-box;
+}
+
+.publication-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    border-left-color: #0c3b6d;
+}
+
+.publication-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.publication-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.87rem;
+    color: #475569;
+}
+
+.publication-authors {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 1 300px;
+    font-weight: 500;
+    color: #334155;
+    line-height: 1.45;
+}
+
+.publication-authors i {
+    color: #475569;
+    margin-top: 3px;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.publication-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #475569;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.publication-date i {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    .publication-card {
+        padding: 14px 16px;
+    }
+
+    .publication-meta-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
