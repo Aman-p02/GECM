@@ -212,23 +212,6 @@
     display: block;
 }
 
-/* About Department Section - Option 2: Plus Jakarta Sans */
-#tab-about {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-#tab-about .dept-text-body,
-#tab-about .dept-divider-title,
-#tab-about .courses-card,
-#tab-about .courses-table,
-#tab-about .courses-card-header span,
-#tab-about .peo-card,
-#tab-about .peo-card-header span,
-#tab-about .peo-list,
-#tab-about .peo-list li {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
 /* Centered Divider Heading with side lines matching screenshot */
 .dept-divider-title {
     display: flex;
