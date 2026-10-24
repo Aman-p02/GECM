@@ -1,6 +1,8 @@
 /* ==============================================================
    GECM Department Detail Page Interactions
-   Tabs navigation, dynamic top heading update, and smooth mobile scrolling
+   - Scroll-triggered reveal loading for department elements
+   - Smooth, slow, and graceful scrolling behavior
+   - Tabs navigation, dynamic heading updates, and facility sub-tabs
    ============================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -21,6 +23,134 @@ document.addEventListener('DOMContentLoaded', function () {
         'newsletters': 'News Letters'
     };
 
+    /* ==========================================================
+       1. Custom Smooth Slow Scroll Function (Easing Curve)
+       ========================================================== */
+    function smoothSlowScrollTo(targetY, duration = 850) {
+        const startY = window.pageYOffset;
+        const diff = targetY - startY;
+        let startTime = null;
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-in-out cubic curve: slow start, graceful glide, gentle deceleration
+            const ease = progress < 0.5
+                ? 4 * progress * progress * progress
+                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+            window.scrollTo(0, startY + (diff * ease));
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        }
+        requestAnimationFrame(step);
+    }
+
+    /* ==========================================================
+       2. Smooth Slow Mouse Wheel Scroll Enhancer
+       ========================================================== */
+    let isWheeling = false;
+    let targetScrollY = window.pageYOffset;
+
+    window.addEventListener('scroll', function () {
+        if (!isWheeling) {
+            targetScrollY = window.pageYOffset;
+        }
+    }, { passive: true });
+
+    window.addEventListener('wheel', function (e) {
+        // Allow default zoom / special keys
+        if (e.ctrlKey || e.altKey) return;
+
+        const delta = e.deltaY;
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+        // Slow down step multiplier (0.75 gives controlled, slow motion)
+        targetScrollY = Math.max(0, Math.min(targetScrollY + delta * 0.75, maxScroll));
+
+        if (!isWheeling) {
+            isWheeling = true;
+            runSmoothWheel();
+        }
+        e.preventDefault();
+    }, { passive: false });
+
+    function runSmoothWheel() {
+        const currentY = window.pageYOffset;
+        const diff = targetScrollY - currentY;
+
+        if (Math.abs(diff) < 0.6) {
+            window.scrollTo(0, targetScrollY);
+            isWheeling = false;
+            return;
+        }
+
+        // 0.085 interpolation factor gives a luxurious, slow, silky glide
+        window.scrollTo(0, currentY + diff * 0.085);
+        requestAnimationFrame(runSmoothWheel);
+    }
+
+    /* ==========================================================
+       3. Scroll-Triggered Reveal Animation (Load on Scroll)
+       ========================================================== */
+    const revealSelectors = [
+        '.dept-divider-title',
+        '.dept-text-body',
+        '.courses-card',
+        '.peo-card',
+        '.vision-quote-box',
+        '.mission-bullet-list',
+        '.faculty-simple-card',
+        '.lab-simple-item',
+        '.modern-lab-card',
+        '.facility-tabs-container',
+        '.facility-lead-intro'
+    ].join(', ');
+
+    let revealObserver = null;
+    if ('IntersectionObserver' in window) {
+        revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -40px 0px', // trigger smoothly as user scrolls towards element
+            threshold: 0.08
+        });
+    }
+
+    function initScrollReveal(scope = document) {
+        const elements = scope.querySelectorAll(revealSelectors);
+        elements.forEach((el, index) => {
+            if (!el.classList.contains('dept-scroll-reveal')) {
+                el.classList.add('dept-scroll-reveal');
+            }
+            if (revealObserver) {
+                // If element is already in the viewport right now, reveal it with slight stagger
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 30) {
+                    setTimeout(() => {
+                        el.classList.add('is-revealed');
+                    }, Math.min(index * 60, 300));
+                } else {
+                    revealObserver.observe(el);
+                }
+            } else {
+                el.classList.add('is-revealed');
+            }
+        });
+    }
+
+    /* ==========================================================
+       4. Tab Activation & Navigation
+       ========================================================== */
     function activateTab(tabId, shouldScroll = false) {
         if (!tabId) return;
 
@@ -54,6 +184,11 @@ document.addEventListener('DOMContentLoaded', function () {
             pageTitle.textContent = titleMap[tabId];
         }
 
+        // Initialize scroll reveal on newly activated pane
+        setTimeout(() => {
+            initScrollReveal(targetPane);
+        }, 50);
+
         // On mobile / small screens, center the active pill in the horizontal nav
         if (window.innerWidth <= 768 && targetLink) {
             try {
@@ -63,14 +198,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Smooth scroll to content top if triggered by user click on mobile
+        // Smooth slow scroll to content top if triggered by user click on mobile
         if (shouldScroll && window.innerWidth <= 768) {
             const contentPanel = document.querySelector('.dept-content-panel');
             if (contentPanel) {
                 const stickyNav = document.querySelector('.dept-sidebar');
                 const navHeight = stickyNav ? stickyNav.offsetHeight : 50;
                 const targetY = contentPanel.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
-                window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                smoothSlowScrollTo(Math.max(0, targetY), 800);
             }
         }
     }
@@ -106,7 +241,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Modern Segmented Facility Sub-tabs Handler (Laboratories, Seminar Room, Server Room)
+    /* ==========================================================
+       5. Facilities Segmented Sub-tabs Handler
+       ========================================================== */
     const facilityTabBtns = document.querySelectorAll('.facility-tab-btn');
     const facilityPanes = document.querySelectorAll('.facility-pane');
 
@@ -123,10 +260,16 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetPane = document.getElementById('subtab-' + subtabKey);
             if (targetPane) {
                 targetPane.classList.add('active');
+                setTimeout(() => {
+                    initScrollReveal(targetPane);
+                }, 50);
             }
         });
     });
 
     window.addEventListener('hashchange', checkHash);
     checkHash();
+
+    // Initial reveal of visible elements
+    initScrollReveal(document);
 });
