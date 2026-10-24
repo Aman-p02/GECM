@@ -1171,10 +1171,67 @@ html {
     margin: 18px 0 24px;
 }
 
+.publications-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    flex: 1 1 340px;
+}
+
+.publications-year-select-box {
+    position: relative;
+    flex: 0 0 auto;
+    min-width: 165px;
+}
+
+.publications-year-select-box select {
+    width: 100%;
+    padding: 9px 34px 9px 36px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 0.90rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #ffffff;
+    box-sizing: border-box;
+    color: #1e293b;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.publications-year-select-box select:focus {
+    border-color: #0288d1;
+    box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.12);
+}
+
+.publications-year-select-box .select-calendar-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0288d1;
+    font-size: 0.88rem;
+    pointer-events: none;
+}
+
+.publications-year-select-box .select-chevron-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8c9ba5;
+    font-size: 0.76rem;
+    pointer-events: none;
+}
+
 .publications-search-box {
     position: relative;
-    flex: 1 1 280px;
-    max-width: 380px;
+    flex: 1 1 200px;
+    max-width: 280px;
 }
 
 .publications-search-box input {

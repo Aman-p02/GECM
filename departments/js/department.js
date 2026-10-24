@@ -237,19 +237,43 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Live Search Filter for Publications
+    // Year-Wise Filter for Publications (Strictly Year-Based)
+    const pubYearSelect = document.getElementById('pubYearSelect');
     const pubSearchInput = document.getElementById('pubSearchInput');
     const pubCards = document.querySelectorAll('.publication-card');
     const pubCount = document.getElementById('pubCountBadge');
 
-    if (pubSearchInput && pubCards.length > 0) {
-        pubSearchInput.addEventListener('input', function () {
-            const query = this.value.trim().toLowerCase();
-            let visibleCount = 0;
+    if (pubCards.length > 0) {
+        // Cache publication year on each card
+        pubCards.forEach(card => {
+            const dateSpan = card.querySelector('.publication-date span');
+            let year = '';
+            if (dateSpan) {
+                const match = dateSpan.textContent.match(/\b(19\d\d|20\d\d)\b/);
+                year = match ? match[1] : dateSpan.textContent.trim();
+            }
+            card.setAttribute('data-pub-year', year);
+        });
 
+        function applyYearFilter() {
+            const searchVal = pubSearchInput ? pubSearchInput.value.trim() : '';
+            const selectVal = pubYearSelect ? pubYearSelect.value : 'all';
+
+            // Active year query: input takes precedence if typed, otherwise select dropdown
+            let targetYear = '';
+            if (searchVal) {
+                targetYear = searchVal;
+            } else if (selectVal !== 'all') {
+                targetYear = selectVal;
+            }
+
+            let visibleCount = 0;
             pubCards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                if (text.includes(query)) {
+                const cardYear = card.getAttribute('data-pub-year') || '';
+                // STRICTLY Year-wise matching only
+                const matches = !targetYear || cardYear.includes(targetYear);
+
+                if (matches) {
                     card.style.display = 'block';
                     visibleCount++;
                 } else {
@@ -260,6 +284,25 @@ document.addEventListener('DOMContentLoaded', function () {
             if (pubCount) {
                 pubCount.innerHTML = '<i class="fas fa-file-alt"></i> ' + visibleCount + ' Publications';
             }
-        });
+        }
+
+        if (pubSearchInput) {
+            pubSearchInput.addEventListener('input', function () {
+                if (pubYearSelect) {
+                    const matchOption = pubYearSelect.querySelector(`option[value="${this.value.trim()}"]`);
+                    pubYearSelect.value = matchOption ? this.value.trim() : 'all';
+                }
+                applyYearFilter();
+            });
+        }
+
+        if (pubYearSelect) {
+            pubYearSelect.addEventListener('change', function () {
+                if (pubSearchInput) {
+                    pubSearchInput.value = '';
+                }
+                applyYearFilter();
+            });
+        }
     }
 });

@@ -500,11 +500,36 @@ include_once __DIR__ . '/../../includes/header.php';
                         Faculties and students of the Computer Engineering department actively publish research articles in peer-reviewed national and international journals and conferences.
                     </p>
 
-                    <!-- Filter Bar & Count Badge -->
+                    <!-- Filter Bar & Count Badge (Year-Wise Filter) -->
                     <div class="publications-header-bar">
-                        <div class="publications-search-box">
-                            <i class="fas fa-search"></i>
-                            <input type="text" id="pubSearchInput" placeholder="Search publications by title or author...">
+                        <div class="publications-filter-group">
+                            <div class="publications-year-select-box">
+                                <i class="far fa-calendar-alt select-calendar-icon"></i>
+                                <select id="pubYearSelect" aria-label="Filter by Year">
+                                    <option value="all">All Years (150)</option>
+                                    <option value="2026">2026</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                </select>
+                                <i class="fas fa-chevron-down select-chevron-icon"></i>
+                            </div>
+                            
                         </div>
                         <div class="publications-count-badge" id="pubCountBadge">
                             <i class="fas fa-file-alt"></i> 150 Publications
