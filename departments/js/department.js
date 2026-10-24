@@ -106,23 +106,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Facility Sub-tabs Handler (Laboratories, Seminar Room, Server Room)
-    const facilitySubtabBtns = document.querySelectorAll('.facility-subtab-btn');
-    const facilitySubtabPanes = document.querySelectorAll('.facility-subtab-pane');
+    // Clean Minimal Facility Sub-tabs Handler (Laboratories, Seminar Room, Server Room)
+    const facilityTabLinks = document.querySelectorAll('.facility-tab-link');
+    const facilityPanes = document.querySelectorAll('.facility-pane');
 
-    facilitySubtabBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
+    facilityTabLinks.forEach(link => {
+        link.addEventListener('click', function () {
             const subtabKey = this.getAttribute('data-subtab');
             if (!subtabKey) return;
 
-            facilitySubtabBtns.forEach(b => {
-                b.classList.remove('active');
-                b.setAttribute('aria-selected', 'false');
-            });
-            facilitySubtabPanes.forEach(pane => pane.classList.remove('active'));
+            facilityTabLinks.forEach(l => l.classList.remove('active'));
+            facilityPanes.forEach(p => p.classList.remove('active'));
 
             this.classList.add('active');
-            this.setAttribute('aria-selected', 'true');
 
             const targetPane = document.getElementById('subtab-' + subtabKey);
             if (targetPane) {

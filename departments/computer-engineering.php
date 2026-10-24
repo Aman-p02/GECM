@@ -333,268 +333,152 @@ include_once __DIR__ . '/../includes/header.php';
                      6. FACILITIES TAB
                      ======================================================== -->
                 <section class="dept-tab-content" id="tab-facilities">
-                    <!-- Modern Facilities Sub-Navigation -->
-                    <div class="facility-subtabs-wrapper">
-                        <div class="facility-subtabs-nav" role="tablist">
-                            <button type="button" class="facility-subtab-btn active" data-subtab="labs" role="tab" aria-selected="true">
-                                <i class="fas fa-desktop"></i>
-                                <span>Laboratories</span>
-                            </button>
-                            <button type="button" class="facility-subtab-btn" data-subtab="seminar" role="tab" aria-selected="false">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                                <span>Seminar Room</span>
-                            </button>
-                            <button type="button" class="facility-subtab-btn" data-subtab="server" role="tab" aria-selected="false">
-                                <i class="fas fa-server"></i>
-                                <span>Server Room</span>
-                            </button>
-                        </div>
+                    <!-- Clean Minimal Subtabs -->
+                    <div class="facility-tabs-bar">
+                        <button type="button" class="facility-tab-link active" data-subtab="labs">Laboratories</button>
+                        <button type="button" class="facility-tab-link" data-subtab="seminar">Seminar Room</button>
+                        <button type="button" class="facility-tab-link" data-subtab="server">Server Room</button>
                     </div>
 
                     <!-- ================= SUBTAB 1: LABORATORIES ================= -->
-                    <div class="facility-subtab-pane active" id="subtab-labs">
-                        <!-- Intro highlight banner -->
-                        <div class="facility-intro-banner">
-                            <p class="dept-text-body">
-                                There are total 10 laboratories in the department for performing practical in various domains like Computer Programming, Computer Graphics, Networking, Database Management, Operating Systems, Artificial Intelligence, etc. Department has a separate laboratory for computer hardware subjects.
-                            </p>
-                        </div>
+                    <div class="facility-pane active" id="subtab-labs">
+                        <p class="facility-lead-text">
+                            There are total 10 laboratories in the department for performing practical in various domains like Computer Programming, Computer Graphics, Networking, Database Management, Operating Systems, Artificial Intelligence, etc. Department has a separate laboratory for computer hardware subjects.
+                        </p>
 
-                        <!-- Lab Showcase Cards (Alternating responsive cards with photo frames) -->
-                        <div class="lab-showcase-list">
+                        <div class="facility-labs-list">
 
-                            <!-- Lab 1: 8112 Project Lab -->
-                            <article class="lab-card">
-                                <div class="lab-card-content">
-                                    <div class="lab-badge-row">
-                                        <span class="lab-badge"><i class="fas fa-laptop-code"></i> Room 8112</span>
-                                        <span class="lab-tag">Project &amp; Design</span>
-                                    </div>
-                                    <h4 class="lab-card-title">8112 Project Lab</h4>
-                                    <p class="lab-card-desc">
+                            <!-- Lab 1: 8112 Project Lab (Text Left, Photo Right) -->
+                            <div class="lab-row">
+                                <div class="lab-info">
+                                    <h3 class="lab-name">8112 Project Lab</h3>
+                                    <p class="lab-description">
                                         The project lab has number of computers. This lab is dedicatedly used for project and design engineering subject. Students can perform their project related work. Sufficient number of PC, laptop points and other required infrastructure is available in this lab.
                                     </p>
-                                    <div class="lab-features-pills">
-                                        <span><i class="fas fa-check"></i> High-Speed LAN</span>
-                                        <span><i class="fas fa-check"></i> Laptop Power Points</span>
-                                        <span><i class="fas fa-check"></i> Project Development</span>
-                                    </div>
                                 </div>
-                                <div class="lab-card-media">
-                                    <div class="facility-photo-frame">
-                                        <img src="images/labs/lab_8112_project.jpg" alt="8112 Project Lab" class="facility-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                        <div class="photo-placeholder" style="display: none;">
-                                            <i class="fas fa-image"></i>
-                                            <span>Photo Space (Add 8112 Photo)</span>
+                                <div class="lab-media">
+                                    <div class="lab-photo-frame">
+                                        <img src="images/labs/lab_8112_project.jpg" alt="8112 Project Lab" class="lab-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        <div class="lab-photo-placeholder" style="display: none;">
+                                            <span>Photo Space</span>
                                         </div>
                                     </div>
                                 </div>
-                            </article>
+                            </div>
 
-                            <!-- Lab 2: 8113 Programming Lab - 1 -->
-                            <article class="lab-card lab-card-reverse">
-                                <div class="lab-card-content">
-                                    <div class="lab-badge-row">
-                                        <span class="lab-badge"><i class="fas fa-code"></i> Room 8113</span>
-                                        <span class="lab-tag">Core Software Systems</span>
-                                    </div>
-                                    <h4 class="lab-card-title">8113 Programming Lab - 1</h4>
-                                    <p class="lab-card-desc">
+                            <!-- Lab 2: 8113 Programming Lab - 1 (Photo Left, Text Right) -->
+                            <div class="lab-row lab-row-reverse">
+                                <div class="lab-info">
+                                    <h3 class="lab-name">8113 Programming Lab - 1</h3>
+                                    <p class="lab-description">
                                         The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for subjects such as DBMS, OS, CG, CoS, SE, Compiler Design and Python.
                                     </p>
-                                    <div class="lab-features-pills">
-                                        <span><i class="fas fa-check"></i> DBMS &amp; SQL</span>
-                                        <span><i class="fas fa-check"></i> Operating Systems</span>
-                                        <span><i class="fas fa-check"></i> Compiler Design</span>
-                                        <span><i class="fas fa-check"></i> Python &amp; SE</span>
-                                    </div>
                                 </div>
-                                <div class="lab-card-media">
-                                    <div class="facility-photo-frame">
-                                        <img src="images/labs/lab_8113_programming1.jpg" alt="8113 Programming Lab - 1" class="facility-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                        <div class="photo-placeholder" style="display: none;">
-                                            <i class="fas fa-image"></i>
-                                            <span>Photo Space (Add 8113 Photo)</span>
+                                <div class="lab-media">
+                                    <div class="lab-photo-frame">
+                                        <img src="images/labs/lab_8113_programming1.jpg" alt="8113 Programming Lab - 1" class="lab-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        <div class="lab-photo-placeholder" style="display: none;">
+                                            <span>Photo Space</span>
                                         </div>
                                     </div>
                                 </div>
-                            </article>
+                            </div>
 
-                            <!-- Lab 3: 8115 Hardware Lab -->
-                            <article class="lab-card">
-                                <div class="lab-card-content">
-                                    <div class="lab-badge-row">
-                                        <span class="lab-badge"><i class="fas fa-microchip"></i> Room 8115</span>
-                                        <span class="lab-tag">Hardware, IoT &amp; Networks</span>
-                                    </div>
-                                    <h4 class="lab-card-title">8115 Hardware Lab</h4>
-                                    <p class="lab-card-desc">
+                            <!-- Lab 3: 8115 Hardware Lab (Text Left, Photo Right) -->
+                            <div class="lab-row">
+                                <div class="lab-info">
+                                    <h3 class="lab-name">8115 Hardware Lab</h3>
+                                    <p class="lab-description">
                                         The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for hardware related subjects such as digital fundamentals, COA, CN, Blockchain and IoT.
                                     </p>
-                                    <div class="lab-features-pills">
-                                        <span><i class="fas fa-check"></i> Digital Fundamentals</span>
-                                        <span><i class="fas fa-check"></i> COA &amp; Computer Networks</span>
-                                        <span><i class="fas fa-check"></i> IoT Kits &amp; Blockchain</span>
-                                    </div>
                                 </div>
-                                <div class="lab-card-media">
-                                    <div class="facility-photo-frame">
-                                        <img src="images/labs/lab_8115_hardware.jpg" alt="8115 Hardware Lab" class="facility-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                        <div class="photo-placeholder" style="display: none;">
-                                            <i class="fas fa-image"></i>
-                                            <span>Photo Space (Add 8115 Photo)</span>
+                                <div class="lab-media">
+                                    <div class="lab-photo-frame">
+                                        <img src="images/labs/lab_8115_hardware.jpg" alt="8115 Hardware Lab" class="lab-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        <div class="lab-photo-placeholder" style="display: none;">
+                                            <span>Photo Space</span>
                                         </div>
                                     </div>
                                 </div>
-                            </article>
+                            </div>
 
-                            <!-- Lab 4: 8116 PPS Lab - 2 -->
-                            <article class="lab-card lab-card-reverse">
-                                <div class="lab-card-content">
-                                    <div class="lab-badge-row">
-                                        <span class="lab-badge"><i class="fas fa-terminal"></i> Room 8116</span>
-                                        <span class="lab-tag">Foundation Programming</span>
-                                    </div>
-                                    <h4 class="lab-card-title">8116 PPS Lab - 2</h4>
-                                    <p class="lab-card-desc">
+                            <!-- Lab 4: 8116 PPS Lab - 2 (Photo Left, Text Right) -->
+                            <div class="lab-row lab-row-reverse">
+                                <div class="lab-info">
+                                    <h3 class="lab-name">8116 PPS Lab - 2</h3>
+                                    <p class="lab-description">
                                         The department is having Programming for Problem Solving lab for students where they can perform their PPS experiments. This lab contains number of Computers with Internet connection.
                                     </p>
-                                    <div class="lab-features-pills">
-                                        <span><i class="fas fa-check"></i> C / C++ Programming</span>
-                                        <span><i class="fas fa-check"></i> Problem Solving</span>
-                                        <span><i class="fas fa-check"></i> Data Structures</span>
-                                    </div>
                                 </div>
-                                <div class="lab-card-media">
-                                    <div class="facility-photo-frame">
-                                        <img src="images/labs/lab_8116_pps2.jpg" alt="8116 PPS Lab - 2" class="facility-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                        <div class="photo-placeholder" style="display: none;">
-                                            <i class="fas fa-image"></i>
-                                            <span>Photo Space (Add 8116 Photo)</span>
+                                <div class="lab-media">
+                                    <div class="lab-photo-frame">
+                                        <img src="images/labs/lab_8116_pps2.jpg" alt="8116 PPS Lab - 2" class="lab-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        <div class="lab-photo-placeholder" style="display: none;">
+                                            <span>Photo Space</span>
                                         </div>
                                     </div>
                                 </div>
-                            </article>
+                            </div>
 
-                            <!-- Lab 5: 8117 Programming Lab - 3 -->
-                            <article class="lab-card">
-                                <div class="lab-card-content">
-                                    <div class="lab-badge-row">
-                                        <span class="lab-badge"><i class="fas fa-cloud"></i> Room 8117</span>
-                                        <span class="lab-tag">Cloud &amp; Advanced Web</span>
-                                    </div>
-                                    <h4 class="lab-card-title">8117 Programming Lab - 3</h4>
-                                    <p class="lab-card-desc">
+                            <!-- Lab 5: 8117 Programming Lab - 3 (Text Left, Photo Right) -->
+                            <div class="lab-row">
+                                <div class="lab-info">
+                                    <h3 class="lab-name">8117 Programming Lab - 3</h3>
+                                    <p class="lab-description">
                                         The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for software/hardware related subjects such as .Net, MCWC and cloud computing.
                                     </p>
-                                    <div class="lab-features-pills">
-                                        <span><i class="fas fa-check"></i> .NET Framework</span>
-                                        <span><i class="fas fa-check"></i> MCWC</span>
-                                        <span><i class="fas fa-check"></i> Cloud Computing</span>
-                                    </div>
                                 </div>
-                                <div class="lab-card-media">
-                                    <div class="facility-photo-frame">
-                                        <img src="images/labs/lab_8117_programming3.jpg" alt="8117 Programming Lab - 3" class="facility-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                        <div class="photo-placeholder" style="display: none;">
-                                            <i class="fas fa-image"></i>
-                                            <span>Photo Space (Add 8117 Photo)</span>
+                                <div class="lab-media">
+                                    <div class="lab-photo-frame">
+                                        <img src="images/labs/lab_8117_programming3.jpg" alt="8117 Programming Lab - 3" class="lab-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        <div class="lab-photo-placeholder" style="display: none;">
+                                            <span>Photo Space</span>
                                         </div>
                                     </div>
                                 </div>
-                            </article>
+                            </div>
 
-                        </div>
-
-                        <!-- Additional Labs Quick Summary -->
-                        <div class="dept-divider-title" style="margin-top: 35px;">Additional Department Laboratories</div>
-                        <div class="labs-simple-grid">
-                            <div class="lab-simple-item">
-                                <h5><i class="fas fa-laptop-code"></i> Room 8111 - System Programming Lab</h5>
-                                <p>Used for Systems Programming, Assembly Language, Shell Scripting, and Low-Level OS experimentations.</p>
-                            </div>
-                            <div class="lab-simple-item">
-                                <h5><i class="fas fa-globe"></i> Room 8114 - Web Technology Lab</h5>
-                                <p>Configured for Full-Stack Web Development, Modern Frontend Frameworks, and REST API development.</p>
-                            </div>
-                            <div class="lab-simple-item">
-                                <h5><i class="fas fa-brain"></i> Room 8118 - AI &amp; Machine Learning Lab</h5>
-                                <p>Equipped with GPU computing systems dedicated to Artificial Intelligence, Deep Learning, and Computer Vision.</p>
-                            </div>
-                            <div class="lab-simple-item">
-                                <h5><i class="fas fa-shield-alt"></i> Room 8119 - Cyber Security Lab</h5>
-                                <p>Specialized sandbox environment for Information Security, Ethical Hacking, Network Security, and Forensics.</p>
-                            </div>
-                            <div class="lab-simple-item">
-                                <h5><i class="fas fa-cubes"></i> Room 8120 - Open Source Software Lab</h5>
-                                <p>Dedicated to Linux distributions, Open-source contributions, Git version control, and collaborative projects.</p>
-                            </div>
                         </div>
                     </div>
 
                     <!-- ================= SUBTAB 2: SEMINAR ROOM ================= -->
-                    <div class="facility-subtab-pane" id="subtab-seminar">
-                        <article class="facility-feature-showcase">
-                            <div class="facility-feature-info">
-                                <div class="lab-badge-row">
-                                    <span class="lab-badge"><i class="fas fa-chalkboard-teacher"></i> Presentation Facility</span>
-                                </div>
-                                <h3 class="facility-feature-title">Department Seminar Hall &amp; Presentation Room</h3>
-                                <p class="dept-text-body">
-                                    The Computer Engineering Department features dedicated, air-conditioned Seminar Halls for conducting technical seminars, expert lectures by industry leaders, workshops, project presentations, and faculty development programs.
+                    <div class="facility-pane" id="subtab-seminar">
+                        <div class="lab-row">
+                            <div class="lab-info">
+                                <h3 class="lab-name">Seminar Room</h3>
+                                <p class="lab-description">
+                                    The department has a dedicated Seminar Room equipped with modern audio-visual presentation systems, LCD projector, and public address system. It is utilized for departmental seminars, workshops, expert lectures, student presentations, and group discussions.
                                 </p>
-                                <ul class="facility-feature-list">
-                                    <li><i class="fas fa-check-circle"></i> <strong>Seating Capacity:</strong> Ergonomic seating for 120+ students and attendees.</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Audio-Visual Setup:</strong> High-definition ceiling projector with motorized wide screen.</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Smart Podium:</strong> Digital interactive smart podium with collar and wireless microphones.</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Acoustics:</strong> Acoustic wall treatment and clear surround PA sound system.</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Connectivity:</strong> High-speed Wi-Fi and online UPS power backup for uninterrupted events.</li>
-                                </ul>
                             </div>
-                            <div class="facility-feature-media">
-                                <!-- Photo Space for Seminar Room: user can place their image here -->
-                                <div class="facility-photo-frame photo-placeholder-large">
-                                    <img src="images/labs/seminar_room.jpg" alt="Department Seminar Hall" class="facility-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="photo-placeholder">
-                                        <i class="fas fa-chalkboard-teacher"></i>
-                                        <span>Seminar Room Photo Space</span>
-                                        <small>Drop your seminar hall image as <code>seminar_room.jpg</code> in <code>departments/images/labs/</code></small>
+                            <div class="lab-media">
+                                <div class="lab-photo-frame">
+                                    <img src="images/labs/seminar_room.jpg" alt="Seminar Room" class="lab-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="lab-photo-placeholder">
+                                        <span>Photo Space (Seminar Room)</span>
                                     </div>
                                 </div>
                             </div>
-                        </article>
+                        </div>
                     </div>
 
                     <!-- ================= SUBTAB 3: SERVER ROOM ================= -->
-                    <div class="facility-subtab-pane" id="subtab-server">
-                        <article class="facility-feature-showcase">
-                            <div class="facility-feature-info">
-                                <div class="lab-badge-row">
-                                    <span class="lab-badge"><i class="fas fa-server"></i> Central Infrastructure</span>
-                                </div>
-                                <h3 class="facility-feature-title">Central Department Server Room</h3>
-                                <p class="dept-text-body">
-                                    The Department maintains a high-security Central Server Room that manages local intranet services, academic software licenses, proxy gateways, and connects all department computer laboratories to the institute's high-speed fiber-optic network backbone.
+                    <div class="facility-pane" id="subtab-server">
+                        <div class="lab-row">
+                            <div class="lab-info">
+                                <h3 class="lab-name">Server Room</h3>
+                                <p class="lab-description">
+                                    The department features a centralized Server Room maintaining high-capacity servers, network racks, managed switches, and centralized firewall systems. It provides network management, proxy services, academic software licenses, and high-speed internet connectivity across all laboratories.
                                 </p>
-                                <ul class="facility-feature-list">
-                                    <li><i class="fas fa-check-circle"></i> <strong>Enterprise Servers:</strong> High-performance rack servers hosting institute applications and student portals.</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Network Backbone:</strong> Cisco managed distribution switches and Cat6 structured cabling.</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Bandwidth &amp; Security:</strong> 1 Gbps high-speed NKN internet connectivity with hardware UTM firewall.</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Environment &amp; Power:</strong> Precision cooling with 24x7 online redundant UPS power backup.</li>
-                                </ul>
                             </div>
-                            <div class="facility-feature-media">
-                                <!-- Photo Space for Server Room: user can place their image here -->
-                                <div class="facility-photo-frame photo-placeholder-large">
-                                    <img src="images/labs/server_room.jpg" alt="Central Server Room" class="facility-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="photo-placeholder">
-                                        <i class="fas fa-server"></i>
-                                        <span>Server Room Photo Space</span>
-                                        <small>Drop your server room image as <code>server_room.jpg</code> in <code>departments/images/labs/</code></small>
+                            <div class="lab-media">
+                                <div class="lab-photo-frame">
+                                    <img src="images/labs/server_room.jpg" alt="Server Room" class="lab-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="lab-photo-placeholder">
+                                        <span>Photo Space (Server Room)</span>
                                     </div>
                                 </div>
                             </div>
-                        </article>
+                        </div>
                     </div>
                 </section>
 

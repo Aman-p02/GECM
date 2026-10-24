@@ -591,319 +591,141 @@
 }
 
 /* -------------------------------------------------------------
-   Facilities: Subtabs, Showcase Cards, and Photo Frames
+   Facilities: Minimal Editorial Layout
    ------------------------------------------------------------- */
-.facility-subtabs-wrapper {
-    margin: 15px 0 25px;
-    border-bottom: 2px solid #2980b9;
-    padding-bottom: 0;
-}
-
-.facility-subtabs-nav {
+.facility-tabs-bar {
     display: flex;
-    gap: 6px;
+    align-items: flex-end;
+    gap: 0;
+    border-bottom: 2px solid #2980b9;
+    margin: 15px 0 25px 0;
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
 }
 
-.facility-subtabs-nav::-webkit-scrollbar {
+.facility-tabs-bar::-webkit-scrollbar {
     display: none;
 }
 
-.facility-subtab-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 22px;
+.facility-tab-link {
     border: none;
     background: transparent;
-    color: #4a5568;
+    padding: 8px 18px;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 500;
+    color: #4b5563;
     cursor: pointer;
-    border-radius: 4px 4px 0 0;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+    border-radius: 2px 2px 0 0;
+    transition: background 0.15s, color 0.15s;
     outline: none;
+    white-space: nowrap;
 }
 
-.facility-subtab-btn:hover {
+.facility-tab-link:hover {
     color: #1e6091;
-    background: rgba(41, 128, 185, 0.08);
+    background: #f1f5f9;
 }
 
-.facility-subtab-btn.active {
+.facility-tab-link.active {
     background: #2980b9;
     color: #ffffff;
-    box-shadow: 0 -2px 6px rgba(41, 128, 185, 0.2);
+    font-weight: 600;
 }
 
-.facility-subtab-pane {
+.facility-pane {
     display: none;
-    animation: fadeInSubtab 0.25s ease-in-out;
 }
 
-.facility-subtab-pane.active {
+.facility-pane.active {
     display: block;
 }
 
-@keyframes fadeInSubtab {
-    from {
-        opacity: 0;
-        transform: translateY(4px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.facility-lead-text {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color: #374151;
+    margin: 0 0 25px 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
-.facility-intro-banner {
-    background: #f4f8fb;
-    border-left: 4px solid #2980b9;
-    padding: 14px 18px;
-    margin-bottom: 26px;
-    border-radius: 0 4px 4px 0;
-}
-
-.facility-intro-banner p {
-    margin: 0;
-    color: #2d3748;
-}
-
-/* Lab Showcase Cards */
-.lab-showcase-list {
+/* Minimal Lab Rows (Alternating Layout matching real college sites) */
+.facility-labs-list {
     display: flex;
     flex-direction: column;
-    gap: 26px;
-    margin-bottom: 30px;
 }
 
-.lab-card {
+.lab-row {
     display: grid;
-    grid-template-columns: 1.15fr 0.95fr;
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
     align-items: center;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 20px 22px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    box-sizing: border-box;
+    padding: 26px 0;
+    border-top: 1px solid #eef2f6;
 }
 
-.lab-card:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+.lab-row:first-child {
+    border-top: none;
+    padding-top: 5px;
 }
 
-.lab-card.lab-card-reverse {
-    grid-template-columns: 0.95fr 1.15fr;
-}
-
-.lab-card.lab-card-reverse .lab-card-content {
+.lab-row.lab-row-reverse .lab-info {
     order: 2;
 }
 
-.lab-card.lab-card-reverse .lab-card-media {
+.lab-row.lab-row-reverse .lab-media {
     order: 1;
 }
 
-.lab-badge-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-}
-
-.lab-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    padding: 3px 9px;
-    border-radius: 3px;
-    background: #0c3b6d;
-    color: #ffffff;
-    letter-spacing: 0.3px;
-}
-
-.lab-tag {
-    display: inline-block;
-    font-size: 0.76rem;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 3px;
-    background: #eef4f9;
-    color: #1e6091;
-    border: 1px solid #d0e1f0;
-}
-
-.lab-card-title {
-    font-size: 1.22rem;
-    font-weight: 700;
+.lab-name {
+    font-size: 1.25rem;
+    font-weight: 500;
     color: #2980b9;
-    margin: 4px 0 10px 0;
+    margin: 0 0 12px 0;
     letter-spacing: -0.2px;
 }
 
-.lab-card-desc {
+.lab-description {
     font-size: 0.93rem;
-    line-height: 1.68;
-    color: #3f4750;
-    margin: 0 0 14px 0;
+    line-height: 1.7;
+    color: #4b5563;
+    margin: 0;
     text-align: justify;
     text-justify: inter-word;
-    hyphens: auto;
-    -webkit-hyphens: auto;
 }
 
-.lab-features-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.lab-features-pills span {
-    font-size: 0.76rem;
-    font-weight: 500;
-    color: #2d3748;
+/* Photo Container & Placeholder */
+.lab-photo-frame {
+    width: 100%;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    padding: 3px 8px;
-    border-radius: 3px;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.lab-features-pills span i {
-    color: #27ae60;
-    font-size: 0.72rem;
-}
-
-/* Facility Photo Frame & Placeholder Space */
-.facility-photo-frame {
-    width: 100%;
-    min-height: 220px;
-    max-height: 260px;
-    border-radius: 6px;
+    border-radius: 2px;
     overflow: hidden;
-    position: relative;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.facility-photo-frame .facility-img {
+.lab-photo-img {
     width: 100%;
-    height: 100%;
-    min-height: 220px;
-    max-height: 260px;
-    object-fit: cover;
+    height: auto;
     display: block;
-    transition: transform 0.3s ease;
+    object-fit: cover;
+    max-height: 290px;
 }
 
-.facility-photo-frame:hover .facility-img {
-    transform: scale(1.03);
-}
-
-.photo-placeholder {
+.lab-photo-placeholder {
     width: 100%;
-    height: 100%;
-    min-height: 220px;
+    min-height: 200px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 24px;
-    background: #f8fafc;
-    border: 2px dashed #cbd5e1;
-    border-radius: 6px;
     color: #64748b;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.photo-placeholder i {
-    font-size: 2.2rem;
-    color: #94a3b8;
-}
-
-.photo-placeholder span {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #334155;
-}
-
-.photo-placeholder small {
-    font-size: 0.78rem;
-    color: #64748b;
-    max-width: 280px;
-    line-height: 1.4;
-}
-
-.photo-placeholder-large {
-    min-height: 260px;
-    max-height: 320px;
-}
-
-.photo-placeholder-large .facility-img {
-    min-height: 260px;
-    max-height: 320px;
-}
-
-/* Seminar Room & Server Room Showcases */
-.facility-feature-showcase {
-    display: grid;
-    grid-template-columns: 1.15fr 0.95fr;
-    gap: 26px;
-    align-items: center;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 24px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-    box-sizing: border-box;
-}
-
-.facility-feature-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #0c3b6d;
-    margin: 6px 0 12px 0;
-}
-
-.facility-feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 16px 0 0 0;
-}
-
-.facility-feature-list li {
-    padding: 7px 0;
-    font-size: 0.92rem;
-    color: #3f4750;
-    line-height: 1.6;
-    display: flex;
-    align-items: flex-start;
-    gap: 9px;
-}
-
-.facility-feature-list li i {
-    color: #2980b9;
-    font-size: 0.92rem;
-    margin-top: 3px;
-    flex-shrink: 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
 }
 
 /* =============================================================
@@ -1175,37 +997,24 @@
         grid-template-columns: 1fr;
     }
 
-    /* Facilities Subtabs & Lab Cards on Mobile */
-    .facility-subtabs-nav {
-        gap: 4px;
-        padding-bottom: 2px;
-    }
-
-    .facility-subtab-btn {
-        padding: 8px 14px;
-        font-size: 0.88rem;
-    }
-
-    .lab-card,
-    .lab-card.lab-card-reverse,
-    .facility-feature-showcase {
+    /* Clean Minimal Facilities on Mobile */
+    .lab-row,
+    .lab-row.lab-row-reverse {
         grid-template-columns: 1fr;
         gap: 16px;
-        padding: 16px;
+        padding: 20px 0;
     }
 
-    .lab-card.lab-card-reverse .lab-card-content {
+    .lab-row.lab-row-reverse .lab-info {
         order: 1;
     }
 
-    .lab-card.lab-card-reverse .lab-card-media {
+    .lab-row.lab-row-reverse .lab-media {
         order: 2;
     }
 
-    .facility-photo-frame,
-    .facility-photo-frame .facility-img,
-    .photo-placeholder {
-        min-height: 200px;
-        max-height: 240px;
+    .facility-tab-link {
+        padding: 7px 14px;
+        font-size: 0.88rem;
     }
 }
