@@ -507,7 +507,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <input type="text" id="pubSearchInput" placeholder="Search publications by title or author...">
                         </div>
                         <div class="publications-count-badge" id="pubCountBadge">
-                            <i class="fas fa-file-alt"></i> 24 Publications
+                            <i class="fas fa-file-alt"></i> 47 Publications
                         </div>
                     </div>
 
@@ -870,6 +870,351 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <div class="publication-date">
                                     <i class="far fa-calendar-alt"></i>
                                     <span>2025</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 25 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Securing E-Commerce: A Comprehensive Analysis of Fraud Detection Methods</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Rushi Parikh, Krupa Bhavsar, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 26 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Performance Evaluation of Text Summarization Models on SAMSUM Chat Data</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Jitendra Bhatia, Dip Patel, Jalpan Patel, Malaram Kumhar, Uttam Chauhan, Harshal Trivedi, Sudeep Tanwar</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 27 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Personalized Features-Based Stress Detection With Hyperparameter Tuning Using Genetic Algorithm</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Jigna Jadav, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 28 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">An Evolutionary Amharic Fake News Detection Based on ML and Deep Learning Approach</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Abirham Ayenew, Uttam Chauhan, Avani N Dave, Jaimin M Shroff, Nakul R Dave, Jigna J Jadav, Amit H Rathod</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 29 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Analysis Of Personalized Stress Recognition In The Office Environment</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Jigna Jadav, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 30 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Heart Rate Variability Based LSTM Model for Stress Detection with Explainable AI Insights</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Jigna Jadav, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 31 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">AN ASSESSMENT OF MACHINE LEARNING AND ENSEMBLE MODELS FOR DIABETES PREDICTION</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Dr. Pinal J. Patel, Prof. Priyank Shah, Prof. Rutu Nayak, Prof. Hemangini Shukla, Prof. Chintan Shah, Prof. Navdeepsinh Limbad, Mr. Aayush Kukadiya</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 32 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">HANDWRITTEN GUJARATI VOWEL RECOGNITION USING DEEP LEARNING MODELS</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Dr. Pinal J. Patel, Ms. Dhruvi Aacharya, Prof. Priyank Shah, Prof. Rutu Nayak, Prof. Chintan shah, Prof. Jignasha Prajapati, Prof. Navdeepsinh Limbad</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2024</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 33 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Chatbot For Academic Institutions</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Heeya Amin, Uttam Chauhan, Sahil Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2023</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 34 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">The Content Based Misinformation Detection for Gujarati Language</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Uttam Chauhan, Vinay Sheth, Vishvesh Trivedi, Chintan Bhatt, Juan Manuel, Corchado</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2023</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 35 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Amharic Language Hate Speech Detection Using Machine Learning</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Abirham Ayenew, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2023</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 36 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Recommendation Systems: Types, Applications, and Challenges</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Dhruval Patel, Foram Patel, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2023</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 37 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Modeling Topics in DFA-Based Lemmatized Gujarati Text</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Uttam Chauhan, Shrusti Shah, Dharati Shiroya, Dipti Solanki, Zeel Patel, Jitendra Bhatia, Sudeep Tanwar, Ravi Sharma, Verdes Marina, Maria Simona Raboaca</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2023</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 38 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Performance analysis of deep learning algorithms for classifying chronic obstructive pulmonary disease</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Pinal J. Patel, Dhanashree Yevle, Daksha Diwan, Shashi Ranga, Kinjal Gandhi, Samay Dumasia, Rutu Nayak</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2023</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 39 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Multi feature fusion for COPD classification using Deep Learning algorithms</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Pinal J. Patel, Daksha Diwan, Shashi Ranga, Niral J. Modi, Samay Dumasia</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2023</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 40 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">IoT Based Scalable Framework for Pollution Aware Route Recommendation</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Radha Govani, Parth Kakadia, Yash Modi, Dhrumin Thakkar, Heta Bhayani, Meshwa Patel, Jitendra Bhatia, Uttam Chauhan, Abdulatif Alabdulatif</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2022</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 41 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Abstractive Text Summarization For Indian Regional Languages: A Survey</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Shilpa Serasiya, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2022</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 42 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">An Overview of Fog Data Analytics for IoT Applications</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Jitendra Bhatia, Kiran Italiya, Kuldeepsinh Jadeja, Malaram Kumhar, Uttam Chauhan, Sudeep Tanwar, Madhuri Bhavsar, Ravi Sharma, Daniela Lucia Manea, Marina Verdes, Maria Simona Raboaca</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2022</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 43 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">5G-enabled deep learning-based framework for healthcare mining State of the art and challenges</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Rahil Parmar, Naitik Panchal, Dhruval Patel, Uttam Chauhan, Jitendra Bhatia</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2022</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 44 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Plant Disease Detection using Deep Learning</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>PINAL J. PATEL, NIYATI PANDYA, MANISHA CHAUDHARI, KINJAL GANDHI, HARDIK MAHENDRABHAI PATEL</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2022</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 45 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Alzheimer Disease Detection using Deep Learning</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Dr. Pinal J. Patel, Ms. Mohini H. Patel, Prof. Kinjal Gandhi, Dr. Shashi V. Ranga</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2022</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 46 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Offline Handwritten Character Recognition of Gujarati Characters using Convolutional Neural Network</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Pinal J. Patel, S. Kheni Rukhshmani, Urmila Patel, Darshil P. Patel, Kinjal N. Patel & Kinjal A. Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2022</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 47 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">SIMULTANEOUS ESTIMATION OF NEBIVOLOL AND CILNIDIPINE IN PHARMACEUTICAL FORMULATIONBY REVERSE PHASE HIGH PERFORMANCE LIQUID CHROMATOGRAPHY METHOD</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Pinal J. Patel, Drashti Mahendrabhai Patel, Meghal J. Patel, Manisha Chaudhari, Kinjal Gandhi, Shashi V. Ranga & Hardik Mahendrabhai Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2022</span>
                                 </div>
                             </div>
                         </article>
