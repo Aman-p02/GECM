@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function () {
             pageTitle.textContent = titleMap[tabId];
         }
 
-        // On mobile / small screens, center the active pill in the horizontal nav
-        if (window.innerWidth <= 768 && targetLink) {
+        // Center the active pill smoothly in the horizontal nav
+        if (targetLink) {
             try {
                 targetLink.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             } catch (err) {
