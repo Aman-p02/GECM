@@ -507,7 +507,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <input type="text" id="pubSearchInput" placeholder="Search publications by title or author...">
                         </div>
                         <div class="publications-count-badge" id="pubCountBadge">
-                            <i class="fas fa-file-alt"></i> 72 Publications
+                            <i class="fas fa-file-alt"></i> 96 Publications
                         </div>
                     </div>
 
@@ -1590,6 +1590,366 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <div class="publication-date">
                                     <i class="far fa-calendar-alt"></i>
                                     <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 73 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A survey on big data uding cloud storage</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Binal Bhatt, Minal Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 74 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Review: Big Data Analysis Framework</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Uttam Chauhan, Apurva Shah, Uday Yadav, Mahendra Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 75 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Big data solutions and big data vendor’s comparison</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Prof. M.B.Chaudhary, Pianl Patel, Samarth Modi</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 76 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">CLOUD PLATFORMS AND SIMULATORS: A COMPARATIVE STUDY</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Pinal Patel, Umang Surani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 77 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Weather Prediction using Machine Learning: A Survey</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Pinal Patel, Jyoti Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 78 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">comparative study of the routing protocol approches in (DTN) Delay Tolerant Network</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Sweety Patel , Prof. M.B.1chaudhary, Pinal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 79 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Hierarchical Query Task Clustering using Search Logs</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Vivek Bhojawala Pinal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 80 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Brief Survey of Face Recognition Techniques</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Pinal Patel Nilam Goswami</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 81 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Search Logs Mining: Survey</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Vivek Bhojawala Pinal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 82 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Performance Enhancement of Facial Expression Recognition using Appearance based features</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Jaimini Suthar, Goyani Mahesh</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 83 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Review on AODV Routing Protocol over Simulation Environment</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Neha Patel, Vijay Reshmwala</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 84 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Comparison Analysis of AODV and DSR Protocol over Energy Efficiency</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Neha Patel, Vijay Reshmwala, Shweta Singh</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 85 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Survey on Data Mining Techniques for Crime Hotspots Prediction</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Neha Patel, Shivani.V.Vora</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 86 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Survey on Natural Language Query Processing and Semantic Image Search</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Rashmi Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 87 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">GLIMPSE OF IMAGE RESTORATION TECHNIQUE – IMAGE INPAINTING</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nainesh V Nagekar, Prof. Jayesh Chaudhary</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 88 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Web Page Data Extraction and Categorization Web Pages Using Rule Based Classification Algorithm</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nirav Prajapati, Ketan Modi, Uttam Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 89 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Clustering approach for Moving object detection from video sequence</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Parth V. Parekh, Prof. Pinal J. Patel, Shrikrishna Padalkar, Vaibhavi S. Ghariya</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 90 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Wireless Video Streaming using ARM Processor</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Suresh Prasad Pinal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 91 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Min-Max Selection Sort Algorithm - Improved Version of Selection Sort</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mahesh Goyani, Mohammad Chharchhodawala, Bhargav Mendapara</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2014</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 92 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Comparison of SUMO and SiMTram for Indian Traffic Scenario Representation</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Viral Patel, Manish Chaturvedi and Sanjay Srivastava</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2014</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 93 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Green Cloud Computing: An Overview</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Archana Gondalia</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2014</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 94 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Comparative Analysis of Dynamic Source Routing Protocol with Mobility and without Mobility</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>NileshGoriya, ParthWadhwa, MuktiPathak</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2014</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 95 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Comparative analysis for accuracy and size of pruned and unpruned decision tree inducted for various datasets</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Uttam Chauhan, Uday Yadav, Nakul Dave</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2014</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 96 -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Comprehensive study on Machine Learning Techniques for IDS in Cloud Computing</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Pinal Patel, Dr. J. S. Shah, Meghal Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2014</span>
                                 </div>
                             </div>
                         </article>
