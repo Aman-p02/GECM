@@ -49,11 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         targetPane.classList.add('active');
 
-        // Update Active Breadcrumb and Title dynamically
-        const crumbActive = document.querySelector('.dept-breadcrumb .active-crumb');
-        if (crumbActive && titleMap[tabId]) {
-            crumbActive.textContent = titleMap[tabId];
-        }
+        // Update Top Page Heading dynamically matching screenshots
         if (pageTitle && titleMap[tabId]) {
             pageTitle.textContent = titleMap[tabId];
         }
