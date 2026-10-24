@@ -106,6 +106,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Facility Sub-tabs Handler (Laboratories, Seminar Room, Server Room)
+    const facilitySubtabBtns = document.querySelectorAll('.facility-subtab-btn');
+    const facilitySubtabPanes = document.querySelectorAll('.facility-subtab-pane');
+
+    facilitySubtabBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const subtabKey = this.getAttribute('data-subtab');
+            if (!subtabKey) return;
+
+            facilitySubtabBtns.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            facilitySubtabPanes.forEach(pane => pane.classList.remove('active'));
+
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+
+            const targetPane = document.getElementById('subtab-' + subtabKey);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        });
+    });
+
     window.addEventListener('hashchange', checkHash);
     checkHash();
 });
