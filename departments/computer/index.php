@@ -450,7 +450,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <article class="modern-lab-card">
                             <div class="modern-photo-wrap">
                                 <img src="images/labs/seminar_room.jpg" alt="Seminar Room" class="modern-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="modern-photo-placeholder">
+                                <div class="modern-photo-placeholder" style="display: none;">
                                     <span>Photo Space (Seminar Room)</span>
                                 </div>
                             </div>
@@ -472,7 +472,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <article class="modern-lab-card">
                             <div class="modern-photo-wrap">
                                 <img src="images/labs/server_room.jpg" alt="Server Room" class="modern-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="modern-photo-placeholder">
+                                <div class="modern-photo-placeholder" style="display: none;">
                                     <span>Photo Space (Server Room)</span>
                                 </div>
                             </div>
