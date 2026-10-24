@@ -6,10 +6,10 @@ switch ($dept) {
     case 'ce':
     case 'computer':
     case 'computer-engineering':
-        header("Location: computer-engineering.php", true, 302);
+        header("Location: computer/", true, 302);
         exit;
     default:
-        // Default to computer-engineering or main departments listing
-        header("Location: computer-engineering.php", true, 302);
+        // Default to computer department
+        header("Location: computer/", true, 302);
         exit;
 }
