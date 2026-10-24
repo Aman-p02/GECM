@@ -1,14 +1,14 @@
 /* ==============================================================
    GECM Department Detail Page Stylesheet
    Clean, authentic institutional portal UI directly matching screenshots
-   Modern horizontal navigation card layout across laptop, desktop, and mobile
+   Fully responsive across all screen sizes (Desktop, Tablet, Mobile)
    ============================================================== */
 
 /* Page Wrapper */
 .dept-page-wrapper {
     background-color: #ffffff;
     min-height: calc(100vh - 350px);
-    padding: 25px 0 60px;
+    padding: 30px 0 60px;
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
@@ -24,13 +24,14 @@
 }
 
 /* -------------------------------------------------------------
-   Page Layout: Modern Full-Width Flow with Horizontal Top Nav Card
-   Matches user screenshot across laptop, desktop, tablet & mobile
+   Layout Grid (Desktop First)
+   minmax(0, 1fr) is critical to prevent CSS grid blowout on mobile!
    ------------------------------------------------------------- */
 .dept-layout-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 35px;
+    align-items: start;
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -38,117 +39,91 @@
 }
 
 /* -------------------------------------------------------------
-   Horizontal Department Navigation Card (Matching Screenshot)
+   Left Sidebar Navigation (Directly matching screenshot)
    ------------------------------------------------------------- */
 .dept-sidebar {
     background: #ffffff;
-    border: 1px solid #d2dbe5;
-    border-radius: 6px;
+    border: 1px solid #d9d9d9;
+    border-radius: 0;
     overflow: hidden;
     width: 100%;
     max-width: 100%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
 }
 
 .dept-sidebar-header {
-    background: #e9f2fb;
-    padding: 11px 18px;
+    background: #9dc3e6; /* Soft light blue box from screenshot */
+    padding: 13px 18px;
     font-size: 1.05rem;
     font-weight: 700;
-    color: #0c3b6d;
+    color: #1a3b5c;
     margin: 0;
-    border-bottom: 1px solid #d0e2f5;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.dept-sidebar-header::after {
-    content: '\f078';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    font-size: 0.82rem;
-    color: #0c3b6d;
-    opacity: 0.8;
+    border-bottom: 1px solid #8cbbee;
 }
 
 .dept-sidebar-menu {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-    background: #ffffff;
-    padding: 12px 16px;
-    gap: 10px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: #cbd5e1 transparent;
-    width: 100%;
-    box-sizing: border-box;
     list-style: none;
     margin: 0;
-}
-
-.dept-sidebar-menu::-webkit-scrollbar {
-    height: 5px;
-}
-
-.dept-sidebar-menu::-webkit-scrollbar-thumb {
-    background-color: #cbd5e1;
-    border-radius: 4px;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .dept-sidebar-menu li {
-    flex: 0 0 auto;
+    border-bottom: 1px solid #e8e8e8;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dept-sidebar-menu li:last-child {
     border-bottom: none;
-    width: auto;
 }
 
 .dept-nav-link {
-    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    padding: 8px 20px;
-    border-radius: 24px;
-    border: 1px solid #d9e2ec;
+    padding: 11px 18px;
     font-size: 0.92rem;
     font-weight: 500;
-    color: #1a3b5c;
+    color: #333333;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: background-color 0.15s, color 0.15s;
     cursor: pointer;
     background: #ffffff;
     box-sizing: border-box;
-    white-space: nowrap;
 }
 
 .dept-nav-link:hover {
-    background: #f0f4f8;
+    background: #f4f7fa;
     color: #0c3b6d;
-    border-color: #0c3b6d;
 }
 
-/* Active Menu Item matching dark navy blue pill from screenshot */
+/* Active Menu Item matching slate grey from screenshot */
 .dept-sidebar-menu li.active .dept-nav-link,
 .dept-nav-link.active {
-    background: #0c3b6d !important;
+    background: #546373 !important;
     color: #ffffff !important;
-    border-color: #0c3b6d !important;
     font-weight: 600;
-    box-shadow: 0 2px 6px rgba(12, 59, 109, 0.25);
 }
 
 .dept-nav-link .arrow-icon {
-    display: none;
+    font-size: 0.8rem;
+    color: #888888;
+}
+
+.dept-nav-link.active .arrow-icon {
+    color: #ffffff;
 }
 
 /* -------------------------------------------------------------
-   Main Content Pane
-   Spacious full-width presentation below navigation card
+   Right Content Pane
+   min-width: 0 is essential so wide tables do not stretch this panel!
    ------------------------------------------------------------- */
 .dept-content-panel {
     background: #ffffff;
-    min-height: 450px;
+    min-height: 550px;
     min-width: 0;
     max-width: 100%;
     width: 100%;
@@ -166,13 +141,12 @@
     margin-bottom: 20px;
     width: 100%;
     max-width: 100%;
-    border-bottom: 1px solid #eceff1;
     box-sizing: border-box;
 }
 
 .dept-page-title {
-    font-size: 1.45rem;
-    font-weight: 600;
+    font-size: 1.35rem;
+    font-weight: 500;
     color: #2b3a4a;
     margin: 0;
 }
@@ -269,11 +243,11 @@
     margin-left: 20px;
 }
 
-/* Standard Paragraphs (Justified & Even on both sides) */
+/* Standard Paragraphs matching screenshot (Justified & Even on both sides) */
 .dept-text-body {
-    font-size: 0.96rem;
+    font-size: 0.95rem;
     color: #3f4750;
-    line-height: 1.78;
+    line-height: 1.75;
     margin-bottom: 16px;
     text-align: justify;
     text-justify: inter-word;
@@ -291,7 +265,7 @@
    ------------------------------------------------------------- */
 .courses-card {
     border: 1px solid #1e6091;
-    border-radius: 4px;
+    border-radius: 0;
     overflow: hidden;
     margin: 26px 0 30px;
     background: #ffffff;
@@ -303,7 +277,7 @@
 .courses-card-header {
     background: #1e6091;
     color: #ffffff;
-    padding: 11px 18px;
+    padding: 10px 16px;
     font-size: 1.05rem;
     font-weight: 600;
     display: flex;
@@ -324,20 +298,20 @@
 
 .courses-table {
     width: 100%;
-    min-width: 500px;
+    min-width: 480px;
     border-collapse: collapse;
-    font-size: 0.93rem;
+    font-size: 0.92rem;
     margin: 0;
 }
 
 .courses-table th,
 .courses-table td {
-    padding: 12px 18px;
+    padding: 11px 16px;
     border: 1px solid #e0e0e0;
 }
 
 .courses-table th {
-    background: #f8fafc;
+    background: #ffffff;
     color: #222222;
     font-weight: 600;
     text-align: center;
@@ -363,9 +337,9 @@
 .dept-facilities-dual-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px 40px;
+    gap: 8px 35px;
     margin: 20px 0 35px;
-    padding-left: 20px;
+    padding-left: 35px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -381,9 +355,9 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 0.95rem;
+    font-size: 0.94rem;
     color: #4a4a4a;
-    padding: 8px 0;
+    padding: 7px 0;
     line-height: 1.5;
     word-break: break-word;
 }
@@ -398,7 +372,7 @@
    Vision & Mission Tab matching screenshot media_1792588855857.png
    ------------------------------------------------------------- */
 .vision-text-block {
-    font-size: 0.98rem;
+    font-size: 0.96rem;
     color: #444444;
     line-height: 1.8;
     background-color: #f5f8fa;
@@ -425,7 +399,7 @@
 .mission-bullet-list li {
     position: relative;
     padding: 8px 0 8px 28px;
-    font-size: 0.95rem;
+    font-size: 0.94rem;
     color: #444444;
     line-height: 1.7;
     word-break: break-word;
@@ -444,7 +418,7 @@
 /* PEOs Card matching screenshot media_1792588864122.png */
 .peo-card {
     border: 1px solid #1e6091;
-    border-radius: 4px;
+    border-radius: 0;
     overflow: hidden;
     margin: 25px 0 30px;
     width: 100%;
@@ -455,7 +429,7 @@
 .peo-card-header {
     background: #1e6091;
     color: #ffffff;
-    padding: 11px 18px;
+    padding: 10px 16px;
     font-size: 1.05rem;
     font-weight: 600;
     display: flex;
@@ -471,7 +445,7 @@
 }
 
 .peo-intro {
-    font-size: 0.96rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #2b3a4a;
     margin-bottom: 12px;
@@ -484,7 +458,7 @@
 }
 
 .peo-list li {
-    font-size: 0.93rem;
+    font-size: 0.92rem;
     color: #4a4a4a;
     line-height: 1.7;
     margin-bottom: 10px;
@@ -507,7 +481,7 @@
    ------------------------------------------------------------- */
 .faculty-simple-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 20px;
     margin-top: 20px;
     width: 100%;
@@ -517,8 +491,8 @@
 
 .faculty-simple-card {
     border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    padding: 22px 18px;
+    border-radius: 2px;
+    padding: 20px 16px;
     text-align: center;
     background: #ffffff;
     transition: box-shadow 0.2s, border-color 0.2s;
@@ -528,12 +502,12 @@
 
 .faculty-simple-card:hover {
     border-color: #0c3b6d;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .faculty-avatar-box {
-    width: 72px;
-    height: 72px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     margin: 0 auto 12px;
     background: #f0f4f8;
@@ -541,32 +515,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.65rem;
+    font-size: 1.6rem;
     border: 2px solid #e0e8f0;
 }
 
 .faculty-simple-card h5 {
-    font-size: 1rem;
+    font-size: 0.98rem;
     font-weight: 600;
     color: #0c3b6d;
     margin: 0 0 4px 0;
 }
 
 .faculty-simple-card .desig {
-    font-size: 0.86rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #f39c12;
     margin: 0 0 6px 0;
 }
 
 .faculty-simple-card .qual {
-    font-size: 0.83rem;
+    font-size: 0.82rem;
     color: #666;
     margin: 0 0 6px 0;
 }
 
 .faculty-simple-card .email {
-    font-size: 0.83rem;
+    font-size: 0.82rem;
     color: #444;
     word-break: break-all;
 }
@@ -574,8 +548,8 @@
 /* Simple Labs Grid */
 .labs-simple-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
     margin-top: 20px;
     width: 100%;
     max-width: 100%;
@@ -584,8 +558,8 @@
 
 .lab-simple-item {
     border: 1px solid #e2e8f0;
-    border-radius: 4px;
-    padding: 18px;
+    border-radius: 2px;
+    padding: 16px;
     background: #fafbfc;
     word-break: break-word;
     box-sizing: border-box;
@@ -593,13 +567,13 @@
 
 .lab-simple-item h5 {
     color: #0c3b6d;
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     margin: 0 0 6px 0;
     font-weight: 600;
 }
 
 .lab-simple-item p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: #555;
     line-height: 1.6;
     margin: 0;
@@ -608,11 +582,11 @@
 /* Action Button */
 .btn-action-simple {
     display: inline-block;
-    padding: 6px 14px;
+    padding: 5px 12px;
     background-color: #0c3b6d;
     color: #ffffff;
-    font-size: 0.84rem;
-    border-radius: 3px;
+    font-size: 0.82rem;
+    border-radius: 2px;
     text-decoration: none;
     transition: background-color 0.2s;
     white-space: nowrap;
@@ -627,8 +601,21 @@
    RESPONSIVE DESIGN BREAKPOINTS
    ============================================================= */
 
-/* Tablets & Mobile (<= 768px) */
-@media (max-width: 768px) {
+/* Medium Devices (901px - 1050px) */
+@media (max-width: 1050px) {
+    .dept-layout-grid {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 25px;
+    }
+
+    .dept-facilities-dual-grid {
+        padding-left: 15px;
+        gap: 8px 20px;
+    }
+}
+
+/* Tablets & Mobile (<= 900px) */
+@media (max-width: 900px) {
     .dept-page-wrapper {
         padding: 15px 0 45px;
     }
@@ -637,23 +624,97 @@
         padding: 0 15px;
     }
 
+    /* Stack into 1 column */
+    .dept-layout-grid {
+        grid-template-columns: 100%;
+        gap: 15px;
+    }
+
+    /* Mobile Sidebar as Horizontal Scrollable Bar */
     .dept-sidebar {
+        border-radius: 4px;
+        border: 1px solid #d2dbe5;
         margin-bottom: 5px;
+        position: sticky;
+        top: 0;
+        z-index: 95;
+        background: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        width: 100%;
     }
 
     .dept-sidebar-header {
         padding: 9px 14px;
-        font-size: 0.95rem;
+        font-size: 0.92rem;
+        background: #e9f2fb;
+        color: #0c3b6d;
+        border-bottom: 1px solid #d0e2f5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .dept-sidebar-header::after {
+        content: '\f078';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 0.75rem;
+        color: #0c3b6d;
+        opacity: 0.7;
     }
 
     .dept-sidebar-menu {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        background: #ffffff;
         padding: 8px 10px;
         gap: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        width: 100%;
+    }
+
+    .dept-sidebar-menu::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    .dept-sidebar-menu li {
+        flex: 0 0 auto;
+        border-bottom: none;
+        width: auto;
     }
 
     .dept-nav-link {
-        padding: 7px 15px;
+        padding: 7px 14px;
+        border-radius: 20px;
+        border: 1px solid #d9e2ec;
         font-size: 0.86rem;
+        background: #f8fafc;
+        color: #334e68;
+        white-space: nowrap;
+    }
+
+    .dept-nav-link:hover {
+        background: #eef2f7;
+    }
+
+    .dept-sidebar-menu li.active .dept-nav-link,
+    .dept-nav-link.active {
+        background: #0c3b6d !important;
+        color: #ffffff !important;
+        border-color: #0c3b6d;
+    }
+
+    .dept-nav-link .arrow-icon {
+        display: none;
+    }
+
+    /* Content Area on Mobile */
+    .dept-content-panel {
+        min-height: auto;
+        width: 100%;
+        max-width: 100%;
     }
 
     .dept-top-bar {
@@ -662,6 +723,7 @@
         gap: 6px;
         padding-bottom: 12px;
         margin-bottom: 14px;
+        border-bottom: 1px solid #eceff1;
     }
 
     .dept-page-title {
@@ -676,6 +738,10 @@
     .dept-text-body {
         font-size: 0.93rem;
         line-height: 1.7;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
     }
 
     /* Facilities Single Column on Tablets & Mobile */
@@ -695,14 +761,20 @@
         margin-top: 3px;
     }
 
+    /* Labs on Mobile */
     .labs-simple-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 12px;
     }
 
     .faculty-simple-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 14px;
+    }
+
+    /* Courses Table */
+    .courses-card {
+        margin: 20px 0;
     }
 }
 
@@ -732,6 +804,10 @@
     .dept-text-body {
         font-size: 0.91rem;
         line-height: 1.68;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
         margin-bottom: 14px;
     }
 
@@ -756,6 +832,8 @@
         padding: 12px 14px;
         line-height: 1.6;
         margin: 12px 0 22px;
+        text-align: justify;
+        text-justify: inter-word;
     }
 
     .mission-bullet-list {
@@ -782,5 +860,9 @@
 
     .faculty-simple-card .email {
         font-size: 0.78rem;
+    }
+
+    .labs-simple-grid {
+        grid-template-columns: 1fr;
     }
 }

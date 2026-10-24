@@ -62,16 +62,9 @@ include_once __DIR__ . '/../includes/header.php';
             <!-- Right Content Area -->
             <main class="dept-content-panel">
 
-                <!-- Top Breadcrumb & Section Header Row -->
+                <!-- Top Section Header Row -->
                 <div class="dept-top-bar">
                     <h2 class="dept-page-title" id="deptPageTitle">About Department</h2>
-                    <ul class="dept-breadcrumb">
-                        <li><a href="../" title="Home"><i class="fas fa-home"></i></a></li>
-                        <li class="separator">/</li>
-                        <li><a href="../#departments">Departments</a></li>
-                        <li class="separator">/</li>
-                        <li class="active-crumb">Computer Engineering Department</li>
-                    </ul>
                 </div>
 
                 <!-- ========================================================
