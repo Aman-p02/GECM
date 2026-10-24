@@ -1,68 +1,106 @@
 /* ==============================================================
-   GECM Global Styles (Variables, Reset, Typography, Header, Footer)
+   GECM Global Stylesheet - MIT Visual Design Direction
+   Colors:
+     - Deep Navy:   #102B4E (Primary navigation, headers, footer)
+     - White:       #FFFFFF (Primary background & surfaces)
+     - Pale Blue:   #EAF2F8 (Alternate sections & subtle cards)
+     - Brick Red:   #C62828 (Active indicators, primary action accents)
+     - Body Text:   #344054 (Readable paragraphs)
+     - Borders:     #D9E0E7 (Subtle dividers & card frames)
+   Typography:
+     - Headings:    Outfit (Bold, prominent, authoritative)
+     - Body:        Inter (Clean, readable, academic)
    ============================================================== */
 
-/* Custom Properties / Variables */
 :root {
-    --primary-color: #0c3b6d;       /* Deep Navy Blue */
-    --primary-light: #1b5b9c;
-    --secondary-color: #f39c12;     /* Vibrant Orange/Gold accent */
-    --secondary-hover: #d68910;
-    --text-dark: #333333;
-    --text-light: #666666;
-    --bg-light: #f8f9fa;
-    --bg-white: #ffffff;
-    --border-color: #e5e5e5;
-    --transition: all 0.3s ease;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --primary-color: #102B4E;       /* Deep Navy */
+    --primary-dark: #0A1C33;        /* Darker Navy */
+    --primary-light: #1A3E6D;       /* Slate Navy */
+    --secondary-color: #C62828;     /* Brick Red Accent */
+    --secondary-hover: #A71D1D;     /* Darker Brick Red */
+    --pale-blue: #EAF2F8;           /* Pale Blue Alternate */
+    --text-dark: #102B4E;           /* Deep Navy Heading text */
+    --text-body: #344054;           /* High-contrast readable body text */
+    --text-muted: #64748B;          /* Subtle metadata text */
+    --bg-white: #FFFFFF;
+    --bg-light: #F8FAFC;
+    --bg-pale: #EAF2F8;
+    --border-color: #D9E0E7;        /* Clean subtle borders */
+    --border-subtle: #E2E8F0;
+    --transition: all 0.25s ease;
+    --shadow-sm: 0 1px 3px rgba(16, 43, 78, 0.05);
+    --shadow: 0 4px 14px rgba(16, 43, 78, 0.07);
+    --shadow-hover: 0 8px 24px rgba(16, 43, 78, 0.11);
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-* {
+/* Reset & Base */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html,
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-main);
-    color: var(--text-dark);
-    line-height: 1.6;
+    color: var(--text-body);
+    background-color: var(--bg-white);
+    line-height: 1.7;
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
-    background-color: var(--bg-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+    transition: var(--transition);
 }
 
 ul {
     list-style: none;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Layout Containers */
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1240px;
     margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
 }
 
 .full-width-container {
     width: 100%;
-    padding: 0 40px;
+    padding: 0 32px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .section {
-    padding: 50px 0;
+    padding: 60px 0;
+    box-sizing: border-box;
 }
 
 .bg-light {
-    background-color: var(--bg-light);
+    background-color: var(--bg-pale);
+}
+
+.bg-white {
+    background-color: var(--bg-white);
 }
 
 .text-center {
@@ -73,241 +111,274 @@ ul {
     margin-top: 2rem;
 }
 
-/* Typography & Titles */
-h1,
-h2,
-h3,
-h4 {
-    font-weight: 600;
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
     color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
 }
 
+p {
+    font-family: var(--font-main);
+    color: var(--text-body);
+    font-size: 0.96rem;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+}
+
+/* Section Titles (Institutional & Balanced) */
 .section-title {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    position: relative;
 }
 
 .section-title h2,
 .section-title h3 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2.15rem;
+    color: var(--primary-color);
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
 .section-title p {
-    color: var(--text-light);
-    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 680px;
+    margin: 0 auto;
 }
 
 .title-underline {
-    width: 80px;
-    height: 4px;
-    background-color: var(--secondary-color);
-    margin: 15px auto 0;
+    width: 48px;
+    height: 3px;
+    background-color: var(--secondary-color); /* Brick Red */
+    margin: 12px auto 0;
     border-radius: 2px;
 }
 
-/* Buttons */
+.title-underline.left {
+    margin: 12px 0 0;
+}
+
+/* Institutional Action Buttons */
 .btn {
-    display: inline-block;
-    padding: 12px 28px;
-    border-radius: 30px;
-    font-weight: 500;
-    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     cursor: pointer;
-    border: 2px solid transparent;
+    transition: var(--transition);
+    border: 1px solid transparent;
 }
 
 .btn-primary {
-    background-color: var(--secondary-color);
-    color: #fff;
+    background-color: var(--secondary-color); /* Brick Red */
+    color: #FFFFFF;
+    border-color: var(--secondary-color);
 }
 
 .btn-primary:hover {
     background-color: var(--secondary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+    border-color: var(--secondary-hover);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(198, 40, 40, 0.25);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: #fff;
-    border-color: #fff;
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.7);
 }
 
 .btn-secondary:hover {
-    background-color: #fff;
+    background-color: #FFFFFF;
     color: var(--primary-color);
-    transform: translateY(-2px);
+    border-color: #FFFFFF;
 }
 
 .btn-outline {
+    background-color: transparent;
     border-color: var(--primary-color);
     color: var(--primary-color);
 }
 
 .btn-outline:hover {
     background-color: var(--primary-color);
-    color: #fff;
+    color: #FFFFFF;
 }
 
-/* Top Bar */
-.top-bar {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 8px 0;
-    font-size: 0.85rem;
-}
-
-.top-bar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.contact-info span {
-    margin-right: 20px;
-}
-
-.contact-info i {
-    margin-right: 5px;
-    color: var(--secondary-color);
-}
-
-.social-links a {
-    color: #fff;
-    margin-left: 15px;
-    transition: var(--transition);
-}
-
-.social-links a:hover {
-    color: var(--secondary-color);
-}
-
-/* Header & Navbar */
+/* ==============================================================
+   HEADER & INSTITUTIONAL NAVBAR
+   ============================================================== */
 .header {
     background-color: var(--bg-white);
-    box-shadow: var(--shadow);
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: var(--transition);
+    box-shadow: 0 2px 10px rgba(16, 43, 78, 0.06);
+    border-bottom: 1px solid var(--border-color);
 }
 
-.nav-container {
+/* White Identity Banner */
+.header-top-brand {
+    background: #FFFFFF;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.brand-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 40px;
 }
 
-.logo-container {
+.brand-identity-link {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 16px;
+    text-decoration: none;
+    color: inherit;
 }
 
 .logo {
-    height: 75px;
+    height: 64px;
+    width: auto;
     object-fit: contain;
+    flex-shrink: 0;
+}
+
+.college-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.college-meta {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--secondary-color); /* Brick Red */
+    margin-bottom: 2px;
 }
 
 .college-name h1 {
-    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Deep Navy */
     line-height: 1.2;
     margin: 0;
-}
-
-.affiliated-logo {
-    height: 55px;
-    object-fit: contain;
-    margin-left: 15px;
-}
-
-.desktop-only {
-    display: block;
-}
-
-.college-name br {
-    display: none;
+    letter-spacing: -0.015em;
 }
 
 .college-name p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    margin: 0;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 3px 0 0;
+    line-height: 1.3;
 }
 
-.navbar {
+.affiliated-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Deep Navy Navigation Bar */
+.nav-bar-navy {
+    background-color: var(--primary-color); /* Deep Navy #102B4E */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    align-items: center;
+    gap: 4px;
 }
 
 .nav-links li a {
+    display: inline-block;
+    padding: 12px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.94rem;
     font-weight: 500;
-    color: var(--text-dark);
+    color: #FFFFFF;
     position: relative;
-    padding: 5px 0;
-    transition: var(--transition);
+    letter-spacing: 0.01em;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.nav-links li a::after {
+.nav-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+}
+
+.nav-links li a.active {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* Active indicator (Brick Red bottom underline) */
+.nav-links li a.active::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--secondary-color);
-    transition: var(--transition);
+    right: 0;
+    height: 3px;
+    background-color: var(--secondary-color); /* Brick Red */
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
-    color: var(--primary-color);
-}
-
-.nav-links li a:hover::after,
-.nav-links li a.active::after {
-    width: 100%;
-}
-
+/* Hamburger button */
 .hamburger {
     display: none;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
+    padding: 8px;
+    outline: none;
 }
 
 .hamburger .bar {
     display: block;
-    width: 28px;
-    height: 3px;
-    margin: 6px auto;
-    background-color: var(--primary-color);
+    width: 24px;
+    height: 2px;
+    margin: 5px auto;
+    background-color: #FFFFFF;
     transition: var(--transition);
 }
 
 /* Animations */
 .fade-in-up {
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards;
+    transform: translateY(24px);
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.delay-1 {
-    animation-delay: 0.3s;
-}
-
-.delay-2 {
-    animation-delay: 0.6s;
-}
-
-.delay-3 {
-    animation-delay: 0.9s;
-}
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
 
 @keyframes fadeInUp {
     to {
@@ -316,27 +387,32 @@ h4 {
     }
 }
 
-/* Footer */
+/* ==============================================================
+   FOOTER (Deep Navy & Authentic MIT Academic Style)
+   ============================================================== */
 .footer {
-    background-color: #111111;
-    color: #e0e0e0;
+    background-color: var(--primary-color); /* Deep Navy #102B4E */
+    color: #EAF2F8;
     padding: 55px 0 20px;
-    border-top: 3px solid var(--secondary-color);
+    border-top: 3px solid var(--secondary-color); /* Brick Red accent bar */
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
-    gap: 40px;
+    gap: 36px;
     margin-bottom: 40px;
 }
 
 .footer-col h3 {
-    color: #ffffff;
-    font-size: 1.2rem;
+    font-family: var(--font-heading);
+    color: #FFFFFF;
+    font-size: 1.15rem;
+    font-weight: 600;
     margin-bottom: 20px;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
+    letter-spacing: -0.01em;
 }
 
 .footer-col h3::after {
@@ -344,208 +420,122 @@ h4 {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 40px;
+    width: 30px;
     height: 2px;
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color); /* Brick Red */
 }
 
 .footer-logo-container {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 14px;
+    margin-bottom: 16px;
 }
 
 .footer-logo-bg {
-    background-color: #ffffff;
-    padding: 8px 12px;
-    border-radius: 8px;
+    background-color: #FFFFFF;
+    padding: 6px 10px;
+    border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .footer-logo {
-    height: 60px;
-    filter: brightness(0) saturate(100%) invert(14%) sepia(89%) saturate(2257%) hue-rotate(192deg) brightness(97%) contrast(101%);
+    height: 52px;
+    width: auto;
+    object-fit: contain;
 }
 
 .footer-logo-text {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #FFFFFF;
 }
 
 .about-col p {
-    margin-bottom: 20px;
-    color: #bbbbbb;
+    color: #B4C6D8;
+    font-size: 0.92rem;
     line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 8px;
 }
 
 .footer-socials a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    margin-right: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    font-size: 0.88rem;
     transition: var(--transition);
-    color: #fff;
 }
 
-.footer-socials a:nth-child(1) { background: #1877f2; }
-.footer-socials a:nth-child(2) { background: #1da1f2; }
-.footer-socials a:nth-child(3) { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
-.footer-socials a:nth-child(4) { background: #0077b5; }
-.footer-socials a:nth-child(5) { background: #FF0000; }
-
 .footer-socials a:hover {
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: var(--secondary-color); /* Brick Red */
+    border-color: var(--secondary-color);
+    color: #FFFFFF;
+    transform: translateY(-2px);
 }
 
 .links-col ul li {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .links-col ul li a {
-    color: #cccccc;
+    color: #C8D7E5;
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     transition: var(--transition);
 }
 
-.links-col ul li a:hover {
+.links-col ul li a i {
+    font-size: 0.75rem;
     color: var(--secondary-color);
-    padding-left: 5px;
+}
+
+.links-col ul li a:hover {
+    color: #FFFFFF;
+    padding-left: 4px;
 }
 
 .contact-list li {
     display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-    color: #cccccc;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: #C8D7E5;
+    font-size: 0.92rem;
+    line-height: 1.5;
 }
 
 .contact-list i {
     color: var(--secondary-color);
-    margin-top: 5px;
+    margin-top: 3px;
+    font-size: 0.95rem;
 }
 
 .footer-bottom {
     text-align: center;
-    padding: 22px 0 0;
-    border-top: 1px solid #222222;
-    font-size: 0.9rem;
-    color: #888888;
-}
-
-/* Global Responsive Base */
-@media (max-width: 992px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .desktop-only {
-        display: none !important;
-    }
-
-    .section {
-        padding: 30px 0;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: -100%;
-        width: 100%;
-        background-color: var(--bg-white);
-        flex-direction: column;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-        padding: 20px 0;
-    }
-
-    .nav-links.active {
-        left: 0;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-
-    .top-bar {
-        display: none;
-    }
-
-    .nav-container {
-        padding: 12px 15px 8px;
-    }
-
-    .logo {
-        height: 55px;
-    }
-
-    .college-name h1 {
-        font-size: 1.15rem;
-        margin-top: 4px;
-    }
-
-    .college-name br {
-        display: initial;
-    }
-
-    .college-name p {
-        font-size: 0.8rem;
-    }
-
-    .container {
-        width: 100%;
-        padding: 0 15px;
-    }
-
-    .full-width-container {
-        padding: 0;
-    }
-
-    .section-title {
-        margin-bottom: 25px;
-        padding: 0 15px;
-    }
-
-    .title-underline {
-        width: 60px;
-        height: 3px;
-        margin: 10px auto 0;
-    }
-
-    .section-title h2,
-    .section-title h3,
-    .section-header h2,
-    .section-header h3 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-    }
+    padding: 20px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    color: #8CA3BA;
 }
 
 /* ==============================================================
-   MIT-Inspired Smooth Image Hover Zoom
-   Subtle 1.04 zoom contained within overflow:hidden, 0.4s ease
+   MIT-INSPIRED IMAGE HOVER ZOOM (scale 1.04, 0.4s ease)
    ============================================================== */
 .img-zoom-wrap,
 .image-zoom-box {
@@ -566,4 +556,110 @@ img.zoom-hover {
 .image-zoom-box:hover img,
 img.zoom-hover:hover {
     transform: scale(1.04);
+}
+
+/* ==============================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ============================================================== */
+@media (max-width: 992px) {
+    .brand-container {
+        padding: 0 16px;
+    }
+
+    .college-name h1 {
+        font-size: 1.18rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .section {
+        padding: 35px 0;
+    }
+
+    .header-top-brand {
+        padding: 8px 0;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    .college-name h1 {
+        font-size: 1.05rem;
+    }
+
+    .college-name p {
+        font-size: 0.75rem;
+    }
+
+    .nav-container {
+        padding: 6px 16px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        transition: left 0.3s ease;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-links li a.active::after {
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        height: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .section-title h2,
+    .section-title h3 {
+        font-size: 1.65rem;
+    }
 }

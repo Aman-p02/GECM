@@ -65,7 +65,17 @@ include_once __DIR__ . '/../../includes/header.php';
             <!-- Right Content Area -->
             <main class="dept-content-panel">
 
-
+                <!-- Institutional Top Title & Breadcrumbs -->
+                <div class="dept-top-bar">
+                    <h2 class="dept-page-title">Department of Computer Engineering</h2>
+                    <nav class="dept-breadcrumb" aria-label="Breadcrumb">
+                        <a href="<?= $root_path ?>">Home</a>
+                        <span class="separator">/</span>
+                        <a href="<?= $root_path ?>#departments">Departments</a>
+                        <span class="separator">/</span>
+                        <span class="active-crumb">Computer Engineering</span>
+                    </nav>
+                </div>
 
                 <!-- ========================================================
                      1. ABOUT DEPARTMENT TAB
