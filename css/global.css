@@ -542,3 +542,28 @@ h4 {
         letter-spacing: -0.5px;
     }
 }
+
+/* ==============================================================
+   MIT-Inspired Smooth Image Hover Zoom
+   Subtle 1.04 zoom contained within overflow:hidden, 0.4s ease
+   ============================================================== */
+.img-zoom-wrap,
+.image-zoom-box {
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.img-zoom-wrap img,
+.image-zoom-box img,
+img.zoom-hover {
+    transition: transform 0.4s ease;
+    will-change: transform;
+    display: block;
+}
+
+.img-zoom-wrap:hover img,
+.image-zoom-box:hover img,
+img.zoom-hover:hover {
+    transform: scale(1.04);
+}

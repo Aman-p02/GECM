@@ -441,6 +441,14 @@
     height: 165px;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.event-slide:hover img,
+.shot-slide:hover .shot-img-wrapper img,
+.shot-img-wrapper:hover img {
+    transform: scale(1.04);
 }
 
 .shot-img-wrapper {
