@@ -249,7 +249,7 @@
 /* Standard Paragraphs matching screenshot (Justified & Even on both sides) */
 .dept-text-body {
     font-size: 0.95rem;
-    color: #3f4750;
+    color: #212529;
     line-height: 1.75;
     margin-bottom: 16px;
     text-align: justify;
@@ -260,6 +260,10 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
     box-sizing: border-box;
+}
+
+#tab-about .dept-text-body {
+    color: #1a1e22;
 }
 
 /* -------------------------------------------------------------
