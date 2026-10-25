@@ -348,13 +348,11 @@ include_once __DIR__ . '/../../includes/header.php';
                             <!-- Lab 2: 8213 Programming Lab - 1 (Photo Left, Text Right) -->
                             <article class="modern-lab-card modern-lab-card-reverse">
                                 <div class="modern-photo-wrap">
-                                    <!-- USER: Replace src with your image path when ready -->
-                                    <img src="" alt="8213 Programming Lab - 1" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: flex;">
+                                    <img src="images/labs/8213-lab.png" alt="8213 Programming Lab - 1" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: none;">
                                         <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
                                         <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
                                         <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8213 Programming Lab - 1</span>
-                                        <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
                                     </div>
                                 </div>
                                 <div class="modern-lab-body">
