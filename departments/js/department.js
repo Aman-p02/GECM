@@ -19,7 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
         'facilities': 'Facilities',
         'publications': 'Publications',
         'advisory-board': 'Industry Advisory Board',
-        'newsletters': 'News Letters'
+        'newsletters': 'News Letters',
+        'iab-2025-26': 'Industry Advisory Board (IAB 2025-26)',
+        'iab-2023-24': 'Industry Advisory Board (IAB 2023-24)',
+        'nl-vol1-issue2': 'News Letters (Vol. 1 Issue 2)',
+        'nl-vol1-issue1': 'News Letters (Vol. 1 Issue 1)'
     };
 
     /* ==========================================================
@@ -119,12 +123,17 @@ document.addEventListener('DOMContentLoaded', function () {
         // Clean tabId (remove leading #)
         tabId = tabId.replace('#', '');
 
+        // Map parent tabs to default sub-options
+        if (tabId === 'advisory-board') tabId = 'iab-2025-26';
+        if (tabId === 'newsletters') tabId = 'nl-vol1-issue2';
+
         const targetPane = document.getElementById('tab-' + tabId);
         const targetLink = document.querySelector(`.dept-nav-link[data-tab="${tabId}"]`);
+        const targetSubLinks = document.querySelectorAll(`.dept-sub-link[data-tab="${tabId}"]`);
 
-        if (!targetPane || !targetLink) return;
+        if (!targetPane) return;
 
-        // Remove active class from all links and tabs
+        // Remove active class from all links, parents, and sub-links
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.parentElement) {
@@ -132,13 +141,29 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        tabPanes.forEach(pane => pane.classList.remove('active'));
+        const allSubLinks = document.querySelectorAll('.dept-sub-link');
+        allSubLinks.forEach(sub => sub.classList.remove('active'));
 
-        // Activate target link and pane
-        targetLink.classList.add('active');
-        if (targetLink.parentElement) {
-            targetLink.parentElement.classList.add('active');
+        // Activate regular nav link if matched
+        if (targetLink) {
+            targetLink.classList.add('active');
+            if (targetLink.parentElement) {
+                targetLink.parentElement.classList.add('active');
+            }
         }
+
+        // Activate sub-links and expand their dropdown if matched
+        if (targetSubLinks.length > 0) {
+            targetSubLinks.forEach(sub => {
+                sub.classList.add('active');
+                const parentDropdown = sub.closest('.dept-sidebar-dropdown');
+                if (parentDropdown) {
+                    parentDropdown.classList.remove('closed');
+                }
+            });
+        }
+
+        tabPanes.forEach(pane => pane.classList.remove('active'));
         targetPane.classList.add('active');
 
         // Update Top Page Heading dynamically matching screenshots
@@ -152,9 +177,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // On mobile / small screens, center the active pill in the horizontal nav
-        if (window.innerWidth <= 768 && targetLink) {
+        const scrollTarget = (targetSubLinks.length > 0) ? targetSubLinks[0] : targetLink;
+        if (window.innerWidth <= 768 && scrollTarget) {
             try {
-                targetLink.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                scrollTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             } catch (err) {
                 // fallback
             }
@@ -172,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Attach click listeners to sidebar links
+    // Attach click listeners to regular sidebar links
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const tabId = this.getAttribute('data-tab');
@@ -189,11 +215,47 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Sidebar Accordion Dropdown Headers (Industry Advisory Board, Newsletters)
+    const dropdownHeaders = document.querySelectorAll('.dept-dropdown-header');
+    dropdownHeaders.forEach(header => {
+        header.addEventListener('click', function () {
+            const parent = this.closest('.dept-sidebar-dropdown');
+            if (parent) {
+                parent.classList.toggle('closed');
+            }
+        });
+    });
+
+    // Sub-menu Links (IAB 2025-26, IAB 2023-24, Vol. 1 Issue 2, Vol. 1 Issue 1)
+    document.addEventListener('click', function (e) {
+        const subLink = e.target.closest('.dept-sub-link');
+        if (subLink) {
+            const tabId = subLink.getAttribute('data-tab');
+            if (tabId) {
+                e.preventDefault();
+                if (history.pushState) {
+                    history.pushState(null, null, '#' + tabId);
+                } else {
+                    window.location.hash = tabId;
+                }
+                activateTab(tabId, true);
+            }
+        }
+    });
+
     // Handle Hash changes & initial load
     function checkHash() {
         const hash = window.location.hash.substring(1);
         if (hash === 'syllabus') {
             window.location.href = 'https://syllabus.gtu.ac.in/';
+            return;
+        }
+        if (hash === 'advisory-board') {
+            activateTab('iab-2025-26', false);
+            return;
+        }
+        if (hash === 'newsletters') {
+            activateTab('nl-vol1-issue2', false);
             return;
         }
         if (hash && document.getElementById('tab-' + hash)) {

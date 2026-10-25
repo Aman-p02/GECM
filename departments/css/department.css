@@ -146,6 +146,93 @@ html {
 }
 
 /* -------------------------------------------------------------
+   Sidebar Accordion Dropdown (Directly matching screenshot)
+   ------------------------------------------------------------- */
+.dept-sidebar-dropdown {
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.dept-dropdown-header {
+    background-color: #546373; /* Slate grey header matching screenshot */
+    color: #ffffff;
+    padding: 12px 18px;
+    font-size: 0.94rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.18s ease;
+}
+
+.dept-dropdown-header:hover {
+    background-color: #485665;
+}
+
+.dept-dropdown-header .dropdown-arrow {
+    font-size: 0.85rem;
+    color: #ffffff;
+    transition: transform 0.25s ease;
+}
+
+.dept-sidebar-dropdown.closed .dept-dropdown-header .dropdown-arrow {
+    transform: rotate(-90deg);
+}
+
+.dept-sidebar-dropdown.closed .dept-sub-menu {
+    display: none;
+}
+
+.dept-sub-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dept-sub-menu li {
+    border-bottom: 1px solid #e8e8e8 !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dept-sub-menu li:last-child {
+    border-bottom: none !important;
+}
+
+.dept-sub-link {
+    display: block;
+    padding: 11px 22px;
+    font-size: 0.90rem;
+    font-weight: 500;
+    color: #333333;
+    text-decoration: none;
+    background: #ffffff;
+    transition: background-color 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.dept-sub-link:hover {
+    background-color: #f4f7fa;
+    color: #0c3b6d;
+    padding-left: 26px;
+}
+
+.dept-sub-link.active {
+    background-color: #edf2f7;
+    color: #0c3b6d;
+    font-weight: 600;
+    border-left: 4px solid #546373;
+    padding-left: 18px;
+}
+
+/* -------------------------------------------------------------
    Right Content Pane
    min-width: 0 is essential so wide tables do not stretch this panel!
    ------------------------------------------------------------- */
@@ -1433,6 +1520,147 @@ html {
     background: #dc2626;
     color: #ffffff;
     border-color: #dc2626;
+}
+
+/* ==============================================================
+   Embedded PDF Viewer Card Component
+   ============================================================== */
+.dept-pdf-card {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin: 20px 0 35px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dept-pdf-toolbar {
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.dept-pdf-toolbar-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.dept-pdf-icon-badge {
+    font-size: 2rem;
+    color: #dc2626;
+}
+
+.dept-pdf-name {
+    margin: 0 0 2px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.dept-pdf-sub {
+    font-size: 0.82rem;
+    color: #64748b;
+}
+
+.dept-pdf-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dept-pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.dept-pdf-btn-open {
+    background: #546373;
+    color: #ffffff;
+    border: 1px solid #546373;
+}
+
+.dept-pdf-btn-open:hover {
+    background: #414e5c;
+    color: #ffffff;
+}
+
+.dept-pdf-btn-download {
+    background: #ffffff;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+.dept-pdf-btn-download:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-color: #94a3b8;
+}
+
+.dept-pdf-viewer-area {
+    position: relative;
+    width: 100%;
+    min-height: 440px;
+    background: #f1f5f9;
+}
+
+.dept-pdf-iframe {
+    width: 100%;
+    height: 720px;
+    border: none;
+    display: block;
+}
+
+.dept-pdf-iframe:not([src]),
+.dept-pdf-iframe[src=""],
+.dept-pdf-iframe[src="#"],
+.dept-pdf-iframe[src="about:blank"] {
+    display: none;
+}
+
+.dept-pdf-empty-state {
+    padding: 50px 20px;
+    text-align: center;
+    background: #f8fafc;
+    color: #475569;
+}
+
+.dept-pdf-iframe:not([src=""]):not([src="#"]):not([src="about:blank"]) + .dept-pdf-empty-state {
+    display: none;
+}
+
+.dept-pdf-empty-icon {
+    font-size: 3.5rem;
+    color: #ef4444;
+    margin-bottom: 14px;
+}
+
+.dept-pdf-empty-state h5 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.dept-pdf-empty-state p {
+    font-size: 0.90rem;
+    color: #64748b;
+    margin-bottom: 14px;
 }
 
 /* Staggered on-scroll reveal for Facility Items */

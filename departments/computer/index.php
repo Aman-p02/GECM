@@ -47,17 +47,33 @@ include_once __DIR__ . '/../../includes/header.php';
                     <li>
                         <a class="dept-nav-link" data-tab="publications">Publications</a>
                     </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="advisory-board">
+                    <li class="dept-sidebar-dropdown" id="sidebar-iab">
+                        <div class="dept-dropdown-header" role="button" tabindex="0">
                             <span>Industry Advisory Board</span>
-                            <i class="fas fa-angle-right arrow-icon"></i>
-                        </a>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <ul class="dept-sub-menu">
+                            <li>
+                                <a class="dept-sub-link" data-tab="iab-2025-26" href="#iab-2025-26">IAB 2025-26</a>
+                            </li>
+                            <li>
+                                <a class="dept-sub-link" data-tab="iab-2023-24" href="#iab-2023-24">IAB 2023-24</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="newsletters">
+                    <li class="dept-sidebar-dropdown" id="sidebar-newsletters">
+                        <div class="dept-dropdown-header" role="button" tabindex="0">
                             <span>News Letters</span>
-                            <i class="fas fa-angle-right arrow-icon"></i>
-                        </a>
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+                        </div>
+                        <ul class="dept-sub-menu">
+                            <li>
+                                <a class="dept-sub-link" data-tab="nl-vol1-issue2" href="#nl-vol1-issue2">Vol. 1 Issue 2</a>
+                            </li>
+                            <li>
+                                <a class="dept-sub-link" data-tab="nl-vol1-issue1" href="#nl-vol1-issue1">Vol. 1 Issue 1</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </aside>
@@ -2764,66 +2780,46 @@ include_once __DIR__ . '/../../includes/header.php';
                 </section>
 
                 <!-- ========================================================
-                     8. INDUSTRY ADVISORY BOARD TAB
+                     8. INDUSTRY ADVISORY BOARD TABS & SUB-OPTIONS
                      ======================================================== -->
-                <section class="dept-tab-content" id="tab-advisory-board">
-                    <div class="dept-divider-title">Industry Advisory Board</div>
+
+                <!-- 8A. IAB 2025-26 Sub-tab -->
+                <section class="dept-tab-content" id="tab-iab-2025-26">
+                    <div class="dept-divider-title">Industry Advisory Board (IAB 2025-26)</div>
 
                     <p class="dept-text-body">
-                        The Industry Advisory Board bridges the gap between academic curriculum and current industry demands, reviewing syllabi and capstone projects periodically. Click below to view the official IAB meeting proceedings and notifications.
+                        Official notifications, committee constitution, and proceedings of the Industry Advisory Board for academic session 2025-26.
                     </p>
 
-                    <!-- Document Accordion Stack matching user screenshot -->
-                    <div class="dept-doc-accordion-container">
-                        <!-- Accordion 1: Industry Advisory Board -->
-                        <div class="dept-doc-accordion open" id="accordion-iab">
-                            <button type="button" class="dept-doc-accordion-header" aria-expanded="true">
-                                <span>Industry Advisory Board</span>
-                                <i class="fas fa-chevron-down accordion-arrow"></i>
-                            </button>
-                            <div class="dept-doc-accordion-body">
-                                <ul class="dept-doc-pdf-list">
-                                    <li>
-                                        <!-- Replace href with direct PDF URL -->
-                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open IAB 2025-26 PDF">
-                                            <span class="pdf-link-left">IAB 2025-26</span>
-                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <!-- Replace href with direct PDF URL -->
-                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open IAB 2023-24 PDF">
-                                            <span class="pdf-link-left">IAB 2023-24</span>
-                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                    <!-- PDF Viewer Container (Paste your PDF URL in src & href) -->
+                    <div class="dept-pdf-card">
+                        <div class="dept-pdf-toolbar">
+                            <div class="dept-pdf-toolbar-info">
+                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
+                                <div>
+                                    <h4 class="dept-pdf-name">IAB 2025-26 Notification Document</h4>
+                                    <span class="dept-pdf-sub">Government Engineering College, Modasa &bull; Official PDF Document</span>
+                                </div>
+                            </div>
+                            <div class="dept-pdf-toolbar-actions">
+                                <!-- USER: Put your PDF URL / file path in href and src below -->
+                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
+                                    <i class="fas fa-external-link-alt"></i> Fullscreen
+                                </a>
+                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
                             </div>
                         </div>
 
-                        <!-- Accordion 2: News Letters -->
-                        <div class="dept-doc-accordion open" id="accordion-newsletters-iab">
-                            <button type="button" class="dept-doc-accordion-header" aria-expanded="true">
-                                <span>News Letters</span>
-                                <i class="fas fa-chevron-down accordion-arrow"></i>
-                            </button>
-                            <div class="dept-doc-accordion-body">
-                                <ul class="dept-doc-pdf-list">
-                                    <li>
-                                        <!-- Replace href with direct PDF URL -->
-                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open Vol. 1 Issue 2 PDF">
-                                            <span class="pdf-link-left">Vol. 1 Issue 2</span>
-                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <!-- Replace href with direct PDF URL -->
-                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open Vol. 1 Issue 1 PDF">
-                                            <span class="pdf-link-left">Vol. 1 Issue 1</span>
-                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                        <div class="dept-pdf-viewer-area">
+                            <!-- USER: Set your PDF path below, e.g. src="../../assets/pdf/iab-2025-26.pdf" -->
+                            <iframe src="" class="dept-pdf-iframe" id="pdf-iab-2025-26" title="IAB 2025-26 Document"></iframe>
+                            <div class="dept-pdf-empty-state">
+                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
+                                <h5>IAB 2025-26 PDF Document</h5>
+                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayega.</p>
+                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
                             </div>
                         </div>
                     </div>
@@ -2844,72 +2840,219 @@ include_once __DIR__ . '/../../includes/header.php';
                     </div>
                 </section>
 
+                <!-- 8B. IAB 2023-24 Sub-tab -->
+                <section class="dept-tab-content" id="tab-iab-2023-24">
+                    <div class="dept-divider-title">Industry Advisory Board (IAB 2023-24)</div>
+
+                    <p class="dept-text-body">
+                        Official notifications, committee constitution, and proceedings of the Industry Advisory Board for academic session 2023-24.
+                    </p>
+
+                    <!-- PDF Viewer Container (Paste your PDF URL in src & href) -->
+                    <div class="dept-pdf-card">
+                        <div class="dept-pdf-toolbar">
+                            <div class="dept-pdf-toolbar-info">
+                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
+                                <div>
+                                    <h4 class="dept-pdf-name">IAB 2023-24 Notification Document</h4>
+                                    <span class="dept-pdf-sub">Government Engineering College, Modasa &bull; Official PDF Document</span>
+                                </div>
+                            </div>
+                            <div class="dept-pdf-toolbar-actions">
+                                <!-- USER: Put your PDF URL / file path in href and src below -->
+                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
+                                    <i class="fas fa-external-link-alt"></i> Fullscreen
+                                </a>
+                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="dept-pdf-viewer-area">
+                            <!-- USER: Set your PDF path below, e.g. src="../../assets/pdf/iab-2023-24.pdf" -->
+                            <iframe src="" class="dept-pdf-iframe" id="pdf-iab-2023-24" title="IAB 2023-24 Document"></iframe>
+                            <div class="dept-pdf-empty-state">
+                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
+                                <h5>IAB 2023-24 PDF Document</h5>
+                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayega.</p>
+                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8C. Industry Advisory Board Overview Tab -->
+                <section class="dept-tab-content" id="tab-advisory-board">
+                    <div class="dept-divider-title">Industry Advisory Board</div>
+
+                    <p class="dept-text-body">
+                        The Industry Advisory Board bridges the gap between academic curriculum and current industry demands, reviewing syllabi and capstone projects periodically. Select an academic year session below to view official proceedings.
+                    </p>
+
+                    <div class="row g-3 my-3">
+                        <div class="col-md-6">
+                            <a href="#iab-2025-26" class="dept-sub-link-card dept-sub-link" data-tab="iab-2025-26" style="display:block; padding: 18px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit;">
+                                <div style="display:flex; align-items: center; justify-content: space-between;">
+                                    <div>
+                                        <h5 style="margin:0 0 5px; color:#1e293b; font-weight:600;"><i class="fas fa-file-pdf text-danger me-2"></i> IAB 2025-26</h5>
+                                        <span style="font-size:0.85rem; color:#64748b;">Current Academic Year Proceedings</span>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#iab-2023-24" class="dept-sub-link-card dept-sub-link" data-tab="iab-2023-24" style="display:block; padding: 18px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit;">
+                                <div style="display:flex; align-items: center; justify-content: space-between;">
+                                    <div>
+                                        <h5 style="margin:0 0 5px; color:#1e293b; font-weight:600;"><i class="fas fa-file-pdf text-danger me-2"></i> IAB 2023-24</h5>
+                                        <span style="font-size:0.85rem; color:#64748b;">Previous Session Proceedings</span>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="labs-simple-grid">
+                        <div class="lab-simple-item">
+                            <h5>Industry Leaders &amp; Advisors</h5>
+                            <p style="margin-bottom: 6px;"><strong>Mr. J. K. Sharma</strong> &bull; VP Engineering, TCS</p>
+                            <p style="margin-bottom: 6px;"><strong>Mr. Sameer Desai</strong> &bull; Technical Director, L&amp;T Infotech</p>
+                            <p><strong>Ms. Neha Trivedi</strong> &bull; Senior Architect, Infosys</p>
+                        </div>
+                        <div class="lab-simple-item">
+                            <h5>Key Board Objectives</h5>
+                            <p style="margin-bottom: 6px;">&bull; Align GTU curriculum with market technologies.</p>
+                            <p style="margin-bottom: 6px;">&bull; Facilitate semester-long industry internships and capstone projects.</p>
+                            <p>&bull; Facilitate campus placement drives and corporate mentoring.</p>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- ========================================================
-                     9. NEWS LETTERS TAB
+                     9. NEWS LETTERS TABS & SUB-OPTIONS
                      ======================================================== -->
+
+                <!-- 9A. News Letters Vol. 1 Issue 2 Sub-tab -->
+                <section class="dept-tab-content" id="tab-nl-vol1-issue2">
+                    <div class="dept-divider-title">News Letters: Vol. 1 Issue 2</div>
+
+                    <p class="dept-text-body">
+                        Department of Computer Engineering biannual newsletter <strong>"COMP-CONNECT"</strong> &mdash; Volume 1, Issue 2.
+                    </p>
+
+                    <!-- PDF Viewer Container (Paste your PDF URL in src & href) -->
+                    <div class="dept-pdf-card">
+                        <div class="dept-pdf-toolbar">
+                            <div class="dept-pdf-toolbar-info">
+                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
+                                <div>
+                                    <h4 class="dept-pdf-name">COMP-CONNECT Newsletter (Vol. 1 Issue 2)</h4>
+                                    <span class="dept-pdf-sub">Department of Computer Engineering &bull; Official Publication</span>
+                                </div>
+                            </div>
+                            <div class="dept-pdf-toolbar-actions">
+                                <!-- USER: Put your PDF URL / file path in href and src below -->
+                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
+                                    <i class="fas fa-external-link-alt"></i> Fullscreen
+                                </a>
+                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="dept-pdf-viewer-area">
+                            <!-- USER: Set your PDF path below, e.g. src="../../assets/pdf/newsletter-vol1-issue2.pdf" -->
+                            <iframe src="" class="dept-pdf-iframe" id="pdf-nl-vol1-issue2" title="Newsletter Vol. 1 Issue 2"></iframe>
+                            <div class="dept-pdf-empty-state">
+                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
+                                <h5>Vol. 1 Issue 2 Newsletter Document</h5>
+                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayegi.</p>
+                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9B. News Letters Vol. 1 Issue 1 Sub-tab -->
+                <section class="dept-tab-content" id="tab-nl-vol1-issue1">
+                    <div class="dept-divider-title">News Letters: Vol. 1 Issue 1</div>
+
+                    <p class="dept-text-body">
+                        Department of Computer Engineering biannual newsletter <strong>"COMP-CONNECT"</strong> &mdash; Volume 1, Issue 1 (Inaugural Edition).
+                    </p>
+
+                    <!-- PDF Viewer Container (Paste your PDF URL in src & href) -->
+                    <div class="dept-pdf-card">
+                        <div class="dept-pdf-toolbar">
+                            <div class="dept-pdf-toolbar-info">
+                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
+                                <div>
+                                    <h4 class="dept-pdf-name">COMP-CONNECT Newsletter (Vol. 1 Issue 1)</h4>
+                                    <span class="dept-pdf-sub">Department of Computer Engineering &bull; Official Publication</span>
+                                </div>
+                            </div>
+                            <div class="dept-pdf-toolbar-actions">
+                                <!-- USER: Put your PDF URL / file path in href and src below -->
+                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
+                                    <i class="fas fa-external-link-alt"></i> Fullscreen
+                                </a>
+                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="dept-pdf-viewer-area">
+                            <!-- USER: Set your PDF path below, e.g. src="../../assets/pdf/newsletter-vol1-issue1.pdf" -->
+                            <iframe src="" class="dept-pdf-iframe" id="pdf-nl-vol1-issue1" title="Newsletter Vol. 1 Issue 1"></iframe>
+                            <div class="dept-pdf-empty-state">
+                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
+                                <h5>Vol. 1 Issue 1 Newsletter Document</h5>
+                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayegi.</p>
+                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9C. News Letters Overview & Archives Tab -->
                 <section class="dept-tab-content" id="tab-newsletters">
                     <div class="dept-divider-title">News Letters</div>
 
                     <p class="dept-text-body">
-                        The biannual departmental newsletter <strong>"COMP-CONNECT"</strong> chronicles academic achievements, faculty publications, student awards, and technological developments. Click on any issue below to directly read and download the PDF.
+                        The biannual departmental newsletter <strong>"COMP-CONNECT"</strong> chronicles academic achievements, faculty publications, student awards, and technological developments.
                     </p>
 
-                    <!-- Document Accordion Stack matching user screenshot -->
-                    <div class="dept-doc-accordion-container">
-                        <!-- Accordion 1: Industry Advisory Board -->
-                        <div class="dept-doc-accordion" id="accordion-iab-news">
-                            <button type="button" class="dept-doc-accordion-header" aria-expanded="false">
-                                <span>Industry Advisory Board</span>
-                                <i class="fas fa-chevron-down accordion-arrow"></i>
-                            </button>
-                            <div class="dept-doc-accordion-body">
-                                <ul class="dept-doc-pdf-list">
-                                    <li>
-                                        <!-- Replace href with direct PDF URL -->
-                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open IAB 2025-26 PDF">
-                                            <span class="pdf-link-left">IAB 2025-26</span>
-                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <!-- Replace href with direct PDF URL -->
-                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open IAB 2023-24 PDF">
-                                            <span class="pdf-link-left">IAB 2023-24</span>
-                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                    <div class="row g-3 my-3">
+                        <div class="col-md-6">
+                            <a href="#nl-vol1-issue2" class="dept-sub-link-card dept-sub-link" data-tab="nl-vol1-issue2" style="display:block; padding: 18px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit;">
+                                <div style="display:flex; align-items: center; justify-content: space-between;">
+                                    <div>
+                                        <h5 style="margin:0 0 5px; color:#1e293b; font-weight:600;"><i class="fas fa-newspaper text-primary me-2"></i> Vol. 1 Issue 2</h5>
+                                        <span style="font-size:0.85rem; color:#64748b;">Latest Edition Newsletter</span>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </div>
+                            </a>
                         </div>
-
-                        <!-- Accordion 2: News Letters (Open by default) -->
-                        <div class="dept-doc-accordion open" id="accordion-newsletters-main">
-                            <button type="button" class="dept-doc-accordion-header" aria-expanded="true">
-                                <span>News Letters</span>
-                                <i class="fas fa-chevron-down accordion-arrow"></i>
-                            </button>
-                            <div class="dept-doc-accordion-body">
-                                <ul class="dept-doc-pdf-list">
-                                    <li>
-                                        <!-- Replace href with direct PDF URL -->
-                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open Vol. 1 Issue 2 PDF">
-                                            <span class="pdf-link-left">Vol. 1 Issue 2</span>
-                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <!-- Replace href with direct PDF URL -->
-                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open Vol. 1 Issue 1 PDF">
-                                            <span class="pdf-link-left">Vol. 1 Issue 1</span>
-                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="col-md-6">
+                            <a href="#nl-vol1-issue1" class="dept-sub-link-card dept-sub-link" data-tab="nl-vol1-issue1" style="display:block; padding: 18px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit;">
+                                <div style="display:flex; align-items: center; justify-content: space-between;">
+                                    <div>
+                                        <h5 style="margin:0 0 5px; color:#1e293b; font-weight:600;"><i class="fas fa-newspaper text-primary me-2"></i> Vol. 1 Issue 1</h5>
+                                        <span style="font-size:0.85rem; color:#64748b;">Inaugural Edition Newsletter</span>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
-                    <div class="courses-card">
+                    <div class="courses-card mt-4">
                         <div class="courses-card-header">
                             <i class="fas fa-bars"></i>
                             <span>Departmental Newsletters Archive</span>
