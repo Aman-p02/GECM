@@ -304,40 +304,176 @@ include_once __DIR__ . '/../../includes/header.php';
                      5. FACILITIES TAB
                      ======================================================== -->
                 <section class="dept-tab-content" id="tab-facilities">
-                    <div class="dept-divider-title">Department Facilities &amp; Laboratories</div>
+                    <div class="dept-divider-title">Facilities</div>
 
-                    <p class="dept-text-body">
-                        The Information Technology Department is equipped with cutting-edge laboratories, campus-wide fiber optic network, high-speed Wi-Fi, and modern computing infrastructure to cater to the academic and practical learning requirements of students.
-                    </p>
-
-                    <div class="dept-facilities-dual-grid mb-4">
-                        <ul class="facility-items-list">
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Wi-Fi enabled Department</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>System Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Android Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Appl. Development Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>DLD Lab</span></li>
-                        </ul>
-                        <ul class="facility-items-list">
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Campus Wide Fiber Optic Cable Network</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Network Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Advance Project Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>DBMS Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Operating System Lab</span></li>
-                        </ul>
+                    <!-- Segmented Sub-tabs Matching Screenshot -->
+                    <div class="facility-tabs-container">
+                        <div class="facility-segmented-tabs">
+                            <button type="button" class="facility-tab-btn active" data-subtab="laboratories">
+                                <i class="fas fa-desktop"></i> Laboratories <span class="tab-count-badge">5</span>
+                            </button>
+                            <button type="button" class="facility-tab-btn" data-subtab="seminar">
+                                <i class="fas fa-chalkboard-teacher"></i> Seminar Room
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="labs-simple-grid">
-                        <div class="lab-simple-item">
-                            <h5>Network &amp; Security Lab</h5>
-                            <p style="margin-bottom: 6px;">Equipped with high-performance routing, firewall, and switching setups supporting network protocol design and security analysis.</p>
-                            <p><strong>Capacity:</strong> 30+ High-end Workstations</p>
+                    <!-- ================= SUBTAB 1: LABORATORIES ================= -->
+                    <div class="facility-pane active" id="subtab-laboratories">
+                        <p class="facility-lead-intro">
+                            There are total 10 laboratories in the department for performing practical in various domains like Computer Programming, Computer Graphics, Networking, Database Management, Operating Systems, Artificial Intelligence, etc. Department has a separate laboratory for computer hardware subjects.
+                        </p>
+
+                        <div class="modern-labs-stack">
+
+                            <!-- Lab 1: 8212 Project Lab (Text Left, Photo Right) -->
+                            <article class="modern-lab-card">
+                                <div class="modern-lab-body">
+                                    <span class="modern-room-pill">Room 8212</span>
+                                    <h3 class="modern-lab-title" style="color: #0288d1;">8212 Project Lab</h3>
+                                    <p class="modern-lab-text">
+                                        This lab is dedicatedly used for project and design engineering. Sufficient number of laptop points and other required infrastructure is available in this lab.
+                                    </p>
+                                </div>
+                                <div class="modern-photo-wrap">
+                                    <!-- USER: Replace src with your image path when ready -->
+                                    <img src="" alt="8212 Project Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: flex;">
+                                        <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
+                                        <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
+                                        <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8212 Project Lab</span>
+                                        <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Lab 2: 8213 Programming Lab - 1 (Photo Left, Text Right) -->
+                            <article class="modern-lab-card modern-lab-card-reverse">
+                                <div class="modern-photo-wrap">
+                                    <!-- USER: Replace src with your image path when ready -->
+                                    <img src="" alt="8213 Programming Lab - 1" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: flex;">
+                                        <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
+                                        <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
+                                        <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8213 Programming Lab - 1</span>
+                                        <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
+                                    </div>
+                                </div>
+                                <div class="modern-lab-body">
+                                    <span class="modern-room-pill">Room 8213</span>
+                                    <h3 class="modern-lab-title" style="color: #0288d1;">8213 Programming Lab - 1</h3>
+                                    <p class="modern-lab-text">
+                                        The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for subjects such as DBMS, OS, CG, CoS, SE, Compiler Design and Python.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <!-- Lab 3: 8215 Programming Lab - 2 (Text Left, Photo Right) -->
+                            <article class="modern-lab-card">
+                                <div class="modern-lab-body">
+                                    <span class="modern-room-pill">Room 8215</span>
+                                    <h3 class="modern-lab-title" style="color: #0288d1;">8215 Programming Lab - 2</h3>
+                                    <p class="modern-lab-text">
+                                        The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for hardware related subjects such as digital fundamentals, COA, CN, Blockchain and IoT.
+                                    </p>
+                                </div>
+                                <div class="modern-photo-wrap">
+                                    <!-- USER: Replace src with your image path when ready -->
+                                    <img src="" alt="8215 Programming Lab - 2" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: flex;">
+                                        <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
+                                        <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
+                                        <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8215 Programming Lab - 2</span>
+                                        <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Lab 4: 8216 PPS Lab (Photo Left, Text Right) -->
+                            <article class="modern-lab-card modern-lab-card-reverse">
+                                <div class="modern-photo-wrap">
+                                    <!-- USER: Replace src with your image path when ready -->
+                                    <img src="" alt="8216 PPS Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: flex;">
+                                        <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
+                                        <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
+                                        <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8216 PPS Lab</span>
+                                        <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
+                                    </div>
+                                </div>
+                                <div class="modern-lab-body">
+                                    <span class="modern-room-pill">Room 8216</span>
+                                    <h3 class="modern-lab-title" style="color: #0288d1;">8216 PPS Lab</h3>
+                                    <p class="modern-lab-text">
+                                        The department is having Programming for Problem Solving lab for students where they can perform their PPS experiments. This lab contains number of Computers with Internet connection.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <!-- Lab 5: 8217 Programming Lab - 3 (Text Left, Photo Right) -->
+                            <article class="modern-lab-card">
+                                <div class="modern-lab-body">
+                                    <span class="modern-room-pill">Room 8217</span>
+                                    <h3 class="modern-lab-title" style="color: #0288d1;">8217 Programming Lab - 3</h3>
+                                    <p class="modern-lab-text">
+                                        The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for software/hardware related subjects such as .Net, MCWC and cloud computing.
+                                    </p>
+                                </div>
+                                <div class="modern-photo-wrap">
+                                    <!-- USER: Replace src with your image path when ready -->
+                                    <img src="" alt="8217 Programming Lab - 3" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: flex;">
+                                        <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
+                                        <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
+                                        <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8217 Programming Lab - 3</span>
+                                        <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
+                                    </div>
+                                </div>
+                            </article>
+
                         </div>
-                        <div class="lab-simple-item">
-                            <h5>DBMS &amp; Cloud Lab</h5>
-                            <p style="margin-bottom: 6px;">Configured with modern relational and NoSQL DBMS software, distributed database environments, and cloud deployment tools.</p>
-                            <p><strong>Capacity:</strong> 30+ High-end Workstations</p>
+
+                        <!-- Department Facilities Overview List -->
+                        <div class="dept-divider-title mt-5">All Department Facilities Overview</div>
+                        <div class="dept-facilities-dual-grid mb-4">
+                            <ul class="facility-items-list">
+                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Wi-Fi enabled Department</span></li>
+                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>System Lab</span></li>
+                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Android Lab</span></li>
+                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Appl. Development Lab</span></li>
+                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>DLD Lab</span></li>
+                            </ul>
+                            <ul class="facility-items-list">
+                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Campus Wide Fiber Optic Cable Network</span></li>
+                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Network Lab</span></li>
+                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Advance Project Lab</span></li>
+                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>DBMS Lab</span></li>
+                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Operating System Lab</span></li>
+                            </ul>
                         </div>
+                    </div>
+
+                    <!-- ================= SUBTAB 2: SEMINAR ROOM ================= -->
+                    <div class="facility-pane" id="subtab-seminar">
+                        <article class="modern-lab-card">
+                            <div class="modern-photo-wrap">
+                                <!-- USER: Replace src with Seminar Room image when ready -->
+                                <img src="" alt="Seminar Room" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="modern-photo-placeholder" style="display: flex;">
+                                    <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
+                                    <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
+                                    <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">Department Seminar Room</span>
+                                    <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
+                                </div>
+                            </div>
+                            <div class="modern-lab-body">
+                                <span class="modern-room-pill">Department Seminar Hall</span>
+                                <h3 class="modern-lab-title" style="color: #0288d1;">Department Seminar Room</h3>
+                                <p class="modern-lab-text">
+                                    The Seminar Room is a modern facility with high-end audio-visual projection equipment, sound system, and comfortable seating capacity for guest lectures, seminars, workshops, and project evaluations.
+                                </p>
+                            </div>
+                        </article>
                     </div>
                 </section>
 
