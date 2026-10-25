@@ -1288,7 +1288,7 @@ html {
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    flex: 1 1 300px;
+    flex: 1 1 auto;
     font-weight: 500;
     color: #334155;
     line-height: 1.45;
@@ -1315,15 +1315,238 @@ html {
     font-size: 0.9rem;
 }
 
+/* ==============================================================
+   Document / Advisory Board & Newsletters Accordion UI
+   Directly matching user screenshot with slate-blue header & direct PDF links
+   ============================================================== */
+.dept-doc-accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 22px 0 35px;
+    width: 100%;
+    max-width: 720px;
+}
+
+.dept-doc-accordion {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #dcdcdc;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.dept-doc-accordion-header {
+    width: 100%;
+    background-color: #546373; /* Exact slate grey-blue header from screenshot */
+    color: #ffffff;
+    padding: 13px 20px;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.02rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+.dept-doc-accordion-header:hover {
+    background-color: #485665;
+}
+
+.dept-doc-accordion-header .accordion-arrow {
+    font-size: 0.88rem;
+    transition: transform 0.25s ease;
+    color: #ffffff;
+}
+
+.dept-doc-accordion.open .dept-doc-accordion-header .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.dept-doc-accordion-body {
+    display: none;
+    background-color: #ffffff;
+}
+
+.dept-doc-accordion.open .dept-doc-accordion-body {
+    display: block;
+}
+
+.dept-doc-pdf-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dept-doc-pdf-list li {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.dept-doc-pdf-list li:last-child {
+    border-bottom: none;
+}
+
+.pdf-link-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 22px;
+    color: #334155;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
+}
+
+.pdf-link-item:hover {
+    background-color: #f8fafc;
+    color: #0288d1;
+    padding-left: 26px;
+}
+
+.pdf-link-item .pdf-link-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pdf-link-item .pdf-badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: #dc2626;
+    background: #fef2f2;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid #fee2e2;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.pdf-link-item:hover .pdf-badge-tag {
+    background: #dc2626;
+    color: #ffffff;
+    border-color: #dc2626;
+}
+
+/* Staggered on-scroll reveal for Facility Items */
+.facility-items-list li.dept-scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1), transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.facility-items-list li.dept-scroll-reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==============================================================
+   Mobile View Fixes (Eliminates dead vertical space in Publications)
+   ============================================================== */
 @media (max-width: 600px) {
+    .publications-header-bar {
+        margin: 12px 0 16px;
+        gap: 10px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .publications-year-select-box {
+        flex: 1 1 auto;
+        min-width: 140px;
+    }
+
+    .publications-year-select-box select {
+        padding: 8px 28px 8px 30px;
+        font-size: 0.85rem;
+    }
+
+    .publications-year-select-box .select-calendar-icon {
+        left: 9px;
+        font-size: 0.80rem;
+    }
+
+    .publications-year-select-box .select-chevron-icon {
+        right: 9px;
+        font-size: 0.70rem;
+    }
+
+    .publications-count-badge {
+        flex-shrink: 0;
+        padding: 6px 10px;
+        font-size: 0.78rem;
+    }
+
+    .publications-list-stack {
+        gap: 10px;
+    }
+
     .publication-card {
-        padding: 14px 16px;
+        padding: 12px 14px;
+        border-left-width: 3px;
+        border-radius: 0 4px 4px 0;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    .publication-title {
+        font-size: 0.88rem;
+        font-weight: 600;
+        line-height: 1.38;
+        margin-bottom: 6px;
     }
 
     .publication-meta-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
+        gap: 4px;
+    }
+
+    .publication-authors {
+        flex: none;
+        width: 100%;
+        font-size: 0.80rem;
+        line-height: 1.35;
+        gap: 6px;
+    }
+
+    .publication-authors i {
+        font-size: 0.78rem;
+        margin-top: 2px;
+    }
+
+    .publication-date {
+        font-size: 0.76rem;
+        gap: 5px;
+        margin-top: 2px;
+        color: #64748b;
+    }
+
+    .publication-date i {
+        font-size: 0.76rem;
+    }
+
+    .dept-doc-accordion-container {
+        margin: 16px 0 24px;
+    }
+
+    .dept-doc-accordion-header {
+        padding: 11px 16px;
+        font-size: 0.94rem;
+    }
+
+    .pdf-link-item {
+        padding: 12px 16px;
+        font-size: 0.88rem;
     }
 }
+
 

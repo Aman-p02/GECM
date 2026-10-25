@@ -62,7 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
         '.modern-lab-card',
         '.facility-tabs-container',
         '.facility-lead-intro',
-        '.publication-card'
+        '.dept-facilities-dual-grid',
+        '.facility-items-list li',
+        '.publication-card',
+        '.dept-doc-accordion'
     ].join(', ');
 
     let revealObserver = null;
@@ -275,4 +278,16 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
+
+    // Document Accordions (Industry Advisory Board & Newsletters)
+    const accordionHeaders = document.querySelectorAll('.dept-doc-accordion-header');
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function () {
+            const parent = this.closest('.dept-doc-accordion');
+            if (parent) {
+                const isOpen = parent.classList.toggle('open');
+                this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+        });
+    });
 });

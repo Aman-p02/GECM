@@ -2770,8 +2770,63 @@ include_once __DIR__ . '/../../includes/header.php';
                     <div class="dept-divider-title">Industry Advisory Board</div>
 
                     <p class="dept-text-body">
-                        The Industry Advisory Board bridges the gap between academic curriculum and current industry demands, reviewing syllabi and capstone projects periodically.
+                        The Industry Advisory Board bridges the gap between academic curriculum and current industry demands, reviewing syllabi and capstone projects periodically. Click below to view the official IAB meeting proceedings and notifications.
                     </p>
+
+                    <!-- Document Accordion Stack matching user screenshot -->
+                    <div class="dept-doc-accordion-container">
+                        <!-- Accordion 1: Industry Advisory Board -->
+                        <div class="dept-doc-accordion open" id="accordion-iab">
+                            <button type="button" class="dept-doc-accordion-header" aria-expanded="true">
+                                <span>Industry Advisory Board</span>
+                                <i class="fas fa-chevron-down accordion-arrow"></i>
+                            </button>
+                            <div class="dept-doc-accordion-body">
+                                <ul class="dept-doc-pdf-list">
+                                    <li>
+                                        <!-- Replace href with direct PDF URL -->
+                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open IAB 2025-26 PDF">
+                                            <span class="pdf-link-left">IAB 2025-26</span>
+                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <!-- Replace href with direct PDF URL -->
+                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open IAB 2023-24 PDF">
+                                            <span class="pdf-link-left">IAB 2023-24</span>
+                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 2: News Letters -->
+                        <div class="dept-doc-accordion open" id="accordion-newsletters-iab">
+                            <button type="button" class="dept-doc-accordion-header" aria-expanded="true">
+                                <span>News Letters</span>
+                                <i class="fas fa-chevron-down accordion-arrow"></i>
+                            </button>
+                            <div class="dept-doc-accordion-body">
+                                <ul class="dept-doc-pdf-list">
+                                    <li>
+                                        <!-- Replace href with direct PDF URL -->
+                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open Vol. 1 Issue 2 PDF">
+                                            <span class="pdf-link-left">Vol. 1 Issue 2</span>
+                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <!-- Replace href with direct PDF URL -->
+                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open Vol. 1 Issue 1 PDF">
+                                            <span class="pdf-link-left">Vol. 1 Issue 1</span>
+                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="labs-simple-grid">
                         <div class="lab-simple-item">
@@ -2796,13 +2851,68 @@ include_once __DIR__ . '/../../includes/header.php';
                     <div class="dept-divider-title">News Letters</div>
 
                     <p class="dept-text-body">
-                        The biannual departmental newsletter <strong>"COMP-CONNECT"</strong> chronicles academic achievements, faculty publications, student awards, and technological developments.
+                        The biannual departmental newsletter <strong>"COMP-CONNECT"</strong> chronicles academic achievements, faculty publications, student awards, and technological developments. Click on any issue below to directly read and download the PDF.
                     </p>
+
+                    <!-- Document Accordion Stack matching user screenshot -->
+                    <div class="dept-doc-accordion-container">
+                        <!-- Accordion 1: Industry Advisory Board -->
+                        <div class="dept-doc-accordion" id="accordion-iab-news">
+                            <button type="button" class="dept-doc-accordion-header" aria-expanded="false">
+                                <span>Industry Advisory Board</span>
+                                <i class="fas fa-chevron-down accordion-arrow"></i>
+                            </button>
+                            <div class="dept-doc-accordion-body">
+                                <ul class="dept-doc-pdf-list">
+                                    <li>
+                                        <!-- Replace href with direct PDF URL -->
+                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open IAB 2025-26 PDF">
+                                            <span class="pdf-link-left">IAB 2025-26</span>
+                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <!-- Replace href with direct PDF URL -->
+                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open IAB 2023-24 PDF">
+                                            <span class="pdf-link-left">IAB 2023-24</span>
+                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 2: News Letters (Open by default) -->
+                        <div class="dept-doc-accordion open" id="accordion-newsletters-main">
+                            <button type="button" class="dept-doc-accordion-header" aria-expanded="true">
+                                <span>News Letters</span>
+                                <i class="fas fa-chevron-down accordion-arrow"></i>
+                            </button>
+                            <div class="dept-doc-accordion-body">
+                                <ul class="dept-doc-pdf-list">
+                                    <li>
+                                        <!-- Replace href with direct PDF URL -->
+                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open Vol. 1 Issue 2 PDF">
+                                            <span class="pdf-link-left">Vol. 1 Issue 2</span>
+                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <!-- Replace href with direct PDF URL -->
+                                        <a href="#" target="_blank" class="pdf-link-item" title="Click to open Vol. 1 Issue 1 PDF">
+                                            <span class="pdf-link-left">Vol. 1 Issue 1</span>
+                                            <span class="pdf-badge-tag"><i class="fas fa-file-pdf"></i> PDF</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="courses-card">
                         <div class="courses-card-header">
                             <i class="fas fa-bars"></i>
-                            <span>Departmental Newsletters</span>
+                            <span>Departmental Newsletters Archive</span>
                         </div>
                         <div class="courses-table-wrapper">
                             <table class="courses-table">
