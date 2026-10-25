@@ -204,7 +204,17 @@ include_once __DIR__ . '/includes/header.php';
             <button class="scroll-btn dept-btn left-btn" id="deptLeftBtn" aria-label="Previous Department"><i
                     class="fas fa-chevron-left"></i></button>
             <div class="dept-grid" id="deptGrid">
-                <?php foreach ($departmentsList as $dept): ?>
+                <?php foreach ($departmentsList as $dept): 
+                    $deptCode = strtoupper(trim($dept['code'] ?? ''));
+                    $deptName = trim($dept['name'] ?? '');
+                    $resolvedUrl = (!empty($dept['learn_more_url']) && $dept['learn_more_url'] !== '#') 
+                        ? $dept['learn_more_url'] 
+                        : ($deptCode === 'IT' || stripos($deptName, 'Information Technology') !== false 
+                            ? 'departments/information-technology/' 
+                            : ($deptCode === 'CE' || stripos($deptName, 'Computer') !== false 
+                                ? 'departments/computer/' 
+                                : '#'));
+                ?>
                 <div class="dept-card">
                     <div class="dept-icon">
                         <?php if (!empty($deptLogos[$dept['name']]) && file_exists(__DIR__ . '/' . $deptLogos[$dept['name']])): ?>
@@ -214,7 +224,7 @@ include_once __DIR__ . '/includes/header.php';
                         <?php endif; ?>
                     </div>
                     <h3><?= htmlspecialchars($dept['name']) ?></h3>
-                    <a href="<?= htmlspecialchars($dept['learn_more_url'] ?? '#') ?>" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="<?= htmlspecialchars($resolvedUrl) ?>" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <?php endforeach; ?>
             </div>

@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `departments` (
 -- Initial Departments Data
 INSERT INTO `departments` (`name`, `code`, `icon_class`, `learn_more_url`, `display_order`, `is_active`) VALUES
 ('Computer Engineering', 'CE', 'fas fa-desktop', 'departments/computer/', 1, 1),
-('Information Technology', 'IT', 'fas fa-network-wired', '#', 2, 1),
+('Information Technology', 'IT', 'fas fa-network-wired', 'departments/information-technology/', 2, 1),
 ('Mechanical Engineering', 'ME', 'fas fa-cogs', '#', 3, 1),
 ('Automobile Engineering', 'AE', 'fas fa-car-side', '#', 4, 1),
 ('Civil Engineering', 'CIVIL', 'fas fa-building', '#', 5, 1),
