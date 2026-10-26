@@ -178,12 +178,30 @@ html {
     transition: transform 0.25s ease;
 }
 
-.dept-sidebar-dropdown.closed .dept-dropdown-header .dropdown-arrow {
+/* Closed by default when user opens website */
+.dept-sidebar-dropdown .dept-sub-menu {
+    display: none;
+}
+
+.dept-sidebar-dropdown .dept-dropdown-header .dropdown-arrow {
     transform: rotate(-90deg);
 }
 
+/* Open state: only when user clicks header or activates sub-link */
+.dept-sidebar-dropdown.open .dept-sub-menu {
+    display: block;
+}
+
+.dept-sidebar-dropdown.open .dept-dropdown-header .dropdown-arrow {
+    transform: rotate(0deg);
+}
+
 .dept-sidebar-dropdown.closed .dept-sub-menu {
-    display: none;
+    display: none !important;
+}
+
+.dept-sidebar-dropdown.closed .dept-dropdown-header .dropdown-arrow {
+    transform: rotate(-90deg) !important;
 }
 
 .dept-sub-menu {

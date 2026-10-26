@@ -47,7 +47,7 @@ include_once __DIR__ . '/../../includes/header.php';
                     <li>
                         <a class="dept-nav-link" data-tab="publications">Publications</a>
                     </li>
-                    <li class="dept-sidebar-dropdown" id="sidebar-iab">
+                    <li class="dept-sidebar-dropdown closed" id="sidebar-iab">
                         <div class="dept-dropdown-header" role="button" tabindex="0">
                             <span>Industry Advisory Board</span>
                             <i class="fas fa-chevron-down dropdown-arrow"></i>
@@ -61,7 +61,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             </li>
                         </ul>
                     </li>
-                    <li class="dept-sidebar-dropdown" id="sidebar-newsletters">
+                    <li class="dept-sidebar-dropdown closed" id="sidebar-newsletters">
                         <div class="dept-dropdown-header" role="button" tabindex="0">
                             <span>News Letters</span>
                             <i class="fas fa-chevron-down dropdown-arrow"></i>

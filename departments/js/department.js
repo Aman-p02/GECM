@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 sub.classList.add('active');
                 const parentDropdown = sub.closest('.dept-sidebar-dropdown');
                 if (parentDropdown) {
+                    parentDropdown.classList.add('open');
                     parentDropdown.classList.remove('closed');
                 }
             });
@@ -218,10 +219,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // Sidebar Accordion Dropdown Headers (Industry Advisory Board, Newsletters)
     const dropdownHeaders = document.querySelectorAll('.dept-dropdown-header');
     dropdownHeaders.forEach(header => {
-        header.addEventListener('click', function () {
-            const parent = this.closest('.dept-sidebar-dropdown');
+        function toggleDropdown(e) {
+            if (e) e.preventDefault();
+            const parent = header.closest('.dept-sidebar-dropdown');
             if (parent) {
-                parent.classList.toggle('closed');
+                const isOpen = parent.classList.contains('open');
+                if (isOpen) {
+                    parent.classList.remove('open');
+                    parent.classList.add('closed');
+                } else {
+                    parent.classList.add('open');
+                    parent.classList.remove('closed');
+                }
+            }
+        }
+        header.addEventListener('click', toggleDropdown);
+        header.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                toggleDropdown(e);
             }
         });
     });

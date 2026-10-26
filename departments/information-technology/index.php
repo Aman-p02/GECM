@@ -47,7 +47,7 @@ include_once __DIR__ . '/../../includes/header.php';
                     <li>
                         <a class="dept-nav-link" data-tab="publications">Publications</a>
                     </li>
-                    <li class="dept-sidebar-dropdown" id="sidebar-iab">
+                    <li class="dept-sidebar-dropdown closed" id="sidebar-iab">
                         <div class="dept-dropdown-header" role="button" tabindex="0">
                             <span>Industry Advisory Board</span>
                             <i class="fas fa-chevron-down dropdown-arrow"></i>
@@ -61,7 +61,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             </li>
                         </ul>
                     </li>
-                    <li class="dept-sidebar-dropdown" id="sidebar-newsletters">
+                    <li class="dept-sidebar-dropdown closed" id="sidebar-newsletters">
                         <div class="dept-dropdown-header" role="button" tabindex="0">
                             <span>News Letters</span>
                             <i class="fas fa-chevron-down dropdown-arrow"></i>
@@ -326,104 +326,88 @@ include_once __DIR__ . '/../../includes/header.php';
 
                         <div class="modern-labs-stack">
 
-                            <!-- Lab 1: 8212 Project Lab (Text Left, Photo Right) -->
+                            <!-- Lab 1: 8212 Project Lab -->
                             <article class="modern-lab-card">
+                                <div class="modern-photo-wrap">
+                                    <img src="images/labs/lab_8212_project.jpg" alt="8212 Project Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: none;">
+                                        <span>Photo Space</span>
+                                    </div>
+                                </div>
                                 <div class="modern-lab-body">
                                     <span class="modern-room-pill">Room 8212</span>
-                                    <h3 class="modern-lab-title" style="color: #0288d1;">8212 Project Lab</h3>
+                                    <h3 class="modern-lab-title">Project Lab</h3>
                                     <p class="modern-lab-text">
                                         This lab is dedicatedly used for project and design engineering. Sufficient number of laptop points and other required infrastructure is available in this lab.
                                     </p>
                                 </div>
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/lab_8212_project.jpg" alt="8212 Project Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
-                                        <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
-                                        <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8212 Project Lab</span>
-                                    </div>
-                                </div>
                             </article>
 
-                            <!-- Lab 2: 8213 Programming Lab - 1 (Photo Left, Text Right) -->
+                            <!-- Lab 2: 8213 Programming Lab - 1 -->
                             <article class="modern-lab-card modern-lab-card-reverse">
                                 <div class="modern-photo-wrap">
                                     <img src="images/labs/8213-lab.png" alt="8213 Programming Lab - 1" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                     <div class="modern-photo-placeholder" style="display: none;">
-                                        <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
-                                        <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
-                                        <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8213 Programming Lab - 1</span>
+                                        <span>Photo Space</span>
                                     </div>
                                 </div>
                                 <div class="modern-lab-body">
                                     <span class="modern-room-pill">Room 8213</span>
-                                    <h3 class="modern-lab-title" style="color: #0288d1;">8213 Programming Lab - 1</h3>
+                                    <h3 class="modern-lab-title">Programming Lab - 1</h3>
                                     <p class="modern-lab-text">
                                         The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for subjects such as DBMS, OS, CG, CoS, SE, Compiler Design and Python.
                                     </p>
                                 </div>
                             </article>
 
-                            <!-- Lab 3: 8215 Programming Lab - 2 (Text Left, Photo Right) -->
+                            <!-- Lab 3: 8215 Programming Lab - 2 -->
                             <article class="modern-lab-card">
+                                <div class="modern-photo-wrap">
+                                    <img src="" alt="8215 Programming Lab - 2" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: flex;">
+                                        <span>Photo Space</span>
+                                    </div>
+                                </div>
                                 <div class="modern-lab-body">
                                     <span class="modern-room-pill">Room 8215</span>
-                                    <h3 class="modern-lab-title" style="color: #0288d1;">8215 Programming Lab - 2</h3>
+                                    <h3 class="modern-lab-title">Programming Lab - 2</h3>
                                     <p class="modern-lab-text">
                                         The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for hardware related subjects such as digital fundamentals, COA, CN, Blockchain and IoT.
                                     </p>
                                 </div>
-                                <div class="modern-photo-wrap">
-                                    <!-- USER: Replace src with your image path when ready -->
-                                    <img src="" alt="8215 Programming Lab - 2" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: flex;">
-                                        <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
-                                        <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
-                                        <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8215 Programming Lab - 2</span>
-                                        <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
-                                    </div>
-                                </div>
                             </article>
 
-                            <!-- Lab 4: 8216 PPS Lab (Photo Left, Text Right) -->
+                            <!-- Lab 4: 8216 PPS Lab -->
                             <article class="modern-lab-card modern-lab-card-reverse">
                                 <div class="modern-photo-wrap">
-                                    <!-- USER: Replace src with your image path when ready -->
                                     <img src="" alt="8216 PPS Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                     <div class="modern-photo-placeholder" style="display: flex;">
-                                        <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
-                                        <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
-                                        <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8216 PPS Lab</span>
-                                        <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
+                                        <span>Photo Space</span>
                                     </div>
                                 </div>
                                 <div class="modern-lab-body">
                                     <span class="modern-room-pill">Room 8216</span>
-                                    <h3 class="modern-lab-title" style="color: #0288d1;">8216 PPS Lab</h3>
+                                    <h3 class="modern-lab-title">PPS Lab</h3>
                                     <p class="modern-lab-text">
                                         The department is having Programming for Problem Solving lab for students where they can perform their PPS experiments. This lab contains number of Computers with Internet connection.
                                     </p>
                                 </div>
                             </article>
 
-                            <!-- Lab 5: 8217 Programming Lab - 3 (Text Left, Photo Right) -->
+                            <!-- Lab 5: 8217 Programming Lab - 3 -->
                             <article class="modern-lab-card">
+                                <div class="modern-photo-wrap">
+                                    <img src="" alt="8217 Programming Lab - 3" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: flex;">
+                                        <span>Photo Space</span>
+                                    </div>
+                                </div>
                                 <div class="modern-lab-body">
                                     <span class="modern-room-pill">Room 8217</span>
-                                    <h3 class="modern-lab-title" style="color: #0288d1;">8217 Programming Lab - 3</h3>
+                                    <h3 class="modern-lab-title">Programming Lab - 3</h3>
                                     <p class="modern-lab-text">
                                         The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for software/hardware related subjects such as .Net, MCWC and cloud computing.
                                     </p>
-                                </div>
-                                <div class="modern-photo-wrap">
-                                    <!-- USER: Replace src with your image path when ready -->
-                                    <img src="" alt="8217 Programming Lab - 3" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: flex;">
-                                        <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
-                                        <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
-                                        <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">8217 Programming Lab - 3</span>
-                                        <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
-                                    </div>
                                 </div>
                             </article>
 
@@ -453,18 +437,14 @@ include_once __DIR__ . '/../../includes/header.php';
                     <div class="facility-pane" id="subtab-seminar">
                         <article class="modern-lab-card">
                             <div class="modern-photo-wrap">
-                                <!-- USER: Replace src with Seminar Room image when ready -->
                                 <img src="" alt="Seminar Room" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <div class="modern-photo-placeholder" style="display: flex;">
-                                    <i class="fas fa-camera fa-2x mb-2 text-primary" style="opacity: 0.7;"></i>
-                                    <strong style="color: #334155; font-size: 0.95rem;">Photo Space</strong>
-                                    <span style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">Department Seminar Room</span>
-                                    <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 6px;"><i class="fas fa-image"></i> Awaiting user image</small>
+                                    <span>Photo Space (Seminar Room)</span>
                                 </div>
                             </div>
                             <div class="modern-lab-body">
                                 <span class="modern-room-pill">Department Seminar Hall</span>
-                                <h3 class="modern-lab-title" style="color: #0288d1;">Department Seminar Room</h3>
+                                <h3 class="modern-lab-title">Department Seminar Room</h3>
                                 <p class="modern-lab-text">
                                     The Seminar Room is a modern facility with high-end audio-visual projection equipment, sound system, and comfortable seating capacity for guest lectures, seminars, workshops, and project evaluations.
                                 </p>
