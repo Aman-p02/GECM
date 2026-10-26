@@ -380,8 +380,8 @@ include_once __DIR__ . '/../../includes/header.php';
                             <!-- Lab 4: 8216 PPS Lab -->
                             <article class="modern-lab-card modern-lab-card-reverse">
                                 <div class="modern-photo-wrap">
-                                    <img src="" alt="8216 PPS Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: flex;">
+                                    <img src="images/labs/lab_8216_pps.jpg" alt="8216 PPS Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: none;">
                                         <span>Photo Space</span>
                                     </div>
                                 </div>
