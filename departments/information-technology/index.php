@@ -437,16 +437,16 @@ include_once __DIR__ . '/../../includes/header.php';
                     <div class="facility-pane" id="subtab-seminar">
                         <article class="modern-lab-card">
                             <div class="modern-photo-wrap">
-                                <img src="" alt="Seminar Room" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="modern-photo-placeholder" style="display: flex;">
+                                <img src="images/labs/seminar_hall.jpg" alt="Department Seminar Hall" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="modern-photo-placeholder" style="display: none;">
                                     <span>Photo Space (Seminar Room)</span>
                                 </div>
                             </div>
                             <div class="modern-lab-body">
                                 <span class="modern-room-pill">Department Seminar Hall</span>
-                                <h3 class="modern-lab-title">Department Seminar Room</h3>
+                                <h3 class="modern-lab-title">Department Seminar Hall</h3>
                                 <p class="modern-lab-text">
-                                    The Seminar Room is a modern facility with high-end audio-visual projection equipment, sound system, and comfortable seating capacity for guest lectures, seminars, workshops, and project evaluations.
+                                    The Seminar Hall is a modern facility with high-end audio-visual projection equipment, sound system, and comfortable seating capacity for guest lectures, seminars, workshops, and project evaluations.
                                 </p>
                             </div>
                         </article>
