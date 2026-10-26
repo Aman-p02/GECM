@@ -397,8 +397,8 @@ include_once __DIR__ . '/../../includes/header.php';
                             <!-- Lab 5: 8217 Programming Lab - 3 -->
                             <article class="modern-lab-card">
                                 <div class="modern-photo-wrap">
-                                    <img src="" alt="8217 Programming Lab - 3" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: flex;">
+                                    <img src="images/labs/lab_8217_programming3.jpg" alt="8217 Programming Lab - 3" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="modern-photo-placeholder" style="display: none;">
                                         <span>Photo Space</span>
                                     </div>
                                 </div>
