@@ -136,7 +136,7 @@ html {
 .dept-sidebar-menu li.active .dept-nav-link,
 .dept-nav-link.active {
     background: #f1f5f9 !important;
-    color: #0f172a !important;
+    color: #000000 !important;
     font-weight: 700;
 }
 
@@ -400,7 +400,7 @@ html {
 /* Standard Paragraphs matching screenshot (Justified & Even on both sides) */
 .dept-text-body {
     font-size: 0.95rem;
-    color: #212529;
+    color: #111827;
     line-height: 1.75;
     margin-bottom: 16px;
     text-align: justify;
@@ -414,7 +414,7 @@ html {
 }
 
 #tab-about .dept-text-body {
-    color: #1a1e22;
+    color: #111827;
 }
 
 /* -------------------------------------------------------------
@@ -556,12 +556,13 @@ html {
 /* -------------------------------------------------------------
    Vision & Mission Tab matching screenshot media_1792588855857.png
    ------------------------------------------------------------- */
-.vision-text-block {
+.vision-text-block,
+.vision-quote-box {
     font-size: 0.96rem;
-    color: #444444;
+    color: #111827;
     line-height: 1.8;
-    background-color: #f5f8fa;
-    border-left: 4px solid #1e6091;
+    background-color: #f8fafc;
+    border-left: 4px solid #1e293b;
     padding: 18px 24px;
     margin: 15px 0 30px;
     width: 100%;
@@ -583,8 +584,8 @@ html {
 
 .mission-bullet-list li {
     font-size: 0.94rem;
-    color: #3f4750;
-    line-height: 1.7;
+    color: #111827;
+    line-height: 1.75;
     margin-bottom: 8px;
     text-align: justify;
     text-justify: inter-word;
