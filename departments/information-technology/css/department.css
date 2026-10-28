@@ -80,13 +80,14 @@ html {
 }
 
 .dept-sidebar-header {
-    background: #bbf7d0; /* IT Department mint green identity (#bbf7d0) */
+    background: #14532d; /* Dark green banner so IT stands out prominently from menu options below */
     padding: 13px 18px;
     font-size: 1.05rem;
     font-weight: 700;
-    color: #14532d;
+    color: #ffffff;
     margin: 0;
-    border-bottom: 1px solid #86efac;
+    border-bottom: 1px solid #0f3f22;
+    letter-spacing: 0.2px;
 }
 
 .dept-sidebar-menu {
@@ -408,7 +409,7 @@ html {
    Directly matching IT brand color (#bbf7d0) with high-contrast text
    ------------------------------------------------------------- */
 .courses-card {
-    border: 1px solid #86efac;
+    border: 1px solid #dcdcdc;
     border-radius: 4px;
     overflow: hidden;
     margin: 26px 0 30px;
@@ -420,7 +421,7 @@ html {
 }
 
 .courses-card-header {
-    background: #bbf7d0;
+    background: #bbf7d0; /* ONLY the table card heading is green */
     color: #14532d;
     padding: 12px 18px;
     font-size: 1.05rem;
@@ -457,16 +458,15 @@ html {
 
 .courses-table th,
 .courses-table td {
-    padding: 12px 16px;
-    border: 1px solid #e2e8f0;
+    padding: 11px 16px;
+    border: 1px solid #e0e0e0;
 }
 
 .courses-table th {
-    background: #f0fdf4;
-    color: #14532d;
-    font-weight: 700;
+    background: #ffffff;
+    color: #222222;
+    font-weight: 600;
     text-align: center;
-    border-bottom: 2px solid #86efac;
 }
 
 .courses-table th:first-child,
@@ -476,32 +476,31 @@ html {
 
 .courses-table td {
     text-align: center;
-    color: #1e293b;
-    font-weight: 500;
+    color: #333333;
 }
 
 .courses-table tbody tr:hover {
-    background-color: #f0fdf4;
+    background-color: #f9fbfd;
 }
 
 .peo-intro-banner,
 .peo-card-intro {
-    background: #f0fdf4;
+    background: #ffffff;
     text-align: center;
     padding: 11px 18px;
     font-size: 0.94rem;
-    color: #14532d;
-    font-weight: 600;
-    border-bottom: 1px solid #86efac;
+    color: #333333;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
     box-sizing: border-box;
 }
 
 .peo-code-cell {
     width: 85px;
     min-width: 75px;
-    font-weight: 700 !important;
-    color: #15803d !important;
-    background: #f0fdf4;
+    font-weight: 600 !important;
+    color: #222222 !important;
+    background: #ffffff !important;
     vertical-align: middle;
     white-space: nowrap;
 }
@@ -583,7 +582,7 @@ html {
 
 /* PEOs & PSOs Cards matching user screenshot */
 .peo-card {
-    border: 1px solid #86efac;
+    border: 1px solid #dcdcdc;
     border-radius: 4px;
     overflow: hidden;
     margin: 25px 0 30px;
@@ -595,7 +594,7 @@ html {
 }
 
 .peo-card-header {
-    background: #bbf7d0;
+    background: #bbf7d0; /* ONLY the table card heading is green */
     color: #14532d;
     padding: 12px 18px;
     font-size: 1.05rem;
@@ -612,13 +611,13 @@ html {
 }
 
 .peo-card-intro {
-    background: #f0fdf4;
+    background: #ffffff;
     text-align: center;
     padding: 11px 18px;
     font-size: 0.94rem;
-    color: #14532d;
-    font-weight: 600;
-    border-bottom: 1px solid #86efac;
+    color: #333333;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
     box-sizing: border-box;
 }
 
@@ -629,26 +628,26 @@ html {
 }
 
 .peo-table td {
-    padding: 12px 16px;
-    border: 1px solid #e2e8f0;
+    padding: 11px 16px;
+    border: 1px solid #e0e0e0;
     font-size: 0.92rem;
     line-height: 1.6;
-    color: #1e293b;
+    color: #333333;
     text-align: left;
 }
 
 .peo-table td.peo-label {
     width: 85px;
     min-width: 75px;
-    font-weight: 700;
-    color: #15803d;
-    background: #f0fdf4;
+    font-weight: 600;
+    color: #222222;
+    background: #ffffff;
     vertical-align: middle;
     white-space: nowrap;
 }
 
 .peo-table tbody tr:hover {
-    background-color: #f0fdf4;
+    background-color: #f9fbfd;
 }
 
 /* -------------------------------------------------------------
@@ -1061,9 +1060,9 @@ html {
     .dept-sidebar-header {
         padding: 9px 14px;
         font-size: 0.92rem;
-        background: #bbf7d0;
-        color: #14532d;
-        border-bottom: 1px solid #86efac;
+        background: #14532d;
+        color: #ffffff;
+        border-bottom: 1px solid #0f3f22;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -1074,8 +1073,8 @@ html {
         font-family: 'Font Awesome 5 Free';
         font-weight: 900;
         font-size: 0.75rem;
-        color: #14532d;
-        opacity: 0.8;
+        color: #ffffff;
+        opacity: 0.9;
     }
 
     .dept-sidebar-menu {
