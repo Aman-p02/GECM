@@ -129,13 +129,12 @@ html {
     color: #0c3b6d;
 }
 
-/* Active Menu Item with IT mint green (#bbf7d0) and high-contrast dark green text */
+/* Active Menu Item with IT mint green (#bbf7d0) and high-contrast dark green text (No side bar) */
 .dept-sidebar-menu li.active .dept-nav-link,
 .dept-nav-link.active {
     background: #bbf7d0 !important;
     color: #14532d !important;
     font-weight: 700;
-    border-left: 4px solid #16a34a;
 }
 
 .dept-nav-link .arrow-icon {
@@ -148,7 +147,7 @@ html {
 }
 
 /* -------------------------------------------------------------
-   Sidebar Accordion Dropdown (IT Light Green Identity)
+   Sidebar Accordion Dropdown (Normal by default, green ONLY when clicked/active)
    ------------------------------------------------------------- */
 .dept-sidebar-dropdown {
     width: 100%;
@@ -157,33 +156,45 @@ html {
 }
 
 .dept-dropdown-header {
-    background-color: #bbf7d0; /* IT Department mint green identity (#bbf7d0) */
-    color: #14532d;
+    background-color: #ffffff;
+    color: #333333;
     padding: 12px 18px;
     font-size: 0.94rem;
-    font-weight: 700;
+    font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     user-select: none;
-    border-bottom: 1px solid #86efac;
     transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 .dept-dropdown-header:hover {
-    background-color: #a7f3d0;
-    color: #064e3b;
+    background-color: #f4f7fa;
+    color: #0c3b6d;
 }
 
 .dept-dropdown-header .dropdown-arrow {
     font-size: 0.85rem;
-    color: #14532d;
-    transition: transform 0.25s ease;
+    color: #666666;
+    transition: transform 0.25s ease, color 0.18s ease;
 }
 
 .dept-dropdown-header:hover .dropdown-arrow {
-    color: #064e3b;
+    color: #0c3b6d;
+}
+
+/* Turns green ONLY when clicked / opened / active */
+.dept-sidebar-dropdown.open .dept-dropdown-header,
+.dept-sidebar-dropdown.active .dept-dropdown-header {
+    background-color: #bbf7d0 !important;
+    color: #14532d !important;
+    font-weight: 700;
+}
+
+.dept-sidebar-dropdown.open .dept-dropdown-header .dropdown-arrow,
+.dept-sidebar-dropdown.active .dept-dropdown-header .dropdown-arrow {
+    color: #14532d !important;
 }
 
 /* Closed by default when user opens website */
@@ -254,8 +265,7 @@ html {
     background-color: #f0fdf4;
     color: #15803d;
     font-weight: 600;
-    border-left: 4px solid #16a34a;
-    padding-left: 18px;
+    padding-left: 22px;
 }
 
 /* -------------------------------------------------------------
@@ -479,10 +489,6 @@ html {
     color: #333333;
 }
 
-.courses-table tbody tr:hover {
-    background-color: #f9fbfd;
-}
-
 .peo-intro-banner,
 .peo-card-intro {
     background: #ffffff;
@@ -644,10 +650,6 @@ html {
     background: #ffffff;
     vertical-align: middle;
     white-space: nowrap;
-}
-
-.peo-table tbody tr:hover {
-    background-color: #f9fbfd;
 }
 
 /* -------------------------------------------------------------
