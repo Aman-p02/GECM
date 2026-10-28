@@ -558,12 +558,13 @@ html {
    ------------------------------------------------------------- */
 .vision-text-block,
 .vision-quote-box {
-    font-size: 0.96rem;
+    font-size: 0.95rem;
     color: #111827;
-    line-height: 1.8;
-    background-color: #f8fafc;
-    border-left: 4px solid #1e293b;
-    padding: 18px 24px;
+    line-height: 1.75;
+    background-color: #ffffff;
+    border: none;
+    border-left: none;
+    padding: 0;
     margin: 15px 0 30px;
     width: 100%;
     max-width: 100%;
@@ -1254,13 +1255,17 @@ html {
         padding: 14px;
     }
 
-    .vision-text-block {
-        font-size: 0.90rem;
-        padding: 12px 14px;
-        line-height: 1.6;
+    .vision-text-block,
+    .vision-quote-box {
+        font-size: 0.91rem;
+        padding: 0;
+        line-height: 1.68;
         margin: 12px 0 22px;
         text-align: justify;
         text-justify: inter-word;
+        background-color: #ffffff;
+        border: none;
+        border-left: none;
     }
 
     .mission-bullet-list {
