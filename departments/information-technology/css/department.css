@@ -128,12 +128,13 @@ html {
     color: #0c3b6d;
 }
 
-/* Active Menu Item matching slate grey from screenshot */
+/* Active Menu Item with IT mint green (#bbf7d0) and high-contrast dark green text */
 .dept-sidebar-menu li.active .dept-nav-link,
 .dept-nav-link.active {
-    background: #546373 !important;
-    color: #ffffff !important;
-    font-weight: 600;
+    background: #bbf7d0 !important;
+    color: #14532d !important;
+    font-weight: 700;
+    border-left: 4px solid #16a34a;
 }
 
 .dept-nav-link .arrow-icon {
@@ -142,11 +143,11 @@ html {
 }
 
 .dept-nav-link.active .arrow-icon {
-    color: #ffffff;
+    color: #14532d !important;
 }
 
 /* -------------------------------------------------------------
-   Sidebar Accordion Dropdown (Directly matching screenshot)
+   Sidebar Accordion Dropdown (IT Light Green Identity)
    ------------------------------------------------------------- */
 .dept-sidebar-dropdown {
     width: 100%;
@@ -155,27 +156,33 @@ html {
 }
 
 .dept-dropdown-header {
-    background-color: #546373; /* Slate grey header matching screenshot */
-    color: #ffffff;
+    background-color: #bbf7d0; /* IT Department mint green identity (#bbf7d0) */
+    color: #14532d;
     padding: 12px 18px;
     font-size: 0.94rem;
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     user-select: none;
-    transition: background-color 0.18s ease;
+    border-bottom: 1px solid #86efac;
+    transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 .dept-dropdown-header:hover {
-    background-color: #485665;
+    background-color: #a7f3d0;
+    color: #064e3b;
 }
 
 .dept-dropdown-header .dropdown-arrow {
     font-size: 0.85rem;
-    color: #ffffff;
+    color: #14532d;
     transition: transform 0.25s ease;
+}
+
+.dept-dropdown-header:hover .dropdown-arrow {
+    color: #064e3b;
 }
 
 /* Closed by default when user opens website */
@@ -397,30 +404,37 @@ html {
 }
 
 /* -------------------------------------------------------------
-   Blue Header Table (Under Graduate / Post Graduate Courses)
-   Directly matching screenshot media_1792591958871.png
+   Green Header Table (Under Graduate / Post Graduate Courses)
+   Directly matching IT brand color (#bbf7d0) with high-contrast text
    ------------------------------------------------------------- */
 .courses-card {
-    border: 1px solid #1e6091;
-    border-radius: 0;
+    border: 1px solid #86efac;
+    border-radius: 4px;
     overflow: hidden;
     margin: 26px 0 30px;
     background: #ffffff;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .courses-card-header {
-    background: #1e6091;
-    color: #ffffff;
-    padding: 10px 16px;
+    background: #bbf7d0;
+    color: #14532d;
+    padding: 12px 18px;
     font-size: 1.05rem;
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 10px;
     box-sizing: border-box;
+    border-bottom: 1px solid #86efac;
+}
+
+.courses-card-header i {
+    color: #14532d;
+    font-size: 1rem;
 }
 
 .courses-table-wrapper {
@@ -443,15 +457,16 @@ html {
 
 .courses-table th,
 .courses-table td {
-    padding: 11px 16px;
-    border: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
 }
 
 .courses-table th {
-    background: #ffffff;
-    color: #222222;
-    font-weight: 600;
+    background: #f0fdf4;
+    color: #14532d;
+    font-weight: 700;
     text-align: center;
+    border-bottom: 2px solid #86efac;
 }
 
 .courses-table th:first-child,
@@ -461,11 +476,34 @@ html {
 
 .courses-table td {
     text-align: center;
-    color: #333333;
+    color: #1e293b;
+    font-weight: 500;
 }
 
 .courses-table tbody tr:hover {
-    background-color: #f9fbfd;
+    background-color: #f0fdf4;
+}
+
+.peo-intro-banner,
+.peo-card-intro {
+    background: #f0fdf4;
+    text-align: center;
+    padding: 11px 18px;
+    font-size: 0.94rem;
+    color: #14532d;
+    font-weight: 600;
+    border-bottom: 1px solid #86efac;
+    box-sizing: border-box;
+}
+
+.peo-code-cell {
+    width: 85px;
+    min-width: 75px;
+    font-weight: 700 !important;
+    color: #15803d !important;
+    background: #f0fdf4;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
 /* -------------------------------------------------------------
@@ -545,36 +583,42 @@ html {
 
 /* PEOs & PSOs Cards matching user screenshot */
 .peo-card {
-    border: 1px solid #1e6091;
-    border-radius: 0;
+    border: 1px solid #86efac;
+    border-radius: 4px;
     overflow: hidden;
     margin: 25px 0 30px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .peo-card-header {
-    background: #1e6091;
-    color: #ffffff;
-    padding: 10px 16px;
+    background: #bbf7d0;
+    color: #14532d;
+    padding: 12px 18px;
     font-size: 1.05rem;
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 10px;
     box-sizing: border-box;
+    border-bottom: 1px solid #86efac;
+}
+
+.peo-card-header i {
+    color: #14532d;
 }
 
 .peo-card-intro {
-    background: #ffffff;
+    background: #f0fdf4;
     text-align: center;
-    padding: 10px 16px;
+    padding: 11px 18px;
     font-size: 0.94rem;
-    color: #333333;
-    font-weight: 500;
-    border-bottom: 1px solid #e0e0e0;
+    color: #14532d;
+    font-weight: 600;
+    border-bottom: 1px solid #86efac;
     box-sizing: border-box;
 }
 
@@ -585,25 +629,26 @@ html {
 }
 
 .peo-table td {
-    padding: 11px 16px;
-    border: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
     font-size: 0.92rem;
     line-height: 1.6;
-    color: #333333;
+    color: #1e293b;
     text-align: left;
 }
 
 .peo-table td.peo-label {
     width: 85px;
     min-width: 75px;
-    font-weight: 600;
-    color: #222222;
+    font-weight: 700;
+    color: #15803d;
+    background: #f0fdf4;
     vertical-align: middle;
     white-space: nowrap;
 }
 
 .peo-table tbody tr:hover {
-    background-color: #f9fbfd;
+    background-color: #f0fdf4;
 }
 
 /* -------------------------------------------------------------
@@ -1071,9 +1116,10 @@ html {
 
     .dept-sidebar-menu li.active .dept-nav-link,
     .dept-nav-link.active {
-        background: #0c3b6d !important;
-        color: #ffffff !important;
-        border-color: #0c3b6d;
+        background: #bbf7d0 !important;
+        color: #14532d !important;
+        border-color: #86efac !important;
+        font-weight: 700;
     }
 
     .dept-nav-link .arrow-icon {
@@ -1443,37 +1489,39 @@ html {
 .dept-doc-accordion {
     border-radius: 4px;
     overflow: hidden;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #86efac;
     background: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .dept-doc-accordion-header {
     width: 100%;
-    background-color: #546373; /* Exact slate grey-blue header from screenshot */
-    color: #ffffff;
+    background-color: #bbf7d0; /* IT Department mint green identity (#bbf7d0) */
+    color: #14532d;
     padding: 13px 20px;
     border: none;
+    border-bottom: 1px solid #86efac;
     outline: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1.02rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: inherit;
     cursor: pointer;
     text-align: left;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .dept-doc-accordion-header:hover {
-    background-color: #485665;
+    background-color: #a7f3d0;
+    color: #064e3b;
 }
 
 .dept-doc-accordion-header .accordion-arrow {
     font-size: 0.88rem;
     transition: transform 0.25s ease;
-    color: #ffffff;
+    color: #14532d;
 }
 
 .dept-doc-accordion.open .dept-doc-accordion-header .accordion-arrow {
@@ -1615,13 +1663,13 @@ html {
 }
 
 .dept-pdf-btn-open {
-    background: #546373;
+    background: #16a34a;
     color: #ffffff;
-    border: 1px solid #546373;
+    border: 1px solid #16a34a;
 }
 
 .dept-pdf-btn-open:hover {
-    background: #414e5c;
+    background: #15803d;
     color: #ffffff;
 }
 
