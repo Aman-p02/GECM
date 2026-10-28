@@ -1,9 +1,3 @@
-/* ==============================================================
-   GECM Department Detail Page Stylesheet
-   Clean, authentic institutional portal UI directly matching screenshots
-   Fully responsive across all screen sizes (Desktop, Tablet, Mobile)
-   ============================================================== */
-
 /* Smooth Slow Scrolling */
 html {
     scroll-behavior: smooth;
@@ -25,9 +19,17 @@ html {
 }
 
 /* Staggered delay helpers */
-.dept-scroll-reveal.reveal-delay-1 { transition-delay: 0.1s; }
-.dept-scroll-reveal.reveal-delay-2 { transition-delay: 0.2s; }
-.dept-scroll-reveal.reveal-delay-3 { transition-delay: 0.3s; }
+.dept-scroll-reveal.reveal-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.dept-scroll-reveal.reveal-delay-2 {
+    transition-delay: 0.2s;
+}
+
+.dept-scroll-reveal.reveal-delay-3 {
+    transition-delay: 0.3s;
+}
 
 /* Page Wrapper */
 .dept-page-wrapper {
@@ -80,7 +82,8 @@ html {
 }
 
 .dept-sidebar-header {
-    background: #14532d; /* Dark green banner so IT stands out prominently from menu options below */
+    background: #14532d;
+    /* Dark green banner so IT stands out prominently from menu options below */
     padding: 13px 18px;
     font-size: 1.05rem;
     font-weight: 700;
@@ -431,7 +434,8 @@ html {
 }
 
 .courses-card-header {
-    background: #bbf7d0; /* ONLY the table card heading is green */
+    background: #bbf7d0;
+    /* ONLY the table card heading is green */
     color: #14532d;
     padding: 12px 18px;
     font-size: 1.05rem;
@@ -536,14 +540,15 @@ html {
     align-items: center;
     gap: 12px;
     font-size: 0.94rem;
-    color: #4a4a4a;
+    color: #000000;
     padding: 7px 0;
     line-height: 1.5;
     word-break: break-word;
 }
 
 .facility-items-list li i {
-    color: #16a34a; /* Vibrant IT green bullet from brand palette */
+    color: #16a34a;
+    /* Vibrant IT green bullet from brand palette */
     font-size: 1.05rem;
     flex-shrink: 0;
 }
@@ -602,7 +607,8 @@ html {
 }
 
 .peo-card-header {
-    background: #bbf7d0; /* ONLY the table card heading is green */
+    background: #bbf7d0;
+    /* ONLY the table card heading is green */
     color: #14532d;
     padding: 12px 18px;
     font-size: 1.05rem;
@@ -863,6 +869,7 @@ html {
         opacity: 0;
         transform: translateY(3px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -872,7 +879,7 @@ html {
 .facility-lead-intro {
     font-size: 0.94rem;
     line-height: 1.75;
-    color: #475569;
+    color: #000000;
     margin: 0 0 28px 0;
     text-align: justify;
     text-justify: inter-word;
@@ -991,13 +998,13 @@ html {
 }
 
 .modern-lab-card:hover .modern-lab-title {
-    color: #0c3b6d;
+    color: #14532d;
 }
 
 .modern-lab-text {
     font-size: 0.93rem;
     line-height: 1.72;
-    color: #475569;
+    color: #000000;
     margin: 0;
     text-align: justify;
     text-justify: inter-word;
@@ -1006,7 +1013,7 @@ html {
 .modern-lab-location {
     margin-top: 14px;
     font-size: 0.90rem;
-    color: #334155;
+    color: #000000;
     font-weight: 500;
 }
 
@@ -1089,12 +1096,14 @@ html {
         padding: 8px 10px;
         gap: 8px;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
+        scrollbar-width: none;
+        /* Firefox */
         width: 100%;
     }
 
     .dept-sidebar-menu::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
+        display: none;
+        /* Chrome, Safari, Opera */
     }
 
     .dept-sidebar-menu li {
@@ -1409,7 +1418,8 @@ html {
 .publication-card {
     background: #ffffff;
     border: 1px solid #eef2f6;
-    border-left: 3.5px solid #16a34a; /* IT Department mint green identity bar */
+    border-left: 3.5px solid #16a34a;
+    /* IT Department mint green identity bar */
     border-radius: 0 4px 4px 0;
     padding: 18px 22px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
@@ -1470,13 +1480,13 @@ html {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    color: #475569;
+    color: #000000;
     font-weight: 500;
     white-space: nowrap;
 }
 
 .publication-date i {
-    color: #64748b;
+    color: #000000;
     font-size: 0.9rem;
 }
 
@@ -1503,7 +1513,8 @@ html {
 
 .dept-doc-accordion-header {
     width: 100%;
-    background-color: #bbf7d0; /* IT Department mint green identity (#bbf7d0) */
+    background-color: #bbf7d0;
+    /* IT Department mint green identity (#bbf7d0) */
     color: #14532d;
     padding: 13px 20px;
     border: none;
@@ -1720,7 +1731,7 @@ html {
     color: #475569;
 }
 
-.dept-pdf-iframe:not([src=""]):not([src="#"]):not([src="about:blank"]) + .dept-pdf-empty-state {
+.dept-pdf-iframe:not([src=""]):not([src="#"]):not([src="about:blank"])+.dept-pdf-empty-state {
     display: none;
 }
 
@@ -1888,5 +1899,3 @@ html {
         font-size: 0.88rem;
     }
 }
-
-
