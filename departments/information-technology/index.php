@@ -81,18 +81,6 @@ include_once __DIR__ . '/../../includes/header.php';
             <!-- Right Content Area -->
             <main class="dept-content-panel">
 
-                <!-- Breadcrumb & Top Bar Row Matching Screenshot -->
-                <div class="dept-top-bar">
-                    <h2 class="dept-page-title" id="deptPageTitle">About Department</h2>
-                    <ul class="dept-breadcrumb">
-                        <li><a href="<?= $root_path ?>" title="Home"><i class="fas fa-home"></i></a></li>
-                        <li class="separator">/</li>
-                        <li><span>Departments</span></li>
-                        <li class="separator">/</li>
-                        <li class="active-crumb"><span>Information Technology Department</span></li>
-                    </ul>
-                </div>
-
                 <!-- ========================================================
                      1. ABOUT DEPARTMENT TAB
                      ======================================================== -->
