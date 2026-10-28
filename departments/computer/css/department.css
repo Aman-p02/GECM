@@ -1,9 +1,3 @@
-/* ==============================================================
-   GECM Department Detail Page Stylesheet
-   Clean, authentic institutional portal UI directly matching screenshots
-   Fully responsive across all screen sizes (Desktop, Tablet, Mobile)
-   ============================================================== */
-
 /* Smooth Slow Scrolling */
 html {
     scroll-behavior: smooth;
@@ -25,9 +19,17 @@ html {
 }
 
 /* Staggered delay helpers */
-.dept-scroll-reveal.reveal-delay-1 { transition-delay: 0.1s; }
-.dept-scroll-reveal.reveal-delay-2 { transition-delay: 0.2s; }
-.dept-scroll-reveal.reveal-delay-3 { transition-delay: 0.3s; }
+.dept-scroll-reveal.reveal-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.dept-scroll-reveal.reveal-delay-2 {
+    transition-delay: 0.2s;
+}
+
+.dept-scroll-reveal.reveal-delay-3 {
+    transition-delay: 0.3s;
+}
 
 /* Page Wrapper */
 .dept-page-wrapper {
@@ -80,13 +82,15 @@ html {
 }
 
 .dept-sidebar-header {
-    background: #9dc3e6; /* Soft light blue box from screenshot */
+    background: #1e293b;
+    /* Dark slate institutional banner so Computer stands out prominently from menu options below */
     padding: 13px 18px;
     font-size: 1.05rem;
     font-weight: 700;
-    color: #1a3b5c;
+    color: #ffffff;
     margin: 0;
-    border-bottom: 1px solid #8cbbee;
+    border-bottom: 1px solid #0f172a;
+    letter-spacing: 0.2px;
 }
 
 .dept-sidebar-menu {
@@ -115,7 +119,7 @@ html {
     padding: 11px 18px;
     font-size: 0.92rem;
     font-weight: 500;
-    color: #333333;
+    color: #000000;
     text-decoration: none;
     transition: background-color 0.15s, color 0.15s;
     cursor: pointer;
@@ -128,12 +132,12 @@ html {
     color: #0c3b6d;
 }
 
-/* Active Menu Item matching slate grey from screenshot */
+/* Active Menu Item with Computer Engineering off-white (#f1f5f9) and high-contrast dark slate text (No side bar) */
 .dept-sidebar-menu li.active .dept-nav-link,
 .dept-nav-link.active {
-    background: #546373 !important;
-    color: #ffffff !important;
-    font-weight: 600;
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    font-weight: 700;
 }
 
 .dept-nav-link .arrow-icon {
@@ -142,11 +146,11 @@ html {
 }
 
 .dept-nav-link.active .arrow-icon {
-    color: #ffffff;
+    color: #0f172a !important;
 }
 
 /* -------------------------------------------------------------
-   Sidebar Accordion Dropdown (Directly matching screenshot)
+   Sidebar Accordion Dropdown (Normal by default, off-white ONLY when clicked/active)
    ------------------------------------------------------------- */
 .dept-sidebar-dropdown {
     width: 100%;
@@ -155,27 +159,45 @@ html {
 }
 
 .dept-dropdown-header {
-    background-color: #546373; /* Slate grey header matching screenshot */
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #333333;
     padding: 12px 18px;
     font-size: 0.94rem;
-    font-weight: 600;
+    font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     user-select: none;
-    transition: background-color 0.18s ease;
+    transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 .dept-dropdown-header:hover {
-    background-color: #485665;
+    background-color: #f4f7fa;
+    color: #0c3b6d;
 }
 
 .dept-dropdown-header .dropdown-arrow {
     font-size: 0.85rem;
-    color: #ffffff;
-    transition: transform 0.25s ease;
+    color: #666666;
+    transition: transform 0.25s ease, color 0.18s ease;
+}
+
+.dept-dropdown-header:hover .dropdown-arrow {
+    color: #0c3b6d;
+}
+
+/* Turns off-white ONLY when clicked / opened / active */
+.dept-sidebar-dropdown.open .dept-dropdown-header,
+.dept-sidebar-dropdown.active .dept-dropdown-header {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    font-weight: 700;
+}
+
+.dept-sidebar-dropdown.open .dept-dropdown-header .dropdown-arrow,
+.dept-sidebar-dropdown.active .dept-dropdown-header .dropdown-arrow {
+    color: #0f172a !important;
 }
 
 /* Closed by default when user opens website */
@@ -243,11 +265,10 @@ html {
 }
 
 .dept-sub-link.active {
-    background-color: #edf2f7;
-    color: #0c3b6d;
+    background-color: #f8fafc;
+    color: #0f172a;
     font-weight: 600;
-    border-left: 4px solid #546373;
-    padding-left: 18px;
+    padding-left: 22px;
 }
 
 /* -------------------------------------------------------------
@@ -401,26 +422,34 @@ html {
    Directly matching screenshot media_1792591958871.png
    ------------------------------------------------------------- */
 .courses-card {
-    border: 1px solid #1e6091;
-    border-radius: 0;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
     overflow: hidden;
     margin: 26px 0 30px;
     background: #ffffff;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .courses-card-header {
-    background: #1e6091;
-    color: #ffffff;
-    padding: 10px 16px;
+    background: #f1f5f9;
+    /* Off-white table card heading */
+    color: #0f172a;
+    padding: 12px 18px;
     font-size: 1.05rem;
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 10px;
     box-sizing: border-box;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.courses-card-header i {
+    color: #0f172a;
+    font-size: 1rem;
 }
 
 .courses-table-wrapper {
@@ -464,8 +493,26 @@ html {
     color: #333333;
 }
 
-.courses-table tbody tr:hover {
-    background-color: #f9fbfd;
+.peo-intro-banner,
+.peo-card-intro {
+    background: #ffffff;
+    text-align: center;
+    padding: 11px 18px;
+    font-size: 0.94rem;
+    color: #333333;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
+    box-sizing: border-box;
+}
+
+.peo-code-cell {
+    width: 85px;
+    min-width: 75px;
+    font-weight: 600 !important;
+    color: #222222 !important;
+    background: #ffffff !important;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
 /* -------------------------------------------------------------
@@ -500,7 +547,8 @@ html {
 }
 
 .facility-items-list li i {
-    color: #1e88e5; /* Bright blue circular chevron right from screenshot */
+    color: #1e88e5;
+    /* Bright blue circular chevron right from screenshot */
     font-size: 1.05rem;
     flex-shrink: 0;
 }
@@ -545,32 +593,39 @@ html {
 
 /* PEOs & PSOs Cards matching user screenshot */
 .peo-card {
-    border: 1px solid #1e6091;
-    border-radius: 0;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
     overflow: hidden;
     margin: 25px 0 30px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .peo-card-header {
-    background: #1e6091;
-    color: #ffffff;
-    padding: 10px 16px;
+    background: #f1f5f9;
+    /* Off-white table card heading */
+    color: #0f172a;
+    padding: 12px 18px;
     font-size: 1.05rem;
-    font-weight: 600;
+    font-weight: 700;
     display: flex;
     align-items: center;
     gap: 10px;
     box-sizing: border-box;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.peo-card-header i {
+    color: #0f172a;
 }
 
 .peo-card-intro {
     background: #ffffff;
     text-align: center;
-    padding: 10px 16px;
+    padding: 11px 18px;
     font-size: 0.94rem;
     color: #333333;
     font-weight: 500;
@@ -598,12 +653,9 @@ html {
     min-width: 75px;
     font-weight: 600;
     color: #222222;
+    background: #ffffff;
     vertical-align: middle;
     white-space: nowrap;
-}
-
-.peo-table tbody tr:hover {
-    background-color: #f9fbfd;
 }
 
 /* -------------------------------------------------------------
@@ -815,6 +867,7 @@ html {
         opacity: 0;
         transform: translateY(3px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -923,10 +976,10 @@ html {
 .modern-room-pill {
     display: inline-block;
     font-size: 0.74rem;
-    font-weight: 600;
-    color: #475569;
+    font-weight: 700;
+    color: #1e293b;
     background: #f1f5f9;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #cbd5e1;
     padding: 2px 8px;
     border-radius: 4px;
     margin-bottom: 8px;
@@ -1016,9 +1069,9 @@ html {
     .dept-sidebar-header {
         padding: 9px 14px;
         font-size: 0.92rem;
-        background: #e9f2fb;
-        color: #0c3b6d;
-        border-bottom: 1px solid #d0e2f5;
+        background: #1e293b;
+        color: #ffffff;
+        border-bottom: 1px solid #0f172a;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -1029,8 +1082,8 @@ html {
         font-family: 'Font Awesome 5 Free';
         font-weight: 900;
         font-size: 0.75rem;
-        color: #0c3b6d;
-        opacity: 0.7;
+        color: #ffffff;
+        opacity: 0.9;
     }
 
     .dept-sidebar-menu {
@@ -1041,12 +1094,14 @@ html {
         padding: 8px 10px;
         gap: 8px;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
+        scrollbar-width: none;
+        /* Firefox */
         width: 100%;
     }
 
     .dept-sidebar-menu::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
+        display: none;
+        /* Chrome, Safari, Opera */
     }
 
     .dept-sidebar-menu li {
@@ -1071,9 +1126,10 @@ html {
 
     .dept-sidebar-menu li.active .dept-nav-link,
     .dept-nav-link.active {
-        background: #0c3b6d !important;
-        color: #ffffff !important;
-        border-color: #0c3b6d;
+        background: #f1f5f9 !important;
+        color: #0f172a !important;
+        border-color: #cbd5e1 !important;
+        font-weight: 700;
     }
 
     .dept-nav-link .arrow-icon {
@@ -1356,7 +1412,8 @@ html {
 .publication-card {
     background: #ffffff;
     border: 1px solid #eef2f6;
-    border-left: 3.5px solid #0288d1; /* Clean blue accent bar directly matching screenshot */
+    border-left: 3.5px solid #0288d1;
+    /* Clean blue accent bar directly matching screenshot */
     border-radius: 0 4px 4px 0;
     padding: 18px 22px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
@@ -1443,37 +1500,38 @@ html {
 .dept-doc-accordion {
     border-radius: 4px;
     overflow: hidden;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #cbd5e1;
     background: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .dept-doc-accordion-header {
     width: 100%;
-    background-color: #546373; /* Exact slate grey-blue header from screenshot */
-    color: #ffffff;
+    background-color: #f1f5f9;
+    color: #0f172a;
     padding: 13px 20px;
     border: none;
+    border-bottom: 1px solid #cbd5e1;
     outline: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1.02rem;
-    font-weight: 600;
+    font-weight: 700;
     font-family: inherit;
     cursor: pointer;
     text-align: left;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .dept-doc-accordion-header:hover {
-    background-color: #485665;
+    background-color: #e2e8f0;
 }
 
 .dept-doc-accordion-header .accordion-arrow {
     font-size: 0.88rem;
     transition: transform 0.25s ease;
-    color: #ffffff;
+    color: #0f172a;
 }
 
 .dept-doc-accordion.open .dept-doc-accordion-header .accordion-arrow {
@@ -1615,13 +1673,13 @@ html {
 }
 
 .dept-pdf-btn-open {
-    background: #546373;
+    background: #1e293b;
     color: #ffffff;
-    border: 1px solid #546373;
+    border: 1px solid #1e293b;
 }
 
 .dept-pdf-btn-open:hover {
-    background: #414e5c;
+    background: #0f172a;
     color: #ffffff;
 }
 
@@ -1665,7 +1723,7 @@ html {
     color: #475569;
 }
 
-.dept-pdf-iframe:not([src=""]):not([src="#"]):not([src="about:blank"]) + .dept-pdf-empty-state {
+.dept-pdf-iframe:not([src=""]):not([src="#"]):not([src="about:blank"])+.dept-pdf-empty-state {
     display: none;
 }
 
@@ -1833,5 +1891,3 @@ html {
         font-size: 0.88rem;
     }
 }
-
-
