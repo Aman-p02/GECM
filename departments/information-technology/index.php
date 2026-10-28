@@ -469,7 +469,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <div class="publications-year-select-box">
                                 <i class="far fa-calendar-alt select-calendar-icon"></i>
                                 <select id="pubYearSelect" aria-label="Filter by Year">
-                                    <option value="all">All Years (25)</option>
+                                    <option value="all">All Years (30)</option>
                                     <option value="2023">2023</option>
                                     <option value="2020">2020</option>
                                     <option value="2019">2019</option>
@@ -481,12 +481,14 @@ include_once __DIR__ . '/../../includes/header.php';
                                     <option value="2013">2013</option>
                                     <option value="2012">2012</option>
                                     <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2008">2008</option>
                                 </select>
                                 <i class="fas fa-chevron-down select-chevron-icon"></i>
                             </div>
                         </div>
                         <div class="publications-count-badge" id="pubCountBadge">
-                            <i class="fas fa-file-alt"></i> 25 Publications
+                            <i class="fas fa-file-alt"></i> 30 Publications
                         </div>
                     </div>
 
@@ -864,6 +866,81 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <div class="publication-date">
                                     <i class="far fa-calendar-alt"></i>
                                     <span>2011</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 26 (2010) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Case study on social engineering Techniques for persuasion</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Mosin Hasan, Nilesh Prajapati, Safvan Vahora</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2010</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 27 (2010) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A comparative analysis of different neural networks for face recognition using principal component analysis, wavelets and efficient variable learning rate</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nilesh Maltare, Raman Bhati, Sarika Jain</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2010</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 28 (2010) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Analysis of parallelism available in Neural Network training algorithm of face recognition</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nilesh Maltare, Raman Bhati, Sarika Jain</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2010</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 29 (2010) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Exploiting UML in modeling Military Organization and Military Behavior</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nilesh Maltare, Aditya Parasrampuriya, Sachin Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2010</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 30 (2008) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">MANAGING DATA REPLICATION IN MOBILE AD-HOC NETWORK DATABASES USING CONTENT BASED ENERGY OPTIMIZATION</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nilesh Maltare, N.A. Khan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2008</span>
                                 </div>
                             </div>
                         </article>
