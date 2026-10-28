@@ -3,8 +3,8 @@
 $page_title = "Information Technology Department - Government Engineering College, Modasa";
 $active_page = "departments";
 $root_path = "../../";
-$extra_css = "departments/css/department.css";
-$extra_js = "departments/js/department.js";
+$extra_css = "departments/information-technology/css/department.css";
+$extra_js = "departments/information-technology/js/department.js";
 
 // Include Header
 include_once __DIR__ . '/../../includes/header.php';
