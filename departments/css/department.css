@@ -1370,6 +1370,10 @@ html {
     border-left-color: #0c3b6d;
 }
 
+.publication-card:hover .publication-title {
+    color: #0288d1;
+}
+
 .publication-title {
     font-size: 0.98rem;
     font-weight: 600;
@@ -1377,6 +1381,9 @@ html {
     line-height: 1.5;
     margin-bottom: 12px;
     text-align: left;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    transition: color 0.2s ease;
 }
 
 .publication-meta-row {
@@ -1692,6 +1699,38 @@ html {
 .facility-items-list li.dept-scroll-reveal.is-revealed {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Tablet & Small Screen Publications Optimization */
+@media (max-width: 768px) {
+    .publications-header-bar {
+        margin: 14px 0 18px;
+        gap: 12px;
+    }
+
+    .publication-card {
+        padding: 14px 18px;
+    }
+
+    .publication-title {
+        font-size: 0.94rem;
+        line-height: 1.45;
+        margin-bottom: 8px;
+    }
+
+    .publication-meta-row {
+        gap: 8px;
+        font-size: 0.84rem;
+    }
+
+    .publication-authors {
+        font-size: 0.84rem;
+        line-height: 1.4;
+    }
+
+    .publication-date {
+        font-size: 0.82rem;
+    }
 }
 
 /* ==============================================================

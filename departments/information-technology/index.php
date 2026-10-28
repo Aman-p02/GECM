@@ -463,14 +463,411 @@ include_once __DIR__ . '/../../includes/header.php';
                         Research papers, journal articles, and conference publications by faculties and students of the Information Technology Department.
                     </p>
 
-                    <div class="row g-3 my-3">
-                        <div class="col-12">
-                            <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 36px 20px; text-align: center;">
-                                <i class="fas fa-book-open fa-3x text-primary mb-3"></i>
-                                <h4 style="font-size: 1.15rem; color: #1e293b; margin-bottom: 6px;">Research Publications Archive</h4>
-                                <p style="color: #64748b; font-size: 0.90rem; margin: 0;">Information Technology department publication records will be listed here.</p>
+                    <!-- Filter Bar & Count Badge (Year-Wise Filter) -->
+                    <div class="publications-header-bar">
+                        <div class="publications-filter-group">
+                            <div class="publications-year-select-box">
+                                <i class="far fa-calendar-alt select-calendar-icon"></i>
+                                <select id="pubYearSelect" aria-label="Filter by Year">
+                                    <option value="all">All Years (25)</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                </select>
+                                <i class="fas fa-chevron-down select-chevron-icon"></i>
                             </div>
                         </div>
+                        <div class="publications-count-badge" id="pubCountBadge">
+                            <i class="fas fa-file-alt"></i> 25 Publications
+                        </div>
+                    </div>
+
+                    <!-- Publications List Stack -->
+                    <div class="publications-list-stack">
+
+                        <!-- Publication 1 (2023) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Plant Pathology Detection for Massive Heterogeneous Data Using Deep Learning</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Avinash Chaudhari, Kuntesh Jani, Sunil Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2023</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 2 (2020) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Automatic abnormality detection system for capsule endoscopy</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Kuntesh K. Jani, Subodh Srivastava, Animesh Anand and Rajeev Srivastava</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2020</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 3 (2019) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Data Reduction Technique for Capsule Endoscopy</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Kuntesh Jani and Rajeev Srivastava</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 4 (2019) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Computer aided medical image analysis for capsule endoscopy using conventional machine learning and deep learning</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Kuntesh K. Jani, Subodh Srivastava, Animesh Anand and Rajeev Srivastava</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 5 (2019) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Computer aided medical image analysis for capsule endoscopy using multi-class classifier</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Kuntesh K. Jani, Subodh Srivastava and Rajeev Srivastava</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 6 (2019) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Computer-Aided Diagnosis for Capsule Endoscopy: From Inception to Future</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>KunteshK. Jani, Subodh Srivastava, Rajeev Srivastava</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 7 (2019) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Computer aided diagnosis system for ulcer detection in capsule endoscopy using optimized feature set</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Kuntesh K. Jani, Subodh Srivastava and Rajeev Srivastava</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 8 (2019) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Applying Parallel Design Patterns on Molecular Dynamics Simulation</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nilesh Maltare, Vithal N Kamat.</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 9 (2019) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Survey on Medical Image Analysis in Capsule Endoscopy</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Kuntesh Ketan Jani, Rajeev Srivastava</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 10 (2019) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Deep Neural Network Model for Group Activity Recognition Using Contextual Relationship</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>S. A. Vahora and N. C. Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2019</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 11 (2018) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Group Activity Recognition Using Deep Autoencoder With Temporal Context Descriptor</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>S. A. Vahora and N. C. Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2018</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 12 (2018) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Android Smartphone based Visual Object Recognition for Visually Impaired using Deep Learning</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Neel Parikh, Ishita Shah, Safvan Vahora</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2018</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 13 (2017) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Prediction based Auto Scaling for Cloud Applications</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Prof.C.A.Patel , Prof. H.R.Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 14 (2017) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Gender Classification From Faces: A Survey</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Siddharth Shah, Gopi Bhatt and Safvan Vahora</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 15 (2017) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Comprehensive Study of Group Activity Recognition Methods in Video</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>S. A. Vahora and N. C. Chauhan</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2017</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 16 (2016) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Applying Parallel Design Patterns of Embarassingly Parallel Problem</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nilesh Maltare, Chetan Chudasama</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 17 (2016) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Review on Forecasting Techniques for SLA Aware Elasticity in Cloud Computing</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Prof.C.A.Patel ,Prof.H.R.Patel</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2016</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 18 (2015) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Crowd Behavior Analysis Using Fast Feature</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Kinjal Joshi and Safvan Vahora</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 19 (2015) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Experimenting Large Prime Numbers Generation in MPI Cluster</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nilesh Maltare, Chetan Chudasama</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2015</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 20 (2014) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Crowd Behavior Analysis</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Kinjal Joshi and Safvan Vahora</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2014</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 21 (2014) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Features for Parallel Pattern Based Programming System for Multicore</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Nilesh Maltare</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2014</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 22 (2013) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Survey On Super Resolution Image Reconstruction Techniques</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Krunal Shah, Jaymit Pandya and Safvan Vahora</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2013</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 23 (2012) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">A Robust Method for Moving Object Detection Using Modified Statistical Mean Method</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Safvan Vahora, Narendra Chauhan, Nilesh Prajapati</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 24 (2012) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Moving Object Detection Using Incremental Statistical Mean Technique</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Safvan Vahora, Narendra Chauhan, Nilesh Prajapati</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2012</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Publication 25 (2011) -->
+                        <article class="publication-card">
+                            <h4 class="publication-title">Novel Approach: Naive Bayes with Vector Space Model for Spam Classification</h4>
+                            <div class="publication-meta-row">
+                                <div class="publication-authors">
+                                    <i class="fas fa-user"></i>
+                                    <span>Safvan Vahora, Mosin Hasan, Reshma Lakhani</span>
+                                </div>
+                                <div class="publication-date">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>2011</span>
+                                </div>
+                            </div>
+                        </article>
+
                     </div>
                 </section>
 
