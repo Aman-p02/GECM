@@ -226,9 +226,11 @@ include_once __DIR__ . '/includes/header.php';
                             ? 'departments/information-technology/' 
                             : ($deptCode === 'CE' || stripos($deptName, 'Computer') !== false 
                                 ? 'departments/computer/' 
-                                : '#'));
+                                : ($deptCode === 'ME' || stripos($deptName, 'Mechanical') !== false
+                                    ? 'departments/mechanical/'
+                                    : '#')));
                 ?>
-                <div class="dept-card">
+                <div class="dept-card" onclick="if('<?= htmlspecialchars($resolvedUrl) ?>' !== '#') { window.location.href='<?= htmlspecialchars($resolvedUrl) ?>'; }" style="cursor: <?= ($resolvedUrl !== '#') ? 'pointer' : 'default' ?>;">
                     <div class="dept-icon">
                         <?php if (!empty($deptLogos[$dept['name']]) && file_exists(__DIR__ . '/' . $deptLogos[$dept['name']])): ?>
                             <img src="<?= htmlspecialchars($deptLogos[$dept['name']]) ?>" alt="<?= htmlspecialchars($dept['name']) ?> Icon" class="dept-img-icon">
