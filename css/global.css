@@ -958,70 +958,86 @@ h4 {
         border: none;
     }
 
-    .hdr-nav-list>li:not(:last-child) {
-        border-bottom: 1px solid rgba(226, 232, 240, 0.55);
+    .hdr-nav-list>li:not(:last-child):not(:nth-last-child(2)) {
+        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    }
+
+    .hdr-nav-list>li:nth-last-child(2) {
+        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    }
+
+    /* Distinct Primary Action Button for Contact Us */
+    .hdr-nav-list>li:last-child {
+        margin-top: 5px;
+        padding-top: 5px;
     }
 
     .hdr-nav-link {
         width: 100%;
         box-sizing: border-box;
-        padding: 11px 14px;
-        font-size: 0.93rem;
+        padding: 11px 16px;
+        font-size: 0.95rem;
         font-weight: 500;
         color: #1e293b;
         letter-spacing: -0.01em;
         border-radius: 8px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
         background: transparent;
         text-decoration: none;
-        transition: background-color 0.16s ease, color 0.16s ease;
+        transition: background-color 0.16s ease, color 0.16s ease, padding-left 0.16s ease;
     }
 
-    /* Minimal refined chevron */
     .hdr-nav-link::after {
-        content: '';
-        position: static;
-        display: inline-block;
-        width: 5.5px;
-        height: 5.5px;
-        background: transparent;
-        border-top: 1.5px solid #94a3b8;
-        border-right: 1.5px solid #94a3b8;
-        border-bottom: none;
-        border-left: none;
-        border-radius: 0;
-        transform: rotate(45deg);
-        transition: transform 0.16s ease, border-color 0.16s ease;
-        margin-right: 2px;
-        flex-shrink: 0;
-        pointer-events: none;
+        display: none !important;
     }
 
     .hdr-nav-link:hover,
     .hdr-nav-link:active {
         background-color: #f8fafc;
-        color: #123b68;
+        color: #009dff;
+        padding-left: 20px;
     }
 
-    .hdr-nav-link:hover::after {
-        width: 5.5px;
-        border-color: #009dff;
-        transform: translateX(2px) rotate(45deg);
-    }
-
-    /* Active Page Pill */
+    /* Active Page Pill with Subtle Accent Line */
     .hdr-nav-link.is-active {
-        color: #123b68;
+        color: #009dff;
         font-weight: 600;
         background-color: rgba(0, 157, 255, 0.08);
     }
 
-    .hdr-nav-link.is-active::after {
-        width: 5.5px;
-        border-color: #009dff;
-        transform: rotate(45deg);
+    .hdr-nav-link.is-active::before {
+        content: '';
+        width: 3.5px;
+        height: 15px;
+        border-radius: 2px;
+        background: #009dff;
+        margin-right: 11px;
+        flex-shrink: 0;
+    }
+
+    /* Contact Us as a Primary Action Pill */
+    .hdr-nav-list>li:last-child .hdr-nav-link {
+        background: #123b68;
+        color: #ffffff !important;
+        font-weight: 600;
+        justify-content: center;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(18, 59, 104, 0.16);
+        transition: background-color 0.18s ease, transform 0.15s ease;
+    }
+
+    .hdr-nav-list>li:last-child .hdr-nav-link:hover,
+    .hdr-nav-list>li:last-child .hdr-nav-link:active {
+        background: #009dff;
+        color: #ffffff !important;
+        transform: translateY(-1px);
+        padding-left: 16px;
+    }
+
+    .hdr-nav-list>li:last-child .hdr-nav-link::before {
+        display: none;
     }
 
     .hdr-home-label {
@@ -1124,57 +1140,81 @@ h4 {
         list-style: none;
     }
 
-    .nav-links li:not(:last-child) {
-        border-bottom: 1px solid rgba(226, 232, 240, 0.55);
+    .nav-links li:not(:last-child):not(:nth-last-child(2)) {
+        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    }
+
+    .nav-links li:nth-last-child(2) {
+        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    }
+
+    .nav-links li:last-child {
+        margin-top: 5px;
+        padding-top: 5px;
     }
 
     .nav-links li a {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 11px 14px;
-        font-size: 0.93rem;
+        padding: 11px 16px;
+        font-size: 0.95rem;
         font-weight: 500;
         color: #1e293b;
         letter-spacing: -0.01em;
         border-radius: 8px;
         width: 100%;
         box-sizing: border-box;
-        transition: background-color 0.16s ease, color 0.16s ease;
+        transition: background-color 0.16s ease, color 0.16s ease, padding-left 0.16s ease;
     }
 
     .nav-links li a::after {
-        content: '';
-        display: inline-block;
-        width: 5.5px;
-        height: 5.5px;
-        border-top: 1.5px solid #94a3b8;
-        border-right: 1.5px solid #94a3b8;
-        transform: rotate(45deg);
-        transition: transform 0.16s ease, border-color 0.16s ease;
-        margin-right: 2px;
-        flex-shrink: 0;
+        display: none !important;
     }
 
     .nav-links li a:hover,
     .nav-links li a:active {
         background-color: #f8fafc;
-        color: #123b68;
-    }
-
-    .nav-links li a:hover::after {
-        border-color: #009dff;
-        transform: translateX(2px) rotate(45deg);
+        color: #009dff;
+        padding-left: 20px;
     }
 
     .nav-links li a.active {
-        color: #123b68;
+        color: #009dff;
         font-weight: 600;
         background-color: rgba(0, 157, 255, 0.08);
     }
 
-    .nav-links li a.active::after {
-        border-color: #009dff;
+    .nav-links li a.active::before {
+        content: '';
+        width: 3.5px;
+        height: 15px;
+        border-radius: 2px;
+        background: #009dff;
+        margin-right: 11px;
+        flex-shrink: 0;
+    }
+
+    .nav-links li:last-child a {
+        background: #123b68;
+        color: #ffffff !important;
+        font-weight: 600;
+        justify-content: center;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(18, 59, 104, 0.16);
+        transition: background-color 0.18s ease, transform 0.15s ease;
+    }
+
+    .nav-links li:last-child a:hover,
+    .nav-links li:last-child a:active {
+        background: #009dff;
+        color: #ffffff !important;
+        transform: translateY(-1px);
+        padding-left: 16px;
+    }
+
+    .nav-links li:last-child a::before {
+        display: none;
     }
 
     .nav-home-btn {
