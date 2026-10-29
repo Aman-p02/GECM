@@ -117,7 +117,7 @@ include_once __DIR__ . '/includes/header.php';
     <div class="ticker-content">
         <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
             <?php foreach ($newsTickers as $tick): ?>
-                <span><i class="fas fa-bell"></i> <?= htmlspecialchars($tick['message']) ?></span>
+                <span><?= htmlspecialchars($tick['message']) ?></span>
             <?php endforeach; ?>
         </marquee>
     </div>

@@ -254,11 +254,7 @@
 }
 
 .ticker-content marquee span i {
-    display: inline-flex;
-    align-items: center;
-    color: #ff8800;
-    font-size: 0.82rem;
-    margin-right: 7px;
+    display: none !important;
 }
 
 .ticker-content marquee span::after {
