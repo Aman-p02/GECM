@@ -1035,7 +1035,7 @@ h4 {
         padding: 0;
     }
 
-    /* Mobile Navigation Card - Compact, Clean & Space-Efficient */
+    /* Mobile Navigation Card - Pure Minimalist Architecture */
     .hdr-nav-list {
         position: absolute;
         top: 6px;
@@ -1045,10 +1045,10 @@ h4 {
         background: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 12px;
-        box-shadow: 0 12px 28px -6px rgba(18, 59, 104, 0.12), 0 2px 6px rgba(0, 0, 0, 0.03);
+        box-shadow: 0 10px 25px -4px rgba(18, 59, 104, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
         flex-direction: column;
         align-items: stretch;
-        padding: 4px;
+        padding: 4px 0;
         gap: 0;
         z-index: 1001;
         opacity: 0;
@@ -1058,7 +1058,7 @@ h4 {
             opacity 0.16s ease,
             visibility 0.2s;
         pointer-events: none;
-        max-height: calc(86vh - 50px);
+        max-height: calc(85vh - 50px);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
@@ -1082,16 +1082,15 @@ h4 {
         border-bottom: 1px solid #f1f5f9;
     }
 
-    /* Main Nav Option Item */
+    /* Main Category Link */
     .hdr-nav-link {
         width: 100%;
         box-sizing: border-box;
-        padding: 10px 14px;
-        font-size: 0.92rem;
+        padding: 12px 18px;
+        font-size: 0.94rem;
         font-weight: 500;
         color: #1e293b;
         letter-spacing: -0.01em;
-        border-radius: 6px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -1113,7 +1112,7 @@ h4 {
     .hdr-nav-link.is-active {
         color: #009dff;
         font-weight: 600;
-        background-color: rgba(0, 157, 255, 0.05);
+        background-color: transparent;
     }
 
     .hdr-nav-link.is-active::before {
@@ -1131,7 +1130,7 @@ h4 {
         justify-content: space-between;
     }
 
-    /* Subtle chevron arrow */
+    /* Clean chevron arrow */
     .hdr-nav-item.has-dropdown > .hdr-nav-link .hdr-arrow {
         font-size: 0.68rem;
         margin-left: auto;
@@ -1142,27 +1141,27 @@ h4 {
     }
 
     .hdr-nav-item.has-dropdown.is-sub-open > .hdr-nav-link {
-        color: #009dff;
+        color: #0284c7;
         font-weight: 600;
-        background-color: #f8fafc;
+        background-color: transparent;
     }
 
     .hdr-nav-item.has-dropdown.is-sub-open > .hdr-nav-link .hdr-arrow {
         transform: rotate(180deg);
-        color: #009dff;
+        color: #0284c7;
     }
 
-    /* Sub-menu Tray directly under nav item */
+    /* Simple, Clean Sub-options directly UNDER parent (No Boxes) */
     .hdr-dropdown {
         position: static !important;
         width: 100% !important;
         min-width: 0 !important;
         box-sizing: border-box;
-        background: #f8fafc;
-        border: 1px solid #e2e8f0 !important;
-        border-radius: 8px;
-        margin: 4px 0 6px 0;
-        padding: 0;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding: 0 0 0 18px !important;
         box-shadow: none !important;
         max-height: 0;
         overflow: hidden;
@@ -1179,18 +1178,16 @@ h4 {
         max-height: 850px;
         opacity: 1;
         visibility: visible;
-        padding: 8px;
+        padding: 2px 0 10px 18px !important;
         pointer-events: auto;
     }
 
-    /* 2-Column Compact Grid for Sub-options (Organized & Space-Efficient) */
+    /* Subtle guide rail for natural editorial hierarchy */
     .hdr-dd-list {
         list-style: none;
         margin: 0;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 6px;
+        padding: 0 0 0 14px;
+        border-left: 1.5px solid #e2e8f0;
     }
 
     .hdr-dd-list > li {
@@ -1201,35 +1198,31 @@ h4 {
         border: none !important;
     }
 
-    /* Sub-option Compact Micro-Card */
+    /* Simple Pure Text Sub-option (No boxes, clean, quiet, readable) */
     .hdr-dd-link {
-        display: flex;
-        align-items: center;
-        min-height: 36px;
-        padding: 7px 10px;
-        font-size: 0.82rem;
-        line-height: 1.25;
-        font-weight: 500;
-        color: #334155;
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
+        display: block;
+        padding: 6px 0;
+        font-size: 0.88rem;
+        font-weight: 450;
+        color: #64748b;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
         text-decoration: none;
         white-space: normal;
-        word-break: break-word;
-        box-sizing: border-box;
-        transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
+        line-height: 1.35;
+        transition: color 0.15s ease, padding-left 0.15s ease;
     }
 
     .hdr-dd-link:hover,
     .hdr-dd-link:active {
-        color: #0284c7;
-        background-color: #eff6ff;
-        border-color: #bfdbfe;
-        transform: translateY(-1px);
+        color: #0f172a;
+        background: transparent !important;
+        padding-left: 4px;
     }
 
-    /* Mega Dropdowns on Mobile (Activities) */
+    /* Activities on Mobile - Clean Section Captions & Plain Text */
     .hdr-dropdown-mega {
         min-width: 0 !important;
     }
@@ -1237,7 +1230,7 @@ h4 {
     .hdr-mega-grid {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 4px;
     }
 
     .hdr-mega-col {
@@ -1245,21 +1238,21 @@ h4 {
     }
 
     .hdr-mega-col:not(:last-child) {
-        border-bottom: 1px solid #e2e8f0;
-        padding-bottom: 8px;
+        border-bottom: none !important;
+        padding-bottom: 4px;
     }
 
     .hdr-dd-heading {
         display: block;
         font-size: 0.67rem;
         font-weight: 700;
-        color: #64748b;
-        letter-spacing: 0.06em;
+        color: #94a3b8;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        padding: 4px 2px 6px;
+        padding: 8px 0 2px 14px;
         margin: 0;
-        background: transparent;
-        border: none;
+        background: transparent !important;
+        border: none !important;
     }
 
     .hdr-home-label {
