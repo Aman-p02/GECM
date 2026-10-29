@@ -428,128 +428,140 @@ h4 {
     font-weight: 600;
 }
 
-/* Dropdowns (Desktop) */
-.hdr-nav-item.has-dropdown {
-    position: relative;
-    display: flex;
-    align-items: stretch;
-}
+/* ==========================================================================
+   Desktop Dropdowns (Directly under nav tab)
+   ========================================================================== */
+@media (min-width: 769px) {
+    .hdr-nav-item.has-dropdown {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+    }
 
-.hdr-nav-link .hdr-arrow {
-    font-size: 0.68rem;
-    margin-left: 6px;
-    color: #5b6573;
-    transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
-}
+    .hdr-nav-link .hdr-arrow {
+        font-size: 0.68rem;
+        margin-left: 6px;
+        color: #5b6573;
+        transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+    }
 
-.hdr-nav-item.has-dropdown:hover > .hdr-nav-link .hdr-arrow {
-    transform: rotate(180deg);
-    color: #009dff;
-}
+    .hdr-nav-item.has-dropdown:hover > .hdr-nav-link .hdr-arrow {
+        transform: rotate(180deg);
+        color: #009dff;
+    }
 
-/* Standard Dropdown Panel (Desktop - directly under nav item) */
-.hdr-dropdown {
-    position: absolute;
-    top: calc(100% - 1px);
-    left: 0;
-    min-width: 230px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
-    padding: 6px 0;
-    z-index: 1050;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(6px);
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.16s ease,
-                visibility 0.2s;
-    pointer-events: none;
-}
+    /* Standard Dropdown Panel */
+    .hdr-dropdown {
+        position: absolute;
+        top: calc(100% - 1px);
+        left: 0;
+        min-width: 235px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+        padding: 6px 0;
+        z-index: 1050;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.16s ease,
+                    visibility 0.2s;
+        pointer-events: none;
+    }
 
-/* Invisible bridge so mouse hover doesn't break between link and dropdown */
-.hdr-dropdown::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 0;
-    right: 0;
-    height: 8px;
-}
+    /* Invisible bridge so mouse hover doesn't break between link and dropdown */
+    .hdr-dropdown::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        left: 0;
+        right: 0;
+        height: 8px;
+    }
 
-.hdr-nav-item.has-dropdown:hover > .hdr-dropdown,
-.hdr-nav-item.has-dropdown:focus-within > .hdr-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
-}
+    .hdr-nav-item.has-dropdown:hover > .hdr-dropdown,
+    .hdr-nav-item.has-dropdown:focus-within > .hdr-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 
-/* Align right only on last nav item if needed to prevent screen edge overflow */
-.hdr-nav-list > .hdr-nav-item:last-child .hdr-dropdown {
-    left: auto;
-    right: 0;
-}
+    /* Align right only on last nav item if needed to prevent screen edge overflow */
+    .hdr-nav-list > .hdr-nav-item:last-child .hdr-dropdown {
+        left: auto;
+        right: 0;
+    }
 
-/* Dropdown Section Header */
-.hdr-dd-heading {
-    font-size: 0.68rem;
-    font-weight: 600;
-    color: #9ca3af;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 8px 18px 4px;
-    margin: 0;
-}
+    /* Dropdown Section Header */
+    .hdr-dd-heading {
+        font-size: 0.68rem;
+        font-weight: 600;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 8px 18px 4px;
+        margin: 0;
+    }
 
-.hdr-dd-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+    .hdr-dd-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
-.hdr-dd-link {
-    display: block;
-    padding: 8px 18px;
-    font-size: 0.88rem;
-    font-weight: 400;
-    color: #4b5563;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background-color 0.12s ease, color 0.12s ease, padding-left 0.12s ease;
-}
+    .hdr-dd-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 18px;
+        font-size: 0.88rem;
+        font-weight: 400;
+        color: #4b5563;
+        text-decoration: none;
+        white-space: nowrap;
+        border-left: 3px solid transparent;
+        transition: background-color 0.12s ease, color 0.12s ease, padding-left 0.12s ease, border-left-color 0.12s ease;
+    }
 
-.hdr-dd-link:hover {
-    background-color: #f9fafb;
-    color: #111827;
-    padding-left: 22px;
-}
+    .hdr-dd-link:hover,
+    .hdr-dd-link:active,
+    .hdr-dd-link.is-active,
+    .hdr-dd-link.active {
+        background-color: #f0f7ff;
+        color: #009dff;
+        border-left-color: #009dff;
+        padding-left: 20px;
+        font-weight: 500;
+    }
 
-/* Mobile Submenu Topbar - hidden on desktop */
-.hdr-dd-topbar {
-    display: none !important;
-}
+    /* Mobile Submenu Topbar - hidden on desktop */
+    .hdr-dd-topbar {
+        display: none !important;
+    }
 
-/* Mega Dropdown for Activities (Desktop) */
-.hdr-dropdown-mega {
-    min-width: 580px;
-    padding: 10px 6px;
-}
+    /* Mega Dropdown for Activities (Desktop) */
+    .hdr-dropdown-mega {
+        min-width: 580px;
+        padding: 10px 6px;
+    }
 
-.hdr-mega-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(160px, 1fr));
-    gap: 0;
-}
+    .hdr-mega-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(160px, 1fr));
+        gap: 0;
+    }
 
-.hdr-mega-col {
-    display: flex;
-    flex-direction: column;
-}
+    .hdr-mega-col {
+        display: flex;
+        flex-direction: column;
+    }
 
-.hdr-mega-col:not(:last-child) {
-    border-right: 1px solid #f3f4f6;
+    .hdr-mega-col:not(:last-child) {
+        border-right: 1px solid #f3f4f6;
+    }
 }
 
 /* Legacy Compatibility */
@@ -1151,17 +1163,19 @@ h4 {
         color: #0284c7;
     }
 
-    /* Simple, Clean Sub-options directly UNDER parent (No Boxes) */
+    /* Sub-options expand directly FLUSH UNDER parent link (Not pushed to the side) */
     .hdr-dropdown {
         position: static !important;
         width: 100% !important;
         min-width: 0 !important;
         box-sizing: border-box;
-        background: transparent !important;
+        background: #f8fafc !important;
         border: none !important;
+        border-top: 1px solid #eef2f6 !important;
+        border-bottom: 1px solid #eef2f6 !important;
         border-radius: 0 !important;
         margin: 0 !important;
-        padding: 0 0 0 18px !important;
+        padding: 0 !important;
         box-shadow: none !important;
         max-height: 0;
         overflow: hidden;
@@ -1178,16 +1192,15 @@ h4 {
         max-height: 850px;
         opacity: 1;
         visibility: visible;
-        padding: 2px 0 10px 18px !important;
+        padding: 4px 0 !important;
         pointer-events: auto;
     }
 
-    /* Subtle guide rail for natural editorial hierarchy */
     .hdr-dd-list {
         list-style: none;
         margin: 0;
-        padding: 0 0 0 14px;
-        border-left: 1.5px solid #e2e8f0;
+        padding: 0;
+        border: none !important;
     }
 
     .hdr-dd-list > li {
@@ -1198,28 +1211,41 @@ h4 {
         border: none !important;
     }
 
-    /* Simple Pure Text Sub-option (No boxes, clean, quiet, readable) */
+    /* Sub-option Link - Aligned directly underneath parent */
     .hdr-dd-link {
-        display: block;
-        padding: 6px 0;
-        font-size: 0.88rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 9px 18px 9px 24px;
+        font-size: 0.90rem;
         font-weight: 450;
-        color: #64748b;
-        background: transparent !important;
-        border: none !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
+        color: #475569;
+        background: transparent;
+        border-left: 3px solid transparent;
         text-decoration: none;
         white-space: normal;
         line-height: 1.35;
-        transition: color 0.15s ease, padding-left 0.15s ease;
+        transition: background-color 0.15s ease, color 0.15s ease, border-left-color 0.15s ease;
     }
 
+    /* Clear Hover & Active Indicator - user knows which page they are on */
     .hdr-dd-link:hover,
-    .hdr-dd-link:active {
-        color: #0f172a;
-        background: transparent !important;
-        padding-left: 4px;
+    .hdr-dd-link:active,
+    .hdr-dd-link.is-active,
+    .hdr-dd-link.active {
+        color: #009dff !important;
+        background-color: #eff6ff !important;
+        border-left: 3px solid #009dff !important;
+        font-weight: 500;
+    }
+
+    .hdr-dd-link.is-active::after,
+    .hdr-dd-link.active::after {
+        content: '•';
+        font-size: 1.2rem;
+        line-height: 1;
+        color: #009dff;
+        margin-left: auto;
     }
 
     /* Activities on Mobile - Clean Section Captions & Plain Text */
@@ -1230,7 +1256,7 @@ h4 {
     .hdr-mega-grid {
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 0;
     }
 
     .hdr-mega-col {
@@ -1238,7 +1264,7 @@ h4 {
     }
 
     .hdr-mega-col:not(:last-child) {
-        border-bottom: none !important;
+        border-bottom: 1px solid #eef2f6 !important;
         padding-bottom: 4px;
     }
 
@@ -1249,7 +1275,7 @@ h4 {
         color: #94a3b8;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        padding: 8px 0 2px 14px;
+        padding: 10px 18px 4px 24px;
         margin: 0;
         background: transparent !important;
         border: none !important;

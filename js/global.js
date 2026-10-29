@@ -108,11 +108,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Navigation link click state
-    const navItems = document.querySelectorAll(".hdr-nav-link, .nav-links li a");
-    navItems.forEach(link => {
+    // Navigation link active & click state (Main nav + sub-options)
+    const allNavLinks = document.querySelectorAll(".hdr-nav-link, .hdr-dd-link, .nav-links li a");
+    const currentPath = window.location.pathname.replace(/\/$/, "");
+    const currentHash = window.location.hash;
+
+    allNavLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        if (href && href !== "#") {
+            try {
+                const linkUrl = new URL(link.href, window.location.origin);
+                const linkPath = linkUrl.pathname.replace(/\/$/, "");
+                if (linkPath && linkPath === currentPath && (currentHash === "" || linkUrl.hash === currentHash)) {
+                    link.classList.add("is-active");
+                    const parentDropdown = link.closest(".hdr-nav-item.has-dropdown");
+                    if (parentDropdown && window.innerWidth <= 768) {
+                        parentDropdown.classList.add("is-sub-open");
+                    }
+                }
+            } catch (err) {}
+        }
+
         link.addEventListener("click", function () {
-            navItems.forEach(item => item.classList.remove("is-active", "active"));
+            allNavLinks.forEach(item => item.classList.remove("is-active", "active"));
             this.classList.add("is-active");
         });
     });
