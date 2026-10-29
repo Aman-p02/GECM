@@ -38,6 +38,115 @@ if (empty($heroSlides)) {
     ];
 }
 
+// Fallback news tickers
+if (empty($newsTickers)) {
+    $newsTickers = [
+        ['message' => 'Admission open for BE First Year 2024-25.'],
+        ['message' => 'Mid-Semester Exams schedule has been released. Check notice board for details.'],
+        ['message' => 'State Level Hackathon 2024 registrations are now open!']
+    ];
+}
+
+// Fallback notices
+if (empty($noticesList)) {
+    $noticesList = [
+        ['publish_date' => '2024-10-15', 'title' => 'Guidelines for AICTE Pragati & Saksham Scholarship Schemes 2024-25', 'badge' => 'New', 'link_url' => '#'],
+        ['publish_date' => '2024-10-10', 'title' => 'Timetable for B.E. Semester 5 Mid-Semester Examination', 'badge' => 'None', 'link_url' => '#'],
+        ['publish_date' => '2024-10-02', 'title' => 'Result Declaration: BE Sem-6 Regular Summer 2024', 'badge' => 'None', 'link_url' => '#'],
+        ['publish_date' => '2024-09-28', 'title' => 'Academic Calendar for Odd Semester 2024-25', 'badge' => 'None', 'link_url' => '#'],
+        ['publish_date' => '2024-09-20', 'title' => 'Submission of Scholarship Forms for SC/ST Students', 'badge' => 'Urgent', 'link_url' => '#'],
+        ['publish_date' => '2024-09-15', 'title' => 'Hostel Admission Merit List Announced for First Year Students', 'badge' => 'None', 'link_url' => '#'],
+        ['publish_date' => '2024-09-10', 'title' => 'GTU TechFest 2024 Participation Registration Open', 'badge' => 'None', 'link_url' => '#'],
+        ['publish_date' => '2024-09-05', 'title' => 'Revised Syllabus for Engineering Mechanics (Civil Dept)', 'badge' => 'None', 'link_url' => '#']
+    ];
+}
+
+// Fallback events
+if (empty($recentEvents)) {
+    $recentEvents = [
+        [
+            'image_url' => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'title' => 'TechFest 2024',
+            'description' => 'Annual Technical Symposium with 50+ inter-college events.',
+            'view_url' => '#'
+        ],
+        [
+            'image_url' => 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'title' => 'Convocation Ceremony',
+            'description' => 'Batch of 2020-2024 engineering graduation day.',
+            'view_url' => '#'
+        ],
+        [
+            'image_url' => 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'title' => 'State Level Hackathon',
+            'description' => '24-hour innovation sprint held at GEC Modasa campus.',
+            'view_url' => '#'
+        ]
+    ];
+}
+
+// Fallback gallery shots
+if (empty($latestShots)) {
+    $latestShots = [
+        [
+            'image_url' => 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'title' => 'Robotics & Innovation',
+            'description' => 'Students demonstrating autonomous robotics and IoT prototypes.'
+        ],
+        [
+            'image_url' => 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'title' => 'Annual Sports Meet',
+            'description' => 'Inter-department athletics championship and cricket tournament.'
+        ],
+        [
+            'image_url' => 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'title' => 'Prarambh Youth Fest',
+            'description' => 'Vibrant stage performances, music, drama, and celebrations.'
+        ]
+    ];
+}
+
+// Fallback alumni
+if (empty($alumniList)) {
+    $alumniList = [
+        [
+            'photo_url' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80',
+            'name' => 'Rahul Sharma',
+            'branch' => 'Computer Engg.',
+            'graduation_year' => '2015',
+            'company' => 'Google, USA'
+        ],
+        [
+            'photo_url' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80',
+            'name' => 'Priya Patel',
+            'branch' => 'Information Technology',
+            'graduation_year' => '2018',
+            'company' => 'Microsoft, India'
+        ],
+        [
+            'photo_url' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80',
+            'name' => 'Amit Verma',
+            'branch' => 'Mechanical Engg.',
+            'graduation_year' => '2014',
+            'company' => 'Tata Motors, Pune'
+        ],
+        [
+            'photo_url' => 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80',
+            'name' => 'Sneha Joshi',
+            'branch' => 'Civil Engg.',
+            'graduation_year' => '2019',
+            'company' => 'L&T Construction'
+        ],
+        [
+            'photo_url' => 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80',
+            'name' => 'Kiran Mehta',
+            'branch' => 'Electrical Engg.',
+            'graduation_year' => '2016',
+            'company' => 'Siemens Energy'
+        ]
+    ];
+}
+
 // Fallback departments
 if (empty($departmentsList)) {
     $departmentsList = [
@@ -157,6 +266,9 @@ include_once __DIR__ . '/includes/header.php';
                 };
                 ?>
                 <ul class="notice-list">
+                    <?php $renderNoticeItems($noticesList); ?>
+                </ul>
+                <ul class="notice-list" aria-hidden="true">
                     <?php $renderNoticeItems($noticesList); ?>
                 </ul>
             </div>
