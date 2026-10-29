@@ -376,7 +376,6 @@ include_once __DIR__ . '/includes/header.php';
                         <?php endif; ?>
                     </div>
                     <h3><?= htmlspecialchars($dept['name']) ?></h3>
-                    <a href="<?= htmlspecialchars($resolvedUrl) ?>" class="dept-link">Click to view detailed report</a>
                 </div>
                 <?php endforeach; ?>
             </div>
