@@ -665,50 +665,50 @@
     box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
 }
 
-/* Department Pastel Colors */
-.dept-card.dept-it {
-    background: #bbf7d0;
-    border-color: #a7f3d0;
-}
-
+/* Department Colors (Rich Dark Palette) */
 .dept-card.dept-ce {
-    background: #f3f4f6;
-    border-color: #e5e7eb;
+    background: #1e3a8a;
+    border-color: #2563eb;
 }
 
-.dept-card.dept-ee {
-    background: #fef08a;
-    border-color: #fde047;
-}
-
-.dept-card.dept-ec {
-    background: #e9d5ff;
-    border-color: #d8b4fe;
-}
-
-.dept-card.dept-ae {
-    background: #fecdd3;
-    border-color: #fca5a5;
-}
-
-.dept-card.dept-civil {
-    background: #fed7aa;
-    border-color: #fdba74;
+.dept-card.dept-it {
+    background: #065f46;
+    border-color: #059669;
 }
 
 .dept-card.dept-me {
-    background: #bae6fd;
-    border-color: #93c5fd;
+    background: #0369a1;
+    border-color: #0284c7;
+}
+
+.dept-card.dept-ae {
+    background: #9f1239;
+    border-color: #be123c;
+}
+
+.dept-card.dept-civil {
+    background: #c2410c;
+    border-color: #ea580c;
+}
+
+.dept-card.dept-ee {
+    background: #a16207;
+    border-color: #ca8a04;
+}
+
+.dept-card.dept-ec {
+    background: #6b21a8;
+    border-color: #7e22ce;
 }
 
 /* Nth-child Fallbacks */
-.dept-card:nth-child(7n+1) { background: #f3f4f6; border-color: #e5e7eb; }
-.dept-card:nth-child(7n+2) { background: #bbf7d0; border-color: #a7f3d0; }
-.dept-card:nth-child(7n+3) { background: #bae6fd; border-color: #93c5fd; }
-.dept-card:nth-child(7n+4) { background: #fecdd3; border-color: #fca5a5; }
-.dept-card:nth-child(7n+5) { background: #fed7aa; border-color: #fdba74; }
-.dept-card:nth-child(7n+6) { background: #fef08a; border-color: #fde047; }
-.dept-card:nth-child(7n+7) { background: #e9d5ff; border-color: #d8b4fe; }
+.dept-card:nth-child(7n+1) { background: #1e3a8a; border-color: #2563eb; }
+.dept-card:nth-child(7n+2) { background: #065f46; border-color: #059669; }
+.dept-card:nth-child(7n+3) { background: #0369a1; border-color: #0284c7; }
+.dept-card:nth-child(7n+4) { background: #9f1239; border-color: #be123c; }
+.dept-card:nth-child(7n+5) { background: #c2410c; border-color: #ea580c; }
+.dept-card:nth-child(7n+6) { background: #a16207; border-color: #ca8a04; }
+.dept-card:nth-child(7n+7) { background: #6b21a8; border-color: #7e22ce; }
 
 /* Department Icon Badge */
 .dept-icon {
@@ -722,7 +722,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.6rem;
-    color: #1f2937;
+    color: #283344;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -744,7 +744,7 @@
     font-size: 1.12rem;
     font-weight: 700;
     margin: 0 0 12px;
-    color: #111827;
+    color: #ffffff;
     line-height: 1.35;
     min-height: 46px;
     display: flex;
@@ -757,12 +757,12 @@
     align-items: center;
     gap: 6px;
     padding: 6px 14px;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 20px;
     font-size: 0.78rem;
     font-weight: 600;
-    color: #1f2937;
+    color: #ffffff;
     text-decoration: none;
     backdrop-filter: blur(4px);
     transition: all 0.2s ease;
@@ -774,9 +774,10 @@
 }
 
 .dept-card:hover .dept-link {
-    background: #1f2937;
-    border-color: #1f2937;
-    color: #ffffff;
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .dept-card:hover .dept-link i {
