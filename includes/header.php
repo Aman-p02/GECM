@@ -84,62 +84,153 @@ if (!isset($active_page)) {
             <ul class="hdr-nav-list" id="mainNavLinks">
 
                 <!-- Navigation Links -->
-                <li>
+                <li class="hdr-nav-item">
                     <a href="<?= $root_path ?>" class="hdr-nav-link">
                         Home
                     </a>
                 </li>
 
-                <li>
+                <!-- About Dropdown -->
+                <li class="hdr-nav-item has-dropdown">
                     <a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>"
                        class="hdr-nav-link">
-                        About
+                        About <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
+                    <div class="hdr-dropdown">
+                        <div class="hdr-dd-heading">THE INSTITUTE</div>
+                        <ul class="hdr-dd-list">
+                            <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>" class="hdr-dd-link">Overview</a></li>
+                            <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>" class="hdr-dd-link">Vision &amp; Mission</a></li>
+                            <li><a href="#" class="hdr-dd-link">Principal's Message</a></li>
+                            <li><a href="#" class="hdr-dd-link">IDP</a></li>
+                            <li><a href="<?php echo ($active_page === 'home') ? '#facilities' : $root_path . '#facilities'; ?>" class="hdr-dd-link">Facilities</a></li>
+                            <li><a href="#" class="hdr-dd-link">E-Newsletter</a></li>
+                            <li><a href="#" class="hdr-dd-link">Information Brochure</a></li>
+                            <li><a href="#" class="hdr-dd-link">Mandatory Disclosure</a></li>
+                            <li><a href="#" class="hdr-dd-link">Rankings</a></li>
+                            <li><a href="#" class="hdr-dd-link">MoU</a></li>
+                        </ul>
+                    </div>
                 </li>
 
-                <li>
+                <!-- Administration Dropdown -->
+                <li class="hdr-nav-item has-dropdown">
                     <a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>"
                        class="hdr-nav-link">
-                        Administration
+                        Administration <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
+                    <div class="hdr-dropdown">
+                        <ul class="hdr-dd-list">
+                            <li><a href="#" class="hdr-dd-link">Principal</a></li>
+                            <li><a href="#" class="hdr-dd-link">Council of Heads</a></li>
+                            <li><a href="#" class="hdr-dd-link">Account Section</a></li>
+                            <li><a href="#" class="hdr-dd-link">Hostel &amp; Mess</a></li>
+                            <li><a href="#" class="hdr-dd-link">Committees</a></li>
+                        </ul>
+                    </div>
                 </li>
 
-                <li>
+                <!-- Academic Dropdown -->
+                <li class="hdr-nav-item has-dropdown">
                     <a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . '#departments'; ?>"
                        class="hdr-nav-link">
-                        Academic
+                        Academic <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
+                    <div class="hdr-dropdown">
+                        <ul class="hdr-dd-list">
+                            <li><a href="#" class="hdr-dd-link">Courses</a></li>
+                            <li><a href="#" class="hdr-dd-link">Admission</a></li>
+                            <li><a href="#" class="hdr-dd-link">Academic Calendar</a></li>
+                            <li><a href="#" class="hdr-dd-link">Syllabus</a></li>
+                            <li><a href="#" class="hdr-dd-link">Central Library</a></li>
+                        </ul>
+                    </div>
                 </li>
 
-                <li>
+                <!-- Departments Dropdown -->
+                <li class="hdr-nav-item has-dropdown">
                     <a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . '#departments'; ?>"
                        class="hdr-nav-link">
-                        Departments
+                        Departments <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
+                    <div class="hdr-dropdown">
+                        <ul class="hdr-dd-list">
+                            <li><a href="#" class="hdr-dd-link">Applied Mechanics</a></li>
+                            <li><a href="#" class="hdr-dd-link">Automobile Engineering</a></li>
+                            <li><a href="#" class="hdr-dd-link">Civil Engineering</a></li>
+                            <li><a href="<?= $root_path ?>departments/computer/" class="hdr-dd-link">Computer Engineering</a></li>
+                            <li><a href="#" class="hdr-dd-link">Electrical Engineering</a></li>
+                            <li><a href="#" class="hdr-dd-link">Electronics &amp; Communication</a></li>
+                            <li><a href="<?= $root_path ?>departments/information-technology/" class="hdr-dd-link">Information Technology</a></li>
+                            <li><a href="<?= $root_path ?>departments/mechanical/" class="hdr-dd-link">Mechanical Engineering</a></li>
+                            <li><a href="#" class="hdr-dd-link">Science &amp; Humanities</a></li>
+                        </ul>
+                    </div>
                 </li>
 
-                <li>
+                <!-- Activities Dropdown (Categorized) -->
+                <li class="hdr-nav-item has-dropdown">
                     <a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . '#events'; ?>"
                        class="hdr-nav-link">
-                        Activities
+                        Activities <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
+                    <div class="hdr-dropdown hdr-dropdown-mega">
+                        <div class="hdr-mega-grid">
+                            <div class="hdr-mega-col">
+                                <div class="hdr-dd-heading">ACTIVITIES</div>
+                                <ul class="hdr-dd-list">
+                                    <li><a href="#" class="hdr-dd-link">College Activities</a></li>
+                                    <li><a href="#" class="hdr-dd-link">Departmental Activities</a></li>
+                                    <li><a href="#" class="hdr-dd-link">Faculty Activities</a></li>
+                                </ul>
+                            </div>
+                            <div class="hdr-mega-col">
+                                <div class="hdr-dd-heading">CELLS</div>
+                                <ul class="hdr-dd-list">
+                                    <li><a href="#" class="hdr-dd-link">RUSA</a></li>
+                                    <li><a href="#" class="hdr-dd-link">Gymkhana</a></li>
+                                    <li><a href="#" class="hdr-dd-link">DIC</a></li>
+                                    <li><a href="#" class="hdr-dd-link">SSIP</a></li>
+                                    <li><a href="#" class="hdr-dd-link">Anchor Nodal</a></li>
+                                    <li><a href="#" class="hdr-dd-link">Finishing School</a></li>
+                                    <li><a href="#" class="hdr-dd-link">WDC</a></li>
+                                    <li><a href="#" class="hdr-dd-link">UBA</a></li>
+                                </ul>
+                            </div>
+                            <div class="hdr-mega-col">
+                                <div class="hdr-dd-heading">ACHIEVEMENTS</div>
+                                <ul class="hdr-dd-list">
+                                    <li><a href="#" class="hdr-dd-link">Student Achievements</a></li>
+                                    <li><a href="#" class="hdr-dd-link">Faculty Achievements</a></li>
+                                    <li><a href="#" class="hdr-dd-link">Institute Achievements</a></li>
+                                    <li><a href="#" class="hdr-dd-link">Patents</a></li>
+                                </ul>
+                            </div>
+                            <div class="hdr-mega-col">
+                                <div class="hdr-dd-heading">CLUBS</div>
+                                <ul class="hdr-dd-list">
+                                    <li><a href="#" class="hdr-dd-link">Technopreneur</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </li>
 
-                <li>
+                <li class="hdr-nav-item">
                     <a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . '#events'; ?>"
                        class="hdr-nav-link">
                         Student Corner
                     </a>
                 </li>
 
-                <li>
+                <li class="hdr-nav-item">
                     <a href="<?php echo ($active_page === 'home') ? '#alumni' : $root_path . '#alumni'; ?>"
                        class="hdr-nav-link">
                         Placement
                     </a>
                 </li>
 
-                <li>
+                <li class="hdr-nav-item">
                     <a href="<?php echo ($active_page === 'home') ? '#contact' : $root_path . '#contact'; ?>"
                        class="hdr-nav-link">
                         Contact Us

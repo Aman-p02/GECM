@@ -18,13 +18,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
         list.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", () => {
+                if (window.innerWidth <= 768 && link.closest(".has-dropdown") && link.classList.contains("hdr-nav-link")) {
+                    return;
+                }
                 list.classList.remove(openClass);
                 btn.setAttribute("aria-expanded", "false");
                 btn.classList.remove("is-active");
                 if (btn.classList.contains("active")) btn.classList.remove("active");
-            }, { once: true });
+            });
         });
     }
+
+    // Mobile Accordion Toggle for Submenus
+    const dropdownToggles = document.querySelectorAll(".hdr-nav-item.has-dropdown > .hdr-nav-link");
+    dropdownToggles.forEach(toggleLink => {
+        toggleLink.addEventListener("click", function (e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                e.stopPropagation();
+                const parentItem = this.closest(".hdr-nav-item");
+                const wasOpen = parentItem.classList.contains("is-sub-open");
+
+                document.querySelectorAll(".hdr-nav-item.has-dropdown.is-sub-open").forEach(item => {
+                    if (item !== parentItem) item.classList.remove("is-sub-open");
+                });
+
+                parentItem.classList.toggle("is-sub-open", !wasOpen);
+            }
+        });
+    });
+
+    document.querySelectorAll(".hdr-dd-link").forEach(subLink => {
+        subLink.addEventListener("click", () => {
+            if (window.innerWidth <= 768 && hdrHamburger && hdrNavList) {
+                hdrNavList.classList.remove("is-open");
+                hdrHamburger.setAttribute("aria-expanded", "false");
+                hdrHamburger.classList.remove("is-active");
+            }
+        });
+    });
 
     if (hdrHamburger && hdrNavList) {
         hdrHamburger.addEventListener("click", () => {
