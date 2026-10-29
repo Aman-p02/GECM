@@ -3,7 +3,7 @@
    (Hero Carousel, News Ticker, 3-Card Grid, Departments, Alumni)
    ============================================================== */
 
-/* Hero Section with Background Carousel */
+/* Hero Section */
 .hero {
     height: 75vh;
     min-height: 540px;
@@ -105,7 +105,7 @@
     color: var(--primary-color);
 }
 
-/* Carousel Navigation Arrows */
+/* Hero Slider Controls */
 .hero-nav {
     position: absolute;
     top: 50%;
@@ -144,7 +144,7 @@
     right: 25px;
 }
 
-/* Carousel Indicators */
+/* Hero Slider Indicators */
 .hero-indicators {
     position: absolute;
     bottom: 22px;
@@ -225,7 +225,7 @@
     margin-right: 8px;
 }
 
-/* Home Grid Layout (3-Column Showcase: Notice Board, Recent Events, Latest Shots) */
+/* Home Grid (Notices, Events, Gallery) */
 .two-col-layout,
 .home-grid-layout {
     display: grid;
@@ -271,7 +271,7 @@
     text-decoration: underline;
 }
 
-/* Card Common Styling */
+/* Card Styles */
 .notice-board,
 .recent-events-card,
 .latest-shots-card {
@@ -296,7 +296,7 @@
     border-color: rgba(12, 59, 109, 0.15);
 }
 
-/* Notice Board Compact Adjustments */
+/* Notice Board */
 .notice-scroll-container {
     height: 330px;
     overflow: hidden;
@@ -405,7 +405,7 @@
     100% { transform: scale(1); }
 }
 
-/* Recent Events & Latest Shots Sliders */
+/* Event & Gallery Sliders */
 .events-slider-container,
 .shots-slider-container {
     position: relative;
@@ -659,7 +659,7 @@
     display: flex;
     gap: 24px;
     overflow-x: auto;
-    scroll-behavior: auto; /* Handled smoothly by JS RAF loop */
+    scroll-behavior: auto; /* Handled by animation loop */
     padding: 25px 10px 35px;
     width: 100%;
     scrollbar-width: none;
@@ -736,7 +736,7 @@
     display: block;
 }
 
-/* Scroll Buttons for Departments and Alumni */
+/* Carousel Controls */
 .scroll-btn {
     background: var(--primary-color);
     color: #fff;
@@ -769,7 +769,7 @@
     right: 0;
 }
 
-/* Home Responsive Fixes */
+/* Responsive Breakpoints */
 @media (max-width: 1100px) {
     .dept-card {
         flex: 0 0 calc((100% - 52px) / 3);
@@ -860,7 +860,7 @@
         gap: 8px;
     }
 
-    /* Departments Mobile: Exactly 1 Centered Card */
+    /* Departments Mobile */
     .dept-wrapper {
         padding: 0;
     }

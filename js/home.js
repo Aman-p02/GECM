@@ -1,15 +1,9 @@
 /**
- * GECM Home Page JavaScript
- * Handles:
- * 1. Hero Background Carousel (autoplay, arrows, dots, touch swipe)
- * 2. Recent Events Slider
- * 3. Latest Shots Carousel
- * 4. Department auto-scroll on mobile
- * 5. Alumni Carousel scroll buttons
+ * Home page scripts for carousels, sliders, and notice board.
  */
 document.addEventListener("DOMContentLoaded", () => {
     // ==============================================================
-    // 1. Alumni Carousel Butter Smooth Infinite Auto-Scrolling (60 FPS)
+    // 1. Alumni Carousel Auto-Scroll
     // ==============================================================
     const alumniCarousel = document.getElementById("alumniCarousel");
     const alumniLeftBtn = document.getElementById("alumniLeftBtn") || document.querySelector(".alumni-wrapper .left-btn");
@@ -52,12 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(autoScrollAlumni);
         }
 
-        // Only auto-scroll if there are multiple cards and they actually overflow
+        // Auto-scroll when overflow exists
         if (cards.length > 3) {
             requestAnimationFrame(autoScrollAlumni);
         }
 
-        // Pause on mouse hover & mobile touch
+        // Pause on hover and touch
         alumniCarousel.addEventListener("mouseenter", () => {
             isAlumniPaused = true;
         });
@@ -76,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 2000);
         }, { passive: true });
 
-        // Left / Right Scroll Buttons
+        // Carousel controls
         if (alumniLeftBtn && alumniRightBtn) {
             alumniLeftBtn.addEventListener("click", () => {
                 isAlumniPaused = true;
@@ -144,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==============================================================
-    // 3. Latest Shots Slider
+    // 3. Gallery Slider
     // ==============================================================
     const shotsSlider = document.getElementById("shotsSlider");
     const shotsSliderDotsContainer = document.getElementById("shotsSliderDots");
@@ -193,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==============================================================
-    // 4. Department Section Desktop Smooth Controls
+    // 4. Department Carousel Controls
     // ==============================================================
     const deptGrid = document.getElementById("deptGrid");
     const deptLeftBtn = document.getElementById("deptLeftBtn");
@@ -329,14 +323,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==============================================================
-    // 6. Notice Board Smart Overflow Auto-Scroll (No duplicate when <= 4)
+    // 6. Notice Board Marquee
     // ==============================================================
     const noticeContainer = document.querySelector(".notice-scroll-container");
     const noticeMarquee = document.querySelector(".notice-marquee");
     const noticeList = document.querySelector(".notice-list");
 
     if (noticeContainer && noticeMarquee && noticeList) {
-        // Only activate marquee scrolling and clone if items exceed container capacity (> 4)
+        // Activate scrolling when items exceed container height
         if (noticeList.children.length > 4 && noticeList.offsetHeight > noticeContainer.offsetHeight) {
             const cloneList = noticeList.cloneNode(true);
             cloneList.setAttribute("aria-hidden", "true");

@@ -1,12 +1,12 @@
 <?php
-// Set Page Variables
+// Page configuration
 $page_title = "Mechanical Engineering Department - Government Engineering College, Modasa";
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/mechanical/css/department.css";
 $extra_js = "departments/mechanical/js/department.js";
 
-// Include Header
+// Header template
 include_once __DIR__ . '/../../includes/header.php';
 ?>
 
@@ -17,7 +17,7 @@ include_once __DIR__ . '/../../includes/header.php';
     <div class="container">
         <div class="dept-layout-grid">
 
-            <!-- Left Sidebar Navigation -->
+            <!-- Sidebar Navigation -->
             <aside class="dept-sidebar">
                 <div class="dept-sidebar-header">
                     Mechanical Department
@@ -101,7 +101,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </ul>
             </aside>
 
-            <!-- Right Content Area -->
+            <!-- Content Area -->
             <main class="dept-content-panel">
 
                 <!-- ========================================================

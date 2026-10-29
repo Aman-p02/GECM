@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if (isset($_GET['delete'])) {
     $id = (int)$_GET['delete'];
-    if ($id > 1) { // Prevent deleting primary super admin #1
+    if ($id > 1) { // Prevent deleting primary super administrator
         $stmt = $pdo->prepare("DELETE FROM admins WHERE id = ?");
         $stmt->execute([$id]);
         setFlashMessage('success', 'Admin user deleted!');

@@ -1,12 +1,9 @@
-﻿/* ==============================================================
-   GECM Global Styles (Variables, Reset, Typography, Header, Footer)
-   ============================================================== */
+/* Global Styles */
 
-/* Custom Properties / Variables */
 :root {
-    --primary-color: #0c3b6d;       /* Deep Navy Blue */
+    --primary-color: #0c3b6d;
     --primary-light: #1b5b9c;
-    --secondary-color: #f39c12;     /* Vibrant Orange/Gold accent */
+    --secondary-color: #f39c12;
     --secondary-hover: #d68910;
     --text-dark: #333333;
     --text-light: #666666;
@@ -17,8 +14,18 @@
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.1);
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Navigation */
+    --nav-navy: #123B68;
+    --nav-accent: #1677D2;
+    --nav-divider: #E5EAF0;
+    --nav-muted: #5B6573;
+    --nav-bg: #FFFFFF;
+    --nav-line-h: 2px;
+    --nav-ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
@@ -73,7 +80,7 @@ ul {
     margin-top: 2rem;
 }
 
-/* Typography & Titles */
+/* Typography */
 h1,
 h2,
 h3,
@@ -182,32 +189,12 @@ h4 {
     color: var(--secondary-color);
 }
 
-/* ================================================================
-   SITE HEADER Ã¢â‚¬â€ Two-tier institutional navigation
-   Design: Clean, minimal, professional. Senior UI/UX standard.
-   Primary navy: #123B68 | Accent blue: #1677D2 | BG: #FFFFFF
-   ================================================================ */
-
-/* Ã¢â€â‚¬Ã¢â€â‚¬ Navbar-specific variables Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
-:root {
-    --nav-navy:       #123B68;
-    --nav-accent:     #1677D2;
-    --nav-divider:    #E5EAF0;
-    --nav-muted:      #5B6573;
-    --nav-bg:         #FFFFFF;
-    --nav-line-h:     2px;
-    --nav-ease:       cubic-bezier(.4, 0, .2, 1);
-}
-
-/* Ã¢â€â‚¬Ã¢â€â‚¬ Outer wrapper Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/* Header & Branding */
 .site-header {
     background: var(--nav-bg);
-        width: 100%;
+    width: 100%;
 }
 
-/* ================================================================
-   ROW 1 Ã¢â‚¬â€ Branding
-   ================================================================ */
 .hdr-brand {
     background: var(--nav-bg);
     border-bottom: 1px solid var(--nav-divider);
@@ -275,7 +262,7 @@ h4 {
     object-fit: contain;
 }
 
-/* Hamburger */
+/* Mobile Hamburger Toggle */
 .hdr-hamburger {
     display: none;
     flex-direction: column;
@@ -293,7 +280,9 @@ h4 {
     transition: border-color 0.2s ease;
 }
 
-.hdr-hamburger:hover { border-color: var(--nav-navy); }
+.hdr-hamburger:hover {
+    border-color: var(--nav-navy);
+}
 
 .hbr {
     display: block;
@@ -305,13 +294,20 @@ h4 {
     transform-origin: center;
 }
 
-.hdr-hamburger[aria-expanded="true"] .hbr:nth-child(1) { transform: translateY(7px) rotate(45deg);   }
-.hdr-hamburger[aria-expanded="true"] .hbr:nth-child(2) { opacity: 0; transform: scaleX(0);           }
-.hdr-hamburger[aria-expanded="true"] .hbr:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hdr-hamburger[aria-expanded="true"] .hbr:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
 
-/* ================================================================
-   ROW 2 Ã¢â‚¬â€ Horizontal navigation
-   ================================================================ */
+.hdr-hamburger[aria-expanded="true"] .hbr:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hdr-hamburger[aria-expanded="true"] .hbr:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Navigation Bar */
 .hdr-nav,
 .navbar {
     background: var(--nav-bg);
@@ -322,11 +318,10 @@ h4 {
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 1px 0 var(--nav-divider), 0 3px 10px rgba(18, 59, 104, .07);
+    box-shadow: 0 1px 0 var(--nav-divider), 0 3px 10px rgba(18, 59, 104, 0.07);
     transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 
-/* Constant fixed state when user scrolls down */
 .hdr-nav.is-sticky-fixed,
 .navbar.is-sticky-fixed {
     position: fixed !important;
@@ -359,9 +354,11 @@ h4 {
     -ms-overflow-style: none;
 }
 
-.hdr-nav-list::-webkit-scrollbar { display: none; }
+.hdr-nav-list::-webkit-scrollbar {
+    display: none;
+}
 
-/* Ã¢â€â‚¬Ã¢â€â‚¬ Nav link (shared base) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+/* Nav Links */
 .hdr-nav-link {
     display: inline-flex;
     align-items: center;
@@ -378,7 +375,6 @@ h4 {
     cursor: pointer;
 }
 
-/* Underline Ã¢â‚¬â€ grows from center outward */
 .hdr-nav-link::after {
     content: '';
     position: absolute;
@@ -398,61 +394,131 @@ h4 {
 }
 
 .hdr-nav-link:hover::after {
-    /* Span the text width (full link width minus horizontal padding) */
-    width: calc(100% - 40px);
+    width: calc(100% - 36px);
 }
 
-/* Active: always-visible, slightly thicker underline */
 .hdr-nav-link.is-active {
     color: var(--nav-navy);
     font-weight: 600;
 }
 
 .hdr-nav-link.is-active::after {
-    width: calc(100% - 40px);
+    width: calc(100% - 36px);
     height: 2.5px;
     background: var(--nav-navy);
 }
 
-/* Home icon link */
+/* Home Icon Link */
 .hdr-home-icon {
     font-size: 1.12rem;
     padding: 15px 20px;
     color: var(--nav-navy);
 }
 
-.hdr-home-label { display: none; } /* icon only on desktop */
+.hdr-home-label {
+    display: none;
+}
 
 .hdr-home-icon:hover::after,
 .hdr-home-icon.is-active::after {
     width: calc(100% - 40px);
 }
 
-/* ================================================================
-   LEGACY CLASS SHIMS Ã¢â‚¬â€ preserve compatibility with sub-pages
-   that use old class names (header, navbar, nav-links, etc.)
-   ================================================================ */
+/* Legacy Compatibility */
 .header,
 .hdr-brand {
     background: var(--nav-bg);
 }
 
-.header-top       { background: var(--nav-bg); border-bottom: 1px solid var(--nav-divider); }
-.header-top-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 36px; width: 100%; }
-.logo-container   { display: flex; align-items: center; gap: 15px; }
-.brand-link       { display: flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; }
-.logo             { height: 66px; object-fit: contain; }
-.college-name h1  { font-size: 1.38rem; font-weight: 700; color: var(--nav-navy); margin: 0; line-height: 1.2; }
-.college-name p   { font-size: 0.81rem; color: var(--nav-muted); margin: 3px 0 0; font-weight: 500; }
-.header-top-right { display: flex; align-items: center; gap: 16px; }
-.affiliated-logo  { height: 62px; object-fit: contain; }
-.desktop-only     { display: block; }
-.college-name br  { display: none; }
+.header-top {
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-divider);
+}
 
-.navbar           { background: var(--nav-bg); border-bottom: 1px solid var(--nav-divider); position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 0 var(--nav-divider), 0 3px 10px rgba(18,59,104,.07); }
-.navbar-container { width: 100%; padding: 0 36px; display: flex; align-items: stretch; }
-.nav-links        { display: flex; align-items: stretch; gap: 0; margin: 0; padding: 0; list-style: none; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
-.nav-links::-webkit-scrollbar { display: none; }
+.header-top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 36px;
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    height: 66px;
+    object-fit: contain;
+}
+
+.college-name h1 {
+    font-size: 1.38rem;
+    font-weight: 700;
+    color: var(--nav-navy);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.college-name p {
+    font-size: 0.81rem;
+    color: var(--nav-muted);
+    margin: 3px 0 0;
+    font-weight: 500;
+}
+
+.header-top-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.affiliated-logo {
+    height: 62px;
+    object-fit: contain;
+}
+
+.desktop-only {
+    display: block;
+}
+
+.college-name br {
+    display: none;
+}
+
+.navbar-container {
+    width: 100%;
+    padding: 0 36px;
+    display: flex;
+    align-items: stretch;
+}
+
+.nav-links {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.nav-links::-webkit-scrollbar {
+    display: none;
+}
 
 .nav-links li a {
     display: inline-flex;
@@ -480,16 +546,51 @@ h4 {
     transition: width 0.22s var(--nav-ease);
 }
 
-.nav-links li a:hover        { color: var(--nav-navy); }
-.nav-links li a:hover::after { width: calc(100% - 40px); }
-.nav-links li a.active       { color: var(--nav-navy); font-weight: 600; }
-.nav-links li a.active::after{ width: calc(100% - 40px); height: 2.5px; background: var(--nav-navy); }
+.nav-links li a:hover {
+    color: var(--nav-navy);
+}
 
-.nav-home-btn { font-size: 0.98rem !important; color: var(--nav-navy) !important; padding: 14px 18px !important; }
-.nav-home-btn:hover { color: var(--nav-accent) !important; }
+.nav-links li a:hover::after {
+    width: calc(100% - 36px);
+}
 
-.hamburger          { display: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.hamburger .bar     { display: block; width: 20px; height: 2px; margin: 5px auto; background: var(--nav-navy); border-radius: 2px; transition: var(--transition); }
+.nav-links li a.active {
+    color: var(--nav-navy);
+    font-weight: 600;
+}
+
+.nav-links li a.active::after {
+    width: calc(100% - 36px);
+    height: 2.5px;
+    background: var(--nav-navy);
+}
+
+.nav-home-btn {
+    font-size: 1.12rem !important;
+    color: var(--nav-navy) !important;
+    padding: 15px 20px !important;
+}
+
+.nav-home-btn:hover {
+    color: var(--nav-accent) !important;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 5px auto;
+    background: var(--nav-navy);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
 /* Animations */
 .fade-in-up {
     opacity: 0;
@@ -639,79 +740,110 @@ h4 {
     color: #888888;
 }
 
-/* ================================================================
-   RESPONSIVE HEADER (new .hdr-* classes + legacy compat)
-   ================================================================ */
-
+/* Responsive Media Queries */
 @media (max-width: 1200px) {
     .hdr-brand-inner,
-    .hdr-nav-inner      { padding-left: 24px; padding-right: 24px; }
-    .hdr-college-name   { font-size: 1.22rem; }
-    .hdr-nav-link       { padding: 15px 18px; font-size: 1.02rem; }
-    .hdr-home-icon      { padding: 15px 20px; }
+    .hdr-nav-inner {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .hdr-college-name {
+        font-size: 1.22rem;
+    }
+    .hdr-nav-link {
+        padding: 14px 14px;
+        font-size: 0.95rem;
+    }
+    .hdr-home-icon {
+        padding: 14px 16px;
+    }
 
-    /* Legacy */
     .header-top-container,
-    .navbar-container   { padding-left: 24px; padding-right: 24px; }
-    .nav-links li a     { font-size: 1.02rem; padding: 15px 18px; }
+    .navbar-container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .nav-links li a {
+        font-size: 0.95rem;
+        padding: 14px 14px;
+    }
 }
 
 @media (max-width: 992px) {
-    .footer-grid        { grid-template-columns: 1fr; }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
 
     .hdr-brand-inner,
-    .hdr-nav-inner      { padding-left: 18px; padding-right: 18px; }
-    .hdr-logo           { height: 54px; }
-    .hdr-affil          { height: 48px; }
-    .hdr-college-name   { font-size: 1.12rem; }
-    .hdr-nav-link       { padding: 15px 18px; font-size: 1.02rem; }
-    .hdr-home-icon      { padding: 15px 20px; }
+    .hdr-nav-inner {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+    .hdr-logo {
+        height: 54px;
+    }
+    .hdr-affil {
+        height: 48px;
+    }
+    .hdr-college-name {
+        font-size: 1.12rem;
+    }
+    .hdr-nav-link {
+        padding: 13px 11px;
+        font-size: 0.9rem;
+    }
+    .hdr-home-icon {
+        padding: 13px 14px;
+    }
 
-    /* Legacy */
-    .header-top-container { padding: 6px 18px; }
-    .navbar-container     { padding: 0 18px; }
-    .college-name h1      { font-size: 1.12rem; }
-    .logo                 { height: 54px; }
-    .affiliated-logo      { height: 48px; }
-    .nav-links li a       { padding: 15px 18px; font-size: 1.02rem; }
+    .header-top-container {
+        padding: 6px 18px;
+    }
+    .navbar-container {
+        padding: 0 18px;
+    }
+    .college-name h1 {
+        font-size: 1.12rem;
+    }
+    .logo {
+        height: 54px;
+    }
+    .affiliated-logo {
+        height: 48px;
+    }
+    .nav-links li a {
+        padding: 13px 11px;
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 768px) {
-    /* Ã¢â€â‚¬ Branding row Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .desktop-only       { display: none !important; }
+    .desktop-only {
+        display: none !important;
+    }
 
-    .hdr-brand-inner    { padding: 8px 16px; gap: 12px; }
-    .hdr-logo           { height: 46px; }
-    .hdr-college-name   { font-size: 1rem; white-space: normal; }
-    .hdr-hamburger      { display: flex; }
+    .hdr-brand-inner {
+        padding: 8px 16px;
+        gap: 12px;
+    }
+    .hdr-logo {
+        height: 46px;
+    }
+    .hdr-college-name {
+        font-size: 1rem;
+        white-space: normal;
+    }
+    .hdr-hamburger {
+        display: flex;
+    }
 
-    /* Ã¢â€â‚¬ Nav drawer Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .hdr-nav,
-.navbar {
-    background: var(--nav-bg);
-    border-bottom: 1px solid var(--nav-divider);
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 1px 0 var(--nav-divider), 0 3px 10px rgba(18, 59, 104, .07);
-    transition: box-shadow 0.2s ease, background 0.2s ease;
-}
-
-/* Constant fixed state when user scrolls down */
-.hdr-nav.is-sticky-fixed,
-.navbar.is-sticky-fixed {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    z-index: 9999 !important;
-    box-shadow: 0 4px 18px rgba(18, 59, 104, 0.16) !important;
-}
-    .hdr-nav-inner      { padding: 0; }
+    .hdr-nav {
+        border-bottom: none;
+        position: relative;
+    }
+    .hdr-nav-inner {
+        padding: 0;
+    }
 
     .hdr-nav-list {
         position: absolute;
@@ -723,36 +855,65 @@ h4 {
         align-items: flex-start;
         padding: 8px 0 16px;
         gap: 0;
-        box-shadow: 0 16px 24px rgba(18, 59, 104, .12);
+        box-shadow: 0 16px 24px rgba(18, 59, 104, 0.12);
         transition: left 0.28s var(--nav-ease);
         z-index: 1001;
         border-bottom: 1px solid var(--nav-divider);
     }
 
-    .hdr-nav-list.is-open { left: 0; }
-    .hdr-nav-list > li    { width: 100%; border-bottom: 1px solid var(--nav-divider); }
+    .hdr-nav-list.is-open {
+        left: 0;
+    }
+    .hdr-nav-list > li {
+        width: 100%;
+        border-bottom: 1px solid var(--nav-divider);
+    }
 
     .hdr-nav-link {
         width: 100%;
-        padding: 15px 18px;
-        font-size: 1.02rem;
+        padding: 14px 20px;
+        font-size: 0.95rem;
     }
 
-    .hdr-nav-link::after { display: none; }
+    .hdr-nav-link::after {
+        display: none;
+    }
 
-    /* Show text label for home icon on mobile */
-    .hdr-home-label { display: inline; margin-left: 8px; }
-    .hdr-home-icon  { padding: 15px 20px; font-size: 1.12rem; }
+    .hdr-home-label {
+        display: inline;
+        margin-left: 8px;
+    }
+    .hdr-home-icon {
+        padding: 14px 20px;
+        font-size: 1rem;
+    }
 
-    /* Ã¢â€â‚¬ Legacy compat Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
-    .section            { padding: 30px 0; }
-    .header-top-container { padding: 8px 16px; }
-    .logo               { height: 46px; }
-    .college-name h1    { font-size: 1rem; margin-top: 2px; }
-    .college-name br    { display: initial; }
-    .college-name p     { font-size: 0.74rem; }
-    .navbar             { border-top: none; border-bottom: 1px solid var(--nav-divider); }
-    .navbar-container   { padding: 0; }
+    .section {
+        padding: 30px 0;
+    }
+    .header-top-container {
+        padding: 8px 16px;
+    }
+    .logo {
+        height: 46px;
+    }
+    .college-name h1 {
+        font-size: 1rem;
+        margin-top: 2px;
+    }
+    .college-name br {
+        display: initial;
+    }
+    .college-name p {
+        font-size: 0.74rem;
+    }
+    .navbar {
+        border-top: none;
+        border-bottom: 1px solid var(--nav-divider);
+    }
+    .navbar-container {
+        padding: 0;
+    }
 
     .nav-links {
         position: absolute;
@@ -764,48 +925,86 @@ h4 {
         align-items: flex-start;
         padding: 8px 0 16px;
         gap: 0;
-        box-shadow: 0 16px 24px rgba(18, 59, 104, .12);
+        box-shadow: 0 16px 24px rgba(18, 59, 104, 0.12);
         transition: left 0.28s var(--nav-ease);
         z-index: 1001;
         border-bottom: 1px solid var(--nav-divider);
     }
 
-    .nav-links.active   { left: 0; }
-    .nav-links li       { width: 100%; border-bottom: 1px solid var(--nav-divider); }
+    .nav-links.active {
+        left: 0;
+    }
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid var(--nav-divider);
+    }
 
     .nav-links li a {
         display: flex;
         align-items: center;
-        padding: 15px 18px;
-        font-size: 1.02rem;
+        padding: 14px 20px;
+        font-size: 0.95rem;
         width: 100%;
     }
 
-    .nav-links li a::after { display: none; }
+    .nav-links li a::after {
+        display: none;
+    }
 
-    .nav-home-btn       { padding: 13px 20px !important; font-size: 0.9rem !important; }
-    .nav-home-btn::after{ content: ' HOME'; font-size: 0.9rem; font-weight: 600; }
+    .nav-home-btn {
+        padding: 14px 20px !important;
+        font-size: 0.95rem !important;
+    }
+    .nav-home-btn::after {
+        content: ' HOME';
+        font-size: 0.95rem;
+        font-weight: 600;
+    }
 
-    .hamburger          { display: block; }
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .hamburger {
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
 
-    .top-bar            { display: none; }
-    .container          { width: 100%; padding: 0 15px; }
-    .full-width-container { padding: 0; }
-    .section-title      { margin-bottom: 25px; padding: 0 15px; }
-    .title-underline    { width: 60px; height: 3px; margin: 10px auto 0; }
+    .top-bar {
+        display: none;
+    }
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    .full-width-container {
+        padding: 0;
+    }
+    .section-title {
+        margin-bottom: 25px;
+        padding: 0 15px;
+    }
+    .title-underline {
+        width: 60px;
+        height: 3px;
+        margin: 10px auto 0;
+    }
 
     .section-title h2,
     .section-title h3,
     .section-header h2,
-    .section-header h3  { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; }
+    .section-header h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
 }
-/* ==============================================================
-   MIT-Inspired Smooth Image Hover Zoom
-   Subtle 1.04 zoom contained within overflow:hidden, 0.4s ease
-   ============================================================== */
+
+/* Image Zoom Hover */
 .img-zoom-wrap,
 .image-zoom-box {
     overflow: hidden;

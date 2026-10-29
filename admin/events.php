@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
 
-        // Handle image upload from PC
+        // Process uploaded image
         $upload = handleImageUpload('event_image', 'events', null, $_POST['image_url'] ?? null);
         if (!$upload['success']) {
             setFlashMessage('danger', $upload['error']);
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
 
-        // Handle image upload from PC (keeps existing if no new file selected)
+        // Process uploaded image or retain existing file
         $upload = handleImageUpload('event_image', 'events', $existingImage, $_POST['image_url'] ?? null);
         if (!$upload['success']) {
             setFlashMessage('danger', $upload['error']);

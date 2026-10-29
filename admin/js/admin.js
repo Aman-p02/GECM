@@ -1,6 +1,5 @@
 /**
- * GEC MODASA — ADMIN PANEL JAVASCRIPT
- * Handles sidebar toggling, instant table search filtering, CSV export, print, and modal dialogs.
+ * Admin panel scripts for table search, filters, export, and modal dialogues.
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -113,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 6. PDF Export (clean print fallback with instructions or direct trigger)
+    // 6. PDF Export
     const pdfButtons = document.querySelectorAll('.btn-export-pdf');
     pdfButtons.forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -149,7 +148,7 @@ function closeModal(modalId) {
     }
 }
 
-// Close modal if user clicks on overlay background
+// Close modal on backdrop click
 document.addEventListener('click', function (e) {
     if (e.target && e.target.classList.contains('modal-overlay')) {
         e.target.classList.remove('active');

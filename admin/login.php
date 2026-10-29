@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     header('Location: dashboard.php');
                     exit;
                 } else if ($username === 'admin' && ($password === 'admin123' || $password === 'password123')) {
-                    // Fallback for default credential setup
+                    // Default setup fallback
                     $_SESSION['admin_logged_in'] = true;
                     $_SESSION['admin_id'] = 1;
                     $_SESSION['admin_username'] = 'admin';
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $error = 'Database error: ' . $e->getMessage();
             }
         } else {
-            // DB fallback if local MySQL is temporarily unavailable
+            // Offline fallback
             if ($username === 'admin' && ($password === 'admin123' || $password === 'password123')) {
                 $_SESSION['admin_logged_in'] = true;
                 $_SESSION['admin_id'] = 1;
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             max-width: 420px;
         }
 
-        /* Clean White Login Box (stands out from the light-grey background) */
+        /* Login Card */
         .login-card {
             background-color: #ffffff;
             border: 1px solid #dbe2ea;
@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-weight: 400;
         }
 
-        /* Alert message - Auto disappears after 2 seconds */
+        /* Alert Notification */
         .login-alert {
             display: flex;
             align-items: center;
@@ -576,7 +576,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <script>
-        // 1. Auto-remove red alert / warning after exactly 2 seconds
+        // Auto-dismiss alert notification
         const alertEl = document.getElementById('loginAlert');
         if (alertEl) {
             setTimeout(() => {
@@ -592,7 +592,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }, 2000);
         }
 
-        // 2. Interactive Elements
+        // Form interaction elements
         const monkeySvg = document.getElementById('monkeySvg');
         const thoughtCloud = document.getElementById('thoughtCloud');
         const usernameInput = document.getElementById('username');
@@ -603,13 +603,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         let usernameTimer = null;
         let passwordTimer = null;
 
-        // A. When Admin types username -> Monkey thinks & thought cloud appears: "ohh its username ?"
+        // Username input interaction
         usernameInput.addEventListener('input', function () {
             thoughtCloud.classList.add('active');
             monkeySvg.classList.add('thinking');
 
             clearTimeout(usernameTimer);
-            // When stops typing for 1.2s -> cloud disappears and stops thinking
+            // Reset state after typing pause
             usernameTimer = setTimeout(() => {
                 thoughtCloud.classList.remove('active');
                 monkeySvg.classList.remove('thinking');
@@ -629,17 +629,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             monkeySvg.classList.remove('thinking');
         });
 
-        // B. When Admin types password -> Monkey puts hands over eyes
+        // Password input interaction
         passwordInput.addEventListener('input', function () {
-            // Dismiss thought cloud if open
+            // Reset bubble state
             thoughtCloud.classList.remove('active');
             monkeySvg.classList.remove('thinking');
 
-            // Hands cover eyes
+            // Trigger covering animation
             monkeySvg.classList.add('covering');
 
             clearTimeout(passwordTimer);
-            // When admin stops typing for 1 second -> hands leave eyes
+            // Reset covering state after typing pause
             passwordTimer = setTimeout(() => {
                 monkeySvg.classList.remove('covering');
             }, 1000);
@@ -658,11 +658,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             monkeySvg.classList.remove('covering');
         });
 
-        // C. When Admin submits form -> Tail wagging only (JUMP REMOVED)
+        // Form submission animation
         loginForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // Hide clouds, hands down, tail wags!
+            // Trigger submit state animation
             thoughtCloud.classList.remove('active');
             monkeySvg.classList.remove('covering');
             monkeySvg.classList.remove('thinking');
@@ -671,7 +671,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Signing in...';
 
-            // Wait a brief moment for tail wag animation, then submit form
+            // Submit after animation delay
             setTimeout(() => {
                 loginForm.submit();
             }, 600);

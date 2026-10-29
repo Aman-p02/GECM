@@ -1,6 +1,3 @@
-/* ==============================================================
-   GECM Master Stylesheet
-   Imports Global Styles + Home Styles for backward compatibility
-   ============================================================== */
+/* Master Stylesheet */
 @import url('css/global.css?v=1');
 @import url('css/home.css?v=1');

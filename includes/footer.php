@@ -63,7 +63,7 @@
         </div>
     </footer>
 
-    <!-- Global JS -->
+    <!-- Scripts -->
     <script src="<?= $root_path ?? '' ?>js/global.js?v=<?= file_exists(__DIR__ . '/../js/global.js') ? filemtime(__DIR__ . '/../js/global.js') : time() ?>"></script>
 <?php if (isset($extra_js)): ?>
     <?php if (is_array($extra_js)): ?>

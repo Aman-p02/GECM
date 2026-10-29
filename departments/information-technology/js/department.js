@@ -1,15 +1,11 @@
-/* ==============================================================
-   GECM Department Detail Page Interactions
-   - Scroll-triggered reveal loading across ALL department tabs
-   - Smooth navigation scrolling and facility sub-tabs
-   ============================================================== */
+/* Department Page Scripts */
 
 document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.dept-nav-link');
     const tabPanes = document.querySelectorAll('.dept-tab-content');
     const pageTitle = document.getElementById('deptPageTitle');
 
-    // Title map for clean presentation
+    // Section titles
     const titleMap = {
         'about': 'About Department',
         'vision-mission': 'Vision and Mission',
@@ -38,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!startTime) startTime = timestamp;
             const elapsed = timestamp - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // Smooth natural easeOutCubic curve
+            // Easing function
             const ease = 1 - Math.pow(1 - progress, 3);
 
             window.scrollTo(0, startY + (diff * ease));
@@ -99,12 +95,12 @@ document.addEventListener('DOMContentLoaded', function () {
             // Check if element is currently within the visible viewport window
             const rect = el.getBoundingClientRect();
             if (rect.top >= 0 && rect.top < window.innerHeight - 60) {
-                // Calm, slow stagger cascade for initial viewport items
+                // Reveal visible elements
                 setTimeout(() => {
                     el.classList.add('is-revealed');
                 }, Math.min(index * 220, 1100));
             } else {
-                // For items below the screen, smoothly reveal as user scrolls down!
+                // Reveal remaining elements on scroll
                 if (revealObserver) {
                     revealObserver.observe(el);
                 } else {
@@ -120,10 +116,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function activateTab(tabId, shouldScroll = false) {
         if (!tabId) return;
 
-        // Clean tabId (remove leading #)
+        // Normalize tab ID
         tabId = tabId.replace('#', '');
 
-        // Map parent tabs to default sub-options
+        // Default tab mappings
         if (tabId === 'advisory-board') tabId = 'iab-2025-26';
         if (tabId === 'newsletters') tabId = 'nl-vol1-issue2';
 
@@ -133,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!targetPane) return;
 
-        // Remove active class from all links, parents, and sub-links
+        // Reset active states
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.parentElement) {
@@ -144,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const allSubLinks = document.querySelectorAll('.dept-sub-link');
         allSubLinks.forEach(sub => sub.classList.remove('active'));
 
-        // Activate regular nav link if matched
+        // Highlight matching navigation link
         if (targetLink) {
             targetLink.classList.add('active');
             if (targetLink.parentElement) {
@@ -152,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Activate sub-links and expand their dropdown if matched
+        // Expand parent and highlight matching sub-link
         if (targetSubLinks.length > 0) {
             targetSubLinks.forEach(sub => {
                 sub.classList.add('active');
@@ -167,17 +163,17 @@ document.addEventListener('DOMContentLoaded', function () {
         tabPanes.forEach(pane => pane.classList.remove('active'));
         targetPane.classList.add('active');
 
-        // Update Top Page Heading dynamically matching screenshots
+        // Update heading to match active section
         if (pageTitle && titleMap[tabId]) {
             pageTitle.textContent = titleMap[tabId];
         }
 
-        // Initialize scroll reveal on newly activated pane
+        // Trigger reveal animation on active tab
         requestAnimationFrame(() => {
             setupTabReveal(targetPane);
         });
 
-        // On mobile / small screens, center the active pill in the horizontal nav
+        // Center active item in mobile bar
         const scrollTarget = (targetSubLinks.length > 0) ? targetSubLinks[0] : targetLink;
         if (window.innerWidth <= 768 && scrollTarget) {
             try {
@@ -187,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Smooth scroll to content top if triggered by user click on mobile
+        // Scroll to content container on mobile navigation
         if (shouldScroll && window.innerWidth <= 768) {
             const contentPanel = document.querySelector('.dept-content-panel');
             if (contentPanel) {
@@ -212,11 +208,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 activateTab(tabId, true);
             }
-            // Links without data-tab (like Syllabus) naturally open their href in new tab
+            // External links open normally
         });
     });
 
-    // Sidebar Accordion Dropdown Headers (Industry Advisory Board, Newsletters)
+    // Sidebar accordion toggles
     const dropdownHeaders = document.querySelectorAll('.dept-dropdown-header');
     dropdownHeaders.forEach(header => {
         function toggleDropdown(e) {
@@ -241,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Sub-menu Links (IAB 2025-26, IAB 2023-24, Vol. 1 Issue 2, Vol. 1 Issue 1)
+    // Sub-menu navigation links
     document.addEventListener('click', function (e) {
         const subLink = e.target.closest('.dept-sub-link');
         if (subLink) {
@@ -258,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Handle Hash changes & initial load
+    // Handle route hash
     function checkHash() {
         const hash = window.location.hash.substring(1);
         if (hash === 'syllabus') {
@@ -309,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('hashchange', checkHash);
     checkHash();
 
-    // Initial reveal on the active tab
+    // Reveal active tab content
     const initialActivePane = document.querySelector('.dept-tab-content.active');
     if (initialActivePane) {
         requestAnimationFrame(() => {
@@ -317,13 +313,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Year-Wise Dropdown Filter for Publications
+    // Publications year filter
     const pubYearSelect = document.getElementById('pubYearSelect');
     const pubCards = document.querySelectorAll('.publication-card');
     const pubCount = document.getElementById('pubCountBadge');
 
     if (pubCards.length > 0) {
-        // Cache publication year on each card
+        // Parse and cache publication year
         pubCards.forEach(card => {
             const dateSpan = card.querySelector('.publication-date span');
             let year = '';
@@ -356,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Document Accordions (Industry Advisory Board & Newsletters)
+    // Document accordion panels
     const accordionHeaders = document.querySelectorAll('.dept-doc-accordion-header');
     accordionHeaders.forEach(header => {
         header.addEventListener('click', function () {

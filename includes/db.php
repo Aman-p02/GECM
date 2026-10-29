@@ -1,7 +1,6 @@
 <?php
 /**
- * GEC Modasa — Database Connection Handler
- * Uses PDO for secure, prepared SQL execution with utf8mb4 encoding.
+ * Database connection handler.
  */
 
 if (!defined('DB_HOST')) define('DB_HOST', '127.0.0.1');
@@ -24,12 +23,11 @@ function getDBConnection() {
             $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
         } catch (PDOException $e) {
             error_log("Database Connection Error: " . $e->getMessage());
-            // Return null or rethrow based on calling context
             return null;
         }
     }
     return $pdo;
 }
 
-// Global handle for convenience
+// Global connection instance
 $pdo = getDBConnection();
