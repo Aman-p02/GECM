@@ -206,7 +206,7 @@
 .ticker-title {
     display: inline-flex;
     align-items: center;
-    background: #ff8800;
+    background: #ff0000;
     color: #ffffff;
     font-size: 0.74rem;
     font-weight: 700;
@@ -241,7 +241,7 @@
     display: inline-flex;
     align-items: center;
     margin-right: 36px;
-    color: #1e293b;
+    color: #ff0000;
     font-size: 0.88rem;
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -249,7 +249,7 @@
 }
 
 .ticker-content marquee span:hover {
-    color: #ff8800;
+    color: #009dff;
     cursor: pointer;
 }
 
@@ -260,7 +260,7 @@
 .ticker-content marquee span::after {
     content: '•';
     margin-left: 36px;
-    color: #cbd5e1;
+    color: #000000;
     font-size: 0.85rem;
 }
 
@@ -297,8 +297,8 @@
     padding-bottom: 55px;
 }
 
-.two-col-layout > div,
-.home-grid-layout > div {
+.two-col-layout>div,
+.home-grid-layout>div {
     min-width: 0;
 }
 
@@ -378,8 +378,13 @@
 }
 
 @keyframes scrollUp {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
 }
 
 .notice-list li {
@@ -461,9 +466,17 @@
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Event & Gallery Sliders */
@@ -720,7 +733,8 @@
     display: flex;
     gap: 24px;
     overflow-x: auto;
-    scroll-behavior: auto; /* Handled by animation loop */
+    scroll-behavior: auto;
+    /* Handled by animation loop */
     padding: 25px 10px 35px;
     width: 100%;
     scrollbar-width: none;
@@ -838,6 +852,7 @@
 }
 
 @media (max-width: 992px) {
+
     .two-col-layout,
     .home-grid-layout {
         grid-template-columns: 1fr;
@@ -854,6 +869,7 @@
 }
 
 @media (max-width: 768px) {
+
     .two-col-layout,
     .home-grid-layout {
         gap: 24px;

@@ -819,8 +819,10 @@ h4 {
 }
 
 .footer-logo {
-    height: 60px;
-    filter: brightness(0) saturate(100%) invert(14%) sepia(89%) saturate(2257%) hue-rotate(192deg) brightness(97%) contrast(101%);
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
 .footer-logo-text {
@@ -1059,7 +1061,7 @@ h4 {
         padding: 0;
     }
 
-    /* Mobile Navigation Card - Pure Minimalist Architecture */
+    /* Mobile Navigation Card */
     .hdr-nav-list {
         position: absolute;
         top: 6px;
@@ -1247,7 +1249,7 @@ h4 {
     .hdr-dd-link.is-active,
     .hdr-dd-link.active {
         color: #009dff !important;
-        background-color: #f1f5f9 !important;
+        background-color: #d2d9e0 !important;
         font-weight: 500;
     }
 
@@ -1260,7 +1262,7 @@ h4 {
         margin-left: auto;
     }
 
-    /* Activities on Mobile - Clean Section Captions & Plain Text */
+    /* Activities on Mobile */
     .hdr-dropdown-mega {
         min-width: 0 !important;
     }
