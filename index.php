@@ -173,19 +173,6 @@ $deptLogos = [
     'Electronics & Comm.'    => 'logos/ec-department.png',
 ];
 
-// Department background images mapping (for mobile cards)
-$deptImages = [
-    'Computer Engineering'   => 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    'Information Technology' => 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    'Mechanical Engineering' => 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    'Automobile Engineering' => 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    'Civil Engineering'      => 'https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    'Electrical Engineering' => 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    'Electronics & Comm.'    => 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    'Applied Mechanics'      => 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    'Science & Humanities'   => 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-];
-
 include_once __DIR__ . '/includes/header.php';
 ?>
 

@@ -709,15 +709,6 @@
 .dept-card:nth-child(9n+8) { background: #99f6e4; border-color: #5eead4; }
 .dept-card:nth-child(9n+9) { background: #c7d2fe; border-color: #a5b4fc; }
 
-.dept-tag,
-.dept-cta-bar {
-    display: none;
-}
-
-.dept-icon-wrapper {
-    display: block;
-}
-
 /* Department Icon Badge */
 .dept-icon {
     width: 66px;
@@ -986,7 +977,6 @@
     /* Departments Mobile */
     .dept-wrapper {
         padding: 0;
-        overflow: hidden;
     }
 
     .dept-wrapper .scroll-btn {
@@ -995,122 +985,20 @@
 
     .dept-grid {
         gap: 16px;
-        padding: 20px 10vw 35px;
+        padding: 15px 7.5vw 30px;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
     }
 
     .dept-card {
-        flex: 0 0 78vw;
-        max-width: 330px;
-        height: 420px;
-        min-height: 420px;
-        border-radius: 28px;
-        position: relative;
-        overflow: hidden;
+        flex: 0 0 85vw;
+        max-width: 325px;
+        min-width: 0;
         scroll-snap-align: center;
         scroll-snap-stop: always;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 22px 20px 20px;
-        margin: 0;
-        background-color: #0f172a !important;
-        background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.4) 45%, rgba(15, 23, 42, 0.95) 100%), var(--dept-img) !important;
-        background-size: cover !important;
-        background-position: center !important;
-        border: 1px solid rgba(255, 255, 255, 0.18) !important;
-        box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.28) !important;
-    }
-
-    .dept-icon-wrapper {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-    }
-
-    .dept-icon {
-        width: 44px;
-        height: 44px;
-        margin: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.22);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.35);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .dept-icon img {
-        width: 22px;
-        height: 22px;
-        filter: brightness(0) invert(1) !important;
-    }
-
-    .dept-icon i {
-        font-size: 1.15rem;
-        color: #ffffff !important;
-    }
-
-    .dept-card-body {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        width: 100%;
-    }
-
-    .dept-tag {
-        display: block;
-        font-size: 0.80rem;
-        font-weight: 500;
-        color: rgba(255, 255, 255, 0.8);
-        margin-bottom: 4px;
-        letter-spacing: 0.04em;
-    }
-
-    .dept-card h3 {
-        color: #ffffff !important;
-        font-size: 1.45rem;
-        font-weight: 700;
-        margin: 0 0 16px;
-        line-height: 1.25;
-        text-align: left;
-        min-height: auto;
-        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-        display: block;
-    }
-
-    .dept-cta-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background: rgba(24, 24, 27, 0.75);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 40px;
-        padding: 6px 6px 6px 18px;
-        color: #ffffff;
-        font-size: 0.92rem;
-        font-weight: 600;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-    }
-
-    .dept-cta-arrow {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        background: #ffffff;
-        color: #111827;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.85rem;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        padding: 30px 18px;
+        margin: 0 auto;
     }
 
     /* Alumni Mobile */
