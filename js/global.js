@@ -14,11 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const isOpen = list.classList.contains(openClass);
         list.classList.toggle(openClass, !isOpen);
         btn.setAttribute("aria-expanded", String(!isOpen));
+        btn.classList.toggle("is-active", !isOpen);
 
         list.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", () => {
                 list.classList.remove(openClass);
                 btn.setAttribute("aria-expanded", "false");
+                btn.classList.remove("is-active");
                 if (btn.classList.contains("active")) btn.classList.remove("active");
             }, { once: true });
         });
@@ -49,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!hdrHamburger.contains(e.target) && !hdrNavList.contains(e.target)) {
                 hdrNavList.classList.remove("is-open");
                 hdrHamburger.setAttribute("aria-expanded", "false");
+                hdrHamburger.classList.remove("is-active");
             }
         }
         if (legacyHamburger && legacyNavLinks && legacyNavLinks.classList.contains("active")) {
