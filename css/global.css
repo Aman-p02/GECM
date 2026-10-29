@@ -14,15 +14,6 @@
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.1);
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-    /* Navigation */
-    --nav-navy: #123B68;
-    --nav-accent: #1677D2;
-    --nav-divider: #E5EAF0;
-    --nav-muted: #5B6573;
-    --nav-bg: #FFFFFF;
-    --nav-line-h: 2px;
-    --nav-ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Reset & Base */
@@ -191,13 +182,13 @@ h4 {
 
 /* Header & Branding */
 .site-header {
-    background: var(--nav-bg);
+    background: #ffffff;
     width: 100%;
 }
 
 .hdr-brand {
-    background: var(--nav-bg);
-    border-bottom: 1px solid var(--nav-divider);
+    background: #ffffff;
+    border-bottom: 1px solid #e5eaf0;
 }
 
 .hdr-brand-inner {
@@ -220,7 +211,7 @@ h4 {
 }
 
 .hdr-logo {
-    height: 66px;
+    height: 70px;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
@@ -237,7 +228,7 @@ h4 {
     font-size: 1.50rem;
     font-weight: 700;
     line-height: 1.2;
-    color: #ff0101;
+    color: #000000;
     letter-spacing: -0.15px;
     white-space: nowrap;
 }
@@ -271,7 +262,7 @@ h4 {
     width: 40px;
     height: 40px;
     background: none;
-    border: 1px solid var(--nav-divider);
+    border: 1px solid #e5eaf0;
     border-radius: 6px;
     cursor: pointer;
     padding: 8px;
@@ -281,16 +272,16 @@ h4 {
 }
 
 .hdr-hamburger:hover {
-    border-color: var(--nav-navy);
+    border-color: #123b68;
 }
 
 .hbr {
     display: block;
     width: 20px;
     height: 2px;
-    background: var(--nav-navy);
+    background: #123b68;
     border-radius: 2px;
-    transition: transform 0.25s var(--nav-ease), opacity 0.2s ease;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
     transform-origin: center;
 }
 
@@ -310,15 +301,15 @@ h4 {
 /* Navigation Bar */
 .hdr-nav,
 .navbar {
-    background: var(--nav-bg);
-    border-bottom: 1px solid var(--nav-divider);
+    background: #ffffff;
+    border-bottom: 1px solid #e5eaf0;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 1px 0 var(--nav-divider), 0 3px 10px rgba(18, 59, 104, 0.07);
+    box-shadow: 0 1px 0 #e5eaf0, 0 3px 10px rgba(18, 59, 104, 0.07);
     transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 
@@ -366,12 +357,12 @@ h4 {
     font-family: var(--font-main);
     font-size: 1.02rem;
     font-weight: 600;
-    color: #1e293b;
+    color: #000000;
     text-decoration: none;
     white-space: nowrap;
     letter-spacing: 0.01em;
     position: relative;
-    transition: color 0.2s var(--nav-ease);
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
 }
 
@@ -381,16 +372,16 @@ h4 {
     bottom: 0;
     left: 50%;
     width: 0;
-    height: var(--nav-line-h);
-    background: var(--nav-accent);
+    height: 2px;
+    background: #1677d2;
     border-radius: 1px 1px 0 0;
     transform: translateX(-50%);
-    transition: width 0.22s var(--nav-ease);
+    transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
 }
 
 .hdr-nav-link:hover {
-    color: var(--nav-navy);
+    color: #009dff;
 }
 
 .hdr-nav-link:hover::after,
@@ -400,19 +391,19 @@ h4 {
 }
 
 .hdr-nav-link.is-active {
-    color: var(--nav-navy);
+    color: #1677d2;
     font-weight: 600;
 }
 
 /* Legacy Compatibility */
 .header,
 .hdr-brand {
-    background: var(--nav-bg);
+    background: #ffffff;
 }
 
 .header-top {
-    background: var(--nav-bg);
-    border-bottom: 1px solid var(--nav-divider);
+    background: #ffffff;
+    border-bottom: 1px solid #e5eaf0;
 }
 
 .header-top-container {
@@ -445,14 +436,14 @@ h4 {
 .college-name h1 {
     font-size: 1.38rem;
     font-weight: 700;
-    color: var(--nav-navy);
+    color: #123b68;
     margin: 0;
     line-height: 1.2;
 }
 
 .college-name p {
     font-size: 0.81rem;
-    color: var(--nav-muted);
+    color: #5b6573;
     margin: 3px 0 0;
     font-weight: 500;
 }
@@ -510,7 +501,7 @@ h4 {
     text-decoration: none;
     white-space: nowrap;
     position: relative;
-    transition: color 0.2s var(--nav-ease);
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links li a::after {
@@ -519,15 +510,15 @@ h4 {
     bottom: 0;
     left: 50%;
     width: 0;
-    height: var(--nav-line-h);
-    background: var(--nav-accent);
+    height: 2px;
+    background: #1677d2;
     border-radius: 1px 1px 0 0;
     transform: translateX(-50%);
-    transition: width 0.22s var(--nav-ease);
+    transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links li a:hover {
-    color: var(--nav-navy);
+    color: #123b68;
 }
 
 .nav-links li a:hover::after {
@@ -535,24 +526,24 @@ h4 {
 }
 
 .nav-links li a.active {
-    color: var(--nav-navy);
+    color: #123b68;
     font-weight: 600;
 }
 
 .nav-links li a.active::after {
     width: calc(100% - 36px);
     height: 2.5px;
-    background: var(--nav-navy);
+    background: #123b68;
 }
 
 .nav-home-btn {
     font-size: 1.12rem !important;
-    color: var(--nav-navy) !important;
+    color: #123b68 !important;
     padding: 15px 20px !important;
 }
 
 .nav-home-btn:hover {
-    color: var(--nav-accent) !important;
+    color: #1677d2 !important;
 }
 
 .hamburger {
@@ -566,7 +557,7 @@ h4 {
     width: 20px;
     height: 2px;
     margin: 5px auto;
-    background: var(--nav-navy);
+    background: #123b68;
     border-radius: 2px;
     transition: var(--transition);
 }
@@ -855,15 +846,15 @@ h4 {
         top: 0;
         left: -100%;
         width: 100%;
-        background: var(--nav-bg);
+        background: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         padding: 8px 0 16px;
         gap: 0;
         box-shadow: 0 16px 24px rgba(18, 59, 104, 0.12);
-        transition: left 0.28s var(--nav-ease);
+        transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1001;
-        border-bottom: 1px solid var(--nav-divider);
+        border-bottom: 1px solid #e5eaf0;
     }
 
     .hdr-nav-list.is-open {
@@ -872,7 +863,7 @@ h4 {
 
     .hdr-nav-list>li {
         width: 100%;
-        border-bottom: 1px solid var(--nav-divider);
+        border-bottom: 1px solid #e5eaf0;
     }
 
     .hdr-nav-link {
@@ -922,7 +913,7 @@ h4 {
 
     .navbar {
         border-top: none;
-        border-bottom: 1px solid var(--nav-divider);
+        border-bottom: 1px solid #e5eaf0;
     }
 
     .navbar-container {
@@ -934,15 +925,15 @@ h4 {
         top: 100%;
         left: -100%;
         width: 100%;
-        background-color: var(--nav-bg);
+        background-color: #ffffff;
         flex-direction: column;
         align-items: flex-start;
         padding: 8px 0 16px;
         gap: 0;
         box-shadow: 0 16px 24px rgba(18, 59, 104, 0.12);
-        transition: left 0.28s var(--nav-ease);
+        transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1001;
-        border-bottom: 1px solid var(--nav-divider);
+        border-bottom: 1px solid #e5eaf0;
     }
 
     .nav-links.active {
@@ -951,7 +942,7 @@ h4 {
 
     .nav-links li {
         width: 100%;
-        border-bottom: 1px solid var(--nav-divider);
+        border-bottom: 1px solid #e5eaf0;
     }
 
     .nav-links li a {
