@@ -316,13 +316,13 @@
     font-size: 1.15rem;
     font-weight: 700;
     margin: 0;
-    color: #0c3b6d;
+    color: #000000;
     letter-spacing: -0.015em;
 }
 
 .view-all {
-    color: #0284c7;
-    background: #f0f9ff;
+    color: #ffffff;
+    background: #ff8800;
     font-size: 0.78rem;
     font-weight: 600;
     padding: 4px 12px;
@@ -332,7 +332,7 @@
 }
 
 .view-all:hover {
-    background: #0c3b6d;
+    background: #009dff;
     color: #ffffff;
 }
 
@@ -386,6 +386,7 @@
     0% {
         transform: translateY(0);
     }
+
     100% {
         transform: translateY(-50%);
     }
@@ -416,8 +417,8 @@
 }
 
 .notice-list .date {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    border: 1px solid #c6d1dd;
     border-radius: 8px;
     min-width: 46px;
     height: 48px;
@@ -433,7 +434,7 @@
     font-size: 1.18rem;
     font-weight: 700;
     line-height: 1;
-    color: #0c3b6d;
+    color: #ff0000;
 }
 
 .notice-list .date .month {
@@ -441,7 +442,7 @@
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.05em;
-    color: #0284c7;
+    color: #000000;
     margin-top: 2px;
 }
 
@@ -452,7 +453,7 @@
 }
 
 .notice-text a {
-    color: #1e293b;
+    color: #000000;
     font-weight: 500;
     text-decoration: none;
     transition: color 0.15s ease;
@@ -463,9 +464,9 @@
 }
 
 .badge.new {
-    background: #fef2f2;
-    color: #dc2626;
-    border: 1px solid #fee2e2;
+    background: #ff0000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
     font-size: 0.65rem;
     font-weight: 600;
     padding: 1px 6px;
@@ -537,14 +538,14 @@
     font-size: 1.05rem;
     font-weight: 700;
     margin: 0 0 6px;
-    color: #0c3b6d;
+    color: #ff8800;
     line-height: 1.35;
 }
 
 .slide-content p,
 .shot-content p {
     font-size: 0.85rem;
-    color: #64748b;
+    color: #000000;
     margin: 0 0 14px;
     line-height: 1.5;
     display: -webkit-box;
@@ -559,7 +560,7 @@
     align-items: center;
     gap: 6px;
     padding: 7px 16px;
-    background-color: #0c3b6d;
+    background-color: #ff8800;
     color: #ffffff;
     border-radius: 6px;
     font-size: 0.80rem;
@@ -570,7 +571,7 @@
 }
 
 .view-full-btn:hover {
-    background-color: #0284c7;
+    background-color: #009dff;
     transform: translateX(2px);
 }
 
@@ -596,12 +597,31 @@
 }
 
 .slider-dots .dot.active {
-    background-color: #0c3b6d;
+    background-color: #6c5c5c;
     width: 18px;
     border-radius: 3px;
 }
 
 /* Departments Section */
+#departments .section-title {
+    margin-bottom: 35px;
+}
+
+#departments .section-title h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0c3b6d;
+    letter-spacing: -0.02em;
+}
+
+#departments .title-underline {
+    width: 44px;
+    height: 3px;
+    background: #0c3b6d;
+    border-radius: 2px;
+    margin: 12px auto 0;
+}
+
 .dept-wrapper {
     position: relative;
     display: flex;
@@ -615,8 +635,8 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    gap: 26px;
-    padding: 20px 10px 30px;
+    gap: 24px;
+    padding: 16px 8px 28px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     width: 100%;
@@ -627,87 +647,106 @@
 }
 
 .dept-card {
-    flex: 0 0 calc((100% - (26px * 3)) / 4);
+    flex: 0 0 calc((100% - (24px * 3)) / 4);
     min-width: 250px;
     scroll-snap-align: start;
-    background: var(--bg-white);
-    padding: 36px 24px;
-    border-radius: 18px;
+    background: #ffffff;
+    padding: 32px 22px 26px;
+    border-radius: 14px;
     text-align: center;
-    box-shadow: 0 10px 25px -4px rgba(12, 59, 109, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(12, 59, 109, 0.08);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
     position: relative;
     overflow: hidden;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .dept-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px -4px rgba(12, 59, 109, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04);
-    border-color: rgba(12, 59, 109, 0.22);
+    transform: translateY(-4px);
+    border-color: #cbd5e1;
+    box-shadow: 0 12px 28px -4px rgba(12, 59, 109, 0.10), 0 4px 10px -2px rgba(12, 59, 109, 0.04);
 }
 
 .dept-icon {
-    width: 72px;
-    height: 72px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    background: rgba(12, 59, 109, 0.07);
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 18px;
+    border-radius: 12px;
+    background: #f0f7ff;
+    border: 1px solid #dbeafe;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.1rem;
-    color: var(--primary-color);
-    transition: all 0.35s ease;
+    font-size: 1.8rem;
+    color: #0c3b6d;
+    transition: all 0.25s ease;
 }
 
 .dept-icon img,
 .dept-icon .dept-img-icon {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
     filter: invert(18%) sepia(54%) saturate(2200%) hue-rotate(193deg) brightness(91%) contrast(97%);
-    transition: all 0.35s ease;
+    transition: all 0.25s ease;
 }
 
 .dept-card:hover .dept-icon {
-    background: rgba(243, 156, 18, 0.16);
-    color: var(--secondary-hover);
-    transform: scale(1.1) rotate(4deg);
+    background: #0c3b6d;
+    border-color: #0c3b6d;
+    transform: translateY(-2px);
 }
 
 .dept-card:hover .dept-icon img,
 .dept-card:hover .dept-icon .dept-img-icon {
-    filter: invert(61%) sepia(76%) saturate(1800%) hue-rotate(360deg) brightness(98%) contrast(95%);
+    filter: brightness(0) invert(1);
 }
 
 .dept-card h3 {
-    font-size: 1.18rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: var(--primary-color);
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin: 0 0 16px;
+    color: #0a2540;
+    line-height: 1.35;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s ease;
+}
+
+.dept-card:hover h3 {
+    color: #0c3b6d;
 }
 
 .dept-link {
-    color: var(--secondary-color);
-    font-weight: 600;
-    font-size: 0.92rem;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    transition: var(--transition);
+    padding: 7px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.80rem;
+    font-weight: 600;
+    color: #0c3b6d;
+    text-decoration: none;
+    transition: all 0.2s ease;
 }
 
 .dept-link i {
-    transition: transform 0.3s ease;
+    font-size: 0.72rem;
+    transition: transform 0.2s ease;
 }
 
 .dept-card:hover .dept-link {
-    color: var(--secondary-hover);
+    background: #0c3b6d;
+    border-color: #0c3b6d;
+    color: #ffffff;
 }
 
 .dept-card:hover .dept-link i {
-    transform: translateX(5px);
+    transform: translateX(3px);
 }
 
 /* Alumni Section */
@@ -808,11 +847,11 @@
 
 /* Carousel Controls */
 .scroll-btn {
-    background: var(--primary-color);
-    color: #fff;
-    border: none;
-    width: 44px;
-    height: 44px;
+    background: #ffffff;
+    color: #0c3b6d;
+    border: 1px solid #e2e8f0;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     cursor: pointer;
     position: absolute;
@@ -820,15 +859,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
-    box-shadow: 0 6px 16px rgba(12, 59, 109, 0.28);
-    font-size: 1.05rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    font-size: 0.88rem;
 }
 
 .scroll-btn:hover {
-    background: var(--secondary-color);
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(243, 156, 18, 0.4);
+    background: #0c3b6d;
+    color: #ffffff;
+    border-color: #0c3b6d;
+    box-shadow: 0 6px 16px rgba(12, 59, 109, 0.22);
+    transform: scale(1.06);
 }
 
 .left-btn {
