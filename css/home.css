@@ -1050,3 +1050,405 @@
         padding: 25px 18px;
     }
 }
+
+/* ==============================================================
+   Stacked Card Carousel (3D Layered Physical Deck)
+   ============================================================== */
+.stacked-carousel-section {
+    padding: 80px 0 90px;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.stacked-carousel-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Left Narrative Column */
+.stacked-text-col {
+    max-width: 440px;
+}
+
+.stacked-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: #e0f2fe;
+    color: #0369a1;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 18px;
+}
+
+.stacked-tag i {
+    font-size: 0.78rem;
+}
+
+.stacked-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #0c3b6d;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+}
+
+.stacked-desc {
+    font-size: 1.02rem;
+    color: #475569;
+    line-height: 1.65;
+    margin-bottom: 30px;
+}
+
+.stacked-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stacked-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #0c3b6d;
+    border: 1.5px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stacked-btn:hover {
+    background: #0c3b6d;
+    color: #ffffff;
+    border-color: #0c3b6d;
+    transform: scale(1.08);
+    box-shadow: 0 8px 24px rgba(12, 59, 109, 0.25);
+}
+
+.stacked-btn:active {
+    transform: scale(0.96);
+}
+
+.stacked-counter {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.08em;
+    margin-left: 8px;
+}
+
+.stacked-counter span {
+    color: #0c3b6d;
+    font-size: 1.15rem;
+}
+
+/* Right Stack Column (3D Physical Deck) */
+.stacked-deck-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    height: 480px;
+    margin: 0 auto;
+    perspective: 1200px;
+}
+
+.stacked-deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.stacked-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 86%;
+    height: 94%;
+    border-radius: 26px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-color: #0f172a;
+    box-shadow: 0 25px 50px -12px rgba(12, 59, 109, 0.28), 0 10px 20px -5px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    user-select: none;
+    will-change: transform, opacity;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+                opacity 0.5s ease,
+                box-shadow 0.5s ease;
+}
+
+/* Gradient Overlay at Bottom */
+.stacked-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, 
+        rgba(12, 35, 64, 0.1) 0%, 
+        rgba(12, 35, 64, 0.35) 45%, 
+        rgba(10, 25, 47, 0.95) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Top Action Buttons on Card */
+.stacked-card-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.stacked-card-heart {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.05rem;
+    z-index: 5;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stacked-card-heart:hover {
+    background: rgba(255, 255, 255, 0.40);
+    transform: scale(1.12);
+    color: #f43f5e;
+}
+
+/* Bottom Card Content */
+.stacked-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 24px 24px;
+    z-index: 2;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.stacked-card-meta {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #93c5fd;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.stacked-card-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 8px;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.stacked-card-desc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.5;
+    margin: 0 0 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Pill CTA matching travel card aesthetic */
+.stacked-card-pill {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 40px;
+    padding: 6px 6px 6px 20px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.stacked-pill-text {
+    font-size: 0.90rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.01em;
+}
+
+.stacked-pill-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #0c3b6d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.stacked-card:hover .stacked-card-pill {
+    background: rgba(15, 23, 42, 0.85);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.stacked-card:hover .stacked-pill-btn {
+    transform: translateX(3px) scale(1.05);
+    background: #38bdf8;
+    color: #0c2340;
+}
+
+/* 3D Physical Deck Layering States */
+.stacked-card[data-layer="0"] {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    z-index: 30;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.stacked-card[data-layer="1"] {
+    transform: translate3d(48px, -14px, -40px) scale(0.93) rotate(3deg);
+    z-index: 20;
+    opacity: 0.90;
+    pointer-events: auto;
+}
+
+.stacked-card[data-layer="2"] {
+    transform: translate3d(92px, -28px, -80px) scale(0.86) rotate(6deg);
+    z-index: 10;
+    opacity: 0.75;
+    pointer-events: auto;
+}
+
+.stacked-card[data-layer="hidden"] {
+    transform: translate3d(120px, -40px, -120px) scale(0.80) rotate(8deg);
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.stacked-card.is-leaving {
+    transform: translate3d(-125%, 20px, 40px) scale(0.92) rotate(-12deg) !important;
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .stacked-carousel-section {
+        padding: 60px 0 70px;
+    }
+
+    .stacked-carousel-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .stacked-text-col {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .stacked-title {
+        font-size: 2.1rem;
+    }
+
+    .stacked-controls {
+        justify-content: center;
+    }
+
+    .stacked-deck-wrapper {
+        max-width: 400px;
+        height: 440px;
+    }
+
+    .stacked-card[data-layer="1"] {
+        transform: translate3d(32px, -10px, -40px) scale(0.93) rotate(2.5deg);
+    }
+
+    .stacked-card[data-layer="2"] {
+        transform: translate3d(60px, -20px, -80px) scale(0.86) rotate(5deg);
+    }
+}
+
+@media (max-width: 576px) {
+    .stacked-title {
+        font-size: 1.8rem;
+    }
+
+    .stacked-deck-wrapper {
+        max-width: 330px;
+        height: 400px;
+    }
+
+    .stacked-card {
+        width: 84%;
+        height: 92%;
+        border-radius: 22px;
+    }
+
+    .stacked-card[data-layer="1"] {
+        transform: translate3d(24px, -8px, -40px) scale(0.93) rotate(2deg);
+    }
+
+    .stacked-card[data-layer="2"] {
+        transform: translate3d(46px, -16px, -80px) scale(0.86) rotate(4deg);
+    }
+
+    .stacked-card-title {
+        font-size: 1.25rem;
+    }
+}
