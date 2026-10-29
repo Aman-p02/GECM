@@ -178,7 +178,7 @@ include_once __DIR__ . '/includes/header.php';
 <section id="about" class="hero govt-hero" aria-label="Campus Showcase">
     <!-- Hero Slides -->
     <div class="hero-slider" id="heroSlider">
-        <?php foreach ($heroSlides as $i => $slide): 
+        <?php foreach ($heroSlides as $i => $slide):
             $imgUrl = $slide['image_url'];
             if (!empty($imgUrl) && !file_exists(__DIR__ . '/' . $imgUrl)) {
                 if (str_ends_with($imgUrl, '.webp') && file_exists(__DIR__ . '/' . preg_replace('/\.webp$/i', '.jpg', $imgUrl))) {
@@ -338,20 +338,36 @@ include_once __DIR__ . '/includes/header.php';
             <button class="scroll-btn dept-btn left-btn" id="deptLeftBtn" aria-label="Previous Department"><i
                     class="fas fa-chevron-left"></i></button>
             <div class="dept-grid" id="deptGrid">
-                <?php foreach ($departmentsList as $dept): 
+                <?php foreach ($departmentsList as $dept):
                     $deptCode = strtoupper(trim($dept['code'] ?? ''));
                     $deptName = trim($dept['name'] ?? '');
-                    $resolvedUrl = (!empty($dept['learn_more_url']) && $dept['learn_more_url'] !== '#') 
-                        ? $dept['learn_more_url'] 
-                        : ($deptCode === 'IT' || stripos($deptName, 'Information Technology') !== false 
-                            ? 'departments/information-technology/' 
-                            : ($deptCode === 'CE' || stripos($deptName, 'Computer') !== false 
-                                ? 'departments/computer/' 
+                    $colorClass = 'dept-default';
+                    if ($deptCode === 'IT' || stripos($deptName, 'Information') !== false) {
+                        $colorClass = 'dept-it';
+                    } elseif ($deptCode === 'CE' || stripos($deptName, 'Computer') !== false) {
+                        $colorClass = 'dept-ce';
+                    } elseif ($deptCode === 'EE' || stripos($deptName, 'Electrical') !== false) {
+                        $colorClass = 'dept-ee';
+                    } elseif ($deptCode === 'EC' || stripos($deptName, 'Electronics') !== false) {
+                        $colorClass = 'dept-ec';
+                    } elseif ($deptCode === 'AE' || stripos($deptName, 'Automobile') !== false) {
+                        $colorClass = 'dept-ae';
+                    } elseif ($deptCode === 'CIVIL' || stripos($deptName, 'Civil') !== false) {
+                        $colorClass = 'dept-civil';
+                    } elseif ($deptCode === 'ME' || stripos($deptName, 'Mechanical') !== false) {
+                        $colorClass = 'dept-me';
+                    }
+                    $resolvedUrl = (!empty($dept['learn_more_url']) && $dept['learn_more_url'] !== '#')
+                        ? $dept['learn_more_url']
+                        : ($deptCode === 'IT' || stripos($deptName, 'Information Technology') !== false
+                            ? 'departments/information-technology/'
+                            : ($deptCode === 'CE' || stripos($deptName, 'Computer') !== false
+                                ? 'departments/computer/'
                                 : ($deptCode === 'ME' || stripos($deptName, 'Mechanical') !== false
                                     ? 'departments/mechanical/'
                                     : '#')));
                 ?>
-                <div class="dept-card" onclick="if('<?= htmlspecialchars($resolvedUrl) ?>' !== '#') { window.location.href='<?= htmlspecialchars($resolvedUrl) ?>'; }" style="cursor: <?= ($resolvedUrl !== '#') ? 'pointer' : 'default' ?>;">
+                <div class="dept-card <?= $colorClass ?>" onclick="if('<?= htmlspecialchars($resolvedUrl) ?>' !== '#') { window.location.href='<?= htmlspecialchars($resolvedUrl) ?>'; }" style="cursor: <?= ($resolvedUrl !== '#') ? 'pointer' : 'default' ?>;">
                     <div class="dept-icon">
                         <?php if (!empty($deptLogos[$dept['name']]) && file_exists(__DIR__ . '/' . $deptLogos[$dept['name']])): ?>
                             <img src="<?= htmlspecialchars($deptLogos[$dept['name']]) ?>" alt="<?= htmlspecialchars($dept['name']) ?> Icon" class="dept-img-icon">
