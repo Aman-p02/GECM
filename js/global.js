@@ -9,12 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const legacyHamburger = document.querySelector(".hamburger:not(#hamburgerBtn)");
     const legacyNavLinks  = document.querySelector(".nav-links");
 
+    function resetMobileSubpanels() {
+        document.querySelectorAll(".hdr-nav-item.has-dropdown.is-sub-open").forEach(item => {
+            item.classList.remove("is-sub-open");
+        });
+    }
+
     function toggleNav(btn, list, openClass) {
         if (!btn || !list) return;
         const isOpen = list.classList.contains(openClass);
         list.classList.toggle(openClass, !isOpen);
         btn.setAttribute("aria-expanded", String(!isOpen));
         btn.classList.toggle("is-active", !isOpen);
+
+        if (isOpen) {
+            resetMobileSubpanels();
+        }
 
         list.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", () => {
@@ -25,11 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.setAttribute("aria-expanded", "false");
                 btn.classList.remove("is-active");
                 if (btn.classList.contains("active")) btn.classList.remove("active");
+                resetMobileSubpanels();
             });
         });
     }
 
-    // Mobile Accordion Toggle for Submenus
+    // Mobile Drill-down for Submenus
     const dropdownToggles = document.querySelectorAll(".hdr-nav-item.has-dropdown > .hdr-nav-link");
     dropdownToggles.forEach(toggleLink => {
         toggleLink.addEventListener("click", function (e) {
@@ -37,13 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 e.preventDefault();
                 e.stopPropagation();
                 const parentItem = this.closest(".hdr-nav-item");
-                const wasOpen = parentItem.classList.contains("is-sub-open");
-
                 document.querySelectorAll(".hdr-nav-item.has-dropdown.is-sub-open").forEach(item => {
                     if (item !== parentItem) item.classList.remove("is-sub-open");
                 });
+                parentItem.classList.add("is-sub-open");
+            }
+        });
+    });
 
-                parentItem.classList.toggle("is-sub-open", !wasOpen);
+    // Mobile Submenu Back Buttons
+    document.querySelectorAll(".hdr-dd-back").forEach(backBtn => {
+        backBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const parentItem = this.closest(".hdr-nav-item");
+            if (parentItem) {
+                parentItem.classList.remove("is-sub-open");
             }
         });
     });
@@ -54,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 hdrNavList.classList.remove("is-open");
                 hdrHamburger.setAttribute("aria-expanded", "false");
                 hdrHamburger.classList.remove("is-active");
+                resetMobileSubpanels();
             }
         });
     });
@@ -84,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 hdrNavList.classList.remove("is-open");
                 hdrHamburger.setAttribute("aria-expanded", "false");
                 hdrHamburger.classList.remove("is-active");
+                resetMobileSubpanels();
             }
         }
         if (legacyHamburger && legacyNavLinks && legacyNavLinks.classList.contains("active")) {
