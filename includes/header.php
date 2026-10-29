@@ -42,31 +42,47 @@ if (!isset($active_page)) {
 
     <!-- Header / Navbar -->
     <header class="header">
-        <div class="nav-container">
-            <div class="logo-container">
-                <a href="<?= $root_path ?>" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit;">
-                    <img src="<?= $root_path ?>logos/logo.png" alt="GEC Modasa Logo" class="logo">
-                    <div class="college-name">
-                        <h1>Government Engineering College, Modasa</h1>
-                        <p>Modasa, Gujarat</p>
-                    </div>
-                </a>
-                <img src="<?= $root_path ?>logos/affiliated.png" alt="Affiliated to GTU" class="affiliated-logo desktop-only">
-            </div>
-            <nav class="navbar">
-                <ul class="nav-links">
-                    <li><a href="<?= $root_path ?>" class="<?php echo ($active_page === 'home') ? 'active' : ''; ?>">Home</a></li>
-                    <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>" class="<?php echo ($active_page === 'about') ? 'active' : ''; ?>">About</a></li>
-                    <li><a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . '#departments'; ?>" class="<?php echo ($active_page === 'departments') ? 'active' : ''; ?>">Departments</a></li>
-                    <li><a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . '#events'; ?>" class="<?php echo ($active_page === 'events') ? 'active' : ''; ?>">Events</a></li>
-                    <li><a href="<?php echo ($active_page === 'home') ? '#alumni' : $root_path . '#alumni'; ?>" class="<?php echo ($active_page === 'alumni') ? 'active' : ''; ?>">Alumni</a></li>
-                    <li><a href="<?php echo ($active_page === 'home') ? '#contact' : $root_path . '#contact'; ?>" class="<?php echo ($active_page === 'contact') ? 'active' : ''; ?>">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+        <!-- Top Institutional Branding Row -->
+        <div class="header-top">
+            <div class="header-top-container">
+                <div class="logo-container">
+                    <a href="<?= $root_path ?>" class="brand-link">
+                        <img src="<?= $root_path ?>logos/logo.png" alt="GEC Modasa Logo" class="logo">
+                        <div class="college-name">
+                            <h1>Government Engineering College, Modasa</h1>
+                            <p>Modasa, Gujarat</p>
+                        </div>
+                    </a>
                 </div>
-            </nav>
+                <div class="header-top-right">
+                    <img src="<?= $root_path ?>logos/affiliated.png" alt="Affiliated to GTU" class="affiliated-logo desktop-only">
+                    <div class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- Dedicated Horizontal Navigation Bar (Shifted below header row) -->
+        <nav class="navbar" id="mainNavbar">
+            <div class="navbar-container">
+                <ul class="nav-links">
+                    <li class="nav-home-item">
+                        <a href="<?= $root_path ?>" class="nav-home-btn <?php echo ($active_page === 'home') ? 'active' : ''; ?>" aria-label="Home" title="Home">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>" class="<?php echo ($active_page === 'about') ? 'active' : ''; ?>">ABOUT</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>" class="<?php echo ($active_page === 'administration') ? 'active' : ''; ?>">ADMINISTRATION</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . '#departments'; ?>" class="<?php echo ($active_page === 'academic') ? 'active' : ''; ?>">ACADEMIC</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . '#departments'; ?>" class="<?php echo ($active_page === 'departments') ? 'active' : ''; ?>">DEPARTMENTS</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . '#events'; ?>" class="<?php echo ($active_page === 'activities') ? 'active' : ''; ?>">ACTIVITIES</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . '#events'; ?>" class="<?php echo ($active_page === 'student-corner') ? 'active' : ''; ?>">STUDENT CORNER</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#alumni' : $root_path . '#alumni'; ?>" class="<?php echo ($active_page === 'placement') ? 'active' : ''; ?>">PLACEMENT</a></li>
+                    <li><a href="<?php echo ($active_page === 'home') ? '#contact' : $root_path . '#contact'; ?>" class="<?php echo ($active_page === 'contact') ? 'active' : ''; ?>">CONTACT US</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
