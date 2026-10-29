@@ -445,9 +445,15 @@ h4 {
         transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
     }
 
-    .hdr-nav-item.has-dropdown:hover > .hdr-nav-link .hdr-arrow {
+    .hdr-nav-item.has-dropdown:hover:not(.is-desktop-closed)>.hdr-nav-link .hdr-arrow,
+    .hdr-nav-item.has-dropdown.is-desktop-open>.hdr-nav-link .hdr-arrow {
         transform: rotate(180deg);
         color: #009dff;
+    }
+
+    .hdr-nav-item.has-dropdown.is-desktop-closed>.hdr-nav-link .hdr-arrow {
+        transform: rotate(0deg) !important;
+        color: #5b6573 !important;
     }
 
     /* Standard Dropdown Panel */
@@ -466,8 +472,8 @@ h4 {
         visibility: hidden;
         transform: translateY(6px);
         transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                    opacity 0.16s ease,
-                    visibility 0.2s;
+            opacity 0.16s ease,
+            visibility 0.2s;
         pointer-events: none;
     }
 
@@ -481,16 +487,23 @@ h4 {
         height: 8px;
     }
 
-    .hdr-nav-item.has-dropdown:hover > .hdr-dropdown,
-    .hdr-nav-item.has-dropdown:focus-within > .hdr-dropdown {
+    .hdr-nav-item.has-dropdown:hover:not(.is-desktop-closed)>.hdr-dropdown,
+    .hdr-nav-item.has-dropdown.is-desktop-open>.hdr-dropdown {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
         pointer-events: auto;
     }
 
+    .hdr-nav-item.has-dropdown.is-desktop-closed>.hdr-dropdown {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(6px) !important;
+        pointer-events: none !important;
+    }
+
     /* Align right only on last nav item if needed to prevent screen edge overflow */
-    .hdr-nav-list > .hdr-nav-item:last-child .hdr-dropdown {
+    .hdr-nav-list>.hdr-nav-item:last-child .hdr-dropdown {
         left: auto;
         right: 0;
     }
@@ -516,24 +529,23 @@ h4 {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 8px 18px;
+        padding: 8px 14px;
+        margin: 2px 6px;
         font-size: 0.88rem;
         font-weight: 400;
         color: #4b5563;
         text-decoration: none;
         white-space: nowrap;
-        border-left: 3px solid transparent;
-        transition: background-color 0.12s ease, color 0.12s ease, padding-left 0.12s ease, border-left-color 0.12s ease;
+        border-radius: 6px;
+        transition: background-color 0.14s ease, color 0.14s ease;
     }
 
     .hdr-dd-link:hover,
     .hdr-dd-link:active,
     .hdr-dd-link.is-active,
     .hdr-dd-link.active {
-        background-color: #f0f7ff;
+        background-color: #f1f5f9;
         color: #009dff;
-        border-left-color: #009dff;
-        padding-left: 20px;
         font-weight: 500;
     }
 
@@ -1082,7 +1094,7 @@ h4 {
         pointer-events: auto;
     }
 
-    .hdr-nav-list > li {
+    .hdr-nav-list>li {
         width: 100%;
         list-style: none;
         margin: 0;
@@ -1090,7 +1102,7 @@ h4 {
         border: none;
     }
 
-    .hdr-nav-list > li:not(:last-child) {
+    .hdr-nav-list>li:not(:last-child) {
         border-bottom: 1px solid #f1f5f9;
     }
 
@@ -1136,14 +1148,14 @@ h4 {
         display: block;
     }
 
-    .hdr-nav-item.has-dropdown > .hdr-nav-link {
+    .hdr-nav-item.has-dropdown>.hdr-nav-link {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
 
     /* Clean chevron arrow */
-    .hdr-nav-item.has-dropdown > .hdr-nav-link .hdr-arrow {
+    .hdr-nav-item.has-dropdown>.hdr-nav-link .hdr-arrow {
         font-size: 0.68rem;
         margin-left: auto;
         color: #94a3b8;
@@ -1152,13 +1164,13 @@ h4 {
         padding-left: 8px;
     }
 
-    .hdr-nav-item.has-dropdown.is-sub-open > .hdr-nav-link {
+    .hdr-nav-item.has-dropdown.is-sub-open>.hdr-nav-link {
         color: #0284c7;
         font-weight: 600;
         background-color: transparent;
     }
 
-    .hdr-nav-item.has-dropdown.is-sub-open > .hdr-nav-link .hdr-arrow {
+    .hdr-nav-item.has-dropdown.is-sub-open>.hdr-nav-link .hdr-arrow {
         transform: rotate(180deg);
         color: #0284c7;
     }
@@ -1183,12 +1195,12 @@ h4 {
         visibility: hidden;
         transform: none !important;
         transition: max-height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-                    opacity 0.2s ease,
-                    visibility 0.28s;
+            opacity 0.2s ease,
+            visibility 0.28s;
         pointer-events: none;
     }
 
-    .hdr-nav-item.has-dropdown.is-sub-open > .hdr-dropdown {
+    .hdr-nav-item.has-dropdown.is-sub-open>.hdr-dropdown {
         max-height: 850px;
         opacity: 1;
         visibility: visible;
@@ -1203,7 +1215,7 @@ h4 {
         border: none !important;
     }
 
-    .hdr-dd-list > li {
+    .hdr-dd-list>li {
         width: 100%;
         list-style: none;
         margin: 0;
@@ -1216,16 +1228,17 @@ h4 {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 9px 18px 9px 24px;
+        padding: 9px 14px;
+        margin: 2px 8px;
         font-size: 0.90rem;
         font-weight: 450;
         color: #475569;
         background: transparent;
-        border-left: 3px solid transparent;
+        border-radius: 6px;
         text-decoration: none;
         white-space: normal;
         line-height: 1.35;
-        transition: background-color 0.15s ease, color 0.15s ease, border-left-color 0.15s ease;
+        transition: background-color 0.15s ease, color 0.15s ease;
     }
 
     /* Clear Hover & Active Indicator - user knows which page they are on */
@@ -1234,8 +1247,7 @@ h4 {
     .hdr-dd-link.is-active,
     .hdr-dd-link.active {
         color: #009dff !important;
-        background-color: #eff6ff !important;
-        border-left: 3px solid #009dff !important;
+        background-color: #f1f5f9 !important;
         font-weight: 500;
     }
 

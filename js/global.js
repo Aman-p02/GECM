@@ -40,28 +40,77 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Mobile In-Place Accordion Submenu Toggle (opens directly underneath)
+    // Dropdown Toggles: Desktop click-to-toggle (open/close) & Mobile Accordion
     const dropdownToggles = document.querySelectorAll(".hdr-nav-item.has-dropdown > .hdr-nav-link");
     dropdownToggles.forEach(toggleLink => {
         toggleLink.addEventListener("click", function (e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                e.stopPropagation();
-                const parentItem = this.closest(".hdr-nav-item");
-                const isOpen = parentItem.classList.contains("is-sub-open");
+            e.preventDefault();
+            e.stopPropagation();
 
-                // Collapse other open dropdowns for a clean accordion flow
+            const parentItem = this.closest(".hdr-nav-item");
+            if (!parentItem) return;
+
+            // Mobile In-Place Accordion (<= 768px)
+            if (window.innerWidth <= 768) {
+                const isOpen = parentItem.classList.contains("is-sub-open");
                 document.querySelectorAll(".hdr-nav-item.has-dropdown.is-sub-open").forEach(item => {
                     if (item !== parentItem) item.classList.remove("is-sub-open");
                 });
-
                 parentItem.classList.toggle("is-sub-open", !isOpen);
+                return;
+            }
+
+            // Desktop Click Toggle (> 768px)
+            const dropdown = parentItem.querySelector(".hdr-dropdown");
+            let isCurrentlyOpen = false;
+
+            if (parentItem.classList.contains("is-desktop-open")) {
+                isCurrentlyOpen = true;
+            } else if (!parentItem.classList.contains("is-desktop-closed") && dropdown) {
+                const style = window.getComputedStyle(dropdown);
+                if (style.visibility === "visible" && parseFloat(style.opacity) > 0.5) {
+                    isCurrentlyOpen = true;
+                }
+            }
+
+            // Close all other dropdowns
+            document.querySelectorAll(".hdr-nav-item.has-dropdown").forEach(item => {
+                if (item !== parentItem) {
+                    item.classList.remove("is-desktop-open");
+                    item.classList.add("is-desktop-closed");
+                }
+            });
+
+            if (isCurrentlyOpen) {
+                // If already open, clicking closes it
+                parentItem.classList.remove("is-desktop-open");
+                parentItem.classList.add("is-desktop-closed");
+                this.blur();
+            } else {
+                // If closed, clicking opens it
+                parentItem.classList.remove("is-desktop-closed");
+                parentItem.classList.add("is-desktop-open");
+            }
+        });
+    });
+
+    // Reset desktop closed/open override on mouse leave
+    document.querySelectorAll(".hdr-nav-item.has-dropdown").forEach(item => {
+        item.addEventListener("mouseleave", function () {
+            if (window.innerWidth > 768) {
+                this.classList.remove("is-desktop-open", "is-desktop-closed");
             }
         });
     });
 
     document.querySelectorAll(".hdr-dd-link").forEach(subLink => {
         subLink.addEventListener("click", () => {
+            // Close desktop dropdowns
+            document.querySelectorAll(".hdr-nav-item.has-dropdown").forEach(item => {
+                item.classList.remove("is-desktop-open");
+                item.classList.add("is-desktop-closed");
+            });
+
             if (window.innerWidth <= 768 && hdrHamburger && hdrNavList) {
                 hdrNavList.classList.remove("is-open");
                 hdrHamburger.setAttribute("aria-expanded", "false");
@@ -92,6 +141,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Dismiss menu on outside click
     document.addEventListener("click", (e) => {
+        // Desktop dropdown dismissal on outside click
+        if (!e.target.closest(".hdr-nav-item.has-dropdown")) {
+            document.querySelectorAll(".hdr-nav-item.has-dropdown").forEach(item => {
+                item.classList.remove("is-desktop-open", "is-desktop-closed");
+            });
+        }
+
         if (hdrHamburger && hdrNavList && hdrNavList.classList.contains("is-open")) {
             if (!hdrHamburger.contains(e.target) && !hdrNavList.contains(e.target)) {
                 hdrNavList.classList.remove("is-open");
@@ -147,8 +203,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     allNavLinks.forEach(link => {
         link.addEventListener("click", function () {
-            // On mobile dropdown toggle, do not set active underline on parent category
-            if (window.innerWidth <= 768 && this.closest(".has-dropdown") && this.classList.contains("hdr-nav-link")) {
+            // Dropdown menu toggle links (e.g. Academic, Departments, Activities) should not get active underline on click
+            if (this.closest(".has-dropdown") && this.classList.contains("hdr-nav-link")) {
                 return;
             }
             allNavLinks.forEach(item => item.classList.remove("is-active", "active"));
