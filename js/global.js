@@ -67,14 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ── Scroll shadow effect ────────────────────────────────────────────────
-    const siteHeader = document.querySelector(".site-header") || document.querySelector(".header");
-    if (siteHeader) {
-        const scrollShadow = "0 1px 0 var(--nav-divider), 0 6px 18px rgba(18,59,104,.13)";
-        const resetShadow  = "0 1px 0 var(--nav-divider), 0 3px 10px rgba(18,59,104,.07)";
+    // ── Scroll shadow on the sticky nav bar ────────────────────────────────
+    // When user scrolls, hdr-brand (branding row) scrolls away naturally.
+    // Only hdr-nav stays sticky; deepen its shadow when the brand row is gone.
+    const stickyNav = document.querySelector(".hdr-nav") || document.querySelector(".navbar");
+    if (stickyNav) {
+        const shadowLifted = "0 1px 0 var(--nav-divider), 0 6px 18px rgba(18,59,104,.14)";
+        const shadowFlush  = "0 1px 0 var(--nav-divider), 0 3px 10px rgba(18,59,104,.07)";
 
         window.addEventListener("scroll", () => {
-            siteHeader.style.boxShadow = window.scrollY > 40 ? scrollShadow : resetShadow;
+            const brandRow = document.querySelector(".hdr-brand");
+            const brandH   = brandRow ? brandRow.offsetHeight : 80;
+            stickyNav.style.boxShadow = window.scrollY > brandH * 0.5 ? shadowLifted : shadowFlush;
         }, { passive: true });
     }
 });

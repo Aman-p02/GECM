@@ -1,4 +1,4 @@
-﻿/* ==============================================================
+/* ==============================================================
    GECM Global Styles (Variables, Reset, Typography, Header, Footer)
    ============================================================== */
 
@@ -202,11 +202,7 @@ h4 {
 /* â”€â”€ Outer wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .site-header {
     background: var(--nav-bg);
-    box-shadow: 0 1px 0 var(--nav-divider), 0 3px 10px rgba(18, 59, 104, .07);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
+        width: 100%;
 }
 
 /* ================================================================
@@ -319,6 +315,10 @@ h4 {
 .hdr-nav {
     background: var(--nav-bg);
     border-bottom: 1px solid var(--nav-divider);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 0 var(--nav-divider), 0 3px 10px rgba(18, 59, 104, .07);
 }
 
 .hdr-nav-inner {
@@ -348,9 +348,9 @@ h4 {
 .hdr-nav-link {
     display: inline-flex;
     align-items: center;
-    padding: 14px 15px;
+    padding: 15px 16px;
     font-family: var(--font-main);
-    font-size: 0.875rem;
+    font-size: 0.93rem;
     font-weight: 500;
     color: #374151;
     text-decoration: none;
@@ -432,7 +432,7 @@ h4 {
 .desktop-only     { display: block; }
 .college-name br  { display: none; }
 
-.navbar           { background: var(--nav-bg); border-bottom: 1px solid var(--nav-divider); }
+.navbar           { background: var(--nav-bg); border-bottom: 1px solid var(--nav-divider); position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 0 var(--nav-divider), 0 3px 10px rgba(18,59,104,.07); }
 .navbar-container { width: 100%; padding: 0 36px; display: flex; align-items: stretch; }
 .nav-links        { display: flex; align-items: stretch; gap: 0; margin: 0; padding: 0; list-style: none; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
 .nav-links::-webkit-scrollbar { display: none; }
@@ -440,8 +440,8 @@ h4 {
 .nav-links li a {
     display: inline-flex;
     align-items: center;
-    padding: 14px 15px;
-    font-size: 0.875rem;
+    padding: 15px 16px;
+    font-size: 0.93rem;
     font-weight: 500;
     color: #374151;
     text-decoration: none;
