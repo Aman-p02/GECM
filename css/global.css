@@ -958,18 +958,8 @@ h4 {
         border: none;
     }
 
-    .hdr-nav-list>li:not(:last-child):not(:nth-last-child(2)) {
+    .hdr-nav-list>li:not(:last-child) {
         border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-    }
-
-    .hdr-nav-list>li:nth-last-child(2) {
-        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-    }
-
-    /* Distinct Primary Action Button for Contact Us */
-    .hdr-nav-list>li:last-child {
-        margin-top: 5px;
-        padding-top: 5px;
     }
 
     .hdr-nav-link {
@@ -1014,30 +1004,6 @@ h4 {
         background: #009dff;
         margin-right: 11px;
         flex-shrink: 0;
-    }
-
-    /* Contact Us as a Primary Action Pill */
-    .hdr-nav-list>li:last-child .hdr-nav-link {
-        background: #123b68;
-        color: #ffffff !important;
-        font-weight: 600;
-        justify-content: center;
-        text-align: center;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(18, 59, 104, 0.16);
-        transition: background-color 0.18s ease, transform 0.15s ease;
-    }
-
-    .hdr-nav-list>li:last-child .hdr-nav-link:hover,
-    .hdr-nav-list>li:last-child .hdr-nav-link:active {
-        background: #009dff;
-        color: #ffffff !important;
-        transform: translateY(-1px);
-        padding-left: 16px;
-    }
-
-    .hdr-nav-list>li:last-child .hdr-nav-link::before {
-        display: none;
     }
 
     .hdr-home-label {
@@ -1140,17 +1106,8 @@ h4 {
         list-style: none;
     }
 
-    .nav-links li:not(:last-child):not(:nth-last-child(2)) {
+    .nav-links li:not(:last-child) {
         border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-    }
-
-    .nav-links li:nth-last-child(2) {
-        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-    }
-
-    .nav-links li:last-child {
-        margin-top: 5px;
-        padding-top: 5px;
     }
 
     .nav-links li a {
@@ -1192,29 +1149,6 @@ h4 {
         background: #009dff;
         margin-right: 11px;
         flex-shrink: 0;
-    }
-
-    .nav-links li:last-child a {
-        background: #123b68;
-        color: #ffffff !important;
-        font-weight: 600;
-        justify-content: center;
-        text-align: center;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(18, 59, 104, 0.16);
-        transition: background-color 0.18s ease, transform 0.15s ease;
-    }
-
-    .nav-links li:last-child a:hover,
-    .nav-links li:last-child a:active {
-        background: #009dff;
-        color: #ffffff !important;
-        transform: translateY(-1px);
-        padding-left: 16px;
-    }
-
-    .nav-links li:last-child a::before {
-        display: none;
     }
 
     .nav-home-btn {
