@@ -253,46 +253,74 @@ h4 {
     object-fit: contain;
 }
 
-/* Mobile Hamburger Toggle - Minimal Clean */
+/* Mobile Hamburger Toggle - Aesthetic Refined */
 .hdr-hamburger {
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 36px;
-    height: 36px;
-    background: transparent;
-    border: none;
-    border-radius: 6px;
+    width: 38px;
+    height: 38px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
     cursor: pointer;
     padding: 0;
     gap: 4.5px;
+    box-shadow: 0 1px 2px rgba(18, 59, 104, 0.04);
     -webkit-tap-highlight-color: transparent;
-    transition: background-color 0.18s ease;
+    transition: background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease;
 }
 
 .hdr-hamburger:hover {
-    background: #f1f5f9;
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 4px rgba(18, 59, 104, 0.06);
 }
 
 .hdr-hamburger:active {
-    background: #e2e8f0;
+    transform: scale(0.93);
+    background: #f1f5f9;
 }
 
 .hbr {
     display: block;
-    width: 18px;
-    height: 1.5px;
+    height: 1.75px;
     background: #123b68;
-    border-radius: 1px;
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s ease;
+    border-radius: 2px;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.16s ease, width 0.18s ease;
     transform-origin: center;
+}
+
+.hbr:nth-child(1) {
+    width: 18px;
+}
+
+.hbr:nth-child(2) {
+    width: 13px;
+}
+
+.hbr:nth-child(3) {
+    width: 18px;
+}
+
+.hdr-hamburger:hover .hbr:nth-child(2) {
+    width: 18px;
+}
+
+/* Open State: morphs to clean 'X' */
+.hdr-hamburger[aria-expanded="true"],
+.hdr-hamburger.is-active,
+.hdr-hamburger.active {
+    background: #f8fafc;
+    border-color: #cbd5e1;
 }
 
 .hdr-hamburger[aria-expanded="true"] .hbr:nth-child(1),
 .hdr-hamburger.is-active .hbr:nth-child(1),
 .hdr-hamburger.active .hbr:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
+    width: 16px;
+    transform: translateY(6.25px) rotate(45deg);
 }
 
 .hdr-hamburger[aria-expanded="true"] .hbr:nth-child(2),
@@ -305,7 +333,8 @@ h4 {
 .hdr-hamburger[aria-expanded="true"] .hbr:nth-child(3),
 .hdr-hamburger.is-active .hbr:nth-child(3),
 .hdr-hamburger.active .hbr:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
+    width: 16px;
+    transform: translateY(-6.25px) rotate(-45deg);
 }
 
 /* Navigation Bar */
@@ -874,8 +903,8 @@ h4 {
     .hdr-hamburger {
         display: flex;
         flex-shrink: 0;
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
         padding: 0;
     }
 
@@ -1164,38 +1193,63 @@ h4 {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 36px;
-        height: 36px;
-        background: transparent;
-        border: none;
-        border-radius: 6px;
+        width: 38px;
+        height: 38px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 9px;
         cursor: pointer;
         padding: 0;
         gap: 4.5px;
+        box-shadow: 0 1px 2px rgba(18, 59, 104, 0.04);
         -webkit-tap-highlight-color: transparent;
-        transition: background-color 0.18s ease;
+        transition: background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.15s ease;
     }
 
     .hamburger:hover {
-        background: #f1f5f9;
+        background: #f8fafc;
+        border-color: #cbd5e1;
+        box-shadow: 0 2px 4px rgba(18, 59, 104, 0.06);
     }
 
     .hamburger:active {
-        background: #e2e8f0;
+        transform: scale(0.93);
+        background: #f1f5f9;
     }
 
     .bar {
         display: block;
-        width: 18px;
-        height: 1.5px;
+        height: 1.75px;
         background: #123b68;
-        border-radius: 1px;
-        transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s ease;
+        border-radius: 2px;
+        transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.16s ease, width 0.18s ease;
         transform-origin: center;
     }
 
+    .bar:nth-child(1) {
+        width: 18px;
+    }
+
+    .bar:nth-child(2) {
+        width: 13px;
+    }
+
+    .bar:nth-child(3) {
+        width: 18px;
+    }
+
+    .hamburger:hover .bar:nth-child(2) {
+        width: 18px;
+    }
+
+    .hamburger.active {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+    }
+
     .hamburger.active .bar:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
+        width: 16px;
+        transform: translateY(6.25px) rotate(45deg);
     }
 
     .hamburger.active .bar:nth-child(2) {
@@ -1204,7 +1258,8 @@ h4 {
     }
 
     .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
+        width: 16px;
+        transform: translateY(-6.25px) rotate(-45deg);
     }
 
     .top-bar {
@@ -1272,27 +1327,45 @@ h4 {
 
     .hdr-hamburger,
     .hamburger {
-        width: 34px;
-        height: 34px;
+        width: 35px;
+        height: 35px;
         padding: 0;
         gap: 4px;
+        border-radius: 8px;
     }
 
-    .hbr,
-    .bar {
+    .hbr:nth-child(1),
+    .bar:nth-child(1) {
+        width: 16px;
+    }
+
+    .hbr:nth-child(2),
+    .bar:nth-child(2) {
+        width: 11px;
+    }
+
+    .hbr:nth-child(3),
+    .bar:nth-child(3) {
+        width: 16px;
+    }
+
+    .hdr-hamburger:hover .hbr:nth-child(2),
+    .hamburger:hover .bar:nth-child(2) {
         width: 16px;
     }
 
     .hdr-hamburger[aria-expanded="true"] .hbr:nth-child(1),
     .hdr-hamburger.is-active .hbr:nth-child(1),
     .hamburger.active .bar:nth-child(1) {
-        transform: translateY(5px) rotate(45deg);
+        width: 15px;
+        transform: translateY(5.5px) rotate(45deg);
     }
 
     .hdr-hamburger[aria-expanded="true"] .hbr:nth-child(3),
     .hdr-hamburger.is-active .hbr:nth-child(3),
     .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-5px) rotate(-45deg);
+        width: 15px;
+        transform: translateY(-5.5px) rotate(-45deg);
     }
 
     .hdr-nav-list,
