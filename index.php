@@ -157,6 +157,8 @@ if (empty($departmentsList)) {
         ['id' => 5, 'name' => 'Civil Engineering', 'code' => 'CIVIL', 'icon_class' => 'fas fa-building', 'learn_more_url' => '#'],
         ['id' => 6, 'name' => 'Electrical Engineering', 'code' => 'EE', 'icon_class' => 'fas fa-bolt', 'learn_more_url' => '#'],
         ['id' => 7, 'name' => 'Electronics & Comm.', 'code' => 'EC', 'icon_class' => 'fas fa-microchip', 'learn_more_url' => '#'],
+        ['id' => 8, 'name' => 'Applied Mechanics', 'code' => 'AM', 'icon_class' => 'fas fa-drafting-compass', 'learn_more_url' => '#'],
+        ['id' => 9, 'name' => 'Science & Humanities', 'code' => 'SH', 'icon_class' => 'fas fa-atom', 'learn_more_url' => '#'],
     ];
 }
 
@@ -356,6 +358,10 @@ include_once __DIR__ . '/includes/header.php';
                         $colorClass = 'dept-civil';
                     } elseif ($deptCode === 'ME' || stripos($deptName, 'Mechanical') !== false) {
                         $colorClass = 'dept-me';
+                    } elseif ($deptCode === 'AM' || stripos($deptName, 'Applied Mechanics') !== false) {
+                        $colorClass = 'dept-am';
+                    } elseif ($deptCode === 'SH' || stripos($deptName, 'Science') !== false || stripos($deptName, 'Humanities') !== false) {
+                        $colorClass = 'dept-sh';
                     }
                     $resolvedUrl = (!empty($dept['learn_more_url']) && $dept['learn_more_url'] !== '#')
                         ? $dept['learn_more_url']

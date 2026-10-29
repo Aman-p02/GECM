@@ -652,7 +652,7 @@
     box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
 }
 
-/* Department Pastel Colors (From Reference) */
+/* Department Pastel Colors */
 .dept-card.dept-it {
     background: #bbf7d0;
     border-color: #a7f3d0;
@@ -688,14 +688,26 @@
     border-color: #93c5fd;
 }
 
+.dept-card.dept-am {
+    background: #99f6e4;
+    border-color: #5eead4;
+}
+
+.dept-card.dept-sh {
+    background: #c7d2fe;
+    border-color: #a5b4fc;
+}
+
 /* Nth-child Fallbacks */
-.dept-card:nth-child(7n+1) { background: #f3f4f6; border-color: #e5e7eb; }
-.dept-card:nth-child(7n+2) { background: #bbf7d0; border-color: #a7f3d0; }
-.dept-card:nth-child(7n+3) { background: #bae6fd; border-color: #93c5fd; }
-.dept-card:nth-child(7n+4) { background: #fecdd3; border-color: #fca5a5; }
-.dept-card:nth-child(7n+5) { background: #fed7aa; border-color: #fdba74; }
-.dept-card:nth-child(7n+6) { background: #fef08a; border-color: #fde047; }
-.dept-card:nth-child(7n+7) { background: #e9d5ff; border-color: #d8b4fe; }
+.dept-card:nth-child(9n+1) { background: #e5e6e8; border-color: #dbdee2; }
+.dept-card:nth-child(9n+2) { background: #bbf7d0; border-color: #a7f3d0; }
+.dept-card:nth-child(9n+3) { background: #bae6fd; border-color: #93c5fd; }
+.dept-card:nth-child(9n+4) { background: #fecdd3; border-color: #fca5a5; }
+.dept-card:nth-child(9n+5) { background: #fed7aa; border-color: #fdba74; }
+.dept-card:nth-child(9n+6) { background: #fef08a; border-color: #fde047; }
+.dept-card:nth-child(9n+7) { background: #e9d5ff; border-color: #d8b4fe; }
+.dept-card:nth-child(9n+8) { background: #99f6e4; border-color: #5eead4; }
+.dept-card:nth-child(9n+9) { background: #c7d2fe; border-color: #a5b4fc; }
 
 /* Department Icon Badge */
 .dept-icon {
