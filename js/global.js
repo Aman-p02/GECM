@@ -67,18 +67,48 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ── Scroll shadow on the sticky nav bar ────────────────────────────────
-    // When user scrolls, hdr-brand (branding row) scrolls away naturally.
-    // Only hdr-nav stays sticky; deepen its shadow when the brand row is gone.
-    const stickyNav = document.querySelector(".hdr-nav") || document.querySelector(".navbar");
-    if (stickyNav) {
-        const shadowLifted = "0 1px 0 var(--nav-divider), 0 6px 18px rgba(18,59,104,.14)";
-        const shadowFlush  = "0 1px 0 var(--nav-divider), 0 3px 10px rgba(18,59,104,.07)";
+    // ── Constant Sticky Navbar Controller ───────────────────────────────────
+    // When the user scrolls down, only the logo/brand row scrolls away.
+    // The navbar stays constant and permanently fixed at the top of the viewport.
+    const stickyNav = document.getElementById("mainNavbar") || document.querySelector(".hdr-nav") || document.querySelector(".navbar");
+    const brandRow  = document.querySelector(".hdr-brand") || document.querySelector(".site-header") || document.querySelector(".logo-container");
 
-        window.addEventListener("scroll", () => {
-            const brandRow = document.querySelector(".hdr-brand");
-            const brandH   = brandRow ? brandRow.offsetHeight : 80;
-            stickyNav.style.boxShadow = window.scrollY > brandH * 0.5 ? shadowLifted : shadowFlush;
-        }, { passive: true });
+    if (stickyNav) {
+        // Invisible placeholder element so page content doesn't jump when navbar is fixed
+        const navPlaceholder = document.createElement("div");
+        navPlaceholder.id = "stickyNavPlaceholder";
+        navPlaceholder.style.display = "none";
+        stickyNav.parentNode.insertBefore(navPlaceholder, stickyNav);
+
+        function updateStickyNav() {
+            let threshold = 80;
+            if (brandRow) {
+                // Calculate position relative to document top
+                const brandRect = brandRow.getBoundingClientRect();
+                threshold = window.scrollY + brandRect.bottom;
+            }
+
+            if (window.scrollY >= threshold) {
+                if (!stickyNav.classList.contains("is-sticky-fixed")) {
+                    navPlaceholder.style.height = `${stickyNav.offsetHeight}px`;
+                    navPlaceholder.style.display = "block";
+                    stickyNav.classList.add("is-sticky-fixed");
+                }
+            } else {
+                if (stickyNav.classList.contains("is-sticky-fixed")) {
+                    stickyNav.classList.remove("is-sticky-fixed");
+                    navPlaceholder.style.display = "none";
+                }
+            }
+        }
+
+        window.addEventListener("scroll", updateStickyNav, { passive: true });
+        window.addEventListener("resize", () => {
+            if (stickyNav.classList.contains("is-sticky-fixed")) {
+                navPlaceholder.style.height = `${stickyNav.offsetHeight}px`;
+            }
+        });
+        // Initial run
+        updateStickyNav();
     }
 });

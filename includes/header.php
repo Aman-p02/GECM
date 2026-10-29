@@ -81,9 +81,10 @@ if (!isset($active_page)) {
 
             </div>
         </div><!-- /hdr-brand -->
+    </header><!-- /site-header -->
 
-        <!-- ── Row 2 : Navigation ──────────────────────────────────── -->
-        <nav class="hdr-nav" id="mainNavbar" aria-label="Primary navigation">
+    <!-- ── Row 2 : Navigation (Sticky constant navbar) ─────────── -->
+    <nav class="hdr-nav" id="mainNavbar" aria-label="Primary navigation">
             <div class="hdr-nav-inner">
                 <ul class="hdr-nav-list" id="mainNavLinks">
 
@@ -156,5 +157,3 @@ if (!isset($active_page)) {
                 </ul>
             </div>
         </nav><!-- /hdr-nav -->
-
-    </header><!-- /site-header -->

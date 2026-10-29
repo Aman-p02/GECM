@@ -17,37 +17,58 @@
 
 <body>
 
-    <!-- Header / Navbar -->
-    <header class="header">
-        <div class="nav-container">
-            <div class="logo-container">
-                <a href="./"
-                    style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit;">
-                    <img src="logos/logo.png" alt="GEC Modasa Logo" class="logo">
-                    <div class="college-name">
-                        <h1>Government Engineering College, Modasa</h1>
-                        <p>Modasa, Gujarat</p>
+    <!-- ================================================================
+         HEADER — Two-tier institutional navigation
+         Row 1: Branding (logo + name + affiliations)
+         Row 2: Horizontal navigation bar (Constant / Sticky)
+         ================================================================ -->
+    <header class="site-header" role="banner">
+        <!-- Row 1 : Branding -->
+        <div class="hdr-brand">
+            <div class="hdr-brand-inner">
+                <!-- Left: Logo + College Name -->
+                <a href="./" class="hdr-identity" aria-label="GEC Modasa – Home">
+                    <img src="logos/logo.png" alt="GEC Modasa Logo" class="hdr-logo" width="64" height="64">
+                    <div class="hdr-nameblock">
+                        <span class="hdr-college-name">Government Engineering College, Modasa</span>
+                        <span class="hdr-college-sub">Modasa, Gujarat</span>
                     </div>
                 </a>
-                <img src="logos/affiliated.png" alt="Affiliated to GTU" class="affiliated-logo desktop-only">
-            </div>
-            <nav class="navbar">
-                <ul class="nav-links">
-                    <li><a href="./" class="active">Home</a></li>
-                    <li><a href="#about" class="">About</a></li>
-                    <li><a href="#departments" class="">Departments</a></li>
-                    <li><a href="#events" class="">Events</a></li>
-                    <li><a href="#alumni" class="">Alumni</a></li>
-                    <li><a href="#contact" class="">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+
+                <!-- Right: Affiliation banner + mobile hamburger -->
+                <div class="hdr-right">
+                    <img src="logos/affiliated.png" alt="Affiliated to GTU | Approved by AICTE | Administered by GOG" class="hdr-affil desktop-only">
+                    <button class="hdr-hamburger" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainNavLinks">
+                        <span class="hbr"></span>
+                        <span class="hbr"></span>
+                        <span class="hbr"></span>
+                    </button>
                 </div>
-            </nav>
+            </div>
+        </div><!-- /hdr-brand -->
+    </header><!-- /site-header -->
+
+    <!-- Row 2 : Navigation (Sticky constant navbar) -->
+    <nav class="hdr-nav" id="mainNavbar" aria-label="Primary navigation">
+        <div class="hdr-nav-inner">
+            <ul class="hdr-nav-list" id="mainNavLinks">
+                <li class="hdr-nav-home">
+                    <a href="./" class="hdr-nav-link hdr-home-icon is-active" aria-label="Home" title="Home">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span class="hdr-home-label">Home</span>
+                    </a>
+                </li>
+                <li><a href="#about" class="hdr-nav-link">About</a></li>
+                <li><a href="#about" class="hdr-nav-link">Administration</a></li>
+                <li><a href="#departments" class="hdr-nav-link">Academic</a></li>
+                <li><a href="#departments" class="hdr-nav-link">Departments</a></li>
+                <li><a href="#events" class="hdr-nav-link">Activities</a></li>
+                <li><a href="#events" class="hdr-nav-link">Student Corner</a></li>
+                <li><a href="#alumni" class="hdr-nav-link">Placement</a></li>
+                <li><a href="#contact" class="hdr-nav-link">Contact Us</a></li>
+            </ul>
         </div>
-    </header>
+    </nav><!-- /hdr-nav -->
 
     <!-- Hero Section with Background Carousel -->
     <section id="about" class="hero govt-hero" aria-label="Campus Showcase">

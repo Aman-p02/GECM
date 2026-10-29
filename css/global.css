@@ -1,4 +1,4 @@
-/* ==============================================================
+﻿/* ==============================================================
    GECM Global Styles (Variables, Reset, Typography, Header, Footer)
    ============================================================== */
 
@@ -30,7 +30,7 @@ body {
     font-family: var(--font-main);
     color: var(--text-dark);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
     max-width: 100%;
     background-color: var(--bg-white);
@@ -183,12 +183,12 @@ h4 {
 }
 
 /* ================================================================
-   SITE HEADER â€” Two-tier institutional navigation
+   SITE HEADER Ã¢â‚¬â€ Two-tier institutional navigation
    Design: Clean, minimal, professional. Senior UI/UX standard.
    Primary navy: #123B68 | Accent blue: #1677D2 | BG: #FFFFFF
    ================================================================ */
 
-/* â”€â”€ Navbar-specific variables â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Navbar-specific variables Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 :root {
     --nav-navy:       #123B68;
     --nav-accent:     #1677D2;
@@ -199,14 +199,14 @@ h4 {
     --nav-ease:       cubic-bezier(.4, 0, .2, 1);
 }
 
-/* â”€â”€ Outer wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Outer wrapper Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 .site-header {
     background: var(--nav-bg);
         width: 100%;
 }
 
 /* ================================================================
-   ROW 1 â€” Branding
+   ROW 1 Ã¢â‚¬â€ Branding
    ================================================================ */
 .hdr-brand {
     background: var(--nav-bg);
@@ -310,15 +310,32 @@ h4 {
 .hdr-hamburger[aria-expanded="true"] .hbr:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ================================================================
-   ROW 2 â€” Horizontal navigation
+   ROW 2 Ã¢â‚¬â€ Horizontal navigation
    ================================================================ */
-.hdr-nav {
+.hdr-nav,
+.navbar {
     background: var(--nav-bg);
     border-bottom: 1px solid var(--nav-divider);
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     box-shadow: 0 1px 0 var(--nav-divider), 0 3px 10px rgba(18, 59, 104, .07);
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Constant fixed state when user scrolls down */
+.hdr-nav.is-sticky-fixed,
+.navbar.is-sticky-fixed {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    box-shadow: 0 4px 18px rgba(18, 59, 104, 0.16) !important;
 }
 
 .hdr-nav-inner {
@@ -344,14 +361,14 @@ h4 {
 
 .hdr-nav-list::-webkit-scrollbar { display: none; }
 
-/* â”€â”€ Nav link (shared base) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Nav link (shared base) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
 .hdr-nav-link {
     display: inline-flex;
     align-items: center;
-    padding: 15px 16px;
+    padding: 15px 18px;
     font-family: var(--font-main);
-    font-size: 0.93rem;
-    font-weight: 500;
+    font-size: 1.02rem;
+    font-weight: 600;
     color: #374151;
     text-decoration: none;
     white-space: nowrap;
@@ -361,7 +378,7 @@ h4 {
     cursor: pointer;
 }
 
-/* Underline â€” grows from center outward */
+/* Underline Ã¢â‚¬â€ grows from center outward */
 .hdr-nav-link::after {
     content: '';
     position: absolute;
@@ -382,7 +399,7 @@ h4 {
 
 .hdr-nav-link:hover::after {
     /* Span the text width (full link width minus horizontal padding) */
-    width: calc(100% - 30px);
+    width: calc(100% - 40px);
 }
 
 /* Active: always-visible, slightly thicker underline */
@@ -392,15 +409,15 @@ h4 {
 }
 
 .hdr-nav-link.is-active::after {
-    width: calc(100% - 30px);
+    width: calc(100% - 40px);
     height: 2.5px;
     background: var(--nav-navy);
 }
 
 /* Home icon link */
 .hdr-home-icon {
-    font-size: 0.98rem;
-    padding: 14px 18px;
+    font-size: 1.12rem;
+    padding: 15px 20px;
     color: var(--nav-navy);
 }
 
@@ -408,11 +425,11 @@ h4 {
 
 .hdr-home-icon:hover::after,
 .hdr-home-icon.is-active::after {
-    width: calc(100% - 36px);
+    width: calc(100% - 40px);
 }
 
 /* ================================================================
-   LEGACY CLASS SHIMS â€” preserve compatibility with sub-pages
+   LEGACY CLASS SHIMS Ã¢â‚¬â€ preserve compatibility with sub-pages
    that use old class names (header, navbar, nav-links, etc.)
    ================================================================ */
 .header,
@@ -440,9 +457,9 @@ h4 {
 .nav-links li a {
     display: inline-flex;
     align-items: center;
-    padding: 15px 16px;
-    font-size: 0.93rem;
-    font-weight: 500;
+    padding: 15px 18px;
+    font-size: 1.02rem;
+    font-weight: 600;
     color: #374151;
     text-decoration: none;
     white-space: nowrap;
@@ -464,9 +481,9 @@ h4 {
 }
 
 .nav-links li a:hover        { color: var(--nav-navy); }
-.nav-links li a:hover::after { width: calc(100% - 30px); }
+.nav-links li a:hover::after { width: calc(100% - 40px); }
 .nav-links li a.active       { color: var(--nav-navy); font-weight: 600; }
-.nav-links li a.active::after{ width: calc(100% - 30px); height: 2.5px; background: var(--nav-navy); }
+.nav-links li a.active::after{ width: calc(100% - 40px); height: 2.5px; background: var(--nav-navy); }
 
 .nav-home-btn { font-size: 0.98rem !important; color: var(--nav-navy) !important; padding: 14px 18px !important; }
 .nav-home-btn:hover { color: var(--nav-accent) !important; }
@@ -630,13 +647,13 @@ h4 {
     .hdr-brand-inner,
     .hdr-nav-inner      { padding-left: 24px; padding-right: 24px; }
     .hdr-college-name   { font-size: 1.22rem; }
-    .hdr-nav-link       { padding: 13px 11px; font-size: 0.84rem; }
-    .hdr-home-icon      { padding: 13px 14px; }
+    .hdr-nav-link       { padding: 15px 18px; font-size: 1.02rem; }
+    .hdr-home-icon      { padding: 15px 20px; }
 
     /* Legacy */
     .header-top-container,
     .navbar-container   { padding-left: 24px; padding-right: 24px; }
-    .nav-links li a     { font-size: 0.84rem; padding: 13px 11px; }
+    .nav-links li a     { font-size: 1.02rem; padding: 15px 18px; }
 }
 
 @media (max-width: 992px) {
@@ -647,8 +664,8 @@ h4 {
     .hdr-logo           { height: 54px; }
     .hdr-affil          { height: 48px; }
     .hdr-college-name   { font-size: 1.12rem; }
-    .hdr-nav-link       { padding: 12px 10px; font-size: 0.82rem; }
-    .hdr-home-icon      { padding: 12px 12px; }
+    .hdr-nav-link       { padding: 15px 18px; font-size: 1.02rem; }
+    .hdr-home-icon      { padding: 15px 20px; }
 
     /* Legacy */
     .header-top-container { padding: 6px 18px; }
@@ -656,11 +673,11 @@ h4 {
     .college-name h1      { font-size: 1.12rem; }
     .logo                 { height: 54px; }
     .affiliated-logo      { height: 48px; }
-    .nav-links li a       { padding: 12px 10px; font-size: 0.82rem; }
+    .nav-links li a       { padding: 15px 18px; font-size: 1.02rem; }
 }
 
 @media (max-width: 768px) {
-    /* â”€ Branding row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* Ã¢â€â‚¬ Branding row Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
     .desktop-only       { display: none !important; }
 
     .hdr-brand-inner    { padding: 8px 16px; gap: 12px; }
@@ -668,8 +685,32 @@ h4 {
     .hdr-college-name   { font-size: 1rem; white-space: normal; }
     .hdr-hamburger      { display: flex; }
 
-    /* â”€ Nav drawer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-    .hdr-nav            { border-bottom: none; position: relative; }
+    /* Ã¢â€â‚¬ Nav drawer Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+    .hdr-nav,
+.navbar {
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-divider);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 1px 0 var(--nav-divider), 0 3px 10px rgba(18, 59, 104, .07);
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Constant fixed state when user scrolls down */
+.hdr-nav.is-sticky-fixed,
+.navbar.is-sticky-fixed {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    box-shadow: 0 4px 18px rgba(18, 59, 104, 0.16) !important;
+}
     .hdr-nav-inner      { padding: 0; }
 
     .hdr-nav-list {
@@ -693,17 +734,17 @@ h4 {
 
     .hdr-nav-link {
         width: 100%;
-        padding: 13px 20px;
-        font-size: 0.9rem;
+        padding: 15px 18px;
+        font-size: 1.02rem;
     }
 
     .hdr-nav-link::after { display: none; }
 
     /* Show text label for home icon on mobile */
     .hdr-home-label { display: inline; margin-left: 8px; }
-    .hdr-home-icon  { padding: 13px 20px; font-size: 0.9rem; }
+    .hdr-home-icon  { padding: 15px 20px; font-size: 1.12rem; }
 
-    /* â”€ Legacy compat â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* Ã¢â€â‚¬ Legacy compat Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
     .section            { padding: 30px 0; }
     .header-top-container { padding: 8px 16px; }
     .logo               { height: 46px; }
@@ -735,8 +776,8 @@ h4 {
     .nav-links li a {
         display: flex;
         align-items: center;
-        padding: 13px 20px;
-        font-size: 0.9rem;
+        padding: 15px 18px;
+        font-size: 1.02rem;
         width: 100%;
     }
 
