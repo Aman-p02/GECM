@@ -97,12 +97,6 @@ if (!isset($active_page)) {
                         About <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
-                        <div class="hdr-dd-topbar">
-                            <button type="button" class="hdr-dd-back" aria-label="Back to main menu">
-                                <i class="fas fa-arrow-left"></i> <span>Back</span>
-                            </button>
-                            <span class="hdr-dd-title">About</span>
-                        </div>
                         <div class="hdr-dd-heading">THE INSTITUTE</div>
                         <ul class="hdr-dd-list">
                             <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>" class="hdr-dd-link">Overview</a></li>
@@ -126,12 +120,6 @@ if (!isset($active_page)) {
                         Administration <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
-                        <div class="hdr-dd-topbar">
-                            <button type="button" class="hdr-dd-back" aria-label="Back to main menu">
-                                <i class="fas fa-arrow-left"></i> <span>Back</span>
-                            </button>
-                            <span class="hdr-dd-title">Administration</span>
-                        </div>
                         <ul class="hdr-dd-list">
                             <li><a href="#" class="hdr-dd-link">Principal</a></li>
                             <li><a href="#" class="hdr-dd-link">Council of Heads</a></li>
@@ -149,12 +137,6 @@ if (!isset($active_page)) {
                         Academic <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
-                        <div class="hdr-dd-topbar">
-                            <button type="button" class="hdr-dd-back" aria-label="Back to main menu">
-                                <i class="fas fa-arrow-left"></i> <span>Back</span>
-                            </button>
-                            <span class="hdr-dd-title">Academic</span>
-                        </div>
                         <ul class="hdr-dd-list">
                             <li><a href="#" class="hdr-dd-link">Courses</a></li>
                             <li><a href="#" class="hdr-dd-link">Admission</a></li>
@@ -172,12 +154,6 @@ if (!isset($active_page)) {
                         Departments <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
-                        <div class="hdr-dd-topbar">
-                            <button type="button" class="hdr-dd-back" aria-label="Back to main menu">
-                                <i class="fas fa-arrow-left"></i> <span>Back</span>
-                            </button>
-                            <span class="hdr-dd-title">Departments</span>
-                        </div>
                         <ul class="hdr-dd-list">
                             <li><a href="#" class="hdr-dd-link">Applied Mechanics</a></li>
                             <li><a href="#" class="hdr-dd-link">Automobile Engineering</a></li>
@@ -199,12 +175,6 @@ if (!isset($active_page)) {
                         Activities <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown hdr-dropdown-mega">
-                        <div class="hdr-dd-topbar">
-                            <button type="button" class="hdr-dd-back" aria-label="Back to main menu">
-                                <i class="fas fa-arrow-left"></i> <span>Back</span>
-                            </button>
-                            <span class="hdr-dd-title">Activities</span>
-                        </div>
                         <div class="hdr-mega-grid">
                             <div class="hdr-mega-col">
                                 <div class="hdr-dd-heading">CAMPUS ACTIVITIES</div>
@@ -246,12 +216,6 @@ if (!isset($active_page)) {
                         Student Corner <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
-                        <div class="hdr-dd-topbar">
-                            <button type="button" class="hdr-dd-back" aria-label="Back to main menu">
-                                <i class="fas fa-arrow-left"></i> <span>Back</span>
-                            </button>
-                            <span class="hdr-dd-title">Student Corner</span>
-                        </div>
                         <ul class="hdr-dd-list">
                             <li><a href="#" class="hdr-dd-link">Student Section</a></li>
                             <li><a href="#" class="hdr-dd-link">General Rules &amp; Regulations</a></li>

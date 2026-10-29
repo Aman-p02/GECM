@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Mobile Drill-down for Submenus
+    // Mobile In-Place Accordion Submenu Toggle (opens directly underneath)
     const dropdownToggles = document.querySelectorAll(".hdr-nav-item.has-dropdown > .hdr-nav-link");
     dropdownToggles.forEach(toggleLink => {
         toggleLink.addEventListener("click", function (e) {
@@ -48,22 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 e.preventDefault();
                 e.stopPropagation();
                 const parentItem = this.closest(".hdr-nav-item");
+                const isOpen = parentItem.classList.contains("is-sub-open");
+
+                // Collapse other open dropdowns for a clean accordion flow
                 document.querySelectorAll(".hdr-nav-item.has-dropdown.is-sub-open").forEach(item => {
                     if (item !== parentItem) item.classList.remove("is-sub-open");
                 });
-                parentItem.classList.add("is-sub-open");
-            }
-        });
-    });
 
-    // Mobile Submenu Back Buttons
-    document.querySelectorAll(".hdr-dd-back").forEach(backBtn => {
-        backBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const parentItem = this.closest(".hdr-nav-item");
-            if (parentItem) {
-                parentItem.classList.remove("is-sub-open");
+                parentItem.classList.toggle("is-sub-open", !isOpen);
             }
         });
     });

@@ -447,15 +447,16 @@ h4 {
     color: #009dff;
 }
 
-/* Standard Dropdown Panel */
+/* Standard Dropdown Panel (Desktop - directly under nav item) */
 .hdr-dropdown {
     position: absolute;
     top: calc(100% - 2px);
     left: 0;
-    min-width: 230px;
+    min-width: 240px;
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 10px;
+    border-top: 2.5px solid #009dff;
+    border-radius: 0 0 10px 10px;
     box-shadow: 0 16px 36px -8px rgba(18, 59, 104, 0.14), 0 2px 6px rgba(0, 0, 0, 0.04);
     padding: 8px 6px;
     z-index: 1050;
@@ -486,8 +487,8 @@ h4 {
     pointer-events: auto;
 }
 
-/* Align right on later items to prevent offscreen overflow on desktop */
-.hdr-nav-list > .hdr-nav-item:nth-last-child(-n+4) .hdr-dropdown {
+/* Align right only on last nav item if needed to prevent screen edge overflow */
+.hdr-nav-list > .hdr-nav-item:last-child .hdr-dropdown {
     left: auto;
     right: 0;
 }
@@ -1033,14 +1034,13 @@ h4 {
         padding: 0;
     }
 
-    /* Floating Aesthetic Card Navigation with Drill-Down Subpanels */
+    /* Floating Aesthetic Card Navigation */
     .hdr-nav-list {
         position: absolute;
         top: 8px;
         left: 12px;
         right: 12px;
         width: auto;
-        min-height: 430px;
         background: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 14px;
@@ -1058,8 +1058,9 @@ h4 {
             opacity 0.18s ease,
             visibility 0.22s;
         pointer-events: none;
-        overflow: hidden;
-        position: relative;
+        max-height: calc(88vh - 70px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .hdr-nav-list.is-open {
@@ -1085,7 +1086,7 @@ h4 {
         width: 100%;
         box-sizing: border-box;
         padding: 12px 16px;
-        font-size: 0.95rem;
+        font-size: 0.96rem;
         font-weight: 500;
         color: #1e293b;
         letter-spacing: -0.01em;
@@ -1135,152 +1136,139 @@ h4 {
         justify-content: space-between;
     }
 
-    /* Right chevron indicator for items with submenus */
+    /* Chevron indicator for items with submenus (points down, flips up on open) */
     .hdr-nav-item.has-dropdown > .hdr-nav-link .hdr-arrow {
-        font-size: 0.76rem;
+        font-size: 0.72rem;
         margin-left: auto;
-        color: #94a3b8;
-        transform: rotate(-90deg);
-        transition: color 0.18s ease;
+        color: #64748b;
+        transform: none;
+        transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
         padding-left: 8px;
     }
 
-    /* Mobile Submenu Drill-down Sliding Panels */
-    .hdr-dropdown {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        min-height: 100%;
-        box-sizing: border-box;
-        background: #ffffff;
-        border-radius: 14px;
-        padding: 10px 10px 16px;
-        box-shadow: none;
-        border: none;
-        z-index: 20;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        transform: translateX(100%);
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
-                    opacity 0.18s ease,
-                    visibility 0.24s;
-    }
-
-    .hdr-nav-item.has-dropdown.is-sub-open > .hdr-dropdown {
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-    }
-
-    /* Mobile Submenu Top Header with Back Button */
-    .hdr-dd-topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 4px 6px 10px 6px;
-        margin-bottom: 8px;
-        border-bottom: 1px solid #eef2f6;
-    }
-
-    .hdr-dd-back {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        color: #0f2b4c;
-        font-family: inherit;
-        font-size: 0.88rem;
+    .hdr-nav-item.has-dropdown.is-sub-open > .hdr-nav-link {
+        color: #009dff;
         font-weight: 600;
-        padding: 7px 14px;
-        border-radius: 8px;
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
-        transition: background-color 0.16s ease, transform 0.12s ease;
+        background-color: rgba(0, 157, 255, 0.05);
     }
 
-    .hdr-dd-back:active {
-        background: #e2e8f0;
-        transform: scale(0.96);
-    }
-
-    .hdr-dd-back i {
-        font-size: 0.8rem;
+    .hdr-nav-item.has-dropdown.is-sub-open > .hdr-nav-link .hdr-arrow {
+        transform: rotate(180deg);
         color: #009dff;
     }
 
-    .hdr-dd-title {
-        font-size: 0.82rem;
-        font-weight: 700;
-        color: #64748b;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        padding-right: 8px;
+    /* Sub-options expand directly UNDER the nav option */
+    .hdr-dropdown {
+        position: static !important;
+        width: calc(100% - 12px) !important;
+        min-width: 0 !important;
+        box-sizing: border-box;
+        background: #f8fafc;
+        border-left: 3px solid #009dff !important;
+        border-radius: 0 10px 10px 0;
+        margin: 4px 0 8px 12px;
+        padding: 0 4px;
+        box-shadow: none !important;
+        border-top: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4px);
+        transition: max-height 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.22s ease,
+                    transform 0.22s ease,
+                    padding 0.22s ease,
+                    visibility 0.32s;
+        pointer-events: none;
     }
 
-    .hdr-dd-heading {
-        font-size: 0.72rem;
-        font-weight: 700;
-        padding: 8px 12px 6px;
-        color: #0f2b4c;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        border-bottom: 1px solid #eef2f6;
-        margin-top: 6px;
-        margin-bottom: 4px;
+    .hdr-nav-item.has-dropdown.is-sub-open > .hdr-dropdown {
+        max-height: 900px;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        padding: 6px 6px 10px 8px;
+        pointer-events: auto;
     }
 
     .hdr-dd-list {
         list-style: none;
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    .hdr-dd-list > li {
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    .hdr-dd-list > li:not(:last-child) {
+        border-bottom: 1px solid rgba(226, 232, 240, 0.6);
     }
 
     .hdr-dd-link {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 14px;
-        font-size: 0.92rem;
+        padding: 9px 12px;
+        font-size: 0.90rem;
         font-weight: 500;
-        color: #1e293b;
-        border-radius: 8px;
+        color: #334155;
+        border-radius: 6px;
         text-decoration: none;
         white-space: normal;
-        transition: background-color 0.16s ease, color 0.16s ease;
+        transition: background-color 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
     }
 
     .hdr-dd-link:hover,
     .hdr-dd-link:active {
         color: #009dff;
-        background: #f8fafc;
+        background: #ffffff;
+        padding-left: 15px;
+        box-shadow: 0 1px 3px rgba(18, 59, 104, 0.05);
     }
 
+    /* Activities Categorized Badges on Mobile */
     .hdr-dropdown-mega {
-        min-width: 100%;
-        padding: 10px 10px 16px;
+        min-width: 0 !important;
+        padding: 0 4px;
     }
 
     .hdr-mega-grid {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
     }
 
     .hdr-mega-col {
-        padding-bottom: 8px;
+        padding-bottom: 6px;
     }
 
     .hdr-mega-col:not(:last-child) {
-        border-bottom: 1px solid #f1f5f9;
+        border-bottom: 1px dashed #cbd5e1;
+    }
+
+    .hdr-dd-heading {
+        display: inline-block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #009dff;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        background: rgba(0, 157, 255, 0.08);
+        border: 1px solid rgba(0, 157, 255, 0.14);
+        border-radius: 4px;
+        padding: 3px 8px;
+        margin: 6px 4px 6px;
     }
 
     .hdr-home-label {
