@@ -115,8 +115,7 @@ if (!isset($active_page)) {
 
                 <!-- Administration Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>"
-                       class="hdr-nav-link">
+                    <a href="javascript:void(0);" class="hdr-nav-link">
                         Administration <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
@@ -132,8 +131,7 @@ if (!isset($active_page)) {
 
                 <!-- Academic Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . '#departments'; ?>"
-                       class="hdr-nav-link">
+                    <a href="javascript:void(0);" class="hdr-nav-link">
                         Academic <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
@@ -211,8 +209,7 @@ if (!isset($active_page)) {
 
                 <!-- Student Corner Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . '#events'; ?>"
-                       class="hdr-nav-link">
+                    <a href="javascript:void(0);" class="hdr-nav-link">
                         Student Corner <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">

@@ -113,23 +113,44 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentPath = window.location.pathname.replace(/\/$/, "");
     const currentHash = window.location.hash;
 
+    // Reset any active states first
+    allNavLinks.forEach(item => item.classList.remove("is-active", "active"));
+
+    // Check for exact match on page load
     allNavLinks.forEach(link => {
         const href = link.getAttribute("href");
-        if (href && href !== "#") {
-            try {
-                const linkUrl = new URL(link.href, window.location.origin);
-                const linkPath = linkUrl.pathname.replace(/\/$/, "");
-                if (linkPath && linkPath === currentPath && (currentHash === "" || linkUrl.hash === currentHash)) {
+        if (!href || href === "#" || href.startsWith("javascript:")) return;
+
+        try {
+            const linkUrl = new URL(link.href, window.location.origin);
+            const linkPath = linkUrl.pathname.replace(/\/$/, "");
+
+            // 1. If browser URL has a hash (#about), match only that specific hash
+            if (currentHash && linkUrl.hash) {
+                if (linkUrl.hash === currentHash && (linkPath === currentPath || !linkUrl.pathname)) {
+                    link.classList.add("is-active");
+                }
+            }
+            // 2. If it's a dedicated subpage (e.g. /departments/computer/)
+            else if (!linkUrl.hash && linkPath) {
+                const isHomePath = (linkPath === "" || linkPath === "/GECM-main" || linkPath.endsWith("/index.php") || linkPath.endsWith("/index.html"));
+                if (!isHomePath && linkPath === currentPath) {
                     link.classList.add("is-active");
                     const parentDropdown = link.closest(".hdr-nav-item.has-dropdown");
                     if (parentDropdown && window.innerWidth <= 768) {
                         parentDropdown.classList.add("is-sub-open");
                     }
                 }
-            } catch (err) {}
-        }
+            }
+        } catch (err) {}
+    });
 
+    allNavLinks.forEach(link => {
         link.addEventListener("click", function () {
+            // On mobile dropdown toggle, do not set active underline on parent category
+            if (window.innerWidth <= 768 && this.closest(".has-dropdown") && this.classList.contains("hdr-nav-link")) {
+                return;
+            }
             allNavLinks.forEach(item => item.classList.remove("is-active", "active"));
             this.classList.add("is-active");
         });
