@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `hero_slides` (
 
 -- Initial Hero Slides Data
 INSERT INTO `hero_slides` (`title`, `subtitle`, `image_url`, `label`, `display_order`, `is_active`) VALUES
-('Welcome to <br> Government Engineering College, Modasa', 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi', 'images/hero_campus_1.webp', 'Main Campus & Admin Block', 1, 1),
+('Welcome to <br> Government Engineering College, Modasa', 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi', 'images/hero_campus_1.jpg', 'Main Campus & Admin Block', 1, 1),
 ('Welcome to <br> Government Engineering College, Modasa', 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi', 'images/hero_campus_2.jpg', 'Engineering Academic Complex', 2, 1),
 ('Welcome to <br> Government Engineering College, Modasa', 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi', 'images/hero_campus_3.jpg', 'Central Library & Auditorium', 3, 1),
 ('Welcome to <br> Government Engineering College, Modasa', 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi', 'images/hero_campus_4.jpg', 'Lush Green Campus Aerial View', 4, 1);

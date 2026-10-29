@@ -34,7 +34,7 @@ if ($pdo) {
 // Fallback only for hero banner if table has 0 slides
 if (empty($heroSlides)) {
     $heroSlides = [
-        ['image_url' => 'images/hero_campus_1.webp', 'label' => 'Main Campus & Admin Block', 'title' => 'Welcome to <br> Government Engineering College, Modasa', 'subtitle' => 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi']
+        ['image_url' => 'images/hero_campus_1.jpg', 'label' => 'Main Campus & Admin Block', 'title' => 'Welcome to <br> Government Engineering College, Modasa', 'subtitle' => 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi']
     ];
 }
 
@@ -69,8 +69,17 @@ include_once __DIR__ . '/includes/header.php';
 <section id="about" class="hero govt-hero" aria-label="Campus Showcase">
     <!-- Hero Image Carousel Slides -->
     <div class="hero-slider" id="heroSlider">
-        <?php foreach ($heroSlides as $i => $slide): ?>
-            <div class="hero-slide <?= ($i === 0) ? 'active' : '' ?>" style="background-image: url('<?= htmlspecialchars($slide['image_url']) ?>');"
+        <?php foreach ($heroSlides as $i => $slide): 
+            $imgUrl = $slide['image_url'];
+            if (!empty($imgUrl) && !file_exists(__DIR__ . '/' . $imgUrl)) {
+                if (str_ends_with($imgUrl, '.webp') && file_exists(__DIR__ . '/' . preg_replace('/\.webp$/i', '.jpg', $imgUrl))) {
+                    $imgUrl = preg_replace('/\.webp$/i', '.jpg', $imgUrl);
+                } elseif (str_ends_with($imgUrl, '.jpg') && file_exists(__DIR__ . '/' . preg_replace('/\.jpg$/i', '.webp', $imgUrl))) {
+                    $imgUrl = preg_replace('/\.jpg$/i', '.webp', $imgUrl);
+                }
+            }
+        ?>
+            <div class="hero-slide <?= ($i === 0) ? 'active' : '' ?>" style="background-image: url('<?= htmlspecialchars($imgUrl) ?>');"
                 data-label="<?= htmlspecialchars($slide['label'] ?? '') ?>"></div>
         <?php endforeach; ?>
     </div>
