@@ -367,7 +367,7 @@ include_once __DIR__ . '/includes/header.php';
                                     ? 'departments/mechanical/'
                                     : '#')));
                 ?>
-                <div class="dept-card" onclick="if('<?= htmlspecialchars($resolvedUrl) ?>' !== '#') { window.location.href='<?= htmlspecialchars($resolvedUrl) ?>'; }" style="cursor: <?= ($resolvedUrl !== '#') ? 'pointer' : 'default' ?>;">
+                <div class="dept-card <?= $colorClass ?>" onclick="if('<?= htmlspecialchars($resolvedUrl) ?>' !== '#') { window.location.href='<?= htmlspecialchars($resolvedUrl) ?>'; }" style="cursor: <?= ($resolvedUrl !== '#') ? 'pointer' : 'default' ?>;">
                     <div class="dept-icon">
                         <?php if (!empty($deptLogos[$dept['name']]) && file_exists(__DIR__ . '/' . $deptLogos[$dept['name']])): ?>
                             <img src="<?= htmlspecialchars($deptLogos[$dept['name']]) ?>" alt="<?= htmlspecialchars($dept['name']) ?> Icon" class="dept-img-icon">
@@ -376,7 +376,7 @@ include_once __DIR__ . '/includes/header.php';
                         <?php endif; ?>
                     </div>
                     <h3><?= htmlspecialchars($dept['name']) ?></h3>
-                    <a href="<?= htmlspecialchars($resolvedUrl) ?>" class="dept-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="<?= htmlspecialchars($resolvedUrl) ?>" class="dept-link">Click to view detailed report</a>
                 </div>
                 <?php endforeach; ?>
             </div>
