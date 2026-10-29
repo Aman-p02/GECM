@@ -202,9 +202,8 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 36px;
-    max-width: 1440px;
-    margin: 0 auto;
+    padding: 8px 24px;
+    width: 100%;
 }
 
 .brand-link {
@@ -222,13 +221,13 @@ h4 {
 }
 
 .logo {
-    height: 64px;
+    height: 68px;
     object-fit: contain;
 }
 
 .college-name h1 {
-    font-size: 1.38rem;
-    line-height: 1.25;
+    font-size: 1.45rem;
+    line-height: 1.22;
     margin: 0;
     color: var(--primary-color);
     font-weight: 700;
@@ -236,7 +235,7 @@ h4 {
 }
 
 .college-name p {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: var(--text-light);
     margin: 2px 0 0;
     font-weight: 500;
@@ -249,7 +248,7 @@ h4 {
 }
 
 .affiliated-logo {
-    height: 48px;
+    height: 64px;
     object-fit: contain;
 }
 
@@ -270,9 +269,8 @@ h4 {
 }
 
 .navbar-container {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 36px;
+    width: 100%;
+    padding: 0 24px;
     display: flex;
     align-items: center;
 }
@@ -280,7 +278,7 @@ h4 {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 26px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -295,12 +293,12 @@ h4 {
 }
 
 .nav-links li a {
-    font-size: 0.82rem;
+    font-size: 0.92rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.4px;
-    color: #475569;
-    padding: 10px 2px;
+    letter-spacing: 0.3px;
+    color: #334155;
+    padding: 11px 2px;
     display: inline-flex;
     align-items: center;
     position: relative;
@@ -331,9 +329,9 @@ h4 {
 }
 
 .nav-home-btn {
-    font-size: 1rem !important;
+    font-size: 1.15rem !important;
     color: var(--primary-color) !important;
-    padding: 10px 4px !important;
+    padding: 11px 4px !important;
 }
 
 .nav-home-btn:hover {
@@ -507,10 +505,10 @@ h4 {
 /* Global Responsive Base */
 @media (max-width: 1200px) {
     .nav-links {
-        gap: 16px;
+        gap: 20px;
     }
     .nav-links li a {
-        font-size: 0.78rem;
+        font-size: 0.86rem;
         letter-spacing: 0.2px;
     }
 }
@@ -521,32 +519,32 @@ h4 {
     }
 
     .header-top-container {
-        padding: 6px 20px;
+        padding: 6px 18px;
     }
 
     .navbar-container {
-        padding: 0 20px;
+        padding: 0 18px;
     }
 
     .college-name h1 {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
     }
 
     .logo {
-        height: 54px;
+        height: 56px;
     }
 
     .affiliated-logo {
-        height: 42px;
+        height: 50px;
     }
 
     .nav-links {
-        gap: 13px;
+        gap: 16px;
     }
 
     .nav-links li a {
-        font-size: 0.74rem;
-        padding: 9px 0;
+        font-size: 0.82rem;
+        padding: 10px 0;
     }
 }
 
