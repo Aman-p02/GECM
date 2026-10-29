@@ -193,18 +193,55 @@ document.addEventListener("DOMContentLoaded", () => {
     const deptLeftBtn = document.getElementById("deptLeftBtn");
     const deptRightBtn = document.getElementById("deptRightBtn");
 
-    if (deptGrid && deptLeftBtn && deptRightBtn) {
-        deptLeftBtn.addEventListener("click", () => {
-            const card = deptGrid.querySelector(".dept-card");
-            const scrollDistance = card ? card.offsetWidth + 26 : 280;
-            deptGrid.scrollBy({ left: -scrollDistance, behavior: "smooth" });
-        });
+    if (deptGrid) {
+        if (deptLeftBtn && deptRightBtn) {
+            deptLeftBtn.addEventListener("click", () => {
+                const card = deptGrid.querySelector(".dept-card");
+                const scrollDistance = card ? card.offsetWidth + 26 : 280;
+                deptGrid.scrollBy({ left: -scrollDistance, behavior: "smooth" });
+            });
 
-        deptRightBtn.addEventListener("click", () => {
-            const card = deptGrid.querySelector(".dept-card");
-            const scrollDistance = card ? card.offsetWidth + 26 : 280;
-            deptGrid.scrollBy({ left: scrollDistance, behavior: "smooth" });
-        });
+            deptRightBtn.addEventListener("click", () => {
+                const card = deptGrid.querySelector(".dept-card");
+                const scrollDistance = card ? card.offsetWidth + 26 : 280;
+                deptGrid.scrollBy({ left: scrollDistance, behavior: "smooth" });
+            });
+        }
+
+        // Mobile active card peek & scale transition
+        const updateActiveDeptCard = () => {
+            if (window.innerWidth > 768) {
+                deptGrid.querySelectorAll(".dept-card").forEach(c => c.classList.remove("is-active"));
+                return;
+            }
+            const gridRect = deptGrid.getBoundingClientRect();
+            const gridCenter = gridRect.left + gridRect.width / 2;
+            const cards = deptGrid.querySelectorAll(".dept-card");
+            let closestCard = null;
+            let minDistance = Infinity;
+
+            cards.forEach(card => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + cardRect.width / 2;
+                const distance = Math.abs(gridCenter - cardCenter);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestCard = card;
+                }
+            });
+
+            cards.forEach(card => {
+                if (card === closestCard) {
+                    card.classList.add("is-active");
+                } else {
+                    card.classList.remove("is-active");
+                }
+            });
+        };
+
+        deptGrid.addEventListener("scroll", updateActiveDeptCard, { passive: true });
+        updateActiveDeptCard();
+        window.addEventListener("resize", updateActiveDeptCard, { passive: true });
     }
 
     // ==============================================================

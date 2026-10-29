@@ -979,26 +979,47 @@
         padding: 0;
     }
 
+    .dept-wrapper {
+        padding: 0;
+        overflow: hidden;
+    }
+
     .dept-wrapper .scroll-btn {
         display: none;
     }
 
     .dept-grid {
+        display: flex;
         gap: 16px;
-        padding: 15px 7.5vw 30px;
+        padding: 20px 12vw 35px;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .dept-grid::-webkit-scrollbar {
+        display: none;
     }
 
     .dept-card {
-        flex: 0 0 85vw;
-        max-width: 325px;
-        min-width: 0;
+        flex: 0 0 76vw;
+        max-width: 310px;
+        min-width: 250px;
         scroll-snap-align: center;
         scroll-snap-stop: always;
-        padding: 30px 18px;
-        margin: 0 auto;
+        padding: 36px 22px 32px;
+        border-radius: 24px;
+        margin: 0;
+        transform: scale(0.92);
+        opacity: 0.75;
+        transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .dept-card.is-active {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.16), 0 4px 10px rgba(0, 0, 0, 0.04);
     }
 
     /* Alumni Mobile */
