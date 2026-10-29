@@ -603,6 +603,10 @@
 }
 
 /* Departments Section */
+#departments .section-title h3 {
+    color: #000000;
+}
+
 .dept-wrapper {
     position: relative;
     display: flex;
