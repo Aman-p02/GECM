@@ -603,30 +603,11 @@
 }
 
 /* Departments Section */
-#departments .section-title {
-    margin-bottom: 35px;
-}
-
-#departments .section-title h3 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #0c3b6d;
-    letter-spacing: -0.02em;
-}
-
-#departments .title-underline {
-    width: 44px;
-    height: 3px;
-    background: #0c3b6d;
-    border-radius: 2px;
-    margin: 12px auto 0;
-}
-
 .dept-wrapper {
     position: relative;
     display: flex;
     align-items: center;
-    width: 100%;
+    padding: 0 45px;
 }
 
 .dept-grid {
@@ -635,8 +616,8 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    gap: 24px;
-    padding: 16px 8px 28px;
+    gap: 26px;
+    padding: 20px 10px 30px;
     scrollbar-width: none;
     -ms-overflow-style: none;
     width: 100%;
@@ -647,141 +628,87 @@
 }
 
 .dept-card {
-    flex: 0 0 calc((100% - (24px * 3)) / 4);
+    flex: 0 0 calc((100% - (26px * 3)) / 4);
     min-width: 250px;
     scroll-snap-align: start;
-    padding: 34px 22px 28px;
-    border-radius: 20px;
+    background: var(--bg-white);
+    padding: 36px 24px;
+    border-radius: 18px;
     text-align: center;
-    border: 1px solid transparent;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+    box-shadow: 0 10px 25px -4px rgba(12, 59, 109, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(12, 59, 109, 0.08);
     position: relative;
     overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
 }
 
 .dept-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 16px 32px -4px rgba(12, 59, 109, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04);
+    border-color: rgba(12, 59, 109, 0.22);
 }
 
-/* Department Colors (Vibrant Medium Palette) */
-.dept-card.dept-ce {
-    background: #2563eb;
-    border-color: #3b82f6;
-}
-
-.dept-card.dept-it {
-    background: #059669;
-    border-color: #10b981;
-}
-
-.dept-card.dept-me {
-    background: #0284c7;
-    border-color: #38bdf8;
-}
-
-.dept-card.dept-ae {
-    background: #e11d48;
-    border-color: #fb7185;
-}
-
-.dept-card.dept-civil {
-    background: #ea580c;
-    border-color: #fb923c;
-}
-
-.dept-card.dept-ee {
-    background: #d97706;
-    border-color: #f59e0b;
-}
-
-.dept-card.dept-ec {
-    background: #7c3aed;
-    border-color: #a78bfa;
-}
-
-/* Nth-child Fallbacks */
-.dept-card:nth-child(7n+1) { background: #2563eb; border-color: #3b82f6; }
-.dept-card:nth-child(7n+2) { background: #059669; border-color: #10b981; }
-.dept-card:nth-child(7n+3) { background: #0284c7; border-color: #38bdf8; }
-.dept-card:nth-child(7n+4) { background: #e11d48; border-color: #fb7185; }
-.dept-card:nth-child(7n+5) { background: #ea580c; border-color: #fb923c; }
-.dept-card:nth-child(7n+6) { background: #d97706; border-color: #f59e0b; }
-.dept-card:nth-child(7n+7) { background: #7c3aed; border-color: #a78bfa; }
-
-/* Department Icon Badge */
 .dept-icon {
-    width: 66px;
-    height: 66px;
-    margin: 0 auto 18px;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
     border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: rgba(12, 59, 109, 0.07);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
-    color: #283344;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    font-size: 2.1rem;
+    color: var(--primary-color);
+    transition: all 0.35s ease;
 }
 
 .dept-icon img,
 .dept-icon .dept-img-icon {
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
     object-fit: contain;
-    filter: brightness(0.18) contrast(1.1);
-    transition: transform 0.25s ease;
+    filter: invert(18%) sepia(54%) saturate(2200%) hue-rotate(193deg) brightness(91%) contrast(97%);
+    transition: all 0.35s ease;
 }
 
 .dept-card:hover .dept-icon {
-    transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: rgba(243, 156, 18, 0.16);
+    color: var(--secondary-hover);
+    transform: scale(1.1) rotate(4deg);
+}
+
+.dept-card:hover .dept-icon img,
+.dept-card:hover .dept-icon .dept-img-icon {
+    filter: invert(61%) sepia(76%) saturate(1800%) hue-rotate(360deg) brightness(98%) contrast(95%);
 }
 
 .dept-card h3 {
-    font-size: 1.12rem;
-    font-weight: 700;
-    margin: 0 0 12px;
-    color: #ffffff;
-    line-height: 1.35;
-    min-height: 46px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.18rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--primary-color);
 }
 
 .dept-link {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 0.92rem;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 14px;
-    background: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 20px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: #ffffff;
-    text-decoration: none;
-    backdrop-filter: blur(4px);
-    transition: all 0.2s ease;
+    transition: var(--transition);
 }
 
 .dept-link i {
-    font-size: 0.70rem;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 }
 
 .dept-card:hover .dept-link {
-    background: #ffffff;
-    border-color: #ffffff;
-    color: #0f172a;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    color: var(--secondary-hover);
 }
 
 .dept-card:hover .dept-link i {
-    transform: translateX(3px);
+    transform: translateX(5px);
 }
 
 /* Alumni Section */
@@ -882,11 +809,11 @@
 
 /* Carousel Controls */
 .scroll-btn {
-    background: #ffffff;
-    color: #0c3b6d;
-    border: 1px solid #e2e8f0;
-    width: 42px;
-    height: 42px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     cursor: pointer;
     position: absolute;
@@ -894,17 +821,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
-    font-size: 0.88rem;
+    transition: var(--transition);
+    box-shadow: 0 6px 16px rgba(12, 59, 109, 0.28);
+    font-size: 1.05rem;
 }
 
 .scroll-btn:hover {
-    background: #1f2937;
-    color: #ffffff;
-    border-color: #1f2937;
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16);
-    transform: translateY(-50%) scale(1.06);
+    background: var(--secondary-color);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(243, 156, 18, 0.4);
 }
 
 .left-btn {
