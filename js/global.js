@@ -59,6 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Navigation link click state
+    const navItems = document.querySelectorAll(".hdr-nav-link, .nav-links li a");
+    navItems.forEach(link => {
+        link.addEventListener("click", function () {
+            navItems.forEach(item => item.classList.remove("is-active", "active"));
+            this.classList.add("is-active");
+        });
+    });
+
     // Sticky Navigation Controller
     const stickyNav = document.getElementById("mainNavbar") || document.querySelector(".hdr-nav") || document.querySelector(".navbar");
     const brandRow  = document.querySelector(".hdr-brand") || document.querySelector(".site-header") || document.querySelector(".logo-container");

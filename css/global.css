@@ -234,10 +234,10 @@ h4 {
 
 .hdr-college-name {
     font-family: var(--font-main);
-    font-size: 1.38rem;
+    font-size: 1.50rem;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--nav-navy);
+    color: #ff0101;
     letter-spacing: -0.15px;
     white-space: nowrap;
 }
@@ -245,7 +245,7 @@ h4 {
 .hdr-college-sub {
     font-size: 0.81rem;
     font-weight: 500;
-    color: var(--nav-muted);
+    color: #2f3133;
     letter-spacing: 0.05px;
 }
 
@@ -366,7 +366,7 @@ h4 {
     font-family: var(--font-main);
     font-size: 1.02rem;
     font-weight: 600;
-    color: #374151;
+    color: #1e293b;
     text-decoration: none;
     white-space: nowrap;
     letter-spacing: 0.01em;
@@ -393,35 +393,15 @@ h4 {
     color: var(--nav-navy);
 }
 
-.hdr-nav-link:hover::after {
+.hdr-nav-link:hover::after,
+.hdr-nav-link:active::after,
+.hdr-nav-link.is-active::after {
     width: calc(100% - 36px);
 }
 
 .hdr-nav-link.is-active {
     color: var(--nav-navy);
     font-weight: 600;
-}
-
-.hdr-nav-link.is-active::after {
-    width: calc(100% - 36px);
-    height: 2.5px;
-    background: var(--nav-navy);
-}
-
-/* Home Icon Link */
-.hdr-home-icon {
-    font-size: 1.12rem;
-    padding: 15px 20px;
-    color: var(--nav-navy);
-}
-
-.hdr-home-label {
-    display: none;
-}
-
-.hdr-home-icon:hover::after,
-.hdr-home-icon.is-active::after {
-    width: calc(100% - 40px);
 }
 
 /* Legacy Compatibility */
@@ -695,11 +675,25 @@ h4 {
     color: #fff;
 }
 
-.footer-socials a:nth-child(1) { background: #1877f2; }
-.footer-socials a:nth-child(2) { background: #1da1f2; }
-.footer-socials a:nth-child(3) { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
-.footer-socials a:nth-child(4) { background: #0077b5; }
-.footer-socials a:nth-child(5) { background: #FF0000; }
+.footer-socials a:nth-child(1) {
+    background: #1877f2;
+}
+
+.footer-socials a:nth-child(2) {
+    background: #1da1f2;
+}
+
+.footer-socials a:nth-child(3) {
+    background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+}
+
+.footer-socials a:nth-child(4) {
+    background: #0077b5;
+}
+
+.footer-socials a:nth-child(5) {
+    background: #FF0000;
+}
 
 .footer-socials a:hover {
     transform: translateY(-3px) scale(1.1);
@@ -742,20 +736,20 @@ h4 {
 
 /* Responsive Media Queries */
 @media (max-width: 1200px) {
+
     .hdr-brand-inner,
     .hdr-nav-inner {
         padding-left: 24px;
         padding-right: 24px;
     }
+
     .hdr-college-name {
         font-size: 1.22rem;
     }
+
     .hdr-nav-link {
         padding: 14px 14px;
         font-size: 0.95rem;
-    }
-    .hdr-home-icon {
-        padding: 14px 16px;
     }
 
     .header-top-container,
@@ -763,6 +757,7 @@ h4 {
         padding-left: 24px;
         padding-right: 24px;
     }
+
     .nav-links li a {
         font-size: 0.95rem;
         padding: 14px 14px;
@@ -779,38 +774,44 @@ h4 {
         padding-left: 18px;
         padding-right: 18px;
     }
+
     .hdr-logo {
         height: 54px;
     }
+
     .hdr-affil {
         height: 48px;
     }
+
     .hdr-college-name {
         font-size: 1.12rem;
     }
+
     .hdr-nav-link {
         padding: 13px 11px;
         font-size: 0.9rem;
-    }
-    .hdr-home-icon {
-        padding: 13px 14px;
     }
 
     .header-top-container {
         padding: 6px 18px;
     }
+
     .navbar-container {
         padding: 0 18px;
     }
+
     .college-name h1 {
         font-size: 1.12rem;
     }
+
     .logo {
         height: 54px;
     }
+
     .affiliated-logo {
         height: 48px;
     }
+
     .nav-links li a {
         padding: 13px 11px;
         font-size: 0.9rem;
@@ -826,13 +827,16 @@ h4 {
         padding: 8px 16px;
         gap: 12px;
     }
+
     .hdr-logo {
         height: 46px;
     }
+
     .hdr-college-name {
         font-size: 1rem;
         white-space: normal;
     }
+
     .hdr-hamburger {
         display: flex;
     }
@@ -841,6 +845,7 @@ h4 {
         border-bottom: none;
         position: relative;
     }
+
     .hdr-nav-inner {
         padding: 0;
     }
@@ -864,7 +869,8 @@ h4 {
     .hdr-nav-list.is-open {
         left: 0;
     }
-    .hdr-nav-list > li {
+
+    .hdr-nav-list>li {
         width: 100%;
         border-bottom: 1px solid var(--nav-divider);
     }
@@ -883,6 +889,7 @@ h4 {
         display: inline;
         margin-left: 8px;
     }
+
     .hdr-home-icon {
         padding: 14px 20px;
         font-size: 1rem;
@@ -891,26 +898,33 @@ h4 {
     .section {
         padding: 30px 0;
     }
+
     .header-top-container {
         padding: 8px 16px;
     }
+
     .logo {
         height: 46px;
     }
+
     .college-name h1 {
         font-size: 1rem;
         margin-top: 2px;
     }
+
     .college-name br {
         display: initial;
     }
+
     .college-name p {
         font-size: 0.74rem;
     }
+
     .navbar {
         border-top: none;
         border-bottom: 1px solid var(--nav-divider);
     }
+
     .navbar-container {
         padding: 0;
     }
@@ -934,6 +948,7 @@ h4 {
     .nav-links.active {
         left: 0;
     }
+
     .nav-links li {
         width: 100%;
         border-bottom: 1px solid var(--nav-divider);
@@ -955,6 +970,7 @@ h4 {
         padding: 14px 20px !important;
         font-size: 0.95rem !important;
     }
+
     .nav-home-btn::after {
         content: ' HOME';
         font-size: 0.95rem;
@@ -964,12 +980,15 @@ h4 {
     .hamburger {
         display: block;
     }
+
     .hamburger.active .bar:nth-child(2) {
         opacity: 0;
     }
+
     .hamburger.active .bar:nth-child(1) {
         transform: translateY(7px) rotate(45deg);
     }
+
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
     }
@@ -977,17 +996,21 @@ h4 {
     .top-bar {
         display: none;
     }
+
     .container {
         width: 100%;
         padding: 0 15px;
     }
+
     .full-width-container {
         padding: 0;
     }
+
     .section-title {
         margin-bottom: 25px;
         padding: 0 15px;
     }
+
     .title-underline {
         width: 60px;
         height: 3px;

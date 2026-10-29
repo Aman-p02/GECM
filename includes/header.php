@@ -83,68 +83,65 @@ if (!isset($active_page)) {
         <div class="hdr-nav-inner">
             <ul class="hdr-nav-list" id="mainNavLinks">
 
-                <!-- Home Link -->
-                <li class="hdr-nav-home">
-                    <a href="<?= $root_path ?>"
-                       class="hdr-nav-link hdr-home-icon <?php echo ($active_page === 'home') ? 'is-active' : ''; ?>"
-                       aria-label="Home" title="Home">
-                        <i class="fas fa-home" aria-hidden="true"></i>
-                        <span class="hdr-home-label">Home</span>
+                <!-- Navigation Links -->
+                <li>
+                    <a href="<?= $root_path ?>" class="hdr-nav-link">
+                        Home
                     </a>
                 </li>
 
                 <li>
                     <a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>"
-                       class="hdr-nav-link <?php echo ($active_page === 'about') ? 'is-active' : ''; ?>">
+                       class="hdr-nav-link">
                         About
                     </a>
                 </li>
 
                 <li>
                     <a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>"
-                       class="hdr-nav-link <?php echo ($active_page === 'administration') ? 'is-active' : ''; ?>">
+                       class="hdr-nav-link">
                         Administration
                     </a>
                 </li>
 
                 <li>
                     <a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . '#departments'; ?>"
-                       class="hdr-nav-link <?php echo ($active_page === 'academic') ? 'is-active' : ''; ?>">
+                       class="hdr-nav-link">
                         Academic
                     </a>
                 </li>
 
                 <li>
                     <a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . '#departments'; ?>"
-                       class="hdr-nav-link <?php echo ($active_page === 'departments') ? 'is-active' : ''; ?>">
+                       class="hdr-nav-link">
                         Departments
                     </a>
                 </li>
 
                 <li>
                     <a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . '#events'; ?>"
-                       class="hdr-nav-link <?php echo ($active_page === 'activities') ? 'is-active' : ''; ?>">
+                       class="hdr-nav-link">
                         Activities
                     </a>
                 </li>
 
                 <li>
                     <a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . '#events'; ?>"
-                       class="hdr-nav-link <?php echo ($active_page === 'student-corner') ? 'is-active' : ''; ?>">
+                       class="hdr-nav-link">
                         Student Corner
                     </a>
                 </li>
 
                 <li>
                     <a href="<?php echo ($active_page === 'home') ? '#alumni' : $root_path . '#alumni'; ?>"
-                       class="hdr-nav-link <?php echo ($active_page === 'placement') ? 'is-active' : ''; ?>">
+                       class="hdr-nav-link">
                         Placement
                     </a>
                 </li>
 
                 <li>
                     <a href="<?php echo ($active_page === 'home') ? '#contact' : $root_path . '#contact'; ?>"
-                       class="hdr-nav-link <?php echo ($active_page === 'contact') ? 'is-active' : ''; ?>">
+                       class="hdr-nav-link">
                         Contact Us
                     </a>
                 </li>
