@@ -467,7 +467,43 @@
     font-family: var(--us-font-display);
 }
 
-/* Vision and mission grid */
+/* Vision and mission styling */
+.us-vision-hero-card {
+    position: relative;
+    padding: 38px 44px;
+    background: #ffffff;
+    border: 1px solid var(--us-border);
+    border-left: 4px solid #b45309;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+    margin-bottom: 36px;
+}
+
+.us-vision-quote-mark {
+    font-family: var(--us-font-serif);
+    font-size: 3.2rem;
+    color: #b45309;
+    line-height: 1;
+    display: block;
+    margin-bottom: -12px;
+}
+
+.us-vision-statement {
+    font-family: var(--us-font-display);
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: #111111;
+    font-weight: 600;
+    margin: 0;
+}
+
+.us-vision-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
 .us-charter-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -892,6 +928,7 @@
     }
 
     .us-charter-grid,
+    .us-vision-pillars-grid,
     .us-objectives-grid,
     .us-labs-showcase,
     .us-periodical-grid,
