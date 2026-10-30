@@ -15,14 +15,6 @@ include_once __DIR__ . '/../../includes/header.php';
     <!-- Hero header section -->
     <header class="us-hero-banner">
         <div class="us-container">
-            <nav class="us-breadcrumb" aria-label="Academic Navigation Breadcrumbs">
-                <a href="<?= $root_path ?>"><i class="fas fa-home" style="font-size: 0.76rem; opacity: 0.85;"></i> Home</a>
-                <span class="sep">/</span>
-                <a href="<?= $root_path ?>#departments">Academic Departments</a>
-                <span class="sep">/</span>
-                <span class="active-crumb">Computer Engineering</span>
-            </nav>
-
             <span class="us-dept-kicker">Department of</span>
             <h1 class="us-dept-heading">Computer Engineering</h1>
             <p class="us-dept-tagline">
