@@ -1,12 +1,12 @@
 <?php
-// Page configuration
+// Set Page Variables
 $page_title = "Computer Engineering Department - Government Engineering College, Modasa";
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/computer/css/department.css";
 $extra_js = "departments/computer/js/department.js";
 
-// Header template
+// Include Header
 include_once __DIR__ . '/../../includes/header.php';
 ?>
 
@@ -17,7 +17,7 @@ include_once __DIR__ . '/../../includes/header.php';
     <div class="container">
         <div class="dept-layout-grid">
 
-            <!-- Sidebar Navigation -->
+            <!-- Left Sidebar Navigation -->
             <aside class="dept-sidebar">
                 <div class="dept-sidebar-header">
                     Computer Department
@@ -78,7 +78,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </ul>
             </aside>
 
-            <!-- Content Area -->
+            <!-- Right Content Area -->
             <main class="dept-content-panel">
 
 
@@ -105,7 +105,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         Computer Engineering and Information Technology department run in a newly constructed, well-furnished building. The main strength of the department is highly qualified and well-experienced faculties. Also, the department is well equipped with an ample number of computer systems, networking of more than 250 nodes and required software and hardware. Department has well equipped 10 computer laboratories and two seminar halls. Campus Wide Network of college is handled by the department with 30 Wi-Fi access points with 1 controller. It has High-End Servers available for various activities.
                     </p>
 
-                    <!-- Program Overview -->
+                    <!-- About the Programme Section -->
                     <div class="dept-divider-title">About the Programme</div>
 
                     <p class="dept-text-body">
@@ -116,7 +116,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         Computer engineers work with hardware and software, ensuring that the two are seamlessly integrated and functioning properly. Computer engineers focus on innovation—making computing systems safer, faster and more powerfull. At the career level, there are two main avenues: hardware and software engineering. Hardware engineers focus their skills on computer systems and components, designing microprocessors, circuit boards, routers and other embedded devices. On the software side, these engineers create, test and debug programs and applications that run on computers, mobile devices and more.
                     </p>
 
-                    <!-- Courses Table -->
+                    <!-- Under Graduate/Post Graduate Courses Table Card -->
                     <div class="courses-card">
                         <div class="courses-card-header">
                             <i class="fas fa-bars"></i>
@@ -153,7 +153,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Facilities Section -->
+                    <!-- Facilities Section below Courses Table -->
                     <div class="dept-divider-title">Facilities</div>
 
                     <div class="dept-facilities-dual-grid">
@@ -193,7 +193,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <li>Induce moral , ethical values and spirit of social commitment.</li>
                     </ul>
 
-                    <!-- Program Educational Objectives -->
+                    <!-- Program Educational Objectives PEOs Card -->
                     <div class="peo-card">
                         <div class="peo-card-header">
                             <i class="fas fa-server"></i>
@@ -226,7 +226,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Program Specific Outcomes -->
+                    <!-- Program Specific Outcomes PSOs Card -->
                     <div class="peo-card">
                         <div class="peo-card-header">
                             <i class="fas fa-server"></i>
@@ -349,7 +349,7 @@ include_once __DIR__ . '/../../includes/header.php';
                      6. FACILITIES TAB
                      ======================================================== -->
                 <section class="dept-tab-content" id="tab-facilities">
-                    <!-- Segmented Tabs -->
+                    <!-- Modern Minimal Segmented Tabs -->
                     <div class="facility-tabs-container">
                         <div class="facility-segmented-tabs" role="tablist">
                             <button type="button" class="facility-tab-btn active" data-subtab="labs" role="tab">

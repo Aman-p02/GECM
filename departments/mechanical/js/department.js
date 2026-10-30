@@ -1,11 +1,15 @@
-/* Department Page Scripts */
+/* ==============================================================
+   GECM Mechanical Department Detail Page Interactions
+   - Scroll-triggered reveal loading across ALL department tabs
+   - Smooth navigation scrolling, dropdowns, and facility sub-tabs
+   ============================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.dept-nav-link');
     const tabPanes = document.querySelectorAll('.dept-tab-content');
     const pageTitle = document.getElementById('deptPageTitle');
 
-    // Section titles
+    // Title map for clean presentation
     const titleMap = {
         'about': 'About Department',
         'vision-mission': 'Vision and Mission',
@@ -168,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } catch (err) {}
         }
 
-        // Scroll to content container on mobile navigation
+        // Smooth scroll to content top if triggered by user click on mobile
         if (shouldScroll && window.innerWidth <= 768) {
             const contentPanel = document.querySelector('.dept-content-panel');
             if (contentPanel) {
@@ -196,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Sidebar accordion toggles
+    // Sidebar Accordion Dropdown Headers
     const dropdownHeaders = document.querySelectorAll('.dept-dropdown-header');
     dropdownHeaders.forEach(header => {
         function toggleDropdown(e) {
@@ -221,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Sub-menu navigation links
+    // Sub-menu Links
     document.addEventListener('click', function (e) {
         const subLink = e.target.closest('.dept-sub-link');
         if (subLink) {
@@ -238,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Document accordion panels
+    // Document Accordions in Content Panels
     const docAccordions = document.querySelectorAll('.dept-doc-accordion');
     docAccordions.forEach(acc => {
         const header = acc.querySelector('.dept-doc-accordion-header');
