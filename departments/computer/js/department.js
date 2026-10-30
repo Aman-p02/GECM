@@ -1,9 +1,9 @@
 // Department tab navigation and URL hash routing
 
 document.addEventListener('DOMContentLoaded', function () {
-    const tabButtons = document.querySelectorAll('.us-subnav-link, .dept-tab-btn, .dept-nav-link');
-    const tabPanes = document.querySelectorAll('.us-tab-pane, .dept-pane, .dept-tab-content');
-    const subNavList = document.querySelector('.us-subnav-list');
+    const tabButtons = document.querySelectorAll('.dept-subnav-link');
+    const tabPanes = document.querySelectorAll('.dept-tab-pane');
+    const subNavList = document.querySelector('.dept-subnav-list');
 
     // Switch active tab and display matching content pane
     function activateTab(tabId, shouldScroll = false) {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Scroll to content on mobile screens if triggered by user click
         if (shouldScroll && window.innerWidth <= 768) {
-            const navBar = document.querySelector('.us-subnav-bar') || document.querySelector('.dept-sticky-nav-bar');
+            const navBar = document.querySelector('.dept-subnav-bar');
             const offset = navBar ? navBar.offsetHeight + 10 : 70;
             const targetY = targetPane.getBoundingClientRect().top + window.pageYOffset - offset;
             window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
