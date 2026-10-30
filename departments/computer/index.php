@@ -101,40 +101,19 @@ Empowering future engineers through innovation and technology. Focused on practi
                     <p>Pioneering engineering education, campus network engineering, and laboratory discovery at Government Engineering College, Modasa since 2001.</p>
                 </div>
 
-                <div class="us-about-split">
-                    <div class="us-story-body">
-                        <blockquote class="us-lead-quote">
-                            "Fostering next-generation computing engineers through deep theoretical foundations, state-of-the-art laboratory discovery, and real-time systems mastery."
-                        </blockquote>
-                        <p>
-                            Established in 2001, the Department of Computer Engineering operates in a newly constructed, spacious, and well-furnished academic complex shared with the Information Technology department. The academic facility features 10 specialized computer laboratories and two air-conditioned seminar halls, offering students an immersive environment for software engineering, algorithmic exploration, and technical innovation.
-                        </p>
-                        <p>
-                            Under AICTE Grant assistance for Campus Networking, the department centrally planned, engineered, and manages the entire campus-wide network infrastructure. The computing infrastructure connects more than 250 networked nodes across optical fiber and high-speed LAN systems, reinforced with 30 enterprise Wi-Fi access points orchestrated through a centralized controller for seamless digital connectivity.
-                        </p>
-                        <p>
-                            The department is powered by latest high-end enterprise servers and interactive online instructional platforms, including a dedicated Content Server for network-based e-learning. Backed by a team of highly qualified and experienced faculty members, the department has also offered a specialized Post Graduate programme (M.E. in Computer Engineering with Software Engineering) since 2010, complementing its flagship undergraduate degree.
-                        </p>
-                    </div>
-
-                    <div class="us-feature-cards">
-                        <div class="us-feature-card">
-                            <h4>250+ Networked Nodes</h4>
-                            <p>High-speed campus-wide LAN backbone engineered and centrally maintained under AICTE grant assistance.</p>
-                        </div>
-                        <div class="us-feature-card">
-                            <h4>30 Managed Wi-Fi APs</h4>
-                            <p>Campus wireless network with 30 enterprise access points orchestrated by a centralized controller.</p>
-                        </div>
-                        <div class="us-feature-card">
-                            <h4>10 Labs &amp; 2 Seminar Halls</h4>
-                            <p>Equipped for Computer Hardware, Networking &amp; Security, DBMS, Computer Graphics, and Real-Time Systems.</p>
-                        </div>
-                        <div class="us-feature-card">
-                            <h4>High-End Server Cluster</h4>
-                            <p>Enterprise computing servers and network-based online teaching systems (Content Server) for modern pedagogy.</p>
-                        </div>
-                    </div>
+                <div class="us-story-body">
+                    <blockquote class="us-lead-quote">
+                        "Fostering next-generation computing engineers through deep theoretical foundations, state-of-the-art laboratory discovery, and real-time systems mastery."
+                    </blockquote>
+                    <p>
+                        Established in 2001, the Department of Computer Engineering operates in a newly constructed, spacious, and well-furnished academic complex shared with the Information Technology department. The academic facility features 10 specialized computer laboratories and two air-conditioned seminar halls, offering students an immersive environment for software engineering, algorithmic exploration, and technical innovation.
+                    </p>
+                    <p>
+                        Under AICTE Grant assistance for Campus Networking, the department centrally planned, engineered, and manages the entire campus-wide network infrastructure. The computing infrastructure connects more than 250 networked nodes across optical fiber and high-speed LAN systems, reinforced with 30 enterprise Wi-Fi access points orchestrated through a centralized controller for seamless digital connectivity.
+                    </p>
+                    <p>
+                        The department is powered by latest high-end enterprise servers and interactive online instructional platforms, including a dedicated Content Server for network-based e-learning. Backed by a team of highly qualified and experienced faculty members, the department has also offered a specialized Post Graduate programme (M.E. in Computer Engineering with Software Engineering) since 2010, complementing its flagship undergraduate degree.
+                    </p>
                 </div>
 
                 <!-- About the Programme Section -->

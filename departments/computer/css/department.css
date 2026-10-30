@@ -342,6 +342,11 @@
     background: transparent;
 }
 
+.us-story-body {
+    max-width: 960px;
+    margin-bottom: 40px;
+}
+
 .us-story-body p {
     font-family: var(--us-font-sans);
     font-size: 1.02rem;
