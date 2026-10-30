@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Sidebar Accordion Dropdown Headers
-    const dropdownHeaders = document.querySelectorAll('.dept-dropdown-header');
+    const dropdownHeaders = document.querySelectorAll('.dept-dropdown-header, .dept-dropdown-toggle');
     dropdownHeaders.forEach(header => {
         function toggleDropdown(e) {
             if (e) e.preventDefault();

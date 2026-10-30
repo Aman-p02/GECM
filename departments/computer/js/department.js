@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Sidebar Accordion Dropdown Headers (Industry Advisory Board, Newsletters)
-    const dropdownHeaders = document.querySelectorAll('.dept-dropdown-header');
+    const dropdownHeaders = document.querySelectorAll('.dept-dropdown-header, .dept-dropdown-toggle');
     dropdownHeaders.forEach(header => {
         function toggleDropdown(e) {
             if (e) e.preventDefault();
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ==========================================================
        4. Facilities Segmented Sub-tabs Handler
        ========================================================== */
-    const facilityTabBtns = document.querySelectorAll('.facility-tab-btn');
+    const facilityTabBtns = document.querySelectorAll('.facility-tab-btn, .facility-tab-pill');
     const facilityPanes = document.querySelectorAll('.facility-pane');
 
     facilityTabBtns.forEach(btn => {
