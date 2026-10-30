@@ -6,3 +6,4 @@ DirectoryIndex index.php index.html
     Order allow,deny
     Deny from all
 </FilesMatch>
+

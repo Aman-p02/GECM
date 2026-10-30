@@ -281,12 +281,6 @@ include_once __DIR__ . '/includes/header.php';
                 </ul>
                 <?php endif; ?>
             </div>
-            <?php else: ?>
-            <div class="empty-notice-state">
-                <div class="empty-icon"><i class="far fa-bell-slash"></i></div>
-                <h5>No Notices Published</h5>
-                <p>There are no active notices or announcements at this time. Announcements posted from the Admin Panel will appear here automatically.</p>
-            </div>
             <?php endif; ?>
         </div>
     </div>
