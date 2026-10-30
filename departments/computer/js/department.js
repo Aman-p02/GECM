@@ -60,12 +60,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // Show target content pane
         targetPane.classList.add('active');
 
-        // Scroll to content on mobile screens if triggered by user click
-        if (shouldScroll && window.innerWidth <= 768) {
-            const navBar = document.querySelector('.dept-subnav-bar');
-            const offset = navBar ? navBar.offsetHeight + 10 : 70;
-            const targetY = targetPane.getBoundingClientRect().top + window.pageYOffset - offset;
-            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+        // Smoothly scroll to content if user is scrolled past the subnav
+        if (shouldScroll) {
+            const subNav = document.getElementById('deptSubNav') || document.querySelector('.dept-subnav-bar');
+            const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
+            const mainNavHeight = (window.innerWidth > 768 && mainNav) ? (Math.round(mainNav.getBoundingClientRect().height) || 52) : 0;
+            if (subNav) {
+                const subNavRect = subNav.getBoundingClientRect();
+                if (subNavRect.top <= mainNavHeight + 2) {
+                    const targetY = subNav.offsetTop - mainNavHeight;
+                    window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                }
+            }
         }
     }
 
@@ -101,4 +107,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('hashchange', handleHash);
     handleHash();
+
+    // Dynamically adjust subnav sticky top position to rest flush beneath main navbar on desktop
+    function updateStickySubnavPosition() {
+        const subNav = document.getElementById('deptSubNav') || document.querySelector('.dept-subnav-bar');
+        if (!subNav) return;
+
+        if (window.innerWidth > 768) {
+            const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
+            if (mainNav) {
+                const navHeight = Math.round(mainNav.getBoundingClientRect().height) || 52;
+                document.documentElement.style.setProperty('--site-main-nav-height', `${navHeight}px`);
+                subNav.style.top = `${navHeight}px`;
+            } else {
+                subNav.style.top = '52px';
+            }
+        } else {
+            document.documentElement.style.setProperty('--site-main-nav-height', '0px');
+            subNav.style.top = '0px';
+        }
+    }
+
+    updateStickySubnavPosition();
+    window.addEventListener('resize', updateStickySubnavPosition, { passive: true });
+    window.addEventListener('scroll', updateStickySubnavPosition, { passive: true });
 });
