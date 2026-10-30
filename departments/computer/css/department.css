@@ -1,80 +1,1147 @@
-/* ==============================================================
-   Department Portal Stylesheet
-   ============================================================== */
-.dept-hero-banner {
-    background: linear-gradient(135deg, #0b2e59 0%, #174a84 100%);
-    color: #ffffff;
-    padding: 55px 0 45px;
+/**
+ * ==============================================================
+ * Premium Editorial Department Design System
+ * Government Engineering College, Modasa (GEC Modasa)
+ * Inspired by international academic publications & architecture
+ * ==============================================================
+ */
+
+/* -------------------------------------------------------------
+   0. Design Tokens & Root Variables
+   ------------------------------------------------------------- */
+:root {
+    --color-navy: #1E3A8A;
+    --color-amber: #F59E0B;
+    --color-bg-main: #FFFFFF;
+    --color-bg-alt: #FAF9F6;
+    --color-text-primary: #111111;
+    --color-text-secondary: #666666;
+    --color-text-muted: #888888;
+    --color-border: #E5E5E5;
+    --color-border-subtle: #EEEEEE;
+    --color-footer-bg: #14213D;
+    --color-footer-text: #F5F5F5;
+
+    --font-heading: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --transition-base: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Container */
+.dept-container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+
+.bg-warm {
+    background-color: var(--color-bg-alt);
+}
+
+/* -------------------------------------------------------------
+   1. Typography & Editorial Labels
+   ------------------------------------------------------------- */
+.dept-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-amber);
+    margin-bottom: 16px;
+}
+
+.section-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-amber);
+    margin-bottom: 12px;
+}
+
+.editorial-heading {
+    font-family: var(--font-heading);
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--color-text-primary);
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.section-heading-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: flex-end;
+    margin-bottom: 54px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section-heading-sub {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* -------------------------------------------------------------
+   2. Department Page Hero
+   ------------------------------------------------------------- */
+.dept-hero-section {
+    background-color: var(--color-bg-main);
+    padding: 36px 0 70px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.dept-breadcrumb {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+}
+
+.dept-breadcrumb a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.dept-breadcrumb a:hover {
+    color: var(--color-navy);
+}
+
+.dept-breadcrumb .bc-sep {
+    margin: 0 8px;
+    color: #CCCCCC;
+}
+
+.dept-breadcrumb .bc-current {
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+.dept-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1.15fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.dept-headline {
+    font-family: var(--font-heading);
+    font-size: 82px;
+    font-weight: 400;
+    line-height: 1.04;
+    color: var(--color-text-primary);
+    margin: 0 0 24px;
+    letter-spacing: -0.025em;
+}
+
+.dept-lead {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    margin: 0 0 36px;
+    max-width: 520px;
+}
+
+.dept-hero-actions {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.btn-editorial-primary {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-navy);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 13px 26px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+.btn-editorial-primary:hover {
+    background-color: #142860;
+}
+
+.btn-editorial-ghost {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 13px 18px;
+    text-decoration: none;
+    transition: color var(--transition-base), transform var(--transition-base);
+}
+
+.btn-editorial-ghost:hover {
+    color: var(--color-amber);
+    transform: translateX(4px);
+}
+
+.dept-hero-media {
     position: relative;
+}
+
+.dept-hero-frame {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+}
+
+.dept-hero-img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+}
+
+.dept-img-caption {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--color-text-muted);
+    padding: 10px 14px;
+    background-color: #FFFFFF;
+    border-top: 1px solid var(--color-border);
+    letter-spacing: 0.02em;
+}
+
+/* -------------------------------------------------------------
+   3. Statistics Strip
+   ------------------------------------------------------------- */
+.dept-stats-strip {
+    background-color: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
+    padding: 44px 0;
+}
+
+.dept-stats-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 58px;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--color-navy);
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-secondary);
+}
+
+.stat-divider {
+    width: 1px;
+    height: 60px;
+    background-color: var(--color-border);
+    flex-shrink: 0;
+}
+
+/* -------------------------------------------------------------
+   4. Department Subnavigation Bar
+   ------------------------------------------------------------- */
+.dept-subnav {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+
+.dept-subnav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 36px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dept-subnav-list::-webkit-scrollbar {
+    display: none;
+}
+
+.dept-subnav-list li {
+    flex-shrink: 0;
+}
+
+.subnav-link {
+    display: inline-block;
+    padding: 18px 2px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    position: relative;
+    transition: color var(--transition-base);
+    letter-spacing: 0.02em;
+}
+
+.subnav-link:hover {
+    color: var(--color-text-primary);
+}
+
+.subnav-link.active {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.subnav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-amber);
+}
+
+.subnav-ext {
+    font-size: 10px;
+    margin-left: 4px;
+    color: var(--color-text-muted);
+}
+
+/* -------------------------------------------------------------
+   5. Overview Section (Asymmetric Editorial Layout)
+   ------------------------------------------------------------- */
+.dept-section {
+    padding: 110px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.editorial-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 72px;
+    margin-bottom: 70px;
+}
+
+.editorial-col-left {
+    padding-right: 20px;
+}
+
+.editorial-lead-text {
+    font-family: var(--font-body);
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--color-text-primary);
+    font-weight: 400;
+    margin: 0 0 20px;
+}
+
+.editorial-body-text {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0 0 18px;
+}
+
+.editorial-link-wrapper {
+    margin-top: 30px;
+}
+
+.editorial-arrow-link {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-navy);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color var(--transition-base), transform var(--transition-base);
+}
+
+.editorial-arrow-link:hover {
+    color: var(--color-amber);
+    transform: translateX(4px);
+}
+
+.editorial-feature-media {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-alt);
     overflow: hidden;
 }
 
-.dept-hero-content {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
+.editorial-feature-img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
 }
 
-.dept-badge {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
-    font-size: 0.8rem;
+.editorial-feature-caption {
+    padding: 14px 20px;
+    background-color: #FFFFFF;
+    border-top: 1px solid var(--color-border);
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-muted);
+    letter-spacing: 0.02em;
+}
+
+/* -------------------------------------------------------------
+   6. Head of Department Section
+   ------------------------------------------------------------- */
+.hod-editorial-layout {
+    display: grid;
+    grid-template-columns: 4.5fr 7.5fr;
+    gap: 74px;
+    align-items: center;
+}
+
+.hod-portrait-frame {
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+
+.hod-portrait-img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+}
+
+.hod-credentials-mobile {
+    display: none;
+    margin-top: 16px;
+}
+
+.hod-pullquote {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 34px;
+    line-height: 1.28;
+    color: var(--color-navy);
+    margin: 0 0 28px;
+    letter-spacing: -0.01em;
+}
+
+.hod-message-body p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    margin: 0 0 16px;
+}
+
+.hod-signature-block {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+}
+
+.hod-name {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+}
+
+.hod-title {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-navy);
+    font-weight: 600;
+    margin: 0 0 2px;
+}
+
+.hod-dept,
+.hod-degrees {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* -------------------------------------------------------------
+   7. Faculty Section (Borderless Grid + Minimal Search)
+   ------------------------------------------------------------- */
+.faculty-controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 44px;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.faculty-filter-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-pill {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    padding: 8px 18px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.filter-pill:hover {
+    border-color: var(--color-navy);
+    color: var(--color-navy);
+}
+
+.filter-pill.active {
+    background-color: var(--color-navy);
+    border-color: var(--color-navy);
+    color: #FFFFFF;
+}
+
+.faculty-search-box {
+    position: relative;
+    min-width: 280px;
+}
+
+.faculty-search-box .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: var(--color-text-muted);
+    pointer-events: none;
+}
+
+.faculty-search-input {
+    width: 100%;
+    padding: 10px 16px 10px 38px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: #FFFFFF;
+    color: var(--color-text-primary);
+    box-sizing: border-box;
+    transition: border-color var(--transition-base);
+}
+
+.faculty-search-input:focus {
+    outline: none;
+    border-color: var(--color-navy);
+}
+
+.faculty-editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 32px;
+    row-gap: 52px;
+}
+
+.faculty-member-item {
+    border: none;
+    background: transparent;
+    transition: transform var(--transition-base);
+}
+
+.faculty-img-wrapper {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background-color: var(--color-bg-alt);
+    margin-bottom: 16px;
+    border: 1px solid var(--color-border);
+}
+
+.faculty-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.faculty-member-item:hover .faculty-img {
+    transform: scale(1.03);
+}
+
+.faculty-details {
+    padding-top: 2px;
+}
+
+.faculty-name {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+}
+
+.faculty-rank {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-navy);
+    margin: 0 0 4px;
+}
+
+.faculty-meta {
+    font-family: var(--font-body);
+    font-size: 12px;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.no-records-msg {
+    text-align: center;
+    padding: 60px 0;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--color-text-muted);
+}
+
+/* -------------------------------------------------------------
+   8. Laboratories Section (Large Editorial Showcase)
+   ------------------------------------------------------------- */
+.laboratories-editorial-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.lab-editorial-item {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 60px;
+    align-items: center;
+    border: 1px solid var(--color-border);
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+.lab-editorial-item.reverse {
+    grid-template-columns: 1fr 1.15fr;
+}
+
+.lab-editorial-item.reverse .lab-media {
+    order: 2;
+}
+
+.lab-editorial-item.reverse .lab-text {
+    order: 1;
+}
+
+.lab-media {
+    overflow: hidden;
+    background-color: var(--color-bg-alt);
+    height: 100%;
+    min-height: 380px;
+}
+
+.lab-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.lab-editorial-item:hover .lab-img {
+    transform: scale(1.02);
+}
+
+.lab-text {
+    padding: 44px 50px;
+}
+
+.lab-meta-tag {
+    font-family: var(--font-body);
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 14px;
-    backdrop-filter: blur(4px);
+    letter-spacing: 0.14em;
+    color: var(--color-amber);
+    margin-bottom: 12px;
 }
 
-.dept-title {
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 10px 0;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
-}
-
-.dept-subtitle {
-    font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
+.lab-name {
+    font-family: var(--font-heading);
+    font-size: 38px;
     font-weight: 400;
+    color: var(--color-text-primary);
+    margin: 0 0 16px;
+    line-height: 1.15;
 }
 
-.dept-page-wrapper {
-    background-color: #f8fafc;
-    min-height: 60vh;
-    padding: 50px 0 80px;
+.lab-desc {
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0 0 24px;
 }
 
-.dept-canvas-container {
-    background: #ffffff;
-    border-radius: 16px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
-    padding: 40px;
-    min-height: 400px;
+.lab-features-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-border);
+    padding-top: 16px;
 }
 
+.lab-features-list li {
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+}
+
+.lab-features-list li span {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* -------------------------------------------------------------
+   9. Department History / Milestones Timeline
+   ------------------------------------------------------------- */
+.dept-timeline-container {
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.timeline-row {
+    display: grid;
+    grid-template-columns: 120px 48px 1fr;
+    gap: 24px;
+    align-items: flex-start;
+    position: relative;
+    padding-bottom: 48px;
+}
+
+.timeline-row:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-year {
+    font-family: var(--font-heading);
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--color-navy);
+    line-height: 1;
+    text-align: right;
+    padding-top: 2px;
+}
+
+.timeline-line-marker {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-amber);
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 0 0 1px var(--color-border);
+    z-index: 2;
+    margin-top: 10px;
+    flex-shrink: 0;
+}
+
+.timeline-line-marker::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    bottom: -10px;
+    width: 1px;
+    background-color: var(--color-border);
+    z-index: 1;
+}
+
+.timeline-row:last-child .timeline-line-marker::after {
+    display: none;
+}
+
+.timeline-content {
+    padding-top: 4px;
+}
+
+.timeline-event-title {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 8px;
+}
+
+.timeline-event-desc {
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* -------------------------------------------------------------
+   10. Downloads & Academic Resources
+   ------------------------------------------------------------- */
+.downloads-editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.download-doc-item {
+    display: flex;
+    align-items: center;
+    padding: 24px 28px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.download-doc-item:hover {
+    border-color: var(--color-navy);
+    transform: translateY(-2px);
+}
+
+.download-doc-item .doc-icon {
+    font-size: 24px;
+    color: var(--color-navy);
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.download-doc-item .doc-meta {
+    flex-grow: 1;
+}
+
+.download-doc-item .doc-title {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+}
+
+.download-doc-item .doc-info {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.download-doc-item .doc-action {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    margin-left: 16px;
+    transition: color var(--transition-base), transform var(--transition-base);
+}
+
+.download-doc-item:hover .doc-action {
+    color: var(--color-amber);
+    transform: translateY(3px);
+}
+
+/* -------------------------------------------------------------
+   11. Institutional Responsive Breakpoints
+   ------------------------------------------------------------- */
+
+/* Laptop / Small Desktop (1280px) */
+@media (max-width: 1280px) {
+    .dept-headline {
+        font-size: 70px;
+    }
+
+    .editorial-heading {
+        font-size: 46px;
+    }
+
+    .stat-number {
+        font-size: 48px;
+    }
+
+    .dept-hero-img {
+        height: 420px;
+    }
+
+    .hod-portrait-img {
+        height: 420px;
+    }
+
+    .hod-pullquote {
+        font-size: 28px;
+    }
+}
+
+/* Tablet / Landscape Mobile (992px) */
+@media (max-width: 992px) {
+    .dept-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .dept-hero-img {
+        height: 380px;
+    }
+
+    .editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .editorial-feature-img {
+        height: 360px;
+    }
+
+    .hod-editorial-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hod-portrait-img {
+        height: 360px;
+    }
+
+    .hod-credentials-mobile {
+        display: block;
+    }
+
+    .faculty-editorial-grid {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 24px;
+        row-gap: 40px;
+    }
+
+    .lab-editorial-item,
+    .lab-editorial-item.reverse {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .lab-editorial-item.reverse .lab-media {
+        order: 1;
+    }
+
+    .lab-editorial-item.reverse .lab-text {
+        order: 2;
+    }
+
+    .lab-media {
+        height: 300px;
+        min-height: auto;
+    }
+
+    .lab-text {
+        padding: 32px 28px;
+    }
+
+    .downloads-editorial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Devices (768px & below) */
 @media (max-width: 768px) {
-    .dept-hero-banner {
-        padding: 40px 0 35px;
+    .dept-container {
+        padding: 0 20px;
     }
 
-    .dept-title {
-        font-size: 1.85rem;
+    .dept-hero-section {
+        padding: 24px 0 48px;
     }
 
-    .dept-page-wrapper {
-        padding: 30px 0 50px;
+    .dept-headline {
+        font-size: 52px;
     }
 
-    .dept-canvas-container {
-        padding: 24px 18px;
-        border-radius: 12px;
+    .editorial-heading {
+        font-size: 36px;
+    }
+
+    .section-heading-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 36px;
+    }
+
+    .dept-section {
+        padding: 64px 0;
+    }
+
+    /* 2-Column Balanced Statistics Grid on Mobile */
+    .dept-stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 16px;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+
+    .stat-item {
+        padding: 0;
+        text-align: left;
+    }
+
+    .stat-number {
+        font-size: 42px;
+        margin-bottom: 4px;
+    }
+
+    .stat-label {
+        font-size: 10px;
+    }
+
+    /* Subnav scrolling */
+    .dept-subnav-list {
+        gap: 22px;
+    }
+
+    .subnav-link {
+        font-size: 12.5px;
+        padding: 14px 2px;
+    }
+
+    /* Faculty grid: 2 columns on mobile */
+    .faculty-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 16px;
+        row-gap: 32px;
+    }
+
+    .faculty-name {
+        font-size: 14px;
+    }
+
+    .faculty-rank {
+        font-size: 11px;
+    }
+
+    .faculty-meta {
+        font-size: 11px;
+    }
+
+    .faculty-controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .faculty-search-box {
+        min-width: 100%;
+    }
+
+    /* Timeline on mobile */
+    .timeline-row {
+        grid-template-columns: 60px 32px 1fr;
+        gap: 12px;
+        padding-bottom: 36px;
+    }
+
+    .timeline-year {
+        font-size: 26px;
+    }
+
+    .timeline-event-title {
+        font-size: 16px;
+    }
+
+    .timeline-event-desc {
+        font-size: 13.5px;
+    }
+
+    .hod-pullquote {
+        font-size: 24px;
+        line-height: 1.35;
+    }
+
+    .lab-name {
+        font-size: 28px;
+    }
+}
+
+/* Small Smartphone (390px) */
+@media (max-width: 390px) {
+    .dept-headline {
+        font-size: 44px;
+    }
+
+    .editorial-heading {
+        font-size: 30px;
+    }
+
+    .stat-number {
+        font-size: 36px;
+    }
+
+    .faculty-editorial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dept-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-editorial-primary,
+    .btn-editorial-ghost {
+        justify-content: center;
+        text-align: center;
     }
 }
