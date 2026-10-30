@@ -1,11 +1,12 @@
 /* ==============================================================
-   GECM Department Detail Page Interactions
-   Modern Horizontal Nav & Dynamic Pane Switching
+   GECM Institutional Department Portal — US University System JS
+   Dynamic Tab Navigation & Hash Management
    ============================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
-    const tabButtons = document.querySelectorAll('.dept-tab-btn, .dept-nav-link');
-    const tabPanes = document.querySelectorAll('.dept-pane, .dept-tab-content');
+    const tabButtons = document.querySelectorAll('.us-subnav-link, .dept-tab-btn, .dept-nav-link');
+    const tabPanes = document.querySelectorAll('.us-tab-pane, .dept-pane, .dept-tab-content');
+    const subNavList = document.querySelector('.us-subnav-list');
 
     function activateTab(tabId, shouldScroll = false) {
         if (!tabId) return;
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (btn.parentElement) {
                 btn.parentElement.classList.remove('active');
             }
+            btn.setAttribute('aria-selected', 'false');
         });
 
         tabPanes.forEach(pane => {
@@ -38,13 +40,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const matchedButtons = document.querySelectorAll(`[data-tab="${tabId}"]`);
         matchedButtons.forEach(btn => {
             btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
             if (btn.parentElement) {
                 btn.parentElement.classList.add('active');
             }
-            // On mobile, scroll active tab into view
-            if (window.innerWidth <= 768) {
+            // On mobile or overflowing tab lists, scroll active tab into view
+            if (subNavList) {
                 try {
-                    btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    const btnRect = btn.getBoundingClientRect();
+                    const listRect = subNavList.getBoundingClientRect();
+                    if (btnRect.left < listRect.left || btnRect.right > listRect.right) {
+                        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    }
                 } catch (e) {}
             }
         });
@@ -52,10 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Activate pane
         targetPane.classList.add('active');
 
-        // Optional smooth scroll to content
+        // Optional smooth scroll to content on mobile
         if (shouldScroll && window.innerWidth <= 768) {
-            const navBar = document.querySelector('.dept-sticky-nav-bar');
-            const offset = navBar ? navBar.offsetHeight + 10 : 60;
+            const navBar = document.querySelector('.us-subnav-bar') || document.querySelector('.dept-sticky-nav-bar');
+            const offset = navBar ? navBar.offsetHeight + 10 : 70;
             const targetY = targetPane.getBoundingClientRect().top + window.pageYOffset - offset;
             window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
         }
