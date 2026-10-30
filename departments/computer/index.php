@@ -25,7 +25,7 @@ include_once __DIR__ . '/../../includes/header.php';
                     </p>
                 </div>
                 <div class="us-hero-media">
-                    <img src="images/labs/lab_8113_programming1.jpg" alt="Students working in the computer engineering laboratory" class="us-hero-photo" onerror="this.src='images/labs/lab_8112_project.jpg'">
+                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Computer Engineering Department Building" class="us-hero-photo">
                 </div>
             </div>
 
