@@ -453,7 +453,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">Crowd Emotion and Behavior Analysis Using Lightweight CNN Model</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jignesh Vaniya, Safvan Vahora, Uttam Chauhan, Sudhir Vegad</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> October 2024</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2024</span>
                         </div>
                     </div>
 
@@ -462,7 +462,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">A Peculiar Sentiment Analysis Advancement in Big Data</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Yash Patel</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> October 2017</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2017</span>
                         </div>
                     </div>
 
@@ -471,7 +471,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">An avant-garde approach of Block chain in Big data analytics</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Parth Patel, Shruti Chettiar</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> November-December 2018</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2018</span>
                         </div>
                     </div>
 
@@ -480,7 +480,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">The Descriptive Study of Preprocessing from Web Usage Mining</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> November 2012</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2012</span>
                         </div>
                     </div>
 
@@ -489,7 +489,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">Low Control Overhead for Cluster Maintenance in Wireless Network for DSR Protocol</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nilesh Goriya, Indrjeet Rajput, Mihir Mehta</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2015</span>
                         </div>
                     </div>
 
@@ -498,7 +498,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">Abstractive Gujarati Text Summarization Using Sequence-To-Sequence Model and Attention Mechanism</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Shilpa Serasiya, Uttam Chauhan</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2025</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2025</span>
                         </div>
                     </div>
 
@@ -507,7 +507,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">A Neoteric Web Recommender System based on Approach of Mining Frequent Sequential Pattern from Customized Web Log Preprocessing</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2013</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2013</span>
                         </div>
                     </div>
 
@@ -516,7 +516,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">Image Encryption Using Chaotic Based Artificial Neural Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Minal Chauhan, Rashmin Prajapati</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2014</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2014</span>
                         </div>
                     </div>
 
@@ -525,7 +525,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">Blazing issues in big data</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Yash Patel</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2018</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2018</span>
                         </div>
                     </div>
 
@@ -534,7 +534,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">AN EXHAUSTIVE STUDY: BIG DATA</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2016</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2016</span>
                         </div>
                     </div>
 
@@ -543,7 +543,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">An efficient web recommender system based on approach of mining frequent sequential pattern from Customized Web Log Preprocessing</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> July 2013</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2013</span>
                         </div>
                     </div>
 
@@ -552,7 +552,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">Object Removal using Image Inpainting</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Patel Hemangini Gamanbhai, Narenda Limbad</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Issue 04, Vol 3, 2015 · ISSN: 2321-0613</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2015</span>
                         </div>
                     </div>
 
@@ -561,7 +561,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">A Comprehensive Survey on Text Summarization For Indian Languages: Opportunities, Challenges and Future Prospects</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Shilpa Serasiya, Uttam Chauhan</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> February 2025</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2025</span>
                         </div>
                     </div>
 
@@ -570,7 +570,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">A Survey Paper on Cluster Head Selection Techniques for Mobile Ad-Hoc Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nilesh Goriya</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> December 2014</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2014</span>
                         </div>
                     </div>
 
@@ -579,7 +579,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">A Step up in Data Cleaning and User identification of Preprocessing on Web Usage data</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Shaktisinh Parmar</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> December 2014</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2014</span>
                         </div>
                     </div>
 
@@ -588,7 +588,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <h3 class="dept-citation-title">Radical Change through E-Governance in Gujarat</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nilesh Goriya, Indrjeet Rajput, Mihir Mehta</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> April 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i>  2015</span>
                         </div>
                     </div>
 
@@ -670,6 +670,231 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Rushi Parikh, Krupa Bhavsar, Uttam Chauhan</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- 26 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Performance Evaluation of Text Summarization Models on SAMSUM Chat Data</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jitendra Bhatia, Dip Patel, Jalpan Patel, Malaram Kumhar, Uttam Chauhan, Harshal Trivedi, Sudeep Tanwar</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- 27 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Personalized Features-Based Stress Detection With Hyperparameter Tuning Using Genetic Algorithm</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jigna Jadav, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- 28 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">An Evolutionary Amharic Fake News Detection Based on ML and Deep Learning Approach</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Abirham Ayenew, Uttam Chauhan, Avani N Dave, Jaimin M Shroff, Nakul R Dave, Jigna J Jadav, Amit H Rathod</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- 29 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Analysis Of Personalized Stress Recognition In The Office Environment</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jigna Jadav, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- 30 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Heart Rate Variability Based LSTM Model for Stress Detection with Explainable AI Insights</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jigna Jadav, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- 31 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">AN ASSESSMENT OF MACHINE LEARNING AND ENSEMBLE MODELS FOR DIABETES PREDICTION</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. Pinal J. Patel, Prof. Priyank Shah, Prof. Rutu Nayak, Prof. Hemangini Shukla, Prof. Chintan Shah, Prof. Navdeepsinh Limbad, Mr. Aayush Kukadiya</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- 32 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">HANDWRITTEN GUJARATI VOWEL RECOGNITION USING DEEP LEARNING MODELS</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. Pinal J. Patel, Ms. Dhruvi Aacharya, Prof. Priyank Shah, Prof. Rutu Nayak, Prof. Chintan Shah, Prof. Jignasha Prajapati, Prof. Navdeepsinh Limbad</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- 33 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Chatbot For Academic Institutions</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Heeya Amin, Uttam Chauhan, Sahil Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- 34 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">The Content Based Misinformation Detection for Gujarati Language</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Vinay Sheth, Vishvesh Trivedi, Chintan Bhatt, Juan Manuel Corchado</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- 35 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Amharic Language Hate Speech Detection Using Machine Learning</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Abirham Ayenew, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- 36 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Recommendation Systems: Types, Applications, and Challenges</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dhruval Patel, Foram Patel, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- 37 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Modeling Topics in DFA-Based Lemmatized Gujarati Text</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Shrusti Shah, Dharati Shiroya, Dipti Solanki, Zeel Patel, Jitendra Bhatia, Sudeep Tanwar, Ravi Sharma, Verdes Marina, Maria Simona Raboaca</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- 38 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Performance analysis of deep learning algorithms for classifying chronic obstructive pulmonary disease</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, Dhanashree Yevle, Daksha Diwan, Shashi Ranga, Kinjal Gandhi, Samay Dumasia, Rutu Nayak</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- 39 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Multi feature fusion for COPD classification using Deep Learning algorithms</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, Daksha Diwan, Shashi Ranga, Niral J. Modi, Samay Dumasia</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- 40 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">IoT Based Scalable Framework for Pollution Aware Route Recommendation</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Radha Govani, Parth Kakadia, Yash Modi, Dhrumin Thakkar, Heta Bhayani, Meshwa Patel, Jitendra Bhatia, Uttam Chauhan, Abdulatif Alabdulatif</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- 41 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Abstractive Text Summarization For Indian Regional Languages: A Survey</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shilpa Serasiya, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- 42 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">An Overview of Fog Data Analytics for IoT Applications</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jitendra Bhatia, Kiran Italiya, Kuldeepsinh Jadeja, Malaram Kumhar, Uttam Chauhan, Sudeep Tanwar, Madhuri Bhavsar, Ravi Sharma, Daniela Lucia Manea, Marina Verdes, Maria Simona Raboaca</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- 43 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">5G-enabled deep learning-based framework for healthcare mining State of the art and challenges</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Rahil Parmar, Naitik Panchal, Dhruval Patel, Uttam Chauhan, Jitendra Bhatia</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- 44 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Plant Disease Detection using Deep Learning</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, Niyati Pandya, Manisha Chaudhari, Kinjal Gandhi, Hardik Mahendrabhai Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- 45 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Alzheimer Disease Detection using Deep Learning</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. Pinal J. Patel, Ms. Mohini H. Patel, Prof. Kinjal Gandhi, Dr. Shashi V. Ranga</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- 46 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Offline Handwritten Character Recognition of Gujarati Characters using Convolutional Neural Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, S. Kheni Rukhmani, Urmila Patel, Darshil P. Patel, Kinjal N. Patel &amp; Kinjal A. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- 47 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">SIMULTANEOUS ESTIMATION OF NEBIVOLOL AND CILNIDIPINE IN PHARMACEUTICAL FORMULATIONBY REVERSE PHASE HIGH PERFORMANCE LIQUID CHROMATOGRAPHY METHOD</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, Drashti Mahendrabhai Patel, Meghal J. Patel, Manisha Chaudhari, Kinjal Gandhi, Shashi V. Ranga &amp; Hardik Mahendrabhai Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- 48 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Fraud Detection in Credit Card Data using Unsupervised &amp; Supervised Machine Learning-Based Algorithms</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> PDF Prasanna Kumar Lakineni, Keyurkumar M Nayak, Harikumar Pallathadka, Kamal Gulati, Kapil Pandey, Pinal J. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- 49 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Coverless Information Hiding: A Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nitin Kanzariya, Gaurang Lakhani, Dhaval Jadhav, Uttam Chauhan, Lokesh Gagani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
+                        </div>
+                    </div>
+
+                    <!-- 50 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Topic Modeling Using Latent Dirichlet Allocation: A Survey</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Apurva Shah</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
                         </div>
                     </div>
                 </div>
