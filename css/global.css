@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Core stylesheet */
 
 :root {
     --primary-color: #0c3b6d;
@@ -16,7 +16,7 @@
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Reset & Base */
+/* CSS reset and base variables */
 * {
     margin: 0;
     padding: 0;
@@ -103,7 +103,7 @@ h4 {
     border-radius: 2px;
 }
 
-/* Buttons */
+/* Button utilities */
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -147,7 +147,7 @@ h4 {
     color: #fff;
 }
 
-/* Top Bar */
+/* Top utility bar */
 .top-bar {
     background-color: var(--primary-color);
     color: #fff;
@@ -180,7 +180,7 @@ h4 {
     color: var(--secondary-color);
 }
 
-/* Header & Branding */
+/* Institutional branding and header */
 .site-header {
     background: #ffffff;
     width: 100%;
@@ -253,7 +253,7 @@ h4 {
     object-fit: contain;
 }
 
-/* Mobile Hamburger Toggle - Aesthetic Refined */
+/* Mobile hamburger button */
 .hdr-hamburger {
     display: none;
     flex-direction: column;
@@ -308,7 +308,7 @@ h4 {
     width: 18px;
 }
 
-/* Open State: morphs to clean 'X' */
+/* Hamburger button active state */
 .hdr-hamburger[aria-expanded="true"],
 .hdr-hamburger.is-active,
 .hdr-hamburger.active {
@@ -337,7 +337,7 @@ h4 {
     transform: translateY(-6.25px) rotate(-45deg);
 }
 
-/* Navigation Bar */
+/* Main navigation bar */
 .hdr-nav,
 .navbar {
     background: #ffffff;
@@ -382,7 +382,7 @@ h4 {
     overflow: visible;
 }
 
-/* Nav Links */
+/* Primary navigation links */
 .hdr-nav-link {
     display: inline-flex;
     align-items: center;
@@ -428,9 +428,7 @@ h4 {
     font-weight: 600;
 }
 
-/* ==========================================================================
-   Desktop Dropdowns (Directly under nav tab)
-   ========================================================================== */
+/* Desktop dropdown navigation */
 @media (min-width: 769px) {
     .hdr-nav-item.has-dropdown {
         position: relative;
@@ -456,7 +454,7 @@ h4 {
         color: #5b6573 !important;
     }
 
-    /* Standard Dropdown Panel */
+    /* Dropdown menu container */
     .hdr-dropdown {
         position: absolute;
         top: calc(100% - 1px);
@@ -477,7 +475,7 @@ h4 {
         pointer-events: none;
     }
 
-    /* Invisible bridge so mouse hover doesn't break between link and dropdown */
+    /* Hover bridge to prevent dropdown collapse */
     .hdr-dropdown::before {
         content: '';
         position: absolute;
@@ -502,13 +500,13 @@ h4 {
         pointer-events: none !important;
     }
 
-    /* Align right only on last nav item if needed to prevent screen edge overflow */
+    /* Viewport edge alignment for trailing items */
     .hdr-nav-list>.hdr-nav-item:last-child .hdr-dropdown {
         left: auto;
         right: 0;
     }
 
-    /* Dropdown Section Header */
+    /* Dropdown group title */
     .hdr-dd-heading {
         font-size: 0.68rem;
         font-weight: 600;
@@ -549,12 +547,12 @@ h4 {
         font-weight: 500;
     }
 
-    /* Mobile Submenu Topbar - hidden on desktop */
+    /* Mobile submenu header - desktop fallback */
     .hdr-dd-topbar {
         display: none !important;
     }
 
-    /* Mega Dropdown for Activities (Desktop) */
+    /* Multi-column mega menu container */
     .hdr-dropdown-mega {
         min-width: 580px;
         padding: 10px 6px;
@@ -576,7 +574,7 @@ h4 {
     }
 }
 
-/* Legacy Compatibility */
+/* Compatibility fallback styles */
 .header,
 .hdr-brand {
     background: #ffffff;
@@ -743,7 +741,7 @@ h4 {
     transition: var(--transition);
 }
 
-/* Animations */
+/* Keyframe animation declarations */
 .fade-in-up {
     opacity: 0;
     transform: translateY(30px);
@@ -769,7 +767,7 @@ h4 {
     }
 }
 
-/* Footer */
+/* Site footer */
 .footer {
     background-color: #111111;
     color: #e0e0e0;
@@ -908,7 +906,7 @@ h4 {
     color: #888888;
 }
 
-/* Responsive Media Queries */
+/* Responsive layout rules */
 @media (max-width: 1200px) {
 
     .hdr-brand-inner,
@@ -1061,7 +1059,7 @@ h4 {
         padding: 0;
     }
 
-    /* Mobile Navigation Card */
+    /* Mobile drawer navigation container */
     .hdr-nav-list {
         position: absolute;
         top: 6px;
@@ -1108,7 +1106,7 @@ h4 {
         border-bottom: 1px solid #f1f5f9;
     }
 
-    /* Main Category Link */
+    /* Mobile top-level item link */
     .hdr-nav-link {
         width: 100%;
         box-sizing: border-box;
@@ -1156,7 +1154,7 @@ h4 {
         justify-content: space-between;
     }
 
-    /* Clean chevron arrow */
+    /* Submenu toggle indicator */
     .hdr-nav-item.has-dropdown>.hdr-nav-link .hdr-arrow {
         font-size: 0.68rem;
         margin-left: auto;
@@ -1177,7 +1175,7 @@ h4 {
         color: #0284c7;
     }
 
-    /* Sub-options expand directly FLUSH UNDER parent link (Not pushed to the side) */
+    /* Submenu accordion drawer */
     .hdr-dropdown {
         position: static !important;
         width: 100% !important;
@@ -1225,7 +1223,7 @@ h4 {
         border: none !important;
     }
 
-    /* Sub-option Link - Aligned directly underneath parent */
+    /* Submenu list item link */
     .hdr-dd-link {
         display: flex;
         align-items: center;
@@ -1243,7 +1241,7 @@ h4 {
         transition: background-color 0.15s ease, color 0.15s ease;
     }
 
-    /* Clear Hover & Active Indicator - user knows which page they are on */
+    /* Submenu link active and hover states */
     .hdr-dd-link:hover,
     .hdr-dd-link:active,
     .hdr-dd-link.is-active,
@@ -1262,7 +1260,7 @@ h4 {
         margin-left: auto;
     }
 
-    /* Activities on Mobile */
+    /* Mega menu mobile column stacking */
     .hdr-dropdown-mega {
         min-width: 0 !important;
     }
@@ -1646,7 +1644,7 @@ h4 {
     }
 }
 
-/* Image Zoom Hover */
+/* Thumbnail hover zoom effect */
 .img-zoom-wrap,
 .image-zoom-box {
     overflow: hidden;

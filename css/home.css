@@ -1,9 +1,6 @@
-/* ==============================================================
-   GECM Home Page Specific Styles
-   (Hero Carousel, News Ticker, 3-Card Grid, Departments, Alumni)
-   ============================================================== */
+/* Home page styles */
 
-/* Hero Section */
+/* Hero carousel section */
 .hero {
     height: 75vh;
     min-height: 540px;
@@ -105,7 +102,7 @@
     color: var(--primary-color);
 }
 
-/* Hero Slider Controls */
+/* Carousel navigation arrows */
 .hero-nav {
     position: absolute;
     top: 50%;
@@ -144,7 +141,7 @@
     right: 25px;
 }
 
-/* Hero Slider Indicators */
+/* Carousel indicator dots */
 .hero-indicators {
     position: absolute;
     bottom: 22px;
@@ -186,9 +183,7 @@
     box-shadow: 0 0 10px rgba(243, 156, 18, 0.6);
 }
 
-/* ==========================================================================
-   News Ticker — Clean, Simple & Minimal Announcement Strip
-   ========================================================================== */
+/* News ticker announcement bar */
 .news-ticker-container {
     display: flex;
     align-items: center;
@@ -286,7 +281,7 @@
     }
 }
 
-/* Home 3-Card Grid */
+/* Information widgets grid */
 .two-col-layout,
 .home-grid-layout {
     display: grid;
@@ -302,7 +297,7 @@
     min-width: 0;
 }
 
-/* Card Header */
+/* Widget header */
 .section-header {
     display: flex;
     justify-content: space-between;
@@ -336,7 +331,7 @@
     color: #ffffff;
 }
 
-/* Card Container */
+/* Widget content body */
 .notice-board,
 .recent-events-card,
 .latest-shots-card {
@@ -361,7 +356,7 @@
     box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
 }
 
-/* Notice Board */
+/* Notice board item list */
 .notice-scroll-container {
     height: 330px;
     overflow: hidden;
@@ -477,7 +472,7 @@
     letter-spacing: 0.03em;
 }
 
-/* Event & Gallery Slider */
+/* Events carousel container */
 .events-slider-container,
 .shots-slider-container {
     position: relative;
@@ -586,7 +581,7 @@
     transform: translateX(2px);
 }
 
-/* Slider Dots */
+/* Carousel slide indicators */
 .slider-dots {
     display: flex;
     justify-content: center;
@@ -613,7 +608,7 @@
     border-radius: 3px;
 }
 
-/* Departments Section */
+/* Academic departments section */
 #departments .section-title h3 {
     color: #000000;
 }
@@ -663,7 +658,7 @@
     box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
 }
 
-/* Department Pastel Colors */
+/* Department category accent colors */
 .dept-card.dept-it {
     background: #bbf7d0;
     border-color: #a7f3d0;
@@ -709,7 +704,7 @@
     border-color: #a5b4fc;
 }
 
-/* Nth-child Fallbacks */
+/* Department card color sequence fallbacks */
 .dept-card:nth-child(9n+1) {
     background: #e5e6e8;
     border-color: #dbdee2;
@@ -755,7 +750,7 @@
     border-color: #a5b4fc;
 }
 
-/* Department Icon Badge */
+/* Department card icon container */
 .dept-icon {
     width: 66px;
     height: 66px;
@@ -798,7 +793,7 @@
     justify-content: center;
 }
 
-/* Alumni Section */
+/* Alumni marquee section */
 .alumni-section {
     background: #eef3f8;
     position: relative;
@@ -817,7 +812,7 @@
     gap: 24px;
     overflow-x: auto;
     scroll-behavior: auto;
-    /* Handled by animation loop */
+    /* Marquee continuous scroll keyframe */
     padding: 25px 10px 35px;
     width: 100%;
     scrollbar-width: none;
@@ -894,7 +889,7 @@
     display: block;
 }
 
-/* Carousel Controls - Minimal & Aesthetic Premium */
+/* Alumni carousel navigation buttons */
 .scroll-btn {
     background: #ffffff;
     color: #111827;
@@ -935,7 +930,7 @@
     right: -12px;
 }
 
-/* Responsive Breakpoints */
+/* Responsive media queries */
 @media (max-width: 1100px) {
     .dept-card {
         flex: 0 0 calc((100% - 48px) / 3);
@@ -1028,7 +1023,7 @@
         gap: 8px;
     }
 
-    /* Departments Mobile */
+    /* Department cards mobile layout */
     .dept-wrapper {
         padding: 0;
     }
@@ -1076,7 +1071,7 @@
         box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.16), 0 4px 10px rgba(0, 0, 0, 0.04);
     }
 
-    /* Alumni Mobile */
+    /* Alumni cards mobile layout */
     .alumni-wrapper {
         padding: 0;
     }
