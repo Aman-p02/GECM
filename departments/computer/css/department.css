@@ -1,9 +1,4 @@
-/* ==============================================================
-   GECM Institutional Department Portal — US University Design System
-   Inspired by MIT, Stanford, Harvard & Columbia Engineering
-   Typography: Instrument Serif (Headings) + Inter (Body/UI)
-   Palette: Deep US Navy #0b2347 | Accent Amber #d97706 | Off-white #faf9f6
-   ============================================================== */
+/* Department page styles - Computer Engineering */
 
 :root {
     --us-navy: #0b2347;
@@ -24,7 +19,7 @@
     --us-transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Page Base */
+/* Page container and layout wrapper */
 .us-dept-page {
     font-family: var(--us-font-sans);
     background-color: var(--us-bg-main);
@@ -45,9 +40,7 @@
     box-sizing: border-box;
 }
 
-/* ==============================================================
-   1. US University Hero Banner (Prestigious & Cinematic)
-   ============================================================== */
+/* Hero banner header */
 .us-hero-banner {
     background-color: var(--us-navy);
     color: #ffffff;
@@ -56,6 +49,7 @@
     border-bottom: 3px solid var(--us-amber);
 }
 
+/* Breadcrumb navigation */
 .us-breadcrumb {
     display: flex;
     align-items: center;
@@ -116,7 +110,7 @@
     font-weight: 400;
 }
 
-/* US University Quick Stats Bar */
+/* Metrics and key figures strip */
 .us-stats-strip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -155,9 +149,7 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* ==============================================================
-   2. Sticky US University Sub-Navigation Bar
-   ============================================================== */
+/* Sticky sub-navigation bar */
 .us-subnav-bar {
     position: sticky;
     top: 0;
@@ -167,6 +159,7 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
+/* Horizontal scrollable tab buttons track */
 .us-subnav-list {
     display: flex;
     align-items: center;
@@ -211,6 +204,7 @@
     color: var(--us-navy);
 }
 
+/* Active tab state and highlight underline */
 .us-subnav-item.active .us-subnav-link,
 .us-subnav-link.active {
     color: var(--us-navy) !important;
@@ -233,9 +227,7 @@
     opacity: 0.6;
 }
 
-/* ==============================================================
-   3. Content Section Architecture
-   ============================================================== */
+/* Content wrapper and tab pane switching */
 .us-main-content {
     padding: 56px 0 0;
 }
@@ -260,7 +252,7 @@
     }
 }
 
-/* Editorial Section Heading */
+/* Section titles and subtitles */
 .us-section-header {
     margin-bottom: 40px;
 }
@@ -292,9 +284,7 @@
     margin: 0;
 }
 
-/* ==============================================================
-   4. About Section (Asymmetric Editorial Story)
-   ============================================================== */
+/* About department layout (2 columns: narrative text + feature cards) */
 .us-about-split {
     display: grid;
     grid-template-columns: 1.35fr 1fr;
@@ -321,7 +311,7 @@
     margin: 0 0 20px;
 }
 
-/* Quick Feature Highlights (Right Column) */
+/* Feature cards in right column */
 .us-feature-cards {
     display: flex;
     flex-direction: column;
@@ -349,7 +339,7 @@
     margin: 0;
 }
 
-/* Academic Degree Programs Table */
+/* Academic degree programs table */
 .us-degrees-section {
     margin: 50px 0;
 }
@@ -423,9 +413,7 @@
     color: #92400e;
 }
 
-/* ==============================================================
-   5. Vision & Mission (US Institutional Charter Style)
-   ============================================================== */
+/* Vision and mission grid */
 .us-charter-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -484,7 +472,7 @@
     color: var(--us-body);
 }
 
-/* Objectives (PEOs & PSOs) */
+/* PEOs and PSOs objectives grid */
 .us-objectives-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -524,9 +512,7 @@
     color: var(--us-navy);
 }
 
-/* ==============================================================
-   6. Faculty & People (US Academic Directory Roster)
-   ============================================================== */
+/* Faculty members directory cards */
 .us-faculty-roster {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -613,9 +599,7 @@
     color: var(--us-amber);
 }
 
-/* ==============================================================
-   7. Facilities & Research Laboratories
-   ============================================================== */
+/* Laboratory facilities cards */
 .us-labs-showcase {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -681,9 +665,7 @@
     margin: 0;
 }
 
-/* ==============================================================
-   8. Publications & Periodic Chronicles
-   ============================================================== */
+/* Faculty publications and paper citations */
 .us-citations-list {
     display: flex;
     flex-direction: column;
@@ -719,6 +701,7 @@
     margin: 0;
 }
 
+/* Activities and newsletters cards */
 .us-periodical-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -783,9 +766,7 @@
     color: #ffffff;
 }
 
-/* ==============================================================
-   9. Cross-Device Responsive Adjustments
-   ============================================================== */
+/* Responsive styles - tablet screens */
 @media (max-width: 1024px) {
     .us-dept-heading {
         font-size: 2.8rem;
@@ -810,6 +791,7 @@
     }
 }
 
+/* Responsive styles - mobile screens */
 @media (max-width: 768px) {
     .us-hero-banner {
         padding: 36px 0 32px;

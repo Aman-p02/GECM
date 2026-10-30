@@ -1,18 +1,16 @@
-/* ==============================================================
-   GECM Institutional Department Portal — US University System JS
-   Dynamic Tab Navigation & Hash Management
-   ============================================================== */
+// Department tab navigation and URL hash routing
 
 document.addEventListener('DOMContentLoaded', function () {
     const tabButtons = document.querySelectorAll('.us-subnav-link, .dept-tab-btn, .dept-nav-link');
     const tabPanes = document.querySelectorAll('.us-tab-pane, .dept-pane, .dept-tab-content');
     const subNavList = document.querySelector('.us-subnav-list');
 
+    // Switch active tab and display matching content pane
     function activateTab(tabId, shouldScroll = false) {
         if (!tabId) return;
         tabId = tabId.replace('#', '');
 
-        // Map alias tabs
+        // Map tab aliases to primary section IDs
         if (tabId === 'iab' || tabId === 'iab-2025-26' || tabId === 'iab-2023-24') {
             tabId = 'advisory-board';
         }
@@ -23,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const targetPane = document.getElementById('tab-' + tabId);
         if (!targetPane) return;
 
-        // Reset all buttons and panes
+        // Reset all buttons and tab panes
         tabButtons.forEach(btn => {
             btn.classList.remove('active');
             if (btn.parentElement) {
@@ -36,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pane.classList.remove('active');
         });
 
-        // Activate matching button(s)
+        // Activate button matching selected tab ID
         const matchedButtons = document.querySelectorAll(`[data-tab="${tabId}"]`);
         matchedButtons.forEach(btn => {
             btn.classList.add('active');
@@ -44,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (btn.parentElement) {
                 btn.parentElement.classList.add('active');
             }
-            // On mobile or overflowing tab lists, scroll active tab into view
+            // Ensure selected tab is visible inside scrollable nav strip
             if (subNavList) {
                 try {
                     const btnRect = btn.getBoundingClientRect();
@@ -56,10 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Activate pane
+        // Show target content pane
         targetPane.classList.add('active');
 
-        // Optional smooth scroll to content on mobile
+        // Scroll to content on mobile screens if triggered by user click
         if (shouldScroll && window.innerWidth <= 768) {
             const navBar = document.querySelector('.us-subnav-bar') || document.querySelector('.dept-sticky-nav-bar');
             const offset = navBar ? navBar.offsetHeight + 10 : 70;
@@ -68,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Attach click listeners to tabs
+    // Attach click events to all sub-navigation buttons
     tabButtons.forEach(btn => {
         btn.addEventListener('click', function (e) {
             const tabId = this.getAttribute('data-tab');
@@ -84,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Hash listener
+    // Sync tab state with window location hash
     function handleHash() {
         const hash = window.location.hash.substring(1);
         if (hash === 'syllabus') {

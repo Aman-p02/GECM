@@ -12,7 +12,7 @@ include_once __DIR__ . '/../../includes/header.php';
 
 <div class="us-dept-page">
 
-    <!-- 1. US University Masthead & Hero Banner -->
+    <!-- Hero header section -->
     <header class="us-hero-banner">
         <div class="us-container">
             <nav class="us-breadcrumb" aria-label="Academic Navigation Breadcrumbs">
@@ -29,7 +29,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 Advancing computational science, software architectures, and intelligent systems since 2001. Dedicated to educating globally competent engineers through rigorous theory and hands-on laboratory discovery.
             </p>
 
-            <!-- Institutional Metrics Strip -->
+            <!-- Key metrics counter strip -->
             <div class="us-stats-strip">
                 <div class="us-stat-item">
                     <span class="us-stat-num">2001</span>
@@ -51,7 +51,7 @@ include_once __DIR__ . '/../../includes/header.php';
         </div>
     </header>
 
-    <!-- 2. Sticky Sub-Navigation Bar -->
+    <!-- Sticky sub-navigation bar -->
     <nav class="us-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="us-container">
             <ul class="us-subnav-list" role="tablist">
@@ -89,11 +89,11 @@ include_once __DIR__ . '/../../includes/header.php';
         </div>
     </nav>
 
-    <!-- 3. Main Department Content -->
+    <!-- Tab panels container -->
     <main class="us-main-content">
         <div class="us-container">
 
-            <!-- TAB 1: ABOUT DEPARTMENT -->
+            <!-- Tab 1: About Department -->
             <section class="us-tab-pane active" id="tab-about">
                 <div class="us-section-header">
                     <span class="us-section-kicker">ACADEMIC OVERVIEW</span>
@@ -137,7 +137,7 @@ include_once __DIR__ . '/../../includes/header.php';
                     </div>
                 </div>
 
-                <!-- Academic Programmes Table -->
+                <!-- Degree programs table -->
                 <div class="us-degrees-section">
                     <h3>Academic Degree Programs</h3>
                     <div class="us-table-wrap">
@@ -175,7 +175,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
             </section>
 
-            <!-- TAB 2: VISION & MISSION -->
+            <!-- Tab 2: Vision and Mission -->
             <section class="us-tab-pane" id="tab-vision-mission">
                 <div class="us-section-header">
                     <span class="us-section-kicker">INSTITUTIONAL CHARTER</span>
@@ -222,7 +222,7 @@ include_once __DIR__ . '/../../includes/header.php';
                     </div>
                 </div>
 
-                <!-- Objectives (PEOs & PSOs) -->
+                <!-- Objectives (PEOs and PSOs) -->
                 <div class="us-objectives-grid">
                     <div class="us-obj-card">
                         <h4>Program Educational Objectives (PEOs)</h4>
@@ -243,7 +243,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
             </section>
 
-            <!-- TAB 3: FACULTY DIRECTORY -->
+            <!-- Tab 3: Faculty directory -->
             <section class="us-tab-pane" id="tab-faculty">
                 <div class="us-section-header">
                     <span class="us-section-kicker">SCHOLARLY DIRECTORY</span>
@@ -314,7 +314,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
             </section>
 
-            <!-- TAB 4: ACTIVITIES & EVENTS -->
+            <!-- Tab 4: Activities and events -->
             <section class="us-tab-pane" id="tab-activities">
                 <div class="us-section-header">
                     <span class="us-section-kicker">CAMPUS ENGAGEMENT</span>
@@ -342,7 +342,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
             </section>
 
-            <!-- TAB 5: FACILITIES & LABS -->
+            <!-- Tab 5: Laboratory facilities -->
             <section class="us-tab-pane" id="tab-facilities">
                 <div class="us-section-header">
                     <span class="us-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
@@ -351,7 +351,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
 
                 <div class="us-labs-showcase">
-                    <!-- Lab 1: 8112 Project Lab -->
+                    <!-- Lab 8112: Project and Research Lab -->
                     <div class="us-lab-card">
                         <div class="us-lab-image-frame">
                             <img src="images/labs/lab_8112_project.jpg" alt="Room 8112 - Project &amp; Research Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
@@ -363,7 +363,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Lab 2: 8113 Programming Lab 1 -->
+                    <!-- Lab 8113: Programming Lab 1 -->
                     <div class="us-lab-card">
                         <div class="us-lab-image-frame">
                             <img src="images/labs/lab_8113_programming1.jpg" alt="Room 8113 - Programming Laboratory 1" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
@@ -375,7 +375,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Lab 3: 8115 Hardware Lab -->
+                    <!-- Lab 8115: Hardware and Networking Lab -->
                     <div class="us-lab-card">
                         <div class="us-lab-image-frame">
                             <img src="images/labs/lab_8115_hardware.jpg" alt="Room 8115 - Computer Hardware &amp; Networking Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
@@ -387,7 +387,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Lab 4: 8116 PPS Lab 2 -->
+                    <!-- Lab 8116: PPS Lab 2 -->
                     <div class="us-lab-card">
                         <div class="us-lab-image-frame">
                             <img src="images/labs/lab_8116_pps2.jpg" alt="Room 8116 - PPS Laboratory 2" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
@@ -399,7 +399,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Lab 5: 8117 Programming Lab 3 -->
+                    <!-- Lab 8117: Advanced Software Lab 3 -->
                     <div class="us-lab-card">
                         <div class="us-lab-image-frame">
                             <img src="images/labs/lab_8117_programming3.jpg" alt="Room 8117 - Advanced Software &amp; ML Lab 3" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
@@ -411,7 +411,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Seminar Hall -->
+                    <!-- Department Seminar Room -->
                     <div class="us-lab-card">
                         <div class="us-lab-image-frame">
                             <img src="images/labs/seminar_room.jpg" alt="Department Seminar Room" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
@@ -425,7 +425,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
             </section>
 
-            <!-- TAB 6: PUBLICATIONS -->
+            <!-- Tab 6: Faculty publications -->
             <section class="us-tab-pane" id="tab-publications">
                 <div class="us-section-header">
                     <span class="us-section-kicker">SCHOLARLY OUTPUT</span>
@@ -457,7 +457,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
             </section>
 
-            <!-- TAB 7: INDUSTRY ADVISORY BOARD -->
+            <!-- Tab 7: Industry Advisory Board -->
             <section class="us-tab-pane" id="tab-advisory-board">
                 <div class="us-section-header">
                     <span class="us-section-kicker">GOVERNANCE &amp; CURRICULUM</span>
@@ -511,7 +511,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
             </section>
 
-            <!-- TAB 8: NEWSLETTERS -->
+            <!-- Tab 8: Department newsletters -->
             <section class="us-tab-pane" id="tab-newsletters">
                 <div class="us-section-header">
                     <span class="us-section-kicker">DEPARTMENT CHRONICLE</span>
