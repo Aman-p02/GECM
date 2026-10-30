@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
         tabId = tabId.replace('#', '');
 
         // Map tab aliases to primary section IDs
-        if (tabId === 'about' || tabId === 'vision-mission') {
-            tabId = 'vision';
+        if (tabId === 'vision' || tabId === 'mission') {
+            tabId = 'vision-mission';
         }
         if (tabId === 'iab' || tabId === 'iab-2025-26' || tabId === 'iab-2023-24') {
             tabId = 'advisory-board';
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hash) {
             activateTab(hash, false);
         } else {
-            activateTab('vision', false);
+            activateTab('about', false);
         }
     }
 
