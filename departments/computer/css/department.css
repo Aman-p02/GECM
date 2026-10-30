@@ -193,33 +193,42 @@
     border: none;
     cursor: pointer;
     position: relative;
-    border-radius: 4px 4px 0 0;
-    transition: color 0.18s ease, background-color 0.18s ease;
     font-family: var(--dept-font-display);
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover and active expanding indicator like main navbar */
+.dept-subnav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2.5px;
+    background: var(--dept-accent);
+    border-radius: 1.5px 1.5px 0 0;
+    transform: translateX(-50%);
+    transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
 }
 
 .dept-subnav-link:hover {
-    color: #111111;
-    background: rgba(0, 0, 0, 0.025);
+    color: var(--dept-accent);
+    background: transparent;
 }
 
-/* Active tab state and highlight underline */
-.dept-subnav-item.active .dept-subnav-link,
-.dept-subnav-link.active {
-    color: #111111 !important;
-    font-weight: 700;
-}
-
+.dept-subnav-link:hover::after,
+.dept-subnav-link:active::after,
 .dept-subnav-item.active .dept-subnav-link::after,
 .dept-subnav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 8px;
-    right: 8px;
-    height: 2.5px;
-    background: var(--dept-accent);
-    border-radius: 2px 2px 0 0;
+    width: calc(100% - 16px);
+}
+
+/* Active tab state */
+.dept-subnav-item.active .dept-subnav-link,
+.dept-subnav-link.active {
+    color: var(--dept-accent) !important;
+    font-weight: 600;
 }
 
 .dept-subnav-link .ext-arrow {
@@ -247,6 +256,7 @@
         opacity: 0;
         transform: translateY(6px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
