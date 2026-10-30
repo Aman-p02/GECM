@@ -897,6 +897,231 @@ Empowering future engineers through innovation and technology. Focused on practi
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
                         </div>
                     </div>
+
+                    <!-- 51 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">ResTS: Residual Deep Interpretable Architecture for Plant Disease Detection</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dhruvil Shah, Vishvesh Trivedi, Vinay Sheth, Aakash Shah, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
+                        </div>
+                    </div>
+
+                    <!-- 52 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Improving Semantic Coherence of Gujarati Text Topic Model Using Inflectional Forms Reduction and Single-letter Words Removal</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Apurva Shah</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
+                        </div>
+                    </div>
+
+                    <!-- 53 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Ant Colony Optimization for Travelling Salesman Problem with Modified Pheromone Update Formula</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Rahil Parmar, Naitik Panchal, Dhruval Patel, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- 54 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Advancement of Text Summarization Using Machine Learning and Deep Learning: A Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Rishi Kotadiya, Shivangi Bhatt, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- 55 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Survey on Architecture of Deep Convolution Neural Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prachi Pandya, Pinal J. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- 56 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Semi Supervised PU learning method for deceptive detection using MKNN</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Priyanka Patani, Pinal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- 57 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Review on Crop Yield Prediction using Data Mining Focusing on Groundnut Crop and Naive Bayes Technique</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Haresh L. Siju, Pinal J. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
+                        </div>
+                    </div>
+
+                    <!-- 58 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Biclustering of web usage data using Genetic Algorithm</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mayuree Rathva</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 59 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Speech based Watermark relational databases</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mayuree Rathva</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 60 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Hybrid Approach for Data Denoising on Image Segmentation</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Minal Chauhan, Binal Bhatt</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 61 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Solar power forecasting : Analysis of trends in modeling techniques and error minimization</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Archana Gondalia</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 62 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">AON: A Survey on Emergency Communication Systems during a Catastrophic Disaster</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Vasani Yash Kishorbhai, Nagekar Nainesh Vasantbhai</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 63 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">The Architecture for Optimizing Semantic Topical Coherence in Gujarati Text Topic Modeling</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Apurva Shah, Uday Yadav</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 64 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Survey - Sophisticated Topic Modeling</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Apurva Shah, Uday Yadav</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 65 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Performance analysis of neural networks for intrusion detection system</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, J.S.Shah and Jinul Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 66 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">SOFTWARE MAINTENANCE</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ketan Sangadiya and Pinal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 67 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Intrusion detection system using BackPropagation Neural Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal Patel, Dr. J.S.Shah</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 68 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">RMMM: A SURVEY</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Krishna Dilip Suchak, pinal patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 69 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A COMPARATIVE STUDY ON INTERNAL &amp; EXTERNAL QUALITY FOR SOFTWARE PROJECT</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Komal Prajapati, Pinal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- 70 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Survey on Node Scheduling Methods for Wireless Sensor Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Neha Patel, Shweta Singh</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- 71 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Survey on Techniques for Collision Avoidance in VANET</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Neha Patel, Shweta Singh</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- 72 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A survey on big data uding cloud storage</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binal Bhatt, Minal Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- 73 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Review: Big Data Analysis Framework</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Apurva Shah, Uday Yadav, Mahendra Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- 74 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Big data solutions and big data vendor’s comparison</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. M.B.Chaudhary, Pianl Patel, Samarth Modi</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- 75 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">CLOUD PLATFORMS AND SIMULATORS: A COMPARATIVE STUDY</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal Patel, Umang Surani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
