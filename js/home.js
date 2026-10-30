@@ -89,103 +89,228 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ==============================================================
-    // 2. Recent Events Slider
+    // 2. Interactive Touch/Swipe & Auto Slider Helper
     // ==============================================================
-    const eventsSlider = document.getElementById("eventsSlider");
-    const sliderDotsContainer = document.getElementById("sliderDots");
+    function setupSwipeableSlider(sliderId, dotsId, slideSelector, autoIntervalMs = 3500) {
+        const slider = document.getElementById(sliderId);
+        const dotsContainer = document.getElementById(dotsId);
+        if (!slider) return;
 
-    if (eventsSlider && sliderDotsContainer) {
-        const slides = eventsSlider.querySelectorAll(".event-slide");
+        const slides = slider.querySelectorAll(slideSelector);
         const totalSlides = slides.length;
         if (totalSlides === 0) return;
+
+        const container = slider.parentElement || slider;
         let currentSlide = 0;
+        let autoTimer = null;
+        let startX = 0;
+        let startY = 0;
+        let currentX = 0;
+        let isDragging = false;
+        let isHorizontalSwipe = null;
+        let hasMovedSignificantly = false;
+        const swipeThreshold = 40;
 
         // Generate Dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement("span");
-            dot.classList.add("dot");
-            if (index === 0) dot.classList.add("active");
-            dot.addEventListener("click", () => {
-                goToSlide(index);
+        if (dotsContainer) {
+            dotsContainer.innerHTML = "";
+            slides.forEach((_, index) => {
+                const dot = document.createElement("span");
+                dot.classList.add("dot");
+                if (index === 0) dot.classList.add("active");
+                dot.setAttribute("role", "button");
+                dot.setAttribute("aria-label", `Slide ${index + 1}`);
+                dot.addEventListener("click", () => {
+                    goToSlide(index);
+                    restartAutoTimer();
+                });
+                dotsContainer.appendChild(dot);
             });
-            sliderDotsContainer.appendChild(dot);
-        });
+        }
 
-        const dots = sliderDotsContainer.querySelectorAll(".dot");
+        const dots = dotsContainer ? dotsContainer.querySelectorAll(".dot") : [];
 
-        function goToSlide(index) {
-            currentSlide = index;
-            eventsSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
-            dots.forEach(dot => dot.classList.remove("active"));
-            if (dots[currentSlide]) dots[currentSlide].classList.add("active");
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle("active", index === currentSlide);
+            });
+        }
+
+        function goToSlide(index, withTransition = true) {
+            currentSlide = (index + totalSlides) % totalSlides;
+            slider.style.transition = withTransition ? "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)" : "none";
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            updateDots();
         }
 
         function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            goToSlide(currentSlide);
+            goToSlide(currentSlide + 1);
         }
 
-        let slideInterval = setInterval(nextSlide, 3000);
-
-        if (eventsSlider.parentElement) {
-            eventsSlider.parentElement.addEventListener("mouseenter", () => {
-                clearInterval(slideInterval);
-            });
-
-            eventsSlider.parentElement.addEventListener("mouseleave", () => {
-                slideInterval = setInterval(nextSlide, 3000);
-            });
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
         }
-    }
 
-    // ==============================================================
-    // 3. Gallery Slider
-    // ==============================================================
-    const shotsSlider = document.getElementById("shotsSlider");
-    const shotsSliderDotsContainer = document.getElementById("shotsSliderDots");
+        function startAutoTimer() {
+            if (totalSlides > 1 && !autoTimer) {
+                autoTimer = setInterval(nextSlide, autoIntervalMs);
+            }
+        }
 
-    if (shotsSlider && shotsSliderDotsContainer) {
-        const shotSlides = shotsSlider.querySelectorAll(".shot-slide");
-        const totalShotSlides = shotSlides.length;
-        let currentShotSlide = 0;
+        function stopAutoTimer() {
+            if (autoTimer) {
+                clearInterval(autoTimer);
+                autoTimer = null;
+            }
+        }
 
-        // Generate Dots
-        shotSlides.forEach((_, index) => {
-            const dot = document.createElement("span");
-            dot.classList.add("dot");
-            if (index === 0) dot.classList.add("active");
-            dot.addEventListener("click", () => {
-                goToShotSlide(index);
-            });
-            shotsSliderDotsContainer.appendChild(dot);
+        function restartAutoTimer() {
+            stopAutoTimer();
+            startAutoTimer();
+        }
+
+        // Pointer / Touch / Mouse Drag Events
+        function getClientX(e) {
+            return e.touches && e.touches.length > 0 ? e.touches[0].clientX : e.clientX;
+        }
+
+        function getClientY(e) {
+            return e.touches && e.touches.length > 0 ? e.touches[0].clientY : e.clientY;
+        }
+
+        function handleDragStart(e) {
+            if (totalSlides <= 1) return;
+            if (e.type === "mousedown" && e.button !== 0) return;
+
+            isDragging = true;
+            isHorizontalSwipe = null;
+            hasMovedSignificantly = false;
+            startX = getClientX(e);
+            startY = getClientY(e);
+            currentX = startX;
+
+            stopAutoTimer();
+            slider.style.transition = "none";
+        }
+
+        function handleDragMove(e) {
+            if (!isDragging) return;
+
+            const posX = getClientX(e);
+            const posY = getClientY(e);
+            const diffX = posX - startX;
+            const diffY = posY - startY;
+
+            // Determine gesture intent on initial movement
+            if (isHorizontalSwipe === null) {
+                if (Math.abs(diffX) > 6 || Math.abs(diffY) > 6) {
+                    isHorizontalSwipe = Math.abs(diffX) >= Math.abs(diffY);
+                }
+            }
+
+            if (!isHorizontalSwipe) {
+                return; // Allow native vertical page scrolling
+            }
+
+            // Cancel vertical scroll while dragging slider
+            if (e.cancelable && e.type.startsWith("touch")) {
+                e.preventDefault();
+            }
+
+            if (Math.abs(diffX) > 8) {
+                hasMovedSignificantly = true;
+                container.classList.add("is-dragging");
+            }
+
+            currentX = posX;
+            const containerWidth = container.offsetWidth || 1;
+            const baseOffset = -currentSlide * 100;
+            let dragPercent = (diffX / containerWidth) * 100;
+
+            // Resistance on bounds
+            if ((currentSlide === 0 && diffX > 0) || (currentSlide === totalSlides - 1 && diffX < 0)) {
+                dragPercent *= 0.35;
+            }
+
+            slider.style.transform = `translateX(${baseOffset + dragPercent}%)`;
+        }
+
+        function handleDragEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            container.classList.remove("is-dragging");
+
+            const diffX = currentX - startX;
+
+            if (isHorizontalSwipe && hasMovedSignificantly) {
+                if (diffX < -swipeThreshold) {
+                    // Swiped Left -> Next
+                    if (currentSlide < totalSlides - 1) {
+                        goToSlide(currentSlide + 1);
+                    } else {
+                        goToSlide(0);
+                    }
+                } else if (diffX > swipeThreshold) {
+                    // Swiped Right -> Previous
+                    if (currentSlide > 0) {
+                        goToSlide(currentSlide - 1);
+                    } else {
+                        goToSlide(totalSlides - 1);
+                    }
+                } else {
+                    // Snap back
+                    goToSlide(currentSlide);
+                }
+            } else {
+                goToSlide(currentSlide);
+            }
+
+            isHorizontalSwipe = null;
+            hasMovedSignificantly = false;
+            restartAutoTimer();
+        }
+
+        // Prevent ghost clicks on links when dragging
+        container.addEventListener("click", (e) => {
+            if (hasMovedSignificantly) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }, true);
+
+        // Prevent dragging image elements
+        container.querySelectorAll("img").forEach(img => {
+            img.addEventListener("dragstart", (e) => e.preventDefault());
         });
 
-        const shotDots = shotsSliderDotsContainer.querySelectorAll(".dot");
+        // Touch event listeners
+        container.addEventListener("touchstart", handleDragStart, { passive: true });
+        container.addEventListener("touchmove", handleDragMove, { passive: false });
+        container.addEventListener("touchend", handleDragEnd);
+        container.addEventListener("touchcancel", handleDragEnd);
 
-        function goToShotSlide(index) {
-            currentShotSlide = index;
-            shotsSlider.style.transform = `translateX(-${currentShotSlide * 100}%)`;
-            shotDots.forEach(dot => dot.classList.remove("active"));
-            if (shotDots[currentShotSlide]) shotDots[currentShotSlide].classList.add("active");
-        }
+        // Mouse event listeners for desktop hand-drag
+        container.addEventListener("mousedown", handleDragStart);
+        window.addEventListener("mousemove", handleDragMove);
+        window.addEventListener("mouseup", handleDragEnd);
 
-        function nextShotSlide() {
-            currentShotSlide = (currentShotSlide + 1) % totalShotSlides;
-            goToShotSlide(currentShotSlide);
-        }
+        // Pause on desktop mouse hover, resume on mouse leave
+        container.addEventListener("mouseenter", () => {
+            if (!isDragging) stopAutoTimer();
+        });
+        container.addEventListener("mouseleave", () => {
+            if (!isDragging) startAutoTimer();
+        });
 
-        let shotSlideInterval = setInterval(nextShotSlide, 3500);
-
-        if (shotsSlider.parentElement) {
-            shotsSlider.parentElement.addEventListener("mouseenter", () => {
-                clearInterval(shotSlideInterval);
-            });
-
-            shotsSlider.parentElement.addEventListener("mouseleave", () => {
-                shotSlideInterval = setInterval(nextShotSlide, 3500);
-            });
-        }
+        // Start initial auto slider
+        startAutoTimer();
     }
+
+    // Initialize Recent Events Slider (Touch/Swipe + Auto-slide)
+    setupSwipeableSlider("eventsSlider", "sliderDots", ".event-slide", 3200);
+
+    // Initialize Latest Shots Slider (Touch/Swipe + Auto-slide)
+    setupSwipeableSlider("shotsSlider", "shotsSliderDots", ".shot-slide", 3500);
 
     // ==============================================================
     // 4. Department Carousel Controls

@@ -460,7 +460,7 @@
 }
 
 .notice-text a:hover {
-    color: #009dff;
+    color: #ff8800;
 }
 
 .badge.new,
@@ -487,6 +487,15 @@
     overflow: hidden;
     width: 100%;
     min-width: 0;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: grab;
+}
+
+.events-slider-container.is-dragging,
+.shots-slider-container.is-dragging {
+    cursor: grabbing;
 }
 
 .events-slider,
