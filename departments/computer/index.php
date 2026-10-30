@@ -1347,6 +1347,231 @@ Empowering future engineers through innovation and technology. Focused on practi
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
                         </div>
                     </div>
+
+                    <!-- 101 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Facial Expression Recognition using Gabor Filter by minimizing Feature Vector</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Vaibhavkumar J. Mistry, Mahesh M. Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 102 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Enhanced Multistage Content Based Image Retrieval</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nandish Chauhan, Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 103 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Handwritten Character Recognition - A Comprehensive Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Harsh Dani, Chahna Dixit</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 104 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Novel Approach as Multi-place Watermarking for security in Database</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mayuree Rathva</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 105 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">An Efficient Web Recommender System based on Approach of Mining Frequent Sequential Pattern from Customized Web Log</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 106 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Reducing Avarage Waiting Time for Processes in Distributed System Using Dynamic Priority and Multiple Token Algorithm</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ami Patel, Uttam Chauhan, Sanjay Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 107 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Text Based Fuzzy Clustering Algorithm to Filter Spam E- mail</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nakul Dave, Uttam Chauhan, Avani Nakul Dave</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 108 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Neoteric Web Recommender System based on Approach of Mining Frequent Sequential Pattern from Customized Web Log Preprocessing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Uttam Chauhan, Kirit Rathod</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 109 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Panoramic Image Mosaicing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mrs. Hetal M.Patel, Prof. Pinal. J. Patel, Prof. Mr. Sandip G. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 110 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Secure Cloud using Homomorphic Encryption Scheme</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ms. Parin V. Patel, Mr. Hitesh D. Patel, Prof. Pinal J. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 111 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Cancer Detection Using Modified Watershed</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shanti L. Kadachha, Pinal J. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 112 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Performance Analysis of FDA Based Face Recognition Using Correlation, ANN and SVM</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Akash Dhorajiya, Ronak Paun</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 113 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Comparative Analysis Between DCT &amp; DWT Techniques of Image Compression</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Anil Kathrotiya, Swati Patel, Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 114 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Key Frame Detection Based Semantic Event Detection and Classification Using Hierarchical Approach for Cricket Sport Video Indexing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Shreyash Dutta, Payal Raj</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 115 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Performance Analysis of Block and Non Block Based Approach of Invisible Image Watermarking Using SVD in DCT Domain</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Gunvantsinh Gohil</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 116 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Geometry and Skin Color Based Hybrid Approach for Face Tracking in Color Environment</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Gitam Sikkenawis, Brijesh Joshi</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 117 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Review on Handwritten Character Recognition Systems</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 118 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Wicket fall Concept Mining From Cricket Video Using A-Priori Algorithm</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Shreyash Dutta, Gunvantsinh Gohil, Sapan Naik</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 119 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Handwritten Character Recognition System Using Correlation Coefficient</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 120 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Robust Face Recognition in Low Dimensional Subspace Using Reconstructive and Discriminative Features</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Gunvantsinh Gohil, Amit Chaudhari</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 121 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Top Down Hierarchical Histogram Based Approach for Printed Devanagari Script Character Isolation</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Trusha Gajjar, Rekha Teraiya, Gunvantsinh Gohil, Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 122 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Detail Study of Digital Image Watermarking Techniques</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Swati Patel, Anil Kathrotiya, Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 123 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Survey on Digital Video Watermarking</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Swati Patel, Anil Kathrotiya, Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 124 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Chain Code Based Hand Written Character Recognition System Using Neural Network and Support Vector Machine</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 125 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">3D Face Recognition Techniques - A Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Preeti B. Sharma, Mahesh M. Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
