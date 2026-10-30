@@ -568,6 +568,16 @@
     margin: 0 0 16px;
 }
 
+.dept-obj-lead {
+    font-family: var(--dept-font-display);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--dept-muted);
+    margin: -8px 0 16px;
+    letter-spacing: 0.02em;
+    font-style: italic;
+}
+
 .dept-obj-list {
     list-style: none;
     margin: 0;

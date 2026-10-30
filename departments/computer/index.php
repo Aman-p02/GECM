@@ -192,13 +192,13 @@ Empowering future engineers through innovation and technology. Focused on practi
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">ACADEMIC CHARTER</span>
                     <h2>Vision &amp; Mission</h2>
-                    <p>Guiding principles, strategic commitments, and instructional roadmaps defining our engineering pedagogy.</p>
+                    <p>Guiding principles, strategic commitments, and educational objectives defining our engineering pedagogy.</p>
                 </div>
 
                 <div class="dept-charter-card dept-vision-hero-card">
                     <span class="dept-vision-quote-mark">“</span>
                     <blockquote class="dept-vision-statement">
-                        To produce globally competent and ethically responsible computer engineering professionals capable of leading innovation, technical entrepreneurship, and sustainable societal development.
+                        To become a prominent department producing competent professionals with research, innovation and entrepreneurial skills, inculcating moral values and societal concerns.
                     </blockquote>
                 </div>
 
@@ -208,25 +208,25 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <li class="dept-mission-item">
                             <span class="dept-mission-index">I</span>
                             <div class="dept-mission-text">
-                                <strong>Foundational Excellence:</strong> Deliver rigorous theoretical instruction blended with extensive laboratory experimentation in computer hardware, software engineering, and intelligent systems.
+                                To create globally competent students having ability to design, develop and test world class software, keeping pace with the latest technological developments.
                             </div>
                         </li>
                         <li class="dept-mission-item">
                             <span class="dept-mission-index">II</span>
                             <div class="dept-mission-text">
-                                <strong>Industrial Relevance:</strong> Foster industry partnerships, technical internships, and collaborative problem-solving to meet contemporary technology demands.
+                                Create facilities and expertise in advanced computer technology thereby promote research.
                             </div>
                         </li>
                         <li class="dept-mission-item">
                             <span class="dept-mission-index">III</span>
                             <div class="dept-mission-text">
-                                <strong>Research &amp; Innovation:</strong> Cultivate multidisciplinary research, student innovation sprints, and lifelong learning attitudes among aspiring engineers.
+                                Enhance Industry Institute Interaction programme to get acquainted with corporate culture.
                             </div>
                         </li>
                         <li class="dept-mission-item">
                             <span class="dept-mission-index">IV</span>
                             <div class="dept-mission-text">
-                                <strong>Ethical Leadership:</strong> Instill professional ethics, environmental awareness, and civic responsibility in technological design.
+                                Induce moral, ethical values and spirit of social commitment.
                             </div>
                         </li>
                     </ul>
@@ -236,18 +236,22 @@ Empowering future engineers through innovation and technology. Focused on practi
                 <div class="dept-objectives-grid">
                     <div class="dept-obj-card">
                         <h4>Program Educational Objectives (PEOs)</h4>
+                        <div class="dept-obj-lead">Graduates will:</div>
                         <ul class="dept-obj-list">
-                            <li><strong>PEO 1:</strong> Establish successful careers in core computing and IT industries or pursue higher scholarly research in advanced engineering domains.</li>
-                            <li><strong>PEO 2:</strong> Analyze, design, and validate algorithmic solutions for complex engineering problems utilizing modern computational tools.</li>
-                            <li><strong>PEO 3:</strong> Demonstrate professional ethics, effective multidisciplinary teamwork, communication skills, and commitment to lifelong self-learning.</li>
+                            <li><strong>PEO 1:</strong> Be an efficient Software developer in diverse fields and will be a successful professional and/or pursue higher studies.</li>
+                            <li><strong>PEO 2:</strong> Be capable to adapt advanced state of the art computing technology for professional excellence and Research and be a lifelong learner.</li>
+                            <li><strong>PEO 3:</strong> Work productively exhibiting ethical qualities for the betterment of society.</li>
+                            <li><strong>PEO 4:</strong> Possess leadership and entrepreneurial qualities, work harmoniously as a team member with effective communication skills.</li>
                         </ul>
                     </div>
 
                     <div class="dept-obj-card">
                         <h4>Program Specific Outcomes (PSOs)</h4>
+                        <div class="dept-obj-lead">Computer Engineering Graduate will be able to:</div>
                         <ul class="dept-obj-list">
-                            <li><strong>PSO 1:</strong> Ability to apply core software engineering, operating system concepts, and data structures to develop robust enterprise applications.</li>
-                            <li><strong>PSO 2:</strong> Ability to design and evaluate secure distributed architectures, networks, and intelligent machine learning systems.</li>
+                            <li><strong>PSO 1:</strong> Gain capability to use current / advanced technology, skills and tools necessary for carrying out Real-World Multidisciplinary projects.</li>
+                            <li><strong>PSO 2:</strong> Achieve an ability to build a computer based system, process or a component that meets the desired needs.</li>
+                            <li><strong>PSO 3:</strong> Apply concepts of core areas of Computer Engineering—Data Structures, Database Management Systems, Operating Systems, Computer Architecture and Software Engineering to provide innovative solution.</li>
                         </ul>
                     </div>
                 </div>
