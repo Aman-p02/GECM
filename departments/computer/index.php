@@ -1122,6 +1122,231 @@ Empowering future engineers through innovation and technology. Focused on practi
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
                         </div>
                     </div>
+
+                    <!-- 76 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Weather Prediction using Machine Learning: A Survey</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal Patel, Jyoti Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- 77 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">comparative study of the routing protocol approaches in (DTN) Delay Tolerant Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Sweety Patel, Prof. M.B.1chaudhary, Pinal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- 78 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Hierarchical Query Task Clustering using Search Logs</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Vivek Bhojawala, Pinal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- 79 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Brief Survey of Face Recognition Techniques</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal Patel, Nilam Goswami</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- 80 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Search Logs Mining: Survey</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Vivek Bhojawala, Pinal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- 81 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Performance Enhancement of Facial Expression Recognition using Appearance based features</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jaimini Suthar, Goyani Mahesh</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- 82 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Review on AODV Routing Protocol over Simulation Environment</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Neha Patel, Vijay Reshmwala</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- 83 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Comparison Analysis of AODV and DSR Protocol over Energy Efficiency</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Neha Patel, Vijay Reshmwala, Shweta Singh</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- 84 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Survey on Data Mining Techniques for Crime Hotspots Prediction</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Neha Patel, Shivani.V.Vora</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- 85 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Survey on Natural Language Query Processing and Semantic Image Search</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Rashmi Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- 86 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Object Removal using Image Inpainting</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Patel Hemangini Gamanbhai, Narenda Limbad</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- 87 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">GLIMPSE OF IMAGE RESTORATION TECHNIQUE – IMAGE INPAINTING</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nainesh V Nagekar, Prof. Jayesh Chaudhary</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- 88 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Web Page Data Extraction and Categorization Web Pages Using Rule Based Classification Algorithm</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nirav Prajapati, Ketan Modi, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- 89 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Clustering approach for Moving object detection from video sequence</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Parth V. Parekh, Prof. Pinal J. Patel, Shrikrishna Padalkar, Vaibhavi S. Ghariya</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- 90 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Wireless Video Streaming using ARM Processor</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Suresh Prasad, Pinal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- 91 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Min-Max Selection Sort Algorithm - Improved Version of Selection Sort</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Mohammad Chharchhodawala, Bhargav Mendapara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- 92 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Comparison of SUMO and SiMTram for Indian Traffic Scenario Representation</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Viral Patel, Manish Chaturvedi and Sanjay Srivastava</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- 93 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Green Cloud Computing: An Overview</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Archana Gondalia</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- 94 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Comparative Analysis of Dynamic Source Routing Protocol with Mobility and without Mobility</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nilesh Goriya, Parth Wadhwa, Mukti Pathak</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- 95 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Comparative analysis for accuracy and size of pruned and unpruned decision tree inducted for various datasets</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Uday Yadav, Nakul Dave</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- 96 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Comprehensive study on Machine Learning Techniques for IDS in Cloud Computing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal Patel, Dr. J. S. Shah, Meghal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- 97 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Detection and prevention zero-day attack in honeypot system for virtualization</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ankit Patel, Pinal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- 98 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Corporate Governance and financial performance</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Gaurang Patel, Pinal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- 99 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A literature survey on Facial Expression Recognition using Global Features</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Vaibhavkumar J. Mistry, Mahesh M. Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- 100 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Comparison of different image retrieval techniques in CBIR</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Chauhan Nandish, Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
