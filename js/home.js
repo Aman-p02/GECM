@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function goToSlide(index, withTransition = true) {
             currentSlide = (index + totalSlides) % totalSlides;
-            slider.style.transition = withTransition ? "transform 0.75s cubic-bezier(0.25, 1, 0.5, 1)" : "none";
+            slider.style.transition = withTransition ? "transform 1.15s cubic-bezier(0.16, 1, 0.3, 1)" : "none";
             slider.style.transform = `translateX(-${currentSlide * 100}%)`;
             updateDots();
         }
