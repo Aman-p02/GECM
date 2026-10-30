@@ -36,6 +36,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             setFlashMessage('danger', 'Event title and image are required.');
         }
+    } elseif ($action === 'delete') {
+        $id = (int)($_POST['id'] ?? 0);
+        if ($id > 0) {
+            try {
+                $imgStmt = $pdo->prepare("SELECT image_url FROM events WHERE id = ?");
+                $imgStmt->execute([$id]);
+                $imagePath = $imgStmt->fetchColumn();
+
+                $stmt = $pdo->prepare("DELETE FROM events WHERE id = ?");
+                $stmt->execute([$id]);
+
+                if ($imagePath && strpos($imagePath, 'uploads/') === 0) {
+                    $physicalFile = __DIR__ . '/../../' . $imagePath;
+                    if (file_exists($physicalFile)) {
+                        @unlink($physicalFile);
+                    }
+                }
+
+                setFlashMessage('success', 'Event has been permanently deleted from the database!');
+            } catch (Exception $e) {
+                error_log("Event delete error: " . $e->getMessage());
+                setFlashMessage('danger', 'Could not delete event: ' . $e->getMessage());
+            }
+            header('Location: events.php');
+            exit;
+        }
     } elseif ($action === 'edit') {
         $id = (int)$_POST['id'];
         $title = trim($_POST['title'] ?? '');
@@ -69,9 +95,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (isset($_GET['delete'])) {
     $id = (int)$_GET['delete'];
     if ($id > 0) {
-        $stmt = $pdo->prepare("DELETE FROM events WHERE id = ?");
-        $stmt->execute([$id]);
-        setFlashMessage('success', 'Event deleted successfully!');
+        try {
+            // 1. Fetch image path to delete file from storage if local
+            $imgStmt = $pdo->prepare("SELECT image_url FROM events WHERE id = ?");
+            $imgStmt->execute([$id]);
+            $imagePath = $imgStmt->fetchColumn();
+
+            // 2. Delete event record directly from database
+            $stmt = $pdo->prepare("DELETE FROM events WHERE id = ?");
+            $stmt->execute([$id]);
+
+            // 3. Remove physical file from uploads folder if local
+            if ($imagePath && strpos($imagePath, 'uploads/') === 0) {
+                $physicalFile = __DIR__ . '/../../' . $imagePath;
+                if (file_exists($physicalFile)) {
+                    @unlink($physicalFile);
+                }
+            }
+
+            setFlashMessage('success', 'Event has been permanently deleted from the database!');
+        } catch (Exception $e) {
+            error_log("Event delete error: " . $e->getMessage());
+            setFlashMessage('danger', 'Could not delete event: ' . $e->getMessage());
+        }
         header('Location: events.php');
         exit;
     }

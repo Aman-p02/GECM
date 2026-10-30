@@ -1,3100 +1,562 @@
 <?php
-// Page configuration
-$page_title = "Computer Engineering Department - Government Engineering College, Modasa";
+// Set Page Variables
+$page_title = "Department of Computer Engineering — Government Engineering College, Modasa";
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/computer/css/department.css";
 $extra_js = "departments/computer/js/department.js";
 
-// Header template
+// Include Header
 include_once __DIR__ . '/../../includes/header.php';
 ?>
 
-<!-- ========================================================
-     Main Department Section (Authentic Institutional Layout)
-     ======================================================== -->
-<div class="dept-page-wrapper">
-    <div class="container">
-        <div class="dept-layout-grid">
+<div class="dept-page">
 
-            <!-- Sidebar Navigation -->
-            <aside class="dept-sidebar">
-                <div class="dept-sidebar-header">
-                    Computer Department
+    <!-- Hero header section -->
+    <header class="dept-hero-banner">
+        <div class="dept-container">
+            <!-- Two-column hero grid (7 cols left, 5 cols right) -->
+            <div class="dept-hero-grid">
+                <div class="dept-hero-text">
+                    <span class="dept-kicker">DEPARTMENT OF</span>
+                    <h1 class="dept-heading">Computer Engineering</h1>
+                    <p class="dept-tagline">
+Empowering future engineers through innovation and technology. Focused on practical learning, software development, and building skills for the digital future.
+                    </p>
                 </div>
-                <ul class="dept-sidebar-menu">
-                    <li class="active">
-                        <a class="dept-nav-link active" data-tab="about">About Department</a>
+                <div class="dept-hero-media">
+                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Computer Engineering Department Building" class="dept-hero-photo">
+                </div>
+            </div>
+
+            <!-- Key metrics counter strip (separated by single thin 1px line, no boxes, no vertical dividers) -->
+            <div class="dept-stats-strip">
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">2001</span>
+                    <span class="dept-stat-label">YEAR OF ESTABLISHMENT</span>
+                </div>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">120</span>
+                    <span class="dept-stat-label">ANNUAL APPROVED INTAKE</span>
+                </div>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">10</span>
+                    <span class="dept-stat-label">SPECIALIZED LABS</span>
+                </div>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">25</span>
+                    <span class="dept-stat-label">FACULTY MEMBERS</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky sub-navigation bar -->
+    <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
+        <div class="dept-container">
+            <div class="dept-subnav-wrap">
+                <ul class="dept-subnav-list" role="tablist">
+                    <li class="dept-subnav-item active">
+                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About</button>
                     </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="vision-mission">Vision &amp; Mission</a>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
                     </li>
-                    <li>
-                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-nav-link">
+                    <li class="dept-subnav-item">
+                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" aria-label="GTU Official Syllabus Portal">
                             <span>Syllabus</span>
-                            <i class="fas fa-external-link-alt arrow-icon"></i>
+                            <i class="fas fa-external-link-alt ext-arrow"></i>
                         </a>
                     </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="faculty">Faculty</a>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="faculty" role="tab" aria-selected="false">Faculty</button>
                     </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="activities">Activities</a>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="activities" role="tab" aria-selected="false">Activities</button>
                     </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="facilities">Facilities</a>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>
                     </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="publications">Publications</a>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
                     </li>
-                    <li class="dept-sidebar-dropdown closed" id="sidebar-iab">
-                        <div class="dept-dropdown-header" role="button" tabindex="0">
-                            <span>Industry Advisory Board</span>
-                            <i class="fas fa-chevron-down dropdown-arrow"></i>
-                        </div>
-                        <ul class="dept-sub-menu">
-                            <li>
-                                <a class="dept-sub-link" data-tab="iab-2025-26" href="#iab-2025-26">IAB 2025-26</a>
-                            </li>
-                            <li>
-                                <a class="dept-sub-link" data-tab="iab-2023-24" href="#iab-2023-24">IAB 2023-24</a>
-                            </li>
-                        </ul>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="advisory-board" role="tab" aria-selected="false">Advisory Board</button>
                     </li>
-                    <li class="dept-sidebar-dropdown closed" id="sidebar-newsletters">
-                        <div class="dept-dropdown-header" role="button" tabindex="0">
-                            <span>News Letters</span>
-                            <i class="fas fa-chevron-down dropdown-arrow"></i>
-                        </div>
-                        <ul class="dept-sub-menu">
-                            <li>
-                                <a class="dept-sub-link" data-tab="nl-vol1-issue2" href="#nl-vol1-issue2">Vol. 1 Issue 2</a>
-                            </li>
-                            <li>
-                                <a class="dept-sub-link" data-tab="nl-vol1-issue1" href="#nl-vol1-issue1">Vol. 1 Issue 1</a>
-                            </li>
-                        </ul>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="newsletters" role="tab" aria-selected="false">Newsletters</button>
                     </li>
                 </ul>
-            </aside>
-
-            <!-- Content Area -->
-            <main class="dept-content-panel">
-
-
-
-                <!-- ========================================================
-                     1. ABOUT DEPARTMENT TAB
-                     ======================================================== -->
-                <section class="dept-tab-content active" id="tab-about">
-                    <div class="dept-divider-title">About Department</div>
-
-                    <p class="dept-text-body">
-                        This department is running from 2001. The staff has developed required laboratories in the areas like Computer Hardware, Computer Networking &amp; Security, Database Management System, Computer Graphics and Internet Technology in tune with real-time systems.
-                    </p>
-
-                    <p class="dept-text-body">
-                        The Internet access is provided to the students to update their knowledge in various fields. Currently, a project under AICTE Grant for Campus Networking is under process. The Computer Department is equipped with around 100+ computers with multimedia software and LAN Systems with Internet connection.
-                    </p>
-
-                    <p class="dept-text-body">
-                        The Department has purchased Latest Computer Servers and Network-based online teaching system software named Content Server. The department is sharing all infrastructural facilities of Information Technology Department. The laboratories in the department are well developed to cater needs of the students. Department is also offering Post Graduate course in Computer Science &amp; Engineering since 2010.
-                    </p>
-
-                    <p class="dept-text-body">
-                        Computer Engineering and Information Technology department run in a newly constructed, well-furnished building. The main strength of the department is highly qualified and well-experienced faculties. Also, the department is well equipped with an ample number of computer systems, networking of more than 250 nodes and required software and hardware. Department has well equipped 10 computer laboratories and two seminar halls. Campus Wide Network of college is handled by the department with 30 Wi-Fi access points with 1 controller. It has High-End Servers available for various activities.
-                    </p>
-
-                    <!-- Program Overview -->
-                    <div class="dept-divider-title">About the Programme</div>
-
-                    <p class="dept-text-body">
-                        Computer engineering blends together computer science and electrical engineering to further advancements in digital technology, computer networking, and computer systems. In turn, computer engineers use their extensive knowledge of hardware and software design and computer programming to make computing platforms and applications more efficient and effective. Seamlessly integrating the latest innovations, computer engineers develop new computer hardware, design and implement software applications, and enhance the capabilities of networks and communications systems.
-                    </p>
-
-                    <p class="dept-text-body">
-                        Computer engineers work with hardware and software, ensuring that the two are seamlessly integrated and functioning properly. Computer engineers focus on innovation—making computing systems safer, faster and more powerfull. At the career level, there are two main avenues: hardware and software engineering. Hardware engineers focus their skills on computer systems and components, designing microprocessors, circuit boards, routers and other embedded devices. On the software side, these engineers create, test and debug programs and applications that run on computers, mobile devices and more.
-                    </p>
-
-                    <!-- Courses Table -->
-                    <div class="courses-card">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>Under Graduate/Post Graduate Courses</span>
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table">
-                                <thead>
-                                    <tr>
-                                        <th>Name of Course</th>
-                                        <th>Type</th>
-                                        <th>Period (Years)</th>
-                                        <th>Intake</th>
-                                        <th>Year of Starting</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Computer Engineering</td>
-                                        <td>UG</td>
-                                        <td>4</td>
-                                        <td>120</td>
-                                        <td>2001</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Computer Engineering (Software Engineering)</td>
-                                        <td>PG</td>
-                                        <td>2</td>
-                                        <td>18</td>
-                                        <td>2010</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Facilities Section -->
-                    <div class="dept-divider-title">Facilities</div>
-
-                    <div class="dept-facilities-dual-grid">
-                        <ul class="facility-items-list">
-                            <li><i class="fas fa-chevron-circle-right"></i><span>Wi-Fi enabled Department</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i><span>System Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i><span>Programming Language Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i><span>Digital Logic Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i><span>Seminar Halls</span></li>
-                        </ul>
-                        <ul class="facility-items-list">
-                            <li><i class="fas fa-chevron-circle-right"></i><span>Campus Wide Fiber Optic Cable Network</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i><span>Network Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i><span>DBMS Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i><span>Operating System Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i><span>Digital Learning Lab</span></li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     2. VISION & MISSION TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-vision-mission">
-                    <div class="dept-divider-title">Vision</div>
-
-                    <p class="dept-text-body">
-                        To become a prominent department producing competent professionals with research, innovation and entrepreneurial skills, inculcating moral values and societal concerns.
-                    </p>
-
-                    <div class="dept-divider-title">Mission</div>
-
-                    <ul class="mission-bullet-list">
-                        <li>To create globally competent students having ability to design, develop and test world class software, keeping pace with the latest technological developments.</li>
-                        <li>Create facilities and expertise in advanced computer technology thereby promote research.</li>
-                        <li>Enhance Industry Institute Interaction programme to get acquainted with corporate culture.</li>
-                        <li>Induce moral , ethical values and spirit of social commitment.</li>
-                    </ul>
-
-                    <!-- Program Educational Objectives -->
-                    <div class="peo-card">
-                        <div class="peo-card-header">
-                            <i class="fas fa-server"></i>
-                            <span>Program Educational Objectives PEOs</span>
-                        </div>
-                        <div class="peo-card-intro">
-                            Graduates will
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table peo-table">
-                                <tbody>
-                                    <tr>
-                                        <td class="peo-label">PEO1</td>
-                                        <td>Be an efficient Software developer in diverse fields and will be a successful professional and/or pursue higher studies.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-label">PEO2</td>
-                                        <td>be capable to adapt advanced state of the art computing technology for professional excellence and Research and be a lifelong learner.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-label">PEO3</td>
-                                        <td>Work productively exhibiting ethical qualities for the betterment of society.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-label">PEO4</td>
-                                        <td>Possess leadership and entrepreneurial qualities, work harmoniously as a team member with effective communication skills.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Program Specific Outcomes -->
-                    <div class="peo-card">
-                        <div class="peo-card-header">
-                            <i class="fas fa-server"></i>
-                            <span>Program Specific Outcomes PSOs</span>
-                        </div>
-                        <div class="peo-card-intro">
-                            Computer Engineering Graduate will be able to:
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table peo-table">
-                                <tbody>
-                                    <tr>
-                                        <td class="peo-label">PSO1</td>
-                                        <td>Gain capability to use current / advanced technology, skills and tools necessary for carrying out Real- World Multidisciplinary projects.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-label">PSO2</td>
-                                        <td>Achieve an ability to build a computer based system, process or a component that meets the desired needs.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-label">PSO3</td>
-                                        <td>Apply concepts of core areas of Computer Engineering– Data Structures, Database Management Systems, Operating Systems, Computer Architecture and Software Engineering to provide innovative solution.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-
-
-
-                <!-- ========================================================
-                     4. FACULTY TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-faculty">
-                    <div class="dept-divider-title">Faculty</div>
-
-                    <p class="dept-text-body">
-                        The Computer Engineering department possesses highly qualified, experienced, and dedicated teaching faculty members with specializations across diverse domains.
-                    </p>
-
-                    <div class="faculty-simple-grid">
-                        <div class="faculty-simple-card">
-                            <div class="faculty-avatar-box"><i class="fas fa-user-tie"></i></div>
-                            <h5>Dr. H. M. Patel</h5>
-                            <div class="desig">Head of Department</div>
-                            <div class="qual">Ph.D., M.Tech (Computer Engg)</div>
-                            <div class="email"><i class="fas fa-envelope"></i> hod_ce@gecmodasa.ac.in</div>
-                        </div>
-
-                        <div class="faculty-simple-card">
-                            <div class="faculty-avatar-box"><i class="fas fa-user-tie"></i></div>
-                            <h5>Prof. A. S. Shah</h5>
-                            <div class="desig">Associate Professor</div>
-                            <div class="qual">Ph.D. (Pursuing), M.E. (Computer Engg)</div>
-                            <div class="email"><i class="fas fa-envelope"></i> asshah@gecmodasa.ac.in</div>
-                        </div>
-
-                        <div class="faculty-simple-card">
-                            <div class="faculty-avatar-box"><i class="fas fa-user-tie"></i></div>
-                            <h5>Prof. R. K. Prajapati</h5>
-                            <div class="desig">Assistant Professor</div>
-                            <div class="qual">M.E. (Computer Science &amp; Engg)</div>
-                            <div class="email"><i class="fas fa-envelope"></i> rkprajapati@gecmodasa.ac.in</div>
-                        </div>
-
-                        <div class="faculty-simple-card">
-                            <div class="faculty-avatar-box"><i class="fas fa-user-tie"></i></div>
-                            <h5>Prof. P. N. Mehta</h5>
-                            <div class="desig">Assistant Professor</div>
-                            <div class="qual">M.Tech (Software Engineering)</div>
-                            <div class="email"><i class="fas fa-envelope"></i> pnmehta@gecmodasa.ac.in</div>
-                        </div>
-
-                        <div class="faculty-simple-card">
-                            <div class="faculty-avatar-box"><i class="fas fa-user-tie"></i></div>
-                            <h5>Prof. S. D. Joshi</h5>
-                            <div class="desig">Assistant Professor</div>
-                            <div class="qual">M.E. (Computer Engineering)</div>
-                            <div class="email"><i class="fas fa-envelope"></i> sdjoshi@gecmodasa.ac.in</div>
-                        </div>
-
-                        <div class="faculty-simple-card">
-                            <div class="faculty-avatar-box"><i class="fas fa-user-tie"></i></div>
-                            <h5>Prof. M. B. Patel</h5>
-                            <div class="desig">Assistant Professor</div>
-                            <div class="qual">M.Tech (Information Technology)</div>
-                            <div class="email"><i class="fas fa-envelope"></i> mbpatel@gecmodasa.ac.in</div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     5. ACTIVITIES TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-activities">
-                    <div class="dept-divider-title">Activities</div>
-
-                    <p class="dept-text-body">
-                        The department regularly organizes workshops, hackathons, expert lectures by industry leaders, and technical competitions under the banner of student developer clubs and societies.
-                    </p>
-
-                    <div class="labs-simple-grid">
-                        <div class="lab-simple-item">
-                            <h5><i class="fas fa-laptop-code"></i> CodeFest &amp; Hackathons</h5>
-                            <p>Annual inter-college coding marathon encouraging students to develop innovative software solutions for real-world governance and industrial problems.</p>
-                        </div>
-                        <div class="lab-simple-item">
-                            <h5><i class="fas fa-chalkboard-teacher"></i> Expert Lectures &amp; Webinars</h5>
-                            <p>Industry professionals deliver interactive sessions on Cloud Architecture, Cyber Forensics, DevOps, and Full-Stack Development.</p>
-                        </div>
-                        <div class="lab-simple-item">
-                            <h5><i class="fas fa-industry"></i> Industrial Visits</h5>
-                            <p>Educational visits to organizations such as BISAG-N Gandhinagar, TCS Garima Park, and ISRO Space Applications Centre.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     6. FACILITIES TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-facilities">
-                    <!-- Segmented Tabs -->
-                    <div class="facility-tabs-container">
-                        <div class="facility-segmented-tabs" role="tablist">
-                            <button type="button" class="facility-tab-btn active" data-subtab="labs" role="tab">
-                                <span>Laboratories</span>
-                                <span class="tab-count-badge">5</span>
-                            </button>
-                            <button type="button" class="facility-tab-btn" data-subtab="seminar" role="tab">
-                                <span>Seminar Room</span>
-                            </button>
-                            <button type="button" class="facility-tab-btn" data-subtab="server" role="tab">
-                                <span>Server Room</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- ================= SUBTAB 1: LABORATORIES ================= -->
-                    <div class="facility-pane active" id="subtab-labs">
-                        <p class="facility-lead-intro">
-                            There are total 10 laboratories in the department for performing practical in various domains like Computer Programming, Computer Graphics, Networking, Database Management, Operating Systems, Artificial Intelligence, etc. Department has a separate laboratory for computer hardware subjects.
-                        </p>
-
-                        <div class="modern-labs-stack">
-
-                            <!-- Lab 1: 8112 Project Lab -->
-                            <article class="modern-lab-card">
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/lab_8112_project.jpg" alt="8112 Project Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <span>Photo Space</span>
-                                    </div>
-                                </div>
-                                <div class="modern-lab-body">
-                                    <span class="modern-room-pill">Room 8112</span>
-                                    <h3 class="modern-lab-title">Project Lab</h3>
-                                    <p class="modern-lab-text">
-                                        The project lab has number of computers. This lab is dedicatedly used for project and design engineering subject. Students can perform their project related work. Sufficient number of PC, laptop points and other required infrastructure is available in this lab.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Lab 2: 8113 Programming Lab - 1 -->
-                            <article class="modern-lab-card modern-lab-card-reverse">
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/lab_8113_programming1.jpg" alt="8113 Programming Lab - 1" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <span>Photo Space</span>
-                                    </div>
-                                </div>
-                                <div class="modern-lab-body">
-                                    <span class="modern-room-pill">Room 8113</span>
-                                    <h3 class="modern-lab-title">Programming Lab - 1</h3>
-                                    <p class="modern-lab-text">
-                                        The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for subjects such as DBMS, OS, CG, CoS, SE, Compiler Design and Python.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Lab 3: 8115 Hardware Lab -->
-                            <article class="modern-lab-card">
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/lab_8115_hardware.jpg" alt="8115 Hardware Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <span>Photo Space</span>
-                                    </div>
-                                </div>
-                                <div class="modern-lab-body">
-                                    <span class="modern-room-pill">Room 8115</span>
-                                    <h3 class="modern-lab-title">Hardware Lab</h3>
-                                    <p class="modern-lab-text">
-                                        The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for hardware related subjects such as digital fundamentals, COA, CN, Blockchain and IoT.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Lab 4: 8116 PPS Lab - 2 -->
-                            <article class="modern-lab-card modern-lab-card-reverse">
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/lab_8116_pps2.jpg" alt="8116 PPS Lab - 2" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <span>Photo Space</span>
-                                    </div>
-                                </div>
-                                <div class="modern-lab-body">
-                                    <span class="modern-room-pill">Room 8116</span>
-                                    <h3 class="modern-lab-title">PPS Lab - 2</h3>
-                                    <p class="modern-lab-text">
-                                        The department is having Programming for Problem Solving lab for students where they can perform their PPS experiments. This lab contains number of Computers with Internet connection.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Lab 5: 8117 Programming Lab - 3 -->
-                            <article class="modern-lab-card">
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/lab_8117_programming3.jpg" alt="8117 Programming Lab - 3" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <span>Photo Space</span>
-                                    </div>
-                                </div>
-                                <div class="modern-lab-body">
-                                    <span class="modern-room-pill">Room 8117</span>
-                                    <h3 class="modern-lab-title">Programming Lab - 3</h3>
-                                    <p class="modern-lab-text">
-                                        The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for software/hardware related subjects such as .Net, MCWC and cloud computing.
-                                    </p>
-                                </div>
-                            </article>
-
-                        </div>
-                    </div>
-
-                    <!-- ================= SUBTAB 2: SEMINAR ROOM ================= -->
-                    <div class="facility-pane" id="subtab-seminar">
-                        <article class="modern-lab-card">
-                            <div class="modern-photo-wrap">
-                                <img src="images/labs/seminar_room.jpg" alt="Seminar Room" class="modern-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="modern-photo-placeholder" style="display: none;">
-                                    <span>Photo Space (Seminar Room)</span>
-                                </div>
-                            </div>
-                            <div class="modern-lab-body">
-                                <span class="modern-room-pill">Room 8119 (Ground Floor)</span>
-                                <h3 class="modern-lab-title">Seminar Room - 1</h3>
-                                <p class="modern-lab-text">
-                                    The Seminar Room is a space that seats up to around 120 people. Featuring a large whiteboard, 2 medium-sized tables, a podium, and a projector and small speaker set (in the media closet), fully air-conditioned, the Seminar Room is the ideal location for a guest lecture, a meeting, or a conference. The seminar room is one of the state-of-art facility in the college. It is equipped with the audio system and projection facilities. Lectures of prominent people, seminars and discussions are organized here. The hall is often used for Debates, Seminars, Council meeting and society's events etc.
-                                </p>
-                                <div class="modern-lab-location">
-                                    <strong>Seminar Room-1 No.:</strong> 8119 (Ground Floor)
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- ================= SUBTAB 3: SERVER ROOM ================= -->
-                    <div class="facility-pane" id="subtab-server">
-                        <article class="modern-lab-card">
-                            <div class="modern-photo-wrap">
-                                <img src="images/labs/server_room.jpg" alt="Server Room" class="modern-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="modern-photo-placeholder" style="display: none;">
-                                    <span>Photo Space (Server Room)</span>
-                                </div>
-                            </div>
-                            <div class="modern-lab-body">
-                                <span class="modern-room-pill">Room 8103 (Ground Floor)</span>
-                                <h3 class="modern-lab-title">Server Room</h3>
-                                <p class="modern-lab-text">
-                                    The department maintains campus wide networking and INTERNET facility of institute. The INTERNET line is provided by NKN (National Knowledge Network) with speed up to 100 MBPS. Server room contains two high end servers, routers, Fortinet firewall system, switches and Wi-Fi controller.
-                                </p>
-                                <div class="modern-lab-location">
-                                    <strong>Server Room No.:</strong> 8103 (Ground Floor)
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     7. PUBLICATIONS TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-publications">
-                    <div class="dept-divider-title">Publications</div>
-
-                    <p class="dept-text-body">
-                        Faculties and students of the Computer Engineering department actively publish research articles in peer-reviewed national and international journals and conferences.
-                    </p>
-
-                    <!-- Filter Bar & Count Badge (Year-Wise Filter) -->
-                    <div class="publications-header-bar">
-                        <div class="publications-filter-group">
-                            <div class="publications-year-select-box">
-                                <i class="far fa-calendar-alt select-calendar-icon"></i>
-                                <select id="pubYearSelect" aria-label="Filter by Year">
-                                    <option value="all">All Years (150)</option>
-                                    <option value="2026">2026</option>
-                                    <option value="2025">2025</option>
-                                    <option value="2024">2024</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2015">2015</option>
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
-                                    <option value="2011">2011</option>
-                                    <option value="2010">2010</option>
-                                    <option value="2009">2009</option>
-                                    <option value="2008">2008</option>
-                                </select>
-                                <i class="fas fa-chevron-down select-chevron-icon"></i>
-                            </div>
-                            
-                        </div>
-                        <div class="publications-count-badge" id="pubCountBadge">
-                            <i class="fas fa-file-alt"></i> 150 Publications
-                        </div>
-                    </div>
-
-                    <!-- Publications List Stack -->
-                    <div class="publications-list-stack">
-
-                        <!-- Publication 1 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Crowd Emotion and Behavior Analysis Using Lightweight CNN Model</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Jignesh Vaniya, Safvan Vahora, Uttam Chauhan, Sudhir Vegad</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>October 2024</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 2 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Peculiar Sentiment Analysis Advancement in Big Data</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Manisha Valera, Yash Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>October 2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 3 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">An avant-garde approach of Block chain in Big data analytics</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Manisha Valera, Parth Patel, Shruti Chettiar</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>November-December 2018</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 4 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">The Descriptive Study of Preprocessing from Web Usage Mining</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Manisha Valera</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>November 2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 5 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Low Control Overhead for Cluster Maintenance in Wireless Network for DSR Protocol</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Goriya, IndrJeet Rajput, Mihir Mehta</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>May-2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 6 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Abstractive Gujarati Text Summarization Using Sequence-To-Sequence Model and Attention Mechanism</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Shilpa Serasiya, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>May 2025</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 7 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Neoteric Web Recommender System based on Approach of Mining Frequent Sequential Pattern from Customized Web Log Preprocessing</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Manisha Valera, Uttam Chauhan, Kirit Rathod</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>May 2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 8 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Image Encryption Using Chaotic Based Artificial Neural Network</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Minal Chauhan, Rashmin Prajapati</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>June-2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 9 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Blazing issues in big data</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Manisha Valera, Yash Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>June 2018</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 10 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">AN EXHAUSTIVE STUDY: BIG DATA</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Manisha Valera</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>June 2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 11 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">An efficient web recommender system based on approach of mining frequent sequential pattern from Customized Web Log Preprocessing</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Manisha Valera, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>JULY 2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 12 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Object Removal using Image Inpainting</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Patel Hemangini Gamanbhai, Narenda Limbad</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>ISSN: 2321-0613, Issue 04, Vol 3, 2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 13 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Comprehensive Survey on Text Summarization For Indian Languages: Opportunities, Challenges and Future Prospects</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Shilpa Serasiya, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>February 2025</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 14 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Survey Paper on Cluster Head Selection Techniques for Mobile Ad-Hoc Network</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Goriya</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>December-2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 15 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Step up in Data Cleaning and User identification of Preprocessing on Web Usage data</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Manisha Valera, Shaktisinh Parmar</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>December 2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 16 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Radical Change through E- Governance in Gujarat</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Goriya, IndrJeet Rajput, Mihir Mehta</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>April- 2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 17 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Enhancing Semantic Coherence in Gujarati Topic Models by Eliminating Poor Quality Topics</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Nakul Dave, Avani Dave, Vishwa Kachhadiya, Priyanshi Chavadiya, Megh Dobariya, Ravi Nai, Diti Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2026</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 18 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Parkinson's Disease Detection Using Keystroke Dynamics And With Convolutional Neural Networks</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Bhumiben Mukeshbhai Gentiyal, Safvan A. Vahora, Pradeep Rohitbhai Gamit, Mahendra N Patel, Hirenkumar Ramanbhai Patel, Mahesh Goyani, Uttam Chauhan, Pinal J. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2026</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 19 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Multi-Stage Diabetic Retinopathy Classification Using Deep Learning: Trends, Challenges, And Future Directions</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Shreya Dubey, Mahesh Goyani, Mahendrakumar N Patel, Pinal J. Patel, Safvan A. Vahora, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2026</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 20 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Deepfake detection Demodulate Synthetic Videos Using Deep Learning Models</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Priyanshu Hirpara, Hardi Valangar, Vishwa Kachhadiya, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2025</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 21 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">HyViSE: (Hybrid ViT-SE) Approach for Crowd Anomaly Detection and Emotion-Behavior Classification</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Jignesh Vaniya, Safvan Vahora, Uttam Chauhan, Sudhir Vegad</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2025</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 22 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Conceptual Study On Various ML Models Used in Financial Distress Prediction</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Janki Patel, Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2025</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 23 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">An outlier detection framework for Air Quality Index prediction using linear and ensemble models</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Viral Patel, Pradeep Kumar Dongre, Upendra Bhoi, Nilesh N. Maltare</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2025</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 24 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Study on Packet Filtering and Network Traffic Management on Linux</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Jogin Joshi, Pinal J. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2025</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 25 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Securing E-Commerce: A Comprehensive Analysis of Fraud Detection Methods</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Rushi Parikh, Krupa Bhavsar, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2024</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 26 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Performance Evaluation of Text Summarization Models on SAMSUM Chat Data</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Jitendra Bhatia, Dip Patel, Jalpan Patel, Malaram Kumhar, Uttam Chauhan, Harshal Trivedi, Sudeep Tanwar</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2024</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 27 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Personalized Features-Based Stress Detection With Hyperparameter Tuning Using Genetic Algorithm</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Jigna Jadav, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2024</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 28 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">An Evolutionary Amharic Fake News Detection Based on ML and Deep Learning Approach</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Abirham Ayenew, Uttam Chauhan, Avani N Dave, Jaimin M Shroff, Nakul R Dave, Jigna J Jadav, Amit H Rathod</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2024</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 29 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Analysis Of Personalized Stress Recognition In The Office Environment</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Jigna Jadav, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2024</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 30 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Heart Rate Variability Based LSTM Model for Stress Detection with Explainable AI Insights</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Jigna Jadav, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2024</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 31 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">AN ASSESSMENT OF MACHINE LEARNING AND ENSEMBLE MODELS FOR DIABETES PREDICTION</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Dr. Pinal J. Patel, Prof. Priyank Shah, Prof. Rutu Nayak, Prof. Hemangini Shukla, Prof. Chintan Shah, Prof. Navdeepsinh Limbad, Mr. Aayush Kukadiya</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2024</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 32 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">HANDWRITTEN GUJARATI VOWEL RECOGNITION USING DEEP LEARNING MODELS</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Dr. Pinal J. Patel, Ms. Dhruvi Aacharya, Prof. Priyank Shah, Prof. Rutu Nayak, Prof. Chintan shah, Prof. Jignasha Prajapati, Prof. Navdeepsinh Limbad</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2024</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 33 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Chatbot For Academic Institutions</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Heeya Amin, Uttam Chauhan, Sahil Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2023</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 34 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">The Content Based Misinformation Detection for Gujarati Language</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Vinay Sheth, Vishvesh Trivedi, Chintan Bhatt, Juan Manuel, Corchado</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2023</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 35 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Amharic Language Hate Speech Detection Using Machine Learning</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Abirham Ayenew, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2023</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 36 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Recommendation Systems: Types, Applications, and Challenges</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Dhruval Patel, Foram Patel, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2023</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 37 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Modeling Topics in DFA-Based Lemmatized Gujarati Text</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Shrusti Shah, Dharati Shiroya, Dipti Solanki, Zeel Patel, Jitendra Bhatia, Sudeep Tanwar, Ravi Sharma, Verdes Marina, Maria Simona Raboaca</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2023</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 38 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Performance analysis of deep learning algorithms for classifying chronic obstructive pulmonary disease</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Pinal J. Patel, Dhanashree Yevle, Daksha Diwan, Shashi Ranga, Kinjal Gandhi, Samay Dumasia, Rutu Nayak</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2023</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 39 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Multi feature fusion for COPD classification using Deep Learning algorithms</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Pinal J. Patel, Daksha Diwan, Shashi Ranga, Niral J. Modi, Samay Dumasia</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2023</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 40 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">IoT Based Scalable Framework for Pollution Aware Route Recommendation</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Radha Govani, Parth Kakadia, Yash Modi, Dhrumin Thakkar, Heta Bhayani, Meshwa Patel, Jitendra Bhatia, Uttam Chauhan, Abdulatif Alabdulatif</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2022</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 41 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Abstractive Text Summarization For Indian Regional Languages: A Survey</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Shilpa Serasiya, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2022</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 42 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">An Overview of Fog Data Analytics for IoT Applications</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Jitendra Bhatia, Kiran Italiya, Kuldeepsinh Jadeja, Malaram Kumhar, Uttam Chauhan, Sudeep Tanwar, Madhuri Bhavsar, Ravi Sharma, Daniela Lucia Manea, Marina Verdes, Maria Simona Raboaca</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2022</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 43 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">5G-enabled deep learning-based framework for healthcare mining State of the art and challenges</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Rahil Parmar, Naitik Panchal, Dhruval Patel, Uttam Chauhan, Jitendra Bhatia</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2022</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 44 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Plant Disease Detection using Deep Learning</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>PINAL J. PATEL, NIYATI PANDYA, MANISHA CHAUDHARI, KINJAL GANDHI, HARDIK MAHENDRABHAI PATEL</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2022</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 45 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Alzheimer Disease Detection using Deep Learning</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Dr. Pinal J. Patel, Ms. Mohini H. Patel, Prof. Kinjal Gandhi, Dr. Shashi V. Ranga</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2022</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 46 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Offline Handwritten Character Recognition of Gujarati Characters using Convolutional Neural Network</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Pinal J. Patel, S. Kheni Rukhshmani, Urmila Patel, Darshil P. Patel, Kinjal N. Patel & Kinjal A. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2022</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 47 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">SIMULTANEOUS ESTIMATION OF NEBIVOLOL AND CILNIDIPINE IN PHARMACEUTICAL FORMULATIONBY REVERSE PHASE HIGH PERFORMANCE LIQUID CHROMATOGRAPHY METHOD</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Pinal J. Patel, Drashti Mahendrabhai Patel, Meghal J. Patel, Manisha Chaudhari, Kinjal Gandhi, Shashi V. Ranga & Hardik Mahendrabhai Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2022</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 48 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Fraud Detection in Credit Card Data using Unsupervised & Supervised Machine Learning-Based Algorithms</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>PDF Prasanna Kumar Lakineni; Keyurkumar M Nayak; Harikumar Pallathadka; Kamal Gulati; Kapil Pandey; Pinal J. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2022</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 49 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Coverless Information Hiding: A Review</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nitin Kanzariya, Gaurang Lakhani, Dhaval Jadhav, Uttam Chauhan, Lokesh Gagani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2021</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 50 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Topic Modeling Using Latent Dirichlet Allocation: A Survey</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Apurva Shah</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2021</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 51 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">ResTS: Residual Deep Interpretable Architecture for Plant Disease Detection</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Dhruvil Shah, Vishvesh Trivedi, Vinay Sheth, Aakash Shah, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2021</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 52 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Improving Semantic Coherence of Gujarati Text Topic Model Using Inflectional Forms Reduction and Single-letter Words Removal</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Apurva Shah</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2021</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 53 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Ant Colony Optimization for Travelling Salesman Problem with Modified Pheromone Update Formula</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Rahil Parmar, Naitik Panchal, Dhruval Patel, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2020</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 54 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Advancement of Text Summarization Using Machine Learning and Deep Learning: A Review</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Rishi Kotadiya, Shivangi Bhatt, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 55 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Survey on Architecture of Deep Convolution Neural Network</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Prachi Pandya Pinal J. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 56 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Semi Supervised PU learning method for deceptive detection using MKNN</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Priyanka Patani Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 57 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Review on Crop Yield Prediction using Data Mining Focusing on Groundnut Crop and Naive Bayes Technique</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Haresh L. Siju, Pinal J. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2018</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 58 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Biclustering of web usage data using Genetic Algorithm</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mayuree Rathva</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 59 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Speech based Watermark relational databases</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mayuree Rathva</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 60 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Hybrid Approach for Data Denoising on Image Segmentation</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Minal Chauhan, Binal Bhatt</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 61 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Solar power forecasting : Analysis of trends in modeling techniques and error minimization</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Archana Gondalia</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 62 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">AON: A Survey on Emergency Communication Systems during a Catastrophic Disaster</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Vasani Yash Kishorbhai, Nagekar Nainesh Vasantbhai</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 63 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">The Architecture for Optimizing Semantic Topical Coherence in Gujarati Text Topic Modeling</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Apurva Shah, Uday Yadav</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 64 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Survey - Sophisticated Topic Modeling</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Apurva Shah, Uday Yadav</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 65 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Performance analysis of neural networks for intrusion detection system</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Pinal J. Patel, J.S.Shah and Jinul Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 66 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Survey of Models and Tools for Project Monitoring and Control</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>H. L. Siju Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 67 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">SOFTWARE MAINTENANCE</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Ketan Sangadiya and Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 68 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Intrusion detection system using BackPropagation Neural Network</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Pinal Patel , Dr. J.S.Shah</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 69 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">RMMM: A SURVEY</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Krishna Dilip Suchak pinal patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 70 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A COMPARATIVE STUDY ON INTERNAL & EXTERNAL QUALITY FOR SOFTWARE PROJECT</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Komal Prajapati, Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 71 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Survey on Node Scheduling Methods for Wireless Sensor Network</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Neha Patel, Shweta Singh</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 72 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Survey on Techniques for Collision Avoidance in VANET</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Neha Patel, Shweta Singh</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 73 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A survey on big data uding cloud storage</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Binal Bhatt, Minal Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 74 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Review: Big Data Analysis Framework</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Apurva Shah, Uday Yadav, Mahendra Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 75 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Big data solutions and big data vendor’s comparison</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Prof. M.B.Chaudhary, Pianl Patel, Samarth Modi</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 76 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">CLOUD PLATFORMS AND SIMULATORS: A COMPARATIVE STUDY</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Pinal Patel, Umang Surani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 77 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Weather Prediction using Machine Learning: A Survey</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Pinal Patel, Jyoti Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 78 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">comparative study of the routing protocol approches in (DTN) Delay Tolerant Network</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Sweety Patel , Prof. M.B.1chaudhary, Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 79 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Hierarchical Query Task Clustering using Search Logs</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Vivek Bhojawala Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 80 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Brief Survey of Face Recognition Techniques</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Pinal Patel Nilam Goswami</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 81 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Search Logs Mining: Survey</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Vivek Bhojawala Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 82 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Performance Enhancement of Facial Expression Recognition using Appearance based features</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Jaimini Suthar, Goyani Mahesh</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 83 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Review on AODV Routing Protocol over Simulation Environment</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Neha Patel, Vijay Reshmwala</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 84 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Comparison Analysis of AODV and DSR Protocol over Energy Efficiency</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Neha Patel, Vijay Reshmwala, Shweta Singh</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 85 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Survey on Data Mining Techniques for Crime Hotspots Prediction</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Neha Patel, Shivani.V.Vora</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 86 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Survey on Natural Language Query Processing and Semantic Image Search</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Rashmi Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 87 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">GLIMPSE OF IMAGE RESTORATION TECHNIQUE – IMAGE INPAINTING</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nainesh V Nagekar, Prof. Jayesh Chaudhary</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 88 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Web Page Data Extraction and Categorization Web Pages Using Rule Based Classification Algorithm</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nirav Prajapati, Ketan Modi, Uttam Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 89 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Clustering approach for Moving object detection from video sequence</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Parth V. Parekh, Prof. Pinal J. Patel, Shrikrishna Padalkar, Vaibhavi S. Ghariya</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 90 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Wireless Video Streaming using ARM Processor</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Suresh Prasad Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 91 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Min-Max Selection Sort Algorithm - Improved Version of Selection Sort</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Mohammad Chharchhodawala, Bhargav Mendapara</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 92 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Comparison of SUMO and SiMTram for Indian Traffic Scenario Representation</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Viral Patel, Manish Chaturvedi and Sanjay Srivastava</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 93 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Green Cloud Computing: An Overview</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Archana Gondalia</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 94 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Comparative Analysis of Dynamic Source Routing Protocol with Mobility and without Mobility</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>NileshGoriya, ParthWadhwa, MuktiPathak</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 95 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Comparative analysis for accuracy and size of pruned and unpruned decision tree inducted for various datasets</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Uday Yadav, Nakul Dave</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 96 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Comprehensive study on Machine Learning Techniques for IDS in Cloud Computing</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Pinal Patel, Dr. J. S. Shah, Meghal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 97 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Detection and prevention zero-day attack in honeypot system for virtualization</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Ankit Patel, Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 98 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Corporate Governance and financial performance</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Gaurang Patel, Pinal Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 99 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A literature survey on Facial Expression Recognition using Global Features</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Vaibhavkumar J. Mistry, Mahesh M. Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 100 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Comparison of different image retrieval techniques in CBIR</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Chauhan Nandish, Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 101 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Facial Expression Recognition using Gabor Filter by minimizing Feature Vector</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Vaibhavkumar J. Mistry, Mahesh M. Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 102 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Enhanced Multistage Content Based Image Retrieval</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nandish Chauhan, Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 103 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Handwritten Character Recognition - A Comprehensive Review</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Harsh Dani, Chahna Dixit</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 104 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Novel Approach as Multi-place Watermarking for security in Database</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mayuree Rathva</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 105 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Reducing Avarage Waiting Time for Processes in Distributed System Using Dynamic Priority and Multiple Token Algorithm</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Ami Patel, Uttam Chauhan, Sanjay Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 106 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Text Based Fuzzy Clustering Algorithm to Filter Spam E- mail</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nakul Dave, Uttam Chauhan, Avani Nakul Dave</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 107 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Panoramic Image Mosaicing</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mrs. Hetal M.Patel, Prof. Pinal. J. Patel, Prof. Mr. Sandip G. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 108 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Secure Cloud using Homomorphic Encryption Scheme</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Ms. Parin V. Patel, Mr. Hitesh D. Patel, Prof. Pinal J. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 109 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Cancer Detection Using Modified Watershed</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Shanti L. Kadachha, Pinal J. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 110 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Performance Analysis of FDA Based Face Recognition Using Correlation, ANN and SVM</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Akash Dhorajiya, Ronak Paun</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 111 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Comparative Analysis Between DCT & DWT Techniques of Image Compression</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Anil Kathrotiya, Swati Patel, Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 112 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Key Frame Detection Based Semantic Event Detection and Classification Using Hierarchical Approach for Cricket Sport Video Indexing</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Shreyash Dutta, Payal Raj</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 113 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Performance Analysis of Block and Non Block Based Approach of Invisible Image Watermarking Using SVD in DCT Domain</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Gunvantsinh Gohil</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 114 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Geometry and Skin Color Based Hybrid Approach for Face Tracking in Color Environment</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Gitam Sikkenawis, Brijesh Joshi</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 115 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Review on Handwritten Character Recognition Systems</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 116 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Wicket fall Concept Mining From Cricket Video Using A-Priori Algorithm</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Shreyash Dutta, Gunvantsinh Gohil, Sapan Naik</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 117 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Handwritten Character Recognition System Using Correlation Coefficient</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 118 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Robust Face Recognition in Low Dimensional Subspace Using Reconstructive and Discriminative Features</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Gunvantsinh Gohil, Amit Chaudhari</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 119 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Top Down Hierarchical Histogram Based Approach for Printed Devanagari Script Character Isolation</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Trusha Gajjar, Rekha Teraiya, Gunvantsinh Gohil, Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 120 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Detail Study of Digital Image Watermarking Techniques</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Swati Patel, Anil Kathrotiya, Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 121 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Survey on Digital Video Watermarking</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Swati Patel, Anil Kathrotiya, Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 122 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Chain Code Based Hand Written Character Recognition System Using Neural Network and Support Vector Machine</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 123 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">3D Face Recognition Techniques - A Review</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Preeti B. Sharma, Mahesh M. Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 124 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Chain code and holistic features based OCR system for printed Devanagari script using ANN and SVM</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Gunvantsinh Gohil, Rekha Teraiya and Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 125 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Euler Number, Symmetry and Histogram Based Hierarchical Approach for English OCR</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh M Goyani, Rekha R Teraiya, Trusha Y Gajjar, Gunvantsinh D Gohil</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 126 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Comparision between DCT and DWT algorithms of Digital Watermarking</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Swati Patel, Anilkumar Katharotiya, Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 127 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Face recognition using PCA and Modified PCA</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Preeti B. Sharma, Mahesh M. Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 128 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A survey optimize visual image search for sematic web</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Jaimin MShroff Prof. Bhaumik Nagar Prof Parth Shah</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 129 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A review on sla and various approaches for efficient cloud service provider selection</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Shreyas Patel, Prof. Gordhan B. Jethava</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 130 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Host Selection Strategy Based On Propagation Delay in Cloud</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Dodiya Aniruddhsinh Karshanbhai</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 131 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Host Selection Technique for Data Intensive Application in Cloud Computing</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Dodiya Aniruddhsinh Karshanbhai</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 132 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Analysis of Multiple path TCP over Heterogeneous networks</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>P R Gamit</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 133 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Load Sharing Optimization of Multipath TCP in heterogeneous Networks</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>P R Gamit</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 134 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">An Adaptive Classification approach to filter spam E-mail using Vector Space Model</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nakul Dave, Uttam Chauhan, Avani Nakul Dave</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 135 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Review of spam filtering based on unstructured classification</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nakul Dave, Uttam Chauhan, Dhaval Varia</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 136 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Comprehensive study and review of image mosaicing methods</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mrs. Hetal M. Patel, Prof. Pinal. J. Patel, Prof. Mr. Sandip G. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 137 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Survey paper on Architecture of Deep Convolutional Network</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Prachi Pandya , Pinal J. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 138 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">PCA Based Handwritten Character Recognition System Using Support Vector Machine & Neural Network</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Ravi Sheth, N C Chauhan, Mahesh M Goyani, Kinjal A Mehta</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2011</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 139 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">An analysis and study of decision tree induction operating under adaptive mode to enhance accuracy and uptime in a dataset introduced to spontaneous variation in data attributes</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Y P Kosta, Amit Ganatra, Amit Thakkar</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2011</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 140 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Performance Enhancement in Lip Synchronization Using MFCC Parameters</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Narendra Patel, Mukesh Zaveri</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2010</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 141 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Acceptance / Rejection Rule Based Algorithm for Multiple Face Detection in Color Images</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Brijesh Joshi, Gitam Sikkenawis</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2010</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 142 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Performance Analysis of LPC, PLP and MFCC Parameters in Speech Recognition</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Namrata Dave</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2010</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 143 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Performance improvement in Lip Synchronization using LPC, MFCC and PLP Speech Parameters</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Namrata Dave, Narendra Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2010</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 144 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Real Time Lip Synchronization</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2009</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 145 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Improvement in Lip Detection and Feature Extraction in Dynamic Lighting Conditions and Complex Background</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Parul Tandel, Hetal Chudasama</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2009</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 146 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Ear Recognition Using Force Field Feature Extraction</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Japen Pathak</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2009</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 147 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Classification Using Adaptive Decision Tree Induction Algorithm For accuracy and scale-up measure</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Uttam Chauhan, Amit Ganatra, Amit Thakkar</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2009</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 148 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Artificial Neural Network in Data Mining</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mahesh Goyani, Mukesh Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2008</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 149 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Image Encryption Using Chaotic Cryptosystems and Artificial Neural Network Cryptosystems: A Review</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Minal Chauhan, Rashmin Prajapati</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>May-2014</span>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Publication 150 -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Novel Approach of Mining Frequent Sequential Pattern from Customized Web Log Preprocessing</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Manisha Valera</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>January - February 2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     8. INDUSTRY ADVISORY BOARD TABS & SUB-OPTIONS
-                     ======================================================== -->
-
-                <!-- 8A. IAB 2025-26 Sub-tab -->
-                <section class="dept-tab-content" id="tab-iab-2025-26">
-                    <div class="dept-divider-title">Industry Advisory Board (IAB 2025-26)</div>
-
-                    <p class="dept-text-body">
-                        Official notifications, committee constitution, and proceedings of the Industry Advisory Board for academic session 2025-26.
-                    </p>
-
-                    <!-- PDF Viewer Container (Paste your PDF URL in src & href) -->
-                    <div class="dept-pdf-card">
-                        <div class="dept-pdf-toolbar">
-                            <div class="dept-pdf-toolbar-info">
-                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                <div>
-                                    <h4 class="dept-pdf-name">IAB 2025-26 Notification Document</h4>
-                                    <span class="dept-pdf-sub">Government Engineering College, Modasa &bull; Official PDF Document</span>
-                                </div>
-                            </div>
-                            <div class="dept-pdf-toolbar-actions">
-                                <!-- USER: Put your PDF URL / file path in href and src below -->
-                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
-                                    <i class="fas fa-external-link-alt"></i> Fullscreen
-                                </a>
-                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
-                                    <i class="fas fa-download"></i> Download PDF
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dept-pdf-viewer-area">
-                            <!-- USER: Set your PDF path below, e.g. src="../../assets/pdf/iab-2025-26.pdf" -->
-                            <iframe src="" class="dept-pdf-iframe" id="pdf-iab-2025-26" title="IAB 2025-26 Document"></iframe>
-                            <div class="dept-pdf-empty-state">
-                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
-                                <h5>IAB 2025-26 PDF Document</h5>
-                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayega.</p>
-                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="labs-simple-grid">
-                        <div class="lab-simple-item">
-                            <h5>Industry Leaders &amp; Advisors</h5>
-                            <p style="margin-bottom: 6px;"><strong>Mr. J. K. Sharma</strong> &bull; VP Engineering, TCS</p>
-                            <p style="margin-bottom: 6px;"><strong>Mr. Sameer Desai</strong> &bull; Technical Director, L&amp;T Infotech</p>
-                            <p><strong>Ms. Neha Trivedi</strong> &bull; Senior Architect, Infosys</p>
-                        </div>
-                        <div class="lab-simple-item">
-                            <h5>Key Board Objectives</h5>
-                            <p style="margin-bottom: 6px;">&bull; Align GTU curriculum with market technologies.</p>
-                            <p style="margin-bottom: 6px;">&bull; Facilitate semester-long industry internships and capstone projects.</p>
-                            <p>&bull; Facilitate campus placement drives and corporate mentoring.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 8B. IAB 2023-24 Sub-tab -->
-                <section class="dept-tab-content" id="tab-iab-2023-24">
-                    <div class="dept-divider-title">Industry Advisory Board (IAB 2023-24)</div>
-
-                    <p class="dept-text-body">
-                        Official notifications, committee constitution, and proceedings of the Industry Advisory Board for academic session 2023-24.
-                    </p>
-
-                    <!-- PDF Viewer Container (Paste your PDF URL in src & href) -->
-                    <div class="dept-pdf-card">
-                        <div class="dept-pdf-toolbar">
-                            <div class="dept-pdf-toolbar-info">
-                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                <div>
-                                    <h4 class="dept-pdf-name">IAB 2023-24 Notification Document</h4>
-                                    <span class="dept-pdf-sub">Government Engineering College, Modasa &bull; Official PDF Document</span>
-                                </div>
-                            </div>
-                            <div class="dept-pdf-toolbar-actions">
-                                <!-- USER: Put your PDF URL / file path in href and src below -->
-                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
-                                    <i class="fas fa-external-link-alt"></i> Fullscreen
-                                </a>
-                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
-                                    <i class="fas fa-download"></i> Download PDF
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dept-pdf-viewer-area">
-                            <!-- USER: Set your PDF path below, e.g. src="../../assets/pdf/iab-2023-24.pdf" -->
-                            <iframe src="" class="dept-pdf-iframe" id="pdf-iab-2023-24" title="IAB 2023-24 Document"></iframe>
-                            <div class="dept-pdf-empty-state">
-                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
-                                <h5>IAB 2023-24 PDF Document</h5>
-                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayega.</p>
-                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 8C. Industry Advisory Board Overview Tab -->
-                <section class="dept-tab-content" id="tab-advisory-board">
-                    <div class="dept-divider-title">Industry Advisory Board</div>
-
-                    <p class="dept-text-body">
-                        The Industry Advisory Board bridges the gap between academic curriculum and current industry demands, reviewing syllabi and capstone projects periodically. Select an academic year session below to view official proceedings.
-                    </p>
-
-                    <div class="row g-3 my-3">
-                        <div class="col-md-6">
-                            <a href="#iab-2025-26" class="dept-sub-link-card dept-sub-link" data-tab="iab-2025-26" style="display:block; padding: 18px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit;">
-                                <div style="display:flex; align-items: center; justify-content: space-between;">
-                                    <div>
-                                        <h5 style="margin:0 0 5px; color:#1e293b; font-weight:600;"><i class="fas fa-file-pdf text-danger me-2"></i> IAB 2025-26</h5>
-                                        <span style="font-size:0.85rem; color:#64748b;">Current Academic Year Proceedings</span>
-                                    </div>
-                                    <i class="fas fa-chevron-right text-muted"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#iab-2023-24" class="dept-sub-link-card dept-sub-link" data-tab="iab-2023-24" style="display:block; padding: 18px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit;">
-                                <div style="display:flex; align-items: center; justify-content: space-between;">
-                                    <div>
-                                        <h5 style="margin:0 0 5px; color:#1e293b; font-weight:600;"><i class="fas fa-file-pdf text-danger me-2"></i> IAB 2023-24</h5>
-                                        <span style="font-size:0.85rem; color:#64748b;">Previous Session Proceedings</span>
-                                    </div>
-                                    <i class="fas fa-chevron-right text-muted"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="labs-simple-grid">
-                        <div class="lab-simple-item">
-                            <h5>Industry Leaders &amp; Advisors</h5>
-                            <p style="margin-bottom: 6px;"><strong>Mr. J. K. Sharma</strong> &bull; VP Engineering, TCS</p>
-                            <p style="margin-bottom: 6px;"><strong>Mr. Sameer Desai</strong> &bull; Technical Director, L&amp;T Infotech</p>
-                            <p><strong>Ms. Neha Trivedi</strong> &bull; Senior Architect, Infosys</p>
-                        </div>
-                        <div class="lab-simple-item">
-                            <h5>Key Board Objectives</h5>
-                            <p style="margin-bottom: 6px;">&bull; Align GTU curriculum with market technologies.</p>
-                            <p style="margin-bottom: 6px;">&bull; Facilitate semester-long industry internships and capstone projects.</p>
-                            <p>&bull; Facilitate campus placement drives and corporate mentoring.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     9. NEWS LETTERS TABS & SUB-OPTIONS
-                     ======================================================== -->
-
-                <!-- 9A. News Letters Vol. 1 Issue 2 Sub-tab -->
-                <section class="dept-tab-content" id="tab-nl-vol1-issue2">
-                    <div class="dept-divider-title">News Letters: Vol. 1 Issue 2</div>
-
-                    <p class="dept-text-body">
-                        Department of Computer Engineering biannual newsletter <strong>"COMP-CONNECT"</strong> &mdash; Volume 1, Issue 2.
-                    </p>
-
-                    <!-- PDF Viewer Container (Paste your PDF URL in src & href) -->
-                    <div class="dept-pdf-card">
-                        <div class="dept-pdf-toolbar">
-                            <div class="dept-pdf-toolbar-info">
-                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                <div>
-                                    <h4 class="dept-pdf-name">COMP-CONNECT Newsletter (Vol. 1 Issue 2)</h4>
-                                    <span class="dept-pdf-sub">Department of Computer Engineering &bull; Official Publication</span>
-                                </div>
-                            </div>
-                            <div class="dept-pdf-toolbar-actions">
-                                <!-- USER: Put your PDF URL / file path in href and src below -->
-                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
-                                    <i class="fas fa-external-link-alt"></i> Fullscreen
-                                </a>
-                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
-                                    <i class="fas fa-download"></i> Download PDF
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dept-pdf-viewer-area">
-                            <!-- USER: Set your PDF path below, e.g. src="../../assets/pdf/newsletter-vol1-issue2.pdf" -->
-                            <iframe src="" class="dept-pdf-iframe" id="pdf-nl-vol1-issue2" title="Newsletter Vol. 1 Issue 2"></iframe>
-                            <div class="dept-pdf-empty-state">
-                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
-                                <h5>Vol. 1 Issue 2 Newsletter Document</h5>
-                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayegi.</p>
-                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 9B. News Letters Vol. 1 Issue 1 Sub-tab -->
-                <section class="dept-tab-content" id="tab-nl-vol1-issue1">
-                    <div class="dept-divider-title">News Letters: Vol. 1 Issue 1</div>
-
-                    <p class="dept-text-body">
-                        Department of Computer Engineering biannual newsletter <strong>"COMP-CONNECT"</strong> &mdash; Volume 1, Issue 1 (Inaugural Edition).
-                    </p>
-
-                    <!-- PDF Viewer Container (Paste your PDF URL in src & href) -->
-                    <div class="dept-pdf-card">
-                        <div class="dept-pdf-toolbar">
-                            <div class="dept-pdf-toolbar-info">
-                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                <div>
-                                    <h4 class="dept-pdf-name">COMP-CONNECT Newsletter (Vol. 1 Issue 1)</h4>
-                                    <span class="dept-pdf-sub">Department of Computer Engineering &bull; Official Publication</span>
-                                </div>
-                            </div>
-                            <div class="dept-pdf-toolbar-actions">
-                                <!-- USER: Put your PDF URL / file path in href and src below -->
-                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
-                                    <i class="fas fa-external-link-alt"></i> Fullscreen
-                                </a>
-                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
-                                    <i class="fas fa-download"></i> Download PDF
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dept-pdf-viewer-area">
-                            <!-- USER: Set your PDF path below, e.g. src="../../assets/pdf/newsletter-vol1-issue1.pdf" -->
-                            <iframe src="" class="dept-pdf-iframe" id="pdf-nl-vol1-issue1" title="Newsletter Vol. 1 Issue 1"></iframe>
-                            <div class="dept-pdf-empty-state">
-                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
-                                <h5>Vol. 1 Issue 1 Newsletter Document</h5>
-                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayegi.</p>
-                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 9C. News Letters Overview & Archives Tab -->
-                <section class="dept-tab-content" id="tab-newsletters">
-                    <div class="dept-divider-title">News Letters</div>
-
-                    <p class="dept-text-body">
-                        The biannual departmental newsletter <strong>"COMP-CONNECT"</strong> chronicles academic achievements, faculty publications, student awards, and technological developments.
-                    </p>
-
-                    <div class="row g-3 my-3">
-                        <div class="col-md-6">
-                            <a href="#nl-vol1-issue2" class="dept-sub-link-card dept-sub-link" data-tab="nl-vol1-issue2" style="display:block; padding: 18px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit;">
-                                <div style="display:flex; align-items: center; justify-content: space-between;">
-                                    <div>
-                                        <h5 style="margin:0 0 5px; color:#1e293b; font-weight:600;"><i class="fas fa-newspaper text-primary me-2"></i> Vol. 1 Issue 2</h5>
-                                        <span style="font-size:0.85rem; color:#64748b;">Latest Edition Newsletter</span>
-                                    </div>
-                                    <i class="fas fa-chevron-right text-muted"></i>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#nl-vol1-issue1" class="dept-sub-link-card dept-sub-link" data-tab="nl-vol1-issue1" style="display:block; padding: 18px 20px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; text-decoration: none; color: inherit;">
-                                <div style="display:flex; align-items: center; justify-content: space-between;">
-                                    <div>
-                                        <h5 style="margin:0 0 5px; color:#1e293b; font-weight:600;"><i class="fas fa-newspaper text-primary me-2"></i> Vol. 1 Issue 1</h5>
-                                        <span style="font-size:0.85rem; color:#64748b;">Inaugural Edition Newsletter</span>
-                                    </div>
-                                    <i class="fas fa-chevron-right text-muted"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="courses-card mt-4">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>Departmental Newsletters Archive</span>
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table">
-                                <thead>
-                                    <tr>
-                                        <th>Volume &amp; Issue</th>
-                                        <th>Period</th>
-                                        <th>Theme Highlights</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>COMP-CONNECT Vol. 8</strong></td>
-                                        <td>Jan 2024 - June 2024</td>
-                                        <td>AI Advancements, Hackathon Achievements &amp; Placements</td>
-                                        <td><a href="#" class="btn-action-simple"><i class="fas fa-file-pdf"></i> Read</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>COMP-CONNECT Vol. 7</strong></td>
-                                        <td>July 2023 - Dec 2023</td>
-                                        <td>Cloud Architecture Workshop &amp; Alumni Interactions</td>
-                                        <td><a href="#" class="btn-action-simple"><i class="fas fa-file-pdf"></i> Read</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>COMP-CONNECT Vol. 6</strong></td>
-                                        <td>Jan 2023 - June 2023</td>
-                                        <td>National Tech-Fest Winner Edition</td>
-                                        <td><a href="#" class="btn-action-simple"><i class="fas fa-file-pdf"></i> Read</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-
-            </main>
+            </div>
         </div>
-    </div>
+    </nav>
+
+    <!-- Tab panels container -->
+    <main class="dept-main-content">
+        <div class="dept-container">
+
+            <!-- Tab 1: About Department -->
+            <section class="dept-tab-pane active" id="tab-about">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
+                    <h2>About the Department</h2>
+                    <p>Pioneering engineering education, campus network engineering, and laboratory discovery at Government Engineering College, Modasa since 2001.</p>
+                </div>
+
+                <div class="dept-story-body">
+                    <blockquote class="dept-lead-quote">
+                        "Fostering next-generation computing engineers through deep theoretical foundations, state-of-the-art laboratory discovery, and real-time systems mastery."
+                    </blockquote>
+                    <p>
+                       The Computer Engineering Department at GEC Modasa has been providing quality education since 2001. It offers well-equipped laboratories, modern computer systems, and networking facilities. The department emphasizes practical learning, software development, database management, and emerging technologies. With experienced faculty and hands-on training, it aims to develop skilled engineers ready to meet industry challenges.
+                    </p>
+                    <p>
+                     Students are encouraged to enhance their technical knowledge through projects, practical assignments, and innovative activities. The department promotes teamwork, creativity, and problem-solving skills. It also provides opportunities to explore emerging technologies and improve technical expertise.
+                    </p>
+                    <p>
+                       The department encourages students to participate in technical events, workshops, and seminars to expand their knowledge. It aims to bridge the gap between academic learning and industry requirements. Through continuous learning and innovation, the department prepares students to become competent professionals in the field of computer engineering.
+                    </p>
+                </div>
+
+                <!-- About the Programme Section -->
+                <div class="dept-programme-section">
+                    <div class="dept-section-header">
+                        <span class="dept-section-kicker">DISCIPLINE &amp; CAREER PATHS</span>
+                        <h2>About the Programme</h2>
+                        <p>Integrating computer science and electrical engineering to develop safer, faster, and more powerful computing technologies.</p>
+                    </div>
+
+                    <p class="dept-programme-lead">
+                        Computer engineering blends together computer science and electrical engineering to further advancements in digital technology, computer networking, and computing systems. In turn, computer engineers use their extensive knowledge of hardware and software design and computer programming to make computing platforms and applications more efficient, secure, and effective. At the professional level, the discipline offers two vital avenues:
+                    </p>
+
+                    <div class="dept-avenues-grid">
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-microchip"></i></div>
+                                <h4>Hardware Engineering</h4>
+                            </div>
+                            <p>Hardware engineers focus their skills on computer systems and physical components—designing microprocessors, circuit boards, routers, and embedded devices that power modern smart electronics.</p>
+                        </div>
+
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-laptop-code"></i></div>
+                                <h4>Software Engineering</h4>
+                            </div>
+                            <p>On the software side, engineers create, test, and debug programs and applications that run on computers, distributed networks, cloud architectures, and mobile devices to solve complex challenges.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Under Graduate / Post Graduate Courses -->
+                <div class="dept-section-header" style="margin-top: 56px;">
+                    <span class="dept-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
+                    <h2>Undergraduate &amp; Postgraduate Programmes</h2>
+                    <p>Approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated with Gujarat Technological University (GTU), Ahmedabad.</p>
+                </div>
+
+                <div class="dept-table-wrap">
+                    <table class="dept-clean-table">
+                        <thead>
+                            <tr>
+                                <th>Name of Course</th>
+                                <th>Degree Type</th>
+                                <th>Period (Years)</th>
+                                <th>Approved Intake</th>
+                                <th>Year of Starting</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Computer Engineering</strong></td>
+                                <td><span class="dept-tag-ug">UG (B.E.)</span></td>
+                                <td>4 Years (8 Semesters)</td>
+                                <td><span class="dept-badge">120 Seats</span></td>
+                                <td>2001</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Computer Engineering (Software Engineering)</strong></td>
+                                <td><span class="dept-tag-pg">PG (M.E.)</span></td>
+                                <td>2 Years (4 Semesters)</td>
+                                <td><span class="dept-badge">18 Seats</span></td>
+                                <td>2010</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Tab 2: Vision & Mission -->
+            <section class="dept-tab-pane" id="tab-vision-mission">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">ACADEMIC CHARTER</span>
+                    <h2>Vision &amp; Mission</h2>
+                    <p>Guiding principles, strategic commitments, and educational objectives defining our engineering pedagogy.</p>
+                </div>
+
+                <div class="dept-charter-card dept-vision-hero-card">
+                    <span class="dept-vision-quote-mark">“</span>
+                    <blockquote class="dept-vision-statement">
+                        To become a prominent department producing competent professionals with research, innovation and entrepreneurial skills, inculcating moral values and societal concerns.
+                    </blockquote>
+                </div>
+
+                <div class="dept-charter-card" style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission of the Department</h3>
+                    <ul class="dept-mission-steps">
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">I</span>
+                            <div class="dept-mission-text">
+                                To create globally competent students having ability to design, develop and test world class software, keeping pace with the latest technological developments.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">II</span>
+                            <div class="dept-mission-text">
+                                Create facilities and expertise in advanced computer technology thereby promote research.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">III</span>
+                            <div class="dept-mission-text">
+                                Enhance Industry Institute Interaction programme to get acquainted with corporate culture.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">IV</span>
+                            <div class="dept-mission-text">
+                                Induce moral, ethical values and spirit of social commitment.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Objectives (PEOs and PSOs) -->
+                <div class="dept-objectives-grid">
+                    <div class="dept-obj-card">
+                        <h4>Program Educational Objectives (PEOs)</h4>
+                        <div class="dept-obj-lead">Graduates will:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PEO 1:</strong> Be an efficient Software developer in diverse fields and will be a successful professional and/or pursue higher studies.</li>
+                            <li><strong>PEO 2:</strong> Be capable to adapt advanced state of the art computing technology for professional excellence and Research and be a lifelong learner.</li>
+                            <li><strong>PEO 3:</strong> Work productively exhibiting ethical qualities for the betterment of society.</li>
+                            <li><strong>PEO 4:</strong> Possess leadership and entrepreneurial qualities, work harmoniously as a team member with effective communication skills.</li>
+                        </ul>
+                    </div>
+
+                    <div class="dept-obj-card">
+                        <h4>Program Specific Outcomes (PSOs)</h4>
+                        <div class="dept-obj-lead">Computer Engineering Graduate will be able to:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PSO 1:</strong> Gain capability to use current / advanced technology, skills and tools necessary for carrying out Real-World Multidisciplinary projects.</li>
+                            <li><strong>PSO 2:</strong> Achieve an ability to build a computer based system, process or a component that meets the desired needs.</li>
+                            <li><strong>PSO 3:</strong> Apply concepts of core areas of Computer Engineering—Data Structures, Database Management Systems, Operating Systems, Computer Architecture and Software Engineering to provide innovative solution.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 3: Faculty directory -->
+            <section class="dept-tab-pane" id="tab-faculty">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">SCHOLARLY DIRECTORY</span>
+                    <h2>Faculty Members</h2>
+                    <p>Our distinguished academic roster of educators, researchers, and technical mentors dedicated to student mastery.</p>
+                </div>
+
+                <div class="dept-faculty-roster">
+                    <div class="dept-faculty-card">
+                        <div class="dept-faculty-initials">HP</div>
+                        <h4 class="dept-faculty-name">Dr. H. M. Patel</h4>
+                        <div class="dept-faculty-rank">Professor &amp; Head of Department</div>
+                        <div class="dept-faculty-degrees">Ph.D., M.Tech (Computer Engineering)<br><small>Specialization: Cloud Security, Distributed Systems</small></div>
+                        <a href="mailto:hod_ce@gecmodasa.ac.in" class="dept-faculty-contact">
+                            <i class="fas fa-envelope"></i> hod_ce@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="dept-faculty-card">
+                        <div class="dept-faculty-initials">AS</div>
+                        <h4 class="dept-faculty-name">Prof. A. S. Shah</h4>
+                        <div class="dept-faculty-rank">Associate Professor</div>
+                        <div class="dept-faculty-degrees">Ph.D. (Pursuing), M.E. (Computer Engineering)<br><small>Specialization: IoT Security, Embedded Networks</small></div>
+                        <a href="mailto:asshah@gecmodasa.ac.in" class="dept-faculty-contact">
+                            <i class="fas fa-envelope"></i> asshah@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="dept-faculty-card">
+                        <div class="dept-faculty-initials">RP</div>
+                        <h4 class="dept-faculty-name">Prof. R. K. Prajapati</h4>
+                        <div class="dept-faculty-rank">Assistant Professor</div>
+                        <div class="dept-faculty-degrees">M.E. (Computer Science &amp; Engineering)<br><small>Specialization: Data Engineering, Cryptography</small></div>
+                        <a href="mailto:rkprajapati@gecmodasa.ac.in" class="dept-faculty-contact">
+                            <i class="fas fa-envelope"></i> rkprajapati@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="dept-faculty-card">
+                        <div class="dept-faculty-initials">PM</div>
+                        <h4 class="dept-faculty-name">Prof. P. N. Mehta</h4>
+                        <div class="dept-faculty-rank">Assistant Professor</div>
+                        <div class="dept-faculty-degrees">M.Tech (Software Engineering)<br><small>Specialization: Microservices, Web Architectures</small></div>
+                        <a href="mailto:pnmehta@gecmodasa.ac.in" class="dept-faculty-contact">
+                            <i class="fas fa-envelope"></i> pnmehta@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="dept-faculty-card">
+                        <div class="dept-faculty-initials">SJ</div>
+                        <h4 class="dept-faculty-name">Prof. S. D. Joshi</h4>
+                        <div class="dept-faculty-rank">Assistant Professor</div>
+                        <div class="dept-faculty-degrees">M.E. (Computer Engineering)<br><small>Specialization: Machine Learning, Neural Signals</small></div>
+                        <a href="mailto:sdjoshi@gecmodasa.ac.in" class="dept-faculty-contact">
+                            <i class="fas fa-envelope"></i> sdjoshi@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="dept-faculty-card">
+                        <div class="dept-faculty-initials">MP</div>
+                        <h4 class="dept-faculty-name">Prof. M. B. Patel</h4>
+                        <div class="dept-faculty-rank">Assistant Professor</div>
+                        <div class="dept-faculty-degrees">M.Tech (Information Technology)<br><small>Specialization: Mobile Systems, Data Mining</small></div>
+                        <a href="mailto:mbpatel@gecmodasa.ac.in" class="dept-faculty-contact">
+                            <i class="fas fa-envelope"></i> mbpatel@gecmodasa.ac.in
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 4: Activities and events -->
+            <section class="dept-tab-pane" id="tab-activities">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">CAMPUS ENGAGEMENT</span>
+                    <h2>Department Activities</h2>
+                    <p>Annual hackathons, industrial field tours, expert colloquia, and hands-on developer workshops.</p>
+                </div>
+
+                <div class="dept-periodical-grid">
+                    <div class="dept-activity-card">
+                        <h4>Annual CodeFest &amp; Hackathons</h4>
+                        <p>24-hour technical coding sprints challenging student developers to solve real-world industrial and civic governance problems using full-stack frameworks and AI APIs.</p>
+                    </div>
+                    <div class="dept-activity-card">
+                        <h4>Industry Masterclass Series</h4>
+                        <p>Distinguished technical architects and engineering leaders deliver in-depth sessions on cloud infrastructure, container orchestration, and cybersecurity hygiene.</p>
+                    </div>
+                    <div class="dept-activity-card">
+                        <h4>Industrial Research Visits</h4>
+                        <p>Experiential tours to leading scientific centers including BISAG-N Gandhinagar, TCS Garima Park, and ISRO Space Applications Centre to observe production data centers.</p>
+                    </div>
+                    <div class="dept-activity-card">
+                        <h4>Faculty Development Programs (FDP)</h4>
+                        <p>GTU-sponsored short-term training programs on deep learning, internet of things, and advanced pedagogy conducted for regional engineering educators.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 5: Laboratory facilities -->
+            <section class="dept-tab-pane" id="tab-facilities">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
+                    <h2>Laboratories &amp; Facilities</h2>
+                    <p>Modern computing infrastructure supporting coursework from fundamental algorithmic programming to advanced capstone innovation.</p>
+                </div>
+
+                <div class="dept-labs-showcase">
+                    <!-- Lab 8112: Project and Research Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8112_project.jpg" alt="Room 8112 - Project &amp; Research Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8112</span>
+                            <h3 class="dept-lab-title">Project &amp; Research Lab</h3>
+                            <p class="dept-lab-desc">Equipped for final-year undergraduate capstone projects, multidisciplinary research, and startup incubation with high-performance desktop towers and gigabit switches.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 8113: Programming Lab 1 -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8113_programming1.jpg" alt="Room 8113 - Programming Laboratory 1" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8113</span>
+                            <h3 class="dept-lab-title">Programming Laboratory - 1</h3>
+                            <p class="dept-lab-desc">Dedicated to Database Management Systems (Oracle/MySQL), Operating Systems internals, Computer Graphics, and Python application development.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 8115: Hardware and Networking Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8115_hardware.jpg" alt="Room 8115 - Computer Hardware &amp; Networking Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8115</span>
+                            <h3 class="dept-lab-title">Computer Hardware &amp; Networking Lab</h3>
+                            <p class="dept-lab-desc">Outfitted with digital electronics trainers, 8085/8086 microprocessor kits, Cisco managed switches, packet sniffing stations, and IoT microcontroller boards.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 8116: PPS Lab 2 -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8116_pps2.jpg" alt="Room 8116 - PPS Laboratory 2" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8116</span>
+                            <h3 class="dept-lab-title">PPS Laboratory - 2</h3>
+                            <p class="dept-lab-desc">Designed for freshman Programming for Problem Solving (PPS) courses, instilling structured programming principles using C/C++ in a networked terminal environment.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 8117: Advanced Software Lab 3 -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8117_programming3.jpg" alt="Room 8117 - Advanced Software &amp; ML Lab 3" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8117</span>
+                            <h3 class="dept-lab-title">Advanced Software &amp; ML Lab - 3</h3>
+                            <p class="dept-lab-desc">High-speed computational cluster utilized for Compiler Design, Full-Stack Web Technologies, Distributed Cloud Computing, and Machine Learning algorithms.</p>
+                        </div>
+                    </div>
+
+                    <!-- Department Seminar Room -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/seminar_room.jpg" alt="Department Seminar Room" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Seminar Complex</span>
+                            <h3 class="dept-lab-title">Department Seminar Room</h3>
+                            <p class="dept-lab-desc">Acoustically treated conference and colloquium room with ceiling-mounted digital projection, surround audio, and video conferencing capabilities for scholarly defenses.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 6: Faculty publications -->
+            <section class="dept-tab-pane" id="tab-publications">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">SCHOLARLY OUTPUT</span>
+                    <h2>Faculty Publications</h2>
+                    <p>Recent peer-reviewed international journal articles, conference papers, and book chapters published by departmental faculty.</p>
+                </div>
+
+                <div class="dept-citations-list">
+                    <div class="dept-citation-item">
+                        <div class="dept-citation-title">Deep Learning Approaches for Real-Time Network Intrusion Detection in IoT Networks</div>
+                        <div class="dept-citation-authors">Dr. H. M. Patel, Prof. A. S. Shah (2024)</div>
+                        <div class="dept-citation-venue">International Journal of Information and Computer Security, Inderscience, Vol. 18, Issue 3</div>
+                    </div>
+                    <div class="dept-citation-item">
+                        <div class="dept-citation-title">An Efficient Cryptographic Framework for Cloud Data Integrity Verification</div>
+                        <div class="dept-citation-authors">Prof. R. K. Prajapati, Dr. H. M. Patel (2023)</div>
+                        <div class="dept-citation-venue">IEEE International Conference on Advanced Computing Technologies (ICACT), Proceedings, pp. 112–118</div>
+                    </div>
+                    <div class="dept-citation-item">
+                        <div class="dept-citation-title">Performance Optimization in Distributed Microservices Architecture using Containerization</div>
+                        <div class="dept-citation-authors">Prof. P. N. Mehta (2023)</div>
+                        <div class="dept-citation-venue">Springer Communications in Computer and Information Science, Vol. 1422, pp. 45–59</div>
+                    </div>
+                    <div class="dept-citation-item">
+                        <div class="dept-citation-title">Comparative Analysis of Machine Learning Classifiers for Brain-Computer Interface Applications</div>
+                        <div class="dept-citation-authors">Prof. S. D. Joshi, Prof. M. B. Patel (2022)</div>
+                        <div class="dept-citation-venue">Elsevier Procedia Computer Science, Vol. 218, pp. 1402–1411</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 7: Industry Advisory Board -->
+            <section class="dept-tab-pane" id="tab-advisory-board">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">GOVERNANCE &amp; CURRICULUM</span>
+                    <h2>Industry Advisory Board (IAB)</h2>
+                    <p>Distinguished technical directors, senior architects, and researchers actively steering academic relevance and recruitment readiness.</p>
+                </div>
+
+                <div class="dept-table-wrap">
+                    <table class="dept-clean-table">
+                        <thead>
+                            <tr>
+                                <th>Distinguished Member</th>
+                                <th>Organization &amp; Designation</th>
+                                <th>Committee Role</th>
+                                <th>Active Term</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Dr. H. M. Patel</strong></td>
+                                <td>Head of Department, Computer Engineering, GEC Modasa</td>
+                                <td>Chairman</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mr. Nirav Joshi</strong></td>
+                                <td>Senior Cloud Solutions Architect, Tata Consultancy Services (TCS)</td>
+                                <td>Industry Member</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ms. Pooja Sharma</strong></td>
+                                <td>Lead Data Scientist, Infosys Limited</td>
+                                <td>Industry Member</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Prof. A. S. Shah</strong></td>
+                                <td>Associate Professor, Computer Engineering, GEC Modasa</td>
+                                <td>Member Secretary</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mr. Rajesh Vaghela</strong></td>
+                                <td>Vice President of Engineering, eInfochips</td>
+                                <td>Industry Member</td>
+                                <td>2023–2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Tab 8: Department newsletters -->
+            <section class="dept-tab-pane" id="tab-newsletters">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">DEPARTMENT CHRONICLE</span>
+                    <h2>Department Newsletters</h2>
+                    <p>Official periodic publications recording student victories, research grants, faculty honors, and alumni spotlights.</p>
+                </div>
+
+                <div class="dept-periodical-grid">
+                    <div class="dept-periodical-card">
+                        <div class="dept-periodical-body">
+                            <span class="dept-periodical-meta">Vol. 1, Issue 2 · Academic Year 2024–25</span>
+                            <h4 class="dept-periodical-title">CompTech Chronicle</h4>
+                            <p class="dept-periodical-summary">Features comprehensive recaps of CodeFest 2024, expert lectures by cloud architects, national hackathon podium finishes, and recent faculty IEEE publications.</p>
+                            <a href="#" class="dept-download-btn"><i class="fas fa-file-pdf"></i> Download Newsletter (PDF)</a>
+                        </div>
+                    </div>
+
+                    <div class="dept-periodical-card">
+                        <div class="dept-periodical-body">
+                            <span class="dept-periodical-meta">Vol. 1, Issue 1 · Academic Year 2023–24</span>
+                            <h4 class="dept-periodical-title">CompTech Chronicle (Inaugural Issue)</h4>
+                            <p class="dept-periodical-summary">Inaugural release highlighting the AICTE laboratory modernization grant, establishment of new computational clusters, and alumni career milestones in global tech firms.</p>
+                            <a href="#" class="dept-download-btn"><i class="fas fa-file-pdf"></i> Download Newsletter (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
 </div>
 
 <?php

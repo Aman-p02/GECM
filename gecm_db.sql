@@ -156,7 +156,9 @@ INSERT INTO `departments` (`name`, `code`, `icon_class`, `learn_more_url`, `disp
 ('Automobile Engineering', 'AE', 'fas fa-car-side', '#', 4, 1),
 ('Civil Engineering', 'CIVIL', 'fas fa-building', '#', 5, 1),
 ('Electrical Engineering', 'EE', 'fas fa-bolt', '#', 6, 1),
-('Electronics & Comm.', 'EC', 'fas fa-microchip', '#', 7, 1);
+('Electronics & Comm.', 'EC', 'fas fa-microchip', '#', 7, 1),
+('Applied Mechanics', 'AM', 'fas fa-drafting-compass', '#', 8, 1),
+('Science & Humanities', 'SH', 'fas fa-atom', '#', 9, 1);
 
 
 -- --------------------------------------------------------------

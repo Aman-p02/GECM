@@ -1,1116 +1,540 @@
 <?php
-// Page configuration
-$page_title = "Information Technology Department - Government Engineering College, Modasa";
+// Set Page Variables
+$page_title = "Department of Information Technology — Government Engineering College, Modasa";
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/information-technology/css/department.css";
 $extra_js = "departments/information-technology/js/department.js";
 
-// Header template
+// Include Header
 include_once __DIR__ . '/../../includes/header.php';
 ?>
 
-<!-- ========================================================
-     Main Department Section (Information Technology)
-     ======================================================== -->
-<div class="dept-page-wrapper">
-    <div class="container">
-        <div class="dept-layout-grid">
+<div class="us-dept-page">
 
-            <!-- Sidebar Navigation -->
-            <aside class="dept-sidebar">
-                <div class="dept-sidebar-header">
-                    Information Technology
+    <!-- 1. US University Masthead & Hero Banner -->
+    <header class="us-hero-banner">
+        <div class="us-container">
+            <nav class="us-breadcrumb" aria-label="Academic Navigation Breadcrumbs">
+                <a href="<?= $root_path ?>">Home</a>
+                <span class="sep">/</span>
+                <a href="<?= $root_path ?>#departments">Academic Departments</a>
+                <span class="sep">/</span>
+                <span class="active-crumb">Information Technology</span>
+            </nav>
+
+            <span class="us-dept-kicker">Department of</span>
+            <h1 class="us-dept-heading">Information Technology</h1>
+            <p class="us-dept-tagline">
+                Pioneering software engineering, web architectures, cybersecurity, and intelligent information networks since 1999. Dedicated to empowering students through innovative project-based learning and state-of-the-art computational laboratories.
+            </p>
+
+            <!-- Institutional Metrics Strip -->
+            <div class="us-stats-strip">
+                <div class="us-stat-item">
+                    <span class="us-stat-num">1999</span>
+                    <span class="us-stat-label">Year of Establishment</span>
                 </div>
-                <ul class="dept-sidebar-menu">
-                    <li class="active">
-                        <a class="dept-nav-link active" data-tab="about">About Department</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="vision-mission">Vision &amp; Mission</a>
-                    </li>
-                    <li>
-                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-nav-link">
-                            <span>Syllabus</span>
-                            <i class="fas fa-external-link-alt arrow-icon"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="faculty">Faculty</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="activities">Activities</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="facilities">Facilities</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="publications">Publications</a>
-                    </li>
-                    <li class="dept-sidebar-dropdown closed" id="sidebar-iab">
-                        <div class="dept-dropdown-header" role="button" tabindex="0">
-                            <span>Industry Advisory Board</span>
-                            <i class="fas fa-chevron-down dropdown-arrow"></i>
-                        </div>
-                        <ul class="dept-sub-menu">
-                            <li>
-                                <a class="dept-sub-link" data-tab="iab-2025-26" href="#iab-2025-26">IAB 2025-26</a>
-                            </li>
-                            <li>
-                                <a class="dept-sub-link" data-tab="iab-2023-24" href="#iab-2023-24">IAB 2023-24</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dept-sidebar-dropdown closed" id="sidebar-newsletters">
-                        <div class="dept-dropdown-header" role="button" tabindex="0">
-                            <span>News Letters</span>
-                            <i class="fas fa-chevron-down dropdown-arrow"></i>
-                        </div>
-                        <ul class="dept-sub-menu">
-                            <li>
-                                <a class="dept-sub-link" data-tab="nl-vol1-issue2" href="#nl-vol1-issue2">Vol. 1 Issue 2</a>
-                            </li>
-                            <li>
-                                <a class="dept-sub-link" data-tab="nl-vol1-issue1" href="#nl-vol1-issue1">Vol. 1 Issue 1</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </aside>
-
-            <!-- Content Area -->
-            <main class="dept-content-panel">
-
-                <!-- ========================================================
-                     1. ABOUT DEPARTMENT TAB
-                     ======================================================== -->
-                <section class="dept-tab-content active" id="tab-about">
-                    <div class="dept-divider-title">About Department</div>
-
-                    <p class="dept-text-body">
-                        This department is running since 1999. The staff has developed required laboratories in the areas like Computer Hardware, Computer Networking &amp; Security, Database Management System, Computer Graphics and Internet Technology in tune with real-time systems. The IT Department is equipped with around 100+ computers with multimedia software and LAN Systems with Internet connection.
-                    </p>
-
-                    <p class="dept-text-body">
-                        The internet access is provided to the students to update their knowledge in the various fields.The campus-wide area network is managed through this department.
-                    </p>
-
-                    <p class="dept-text-body">
-                        Computer Engineering and Information Technology department run in a newly constructed, well-furnished building. The main strength of the department is highly qualified and well-experienced faculties. Also, the department is well equipped with an ample number of computer systems, networking of more than 250 nodes and required software and hardware. Department has well equipped 10 computer laboratories and two seminar halls. Campus Wide Network of college is handled by the department with 30 Wi-Fi access points with 1 controller. It has High-End Servers available for various activities.
-                    </p>
-
-                    <div class="dept-divider-title">About the Programme</div>
-
-                    <p class="dept-text-body">
-                        The field of information technology (IT) covers the design, administration and support of computer and telecommunications systems. Some of the positions in this field include database and network administrators, computer support specialists, computer scientists, software programmers and system analysts. The majority of career tracks in IT entail design and operational tasks related to computer hardware components, networks and software applications.
-                    </p>
-
-                    <p class="dept-text-body">
-                        Professionals in the IT field work with businesses and organizations to set up and support viable computer networks that will keep systems efficient and reliable. IT encompasses all hardware and software used in the storing, creation and accessing of information. Examples of technologies that professionals work with are firewalls, databases, media storage devices, networks and the Internet.
-                    </p>
-
-                    <p class="dept-text-body">
-                        Aspiring IT professionals typically need a bachelor's degree in a technology field, such as computer science, information systems management, programming or networking. Even without a degree, experience in an entry-level help desk position could help IT professionals advance with professional certification or vocational training. The fundamentals of a degree program generally include computer hardware, programming, networking, and technical theory. Depending on the major, students could also learn IT management, website development, computer circuitry, systems analysis and database management. Some programs also include internship opportunities. To work as a computer research scientist, a Ph.D. degree is often necessary.
-                    </p>
-
-                    <!-- Under Graduate/Post Graduate Courses Table -->
-                    <div class="courses-card">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>Under Graduate/Post Graduate Courses</span>
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table">
-                                <thead>
-                                    <tr>
-                                        <th>Name of Course</th>
-                                        <th>Type</th>
-                                        <th>Period (Years)</th>
-                                        <th>Intake</th>
-                                        <th>Year of Starting</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Information Technology</strong></td>
-                                        <td>UG</td>
-                                        <td>4</td>
-                                        <td>120</td>
-                                        <td>1999</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Facilities Dual Column List -->
-                    <div class="dept-divider-title">Facilities</div>
-
-                    <div class="dept-facilities-dual-grid">
-                        <ul class="facility-items-list">
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Wi-Fi enabled Department</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>System Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Android Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Appl. Development Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>DLD Lab</span></li>
-                        </ul>
-                        <ul class="facility-items-list">
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Campus Wide Fiber Optic Cable Network</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Network Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Advance Project Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>DBMS Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Operating System Lab</span></li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     2. VISION & MISSION TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-vision-mission">
-                    <div class="dept-divider-title">Vision</div>
-
-                    <div class="vision-quote-box">
-                        To become a prominent department producing technically competent and skilled intellectual IT professionals with research, innovation and entrepreneurial skills, inculcating moral values and societal concerns.
-                    </div>
-
-                    <div class="dept-divider-title">Mission</div>
-
-                    <ul class="mission-bullet-list">
-                        <li>To create globally competent students having ability to provide technical solutions in the field of Information Technology.</li>
-                        <li>To create facilities and expertise in the field of Information Technology where students and faculty can enhance their understanding of technology.</li>
-                        <li>To enhance industry institute interaction programme to get acquainted with corporate culture.</li>
-                        <li>To induce moral, ethical values and spirit of social commitment.</li>
-                    </ul>
-
-                    <!-- Program Educational Objectives PEOs Table -->
-                    <div class="courses-card">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>Program Educational Objectives PEOs</span>
-                        </div>
-                        <div class="peo-intro-banner">
-                            Graduates will,
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table peo-pso-table">
-                                <tbody>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PEO1</strong></td>
-                                        <td>Be prepared to gain employment as a successful IT professional and/or pursue higher studies.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PEO2</strong></td>
-                                        <td>Be capable to adapt advanced state of the art Information technology for professional excellence and Research and be a lifelong learner.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PEO3</strong></td>
-                                        <td>work productively exhibiting ethical qualities for the betterment of society.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PEO4</strong></td>
-                                        <td>possess leadership and entrepreneurial qualities, work harmoniously as a team member with effective communication skills.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Program Specific Outcomes PSOs Table -->
-                    <div class="courses-card">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>Program Specific Outcomes PSOs</span>
-                        </div>
-                        <div class="peo-intro-banner">
-                            Information Technology Graduate will be able to:
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table peo-pso-table">
-                                <tbody>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PSO1</strong></td>
-                                        <td>Effectively integrate IT-based solutions into the user environment.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PSO2</strong></td>
-                                        <td>Possess professional skill set of software design process using open source technologies.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PSO3</strong></td>
-                                        <td>Apply concepts of core areas of Information Technology- Data Structures, Database Management Systems, Operating Systems, Computer Network and Software Engineering to provide innovative solution.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     3. FACULTY TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-faculty">
-                    <div class="dept-divider-title">Faculty Members</div>
-
-                    <p class="dept-text-body">
-                        The Information Technology Department is backed by dedicated, highly qualified faculties committed to academic excellence and research.
-                    </p>
-
-                    <div class="row g-3 my-3">
-                        <div class="col-12">
-                            <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 36px 20px; text-align: center;">
-                                <i class="fas fa-users-cog fa-3x text-primary mb-3"></i>
-                                <h4 style="font-size: 1.15rem; color: #1e293b; margin-bottom: 6px;">Information Technology Faculty Profiles</h4>
-                                <p style="color: #64748b; font-size: 0.90rem; margin: 0;">Faculty details will be updated here as soon as provided.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     4. ACTIVITIES TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-activities">
-                    <div class="dept-divider-title">Department Activities</div>
-
-                    <p class="dept-text-body">
-                        Seminars, workshops, technical webinars, industrial visits, and expert lectures organized by the Information Technology Department.
-                    </p>
-
-                    <div class="row g-3 my-3">
-                        <div class="col-12">
-                            <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 36px 20px; text-align: center;">
-                                <i class="fas fa-calendar-check fa-3x text-primary mb-3"></i>
-                                <h4 style="font-size: 1.15rem; color: #1e293b; margin-bottom: 6px;">Workshops &amp; Technical Events</h4>
-                                <p style="color: #64748b; font-size: 0.90rem; margin: 0;">Departmental activity records and event photos will be updated here.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     5. FACILITIES TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-facilities">
-                    <div class="dept-divider-title">Facilities</div>
-
-                    <!-- Segmented Sub-tabs Matching Screenshot -->
-                    <div class="facility-tabs-container">
-                        <div class="facility-segmented-tabs">
-                            <button type="button" class="facility-tab-btn active" data-subtab="laboratories">
-                                <i class="fas fa-desktop"></i> Laboratories <span class="tab-count-badge">5</span>
-                            </button>
-                            <button type="button" class="facility-tab-btn" data-subtab="seminar">
-                                <i class="fas fa-chalkboard-teacher"></i> Seminar Room
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- ================= SUBTAB 1: LABORATORIES ================= -->
-                    <div class="facility-pane active" id="subtab-laboratories">
-                        <p class="facility-lead-intro">
-                            There are total 10 laboratories in the department for performing practical in various domains like Computer Programming, Computer Graphics, Networking, Database Management, Operating Systems, Artificial Intelligence, etc. Department has a separate laboratory for computer hardware subjects.
-                        </p>
-
-                        <div class="modern-labs-stack">
-
-                            <!-- Lab 1: 8212 Project Lab -->
-                            <article class="modern-lab-card">
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/lab_8212_project.jpg" alt="8212 Project Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <span>Photo Space</span>
-                                    </div>
-                                </div>
-                                <div class="modern-lab-body">
-                                    <span class="modern-room-pill">Room 8212</span>
-                                    <h3 class="modern-lab-title">Project Lab</h3>
-                                    <p class="modern-lab-text">
-                                        This lab is dedicatedly used for project and design engineering. Sufficient number of laptop points and other required infrastructure is available in this lab.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Lab 2: 8213 Programming Lab - 1 -->
-                            <article class="modern-lab-card modern-lab-card-reverse">
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/8213-lab.png" alt="8213 Programming Lab - 1" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <span>Photo Space</span>
-                                    </div>
-                                </div>
-                                <div class="modern-lab-body">
-                                    <span class="modern-room-pill">Room 8213</span>
-                                    <h3 class="modern-lab-title">Programming Lab - 1</h3>
-                                    <p class="modern-lab-text">
-                                        The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for subjects such as DBMS, OS, CG, CoS, SE, Compiler Design and Python.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Lab 3: 8215 Programming Lab - 2 -->
-                            <article class="modern-lab-card">
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/lab_8215_programming2.jpg" alt="8215 Programming Lab - 2" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <span>Photo Space</span>
-                                    </div>
-                                </div>
-                                <div class="modern-lab-body">
-                                    <span class="modern-room-pill">Room 8215</span>
-                                    <h3 class="modern-lab-title">Programming Lab - 2</h3>
-                                    <p class="modern-lab-text">
-                                        The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for hardware related subjects such as digital fundamentals, COA, CN, Blockchain and IoT.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Lab 4: 8216 PPS Lab -->
-                            <article class="modern-lab-card modern-lab-card-reverse">
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/lab_8216_pps.jpg" alt="8216 PPS Lab" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <span>Photo Space</span>
-                                    </div>
-                                </div>
-                                <div class="modern-lab-body">
-                                    <span class="modern-room-pill">Room 8216</span>
-                                    <h3 class="modern-lab-title">PPS Lab</h3>
-                                    <p class="modern-lab-text">
-                                        The department is having Programming for Problem Solving lab for students where they can perform their PPS experiments. This lab contains number of Computers with Internet connection.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <!-- Lab 5: 8217 Programming Lab - 3 -->
-                            <article class="modern-lab-card">
-                                <div class="modern-photo-wrap">
-                                    <img src="images/labs/lab_8217_programming3.jpg" alt="8217 Programming Lab - 3" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div class="modern-photo-placeholder" style="display: none;">
-                                        <span>Photo Space</span>
-                                    </div>
-                                </div>
-                                <div class="modern-lab-body">
-                                    <span class="modern-room-pill">Room 8217</span>
-                                    <h3 class="modern-lab-title">Programming Lab - 3</h3>
-                                    <p class="modern-lab-text">
-                                        The department is having programming lab for students where they can perform their experiments. This lab contains number of Computers with Internet connection. This lab is dedicatedly used for software/hardware related subjects such as .Net, MCWC and cloud computing.
-                                    </p>
-                                </div>
-                            </article>
-
-                        </div>
-
-                        <!-- Department Facilities Overview List -->
-                        <div class="dept-divider-title mt-5">All Department Facilities Overview</div>
-                        <div class="dept-facilities-dual-grid mb-4">
-                            <ul class="facility-items-list">
-                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Wi-Fi enabled Department</span></li>
-                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>System Lab</span></li>
-                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Android Lab</span></li>
-                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Appl. Development Lab</span></li>
-                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>DLD Lab</span></li>
-                            </ul>
-                            <ul class="facility-items-list">
-                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Campus Wide Fiber Optic Cable Network</span></li>
-                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Network Lab</span></li>
-                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Advance Project Lab</span></li>
-                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>DBMS Lab</span></li>
-                                <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Operating System Lab</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- ================= SUBTAB 2: SEMINAR ROOM ================= -->
-                    <div class="facility-pane" id="subtab-seminar">
-                        <article class="modern-lab-card">
-                            <div class="modern-photo-wrap">
-                                <img src="images/labs/seminar_hall.jpg" alt="Department Seminar Hall" class="modern-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="modern-photo-placeholder" style="display: none;">
-                                    <span>Photo Space (Seminar Room)</span>
-                                </div>
-                            </div>
-                            <div class="modern-lab-body">
-                                <span class="modern-room-pill">Department Seminar Hall</span>
-                                <h3 class="modern-lab-title">Department Seminar Hall</h3>
-                                <p class="modern-lab-text">
-                                    The Seminar Hall is a modern facility with high-end audio-visual projection equipment, sound system, and comfortable seating capacity for guest lectures, seminars, workshops, and project evaluations.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     6. PUBLICATIONS TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-publications">
-                    <div class="dept-divider-title">Publications</div>
-
-                    <p class="dept-text-body">
-                        Research papers, journal articles, and conference publications by faculties and students of the Information Technology Department.
-                    </p>
-
-                    <!-- Filter Bar & Count Badge (Year-Wise Filter) -->
-                    <div class="publications-header-bar">
-                        <div class="publications-filter-group">
-                            <div class="publications-year-select-box">
-                                <i class="far fa-calendar-alt select-calendar-icon"></i>
-                                <select id="pubYearSelect" aria-label="Filter by Year">
-                                    <option value="all">All Years (30)</option>
-                                    <option value="2023">2023</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2018">2018</option>
-                                    <option value="2017">2017</option>
-                                    <option value="2016">2016</option>
-                                    <option value="2015">2015</option>
-                                    <option value="2014">2014</option>
-                                    <option value="2013">2013</option>
-                                    <option value="2012">2012</option>
-                                    <option value="2011">2011</option>
-                                    <option value="2010">2010</option>
-                                    <option value="2008">2008</option>
-                                </select>
-                                <i class="fas fa-chevron-down select-chevron-icon"></i>
-                            </div>
-                        </div>
-                        <div class="publications-count-badge" id="pubCountBadge">
-                            <i class="fas fa-file-alt"></i> 30 Publications
-                        </div>
-                    </div>
-
-                    <!-- Publications List Stack -->
-                    <div class="publications-list-stack">
-
-                        <!-- Publication 1 (2023) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Plant Pathology Detection for Massive Heterogeneous Data Using Deep Learning</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Avinash Chaudhari, Kuntesh Jani, Sunil Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2023</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 2 (2020) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Automatic abnormality detection system for capsule endoscopy</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Kuntesh K. Jani, Subodh Srivastava, Animesh Anand and Rajeev Srivastava</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2020</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 3 (2019) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Data Reduction Technique for Capsule Endoscopy</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Kuntesh Jani and Rajeev Srivastava</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 4 (2019) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Computer aided medical image analysis for capsule endoscopy using conventional machine learning and deep learning</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Kuntesh K. Jani, Subodh Srivastava, Animesh Anand and Rajeev Srivastava</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 5 (2019) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Computer aided medical image analysis for capsule endoscopy using multi-class classifier</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Kuntesh K. Jani, Subodh Srivastava and Rajeev Srivastava</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 6 (2019) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Computer-Aided Diagnosis for Capsule Endoscopy: From Inception to Future</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>KunteshK. Jani, Subodh Srivastava, Rajeev Srivastava</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 7 (2019) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Computer aided diagnosis system for ulcer detection in capsule endoscopy using optimized feature set</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Kuntesh K. Jani, Subodh Srivastava and Rajeev Srivastava</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 8 (2019) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Applying Parallel Design Patterns on Molecular Dynamics Simulation</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Maltare, Vithal N Kamat.</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 9 (2019) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Survey on Medical Image Analysis in Capsule Endoscopy</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Kuntesh Ketan Jani, Rajeev Srivastava</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 10 (2019) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Deep Neural Network Model for Group Activity Recognition Using Contextual Relationship</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>S. A. Vahora and N. C. Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2019</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 11 (2018) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Group Activity Recognition Using Deep Autoencoder With Temporal Context Descriptor</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>S. A. Vahora and N. C. Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2018</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 12 (2018) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Android Smartphone based Visual Object Recognition for Visually Impaired using Deep Learning</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Neel Parikh, Ishita Shah, Safvan Vahora</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2018</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 13 (2017) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Prediction based Auto Scaling for Cloud Applications</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Prof.C.A.Patel , Prof. H.R.Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 14 (2017) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Gender Classification From Faces: A Survey</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Siddharth Shah, Gopi Bhatt and Safvan Vahora</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 15 (2017) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Comprehensive Study of Group Activity Recognition Methods in Video</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>S. A. Vahora and N. C. Chauhan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2017</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 16 (2016) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Applying Parallel Design Patterns of Embarassingly Parallel Problem</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Maltare, Chetan Chudasama</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 17 (2016) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Review on Forecasting Techniques for SLA Aware Elasticity in Cloud Computing</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Prof.C.A.Patel ,Prof.H.R.Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2016</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 18 (2015) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Crowd Behavior Analysis Using Fast Feature</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Kinjal Joshi and Safvan Vahora</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 19 (2015) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Experimenting Large Prime Numbers Generation in MPI Cluster</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Maltare, Chetan Chudasama</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2015</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 20 (2014) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Crowd Behavior Analysis</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Kinjal Joshi and Safvan Vahora</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 21 (2014) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Features for Parallel Pattern Based Programming System for Multicore</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Maltare</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2014</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 22 (2013) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Survey On Super Resolution Image Reconstruction Techniques</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Krunal Shah, Jaymit Pandya and Safvan Vahora</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2013</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 23 (2012) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A Robust Method for Moving Object Detection Using Modified Statistical Mean Method</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Safvan Vahora, Narendra Chauhan, Nilesh Prajapati</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 24 (2012) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Moving Object Detection Using Incremental Statistical Mean Technique</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Safvan Vahora, Narendra Chauhan, Nilesh Prajapati</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2012</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 25 (2011) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Novel Approach: Naive Bayes with Vector Space Model for Spam Classification</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Safvan Vahora, Mosin Hasan, Reshma Lakhani</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2011</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 26 (2010) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Case study on social engineering Techniques for persuasion</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Mosin Hasan, Nilesh Prajapati, Safvan Vahora</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2010</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 27 (2010) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">A comparative analysis of different neural networks for face recognition using principal component analysis, wavelets and efficient variable learning rate</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Maltare, Raman Bhati, Sarika Jain</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2010</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 28 (2010) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Analysis of parallelism available in Neural Network training algorithm of face recognition</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Maltare, Raman Bhati, Sarika Jain</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2010</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 29 (2010) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">Exploiting UML in modeling Military Organization and Military Behavior</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Maltare, Aditya Parasrampuriya, Sachin Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2010</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Publication 30 (2008) -->
-                        <article class="publication-card">
-                            <h4 class="publication-title">MANAGING DATA REPLICATION IN MOBILE AD-HOC NETWORK DATABASES USING CONTENT BASED ENERGY OPTIMIZATION</h4>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user"></i>
-                                    <span>Nilesh Maltare, N.A. Khan</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2008</span>
-                                </div>
-                            </div>
-                        </article>
-
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     7. INDUSTRY ADVISORY BOARD SUB-OPTIONS & TABS
-                     ======================================================== -->
-
-                <!-- 7A. IAB 2025-26 Sub-tab -->
-                <section class="dept-tab-content" id="tab-iab-2025-26">
-                    <div class="dept-divider-title">Industry Advisory Board (IAB 2025-26)</div>
-
-                    <p class="dept-text-body">
-                        Official notifications, committee constitution, and proceedings of the Industry Advisory Board for academic session 2025-26.
-                    </p>
-
-                    <!-- PDF Viewer Container -->
-                    <div class="dept-pdf-card">
-                        <div class="dept-pdf-toolbar">
-                            <div class="dept-pdf-toolbar-info">
-                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                <div>
-                                    <h4 class="dept-pdf-name">IAB 2025-26 Notification Document</h4>
-                                    <span class="dept-pdf-sub">Government Engineering College, Modasa &bull; Official PDF Document</span>
-                                </div>
-                            </div>
-                            <div class="dept-pdf-toolbar-actions">
-                                <!-- USER: Put your PDF URL in href and src below -->
-                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
-                                    <i class="fas fa-external-link-alt"></i> Fullscreen
-                                </a>
-                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
-                                    <i class="fas fa-download"></i> Download PDF
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dept-pdf-viewer-area">
-                            <iframe src="" class="dept-pdf-iframe" id="pdf-iab-2025-26" title="IAB 2025-26 Document"></iframe>
-                            <div class="dept-pdf-empty-state">
-                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
-                                <h5>IAB 2025-26 PDF Document</h5>
-                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayega.</p>
-                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 7B. IAB 2023-24 Sub-tab -->
-                <section class="dept-tab-content" id="tab-iab-2023-24">
-                    <div class="dept-divider-title">Industry Advisory Board (IAB 2023-24)</div>
-
-                    <p class="dept-text-body">
-                        Official notifications, committee constitution, and proceedings of the Industry Advisory Board for academic session 2023-24.
-                    </p>
-
-                    <!-- PDF Viewer Container -->
-                    <div class="dept-pdf-card">
-                        <div class="dept-pdf-toolbar">
-                            <div class="dept-pdf-toolbar-info">
-                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                <div>
-                                    <h4 class="dept-pdf-name">IAB 2023-24 Notification Document</h4>
-                                    <span class="dept-pdf-sub">Government Engineering College, Modasa &bull; Official PDF Document</span>
-                                </div>
-                            </div>
-                            <div class="dept-pdf-toolbar-actions">
-                                <!-- USER: Put your PDF URL in href and src below -->
-                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
-                                    <i class="fas fa-external-link-alt"></i> Fullscreen
-                                </a>
-                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
-                                    <i class="fas fa-download"></i> Download PDF
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dept-pdf-viewer-area">
-                            <iframe src="" class="dept-pdf-iframe" id="pdf-iab-2023-24" title="IAB 2023-24 Document"></iframe>
-                            <div class="dept-pdf-empty-state">
-                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
-                                <h5>IAB 2023-24 PDF Document</h5>
-                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayega.</p>
-                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     8. NEWS LETTERS SUB-OPTIONS & TABS
-                     ======================================================== -->
-
-                <!-- 8A. News Letters Vol. 1 Issue 2 Sub-tab -->
-                <section class="dept-tab-content" id="tab-nl-vol1-issue2">
-                    <div class="dept-divider-title">News Letters: Vol. 1 Issue 2</div>
-
-                    <p class="dept-text-body">
-                        Department of Information Technology newsletter &mdash; Volume 1, Issue 2.
-                    </p>
-
-                    <!-- PDF Viewer Container -->
-                    <div class="dept-pdf-card">
-                        <div class="dept-pdf-toolbar">
-                            <div class="dept-pdf-toolbar-info">
-                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                <div>
-                                    <h4 class="dept-pdf-name">IT Department Newsletter (Vol. 1 Issue 2)</h4>
-                                    <span class="dept-pdf-sub">Department of Information Technology &bull; Official Publication</span>
-                                </div>
-                            </div>
-                            <div class="dept-pdf-toolbar-actions">
-                                <!-- USER: Put your PDF URL in href and src below -->
-                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
-                                    <i class="fas fa-external-link-alt"></i> Fullscreen
-                                </a>
-                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
-                                    <i class="fas fa-download"></i> Download PDF
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dept-pdf-viewer-area">
-                            <iframe src="" class="dept-pdf-iframe" id="pdf-nl-vol1-issue2" title="Newsletter Vol. 1 Issue 2"></iframe>
-                            <div class="dept-pdf-empty-state">
-                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
-                                <h5>Vol. 1 Issue 2 Newsletter Document</h5>
-                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayegi.</p>
-                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 8B. News Letters Vol. 1 Issue 1 Sub-tab -->
-                <section class="dept-tab-content" id="tab-nl-vol1-issue1">
-                    <div class="dept-divider-title">News Letters: Vol. 1 Issue 1</div>
-
-                    <p class="dept-text-body">
-                        Department of Information Technology newsletter &mdash; Volume 1, Issue 1 (Inaugural Edition).
-                    </p>
-
-                    <!-- PDF Viewer Container -->
-                    <div class="dept-pdf-card">
-                        <div class="dept-pdf-toolbar">
-                            <div class="dept-pdf-toolbar-info">
-                                <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                <div>
-                                    <h4 class="dept-pdf-name">IT Department Newsletter (Vol. 1 Issue 1)</h4>
-                                    <span class="dept-pdf-sub">Department of Information Technology &bull; Official Publication</span>
-                                </div>
-                            </div>
-                            <div class="dept-pdf-toolbar-actions">
-                                <!-- USER: Put your PDF URL in href and src below -->
-                                <a href="#" target="_blank" class="dept-pdf-btn dept-pdf-btn-open" title="Open in new tab / Fullscreen">
-                                    <i class="fas fa-external-link-alt"></i> Fullscreen
-                                </a>
-                                <a href="#" download class="dept-pdf-btn dept-pdf-btn-download" title="Download PDF file">
-                                    <i class="fas fa-download"></i> Download PDF
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dept-pdf-viewer-area">
-                            <iframe src="" class="dept-pdf-iframe" id="pdf-nl-vol1-issue1" title="Newsletter Vol. 1 Issue 1"></iframe>
-                            <div class="dept-pdf-empty-state">
-                                <div class="dept-pdf-empty-icon"><i class="fas fa-file-pdf"></i></div>
-                                <h5>Vol. 1 Issue 1 Newsletter Document</h5>
-                                <p>PDF file yahan display hoga. Aap PDF provide karenge to direct link ho jayegi.</p>
-                                <span class="badge bg-light text-dark border px-3 py-2"><i class="fas fa-info-circle text-primary"></i> Ready for your PDF file</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-            </main>
+                <div class="us-stat-item">
+                    <span class="us-stat-num">120</span>
+                    <span class="us-stat-label">Annual Approved Intake</span>
+                </div>
+                <div class="us-stat-item">
+                    <span class="us-stat-num">10 <strong>Labs</strong></span>
+                    <span class="us-stat-label">Specialized Facilities</span>
+                </div>
+                <div class="us-stat-item">
+                    <span class="us-stat-num">GTU / AICTE</span>
+                    <span class="us-stat-label">Affiliation &amp; Approval</span>
+                </div>
+            </div>
         </div>
-    </div>
+    </header>
+
+    <!-- 2. Sticky Sub-Navigation Bar -->
+    <nav class="us-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
+        <div class="us-container">
+            <ul class="us-subnav-list" role="tablist">
+                <li class="us-subnav-item active">
+                    <button type="button" class="us-subnav-link active" data-tab="about" role="tab" aria-selected="true">About Department</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
+                </li>
+                <li class="us-subnav-item">
+                    <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="us-subnav-link" aria-label="GTU Official Syllabus Portal">
+                        <span>Syllabus</span>
+                        <i class="fas fa-external-link-alt ext-arrow"></i>
+                    </a>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="faculty" role="tab" aria-selected="false">Faculty Directory</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="activities" role="tab" aria-selected="false">Activities</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="advisory-board" role="tab" aria-selected="false">Industry Advisory Board</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="newsletters" role="tab" aria-selected="false">Newsletters</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 3. Main Department Content -->
+    <main class="us-main-content">
+        <div class="us-container">
+
+            <!-- TAB 1: ABOUT DEPARTMENT -->
+            <section class="us-tab-pane active" id="tab-about">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">ACADEMIC OVERVIEW</span>
+                    <h2>About the Department</h2>
+                    <p>Delivering high-caliber education in modern software paradigms, full-stack systems, distributed cloud computing, and real-time enterprise networks.</p>
+                </div>
+
+                <div class="us-about-split">
+                    <div class="us-story-body">
+                        <blockquote class="us-lead-quote">
+                            "Shaping innovative information technologists proficient in scalable architectures, enterprise web ecosystems, and modern secure software delivery."
+                        </blockquote>
+                        <p>
+                            Established in 1999, the Department of Information Technology has continuously evolved to meet the demands of the global software industry. With a sanctioned intake of 120 students in the four-year Bachelor of Engineering program, the department provides rigorous exposure to programming fundamentals, software architecture, and modern cloud deployment frameworks.
+                        </p>
+                        <p>
+                            The department is housed within a modern computing complex with dedicated labs in Web Technology, Database Systems, Network Security, and Project Development. Students benefit from gigabit optical fiber connectivity, high-speed Wi-Fi access, and industry-aligned experiential practicals.
+                        </p>
+                        <p>
+                            Through close collaboration with leading IT enterprises and continuous student mentorship, graduates from the Information Technology department secure prestigious placements in top software consultancies, multinational corporations, and premier research universities.
+                        </p>
+                    </div>
+
+                    <div class="us-feature-cards">
+                        <div class="us-feature-card">
+                            <h4>Specialized Cloud &amp; Web Labs</h4>
+                            <p>Modern terminal nodes configured with Node.js, Python, Java, Docker, and full-stack software stacks.</p>
+                        </div>
+                        <div class="us-feature-card">
+                            <h4>Industry-Driven Capstone Projects</h4>
+                            <p>Final-year engineering projects guided by both academic faculty and senior industry tech architects.</p>
+                        </div>
+                        <div class="us-feature-card">
+                            <h4>High-Speed Campus Backbone</h4>
+                            <p>Optical fiber connectivity linking departmental labs to the institute's central server farm.</p>
+                        </div>
+                        <div class="us-feature-card">
+                            <h4>Active Technical Clubs</h4>
+                            <p>Student-led programming clubs organizing weekly coding rounds, hackathons, and technical webinars.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Programmes Table -->
+                <div class="us-degrees-section">
+                    <h3>Academic Degree Programs</h3>
+                    <div class="us-table-wrap">
+                        <table class="us-clean-table">
+                            <thead>
+                                <tr>
+                                    <th>Program Title</th>
+                                    <th>Level</th>
+                                    <th>Approved Intake</th>
+                                    <th>Duration</th>
+                                    <th>Affiliation</th>
+                                    <th>Eligibility / Admission</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>B.E. Information Technology</strong></td>
+                                    <td><span class="us-tag-ug">Undergraduate</span></td>
+                                    <td>120 Seats</td>
+                                    <td>4 Years (8 Semesters)</td>
+                                    <td>GTU / AICTE Approved</td>
+                                    <td>ACPC Gujarat (GUJCET / JEE Main)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: VISION & MISSION -->
+            <section class="us-tab-pane" id="tab-vision-mission">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">INSTITUTIONAL CHARTER</span>
+                    <h2>Vision &amp; Mission</h2>
+                    <p>Fostering academic excellence, innovation mindset, and technical integrity in information technology education.</p>
+                </div>
+
+                <div class="us-charter-grid">
+                    <div class="us-charter-card">
+                        <h3>Department Vision</h3>
+                        <p class="us-charter-desc">
+                            "To emerge as a premier center of excellence in Information Technology education and applied research, nurturing technically proficient and socially responsible engineers who drive digital transformation."
+                        </p>
+                    </div>
+
+                    <div class="us-charter-card">
+                        <h3>Department Mission</h3>
+                        <ul class="us-mission-steps">
+                            <li class="us-mission-item">
+                                <span class="us-mission-index">I</span>
+                                <div class="us-mission-text">
+                                    <strong>Academic Rigor:</strong> Impart strong theoretical foundation and hands-on skills in information technology, data engineering, and software engineering.
+                                </div>
+                            </li>
+                            <li class="us-mission-item">
+                                <span class="us-mission-index">II</span>
+                                <div class="us-mission-text">
+                                    <strong>Industry Integration:</strong> Strengthen collaborations with IT enterprises to provide exposure to state-of-the-art software tools and practical problem domains.
+                                </div>
+                            </li>
+                            <li class="us-mission-item">
+                                <span class="us-mission-index">III</span>
+                                <div class="us-mission-text">
+                                    <strong>Innovation &amp; Research:</strong> Encourage student innovation, technical design thinking, and multidisciplinary research projects.
+                                </div>
+                            </li>
+                            <li class="us-mission-item">
+                                <span class="us-mission-index">IV</span>
+                                <div class="us-mission-text">
+                                    <strong>Professional Ethics:</strong> Instill professional ethics, effective team collaboration, and a spirit of continuous learning for societal upliftment.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Objectives (PEOs & PSOs) -->
+                <div class="us-objectives-grid">
+                    <div class="us-obj-card">
+                        <h4>Program Educational Objectives (PEOs)</h4>
+                        <ul class="us-obj-list">
+                            <li><strong>PEO 1:</strong> Excel in professional careers in software development, web engineering, cloud technologies, or pursue advanced postgraduate research.</li>
+                            <li><strong>PEO 2:</strong> Design, build, and maintain scalable software architectures and secure networked systems using contemporary engineering methodologies.</li>
+                            <li><strong>PEO 3:</strong> Exhibit leadership qualities, professional ethics, effective interpersonal communication, and adapt to emerging technological disruptions.</li>
+                        </ul>
+                    </div>
+
+                    <div class="us-obj-card">
+                        <h4>Program Specific Outcomes (PSOs)</h4>
+                        <ul class="us-obj-list">
+                            <li><strong>PSO 1:</strong> Ability to specify, design, implement, and test modern web applications and enterprise information systems.</li>
+                            <li><strong>PSO 2:</strong> Ability to apply information security principles, database modeling, and cloud computing concepts to solve complex organizational challenges.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: FACULTY DIRECTORY -->
+            <section class="us-tab-pane" id="tab-faculty">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">SCHOLARLY DIRECTORY</span>
+                    <h2>Faculty Members</h2>
+                    <p>Our dedicated academic mentors and researchers committed to imparting cutting-edge technical education.</p>
+                </div>
+
+                <div class="us-faculty-roster">
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">BP</div>
+                        <h4 class="us-faculty-name">Dr. B. C. Patel</h4>
+                        <div class="us-faculty-rank">Professor &amp; Head of Department</div>
+                        <div class="us-faculty-degrees">Ph.D., M.E. (Information Technology)<br><small>Specialization: Information Security, Cloud Architectures</small></div>
+                        <a href="mailto:hod_it@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> hod_it@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">NP</div>
+                        <h4 class="us-faculty-name">Prof. N. M. Prajapati</h4>
+                        <div class="us-faculty-rank">Associate Professor</div>
+                        <div class="us-faculty-degrees">Ph.D. (Pursuing), M.Tech (Computer Engineering)<br><small>Specialization: Web Mining, Distributed Databases</small></div>
+                        <a href="mailto:nmprajapati@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> nmprajapati@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">KS</div>
+                        <h4 class="us-faculty-name">Prof. K. R. Solanki</h4>
+                        <div class="us-faculty-rank">Assistant Professor</div>
+                        <div class="us-faculty-degrees">M.E. (Information Technology)<br><small>Specialization: Full-Stack Web Technologies, Mobile Computing</small></div>
+                        <a href="mailto:krsolanki@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> krsolanki@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">DV</div>
+                        <h4 class="us-faculty-name">Prof. D. J. Vaghela</h4>
+                        <div class="us-faculty-rank">Assistant Professor</div>
+                        <div class="us-faculty-degrees">M.Tech (Software Engineering)<br><small>Specialization: DevOps, Software Quality Assurance</small></div>
+                        <a href="mailto:djvaghela@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> djvaghela@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">HT</div>
+                        <h4 class="us-faculty-name">Prof. H. K. Trivedi</h4>
+                        <div class="us-faculty-rank">Assistant Professor</div>
+                        <div class="us-faculty-degrees">M.E. (Computer Engineering)<br><small>Specialization: Artificial Intelligence, Data Analytics</small></div>
+                        <a href="mailto:hktrivedi@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> hktrivedi@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">MP</div>
+                        <h4 class="us-faculty-name">Prof. M. S. Panchal</h4>
+                        <div class="us-faculty-rank">Assistant Professor</div>
+                        <div class="us-faculty-degrees">M.E. (Information Technology)<br><small>Specialization: Cyber Forensics, Cryptography</small></div>
+                        <a href="mailto:mspanchal@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> mspanchal@gecmodasa.ac.in
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: ACTIVITIES & EVENTS -->
+            <section class="us-tab-pane" id="tab-activities">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">CAMPUS ENGAGEMENT</span>
+                    <h2>Department Activities</h2>
+                    <p>Developer bootcamps, competitive programming leagues, industry technical tours, and hands-on workshops.</p>
+                </div>
+
+                <div class="us-periodical-grid">
+                    <div class="us-feature-card">
+                        <h4>InfoTech WebSprint &amp; Hackathon</h4>
+                        <p>Annual software sprint where student development teams craft production web apps addressing campus workflows, public governance, and fintech solutions.</p>
+                    </div>
+                    <div class="us-feature-card">
+                        <h4>Cloud &amp; DevOps Masterclasses</h4>
+                        <p>Invited senior technical leads from top tech firms conduct masterclasses on AWS cloud services, containerization with Docker, and Kubernetes deployment pipelines.</p>
+                    </div>
+                    <div class="us-feature-card">
+                        <h4>Industrial Visits to IT Hubs</h4>
+                        <p>Regular educational field trips to GIFT City Gandhinagar, InfoCity, and leading tech companies to observe enterprise software architectures in operation.</p>
+                    </div>
+                    <div class="us-feature-card">
+                        <h4>Open-Source Contribution Drives</h4>
+                        <p>Department-sponsored workshops teaching version control with Git, collaborative pull-request workflows, and contributing to open-source software libraries.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: FACILITIES & LABS -->
+            <section class="us-tab-pane" id="tab-facilities">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
+                    <h2>Laboratories &amp; Facilities</h2>
+                    <p>Modern computing facilities supporting comprehensive curriculum from programming foundations to distributed cloud development.</p>
+                </div>
+
+                <div class="us-labs-showcase">
+                    <!-- Lab 1: 8212 Project Lab -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="images/labs/lab_8212_project.jpg" alt="Room 8212 - Project &amp; Capstone Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Room 8212</span>
+                            <h3 class="us-lab-title">IT Project &amp; Research Lab</h3>
+                            <p class="us-lab-desc">Equipped for final-year undergraduate capstone development, multidisciplinary software research, and prototype validation with high-spec desktop machines.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 2: 8213 Web & Cloud Lab -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="images/labs/8213-lab.png" alt="Room 8213 - Web Technology &amp; Cloud Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Room 8213</span>
+                            <h3 class="us-lab-title">Web Technology &amp; Cloud Computing Lab</h3>
+                            <p class="us-lab-desc">Dedicated to Web Development, Cloud Computing, RESTful API Design, and Full-Stack framework development utilizing modern Linux environments.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 3: 8215 Database & Software Systems Lab -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="images/labs/lab_8215_programming2.jpg" alt="Room 8215 - Database &amp; Software Systems Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Room 8215</span>
+                            <h3 class="us-lab-title">Database &amp; Software Systems Lab</h3>
+                            <p class="us-lab-desc">Equipped with enterprise relational database servers (Oracle, MySQL, PostgreSQL) and software testing suites for practical coursework.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 4: 8216 PPS Lab -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="images/labs/lab_8216_pps.jpg" alt="Room 8216 - Programming for Problem Solving Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Room 8216</span>
+                            <h3 class="us-lab-title">Programming for Problem Solving Lab</h3>
+                            <p class="us-lab-desc">Designed for first-year IT students to master algorithmic thinking, data structures, and core programming paradigms using C, C++, and Python.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 5: 8217 Network Security Lab -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="images/labs/lab_8217_programming3.jpg" alt="Room 8217 - Network Security &amp; IoT Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Room 8217</span>
+                            <h3 class="us-lab-title">Network Security &amp; IoT Lab</h3>
+                            <p class="us-lab-desc">Advanced networking facility with managed switches, traffic analysis tools, Wireshark packet capture stations, and IoT sensor interface nodes.</p>
+                        </div>
+                    </div>
+
+                    <!-- Seminar Hall -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="images/labs/seminar_hall.jpg" alt="IT Department Seminar Hall" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Seminar Complex</span>
+                            <h3 class="us-lab-title">IT Department Seminar Hall</h3>
+                            <p class="us-lab-desc">Air-conditioned presentation auditorium equipped with digital audiovisual systems for expert guest lectures, workshops, and project viva defenses.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: PUBLICATIONS -->
+            <section class="us-tab-pane" id="tab-publications">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">SCHOLARLY OUTPUT</span>
+                    <h2>Faculty Publications</h2>
+                    <p>Recent research papers published by IT faculty members in reputed international journals and IEEE/Springer conferences.</p>
+                </div>
+
+                <div class="us-citations-list">
+                    <div class="us-citation-item">
+                        <div class="us-citation-title">Secure Lightweight Authentication Protocol for IoT-Enabled Smart Campus Environments</div>
+                        <div class="us-citation-authors">Dr. B. C. Patel, Prof. K. R. Solanki (2024)</div>
+                        <div class="us-citation-venue">Elsevier Computers &amp; Security, Vol. 136, Article 103580</div>
+                    </div>
+                    <div class="us-citation-item">
+                        <div class="us-citation-title">Distributed Ledger Technology for Verifiable Academic Credential Management</div>
+                        <div class="us-citation-authors">Prof. N. M. Prajapati, Dr. B. C. Patel (2023)</div>
+                        <div class="us-citation-venue">IEEE International Conference on Distributed Computing Systems (ICDCS)</div>
+                    </div>
+                    <div class="us-citation-item">
+                        <div class="us-citation-title">Automated Code Quality Assessment in Continuous Integration Pipelines Using Deep Learning</div>
+                        <div class="us-citation-authors">Prof. D. J. Vaghela (2023)</div>
+                        <div class="us-citation-venue">Springer Journal of Software Engineering Research and Development, Vol. 11, Issue 2</div>
+                    </div>
+                    <div class="us-citation-item">
+                        <div class="us-citation-title">An Empirical Study of Microservice Failure Recovery Patterns in Cloud-Native Environments</div>
+                        <div class="us-citation-authors">Prof. H. K. Trivedi, Prof. M. S. Panchal (2022)</div>
+                        <div class="us-citation-venue">International Journal of Web Information Systems, Emerald Publishing, Vol. 18, Issue 4</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 7: INDUSTRY ADVISORY BOARD -->
+            <section class="us-tab-pane" id="tab-advisory-board">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">GOVERNANCE &amp; CURRICULUM</span>
+                    <h2>Industry Advisory Board (IAB)</h2>
+                    <p>Corporate technology leaders and researchers actively collaborating to maintain syllabus relevance with current software industry trends.</p>
+                </div>
+
+                <div class="us-table-wrap">
+                    <table class="us-clean-table">
+                        <thead>
+                            <tr>
+                                <th>Distinguished Member</th>
+                                <th>Organization &amp; Designation</th>
+                                <th>Committee Role</th>
+                                <th>Active Term</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Dr. B. C. Patel</strong></td>
+                                <td>Head of Department, Information Technology, GEC Modasa</td>
+                                <td>Chairman</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mr. Samir Parikh</strong></td>
+                                <td>VP &amp; Cloud Architect, Tech Mahindra</td>
+                                <td>Industry Member</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ms. Riddhi Mehta</strong></td>
+                                <td>Staff Security Engineer, Sophos Technologies</td>
+                                <td>Industry Member</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Prof. N. M. Prajapati</strong></td>
+                                <td>Associate Professor, Information Technology, GEC Modasa</td>
+                                <td>Member Secretary</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mr. Hiren Soni</strong></td>
+                                <td>Director of Technology, Cybage Software</td>
+                                <td>Industry Member</td>
+                                <td>2023–2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- TAB 8: NEWSLETTERS -->
+            <section class="us-tab-pane" id="tab-newsletters">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">DEPARTMENT CHRONICLE</span>
+                    <h2>Department Newsletters</h2>
+                    <p>Official periodical chronicling faculty achievements, hackathon medals, student technical projects, and alumni career updates.</p>
+                </div>
+
+                <div class="us-periodical-grid">
+                    <div class="us-periodical-card">
+                        <div class="us-periodical-body">
+                            <span class="us-periodical-meta">Vol. 1, Issue 2 · Academic Year 2024–25</span>
+                            <h4 class="us-periodical-title">InfoTech Pulse</h4>
+                            <p class="us-periodical-summary">Showcases winners of the 2024 WebSprint Hackathon, technical guest lectures on Generative AI, cloud certifications achieved by students, and faculty journal publications.</p>
+                            <a href="#" class="us-download-btn"><i class="fas fa-file-pdf"></i> Download Newsletter (PDF)</a>
+                        </div>
+                    </div>
+
+                    <div class="us-periodical-card">
+                        <div class="us-periodical-body">
+                            <span class="us-periodical-meta">Vol. 1, Issue 1 · Academic Year 2023–24</span>
+                            <h4 class="us-periodical-title">InfoTech Pulse (Inaugural Issue)</h4>
+                            <p class="us-periodical-summary">Inaugural release highlighting laboratory network upgrades, industrial visits to BISAG-N and GIFT City, student placement statistics, and alumni career stories.</p>
+                            <a href="#" class="us-download-btn"><i class="fas fa-file-pdf"></i> Download Newsletter (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
 </div>
 
 <?php

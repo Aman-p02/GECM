@@ -1,635 +1,551 @@
 <?php
-// Page configuration
-$page_title = "Mechanical Engineering Department - Government Engineering College, Modasa";
+// Set Page Variables
+$page_title = "Department of Mechanical Engineering — Government Engineering College, Modasa";
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/mechanical/css/department.css";
 $extra_js = "departments/mechanical/js/department.js";
 
-// Header template
+// Include Header
 include_once __DIR__ . '/../../includes/header.php';
 ?>
 
-<!-- ========================================================
-     Main Department Section (Authentic Institutional Layout)
-     ======================================================== -->
-<div class="dept-page-wrapper">
-    <div class="container">
-        <div class="dept-layout-grid">
+<div class="us-dept-page">
 
-            <!-- Sidebar Navigation -->
-            <aside class="dept-sidebar">
-                <div class="dept-sidebar-header">
-                    Mechanical Department
+    <!-- 1. US University Masthead & Hero Banner -->
+    <header class="us-hero-banner">
+        <div class="us-container">
+            <nav class="us-breadcrumb" aria-label="Academic Navigation Breadcrumbs">
+                <a href="<?= $root_path ?>">Home</a>
+                <span class="sep">/</span>
+                <a href="<?= $root_path ?>#departments">Academic Departments</a>
+                <span class="sep">/</span>
+                <span class="active-crumb">Mechanical Engineering</span>
+            </nav>
+
+            <span class="us-dept-kicker">Department of</span>
+            <h1 class="us-dept-heading">Mechanical Engineering</h1>
+            <p class="us-dept-tagline">
+                Educating pioneering engineers in thermodynamics, structural mechanics, advanced manufacturing, and robotics since 1989. Committed to rigorous hands-on engineering practice in comprehensive laboratories and modern workshop facilities.
+            </p>
+
+            <!-- Institutional Metrics Strip -->
+            <div class="us-stats-strip">
+                <div class="us-stat-item">
+                    <span class="us-stat-num">1989</span>
+                    <span class="us-stat-label">Year of Establishment</span>
                 </div>
-                <ul class="dept-sidebar-menu">
-                    <li class="active">
-                        <a class="dept-nav-link active" data-tab="about">About Department</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="vision-mission">Vision and Mission</a>
-                    </li>
-                    <li>
-                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-nav-link">
-                            <span>Syllabus</span>
-                            <i class="fas fa-external-link-alt arrow-icon"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="faculty">Faculty</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="activities">Activities</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="facilities">Facilities</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="publications">Publications</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="instruction-material">Instruction Material</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="learning-resources">Learning Resources</a>
-                    </li>
-                    <li>
-                        <a class="dept-nav-link" data-tab="feedback">Feedback for Instruction material</a>
-                    </li>
-                    <li class="dept-sidebar-dropdown closed" id="sidebar-academic-calendar">
-                        <div class="dept-dropdown-header" role="button" tabindex="0">
-                            <span>Department Academic Calender</span>
-                            <i class="fas fa-chevron-down dropdown-arrow"></i>
-                        </div>
-                        <ul class="dept-sub-menu">
-                            <li>
-                                <a class="dept-sub-link" data-tab="cal-2025-26" href="#cal-2025-26">Academic Calendar 2025-26</a>
-                            </li>
-                            <li>
-                                <a class="dept-sub-link" data-tab="cal-2024-25" href="#cal-2024-25">Academic Calendar 2024-25</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dept-sidebar-dropdown closed" id="sidebar-iab">
-                        <div class="dept-dropdown-header" role="button" tabindex="0">
-                            <span>Industry Advisory Board</span>
-                            <i class="fas fa-chevron-down dropdown-arrow"></i>
-                        </div>
-                        <ul class="dept-sub-menu">
-                            <li>
-                                <a class="dept-sub-link" data-tab="iab-2025-26" href="#iab-2025-26">IAB 2025-26</a>
-                            </li>
-                            <li>
-                                <a class="dept-sub-link" data-tab="iab-2023-24" href="#iab-2023-24">IAB 2023-24</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dept-sidebar-dropdown closed" id="sidebar-newsletters">
-                        <div class="dept-dropdown-header" role="button" tabindex="0">
-                            <span>News Letters</span>
-                            <i class="fas fa-chevron-down dropdown-arrow"></i>
-                        </div>
-                        <ul class="dept-sub-menu">
-                            <li>
-                                <a class="dept-sub-link" data-tab="nl-vol1-issue2" href="#nl-vol1-issue2">Vol. 1 Issue 2</a>
-                            </li>
-                            <li>
-                                <a class="dept-sub-link" data-tab="nl-vol1-issue1" href="#nl-vol1-issue1">Vol. 1 Issue 1</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </aside>
-
-            <!-- Content Area -->
-            <main class="dept-content-panel">
-
-                <!-- ========================================================
-                     1. ABOUT DEPARTMENT TAB
-                     ======================================================== -->
-                <section class="dept-tab-content active" id="tab-about">
-                    <div class="dept-divider-title">About Department</div>
-
-                    <p class="dept-text-body">
-                        It is accommodated in separate building. This department has various laboratories in the areas of Heat Power, Thermodynamics, Heat and Mass Transfer, IC Engines, Automobiles, Fluid Mechanics and Fluid Power, Kinematics and dynamics, Material Technology, Metrology and Instrumentation, and CAD. The Department has excellent Computer Centre and workshop facilities consisting of carpentry, fitting, turning and milling.
-                    </p>
-
-                    <p class="dept-text-body">
-                        This department has two wings, one at Workshop Building and another at New Academic Building i.e. Building No. 6. It has various laboratories in the area of Heat Power, Thermo Dynamics, Heat and Mass Transfer, IC Engines, Automobiles, Fluid Mechanics and Fluid Power, Kinematics and Dynamics, Material Technology, Metrology and Instrumentation, CAD, CAM and Production Technology. The department has excellent Computer Center and Workshop facilities consisting of carpentry, fitting, turning and milling.
-                    </p>
-
-                    <div class="dept-divider-title">About the Programme</div>
-
-                    <p class="dept-text-body">
-                        Mechanical engineering is a professional programme which helps students to understand the working mechanisms of heavy tools and machineries. The branch applies principles of engineering, physics and material science for the design, analysis, manufacturing and maintenance of mechanical systems. The course covers technical areas like distribution of electricity through generators, transformers, transmission lines, lighting and wiring in buildings. A course in mechanical engineering makes a student gain knowledge and experience in the designing of electric motors, automobiles, aircrafts and other heavy vehicles. Mechanical engineering demands knowledge about software used in technical work like computer-aided design and mathematical modelling.
-                    </p>
-
-                    <p class="dept-text-body">
-                        Mechanical Engineering science emerged in the 19th century as a result of developments in the field of physics. The field has continually evolved to incorporate advancements in technology. Mechanical engineers today are pursuing developments in fields such as composites, mechatronics and nano technology. Mechanical Engineering overlaps with aerospace engineering, civil engineering, electrical engineering, petroleum engineering and chemical engineering to varying amounts.
-                    </p>
-
-                    <p class="dept-text-body" style="font-weight: 700; color: #111827;">
-                        B.E. (Mechanical) program offered by the department is accredited by National Board of Accreditation(NBA) for three years till Jun-2024.
-                    </p>
-
-                    <!-- Under Graduate/Post Graduate Courses Table -->
-                    <div class="courses-card">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>Under Graduate/Post Graduate Courses</span>
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table">
-                                <thead>
-                                    <tr>
-                                        <th>Name of Course</th>
-                                        <th>Type</th>
-                                        <th>Period (Years)</th>
-                                        <th>Intake</th>
-                                        <th>Year of Starting</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Mechanical Engineering (NBA Accredited)</strong></td>
-                                        <td>UG</td>
-                                        <td>4</td>
-                                        <td>60</td>
-                                        <td>1989</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Facilities Dual Column List -->
-                    <div class="dept-divider-title">Facilities</div>
-
-                    <div class="dept-facilities-dual-grid">
-                        <ul class="facility-items-list">
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Basic Mechanical Engineering Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Engineering Graphics Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Heat Transfer Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Material Science and Metallurgy Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Manufacturing Technology Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Internal Combustion Engines Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Computer Aided Design Lab</span></li>
-                        </ul>
-                        <ul class="facility-items-list">
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Workshop</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Fluid Mechanics and Hydraulics Machines Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Dynamics of Machinery Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Mechanical Measurement and Metrology Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Manufacturing Processes Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Automobile Engineering Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Refrigeration and Air Conditioning Lab</span></li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     2. VISION & MISSION TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-vision-mission">
-                    <div class="dept-divider-title">Vision</div>
-
-                    <p class="dept-text-body">
-                        Build a strong teaching-learning and research environment to prepare determined, innovative, inventive, self-esteemed and goal oriented mechanical engineers with good technical knowledge, analytical and soft skill.
-                    </p>
-
-                    <div class="dept-divider-title">Mission</div>
-
-                    <p class="dept-text-body">
-                        To equip mechanical engineering graduates to face challenges of industries, society and nation by:
-                    </p>
-
-                    <ul class="mission-bullet-list">
-                        <li>Providing domain knowledge through qualified, experienced and trained faculties in healthy environment.</li>
-                        <li>Developing technical skills and creating awareness about needs of industries by encouraging entrepreneurial attitude.</li>
-                        <li>Encouraging graduates to think innovatively through project works with professional ethical practices.</li>
-                        <li>Providing all kinds of support for overall personality development.</li>
-                    </ul>
-
-                    <!-- Program Educational Objectives PEOs Table -->
-                    <div class="courses-card">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>Program Educational Objectives PEOs</span>
-                        </div>
-                        <div class="peo-intro-banner">
-                            Graduates from the Mechanical Engineering Program are expected to attain or achieve the following Program Educational Objectives
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table peo-pso-table">
-                                <tbody>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PEO1</strong></td>
-                                        <td>Implement the acquired knowledge of science, technology, engineering, management (STEM) with good human values for a successful career.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PEO2</strong></td>
-                                        <td>Achieve a position of leadership in the organization through managerial, communication and professional skills with ethical values.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PEO3</strong></td>
-                                        <td>Be a foundation for innovative solutions of complicated problems as a successful entrepreneur.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PEO4</strong></td>
-                                        <td>Provide feasible solutions for sustainable and environment friendly development.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Program Specific Outcomes PSOs Table -->
-                    <div class="courses-card">
-                        <div class="courses-card-header">
-                            <i class="fas fa-bars"></i>
-                            <span>Program Specific Outcomes PSOs</span>
-                        </div>
-                        <div class="peo-intro-banner">
-                            Mechanical Engineering Graduate will be able to:
-                        </div>
-                        <div class="courses-table-wrapper">
-                            <table class="courses-table peo-pso-table">
-                                <tbody>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PSO1</strong></td>
-                                        <td>Apply the specific skill acquired for solving problems related to mechanical engineering and interdisciplinary problems with knowledge of Science, Technology, Engineering and Mathematics (STEM) and modern software skills.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="peo-code-cell"><strong>PSO2</strong></td>
-                                        <td>Develop optimum engineering systems by acquiring the knowledge of specialized areas such as product design and its optimization, manufacturing and thermal science.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     3. FACULTY TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-faculty">
-                    <div class="dept-divider-title">Faculty Members</div>
-                    <div class="faculty-simple-grid">
-                        <div class="faculty-simple-card">
-                            <div class="faculty-simple-avatar">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="faculty-simple-info">
-                                <h4 class="faculty-simple-name">Dr. H. D. Mehta</h4>
-                                <div class="faculty-simple-designation">Professor &amp; Head of Department</div>
-                                <div class="faculty-simple-meta"><i class="fas fa-graduation-cap"></i> Ph.D., M.E. (Mechanical)</div>
-                                <div class="faculty-simple-meta"><i class="fas fa-envelope"></i> hod_mech@gecmodasa.ac.in</div>
-                            </div>
-                        </div>
-                        <div class="faculty-simple-card">
-                            <div class="faculty-simple-avatar">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="faculty-simple-info">
-                                <h4 class="faculty-simple-name">Prof. P. M. Patel</h4>
-                                <div class="faculty-simple-designation">Associate Professor</div>
-                                <div class="faculty-simple-meta"><i class="fas fa-graduation-cap"></i> M.E. (Thermal Engg.)</div>
-                                <div class="faculty-simple-meta"><i class="fas fa-envelope"></i> pmpatel@gecmodasa.ac.in</div>
-                            </div>
-                        </div>
-                        <div class="faculty-simple-card">
-                            <div class="faculty-simple-avatar">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="faculty-simple-info">
-                                <h4 class="faculty-simple-name">Prof. S. R. Joshi</h4>
-                                <div class="faculty-simple-designation">Assistant Professor</div>
-                                <div class="faculty-simple-meta"><i class="fas fa-graduation-cap"></i> M.Tech (CAD/CAM)</div>
-                                <div class="faculty-simple-meta"><i class="fas fa-envelope"></i> srjoshi@gecmodasa.ac.in</div>
-                            </div>
-                        </div>
-                        <div class="faculty-simple-card">
-                            <div class="faculty-simple-avatar">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="faculty-simple-info">
-                                <h4 class="faculty-simple-name">Prof. N. K. Prajapati</h4>
-                                <div class="faculty-simple-designation">Assistant Professor</div>
-                                <div class="faculty-simple-meta"><i class="fas fa-graduation-cap"></i> M.E. (Machine Design)</div>
-                                <div class="faculty-simple-meta"><i class="fas fa-envelope"></i> nkprajapati@gecmodasa.ac.in</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     4. ACTIVITIES TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-activities">
-                    <div class="dept-divider-title">Department Activities</div>
-                    <p class="dept-text-body">
-                        The Mechanical Engineering Department routinely organizes state and national level events, hands-on workshops, industrial field visits, expert lecture series, and SAE Collegiate Club competitions (such as BAJA, SUPRA, and E-Mobility rallies) to bridge the industry-academia gap.
-                    </p>
-
-                    <div class="activities-simple-list">
-                        <div class="activity-card">
-                            <div class="activity-card-header">
-                                <span class="activity-tag">Workshop</span>
-                                <span class="activity-date"><i class="far fa-calendar-alt"></i> March 2025</span>
-                            </div>
-                            <h4 class="activity-title">Hands-on Training on CAD/CAM &amp; CNC Machining</h4>
-                            <p class="dept-text-body">Five-day intensive industrial training for pre-final and final year mechanical students on CNC programming and modern tooling solutions.</p>
-                        </div>
-                        <div class="activity-card">
-                            <div class="activity-card-header">
-                                <span class="activity-tag">Industrial Visit</span>
-                                <span class="activity-date"><i class="far fa-calendar-alt"></i> January 2025</span>
-                            </div>
-                            <h4 class="activity-title">Industrial Visit to Thermal Power Station, Gandhinagar</h4>
-                            <p class="dept-text-body">Practical exposure for B.E. semester 6 students to understand steam power generation, boilers, and cooling systems in heavy utility plants.</p>
-                        </div>
-                        <div class="activity-card">
-                            <div class="activity-card-header">
-                                <span class="activity-tag">Expert Lecture</span>
-                                <span class="activity-date"><i class="far fa-calendar-alt"></i> September 2024</span>
-                            </div>
-                            <h4 class="activity-title">Industry 4.0, Robotics &amp; Automation in Automotive Manufacturing</h4>
-                            <p class="dept-text-body">Expert lecture by senior design engineers from leading automotive industries on smart manufacturing and digital twins.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     5. FACILITIES TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-facilities">
-                    <div class="dept-divider-title">Laboratories &amp; Facilities</div>
-                    <p class="dept-text-body">
-                        The department has 14 well-equipped laboratories catering to core mechanical engineering disciplines, thermal research, material testing, and computer-aided engineering.
-                    </p>
-
-                    <div class="dept-facilities-dual-grid">
-                        <ul class="facility-items-list">
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Basic Mechanical Engineering Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Engineering Graphics Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Heat Transfer Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Material Science and Metallurgy Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Manufacturing Technology Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Internal Combustion Engines Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Computer Aided Design Lab</span></li>
-                        </ul>
-                        <ul class="facility-items-list">
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Workshop (Fitting, Turning, Carpentry, Welding)</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Fluid Mechanics and Hydraulics Machines Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Dynamics of Machinery Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Mechanical Measurement and Metrology Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Manufacturing Processes Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Automobile Engineering Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right facility-bullet-icon"></i> <span>Refrigeration and Air Conditioning Lab</span></li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     6. PUBLICATIONS TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-publications">
-                    <div class="dept-divider-title">Research Publications</div>
-                    <p class="dept-text-body">
-                        Faculty and students of the Mechanical Engineering Department actively publish in peer-reviewed national and international journals and conferences indexed in Scopus and Web of Science.
-                    </p>
-
-                    <div class="publications-list-stack">
-                        <div class="publication-card">
-                            <div class="publication-title">
-                                Experimental Investigation of Thermal Performance in Parabolic Trough Solar Collectors with Nanofluids
-                            </div>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user-edit"></i>
-                                    <span>Dr. H. D. Mehta, Prof. P. M. Patel</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2024</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="publication-card">
-                            <div class="publication-title">
-                                Optimization of Machining Parameters in Wire-EDM of Ti-6Al-4V Alloy Using Taguchi-Grey Relational Analysis
-                            </div>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user-edit"></i>
-                                    <span>Prof. S. R. Joshi, Dr. H. D. Mehta</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2023</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="publication-card">
-                            <div class="publication-title">
-                                Finite Element Stress Analysis and Fatigue Life Estimation of Automotive Lower Control Arm
-                            </div>
-                            <div class="publication-meta-row">
-                                <div class="publication-authors">
-                                    <i class="fas fa-user-edit"></i>
-                                    <span>Prof. N. K. Prajapati</span>
-                                </div>
-                                <div class="publication-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>2022</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     7. INSTRUCTION MATERIAL TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-instruction-material">
-                    <div class="dept-divider-title">Instruction Material</div>
-                    <p class="dept-text-body">
-                        Course handouts, lecture presentations, laboratory instruction sheets, and tutorial booklets developed by the faculty are made available for student reference.
-                    </p>
-                    <div class="dept-doc-accordion-container">
-                        <div class="dept-doc-accordion open">
-                            <button class="dept-doc-accordion-header" type="button">
-                                <span><i class="fas fa-book-open"></i> Laboratory Manuals (Sem 3 to 8)</span>
-                                <i class="fas fa-chevron-down accordion-arrow"></i>
-                            </button>
-                            <div class="dept-doc-accordion-body" style="display: block; padding: 18px 20px;">
-                                <div class="dept-pdf-toolbar-card">
-                                    <div class="dept-pdf-toolbar-info">
-                                        <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                        <div>
-                                            <div class="dept-pdf-name">Heat Transfer Lab Manual (B.E. Sem 5)</div>
-                                            <div class="dept-pdf-sub">Approved by Department Academic Committee</div>
-                                        </div>
-                                    </div>
-                                    <div class="dept-pdf-toolbar-actions">
-                                        <a href="#" class="dept-pdf-btn dept-pdf-btn-open"><i class="fas fa-eye"></i> View</a>
-                                        <a href="#" class="dept-pdf-btn dept-pdf-btn-download"><i class="fas fa-download"></i> Download</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ========================================================
-                     8. LEARNING RESOURCES TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-learning-resources">
-                    <div class="dept-divider-title">Learning Resources</div>
-                    <p class="dept-text-body">
-                        Students are encouraged to utilize digital learning initiatives including NPTEL/SWAYAM video lectures, IIT Bombay Virtual Labs, ASME student chapter technical papers, and open-source CAD/FEA simulation repositories.
-                    </p>
-                </section>
-
-                <!-- ========================================================
-                     9. FEEDBACK FOR INSTRUCTION MATERIAL TAB
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-feedback">
-                    <div class="dept-divider-title">Feedback for Instruction Material</div>
-                    <p class="dept-text-body">
-                        The department collects continuous constructive feedback from students and stakeholders regarding the clarity, industrial relevance, and quality of instruction manuals and course materials to support continual outcome-based improvement.
-                    </p>
-                </section>
-
-                <!-- ========================================================
-                     10. DEPARTMENT ACADEMIC CALENDAR SUB-TABS
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-cal-2025-26">
-                    <div class="dept-divider-title">Department Academic Calendar 2025-26</div>
-                    <p class="dept-text-body">
-                        Official academic calendar, instructional weeks, mid-semester assessment schedules, and project milestone submission windows for academic session 2025-26.
-                    </p>
-                    <div class="dept-doc-accordion-container">
-                        <div class="dept-doc-accordion open">
-                            <button class="dept-doc-accordion-header" type="button">
-                                <span><i class="fas fa-calendar-check"></i> Academic Calendar Notification (2025-26)</span>
-                                <i class="fas fa-chevron-down accordion-arrow"></i>
-                            </button>
-                            <div class="dept-doc-accordion-body" style="display: block; padding: 18px 20px;">
-                                <div class="dept-pdf-toolbar-card">
-                                    <div class="dept-pdf-toolbar-info">
-                                        <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                        <div>
-                                            <div class="dept-pdf-name">Mechanical_Academic_Calendar_2025_26.pdf</div>
-                                            <div class="dept-pdf-sub">Published by Office of Head, Mechanical Department</div>
-                                        </div>
-                                    </div>
-                                    <div class="dept-pdf-toolbar-actions">
-                                        <a href="#" class="dept-pdf-btn dept-pdf-btn-open"><i class="fas fa-eye"></i> View</a>
-                                        <a href="#" class="dept-pdf-btn dept-pdf-btn-download"><i class="fas fa-download"></i> Download</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="dept-tab-content" id="tab-cal-2024-25">
-                    <div class="dept-divider-title">Department Academic Calendar 2024-25</div>
-                    <p class="dept-text-body">
-                        Archived academic calendar and term schedule for academic year 2024-25.
-                    </p>
-                </section>
-
-                <!-- ========================================================
-                     11. INDUSTRY ADVISORY BOARD SUB-TABS
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-iab-2025-26">
-                    <div class="dept-divider-title">Industry Advisory Board (IAB 2025-26)</div>
-                    <p class="dept-text-body">
-                        Official notifications, committee constitution, and proceedings of the Mechanical Industry Advisory Board for academic session 2025-26.
-                    </p>
-                    <div class="dept-doc-accordion-container">
-                        <div class="dept-doc-accordion open">
-                            <button class="dept-doc-accordion-header" type="button">
-                                <span><i class="fas fa-users-cog"></i> Industry Advisory Board Committee Notification</span>
-                                <i class="fas fa-chevron-down accordion-arrow"></i>
-                            </button>
-                            <div class="dept-doc-accordion-body" style="display: block; padding: 18px 20px;">
-                                <div class="dept-pdf-toolbar-card">
-                                    <div class="dept-pdf-toolbar-info">
-                                        <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                        <div>
-                                            <div class="dept-pdf-name">Mechanical_IAB_Constitution_2025_26.pdf</div>
-                                            <div class="dept-pdf-sub">Endorsed by Principal &amp; Department Industry Committee</div>
-                                        </div>
-                                    </div>
-                                    <div class="dept-pdf-toolbar-actions">
-                                        <a href="#" class="dept-pdf-btn dept-pdf-btn-open"><i class="fas fa-eye"></i> View</a>
-                                        <a href="#" class="dept-pdf-btn dept-pdf-btn-download"><i class="fas fa-download"></i> Download</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="dept-tab-content" id="tab-iab-2023-24">
-                    <div class="dept-divider-title">Industry Advisory Board (IAB 2023-24)</div>
-                    <p class="dept-text-body">
-                        Official proceedings and meeting minutes of the Mechanical Industry Advisory Board for academic session 2023-24.
-                    </p>
-                </section>
-
-                <!-- ========================================================
-                     12. NEWS LETTERS SUB-TABS
-                     ======================================================== -->
-                <section class="dept-tab-content" id="tab-nl-vol1-issue2">
-                    <div class="dept-divider-title">News Letters: Vol. 1 Issue 2</div>
-                    <p class="dept-text-body">
-                        Departmental half-yearly newsletter showcasing student achievements, technical competitions, SAE team performances, research activities, and faculty honors.
-                    </p>
-                    <div class="dept-doc-accordion-container">
-                        <div class="dept-doc-accordion open">
-                            <button class="dept-doc-accordion-header" type="button">
-                                <span><i class="fas fa-newspaper"></i> Mechanical Department Newsletter Vol. 1 Issue 2</span>
-                                <i class="fas fa-chevron-down accordion-arrow"></i>
-                            </button>
-                            <div class="dept-doc-accordion-body" style="display: block; padding: 18px 20px;">
-                                <div class="dept-pdf-toolbar-card">
-                                    <div class="dept-pdf-toolbar-info">
-                                        <i class="fas fa-file-pdf dept-pdf-icon-badge"></i>
-                                        <div>
-                                            <div class="dept-pdf-name">Mechanical_Newsletter_Vol1_Issue2.pdf</div>
-                                            <div class="dept-pdf-sub">Published by Editorial Board, Mechanical Dept</div>
-                                        </div>
-                                    </div>
-                                    <div class="dept-pdf-toolbar-actions">
-                                        <a href="#" class="dept-pdf-btn dept-pdf-btn-open"><i class="fas fa-eye"></i> View</a>
-                                        <a href="#" class="dept-pdf-btn dept-pdf-btn-download"><i class="fas fa-download"></i> Download</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="dept-tab-content" id="tab-nl-vol1-issue1">
-                    <div class="dept-divider-title">News Letters: Vol. 1 Issue 1</div>
-                    <p class="dept-text-body">
-                        Inaugural issue of the Mechanical Engineering Department newsletter.
-                    </p>
-                </section>
-
-            </main>
+                <div class="us-stat-item">
+                    <span class="us-stat-num">120</span>
+                    <span class="us-stat-label">Annual Approved Intake</span>
+                </div>
+                <div class="us-stat-item">
+                    <span class="us-stat-num">14 <strong>Labs</strong></span>
+                    <span class="us-stat-label">Laboratories &amp; Workshop</span>
+                </div>
+                <div class="us-stat-item">
+                    <span class="us-stat-num">GTU / AICTE</span>
+                    <span class="us-stat-label">Affiliation &amp; Approval</span>
+                </div>
+            </div>
         </div>
-    </div>
+    </header>
+
+    <!-- 2. Sticky Sub-Navigation Bar -->
+    <nav class="us-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
+        <div class="us-container">
+            <ul class="us-subnav-list" role="tablist">
+                <li class="us-subnav-item active">
+                    <button type="button" class="us-subnav-link active" data-tab="about" role="tab" aria-selected="true">About Department</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
+                </li>
+                <li class="us-subnav-item">
+                    <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="us-subnav-link" aria-label="GTU Official Syllabus Portal">
+                        <span>Syllabus</span>
+                        <i class="fas fa-external-link-alt ext-arrow"></i>
+                    </a>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="faculty" role="tab" aria-selected="false">Faculty Directory</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="activities" role="tab" aria-selected="false">Activities</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="advisory-board" role="tab" aria-selected="false">Industry Advisory Board</button>
+                </li>
+                <li class="us-subnav-item">
+                    <button type="button" class="us-subnav-link" data-tab="newsletters" role="tab" aria-selected="false">Newsletters</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 3. Main Department Content -->
+    <main class="us-main-content">
+        <div class="us-container">
+
+            <!-- TAB 1: ABOUT DEPARTMENT -->
+            <section class="us-tab-pane active" id="tab-about">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">ACADEMIC OVERVIEW</span>
+                    <h2>About the Department</h2>
+                    <p>Delivering comprehensive training in thermal sciences, mechanical machine design, precision manufacturing, automation, and industrial systems.</p>
+                </div>
+
+                <div class="us-about-split">
+                    <div class="us-story-body">
+                        <blockquote class="us-lead-quote">
+                            "Cultivating mechanical engineers who understand physical laws, materials science, and modern computational simulation to build sustainable machines."
+                        </blockquote>
+                        <p>
+                            Founded in 1989, the Department of Mechanical Engineering is one of the premier foundational engineering branches at Government Engineering College, Modasa. Over three decades of academic excellence, the department has produced thousands of engineers serving core manufacturing, automotive, energy, and defense sectors globally.
+                        </p>
+                        <p>
+                            The department houses 14 specialized engineering laboratories and a comprehensive Central Workshop spanning over 2,500 square meters. Students gain practical mastery across machine tools, CNC machining, metal casting, fluid dynamics, refrigeration test rigs, and finite element modeling software suites.
+                        </p>
+                        <p>
+                            In addition to the undergraduate Bachelor of Engineering program with 120 seats, the department runs a specialized postgraduate program (M.E. in CAD/CAM) providing advanced research avenues in computational mechanics and automated manufacturing systems.
+                        </p>
+                    </div>
+
+                    <div class="us-feature-cards">
+                        <div class="us-feature-card">
+                            <h4>Central Engineering Workshop</h4>
+                            <p>Spacious workshop complex equipped with heavy lathe machines, shaper, milling, welding booths, and casting foundry.</p>
+                        </div>
+                        <div class="us-feature-card">
+                            <h4>CAD/CAM Simulation Center</h4>
+                            <p>Dedicated high-performance workstations hosting ANSYS, SolidWorks, AutoCAD, and CNC programming simulators.</p>
+                        </div>
+                        <div class="us-feature-card">
+                            <h4>Thermal Science Test Rigs</h4>
+                            <p>Multi-cylinder diesel and petrol engine test benches, heat exchanger rigs, and refrigeration &amp; air-conditioning setups.</p>
+                        </div>
+                        <div class="us-feature-card">
+                            <h4>Postgraduate Research Center</h4>
+                            <p>M.E. in CAD/CAM offering research opportunities in finite element analysis, kinematics, and additive manufacturing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Programmes Table -->
+                <div class="us-degrees-section">
+                    <h3>Academic Degree Programs</h3>
+                    <div class="us-table-wrap">
+                        <table class="us-clean-table">
+                            <thead>
+                                <tr>
+                                    <th>Program Title</th>
+                                    <th>Level</th>
+                                    <th>Approved Intake</th>
+                                    <th>Duration</th>
+                                    <th>Affiliation</th>
+                                    <th>Eligibility / Admission</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>B.E. Mechanical Engineering</strong></td>
+                                    <td><span class="us-tag-ug">Undergraduate</span></td>
+                                    <td>120 Seats</td>
+                                    <td>4 Years (8 Semesters)</td>
+                                    <td>GTU / AICTE Approved</td>
+                                    <td>ACPC Gujarat (GUJCET / JEE Main)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>M.E. CAD / CAM</strong></td>
+                                    <td><span class="us-tag-pg">Postgraduate</span></td>
+                                    <td>18 Seats</td>
+                                    <td>2 Years (4 Semesters)</td>
+                                    <td>GTU / AICTE Approved</td>
+                                    <td>ACPC Gujarat (GATE / Non-GATE PGCET)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: VISION & MISSION -->
+            <section class="us-tab-pane" id="tab-vision-mission">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">INSTITUTIONAL CHARTER</span>
+                    <h2>Vision &amp; Mission</h2>
+                    <p>Guiding pedagogical rigor, ethical engineering practices, and industrial leadership in mechanical engineering.</p>
+                </div>
+
+                <div class="us-charter-grid">
+                    <div class="us-charter-card">
+                        <h3>Department Vision</h3>
+                        <p class="us-charter-desc">
+                            "To achieve national recognition in mechanical engineering education and research by nurturing competent, innovative, and ethically grounded engineers who contribute meaningfully to industrial advancement and environmental sustainability."
+                        </p>
+                    </div>
+
+                    <div class="us-charter-card">
+                        <h3>Department Mission</h3>
+                        <ul class="us-mission-steps">
+                            <li class="us-mission-item">
+                                <span class="us-mission-index">I</span>
+                                <div class="us-mission-text">
+                                    <strong>Fundamental Mastery:</strong> Provide rigorous conceptual knowledge in thermal, design, and manufacturing domains integrated with extensive laboratory practice.
+                                </div>
+                            </li>
+                            <li class="us-mission-item">
+                                <span class="us-mission-index">II</span>
+                                <div class="us-mission-text">
+                                    <strong>Industrial Synergy:</strong> Enhance industry collaborations, plant internships, and live problem-solving to meet contemporary manufacturing requirements.
+                                </div>
+                            </li>
+                            <li class="us-mission-item">
+                                <span class="us-mission-index">III</span>
+                                <div class="us-mission-text">
+                                    <strong>Research &amp; Sustainability:</strong> Promote innovative multidisciplinary research focused on clean energy technologies and advanced materials.
+                                </div>
+                            </li>
+                            <li class="us-mission-item">
+                                <span class="us-mission-index">IV</span>
+                                <div class="us-mission-text">
+                                    <strong>Societal Stewardship:</strong> Foster professional ethics, leadership qualities, safety consciousness, and commitment to lifelong engineering growth.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Objectives (PEOs & PSOs) -->
+                <div class="us-objectives-grid">
+                    <div class="us-obj-card">
+                        <h4>Program Educational Objectives (PEOs)</h4>
+                        <ul class="us-obj-list">
+                            <li><strong>PEO 1:</strong> Build successful engineering careers in automotive, energy, aerospace, manufacturing industries or pursue scholarly research.</li>
+                            <li><strong>PEO 2:</strong> Formulate, analyze, and synthesize mechanical systems and thermal processes using experimental and computational methods.</li>
+                            <li><strong>PEO 3:</strong> Demonstrate professional ethics, effective project leadership, environmental responsibility, and continuous professional growth.</li>
+                        </ul>
+                    </div>
+
+                    <div class="us-obj-card">
+                        <h4>Program Specific Outcomes (PSOs)</h4>
+                        <ul class="us-obj-list">
+                            <li><strong>PSO 1:</strong> Ability to analyze, design, and optimize mechanical and thermal systems using modern CAD/CAE tools.</li>
+                            <li><strong>PSO 2:</strong> Ability to select suitable materials and manufacturing processes for high-precision, economical, and sustainable product fabrication.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: FACULTY DIRECTORY -->
+            <section class="us-tab-pane" id="tab-faculty">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">SCHOLARLY DIRECTORY</span>
+                    <h2>Faculty Members</h2>
+                    <p>Our experienced professors, research scholars, and workshop mentors dedicated to engineering excellence.</p>
+                </div>
+
+                <div class="us-faculty-roster">
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">US</div>
+                        <h4 class="us-faculty-name">Dr. U. V. Shah</h4>
+                        <div class="us-faculty-rank">Professor &amp; Head of Department</div>
+                        <div class="us-faculty-degrees">Ph.D., M.Tech (Thermal Engineering)<br><small>Specialization: Computational Fluid Dynamics, Heat Transfer</small></div>
+                        <a href="mailto:hod_mech@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> hod_mech@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">PN</div>
+                        <h4 class="us-faculty-name">Prof. P. K. Nanavati</h4>
+                        <div class="us-faculty-rank">Associate Professor</div>
+                        <div class="us-faculty-degrees">Ph.D. (Pursuing), M.E. (Mechanical Engineering)<br><small>Specialization: Advanced Manufacturing, Quality Control</small></div>
+                        <a href="mailto:pknanavati@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> pknanavati@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">MP</div>
+                        <h4 class="us-faculty-name">Prof. M. J. Patel</h4>
+                        <div class="us-faculty-rank">Assistant Professor</div>
+                        <div class="us-faculty-degrees">M.E. (Machine Design)<br><small>Specialization: Finite Element Analysis, Kinematics</small></div>
+                        <a href="mailto:mjpatel@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> mjpatel@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">SC</div>
+                        <h4 class="us-faculty-name">Prof. S. A. Chauhan</h4>
+                        <div class="us-faculty-rank">Assistant Professor</div>
+                        <div class="us-faculty-degrees">M.Tech (Thermal Sciences)<br><small>Specialization: Renewable Energy, Refrigeration &amp; AC</small></div>
+                        <a href="mailto:sachauhan@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> sachauhan@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">RJ</div>
+                        <h4 class="us-faculty-name">Prof. R. B. Joshi</h4>
+                        <div class="us-faculty-rank">Assistant Professor</div>
+                        <div class="us-faculty-degrees">M.E. (CAD / CAM)<br><small>Specialization: CNC Machining, Robotics, Additive Manufacturing</small></div>
+                        <a href="mailto:rbjoshi@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> rbjoshi@gecmodasa.ac.in
+                        </a>
+                    </div>
+
+                    <div class="us-faculty-card">
+                        <div class="us-faculty-initials">VB</div>
+                        <h4 class="us-faculty-name">Prof. V. K. Barot</h4>
+                        <div class="us-faculty-rank">Assistant Professor</div>
+                        <div class="us-faculty-degrees">M.Tech (Industrial Engineering)<br><small>Specialization: Operations Research, Supply Chain Logistics</small></div>
+                        <a href="mailto:vkbarot@gecmodasa.ac.in" class="us-faculty-contact">
+                            <i class="fas fa-envelope"></i> vkbarot@gecmodasa.ac.in
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: ACTIVITIES & EVENTS -->
+            <section class="us-tab-pane" id="tab-activities">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">CAMPUS ENGAGEMENT</span>
+                    <h2>Department Activities</h2>
+                    <p>Automotive design challenges, heavy industry factory visits, expert masterclasses, and hands-on fabrication workshops.</p>
+                </div>
+
+                <div class="us-periodical-grid">
+                    <div class="us-feature-card">
+                        <h4>SAE Collegiate Design Challenge</h4>
+                        <p>Inter-college motorsport design team developing all-terrain vehicles (ATVs) and electric karts for national SAE BAJA and SUPRA competitions.</p>
+                    </div>
+                    <div class="us-feature-card">
+                        <h4>Industrial Plant Exposure Tours</h4>
+                        <p>Regular study tours to major industrial complexes including Adani Thermal Power Station, L&amp;T Heavy Engineering Hazira, and Elecon Gears.</p>
+                    </div>
+                    <div class="us-feature-card">
+                        <h4>Robotics &amp; Automation Bootcamps</h4>
+                        <p>Intensive hands-on workshops on PLC programming, industrial robotic arm kinematics, and pneumatics/hydraulics automation circuits.</p>
+                    </div>
+                    <div class="us-feature-card">
+                        <h4>FDP on Advanced Green Energy Systems</h4>
+                        <p>State-level faculty development program exploring solar thermal collectors, hydrogen fuel storage, and green refrigeration cycles.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: FACILITIES & LABS -->
+            <section class="us-tab-pane" id="tab-facilities">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
+                    <h2>Laboratories &amp; Facilities</h2>
+                    <p>Comprehensive physical experimental rigs and central workshop facilities spanning design, testing, machining, and thermal analysis.</p>
+                </div>
+
+                <div class="us-labs-showcase">
+                    <!-- Lab 1: Central Workshop -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="../../images/hero_campus_1.jpg" alt="Central Engineering Workshop" loading="lazy">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Main Workshop Complex</span>
+                            <h3 class="us-lab-title">Central Mechanical Workshop</h3>
+                            <p class="us-lab-desc">Equipped with 20+ heavy centre lathes, universal milling machine, shaping machines, radial drill, welding booths, and sand casting foundry.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 2: Fluid Mechanics & Machinery Lab -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="../../images/hero_campus_2.jpg" alt="Fluid Mechanics &amp; Machinery Lab" loading="lazy">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Lab Block M-102</span>
+                            <h3 class="us-lab-title">Fluid Mechanics &amp; Hydraulic Machinery Lab</h3>
+                            <p class="us-lab-desc">Features calibrated test benches for Pelton turbine, Francis turbine, centrifugal pumps, Bernoulli apparatus, and pipe friction flow meters.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 3: Heat Transfer & I.C. Engines Lab -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="../../images/hero_campus_3.jpg" alt="Heat Transfer &amp; I.C. Engines Lab" loading="lazy">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Lab Block M-104</span>
+                            <h3 class="us-lab-title">Heat Transfer &amp; I.C. Engines Lab</h3>
+                            <p class="us-lab-desc">Outfitted with computerized single and multi-cylinder petrol/diesel test engines with eddy current dynamometers and emission measurement sensors.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 4: Dynamics of Machines Lab -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="../../images/hero_campus_4.jpg" alt="Dynamics of Machines Lab" loading="lazy">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Lab Block M-201</span>
+                            <h3 class="us-lab-title">Dynamics of Machines &amp; Vibration Lab</h3>
+                            <p class="us-lab-desc">Experimental apparatus for studying motorized gyroscope precessional torque, static &amp; dynamic balancing, cam-follower kinematics, and governors.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 5: CAD/CAM Center -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="../../images/hero_campus_1.jpg" alt="CAD/CAM &amp; FEA Computing Lab" loading="lazy">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Lab Block M-205</span>
+                            <h3 class="us-lab-title">CAD / CAM &amp; Computational Mechanics Lab</h3>
+                            <p class="us-lab-desc">Equipped with 40 high-performance workstations running ANSYS, SolidWorks, PTC Creo, and CNC simulator software for 3D modeling and structural stress analysis.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 6: Metrology & Metallurgy Lab -->
+                    <div class="us-lab-card">
+                        <div class="us-lab-image-frame">
+                            <img src="../../images/hero_campus_2.jpg" alt="Metrology &amp; Material Testing Lab" loading="lazy">
+                        </div>
+                        <div class="us-lab-details">
+                            <span class="us-lab-room">Lab Block M-208</span>
+                            <h3 class="us-lab-title">Metrology &amp; Material Testing Lab</h3>
+                            <p class="us-lab-desc">Universal Testing Machine (UTM), Rockwell/Brinell hardness testers, optical profile projector, metallurgy microscope, and surface roughness testers.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: PUBLICATIONS -->
+            <section class="us-tab-pane" id="tab-publications">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">SCHOLARLY OUTPUT</span>
+                    <h2>Faculty Publications</h2>
+                    <p>Recent research articles published by mechanical faculty in peer-reviewed international journals and ASME/Elsevier conference proceedings.</p>
+                </div>
+
+                <div class="us-citations-list">
+                    <div class="us-citation-item">
+                        <div class="us-citation-title">Experimental Investigation of Turbulent Convective Heat Transfer in Micro-Fin Tubes using Al2O3 Nanofluids</div>
+                        <div class="us-citation-authors">Dr. U. V. Shah, Prof. S. A. Chauhan (2024)</div>
+                        <div class="us-citation-venue">Elsevier International Journal of Thermal Sciences, Vol. 192, Article 108422</div>
+                    </div>
+                    <div class="us-citation-item">
+                        <div class="us-citation-title">Structural Optimization and Crashworthiness Simulation of Automotive Bumper Beams using High-Strength Composites</div>
+                        <div class="us-citation-authors">Prof. M. J. Patel, Dr. U. V. Shah (2023)</div>
+                        <div class="us-citation-venue">ASME Journal of Mechanical Design, Vol. 145, Issue 6</div>
+                    </div>
+                    <div class="us-citation-item">
+                        <div class="us-citation-title">Multi-Objective Optimization of CNC End Milling Parameters for Inconel 718 Superalloys using Taguchi-Grey Relational Analysis</div>
+                        <div class="us-citation-authors">Prof. P. K. Nanavati, Prof. R. B. Joshi (2023)</div>
+                        <div class="us-citation-venue">Springer Journal of The Institution of Engineers (India): Series C, Vol. 104, pp. 411–425</div>
+                    </div>
+                    <div class="us-citation-item">
+                        <div class="us-citation-title">Thermodynamic Analysis of Organic Rankine Cycle Powered by Low-Grade Industrial Waste Heat</div>
+                        <div class="us-citation-authors">Prof. S. A. Chauhan, Prof. V. K. Barot (2022)</div>
+                        <div class="us-citation-venue">Elsevier Energy Conversion and Management, Vol. 268, Article 116035</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 7: INDUSTRY ADVISORY BOARD -->
+            <section class="us-tab-pane" id="tab-advisory-board">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">GOVERNANCE &amp; CURRICULUM</span>
+                    <h2>Industry Advisory Board (IAB)</h2>
+                    <p>Eminent plant directors, chief engineers, and manufacturing leaders guiding academic curriculum relevance and graduate recruitment.</p>
+                </div>
+
+                <div class="us-table-wrap">
+                    <table class="us-clean-table">
+                        <thead>
+                            <tr>
+                                <th>Distinguished Member</th>
+                                <th>Organization &amp; Designation</th>
+                                <th>Committee Role</th>
+                                <th>Active Term</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Dr. U. V. Shah</strong></td>
+                                <td>Head of Department, Mechanical Engineering, GEC Modasa</td>
+                                <td>Chairman</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mr. Dharmesh Patel</strong></td>
+                                <td>Senior General Manager (Manufacturing), Larsen &amp; Toubro Heavy Engineering</td>
+                                <td>Industry Member</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mr. Keyur Trivedi</strong></td>
+                                <td>Chief Thermal Design Specialist, Thermax Limited</td>
+                                <td>Industry Member</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Prof. P. K. Nanavati</strong></td>
+                                <td>Associate Professor, Mechanical Engineering, GEC Modasa</td>
+                                <td>Member Secretary</td>
+                                <td>2025–2026</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mr. Ashish Shah</strong></td>
+                                <td>Vice President - Engineering Operations, Elecon Engineering Co. Ltd.</td>
+                                <td>Industry Member</td>
+                                <td>2023–2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- TAB 8: NEWSLETTERS -->
+            <section class="us-tab-pane" id="tab-newsletters">
+                <div class="us-section-header">
+                    <span class="us-section-kicker">DEPARTMENT CHRONICLE</span>
+                    <h2>Department Newsletters</h2>
+                    <p>Official periodic publication documenting student vehicle innovations, industry internships, faculty honors, and alumni career achievements.</p>
+                </div>
+
+                <div class="us-periodical-grid">
+                    <div class="us-periodical-card">
+                        <div class="us-periodical-body">
+                            <span class="us-periodical-meta">Vol. 1, Issue 2 · Academic Year 2024–25</span>
+                            <h4 class="us-periodical-title">MechE Chronicle</h4>
+                            <p class="us-periodical-summary">Spotlights the SAE BAJA all-terrain vehicle build, plant visits to L&amp;T Hazira, international conference papers presented by faculty, and campus placement records.</p>
+                            <a href="#" class="us-download-btn"><i class="fas fa-file-pdf"></i> Download Newsletter (PDF)</a>
+                        </div>
+                    </div>
+
+                    <div class="us-periodical-card">
+                        <div class="us-periodical-body">
+                            <span class="us-periodical-meta">Vol. 1, Issue 1 · Academic Year 2023–24</span>
+                            <h4 class="us-periodical-title">MechE Chronicle (Inaugural Issue)</h4>
+                            <p class="us-periodical-summary">Inaugural release reviewing CNC machine installations, CAD/CAM simulation lab inaugurations, student technical project exhibitions, and alumni industrial leadership.</p>
+                            <a href="#" class="us-download-btn"><i class="fas fa-file-pdf"></i> Download Newsletter (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
 </div>
 
 <?php
 // Include Footer
 include_once __DIR__ . '/../../includes/footer.php';
 ?>
-
