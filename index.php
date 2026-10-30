@@ -292,6 +292,7 @@ include_once __DIR__ . '/includes/header.php';
             <a href="#" class="view-all">All Events</a>
         </div>
         <div class="events-slider-container">
+            <?php if (!empty($recentEvents)): ?>
             <div class="events-slider" id="eventsSlider">
                 <?php foreach ($recentEvents as $ev): ?>
                 <div class="event-slide">
@@ -307,6 +308,7 @@ include_once __DIR__ . '/includes/header.php';
             <div class="slider-dots" id="sliderDots">
                 <!-- Dynamic Indicators -->
             </div>
+            <?php endif; ?>
         </div>
     </div>
 

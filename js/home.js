@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (eventsSlider && sliderDotsContainer) {
         const slides = eventsSlider.querySelectorAll(".event-slide");
         const totalSlides = slides.length;
+        if (totalSlides === 0) return;
         let currentSlide = 0;
 
         // Generate Dots
