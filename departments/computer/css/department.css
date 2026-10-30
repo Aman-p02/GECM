@@ -387,6 +387,80 @@
     margin: 0;
 }
 
+/* Programme overview & career avenues */
+.us-programme-section {
+    margin: 56px 0 20px;
+    padding-top: 48px;
+    border-top: 1px solid var(--us-border-subtle);
+}
+
+.us-programme-lead {
+    font-family: var(--us-font-sans);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #374151;
+    margin: 0 0 28px;
+    max-width: 920px;
+}
+
+.us-avenues-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-bottom: 48px;
+}
+
+.us-avenue-card {
+    background: #ffffff;
+    border: 1px solid var(--us-border);
+    border-radius: 6px;
+    padding: 26px 28px;
+    transition: var(--us-transition);
+}
+
+.us-avenue-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.us-avenue-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.us-avenue-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    background: #fafafa;
+    border: 1px solid var(--us-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: #b45309;
+    flex-shrink: 0;
+}
+
+.us-avenue-card h4 {
+    font-family: var(--us-font-display);
+    font-size: 1.18rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: #111111;
+    margin: 0;
+}
+
+.us-avenue-card p {
+    font-family: var(--us-font-sans);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: #4b5563;
+    margin: 0;
+}
+
 /* Academic degree programs table */
 .us-degrees-section {
     margin: 50px 0;
@@ -465,6 +539,18 @@
     background: #fef3c7;
     color: #92400e;
     font-family: var(--us-font-display);
+}
+
+.us-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: var(--us-font-display);
+    background: #f8fafc;
+    color: #111111;
+    border: 1px solid var(--us-border);
 }
 
 /* Vision and mission styling */
@@ -932,6 +1018,7 @@
     .us-objectives-grid,
     .us-labs-showcase,
     .us-periodical-grid,
+    .us-avenues-grid,
     .us-faculty-roster {
         grid-template-columns: 1fr;
     }

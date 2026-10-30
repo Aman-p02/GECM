@@ -36,7 +36,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     <span class="us-stat-label">YEAR OF ESTABLISHMENT</span>
                 </div>
                 <div class="us-stat-item">
-                    <span class="us-stat-num">150</span>
+                    <span class="us-stat-num">120</span>
                     <span class="us-stat-label">ANNUAL APPROVED INTAKE</span>
                 </div>
                 <div class="us-stat-item">
@@ -98,77 +98,108 @@ Empowering future engineers through innovation and technology. Focused on practi
                 <div class="us-section-header">
                     <span class="us-section-kicker">ACADEMIC OVERVIEW</span>
                     <h2>About the Department</h2>
-                    <p>Providing rigorous engineering education, research mentorship, and industrial training across computer hardware, software systems, and data-driven intelligence.</p>
+                    <p>Pioneering engineering education, campus network engineering, and laboratory discovery at Government Engineering College, Modasa since 2001.</p>
                 </div>
 
                 <div class="us-about-split">
                     <div class="us-story-body">
                         <blockquote class="us-lead-quote">
-                            "Equipping tomorrow's software engineers with foundational mathematics, modern computing architectures, and the collaborative skills needed to address complex societal challenges."
+                            "Fostering next-generation computing engineers through deep theoretical foundations, state-of-the-art laboratory discovery, and real-time systems mastery."
                         </blockquote>
                         <p>
-                            Running continuously since 2001, the Department of Computer Engineering is equipped with high-performance computing clusters, multimedia software, and optical fiber gigabit networking. The department has established robust laboratories in Computer Hardware, Networking &amp; Security, Database Management Systems, Computer Graphics, and Internet Technologies in tune with real-time systems.
+                            Established in 2001, the Department of Computer Engineering operates in a newly constructed, spacious, and well-furnished academic complex shared with the Information Technology department. The academic facility features 10 specialized computer laboratories and two air-conditioned seminar halls, offering students an immersive environment for software engineering, algorithmic exploration, and technical innovation.
                         </p>
                         <p>
-                            Under AICTE grant assistance, the campus-wide network infrastructure was engineered and is centrally maintained by the department. In addition to the four-year undergraduate program, the department offers a specialized Post Graduate program (M.E. in Computer Science &amp; Engineering) established in 2010.
+                            Under AICTE Grant assistance for Campus Networking, the department centrally planned, engineered, and manages the entire campus-wide network infrastructure. The computing infrastructure connects more than 250 networked nodes across optical fiber and high-speed LAN systems, reinforced with 30 enterprise Wi-Fi access points orchestrated through a centralized controller for seamless digital connectivity.
                         </p>
                         <p>
-                            Computer Engineering and Information Technology share infrastructural facilities in a spacious academic complex, complete with 10 computer laboratories and two seminar halls, providing students an immersive environment to build industry-scale software solutions.
+                            The department is powered by latest high-end enterprise servers and interactive online instructional platforms, including a dedicated Content Server for network-based e-learning. Backed by a team of highly qualified and experienced faculty members, the department has also offered a specialized Post Graduate programme (M.E. in Computer Engineering with Software Engineering) since 2010, complementing its flagship undergraduate degree.
                         </p>
                     </div>
 
                     <div class="us-feature-cards">
                         <div class="us-feature-card">
-                            <h4>Gigabit LAN Campus</h4>
-                            <p>Optical fiber gigabit backbone connecting all terminal nodes with enterprise high availability.</p>
+                            <h4>250+ Networked Nodes</h4>
+                            <p>High-speed campus-wide LAN backbone engineered and centrally maintained under AICTE grant assistance.</p>
                         </div>
                         <div class="us-feature-card">
-                            <h4>Namoradar Wi-Fi Access</h4>
-                            <p>Campus-wide Wi-Fi mesh coverage for seamless student research, coding, and collaborative learning.</p>
+                            <h4>30 Managed Wi-Fi APs</h4>
+                            <p>Campus wireless network with 30 enterprise access points orchestrated by a centralized controller.</p>
                         </div>
                         <div class="us-feature-card">
-                            <h4>Centralized Servers</h4>
-                            <p>IBM, HP &amp; Lenovo rack-mount enterprise servers driving core computational applications and storage.</p>
+                            <h4>10 Labs &amp; 2 Seminar Halls</h4>
+                            <p>Equipped for Computer Hardware, Networking &amp; Security, DBMS, Computer Graphics, and Real-Time Systems.</p>
                         </div>
                         <div class="us-feature-card">
-                            <h4>Specialized PG Research Wing</h4>
-                            <p>Dedicated laboratory cluster for advanced M.E. scholars exploring deep neural models and cloud scalability.</p>
+                            <h4>High-End Server Cluster</h4>
+                            <p>Enterprise computing servers and network-based online teaching systems (Content Server) for modern pedagogy.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Academic Degree Programs -->
-                <div class="us-section-header" style="margin-top: 64px;">
-                    <span class="us-section-kicker">ACADEMIC PORTFOLIO</span>
-                    <h2>Academic Degree Programs</h2>
-                    <p>Degree offerings approved by AICTE, New Delhi and affiliated with Gujarat Technological University (GTU).</p>
+                <!-- About the Programme Section -->
+                <div class="us-programme-section">
+                    <div class="us-section-header">
+                        <span class="us-section-kicker">DISCIPLINE &amp; CAREER PATHS</span>
+                        <h2>About the Programme</h2>
+                        <p>Integrating computer science and electrical engineering to develop safer, faster, and more powerful computing technologies.</p>
+                    </div>
+
+                    <p class="us-programme-lead">
+                        Computer engineering blends together computer science and electrical engineering to further advancements in digital technology, computer networking, and computing systems. In turn, computer engineers use their extensive knowledge of hardware and software design and computer programming to make computing platforms and applications more efficient, secure, and effective. At the professional level, the discipline offers two vital avenues:
+                    </p>
+
+                    <div class="us-avenues-grid">
+                        <div class="us-avenue-card">
+                            <div class="us-avenue-header">
+                                <div class="us-avenue-icon"><i class="fas fa-microchip"></i></div>
+                                <h4>Hardware Engineering</h4>
+                            </div>
+                            <p>Hardware engineers focus their skills on computer systems and physical components—designing microprocessors, circuit boards, routers, and embedded devices that power modern smart electronics.</p>
+                        </div>
+
+                        <div class="us-avenue-card">
+                            <div class="us-avenue-header">
+                                <div class="us-avenue-icon"><i class="fas fa-laptop-code"></i></div>
+                                <h4>Software Engineering</h4>
+                            </div>
+                            <p>On the software side, engineers create, test, and debug programs and applications that run on computers, distributed networks, cloud architectures, and mobile devices to solve complex challenges.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Under Graduate / Post Graduate Courses -->
+                <div class="us-section-header" style="margin-top: 56px;">
+                    <span class="us-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
+                    <h2>Undergraduate &amp; Postgraduate Programmes</h2>
+                    <p>Approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated with Gujarat Technological University (GTU), Ahmedabad.</p>
                 </div>
 
                 <div class="us-table-wrap">
                     <table class="us-clean-table">
                         <thead>
                             <tr>
-                                <th>Academic Degree</th>
-                                <th>Specialization Field</th>
-                                <th>Established</th>
+                                <th>Name of Course</th>
+                                <th>Degree Type</th>
+                                <th>Period (Years)</th>
                                 <th>Approved Intake</th>
-                                <th>Duration</th>
+                                <th>Year of Starting</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Bachelor of Engineering (B.E.)</strong></td>
-                                <td>Computer Engineering</td>
-                                <td>2001</td>
-                                <td><span class="us-badge">150 Seats</span></td>
+                                <td><strong>Computer Engineering</strong></td>
+                                <td><span class="us-tag-ug">UG (B.E.)</span></td>
                                 <td>4 Years (8 Semesters)</td>
+                                <td><span class="us-badge">120 Seats</span></td>
+                                <td>2001</td>
                             </tr>
                             <tr>
-                                <td><strong>Master of Engineering (M.E.)</strong></td>
-                                <td>Computer Science &amp; Engineering</td>
-                                <td>2010</td>
-                                <td><span class="us-badge">18 Seats</span></td>
+                                <td><strong>Computer Engineering (Software Engineering)</strong></td>
+                                <td><span class="us-tag-pg">PG (M.E.)</span></td>
                                 <td>2 Years (4 Semesters)</td>
+                                <td><span class="us-badge">18 Seats</span></td>
+                                <td>2010</td>
                             </tr>
                         </tbody>
                     </table>
