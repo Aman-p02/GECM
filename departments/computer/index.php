@@ -1572,6 +1572,231 @@ Empowering future engineers through innovation and technology. Focused on practi
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
                         </div>
                     </div>
+
+                    <!-- 126 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Chain code and holistic features based OCR system for printed Devanagari script using ANN and SVM</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Gunvantsinh Gohil, Rekha Teraiya and Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 127 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Euler Number, Symmetry and Histogram Based Hierarchical Approach for English OCR</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh M Goyani, Rekha R Teraiya, Trusha Y Gajjar, Gunvantsinh D Gohil</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 128 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Comparision between DCT and DWT algorithms of Digital Watermarking</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Swati Patel, Anilkumar Katharotiya, Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 129 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Face recognition using PCA and Modified PCA</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Preeti B. Sharma, Mahesh M. Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 130 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A survey optimize visual image search for sematic web</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jaimin MShroff, Prof. Bhaumik Nagar, Prof. Parth Shah</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 131 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A review on sla and various approaches for efficient cloud service provider selection</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shreyas Patel, Prof. Gordhan B. Jethava</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 132 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Host Selection Strategy Based On Propagation Delay in Cloud</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dodiya Aniruddhsinh Karshanbhai</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 133 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Host Selection Technique for Data Intensive Application in Cloud Computing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dodiya Aniruddhsinh Karshanbhai</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 134 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Analysis of Multiple path TCP over Heterogeneous networks</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> P R Gamit</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 135 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Load Sharing Optimization of Multipath TCP in heterogeneous Networks</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> P R Gamit</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 136 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">An Adaptive Classification approach to filter spam E-mail using Vector Space Model</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nakul Dave, Uttam Chauhan, Avani Nakul Dave</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 137 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Review of spam filtering based on unstructured classification</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nakul Dave, Uttam Chauhan, Dhaval Varia</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 138 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Comprehensive study and review of image mosaicing methods</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mrs. Hetal M. Patel, Prof. Pinal. J. Patel, Prof. Mr. Sandip G. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 139 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Survey paper on Architecture of Deep Convolutional Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prachi Pandya, Pinal J. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- 140 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">PCA Based Handwritten Character Recognition System Using Support Vector Machine &amp; Neural Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ravi Sheth, N C Chauhan, Mahesh M Goyani, Kinjal A Mehta</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- 141 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">An analysis and study of decision tree induction operating under adaptive mode to enhance accuracy and uptime in a dataset introduced to spontaneous variation in data attributes</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Y P Kosta, Amit Ganatra, Amit Thakkar</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- 142 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Performance Enhancement in Lip Synchronization Using MFCC Parameters</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Narendra Patel, Mukesh Zaveri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2010</span>
+                        </div>
+                    </div>
+
+                    <!-- 143 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Acceptance / Rejection Rule Based Algorithm for Multiple Face Detection in Color Images</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Brijesh Joshi, Gitam Sikkenawis</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2010</span>
+                        </div>
+                    </div>
+
+                    <!-- 144 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Performance Analysis of LPC, PLP and MFCC Parameters in Speech Recognition</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Namrata Dave</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2010</span>
+                        </div>
+                    </div>
+
+                    <!-- 145 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Performance improvement in Lip Synchronization using LPC, MFCC and PLP Speech Parameters</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Namrata Dave, Narendra Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2010</span>
+                        </div>
+                    </div>
+
+                    <!-- 146 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Real Time Lip Synchronization</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2009</span>
+                        </div>
+                    </div>
+
+                    <!-- 147 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Improvement in Lip Detection and Feature Extraction in Dynamic Lighting Conditions and Complex Background</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Parul Tandel, Hetal Chudasama</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2009</span>
+                        </div>
+                    </div>
+
+                    <!-- 148 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Ear Recognition Using Force Field Feature Extraction</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Japen Pathak</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2009</span>
+                        </div>
+                    </div>
+
+                    <!-- 149 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Performance Analysis of LPC, PLP and MFCC Parameters in Speech Recognition</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Namrata Dave</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2009</span>
+                        </div>
+                    </div>
+
+                    <!-- 150 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Classification Using Adaptive Decision Tree Induction Algorithm For accuracy and scale-up measure</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Amit Ganatra, Amit Thakkar</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2009</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
