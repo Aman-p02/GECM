@@ -444,29 +444,233 @@ Empowering future engineers through innovation and technology. Focused on practi
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">SCHOLARLY OUTPUT</span>
                     <h2>Faculty Publications</h2>
-                    <p>Recent peer-reviewed international journal articles, conference papers, and book chapters published by departmental faculty.</p>
+                    <p>Research contributions, journal articles, and conference proceedings published by Computer Engineering faculty and research scholars.</p>
                 </div>
 
                 <div class="dept-citations-list">
+                    <!-- Publication 1 -->
                     <div class="dept-citation-item">
-                        <div class="dept-citation-title">Deep Learning Approaches for Real-Time Network Intrusion Detection in IoT Networks</div>
-                        <div class="dept-citation-authors">Dr. H. M. Patel, Prof. A. S. Shah (2024)</div>
-                        <div class="dept-citation-venue">International Journal of Information and Computer Security, Inderscience, Vol. 18, Issue 3</div>
+                        <h3 class="dept-citation-title">Enhancing Semantic Coherence in Gujarati Topic Models by Eliminating Poor Quality Topics</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Uttam Chauhan, Nakul Dave, Avani Dave, Vishwa Kachhadiya, Priyanshi Chavadiya, Megh Dobariya, Ravi Nai, Diti Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2026</span>
+                        </div>
                     </div>
+
+                    <!-- Publication 2 -->
                     <div class="dept-citation-item">
-                        <div class="dept-citation-title">An Efficient Cryptographic Framework for Cloud Data Integrity Verification</div>
-                        <div class="dept-citation-authors">Prof. R. K. Prajapati, Dr. H. M. Patel (2023)</div>
-                        <div class="dept-citation-venue">IEEE International Conference on Advanced Computing Technologies (ICACT), Proceedings, pp. 112–118</div>
+                        <h3 class="dept-citation-title">Parkinson's Disease Detection Using Keystroke Dynamics And With Convolutional Neural Networks</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Bhumiben Mukeshbhai Gentiyal, Safvan A. Vahora, Pradeep Rohitbhai Gamit, Mahendra N Patel, Hirenkumar Ramanbhai Patel, Mahesh Goyani, Uttam Chauhan, Pinal J. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2026</span>
+                        </div>
                     </div>
+
+                    <!-- Publication 3 -->
                     <div class="dept-citation-item">
-                        <div class="dept-citation-title">Performance Optimization in Distributed Microservices Architecture using Containerization</div>
-                        <div class="dept-citation-authors">Prof. P. N. Mehta (2023)</div>
-                        <div class="dept-citation-venue">Springer Communications in Computer and Information Science, Vol. 1422, pp. 45–59</div>
+                        <h3 class="dept-citation-title">Multi-Stage Diabetic Retinopathy Classification Using Deep Learning: Trends, Challenges, And Future Directions</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Shreya Dubey, Mahesh Goyani, Mahendrakumar N Patel, Pinal J. Patel, Safvan A. Vahora, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2026</span>
+                        </div>
                     </div>
+
+                    <!-- Publication 4 -->
                     <div class="dept-citation-item">
-                        <div class="dept-citation-title">Comparative Analysis of Machine Learning Classifiers for Brain-Computer Interface Applications</div>
-                        <div class="dept-citation-authors">Prof. S. D. Joshi, Prof. M. B. Patel (2022)</div>
-                        <div class="dept-citation-venue">Elsevier Procedia Computer Science, Vol. 218, pp. 1402–1411</div>
+                        <h3 class="dept-citation-title">Abstractive Gujarati Text Summarization Using Sequence-To-Sequence Model and Attention Mechanism</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Shilpa Serasiya, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 5 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Comprehensive Survey on Text Summarization For Indian Languages: Opportunities, Challenges and Future Prospects</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Shilpa Serasiya, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> February 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 6 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">HyViSE: (Hybrid ViT-SE) Approach for Crowd Anomaly Detection and Emotion-Behavior Classification</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Jignesh Vaniya, Safvan Vahora, Uttam Chauhan, Sudhir Vegad</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 7 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Deepfake detection Demodulate Synthetic Videos Using Deep Learning Models</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Priyanshu Hirpara, Hardi Valangar, Vishwa Kachhadiya, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 8 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Conceptual Study On Various ML Models Used in Financial Distress Prediction</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Janki Patel, Pinal Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 9 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">An outlier detection framework for Air Quality Index prediction using linear and ensemble models</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Viral Patel, Pradeep Kumar Dongre, Upendra Bhoi, Nilesh N. Maltare</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 10 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Study on Packet Filtering and Network Traffic Management on Linux</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Jogin Joshi, Pinal J. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 11 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Crowd Emotion and Behavior Analysis Using Lightweight CNN Model</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Jignesh Vaniya, Safvan Vahora, Uttam Chauhan, Sudhir Vegad</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> October 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 12 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Securing E-Commerce: A Comprehensive Analysis of Fraud Detection Methods</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Rushi Parikh, Krupa Bhavsar, Uttam Chauhan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 13 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">An avant-garde approach of Block chain in Big data analytics</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Manisha Valera, Parth Patel, Shruti Chettiar</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> November–December 2018</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 14 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Blazing issues in big data</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Manisha Valera, Yash Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2018</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 15 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Peculiar Sentiment Analysis Advancement in Big Data</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Manisha Valera, Yash Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> October 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 16 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">AN EXHAUSTIVE STUDY: BIG DATA</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 17 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Low Control Overhead for Cluster Maintenance in Wireless Network for DSR Protocol</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Nilesh Goriya, Indrjeet Rajput, Mihir Mehta</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 18 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Radical Change through E-Governance in Gujarat</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Nilesh Goriya, Indrjeet Rajput, Mihir Mehta</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> April 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 19 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Object Removal using Image Inpainting</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Patel Hemangini Gamanbhai, Narenda Limbad</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Issue 04, Vol 3, 2015 · ISSN: 2321-0613</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 20 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Survey Paper on Cluster Head Selection Techniques for Mobile Ad-Hoc Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nilesh Goriya</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> December 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 21 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Step up in Data Cleaning and User identification of Preprocessing on Web Usage data</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Manisha Valera, Shaktisinh Parmar</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> December 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 22 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">Image Encryption Using Chaotic Based Artificial Neural Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Minal Chauhan, Rashmin Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 23 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">An efficient web recommender system based on approach of mining frequent sequential pattern from Customized Web Log Preprocessing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> July 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 24 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">A Neoteric Web Recommender System based on Approach of Mining Frequent Sequential Pattern from Customized Web Log Preprocessing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 25 -->
+                    <div class="dept-citation-item">
+                        <h3 class="dept-citation-title">The Descriptive Study of Preprocessing from Web Usage Mining</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> November 2012</span>
+                        </div>
                     </div>
                 </div>
             </section>

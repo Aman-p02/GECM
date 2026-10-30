@@ -791,38 +791,82 @@
 .dept-citations-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin-top: 30px;
+    gap: 16px;
+    margin-top: 28px;
 }
 
 .dept-citation-item {
-    border-left: 3px solid #111111;
-    padding: 16px 24px;
-    background: var(--dept-bg-subtle);
-    border-radius: 0 6px 6px 0;
+    background: #ffffff;
+    border: 1px solid var(--dept-border);
+    border-left: 4px solid var(--dept-accent);
+    border-radius: 6px;
+    padding: 22px 24px;
+    transition: var(--dept-transition);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dept-citation-item:hover {
+    border-color: #cbd5e1;
+    border-left-color: var(--dept-accent);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    transform: translateY(-1px);
 }
 
 .dept-citation-title {
     font-family: var(--dept-font-display);
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     color: #111111;
     line-height: 1.5;
-    margin: 0 0 6px;
+    margin: 0;
+}
+
+.dept-citation-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 0.88rem;
+    color: var(--dept-body);
 }
 
 .dept-citation-authors {
-    font-size: 0.9rem;
-    color: var(--dept-body);
-    margin: 0 0 4px;
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+    flex: 1 1 320px;
 }
 
-.dept-citation-venue {
+.dept-citation-authors i {
+    color: var(--dept-accent);
+    margin-top: 3px;
     font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.dept-citation-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--dept-font-display);
+    font-size: 0.82rem;
+    font-weight: 600;
     color: var(--dept-muted);
-    font-style: italic;
-    margin: 0;
+    white-space: nowrap;
+    background: var(--dept-bg-subtle);
+    border: 1px solid var(--dept-border);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.dept-citation-date i {
+    color: var(--dept-accent);
+    font-size: 0.8rem;
 }
 
 /* Activities and newsletters cards */
@@ -975,5 +1019,29 @@
 
     .dept-main-content {
         padding: 36px 0 0;
+    }
+
+    .dept-citation-item {
+        padding: 16px 18px;
+        gap: 10px;
+    }
+
+    .dept-citation-title {
+        font-size: 1rem;
+    }
+
+    .dept-citation-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .dept-citation-authors {
+        flex: 1 1 100%;
+        font-size: 0.85rem;
+    }
+
+    .dept-citation-date {
+        align-self: flex-start;
     }
 }
