@@ -60,6 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // Show target content pane
         targetPane.classList.add('active');
 
+        // Reveal elements inside the newly active tab pane
+        if (typeof setupRevealElements === 'function') {
+            setupRevealElements(targetPane);
+        }
+
         // Smoothly scroll to content if user is scrolled past the subnav
         if (shouldScroll) {
             const subNav = document.getElementById('deptSubNav') || document.querySelector('.dept-subnav-bar');
@@ -131,4 +136,82 @@ document.addEventListener('DOMContentLoaded', function () {
     updateStickySubnavPosition();
     window.addEventListener('resize', updateStickySubnavPosition, { passive: true });
     window.addEventListener('scroll', updateStickySubnavPosition, { passive: true });
+
+    // Scroll Reveal Observer for gradual content appearance on scroll
+    const revealSelectors = [
+        '.dept-section-header',
+        '.dept-stat-item',
+        '.dept-feature-card',
+        '.dept-overview-grid',
+        '.dept-about-overview',
+        '.dept-objective-card',
+        '.dept-faculty-card',
+        '.dept-lab-card',
+        '.dept-activity-card',
+        '.dept-avenue-card',
+        '.dept-citation-item',
+        '.dept-board-card',
+        '.dept-newsletter-card'
+    ];
+
+    let revealObserver = null;
+    if ('IntersectionObserver' in window) {
+        revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.08
+        });
+    }
+
+    function setupRevealElements(container = document) {
+        // Apply staggered entrance indices to grid containers
+        const gridSelectors = [
+            '.dept-faculty-roster',
+            '.dept-labs-showcase',
+            '.dept-objectives-grid',
+            '.dept-periodical-grid',
+            '.dept-avenues-grid',
+            '.dept-citations-list',
+            '.dept-stats-strip'
+        ];
+
+        gridSelectors.forEach(sel => {
+            container.querySelectorAll(sel).forEach(grid => {
+                Array.from(grid.children).forEach((child, idx) => {
+                    child.classList.add(`stagger-${(idx % 4) + 1}`);
+                });
+            });
+        });
+
+        const elements = container.querySelectorAll(revealSelectors.join(', '));
+        elements.forEach(el => {
+            if (!el.classList.contains('dept-reveal')) {
+                el.classList.add('dept-reveal');
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    setTimeout(() => el.classList.add('is-revealed'), 40);
+                } else if (revealObserver) {
+                    revealObserver.observe(el);
+                } else {
+                    el.classList.add('is-revealed');
+                }
+            } else if (!el.classList.contains('is-revealed')) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('is-revealed');
+                } else if (revealObserver) {
+                    revealObserver.observe(el);
+                }
+            }
+        });
+    }
+
+    setupRevealElements();
 });
