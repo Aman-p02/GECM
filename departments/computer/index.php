@@ -447,7 +447,31 @@ Empowering future engineers through innovation and technology. Focused on practi
                     <p>Research contributions, journal articles, and conference proceedings published by Computer Engineering faculty and research scholars.</p>
                 </div>
 
+                <!-- Publications Filter Toolbar -->
+                <div class="dept-pub-toolbar">
+                    <div class="dept-pub-filter-wrap">
+                        <label for="pubYearFilter" class="dept-pub-filter-label">
+                            <i class="fas fa-calendar-alt"></i> Filter by Year:
+                        </label>
+                        <div class="dept-pub-select-box">
+                            <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year">
+                                <option value="all">All Years (153)</option>
+                            </select>
+                            <i class="fas fa-chevron-down dept-pub-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="dept-pub-badge" id="pubCountBadge">
+                        Showing <strong>153</strong> publications
+                    </div>
+                </div>
+
                 <div class="dept-citations-list">
+                    <!-- Empty filter state notice -->
+                    <div class="dept-pub-empty" id="pubEmptyState">
+                        <i class="far fa-folder-open"></i>
+                        No publications found for the selected year.
+                    </div>
+
                     <!-- Publication 1 -->
                     <div class="dept-citation-item">
                         <h3 class="dept-citation-title">Crowd Emotion and Behavior Analysis Using Lightweight CNN Model</h3>
@@ -1795,6 +1819,33 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Amit Ganatra, Amit Thakkar</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2009</span>
+                        </div>
+                    </div>
+
+                    <!-- 151 -->
+                    <div class="dept-citation-item" data-year="2008">
+                        <h3 class="dept-citation-title">Artificial Neural Network in Data Mining</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Mukesh Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2008</span>
+                        </div>
+                    </div>
+
+                    <!-- 152 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Image Encryption Using Chaotic Cryptosystems and Artificial Neural Network Cryptosystems: A Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Minal Chauhan, Rashmin Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May-2014</span>
+                        </div>
+                    </div>
+
+                    <!-- 153 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">A Novel Approach of Mining Frequent Sequential Pattern from Customized Web Log Preprocessing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> January - February 2013</span>
                         </div>
                     </div>
                 </div>

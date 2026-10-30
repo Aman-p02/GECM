@@ -214,4 +214,86 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     setupRevealElements();
+
+    // Initialize Publication Year Filter Controller
+    function initPublicationYearFilter() {
+        const yearFilter = document.getElementById('pubYearFilter');
+        const countBadge = document.getElementById('pubCountBadge');
+        const emptyState = document.getElementById('pubEmptyState');
+        const pubItems = document.querySelectorAll('.dept-citation-item');
+
+        if (!yearFilter || !pubItems.length) return;
+
+        const yearCounts = {};
+        let totalCount = 0;
+
+        pubItems.forEach(item => {
+            let year = item.getAttribute('data-year');
+            if (!year) {
+                const dateEl = item.querySelector('.dept-citation-date');
+                if (dateEl) {
+                    const match = dateEl.textContent.match(/\b(20\d\d)\b/);
+                    if (match) {
+                        year = match[1];
+                    }
+                }
+            }
+
+            if (year) {
+                item.setAttribute('data-year', year);
+                yearCounts[year] = (yearCounts[year] || 0) + 1;
+                totalCount++;
+            }
+        });
+
+        // Sort years descending (newest first: 2026, 2025, ...)
+        const sortedYears = Object.keys(yearCounts).sort((a, b) => parseInt(b, 10) - parseInt(a, 10));
+
+        // Populate options
+        yearFilter.innerHTML = '';
+        const allOption = document.createElement('option');
+        allOption.value = 'all';
+        allOption.textContent = `All Years (${totalCount})`;
+        yearFilter.appendChild(allOption);
+
+        sortedYears.forEach(year => {
+            const opt = document.createElement('option');
+            opt.value = year;
+            opt.textContent = `${year} (${yearCounts[year]})`;
+            yearFilter.appendChild(opt);
+        });
+
+        // Filter event handler
+        yearFilter.addEventListener('change', function () {
+            const selectedYear = this.value;
+            let visibleCount = 0;
+
+            pubItems.forEach(item => {
+                const itemYear = item.getAttribute('data-year');
+                if (selectedYear === 'all' || itemYear === selectedYear) {
+                    item.style.display = '';
+                    visibleCount++;
+                    // Trigger animation
+                    item.classList.remove('is-revealed');
+                    setTimeout(() => item.classList.add('is-revealed'), 30);
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            if (emptyState) {
+                emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
+            }
+
+            if (countBadge) {
+                if (selectedYear === 'all') {
+                    countBadge.innerHTML = `Showing <strong>${totalCount}</strong> publications`;
+                } else {
+                    countBadge.innerHTML = `Showing <strong>${visibleCount}</strong> of <strong>${totalCount}</strong> in <strong>${selectedYear}</strong>`;
+                }
+            }
+        });
+    }
+
+    initPublicationYearFilter();
 });
