@@ -15,15 +15,6 @@ include_once __DIR__ . '/../../includes/header.php';
     <!-- Hero header section -->
     <header class="us-hero-banner">
         <div class="us-container">
-            <!-- Breadcrumbs -->
-            <nav class="us-breadcrumb" aria-label="Breadcrumb">
-                <a href="<?= $root_path ?>">Home</a>
-                <span class="sep">/</span>
-                <a href="<?= $root_path ?>#departments">Departments</a>
-                <span class="sep">/</span>
-                <span class="active-crumb">Computer Engineering</span>
-            </nav>
-
             <!-- Two-column hero grid (7 cols left, 5 cols right) -->
             <div class="us-hero-grid">
                 <div class="us-hero-text">
