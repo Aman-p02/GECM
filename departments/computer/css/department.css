@@ -1,1866 +1,1453 @@
-/* Smooth Slow Scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
 /* ==============================================================
-   Scroll-Triggered Reveal Animation (Smooth On-Scroll Loading)
+   GECM Institutional Department Portal - Premium Design System
+   Matches Global Theme: Navy #0c3b6d | Gold #f39c12 | Slate #334155
+   Crafted with 20+ Years UI/UX Human Artistry (No AI Fluff)
    ============================================================== */
-.dept-scroll-reveal {
-    opacity: 0;
-    transform: translateY(48px);
-    transition: opacity 1.65s cubic-bezier(0.22, 1, 0.36, 1), transform 1.65s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
+
+:root {
+    --dept-primary: #0c3b6d;
+    --dept-primary-dark: #07264a;
+    --dept-primary-light: #1b5b9c;
+    --dept-accent: #f39c12;
+    --dept-accent-hover: #d68910;
+    --dept-text-title: #0f172a;
+    --dept-text-body: #334155;
+    --dept-text-muted: #64748b;
+    --dept-bg-card: #ffffff;
+    --dept-bg-subtle: #f8fafc;
+    --dept-border: #e2e8f0;
+    --dept-border-light: #f1f5f9;
+    --dept-shadow-sm: 0 1px 3px rgba(12, 59, 109, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --dept-shadow-md: 0 4px 12px rgba(12, 59, 109, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --dept-shadow-lg: 0 10px 25px rgba(12, 59, 109, 0.1), 0 4px 10px rgba(0, 0, 0, 0.04);
+    --dept-radius-sm: 6px;
+    --dept-radius-md: 10px;
+    --dept-radius-lg: 14px;
+    --dept-transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dept-scroll-reveal.is-revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Staggered delay helpers */
-.dept-scroll-reveal.reveal-delay-1 {
-    transition-delay: 0.1s;
-}
-
-.dept-scroll-reveal.reveal-delay-2 {
-    transition-delay: 0.2s;
-}
-
-.dept-scroll-reveal.reveal-delay-3 {
-    transition-delay: 0.3s;
-}
-
-/* Page Wrapper */
+/* Page Base */
 .dept-page-wrapper {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #ffffff;
-    min-height: calc(100vh - 350px);
-    padding: 30px 0 60px;
+    background-color: #f8fafc;
+    min-height: calc(100vh - 380px);
+    padding: 0 0 60px 0;
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    color: var(--dept-text-body);
 }
 
 .dept-page-wrapper .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1220px;
     padding: 0 20px;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
-/* -------------------------------------------------------------
-   Layout Grid (Desktop First)
-   minmax(0, 1fr) is critical to prevent CSS grid blowout on mobile!
-   ------------------------------------------------------------- */
+/* ==============================================================
+   1. Premium Institutional Hero Strip
+   ============================================================== */
+.dept-hero-strip {
+    background: linear-gradient(135deg, #07264a 0%, #0c3b6d 65%, #134e8d 100%);
+    color: #ffffff;
+    padding: 36px 0 34px;
+    margin-bottom: 35px;
+    border-bottom: 3px solid var(--dept-accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.dept-hero-strip::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    bottom: -60px;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(243, 156, 18, 0.09) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.dept-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.dept-breadcrumb a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dept-breadcrumb a:hover {
+    color: var(--dept-accent);
+}
+
+.dept-breadcrumb .sep {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.dept-breadcrumb .current {
+    color: var(--dept-accent);
+    font-weight: 600;
+}
+
+.dept-hero-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--dept-accent);
+    background: rgba(243, 156, 18, 0.14);
+    border: 1px solid rgba(243, 156, 18, 0.35);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.dept-hero-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 10px;
+    letter-spacing: -0.3px;
+}
+
+.dept-hero-desc {
+    font-size: 0.96rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 820px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+.dept-hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.dept-stat-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(4px);
+}
+
+.dept-stat-chip i {
+    color: var(--dept-accent);
+    font-size: 0.85rem;
+}
+
+.dept-stat-chip strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ==============================================================
+   2. Main Layout Grid (Desktop Sticky Sidebar + Content Pane)
+   ============================================================== */
 .dept-layout-grid {
     display: grid;
-    grid-template-columns: 260px minmax(0, 1fr);
-    gap: 35px;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 32px;
     align-items: start;
     width: 100%;
-    max-width: 100%;
-    min-width: 0;
     box-sizing: border-box;
 }
 
-/* -------------------------------------------------------------
-   Left Sidebar Navigation (Directly matching user screenshot)
-   ------------------------------------------------------------- */
+/* ==============================================================
+   3. Refined Department Navigation Sidebar
+   ============================================================== */
 .dept-sidebar {
-    background: transparent;
-    border: none;
-    border-radius: 0;
+    position: sticky;
+    top: 20px;
+    z-index: 40;
     width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
+}
+
+.dept-sidebar-card {
+    background: var(--dept-bg-card);
+    border-radius: var(--dept-radius-md);
+    border: 1px solid var(--dept-border);
+    box-shadow: var(--dept-shadow-sm);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+
+.dept-sidebar-card:hover {
+    box-shadow: var(--dept-shadow-md);
 }
 
 .dept-sidebar-header {
-    background: #9dc2ec;
-    /* Soft light pastel blue directly matching user's screenshot */
-    padding: 13px 18px;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #2c425a;
-    margin: 0 0 6px 0;
-    border: 1px solid #8eb7e6;
-    letter-spacing: 0.1px;
-    box-sizing: border-box;
+    background: linear-gradient(135deg, var(--dept-primary-dark) 0%, var(--dept-primary) 100%);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 2px solid var(--dept-accent);
 }
 
+.dept-sidebar-header-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dept-accent);
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.dept-sidebar-header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.dept-sidebar-subtitle {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dept-sidebar-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Navigation List */
 .dept-sidebar-menu {
     list-style: none;
     margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-}
-
-.dept-sidebar-menu li {
-    border-bottom: 1px solid #e2e8f0;
+    padding: 8px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.dept-sidebar-menu li:last-child {
-    border-bottom: none;
+.dept-menu-item {
+    margin-bottom: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dept-menu-item:last-child {
+    margin-bottom: 0;
 }
 
 .dept-nav-link {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 12px 18px;
-    font-size: 0.95rem;
+    padding: 11px 14px;
+    border-radius: var(--dept-radius-sm);
+    font-size: 0.92rem;
     font-weight: 500;
-    color: #2c3e50;
+    color: #334155;
     text-decoration: none;
-    transition: background-color 0.15s, color 0.15s;
+    transition: var(--dept-transition);
     cursor: pointer;
-    background: #ffffff;
+    background: transparent;
+    user-select: none;
     box-sizing: border-box;
+    position: relative;
 }
 
+.dept-nav-link .nav-icon-wrap {
+    width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #64748b;
+    font-size: 0.95rem;
+    transition: color 0.18s ease;
+    flex-shrink: 0;
+}
+
+.dept-nav-link .nav-label {
+    flex-grow: 1;
+    line-height: 1.35;
+}
+
+.dept-nav-link .nav-count-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 2px 7px;
+    border-radius: 12px;
+    margin-left: 8px;
+    transition: var(--dept-transition);
+}
+
+.dept-nav-link .nav-ext-badge {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-left: 8px;
+    transition: color 0.18s ease;
+}
+
+/* Hover State */
 .dept-nav-link:hover {
-    background: #f8fafc;
-    color: #1e3a8a;
+    background: #f1f5f9;
+    color: var(--dept-primary);
 }
 
-/* Active Menu Item matching screenshot (Dark slate gray #546373 with white text) */
-.dept-sidebar-menu li.active .dept-nav-link,
+.dept-nav-link:hover .nav-icon-wrap {
+    color: var(--dept-primary);
+}
+
+/* Active State (Deep Navy with Warm Amber Indicator) */
+.dept-menu-item.active .dept-nav-link,
 .dept-nav-link.active {
-    background: #546373 !important;
+    background: var(--dept-primary) !important;
     color: #ffffff !important;
-    font-weight: 500;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(12, 59, 109, 0.2);
 }
 
-.dept-sidebar-menu li.active .dept-nav-link .arrow-icon,
-.dept-nav-link.active .arrow-icon {
-    color: #ffffff !important;
+.dept-menu-item.active .dept-nav-link::before,
+.dept-nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    bottom: 6px;
+    width: 4px;
+    background: var(--dept-accent);
+    border-radius: 0 3px 3px 0;
+}
+
+.dept-menu-item.active .dept-nav-link .nav-icon-wrap,
+.dept-nav-link.active .nav-icon-wrap {
+    color: var(--dept-accent) !important;
+}
+
+.dept-menu-item.active .dept-nav-link .nav-count-badge,
+.dept-nav-link.active .nav-count-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
 }
 
 /* Accordion Dropdowns */
-.dept-sidebar-dropdown {
-    width: 100%;
-    box-sizing: border-box;
-}
-
 .dept-dropdown-header {
-    background-color: #ffffff;
-    color: #2c3e50;
-    padding: 12px 18px;
-    font-size: 0.95rem;
-    font-weight: 600; /* Bold text in screenshot */
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px;
+    border-radius: var(--dept-radius-sm);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: #334155;
     cursor: pointer;
     user-select: none;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    transition: var(--dept-transition);
     box-sizing: border-box;
 }
 
 .dept-dropdown-header:hover {
-    background-color: #f8fafc;
-    color: #1e3a8a;
+    background: #f1f5f9;
+    color: var(--dept-primary);
+}
+
+.dept-dropdown-header .dd-title-wrap {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.dept-dropdown-header .nav-icon-wrap {
+    width: 28px;
+    color: #64748b;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    transition: color 0.18s ease;
+}
+
+.dept-dropdown-header:hover .nav-icon-wrap {
+    color: var(--dept-primary);
 }
 
 .dept-dropdown-header .dropdown-arrow {
-    font-size: 0.8rem;
-    color: #64748b;
-    transition: transform 0.2s ease, color 0.15s ease;
-}
-
-.dept-dropdown-header:hover .dropdown-arrow {
-    color: #1e3a8a;
+    font-size: 0.78rem;
+    color: #94a3b8;
+    transition: transform 0.22s ease, color 0.18s ease;
+    margin-left: 8px;
 }
 
 .dept-sidebar-dropdown.open .dept-dropdown-header .dropdown-arrow {
     transform: rotate(90deg);
+    color: var(--dept-primary);
+}
+
+.dept-sidebar-dropdown.open .dept-dropdown-header {
+    background: #f8fafc;
+    color: var(--dept-primary);
+    font-weight: 600;
+}
+
+/* Sub-Menu */
+.dept-sub-menu {
+    list-style: none;
+    margin: 4px 0 6px;
+    padding: 4px 0 4px 18px;
+    border-left: 2px solid var(--dept-border);
+    margin-left: 20px;
+    box-sizing: border-box;
 }
 
 .dept-sidebar-dropdown.closed .dept-sub-menu {
     display: none !important;
 }
 
-.dept-sidebar-dropdown.closed .dept-dropdown-header .dropdown-arrow {
-    transform: rotate(0deg) !important;
-}
-
-.dept-sub-menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.dept-sub-menu li {
-    border-bottom: 1px solid #edf2f7 !important;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.dept-sub-menu li:last-child {
-    border-bottom: none !important;
+.dept-sidebar-dropdown.open .dept-sub-menu {
+    display: block;
 }
 
 .dept-sub-link {
-    display: block;
-    padding: 10px 18px 10px 28px;
-    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
     font-weight: 500;
     color: #475569;
     text-decoration: none;
-    background: transparent;
-    transition: background-color 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+    border-radius: var(--dept-radius-sm);
+    transition: var(--dept-transition);
     cursor: pointer;
-    box-sizing: border-box;
+}
+
+.dept-sub-link .sub-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    transition: background-color 0.18s ease, transform 0.18s ease;
+    flex-shrink: 0;
 }
 
 .dept-sub-link:hover {
-    background-color: #edf2f7;
-    color: #0c3b6d;
-    padding-left: 32px;
+    background: #f1f5f9;
+    color: var(--dept-primary);
+}
+
+.dept-sub-link:hover .sub-dot {
+    background: var(--dept-accent);
+    transform: scale(1.3);
 }
 
 .dept-sub-link.active {
-    background-color: #e2e8f0;
-    color: #0f172a;
+    background: #e2e8f0;
+    color: var(--dept-primary-dark);
     font-weight: 600;
 }
 
-/* -------------------------------------------------------------
-   Right Content Pane
-   min-width: 0 is essential so wide tables do not stretch this panel!
-   ------------------------------------------------------------- */
+.dept-sub-link.active .sub-dot {
+    background: var(--dept-primary);
+    transform: scale(1.3);
+}
+
+/* ==============================================================
+   4. Right Content Panel Area
+   ============================================================== */
 .dept-content-panel {
-    background: #ffffff;
-    min-height: 550px;
+    background: var(--dept-bg-card);
+    border-radius: var(--dept-radius-md);
+    border: 1px solid var(--dept-border);
+    box-shadow: var(--dept-shadow-sm);
+    padding: 32px 36px 40px;
+    min-height: 600px;
     min-width: 0;
-    max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-}
-
-/* Top Breadcrumb & Section Header Row (No artificial box/border) */
-.dept-top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 0 0 16px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.dept-page-title {
-    font-size: 1.35rem;
-    font-weight: 500;
-    color: #2b3a4a;
-    margin: 0;
-}
-
-.dept-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.88rem;
-    color: #666666;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    flex-wrap: wrap;
-    max-width: 100%;
-    word-break: break-word;
-}
-
-.dept-breadcrumb li {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    word-break: break-word;
-}
-
-.dept-breadcrumb a {
-    color: #0288d1;
-    text-decoration: none;
-    transition: color 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.dept-breadcrumb a:hover {
-    color: #01579b;
-    text-decoration: underline;
-}
-
-.dept-breadcrumb .separator {
-    color: #999999;
-}
-
-.dept-breadcrumb .active-crumb {
-    color: #0288d1;
-    font-weight: 500;
-    word-break: break-word;
 }
 
 /* Tab Panes */
 .dept-tab-content {
     display: none;
     width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
+    animation: deptFadeIn 0.25s ease-out;
 }
 
 .dept-tab-content.active {
     display: block;
 }
 
-/* Centered Divider Heading with side lines matching screenshot */
-.dept-divider-title {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 28px 0 20px;
-    color: #2b3a4a;
-    font-size: 1.45rem;
-    font-weight: 500;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.dept-divider-title:first-child {
-    margin-top: 5px;
-}
-
-.dept-divider-title::before,
-.dept-divider-title::after {
-    content: '';
-    flex: 1 1 0%;
-    min-width: 10px;
-    border-bottom: 1px solid #dcdcdc;
-}
-
-.dept-divider-title:not(:empty)::before {
-    margin-right: 20px;
-}
-
-.dept-divider-title:not(:empty)::after {
-    margin-left: 20px;
-}
-
-/* Standard Paragraphs matching screenshot (Justified & Even on both sides) */
-.dept-text-body {
-    font-size: 0.95rem;
-    color: #111827;
-    line-height: 1.75;
-    margin-bottom: 16px;
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: manual;
-    -webkit-hyphens: manual;
-    word-break: normal;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    box-sizing: border-box;
-}
-
-#tab-about .dept-text-body {
-    color: #111827;
-}
-
-/* -------------------------------------------------------------
-   Blue Header Table (Under Graduate / Post Graduate Courses)
-   Directly matching screenshot media_1792591958871.png
-   ------------------------------------------------------------- */
-.courses-card {
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 26px 0 30px;
-    background: #ffffff;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.courses-card-header {
-    background: #f1f5f9;
-    /* Off-white table card heading */
-    color: #0f172a;
-    padding: 12px 18px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-sizing: border-box;
-    border-bottom: 1px solid #cbd5e1;
-}
-
-.courses-card-header i {
-    color: #0f172a;
-    font-size: 1rem;
-}
-
-.courses-table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    background: #ffffff;
-    width: 100%;
-    max-width: 100%;
-    display: block;
-    box-sizing: border-box;
-}
-
-.courses-table {
-    width: 100%;
-    min-width: 480px;
-    border-collapse: collapse;
-    font-size: 0.92rem;
-    margin: 0;
-}
-
-.courses-table th,
-.courses-table td {
-    padding: 11px 16px;
-    border: 1px solid #e0e0e0;
-}
-
-.courses-table th {
-    background: #ffffff;
-    color: #222222;
-    font-weight: 600;
-    text-align: center;
-}
-
-.courses-table th:first-child,
-.courses-table td:first-child {
-    text-align: left;
-}
-
-.courses-table td {
-    text-align: center;
-    color: #333333;
-}
-
-.peo-intro-banner,
-.peo-card-intro {
-    background: #ffffff;
-    text-align: center;
-    padding: 11px 18px;
-    font-size: 0.94rem;
-    color: #333333;
-    font-weight: 500;
-    border-bottom: 1px solid #e0e0e0;
-    box-sizing: border-box;
-}
-
-.peo-code-cell {
-    width: 85px;
-    min-width: 75px;
-    font-weight: 600 !important;
-    color: #222222 !important;
-    background: #ffffff !important;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
-/* -------------------------------------------------------------
-   Facilities 2-Column List directly matching screenshot
-   ------------------------------------------------------------- */
-.dept-facilities-dual-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 35px;
-    margin: 20px 0 35px;
-    padding-left: 35px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.facility-items-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.facility-items-list li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.94rem;
-    color: #4a4a4a;
-    padding: 7px 0;
-    line-height: 1.5;
-    word-break: break-word;
-}
-
-.facility-items-list li i {
-    color: #1e88e5;
-    /* Bright blue circular chevron right from screenshot */
-    font-size: 1.05rem;
-    flex-shrink: 0;
-}
-
-/* -------------------------------------------------------------
-   Vision & Mission Tab matching screenshot media_1792588855857.png
-   ------------------------------------------------------------- */
-.vision-text-block,
-.vision-quote-box {
-    font-size: 0.95rem;
-    color: #111827;
-    line-height: 1.75;
-    background-color: #ffffff;
-    border: none;
-    border-left: none;
-    padding: 0;
-    margin: 15px 0 30px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    text-align: justify;
-    text-justify: inter-word;
-    word-break: break-word;
-}
-
-.mission-bullet-list {
-    list-style: disc;
-    padding-left: 28px;
-    margin: 15px 0 35px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.mission-bullet-list li {
-    font-size: 0.94rem;
-    color: #111827;
-    line-height: 1.75;
-    margin-bottom: 8px;
-    text-align: justify;
-    text-justify: inter-word;
-    word-break: break-word;
-}
-
-/* PEOs & PSOs Cards matching user screenshot */
-.peo-card {
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 25px 0 30px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    background: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.peo-card-header {
-    background: #f1f5f9;
-    /* Off-white table card heading */
-    color: #0f172a;
-    padding: 12px 18px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-sizing: border-box;
-    border-bottom: 1px solid #cbd5e1;
-}
-
-.peo-card-header i {
-    color: #0f172a;
-}
-
-.peo-card-intro {
-    background: #ffffff;
-    text-align: center;
-    padding: 11px 18px;
-    font-size: 0.94rem;
-    color: #333333;
-    font-weight: 500;
-    border-bottom: 1px solid #e0e0e0;
-    box-sizing: border-box;
-}
-
-.peo-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0;
-}
-
-.peo-table td {
-    padding: 11px 16px;
-    border: 1px solid #e0e0e0;
-    font-size: 0.92rem;
-    line-height: 1.6;
-    color: #333333;
-    text-align: left;
-}
-
-.peo-table td.peo-label {
-    width: 85px;
-    min-width: 75px;
-    font-weight: 600;
-    color: #222222;
-    background: #ffffff;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
-/* -------------------------------------------------------------
-   Faculty, Labs & Other Academic Sections
-   ------------------------------------------------------------- */
-.faculty-simple-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.faculty-simple-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    padding: 20px 16px;
-    text-align: center;
-    background: #ffffff;
-    transition: box-shadow 0.2s, border-color 0.2s;
-    word-break: break-word;
-    box-sizing: border-box;
-}
-
-.faculty-simple-card:hover {
-    border-color: #0c3b6d;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.faculty-avatar-box {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin: 0 auto 12px;
-    background: #f0f4f8;
-    color: #0c3b6d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    border: 2px solid #e0e8f0;
-}
-
-.faculty-simple-card h5 {
-    font-size: 0.98rem;
-    font-weight: 600;
-    color: #0c3b6d;
-    margin: 0 0 4px 0;
-}
-
-.faculty-simple-card .desig {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #f39c12;
-    margin: 0 0 6px 0;
-}
-
-.faculty-simple-card .qual {
-    font-size: 0.82rem;
-    color: #666;
-    margin: 0 0 6px 0;
-}
-
-.faculty-simple-card .email {
-    font-size: 0.82rem;
-    color: #444;
-    word-break: break-all;
-}
-
-/* Simple Labs Grid */
-.labs-simple-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 16px;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.lab-simple-item {
-    border: 1px solid #e2e8f0;
-    border-radius: 2px;
-    padding: 16px;
-    background: #fafbfc;
-    word-break: break-word;
-    box-sizing: border-box;
-}
-
-.lab-simple-item h5 {
-    color: #0c3b6d;
-    font-size: 0.95rem;
-    margin: 0 0 6px 0;
-    font-weight: 600;
-}
-
-.lab-simple-item p {
-    font-size: 0.88rem;
-    color: #555;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Action Button */
-.btn-action-simple {
-    display: inline-block;
-    padding: 5px 12px;
-    background-color: #0c3b6d;
-    color: #ffffff;
-    font-size: 0.82rem;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: background-color 0.2s;
-    white-space: nowrap;
-}
-
-.btn-action-simple:hover {
-    background-color: #f39c12;
-    color: #ffffff;
-}
-
-/* -------------------------------------------------------------
-   Facilities: Modern Minimal UI & Segmented Controls
-   ------------------------------------------------------------- */
-.facility-tabs-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 15px 0 28px 0;
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 14px;
-}
-
-.facility-segmented-tabs {
-    display: inline-flex;
-    background: #f1f5f9;
-    padding: 4px;
-    border-radius: 8px;
-    gap: 3px;
-    border: 1px solid #e2e8f0;
-    max-width: 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-}
-
-.facility-segmented-tabs::-webkit-scrollbar {
-    display: none;
-}
-
-.facility-tab-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 16px;
-    border: none;
-    background: transparent;
-    color: #64748b;
-    font-size: 0.90rem;
-    font-weight: 500;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    outline: none;
-    white-space: nowrap;
-}
-
-.facility-tab-btn:hover {
-    color: #0f172a;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.facility-tab-btn.active {
-    background: #ffffff;
-    color: #0f172a;
-    font-weight: 600;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-}
-
-.tab-count-badge {
-    display: inline-block;
-    padding: 1px 6px;
-    border-radius: 9999px;
-    font-size: 0.72rem;
-    background: #e2e8f0;
-    color: #475569;
-    font-weight: 600;
-    transition: all 0.2s;
-}
-
-.facility-tab-btn.active .tab-count-badge {
-    background: #e0f2fe;
-    color: #0369a1;
-}
-
-.facility-pane {
-    display: none;
-    animation: fadeInSubtab 0.2s ease-in-out;
-}
-
-.facility-pane.active {
-    display: block;
-}
-
-@keyframes fadeInSubtab {
+@keyframes deptFadeIn {
     from {
         opacity: 0;
-        transform: translateY(3px);
+        transform: translateY(6px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.facility-lead-intro {
-    font-size: 0.94rem;
-    line-height: 1.75;
-    color: #475569;
-    margin: 0 0 28px 0;
-    text-align: justify;
-    text-justify: inter-word;
+/* Section Header Bar */
+.dept-section-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--dept-border-light);
+    position: relative;
 }
 
-/* Modern Minimal Lab Cards */
+.dept-section-header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 48px;
+    height: 3px;
+    background: var(--dept-accent);
+    border-radius: 2px;
+}
+
+.dept-section-tag {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: var(--dept-accent-hover);
+    margin-bottom: 4px;
+    display: block;
+}
+
+.dept-section-title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--dept-primary-dark);
+    margin: 0;
+    line-height: 1.25;
+}
+
+/* Content Body Typography */
+.dept-text-body {
+    font-size: 0.96rem;
+    color: #334155;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.dept-lead-text {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #1e293b;
+    line-height: 1.75;
+    margin-bottom: 20px;
+    background: #f8fafc;
+    border-left: 4px solid var(--dept-primary);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+}
+
+/* ==============================================================
+   5. Key Highlights Grid (About Tab)
+   ============================================================== */
+.dept-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 26px 0 32px;
+}
+
+.dept-highlight-card {
+    background: #f8fafc;
+    border: 1px solid var(--dept-border);
+    border-radius: var(--dept-radius-sm);
+    padding: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: var(--dept-transition);
+}
+
+.dept-highlight-card:hover {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: var(--dept-shadow-sm);
+    transform: translateY(-2px);
+}
+
+.dept-highlight-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(12, 59, 109, 0.08);
+    color: var(--dept-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.dept-highlight-body h4 {
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: var(--dept-primary-dark);
+    margin: 0 0 4px;
+}
+
+.dept-highlight-body p {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ==============================================================
+   6. Structured Program & Intake Table (About Tab)
+   ============================================================== */
+.courses-card {
+    border: 1px solid var(--dept-border);
+    border-radius: var(--dept-radius-md);
+    overflow: hidden;
+    margin: 30px 0;
+    background: #ffffff;
+    box-shadow: var(--dept-shadow-sm);
+}
+
+.courses-card-header {
+    background: linear-gradient(135deg, var(--dept-primary-dark) 0%, var(--dept-primary) 100%);
+    color: #ffffff;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.courses-card-header i {
+    color: var(--dept-accent);
+}
+
+.courses-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    text-align: left;
+}
+
+.courses-table th {
+    background: #f1f5f9;
+    color: var(--dept-primary-dark);
+    font-weight: 600;
+    padding: 12px 18px;
+    border-bottom: 2px solid var(--dept-border);
+    white-space: nowrap;
+}
+
+.courses-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--dept-border-light);
+    color: #334155;
+}
+
+.courses-table tr:last-child td {
+    border-bottom: none;
+}
+
+.courses-table tr:hover td {
+    background: #f8fafc;
+}
+
+.dept-badge-pill {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.dept-badge-ug {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.dept-badge-pg {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+/* ==============================================================
+   7. Vision & Mission Cards
+   ============================================================== */
+.vision-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 35px;
+}
+
+.vm-card {
+    background: #ffffff;
+    border: 1px solid var(--dept-border);
+    border-radius: var(--dept-radius-md);
+    padding: 24px 26px;
+    position: relative;
+    box-shadow: var(--dept-shadow-sm);
+    transition: var(--dept-transition);
+}
+
+.vm-card:hover {
+    box-shadow: var(--dept-shadow-md);
+    border-color: #cbd5e1;
+}
+
+.vm-card-vision {
+    border-left: 5px solid var(--dept-accent);
+    background: linear-gradient(to right, rgba(243, 156, 18, 0.03), transparent);
+}
+
+.vm-card-mission {
+    border-left: 5px solid var(--dept-primary);
+    background: linear-gradient(to right, rgba(12, 59, 109, 0.02), transparent);
+}
+
+.vm-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.vm-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.vm-card-vision .vm-icon-box {
+    background: rgba(243, 156, 18, 0.15);
+    color: var(--dept-accent-hover);
+}
+
+.vm-card-mission .vm-icon-box {
+    background: rgba(12, 59, 109, 0.1);
+    color: var(--dept-primary);
+}
+
+.vm-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dept-primary-dark);
+    margin: 0;
+}
+
+.vm-text {
+    font-size: 0.96rem;
+    color: #334155;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Mission Numbered List */
+.mission-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mission-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color: #334155;
+}
+
+.mission-tag {
+    background: var(--dept-primary);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    letter-spacing: 0.5px;
+}
+
+/* PEO & PSO Objectives Cards */
+.peo-card {
+    border: 1px solid var(--dept-border);
+    border-radius: var(--dept-radius-md);
+    overflow: hidden;
+    margin-bottom: 24px;
+    background: #ffffff;
+    box-shadow: var(--dept-shadow-sm);
+}
+
+.peo-card-header {
+    background: #f8fafc;
+    border-bottom: 1px solid var(--dept-border);
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dept-primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.peo-card-header i {
+    color: var(--dept-primary);
+}
+
+.peo-card-intro {
+    padding: 12px 20px 4px;
+    font-size: 0.88rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+.peo-table td {
+    padding: 12px 18px;
+    vertical-align: top;
+    line-height: 1.65;
+}
+
+.peo-label {
+    width: 80px;
+    font-weight: 700;
+    color: var(--dept-primary);
+    white-space: nowrap;
+}
+
+/* ==============================================================
+   8. Faculty Directory Grid
+   ============================================================== */
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.faculty-card {
+    background: #ffffff;
+    border: 1px solid var(--dept-border);
+    border-radius: var(--dept-radius-md);
+    padding: 22px 18px;
+    text-align: center;
+    box-shadow: var(--dept-shadow-sm);
+    transition: var(--dept-transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faculty-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: var(--dept-shadow-md);
+    transform: translateY(-3px);
+}
+
+.faculty-avatar-box {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: var(--dept-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 14px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.faculty-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dept-primary-dark);
+    margin: 0 0 5px;
+    line-height: 1.3;
+}
+
+.faculty-desig-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--dept-primary);
+    background: rgba(12, 59, 109, 0.08);
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.faculty-qual {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    flex-grow: 1;
+}
+
+.faculty-email-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #475569;
+    background: #f8fafc;
+    border: 1px solid var(--dept-border);
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--dept-transition);
+    word-break: break-all;
+}
+
+.faculty-email-btn:hover {
+    background: var(--dept-primary);
+    color: #ffffff;
+    border-color: var(--dept-primary);
+}
+
+/* ==============================================================
+   9. Facilities & Labs Showcase
+   ============================================================== */
+.facility-tabs-container {
+    margin-bottom: 24px;
+}
+
+.facility-segmented-tabs {
+    display: inline-flex;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: var(--dept-radius-sm);
+    gap: 4px;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.facility-tab-btn {
+    border: none;
+    background: transparent;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #475569;
+    cursor: pointer;
+    transition: var(--dept-transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.facility-tab-btn:hover {
+    color: var(--dept-primary);
+}
+
+.facility-tab-btn.active {
+    background: #ffffff;
+    color: var(--dept-primary);
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.tab-count-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(12, 59, 109, 0.09);
+    color: var(--dept-primary);
+    padding: 1px 6px;
+    border-radius: 10px;
+}
+
+.facility-pane {
+    display: none;
+}
+
+.facility-pane.active {
+    display: block;
+    animation: deptFadeIn 0.25s ease-out;
+}
+
 .modern-labs-stack {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 26px;
+    margin-top: 20px;
 }
 
 .modern-lab-card {
     display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    gap: 30px;
-    align-items: center;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 24px;
     background: #ffffff;
-    border: 1px solid #f1f5f9;
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    box-sizing: border-box;
+    border: 1px solid var(--dept-border);
+    border-radius: var(--dept-radius-md);
+    overflow: hidden;
+    box-shadow: var(--dept-shadow-sm);
+    transition: var(--dept-transition);
 }
 
 .modern-lab-card:hover {
-    border-color: #e2e8f0;
-    box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.07), 0 4px 10px -4px rgba(0, 0, 0, 0.03);
+    border-color: #cbd5e1;
+    box-shadow: var(--dept-shadow-md);
     transform: translateY(-2px);
 }
 
-.modern-lab-card-reverse {
-    grid-template-columns: 1fr 1.25fr;
-}
-
-.modern-lab-card-reverse .modern-photo-wrap {
-    order: 2;
-}
-
-.modern-lab-card-reverse .modern-lab-body {
-    order: 1;
-}
-
 .modern-photo-wrap {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    aspect-ratio: 4 / 3;
     width: 100%;
-    min-height: 270px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    min-height: 180px;
+    background: #f1f5f9;
+    position: relative;
+    overflow: hidden;
 }
 
-.modern-photo-img,
-.modern-photo-wrap img {
+.modern-photo-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
-    will-change: transform;
+    transition: transform 0.3s ease;
 }
 
-.modern-photo-wrap:hover .modern-photo-img,
-.modern-photo-wrap:hover img,
-.modern-lab-card:hover .modern-photo-img,
-.modern-lab-card:hover .modern-photo-wrap img {
-    transform: scale(1.04);
+.modern-lab-card:hover .modern-photo-img {
+    transform: scale(1.03);
 }
 
-.modern-photo-placeholder {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: #f8fafc;
-    border: 1px dashed #cbd5e1;
-    border-radius: 8px;
+.modern-lab-body {
+    padding: 22px 24px 22px 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    color: #64748b;
-    font-size: 0.92rem;
-    letter-spacing: 0.3px;
-    box-sizing: border-box;
-    z-index: 1;
 }
 
 .modern-room-pill {
     display: inline-block;
-    font-size: 0.74rem;
+    align-self: flex-start;
+    font-size: 0.72rem;
     font-weight: 700;
-    color: #1e293b;
-    background: #f1f5f9;
-    border: 1px solid #cbd5e1;
-    padding: 2px 8px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--dept-accent-hover);
+    background: rgba(243, 156, 18, 0.12);
+    padding: 3px 9px;
     border-radius: 4px;
     margin-bottom: 8px;
-    letter-spacing: 0.3px;
 }
 
 .modern-lab-title {
     font-size: 1.25rem;
-    font-weight: 600;
-    color: #0f172a;
-    margin: 0 0 10px 0;
-    letter-spacing: -0.015em;
-    transition: color 0.2s ease;
-}
-
-.modern-lab-card:hover .modern-lab-title {
-    color: #0c3b6d;
+    font-weight: 700;
+    color: var(--dept-primary-dark);
+    margin: 0 0 10px;
 }
 
 .modern-lab-text {
-    font-size: 0.93rem;
-    line-height: 1.72;
+    font-size: 0.92rem;
     color: #475569;
+    line-height: 1.65;
     margin: 0;
-    text-align: justify;
-    text-justify: inter-word;
 }
 
-.modern-lab-location {
-    margin-top: 14px;
-    font-size: 0.90rem;
-    color: #334155;
-    font-weight: 500;
+/* ==============================================================
+   10. Activities Grid
+   ============================================================== */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
 }
 
-.modern-lab-location strong {
-    color: #0f172a;
+.activity-card {
+    background: #ffffff;
+    border: 1px solid var(--dept-border);
+    border-radius: var(--dept-radius-md);
+    padding: 22px;
+    box-shadow: var(--dept-shadow-sm);
+    transition: var(--dept-transition);
+}
+
+.activity-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: var(--dept-shadow-md);
+    transform: translateY(-2px);
+}
+
+.activity-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(12, 59, 109, 0.08);
+    color: var(--dept-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+}
+
+.activity-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dept-primary-dark);
+    margin: 0 0 8px;
+}
+
+.activity-card p {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==============================================================
+   11. Publications List
+   ============================================================== */
+.publications-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.publication-item {
+    background: #ffffff;
+    border: 1px solid var(--dept-border);
+    border-radius: var(--dept-radius-sm);
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transition: var(--dept-transition);
+}
+
+.publication-item:hover {
+    border-color: #cbd5e1;
+    box-shadow: var(--dept-shadow-sm);
+}
+
+.pub-year-badge {
+    background: var(--dept-primary);
+    color: #ffffff;
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 4px 9px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.pub-content {
+    flex-grow: 1;
+}
+
+.pub-title {
+    font-size: 0.96rem;
     font-weight: 600;
+    color: var(--dept-primary-dark);
+    margin: 0 0 5px;
+    line-height: 1.45;
 }
 
-/* =============================================================
-   RESPONSIVE DESIGN BREAKPOINTS
-   ============================================================= */
-
-/* Medium Devices (901px - 1050px) */
-@media (max-width: 1050px) {
-    .dept-layout-grid {
-        grid-template-columns: 220px minmax(0, 1fr);
-        gap: 25px;
-    }
-
-    .dept-facilities-dual-grid {
-        padding-left: 15px;
-        gap: 8px 20px;
-    }
+.pub-authors {
+    font-size: 0.84rem;
+    color: #475569;
+    margin: 0 0 3px;
 }
 
-/* Tablets & Mobile (<= 900px) */
-@media (max-width: 900px) {
-    .dept-page-wrapper {
-        padding: 15px 0 45px;
+.pub-journal {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-style: italic;
+    margin: 0;
+}
+
+/* ==============================================================
+   12. Industry Advisory Board & Newsletters Cards
+   ============================================================== */
+.iab-member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.iab-card {
+    background: #ffffff;
+    border: 1px solid var(--dept-border);
+    border-radius: var(--dept-radius-sm);
+    padding: 18px;
+    box-shadow: var(--dept-shadow-sm);
+    border-top: 3px solid var(--dept-primary);
+}
+
+.iab-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dept-primary-dark);
+    margin: 0 0 4px;
+}
+
+.iab-card .iab-org {
+    font-size: 0.84rem;
+    color: var(--dept-accent-hover);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.iab-card .iab-role {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.newsletter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 22px;
+}
+
+.newsletter-card {
+    background: #ffffff;
+    border: 1px solid var(--dept-border);
+    border-radius: var(--dept-radius-md);
+    padding: 22px;
+    box-shadow: var(--dept-shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--dept-transition);
+}
+
+.newsletter-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: var(--dept-shadow-md);
+    transform: translateY(-2px);
+}
+
+.nl-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.nl-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(243, 156, 18, 0.12);
+    color: var(--dept-accent-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.nl-card-top h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dept-primary-dark);
+    margin: 0 0 4px;
+}
+
+.nl-card-top p {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.nl-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--dept-primary);
+    color: #ffffff;
+    padding: 9px 16px;
+    border-radius: var(--dept-radius-sm);
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--dept-transition);
+}
+
+.nl-download-btn:hover {
+    background: var(--dept-primary-dark);
+    color: #ffffff;
+}
+
+/* ==============================================================
+   13. Responsive Cross-Device Breakpoints
+   ============================================================== */
+@media (max-width: 992px) {
+    .dept-hero-title {
+        font-size: 1.85rem;
     }
 
-    .dept-page-wrapper .container {
-        padding: 0 15px;
-    }
-
-    /* Stack into 1 column */
     .dept-layout-grid {
         grid-template-columns: 100%;
-        gap: 15px;
+        gap: 20px;
     }
 
-    /* Mobile Sidebar as Horizontal Scrollable Bar */
+    /* Mobile Sticky Pill Navigation Bar */
     .dept-sidebar {
-        border-radius: 4px;
-        border: 1px solid #d2dbe5;
-        margin-bottom: 5px;
         position: sticky;
         top: 0;
-        z-index: 95;
+        z-index: 100;
         background: #ffffff;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        width: 100%;
+        border-radius: var(--dept-radius-sm);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--dept-border);
     }
 
     .dept-sidebar-header {
-        padding: 9px 14px;
-        font-size: 0.92rem;
-        background: #9dc2ec;
-        color: #2c425a;
-        border-bottom: 1px solid #0f172a;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .dept-sidebar-header::after {
-        content: '\f078';
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 900;
-        font-size: 0.75rem;
-        color: #2c425a;
-        opacity: 0.9;
+        display: none; /* Hide header block to save vertical mobile space */
     }
 
     .dept-sidebar-menu {
         display: flex;
         overflow-x: auto;
         white-space: nowrap;
-        background: #ffffff;
         padding: 8px 10px;
-        gap: 8px;
+        gap: 6px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        /* Firefox */
-        width: 100%;
     }
 
     .dept-sidebar-menu::-webkit-scrollbar {
         display: none;
-        /* Chrome, Safari, Opera */
     }
 
-    .dept-sidebar-menu li {
+    .dept-menu-item {
         flex: 0 0 auto;
-        border-bottom: none;
+        margin-bottom: 0;
         width: auto;
     }
 
     .dept-nav-link {
-        padding: 7px 14px;
+        padding: 8px 14px;
         border-radius: 20px;
-        border: 1px solid #d9e2ec;
-        font-size: 0.86rem;
-        background: #f8fafc;
-        color: #334e68;
-        white-space: nowrap;
+        background: #f1f5f9;
+        font-size: 0.85rem;
+        border: 1px solid var(--dept-border);
     }
 
-    .dept-nav-link:hover {
-        background: #eef2f7;
+    .dept-nav-link .nav-icon-wrap {
+        width: auto;
+        margin-right: 6px;
     }
 
-    .dept-sidebar-menu li.active .dept-nav-link,
-    .dept-nav-link.active {
-        background: #546373 !important; color: #ffffff !important; border-color: #546373 !important;
-        font-weight: 700;
-    }
-
-    .dept-nav-link .arrow-icon {
+    .dept-menu-item.active .dept-nav-link::before,
+    .dept-nav-link.active::before {
         display: none;
     }
 
-    /* Content Area on Mobile */
-    .dept-content-panel {
-        min-height: auto;
-        width: 100%;
-        max-width: 100%;
+    .dept-menu-item.active .dept-nav-link,
+    .dept-nav-link.active {
+        background: var(--dept-primary) !important;
+        color: #ffffff !important;
+        border-color: var(--dept-primary) !important;
     }
 
-    .dept-top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        padding-bottom: 12px;
-        margin-bottom: 14px;
-        border-bottom: 1px solid #eceff1;
-    }
-
-    .dept-page-title {
-        font-size: 1.25rem;
-    }
-
-    .dept-breadcrumb {
-        font-size: 0.82rem;
-        line-height: 1.5;
-    }
-
-    .dept-text-body {
-        font-size: 0.93rem;
-        line-height: 1.7;
-        text-align: justify;
-        text-justify: inter-word;
-        hyphens: manual;
-        -webkit-hyphens: manual;
-    }
-
-    /* Facilities Single Column on Tablets & Mobile */
-    .dept-facilities-dual-grid {
-        grid-template-columns: 1fr;
-        padding-left: 0;
-        gap: 2px;
-        margin: 15px 0 25px;
-    }
-
-    .facility-items-list li {
-        align-items: flex-start;
-        padding: 6px 0;
-    }
-
-    .facility-items-list li i {
-        margin-top: 3px;
-    }
-
-    /* Labs on Mobile */
-    .labs-simple-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 12px;
-    }
-
-    .faculty-simple-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-    }
-
-    /* Courses Table */
-    .courses-card {
-        margin: 20px 0;
-    }
-}
-
-/* Small Mobile Screens (<= 540px) */
-@media (max-width: 540px) {
-    .dept-page-wrapper {
-        padding: 10px 0 35px;
-    }
-
-    .dept-page-wrapper .container {
-        padding: 0 12px;
-    }
-
-    .dept-divider-title {
-        font-size: 1.15rem;
-        margin: 18px 0 12px;
-    }
-
-    .dept-divider-title:not(:empty)::before {
-        margin-right: 10px;
-    }
-
-    .dept-divider-title:not(:empty)::after {
-        margin-left: 10px;
-    }
-
-    .dept-text-body {
-        font-size: 0.91rem;
-        line-height: 1.68;
-        text-align: justify;
-        text-justify: inter-word;
-        hyphens: manual;
-        -webkit-hyphens: manual;
-        margin-bottom: 14px;
-    }
-
-    .courses-card-header,
-    .peo-card-header {
-        font-size: 0.92rem;
-        padding: 8px 12px;
-    }
-
-    .courses-table th,
-    .courses-table td {
-        padding: 8px 10px;
-        font-size: 0.82rem;
-    }
-
-    .peo-card-body {
-        padding: 14px;
-    }
-
-    .vision-text-block,
-    .vision-quote-box {
-        font-size: 0.91rem;
-        padding: 0;
-        line-height: 1.68;
-        margin: 12px 0 22px;
-        text-align: justify;
-        text-justify: inter-word;
-        background-color: #ffffff;
-        border: none;
-        border-left: none;
-    }
-
-    .mission-bullet-list {
-        margin: 12px 0 25px;
-    }
-
-    .mission-bullet-list li {
-        padding: 6px 0 6px 20px;
-        font-size: 0.88rem;
-    }
-
-    .mission-bullet-list li::before {
-        left: 4px;
-    }
-
-    .faculty-simple-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .faculty-simple-card {
-        padding: 16px 12px;
-    }
-
-    .faculty-simple-card .email {
-        font-size: 0.78rem;
-    }
-
-    .labs-simple-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Modern Minimal Facilities on Mobile */
-    .facility-tabs-container {
-        overflow-x: auto;
-        padding-bottom: 8px;
-    }
-
-    .modern-lab-card,
-    .modern-lab-card-reverse {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 16px;
-    }
-
-    .modern-lab-card-reverse .modern-photo-wrap {
-        order: 1;
-    }
-
-    .modern-lab-card-reverse .modern-lab-body {
-        order: 2;
-    }
-
-    .facility-tab-btn {
-        padding: 6px 12px;
-        font-size: 0.84rem;
-    }
-}
-
-/* ==============================================================
-   Publications Cards UI (Authentic Institutional Style)
-   Directly matching user screenshot with blue border accent
-   ============================================================== */
-.publications-header-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin: 18px 0 24px;
-}
-
-.publications-filter-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    flex: 1 1 340px;
-}
-
-.publications-year-select-box {
-    position: relative;
-    flex: 0 0 auto;
-    min-width: 165px;
-}
-
-.publications-year-select-box select {
-    width: 100%;
-    padding: 9px 34px 9px 36px;
-    border: 1px solid #dcdcdc;
-    border-radius: 4px;
-    font-size: 0.90rem;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    background: #ffffff;
-    box-sizing: border-box;
-    color: #1e293b;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
-.publications-year-select-box select:focus {
-    border-color: #0288d1;
-    box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.12);
-}
-
-.publications-year-select-box .select-calendar-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #0288d1;
-    font-size: 0.88rem;
-    pointer-events: none;
-}
-
-.publications-year-select-box .select-chevron-icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #8c9ba5;
-    font-size: 0.76rem;
-    pointer-events: none;
-}
-
-.publications-count-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.86rem;
-    color: #475569;
-    font-weight: 600;
-    background: #f1f5f9;
-    padding: 6px 14px;
-    border-radius: 4px;
-    border: 1px solid #e2e8f0;
-}
-
-.publications-list-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 10px;
-}
-
-.publication-card {
-    background: #ffffff;
-    border: 1px solid #eef2f6;
-    border-left: 3.5px solid #0288d1;
-    /* Clean blue accent bar directly matching screenshot */
-    border-radius: 0 4px 4px 0;
-    padding: 18px 22px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
-    box-sizing: border-box;
-}
-
-.publication-card:hover {
-    transform: translateX(4px);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-    border-left-color: #0c3b6d;
-}
-
-.publication-card:hover .publication-title {
-    color: #0288d1;
-}
-
-.publication-title {
-    font-size: 0.98rem;
-    font-weight: 600;
-    color: #1e293b;
-    line-height: 1.5;
-    margin-bottom: 12px;
-    text-align: left;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    transition: color 0.2s ease;
-}
-
-.publication-meta-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 0.87rem;
-    color: #475569;
-}
-
-.publication-authors {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    flex: 1 1 auto;
-    font-weight: 500;
-    color: #334155;
-    line-height: 1.45;
-}
-
-.publication-authors i {
-    color: #475569;
-    margin-top: 3px;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-}
-
-.publication-date {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    color: #475569;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-.publication-date i {
-    color: #64748b;
-    font-size: 0.9rem;
-}
-
-/* ==============================================================
-   Document / Advisory Board & Newsletters Accordion UI
-   Directly matching user screenshot with slate-blue header & direct PDF links
-   ============================================================== */
-.dept-doc-accordion-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 22px 0 35px;
-    width: 100%;
-    max-width: 720px;
-}
-
-.dept-doc-accordion {
-    border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid #cbd5e1;
-    background: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.dept-doc-accordion-header {
-    width: 100%;
-    background-color: #f1f5f9;
-    color: #0f172a;
-    padding: 13px 20px;
-    border: none;
-    border-bottom: 1px solid #cbd5e1;
-    outline: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.02rem;
-    font-weight: 700;
-    font-family: inherit;
-    cursor: pointer;
-    text-align: left;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.dept-doc-accordion-header:hover {
-    background-color: #e2e8f0;
-}
-
-.dept-doc-accordion-header .accordion-arrow {
-    font-size: 0.88rem;
-    transition: transform 0.25s ease;
-    color: #0f172a;
-}
-
-.dept-doc-accordion.open .dept-doc-accordion-header .accordion-arrow {
-    transform: rotate(180deg);
-}
-
-.dept-doc-accordion-body {
-    display: none;
-    background-color: #ffffff;
-}
-
-.dept-doc-accordion.open .dept-doc-accordion-body {
-    display: block;
-}
-
-.dept-doc-pdf-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.dept-doc-pdf-list li {
-    border-bottom: 1px solid #f1f5f9;
-}
-
-.dept-doc-pdf-list li:last-child {
-    border-bottom: none;
-}
-
-.pdf-link-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 22px;
-    color: #334155;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: background-color 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
-}
-
-.pdf-link-item:hover {
-    background-color: #f8fafc;
-    color: #0288d1;
-    padding-left: 26px;
-}
-
-.pdf-link-item .pdf-link-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.pdf-link-item .pdf-badge-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.78rem;
-    color: #dc2626;
-    background: #fef2f2;
-    padding: 3px 8px;
-    border-radius: 3px;
-    border: 1px solid #fee2e2;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-.pdf-link-item:hover .pdf-badge-tag {
-    background: #dc2626;
-    color: #ffffff;
-    border-color: #dc2626;
-}
-
-/* ==============================================================
-   Embedded PDF Viewer Card Component
-   ============================================================== */
-.dept-pdf-card {
-    background: #ffffff;
-    border: 1px solid #d9e2ec;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin: 20px 0 35px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.dept-pdf-toolbar {
-    background: #f8fafc;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 14px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.dept-pdf-toolbar-info {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.dept-pdf-icon-badge {
-    font-size: 2rem;
-    color: #dc2626;
-}
-
-.dept-pdf-name {
-    margin: 0 0 2px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: #1e293b;
-}
-
-.dept-pdf-sub {
-    font-size: 0.82rem;
-    color: #64748b;
-}
-
-.dept-pdf-toolbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.dept-pdf-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 0.86rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    cursor: pointer;
-}
-
-.dept-pdf-btn-open {
-    background: #1e293b;
-    color: #ffffff;
-    border: 1px solid #1e293b;
-}
-
-.dept-pdf-btn-open:hover {
-    background: #0f172a;
-    color: #ffffff;
-}
-
-.dept-pdf-btn-download {
-    background: #ffffff;
-    color: #334155;
-    border: 1px solid #cbd5e1;
-}
-
-.dept-pdf-btn-download:hover {
-    background: #f1f5f9;
-    color: #0f172a;
-    border-color: #94a3b8;
-}
-
-.dept-pdf-viewer-area {
-    position: relative;
-    width: 100%;
-    min-height: 440px;
-    background: #f1f5f9;
-}
-
-.dept-pdf-iframe {
-    width: 100%;
-    height: 720px;
-    border: none;
-    display: block;
-}
-
-.dept-pdf-iframe:not([src]),
-.dept-pdf-iframe[src=""],
-.dept-pdf-iframe[src="#"],
-.dept-pdf-iframe[src="about:blank"] {
-    display: none;
-}
-
-.dept-pdf-empty-state {
-    padding: 50px 20px;
-    text-align: center;
-    background: #f8fafc;
-    color: #475569;
-}
-
-.dept-pdf-iframe:not([src=""]):not([src="#"]):not([src="about:blank"])+.dept-pdf-empty-state {
-    display: none;
-}
-
-.dept-pdf-empty-icon {
-    font-size: 3.5rem;
-    color: #ef4444;
-    margin-bottom: 14px;
-}
-
-.dept-pdf-empty-state h5 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 6px;
-}
-
-.dept-pdf-empty-state p {
-    font-size: 0.90rem;
-    color: #64748b;
-    margin-bottom: 14px;
-}
-
-/* Staggered on-scroll reveal for Facility Items */
-.facility-items-list li.dept-scroll-reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1), transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-}
-
-.facility-items-list li.dept-scroll-reveal.is-revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Tablet & Small Screen Publications Optimization */
-@media (max-width: 768px) {
-    .publications-header-bar {
-        margin: 14px 0 18px;
-        gap: 12px;
-    }
-
-    .publication-card {
-        padding: 14px 18px;
-    }
-
-    .publication-title {
-        font-size: 0.94rem;
-        line-height: 1.45;
-        margin-bottom: 8px;
-    }
-
-    .publication-meta-row {
-        gap: 8px;
-        font-size: 0.84rem;
-    }
-
-    .publication-authors {
-        font-size: 0.84rem;
-        line-height: 1.4;
-    }
-
-    .publication-date {
-        font-size: 0.82rem;
-    }
-}
-
-/* ==============================================================
-   Mobile View Fixes (Eliminates dead vertical space in Publications)
-   ============================================================== */
-@media (max-width: 600px) {
-    .publications-header-bar {
-        margin: 12px 0 16px;
-        gap: 10px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .publications-year-select-box {
-        flex: 1 1 auto;
-        min-width: 140px;
-    }
-
-    .publications-year-select-box select {
-        padding: 8px 28px 8px 30px;
+    .dept-dropdown-header {
+        padding: 8px 14px;
+        border-radius: 20px;
+        background: #f1f5f9;
         font-size: 0.85rem;
+        border: 1px solid var(--dept-border);
+        white-space: nowrap;
     }
 
-    .publications-year-select-box .select-calendar-icon {
-        left: 9px;
-        font-size: 0.80rem;
+    .dept-dropdown-header .nav-icon-wrap {
+        width: auto;
+        margin-right: 6px;
     }
 
-    .publications-year-select-box .select-chevron-icon {
-        right: 9px;
-        font-size: 0.70rem;
+    .dept-sub-menu {
+        display: none !important; /* Managed on click or dropdown modal */
     }
 
-    .publications-count-badge {
-        flex-shrink: 0;
-        padding: 6px 10px;
-        font-size: 0.78rem;
+    .dept-content-panel {
+        padding: 24px 20px;
+        border-radius: var(--dept-radius-sm);
     }
 
-    .publications-list-stack {
-        gap: 10px;
+    .modern-lab-card {
+        grid-template-columns: 1fr;
     }
 
-    .publication-card {
-        padding: 12px 14px;
-        border-left-width: 3px;
-        border-radius: 0 4px 4px 0;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    .modern-photo-wrap {
+        min-height: 220px;
     }
 
-    .publication-title {
+    .modern-lab-body {
+        padding: 18px 20px 22px;
+    }
+}
+
+@media (max-width: 576px) {
+    .dept-hero-strip {
+        padding: 24px 0 20px;
+    }
+
+    .dept-hero-title {
+        font-size: 1.55rem;
+    }
+
+    .dept-hero-desc {
         font-size: 0.88rem;
-        font-weight: 600;
-        line-height: 1.38;
-        margin-bottom: 6px;
     }
 
-    .publication-meta-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
+    .dept-section-title {
+        font-size: 1.4rem;
     }
 
-    .publication-authors {
-        flex: none;
-        width: 100%;
-        font-size: 0.80rem;
-        line-height: 1.35;
-        gap: 6px;
-    }
-
-    .publication-authors i {
-        font-size: 0.78rem;
-        margin-top: 2px;
-    }
-
-    .publication-date {
-        font-size: 0.76rem;
-        gap: 5px;
-        margin-top: 2px;
-        color: #64748b;
-    }
-
-    .publication-date i {
-        font-size: 0.76rem;
-    }
-
-    .dept-doc-accordion-container {
-        margin: 16px 0 24px;
-    }
-
-    .dept-doc-accordion-header {
-        padding: 11px 16px;
-        font-size: 0.94rem;
-    }
-
-    .pdf-link-item {
-        padding: 12px 16px;
-        font-size: 0.88rem;
+    .faculty-grid {
+        grid-template-columns: 1fr;
     }
 }
