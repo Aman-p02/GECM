@@ -265,7 +265,7 @@ include_once __DIR__ . '/includes/header.php';
                         if ($badge === 'New') {
                             echo '<span class="badge new">New</span>';
                         } elseif ($badge === 'Urgent') {
-                            echo '<span class="badge new" style="background: #e53935;">Urgent</span>';
+                            echo '<span class="badge new">Urgent</span>';
                         }
                         echo '</div>';
                         echo '</li>';

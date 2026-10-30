@@ -412,8 +412,8 @@
 }
 
 .notice-list li:hover .date {
-    background-color: #f0f9ff;
-    border-color: #bae6fd;
+    background-color: #ffffff;
+    border-color: #ff8800;
 }
 
 .notice-list .date {
@@ -434,7 +434,7 @@
     font-size: 1.18rem;
     font-weight: 700;
     line-height: 1;
-    color: #ff0000;
+    color: #ff8800;
 }
 
 .notice-list .date .month {
@@ -460,10 +460,11 @@
 }
 
 .notice-text a:hover {
-    color: #0284c7;
+    color: #009dff;
 }
 
-.badge.new {
+.badge.new,
+.badge.urgent {
     background: #ff0000;
     color: #ffffff;
     border: 1px solid #ffffff;
