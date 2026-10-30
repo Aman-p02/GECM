@@ -15,29 +15,46 @@ include_once __DIR__ . '/../../includes/header.php';
     <!-- Hero header section -->
     <header class="us-hero-banner">
         <div class="us-container">
-            <span class="us-dept-kicker">Department of</span>
-            <h1 class="us-dept-heading">Computer Engineering</h1>
-            <p class="us-dept-tagline">
-                Advancing computational science, software architectures, and intelligent systems since 2001. Dedicated to educating globally competent engineers through rigorous theory and hands-on laboratory discovery.
-            </p>
+            <!-- Breadcrumbs -->
+            <nav class="us-breadcrumb" aria-label="Breadcrumb">
+                <a href="<?= $root_path ?>">Home</a>
+                <span class="sep">/</span>
+                <a href="<?= $root_path ?>#departments">Departments</a>
+                <span class="sep">/</span>
+                <span class="active-crumb">Computer Engineering</span>
+            </nav>
 
-            <!-- Key metrics counter strip -->
+            <!-- Two-column hero grid (7 cols left, 5 cols right) -->
+            <div class="us-hero-grid">
+                <div class="us-hero-text">
+                    <span class="us-dept-kicker">DEPARTMENT OF</span>
+                    <h1 class="us-dept-heading">Computer Engineering</h1>
+                    <p class="us-dept-tagline">
+                        Advancing computational science, software architectures, and intelligent systems since 2001. Dedicated to educating globally competent engineers through rigorous theory and hands-on laboratory discovery.
+                    </p>
+                </div>
+                <div class="us-hero-media">
+                    <img src="images/labs/lab_8113_programming1.jpg" alt="Students working in the computer engineering laboratory" class="us-hero-photo" onerror="this.src='images/labs/lab_8112_project.jpg'">
+                </div>
+            </div>
+
+            <!-- Key metrics counter strip (separated by single thin 1px line, no boxes, no vertical dividers) -->
             <div class="us-stats-strip">
                 <div class="us-stat-item">
                     <span class="us-stat-num">2001</span>
-                    <span class="us-stat-label">Year of Establishment</span>
+                    <span class="us-stat-label">YEAR OF ESTABLISHMENT</span>
                 </div>
                 <div class="us-stat-item">
                     <span class="us-stat-num">138</span>
-                    <span class="us-stat-label">Annual Approved Intake</span>
+                    <span class="us-stat-label">ANNUAL APPROVED INTAKE</span>
                 </div>
                 <div class="us-stat-item">
-                    <span class="us-stat-num">10 <strong>Labs</strong></span>
-                    <span class="us-stat-label">Specialized Facilities</span>
+                    <span class="us-stat-num">10</span>
+                    <span class="us-stat-label">SPECIALIZED LABS</span>
                 </div>
                 <div class="us-stat-item">
-                    <span class="us-stat-num">GTU / AICTE</span>
-                    <span class="us-stat-label">Affiliation &amp; Approval</span>
+                    <span class="us-stat-num">25</span>
+                    <span class="us-stat-label">FACULTY MEMBERS</span>
                 </div>
             </div>
         </div>
