@@ -16,7 +16,7 @@ include_once __DIR__ . '/../../includes/header.php';
     <header class="us-hero-banner">
         <div class="us-container">
             <nav class="us-breadcrumb" aria-label="Academic Navigation Breadcrumbs">
-                <a href="<?= $root_path ?>">Home</a>
+                <a href="<?= $root_path ?>"><i class="fas fa-home" style="font-size: 0.76rem; opacity: 0.85;"></i> Home</a>
                 <span class="sep">/</span>
                 <a href="<?= $root_path ?>#departments">Academic Departments</a>
                 <span class="sep">/</span>
