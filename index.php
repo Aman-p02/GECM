@@ -9,13 +9,13 @@ require_once __DIR__ . '/includes/db.php';
 $pdo = getDBConnection();
 
 // Fetch content from database
-$heroSlides = [];
-$newsTickers = [];
-$noticesList = [];
-$recentEvents = [];
-$latestShots = [];
-$departmentsList = [];
-$alumniList = [];
+$heroSlides = null;
+$newsTickers = null;
+$noticesList = null;
+$recentEvents = null;
+$latestShots = null;
+$departmentsList = null;
+$alumniList = null;
 
 if ($pdo) {
     try {
@@ -39,7 +39,7 @@ if (empty($heroSlides)) {
 }
 
 // Fallback news tickers
-if (empty($newsTickers)) {
+if ($newsTickers === null) {
     $newsTickers = [
         ['message' => 'Admission open for BE First Year 2024-25.'],
         ['message' => 'Mid-Semester Exams schedule has been released. Check notice board for details.'],
@@ -48,7 +48,7 @@ if (empty($newsTickers)) {
 }
 
 // Fallback notices
-if (empty($noticesList)) {
+if ($noticesList === null) {
     $noticesList = [
         ['publish_date' => '2024-10-15', 'title' => 'Guidelines for AICTE Pragati & Saksham Scholarship Schemes 2024-25', 'badge' => 'New', 'link_url' => '#'],
         ['publish_date' => '2024-10-10', 'title' => 'Timetable for B.E. Semester 5 Mid-Semester Examination', 'badge' => 'None', 'link_url' => '#'],
@@ -62,7 +62,7 @@ if (empty($noticesList)) {
 }
 
 // Fallback events
-if (empty($recentEvents)) {
+if ($recentEvents === null) {
     $recentEvents = [
         [
             'image_url' => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
@@ -86,7 +86,7 @@ if (empty($recentEvents)) {
 }
 
 // Fallback gallery shots
-if (empty($latestShots)) {
+if ($latestShots === null) {
     $latestShots = [
         [
             'image_url' => 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
@@ -107,7 +107,7 @@ if (empty($latestShots)) {
 }
 
 // Fallback alumni
-if (empty($alumniList)) {
+if ($alumniList === null) {
     $alumniList = [
         [
             'photo_url' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80',
@@ -148,7 +148,7 @@ if (empty($alumniList)) {
 }
 
 // Fallback departments
-if (empty($departmentsList)) {
+if ($departmentsList === null) {
     $departmentsList = [
         ['id' => 1, 'name' => 'Computer Engineering', 'code' => 'CE', 'icon_class' => 'fas fa-laptop-code', 'learn_more_url' => 'departments/computer/'],
         ['id' => 2, 'name' => 'Information Technology', 'code' => 'IT', 'icon_class' => 'fas fa-network-wired', 'learn_more_url' => 'departments/information-technology/'],
@@ -227,9 +227,13 @@ include_once __DIR__ . '/includes/header.php';
     <div class="ticker-title">Updates</div>
     <div class="ticker-content">
         <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+            <?php if (!empty($newsTickers)): ?>
             <?php foreach ($newsTickers as $tick): ?>
                 <span><?= htmlspecialchars($tick['message']) ?></span>
             <?php endforeach; ?>
+            <?php else: ?>
+                <span>Welcome to Government Engineering College, Modasa (GEC Modasa).</span>
+            <?php endif; ?>
         </marquee>
     </div>
 </div>
@@ -242,6 +246,7 @@ include_once __DIR__ . '/includes/header.php';
             <a href="#" class="view-all">View All</a>
         </div>
         <div class="notice-scroll-container">
+            <?php if (!empty($noticesList)): ?>
             <div class="notice-marquee">
                 <?php
                 // Helper function to render notice rows
@@ -270,10 +275,19 @@ include_once __DIR__ . '/includes/header.php';
                 <ul class="notice-list">
                     <?php $renderNoticeItems($noticesList); ?>
                 </ul>
+                <?php if (count($noticesList) > 4): ?>
                 <ul class="notice-list" aria-hidden="true">
                     <?php $renderNoticeItems($noticesList); ?>
                 </ul>
+                <?php endif; ?>
             </div>
+            <?php else: ?>
+            <div class="empty-notice-state">
+                <div class="empty-icon"><i class="far fa-bell-slash"></i></div>
+                <h5>No Notices Published</h5>
+                <p>There are no active notices or announcements at this time. Announcements posted from the Admin Panel will appear here automatically.</p>
+            </div>
+            <?php endif; ?>
         </div>
     </div>
 
