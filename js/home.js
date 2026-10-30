@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function goToSlide(index, withTransition = true) {
             currentSlide = (index + totalSlides) % totalSlides;
-            slider.style.transition = withTransition ? "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)" : "none";
+            slider.style.transition = withTransition ? "transform 0.75s cubic-bezier(0.25, 1, 0.5, 1)" : "none";
             slider.style.transform = `translateX(-${currentSlide * 100}%)`;
             updateDots();
         }
@@ -307,10 +307,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Initialize Recent Events Slider (Touch/Swipe + Auto-slide)
-    setupSwipeableSlider("eventsSlider", "sliderDots", ".event-slide", 3200);
+    setupSwipeableSlider("eventsSlider", "sliderDots", ".event-slide", 5000);
 
     // Initialize Latest Shots Slider (Touch/Swipe + Auto-slide)
-    setupSwipeableSlider("shotsSlider", "shotsSliderDots", ".shot-slide", 3500);
+    setupSwipeableSlider("shotsSlider", "shotsSliderDots", ".shot-slide", 5500);
 
     // ==============================================================
     // 4. Department Carousel Controls
@@ -419,7 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function startHeroAutoplay() {
             stopHeroAutoplay();
-            heroTimer = setInterval(nextHeroSlide, 3000);
+            heroTimer = setInterval(nextHeroSlide, 5000);
         }
 
         function stopHeroAutoplay() {
