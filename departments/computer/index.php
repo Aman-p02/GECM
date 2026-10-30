@@ -54,38 +54,40 @@ Empowering future engineers through innovation and technology. Focused on practi
     <!-- Sticky sub-navigation bar -->
     <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
-            <ul class="dept-subnav-list" role="tablist">
-                <li class="dept-subnav-item active">
-                    <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About Department</button>
-                </li>
-                <li class="dept-subnav-item">
-                    <button type="button" class="dept-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
-                </li>
-                <li class="dept-subnav-item">
-                    <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" aria-label="GTU Official Syllabus Portal">
-                        <span>Syllabus</span>
-                        <i class="fas fa-external-link-alt ext-arrow"></i>
-                    </a>
-                </li>
-                <li class="dept-subnav-item">
-                    <button type="button" class="dept-subnav-link" data-tab="faculty" role="tab" aria-selected="false">Faculty Directory</button>
-                </li>
-                <li class="dept-subnav-item">
-                    <button type="button" class="dept-subnav-link" data-tab="activities" role="tab" aria-selected="false">Activities</button>
-                </li>
-                <li class="dept-subnav-item">
-                    <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>
-                </li>
-                <li class="dept-subnav-item">
-                    <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
-                </li>
-                <li class="dept-subnav-item">
-                    <button type="button" class="dept-subnav-link" data-tab="advisory-board" role="tab" aria-selected="false">Industry Advisory Board</button>
-                </li>
-                <li class="dept-subnav-item">
-                    <button type="button" class="dept-subnav-link" data-tab="newsletters" role="tab" aria-selected="false">Newsletters</button>
-                </li>
-            </ul>
+            <div class="dept-subnav-wrap">
+                <ul class="dept-subnav-list" role="tablist">
+                    <li class="dept-subnav-item active">
+                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" aria-label="GTU Official Syllabus Portal">
+                            <span>Syllabus</span>
+                            <i class="fas fa-external-link-alt ext-arrow"></i>
+                        </a>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="faculty" role="tab" aria-selected="false">Faculty</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="activities" role="tab" aria-selected="false">Activities</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="advisory-board" role="tab" aria-selected="false">Advisory Board</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="newsletters" role="tab" aria-selected="false">Newsletters</button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 

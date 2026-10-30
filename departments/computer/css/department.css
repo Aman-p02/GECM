@@ -41,7 +41,7 @@
 .dept-hero-banner {
     background-color: #ffffff;
     color: #111111;
-    padding: 72px 0 64px;
+    padding: 68px 0 44px;
     position: relative;
     border-bottom: none;
 }
@@ -52,7 +52,7 @@
     grid-template-columns: 7fr 5fr;
     gap: 56px;
     align-items: center;
-    margin-bottom: 72px;
+    margin-bottom: 56px;
 }
 
 .dept-kicker {
@@ -107,7 +107,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     border-top: 1px solid var(--dept-border);
-    padding-top: 36px;
+    padding-top: 32px;
     gap: 32px;
 }
 
@@ -141,16 +141,25 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid var(--dept-border);
     border-bottom: 1px solid var(--dept-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.dept-subnav-wrap {
+    position: relative;
+    width: 100%;
 }
 
 /* Horizontal scrollable tab buttons track */
 .dept-subnav-list {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -158,6 +167,7 @@
     white-space: nowrap;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 .dept-subnav-list::-webkit-scrollbar {
@@ -172,23 +182,25 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 18px 16px;
-    font-size: 0.84rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    padding: 15px 14px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-transform: none;
     color: var(--dept-body);
     text-decoration: none;
     background: transparent;
     border: none;
     cursor: pointer;
     position: relative;
-    transition: var(--dept-transition);
+    border-radius: 4px 4px 0 0;
+    transition: color 0.18s ease, background-color 0.18s ease;
     font-family: var(--dept-font-display);
 }
 
 .dept-subnav-link:hover {
     color: #111111;
+    background: rgba(0, 0, 0, 0.025);
 }
 
 /* Active tab state and highlight underline */
@@ -203,20 +215,22 @@
     content: '';
     position: absolute;
     bottom: -1px;
-    left: 12px;
-    right: 12px;
-    height: 2px;
+    left: 8px;
+    right: 8px;
+    height: 2.5px;
     background: var(--dept-accent);
+    border-radius: 2px 2px 0 0;
 }
 
 .dept-subnav-link .ext-arrow {
-    font-size: 0.7rem;
-    opacity: 0.6;
+    font-size: 0.72rem;
+    opacity: 0.55;
+    margin-left: 2px;
 }
 
 /* Main content wrapper and tab pane switching */
 .dept-main-content {
-    padding: 56px 0 0;
+    padding: 48px 0 0;
 }
 
 .dept-tab-pane {
@@ -874,7 +888,8 @@
 @media (max-width: 1024px) {
     .dept-hero-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 36px;
+        margin-bottom: 40px;
     }
 
     .dept-heading {
@@ -889,34 +904,55 @@
     .dept-faculty-roster {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* Edge gradient indicator for scrollable tabs */
+    .dept-subnav-wrap {
+        mask-image: linear-gradient(to right, transparent 0, black 16px, black calc(100% - 24px), transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0, black 16px, black calc(100% - 24px), transparent 100%);
+    }
+
+    .dept-subnav-list {
+        padding: 0 16px;
+    }
 }
 
 /* Responsive styles - mobile screens */
 @media (max-width: 768px) {
     .dept-hero-banner {
-        padding: 48px 0 40px;
+        padding: 44px 0 32px;
     }
 
     .dept-hero-grid {
-        gap: 32px;
-        margin-bottom: 48px;
+        gap: 28px;
+        margin-bottom: 36px;
     }
 
     .dept-heading {
-        font-size: 2.6rem;
+        font-size: 2.35rem;
     }
 
     .dept-tagline {
         font-size: 1rem;
+        line-height: 1.6;
     }
 
     .dept-stats-strip {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 18px;
+        padding-top: 24px;
     }
 
     .dept-stat-num {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
+    }
+
+    .dept-subnav-bar {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .dept-subnav-link {
+        padding: 14px 12px;
+        font-size: 0.86rem;
     }
 
     .dept-objectives-grid,
@@ -927,8 +963,7 @@
         grid-template-columns: 1fr;
     }
 
-    .dept-subnav-link {
-        padding: 14px 12px;
-        font-size: 0.78rem;
+    .dept-main-content {
+        padding: 36px 0 0;
     }
 }
