@@ -21,7 +21,7 @@ include_once __DIR__ . '/../../includes/header.php';
                     <span class="us-dept-kicker">DEPARTMENT OF</span>
                     <h1 class="us-dept-heading">Computer Engineering</h1>
                     <p class="us-dept-tagline">
-                        Advancing computational science, software architectures, and intelligent systems since 2001. Dedicated to educating globally competent engineers through rigorous theory and hands-on laboratory discovery.
+Empowering future engineers through innovation and technology. Focused on practical learning, software development, and building skills for the digital future.
                     </p>
                 </div>
                 <div class="us-hero-media">

@@ -105,13 +105,13 @@
 }
 
 .us-dept-heading {
-    font-family: var(--us-font-serif);
-    font-size: clamp(3.6rem, 5.2vw, 10rem);
-    font-weight: 200;
+    font-family: var(--us-font-display);
+    font-size: clamp(2.8rem, 4.4vw, 4.2rem);
+    font-weight: 800;
     color: #111111;
-    line-height: 1.05;
+    line-height: 1.08;
     margin: 0 0 20px;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.03em;
 }
 
 .us-dept-tagline {
@@ -845,7 +845,7 @@
     }
 
     .us-dept-heading {
-        font-size: 3.2rem;
+        font-size: 2.8rem;
     }
 
     .us-stats-strip {
