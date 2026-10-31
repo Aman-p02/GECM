@@ -1,5 +1,6 @@
-// Department navigation, URL hash routing, scroll reveal, and publication year filter - Applied Mechanics
+// Department navigation, URL hash routing, scroll reveal, and publication year filter
 
+// Global publication filter function accessible from inline onchange or programmatic calls
 function filterPublicationsByYear(selectedYear) {
     const yearFilter = document.getElementById('pubYearFilter');
     const countBadge = document.getElementById('pubCountBadge');
@@ -22,6 +23,7 @@ function filterPublicationsByYear(selectedYear) {
             item.style.display = '';
             item.classList.remove('is-filtered-out');
             visibleCount++;
+            // Soft reveal animation
             item.classList.remove('is-revealed');
             setTimeout(() => item.classList.add('is-revealed'), 25);
         } else {
@@ -136,6 +138,7 @@ function initDepartment() {
 
         if (!yearFilter || !pubItems.length) return;
 
+        // Ensure data-year attributes exist on all items
         const yearCounts = {};
         let totalCount = 0;
 
@@ -158,6 +161,7 @@ function initDepartment() {
             }
         });
 
+        // If dropdown options were not pre-rendered, populate dynamically
         if (yearFilter.options.length <= 1) {
             const sortedYears = Object.keys(yearCounts).sort((a, b) => parseInt(b, 10) - parseInt(a, 10));
             yearFilter.innerHTML = '';
@@ -174,6 +178,7 @@ function initDepartment() {
             });
         }
 
+        // Attach change listener to dropdown
         yearFilter.addEventListener('change', function () {
             filterPublicationsByYear(this.value);
         });
@@ -184,6 +189,7 @@ function initDepartment() {
         if (!tabId) return;
         tabId = tabId.replace('#', '');
 
+        // Map tab aliases to primary section IDs
         if (tabId === 'vision' || tabId === 'mission') {
             tabId = 'vision-mission';
         }
@@ -194,88 +200,117 @@ function initDepartment() {
         const targetPane = document.getElementById('tab-' + tabId);
         if (!targetPane) return;
 
-        tabPanes.forEach(pane => pane.classList.remove('active'));
+        // Reset all buttons and tab panes
         tabButtons.forEach(btn => {
             btn.classList.remove('active');
+            if (btn.parentElement) {
+                btn.parentElement.classList.remove('active');
+            }
             btn.setAttribute('aria-selected', 'false');
-            const parentItem = btn.closest('.dept-subnav-item');
-            if (parentItem) parentItem.classList.remove('active');
         });
 
+        tabPanes.forEach(pane => {
+            pane.classList.remove('active');
+        });
+
+        // Activate button matching selected tab ID
+        const matchedButtons = document.querySelectorAll(`[data-tab="${tabId}"]`);
+        matchedButtons.forEach(btn => {
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            if (btn.parentElement) {
+                btn.parentElement.classList.add('active');
+            }
+            if (subNavList) {
+                try {
+                    const btnRect = btn.getBoundingClientRect();
+                    const listRect = subNavList.getBoundingClientRect();
+                    if (btnRect.left < listRect.left || btnRect.right > listRect.right) {
+                        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    }
+                } catch (e) {}
+            }
+        });
+
+        // Show target content pane
         targetPane.classList.add('active');
 
-        const matchingBtn = Array.from(tabButtons).find(btn => btn.getAttribute('data-tab') === tabId);
-        if (matchingBtn) {
-            matchingBtn.classList.add('active');
-            matchingBtn.setAttribute('aria-selected', 'true');
-            const parentItem = matchingBtn.closest('.dept-subnav-item');
-            if (parentItem) parentItem.classList.add('active');
-
-            if (subNavList) {
-                const btnLeft = matchingBtn.offsetLeft;
-                const btnWidth = matchingBtn.offsetWidth;
-                const listWidth = subNavList.offsetWidth;
-                subNavList.scrollTo({
-                    left: btnLeft - (listWidth / 2) + (btnWidth / 2),
-                    behavior: 'smooth'
-                });
-            }
-        }
-
+        // Reveal elements inside the newly active tab pane
         setupRevealElements(targetPane);
 
+        // Smoothly scroll to content if user is scrolled past the subnav
         if (shouldScroll) {
-            const navBottom = subNav ? subNav.getBoundingClientRect().bottom : 70;
-            const paneTop = targetPane.getBoundingClientRect().top + window.pageYOffset;
-            const scrollOffset = 14;
-            window.scrollTo({
-                top: paneTop - navBottom - scrollOffset,
-                behavior: 'smooth'
-            });
+            const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
+            const mainNavHeight = (window.innerWidth > 768 && mainNav) ? (Math.round(mainNav.getBoundingClientRect().height) || 52) : 0;
+            if (subNav) {
+                const subNavRect = subNav.getBoundingClientRect();
+                if (subNavRect.top <= mainNavHeight + 2) {
+                    const targetY = subNav.offsetTop - mainNavHeight;
+                    window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                }
+            }
         }
     }
 
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function (e) {
-            const isExternalLink = this.tagName === 'A' && this.getAttribute('target') === '_blank';
-            if (isExternalLink) return;
-
-            e.preventDefault();
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', function (e) {
             const tabId = this.getAttribute('data-tab');
-
-            if (!tabId || tabId === 'advisory-board' || tabId === 'newsletters' || tabId === 'faculty' || tabId === 'activities') {
-                return;
-            }
-
-            if (history.pushState) {
-                history.pushState(null, null, '#' + tabId);
+            if (tabId && tabId !== 'advisory-board' && tabId !== 'newsletters' && tabId !== 'faculty' && tabId !== 'activities') {
+                e.preventDefault();
+                if (history.pushState) {
+                    history.pushState(null, null, '#' + tabId);
+                } else {
+                    window.location.hash = tabId;
+                }
+                activateTab(tabId, true);
             } else {
-                window.location.hash = tabId;
+                e.preventDefault();
             }
-            activateTab(tabId, true);
         });
     });
 
-    window.addEventListener('hashchange', function () {
-        const hash = window.location.hash.replace('#', '');
-        if (hash) {
-            activateTab(hash, true);
-        }
-    });
-
-    const initialHash = window.location.hash.replace('#', '');
-    if (initialHash && document.getElementById('tab-' + initialHash)) {
-        activateTab(initialHash, false);
-    } else {
-        const activePane = document.querySelector('.dept-tab-pane.active') || document.getElementById('tab-about');
-        if (activePane) {
-            const initialTabId = activePane.id.replace('tab-', '');
-            activateTab(initialTabId, false);
+    // Subnav sticky top position calculation
+    function updateStickySubnavPosition() {
+        if (!subNav) return;
+        if (window.innerWidth > 768) {
+            const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
+            if (mainNav) {
+                const navHeight = Math.round(mainNav.getBoundingClientRect().height) || 52;
+                document.documentElement.style.setProperty('--site-main-nav-height', `${navHeight}px`);
+                subNav.style.top = `${navHeight}px`;
+            } else {
+                subNav.style.top = '52px';
+            }
+        } else {
+            document.documentElement.style.setProperty('--site-main-nav-height', '0px');
+            subNav.style.top = '0px';
         }
     }
 
-    setupRevealElements(document);
+    updateStickySubnavPosition();
+    window.addEventListener('resize', updateStickySubnavPosition, { passive: true });
+    window.addEventListener('scroll', updateStickySubnavPosition, { passive: true });
+
+    // Initializations
     initPublicationYearFilter();
+    setupRevealElements(document);
+
+    // Initial hash handling
+    function handleHash() {
+        const hash = window.location.hash.substring(1);
+        if (hash === 'syllabus') {
+            window.location.href = 'https://syllabus.gtu.ac.in/';
+            return;
+        }
+        if (hash) {
+            activateTab(hash, false);
+        } else {
+            activateTab('about', false);
+        }
+    }
+
+    window.addEventListener('hashchange', handleHash);
+    handleHash();
 }
 
 if (document.readyState === 'loading') {

@@ -1,31 +1,35 @@
 <?php
-// Set page title and department metadata
-$pageTitle = "Applied Mechanics Department | Government Engineering College, Modasa";
-$deptName = "Applied Mechanics";
+// Set Page Variables
+$page_title = "Department of Applied Mechanics — Government Engineering College, Modasa";
+$active_page = "departments";
+$root_path = "../../";
+$extra_css = "departments/applied-mechanics/css/department.css";
+$extra_js = "departments/applied-mechanics/js/department.js";
 
 // Include Header
 include_once __DIR__ . '/../../includes/header.php';
 ?>
 
-<!-- Custom Department Styling -->
-<link rel="stylesheet" href="css/department.css?v=<?php echo time(); ?>">
-
 <div class="dept-page">
 
-    <!-- Department Hero Banner -->
-    <header class="dept-hero" role="banner">
+    <!-- Hero header section -->
+    <header class="dept-hero-banner">
         <div class="dept-container">
-            <div class="dept-hero-header">
-                <span class="dept-kicker-badge">
-                    <i class="fas fa-drafting-compass"></i> GOVERNMENT ENGINEERING COLLEGE, MODASA
-                </span>
-                <h1 class="dept-hero-title">Applied Mechanics Department</h1>
-                <p class="dept-hero-desc">
-                    Accommodated in the main building, advancing foundational mechanics, material testing, structural dynamics, and BIS-compliant geotechnical engineering.
-                </p>
+            <!-- Two-column hero grid (7 cols left, 5 cols right) -->
+            <div class="dept-hero-grid">
+                <div class="dept-hero-text">
+                    <span class="dept-kicker">DEPARTMENT OF</span>
+                    <h1 class="dept-heading">Applied Mechanics</h1>
+                    <p class="dept-tagline">
+                        Accommodated in the main building, advancing foundational mechanics, materials testing, geotechnical investigations, and earthquake engineering testing.
+                    </p>
+                </div>
+                <div class="dept-hero-media">
+                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Applied Mechanics Department Building" class="dept-hero-photo">
+                </div>
             </div>
 
-            <!-- Quick Stats Strip -->
+            <!-- Key metrics counter strip -->
             <div class="dept-stats-strip">
                 <div class="dept-stat-item">
                     <span class="dept-stat-num">4+</span>
@@ -47,10 +51,10 @@ include_once __DIR__ . '/../../includes/header.php';
         </div>
     </header>
 
-    <!-- Sticky Secondary Subnavigation -->
-    <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department navigation">
+    <!-- Sticky sub-navigation bar -->
+    <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
-            <div class="dept-subnav-scroll">
+            <div class="dept-subnav-wrapper">
                 <ul class="dept-subnav-list" role="tablist">
                     <li class="dept-subnav-item active">
                         <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About</button>
@@ -59,9 +63,9 @@ include_once __DIR__ . '/../../includes/header.php';
                         <button type="button" class="dept-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" aria-label="GTU Official Syllabus Portal">
+                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" aria-label="GTU Syllabus Portal">
                             <span>Syllabus</span>
-                            <i class="fas fa-external-link-alt ext-arrow"></i>
+                            <i class="fas fa-external-link-alt dept-ext-icon"></i>
                         </a>
                     </li>
                     <li class="dept-subnav-item">
@@ -87,7 +91,7 @@ include_once __DIR__ . '/../../includes/header.php';
         </div>
     </nav>
 
-    <!-- Main Content Container -->
+    <!-- Tab panels container -->
     <main class="dept-main-content">
         <div class="dept-container">
 
@@ -104,20 +108,20 @@ include_once __DIR__ . '/../../includes/header.php';
                         "Bridging the vital gap between physical mechanics theory and modern structural engineering application."
                     </blockquote>
                     <p>
-                        This department is accommodated in the main building, having laboratories in areas like Engineering Mechanics, Strength of Materials, Concrete Technology, and Geotechnical Engineering. All these laboratories are well equipped to meet the testing requirements as per ISI and Bureau of Indian Standards (BIS).
+                        This department is accommodated in the main building, having laboratories in area like Engineering Mechanics, Strength of Materials, Concrete Technology and Geotechnic Engineering. All these Laboratories are well equipped to meet the testing requirement as per ISI.
                     </p>
                     <p>
-                        This department is having laboratories in areas like Mechanics of Solids, Concrete Technology, Structural Engineering, Geotechnical Engineering, and Computing. All these laboratories are well equipped to meet the testing requirement as per BIS (Bureau of Indian Standards).
+                        This department is having laboratories in area like Mechanics of Solids, Concrete Technology, Structural Engineering, Geotechnical Engineering and Computing. All these laboratories are well equipped to meet the testing requirement as per BIS (Bureau of International Standards).
                     </p>
                     <p>
                         Applied Mechanics is a branch of the physical sciences and the practical application of mechanics. Applied mechanics examines the response of bodies (solids and fluids) or systems of bodies to external forces. Some examples of mechanical systems include the flow of a liquid under pressure, the fracture of a solid from an applied force, or the vibration of an ear in response to sound. A practitioner of the discipline is known as a mechanician. Applied mechanics, as its name suggests, bridges the gap between physical theory and its application to technology.
                     </p>
                     <p>
-                        As such, Applied Mechanics is used in many fields of engineering, especially mechanical engineering and civil engineering. In this context, it is commonly referred to as engineering mechanics. Much of modern engineering mechanics is based on Isaac Newton's laws of motion, while the modern practice of their application can be traced back to Stephen Timoshenko, who is said to be the father of modern engineering mechanics. Within the theoretical sciences, applied mechanics is useful in formulating new ideas and theories, discovering and interpreting phenomena, and developing experimental and computational tools.
+                        As such, Applied Mechanics is used in many fields of engineering, especially mechanical engineering. In this context, it is commonly referred to as engineering mechanics. Much of modern engineering mechanics is based on Isaac Newton's laws of motion, while the modern practice of their application can be traced back to Stephen Timoshenko, who is said to be the father of modern engineering mechanics. Within the theoretical sciences, applied mechanics is useful in formulating new ideas and theories, discovering and interpreting phenomena, and developing experimental and computational tools.
                     </p>
                 </div>
 
-                <!-- Core Discipline Specializations -->
+                <!-- About the Programme Section -->
                 <div class="dept-programme-section">
                     <div class="dept-section-header">
                         <span class="dept-section-kicker">DISCIPLINE &amp; TESTING STREAMS</span>
@@ -233,7 +237,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Main Building Wing</span>
                             <h3 class="dept-lab-title">Mechanics of Solid Lab</h3>
-                            <p class="dept-lab-desc">The objective of the laboratory is to demonstrate the basic principles in the area of engineering mechanics and strength of materials to undergraduate students through a series of experiments. In this lab, experiments are performed based on basic engineering and to measure properties of materials such as impact strength, tensile strength, compressive strength, hardness, ductility, etc.</p>
+                            <p class="dept-lab-desc">The objective of the laboratory is to demonstrate the basic principles in the area of engineering mechanics and strength of materials to the undergraduate students through a series of experiments. In this lab the experiments are performed based on basic engineering and to measure the properties of the materials such as impact strength, tensile strength, compressive strength, hardness, ductility etc.</p>
                         </div>
                     </div>
 
@@ -245,7 +249,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Materials Annex</span>
                             <h3 class="dept-lab-title">Concrete Technology Lab</h3>
-                            <p class="dept-lab-desc">The testing and inspection of concrete and concrete making materials like cement and aggregates are important elements in obtaining quality construction. The laboratory allows students to perform tests on materials and assess properties of fresh and hardened concrete affecting performance of concrete members. Apparatus available includes Sieve Shaker, Compressive testing machine, Flexural Testing Machine, and Apparatus for workability measurement.</p>
+                            <p class="dept-lab-desc">The testing and inspection of concrete and concrete making materials like cement and aggregates are important elements in obtaining quality construction. The laboratory allows the students to perform tests on the materials and also to assess the properties of various fresh and hardened concrete properties that may affect the performance of concrete members. The apparatus and machines available at the concrete technology laboratory are Sieve Shaker, Compressive testing machine, Flexural Testing Machine, Apparatus for workability measurement, etc.</p>
                         </div>
                     </div>
 
@@ -257,7 +261,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Geotechnical Wing</span>
                             <h3 class="dept-lab-title">Geotechnical Engineering Lab</h3>
-                            <p class="dept-lab-desc">Soil testing is an integral part of soil mechanics and foundation engineering. A proper evaluation of soil samples and analysis of test results are essential for students and practicing civil engineers. Tri-axial Testing machine, Direct Shear testing machine, Unconfined compression testing machine, and consistency limit testing machines are available in the laboratory.</p>
+                            <p class="dept-lab-desc">Soil Testing is an integral part of soil mechanics and foundation engineering. A proper evaluation of soil samples and analysis of test results are essential of students and practicing civil Engineers. Tri-axial Testing machine, Direct Shear testing machine, Unconfined compression testing machine, consistency limit testing machines available in the laboratory.</p>
                         </div>
                     </div>
 
@@ -269,7 +273,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Structural Dynamics Center</span>
                             <h3 class="dept-lab-title">Earthquake Engineering Lab</h3>
-                            <p class="dept-lab-desc">Several major facilities have been developed in the department to conduct experiments related to earthquake engineering. Some of the major facilities include: a low cost shake table for dynamic testing of structural models like pounding effect, mode shapes, spring mass system, re-entrant corners, and building model with active and passive damper devices.</p>
+                            <p class="dept-lab-desc">Several major facilities have been developed in the Department to conduct experiments related to earthquake engineering. Some of the major facilities include: a low cost shake table for dynamic testing of structural models like pounding effect, mode shapes, spring mass system, re-entrant corners, building model with active and passive damper devices.</p>
                         </div>
                     </div>
                 </div>
@@ -424,9 +428,6 @@ include_once __DIR__ . '/../../includes/header.php';
     </main>
 
 </div>
-
-<!-- Department Interactive Logic -->
-<script src="js/department.js?v=<?php echo time(); ?>"></script>
 
 <?php
 // Include Footer
