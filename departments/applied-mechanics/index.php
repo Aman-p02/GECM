@@ -1,0 +1,434 @@
+<?php
+// Set page title and department metadata
+$pageTitle = "Applied Mechanics Department | Government Engineering College, Modasa";
+$deptName = "Applied Mechanics";
+
+// Include Header
+include_once __DIR__ . '/../../includes/header.php';
+?>
+
+<!-- Custom Department Styling -->
+<link rel="stylesheet" href="css/department.css?v=<?php echo time(); ?>">
+
+<div class="dept-page">
+
+    <!-- Department Hero Banner -->
+    <header class="dept-hero" role="banner">
+        <div class="dept-container">
+            <div class="dept-hero-header">
+                <span class="dept-kicker-badge">
+                    <i class="fas fa-drafting-compass"></i> GOVERNMENT ENGINEERING COLLEGE, MODASA
+                </span>
+                <h1 class="dept-hero-title">Applied Mechanics Department</h1>
+                <p class="dept-hero-desc">
+                    Accommodated in the main building, advancing foundational mechanics, material testing, structural dynamics, and BIS-compliant geotechnical engineering.
+                </p>
+            </div>
+
+            <!-- Quick Stats Strip -->
+            <div class="dept-stats-strip">
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">4+</span>
+                    <span class="dept-stat-label">SPECIALIZED TESTING LABS</span>
+                </div>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">BIS/ISI</span>
+                    <span class="dept-stat-label">COMPLIANT TESTING</span>
+                </div>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">UG &amp; PG</span>
+                    <span class="dept-stat-label">STRUCTURAL PEDAGOGY</span>
+                </div>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">100%</span>
+                    <span class="dept-stat-label">EXPERIMENTAL RIGOR</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Secondary Subnavigation -->
+    <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department navigation">
+        <div class="dept-container">
+            <div class="dept-subnav-scroll">
+                <ul class="dept-subnav-list" role="tablist">
+                    <li class="dept-subnav-item active">
+                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" aria-label="GTU Official Syllabus Portal">
+                            <span>Syllabus</span>
+                            <i class="fas fa-external-link-alt ext-arrow"></i>
+                        </a>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Faculty</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Activities</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Advisory Board</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Newsletters</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="dept-main-content">
+        <div class="dept-container">
+
+            <!-- Tab 1: About Department -->
+            <section class="dept-tab-pane active" id="tab-about">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
+                    <h2>About the Department</h2>
+                    <p>Fostering rigorous experimental foundations in engineering mechanics, materials testing, and geotechnical characterization.</p>
+                </div>
+
+                <div class="dept-story-body">
+                    <blockquote class="dept-lead-quote">
+                        "Bridging the vital gap between physical mechanics theory and modern structural engineering application."
+                    </blockquote>
+                    <p>
+                        This department is accommodated in the main building, having laboratories in areas like Engineering Mechanics, Strength of Materials, Concrete Technology, and Geotechnical Engineering. All these laboratories are well equipped to meet the testing requirements as per ISI and Bureau of Indian Standards (BIS).
+                    </p>
+                    <p>
+                        This department is having laboratories in areas like Mechanics of Solids, Concrete Technology, Structural Engineering, Geotechnical Engineering, and Computing. All these laboratories are well equipped to meet the testing requirement as per BIS (Bureau of Indian Standards).
+                    </p>
+                    <p>
+                        Applied Mechanics is a branch of the physical sciences and the practical application of mechanics. Applied mechanics examines the response of bodies (solids and fluids) or systems of bodies to external forces. Some examples of mechanical systems include the flow of a liquid under pressure, the fracture of a solid from an applied force, or the vibration of an ear in response to sound. A practitioner of the discipline is known as a mechanician. Applied mechanics, as its name suggests, bridges the gap between physical theory and its application to technology.
+                    </p>
+                    <p>
+                        As such, Applied Mechanics is used in many fields of engineering, especially mechanical engineering and civil engineering. In this context, it is commonly referred to as engineering mechanics. Much of modern engineering mechanics is based on Isaac Newton's laws of motion, while the modern practice of their application can be traced back to Stephen Timoshenko, who is said to be the father of modern engineering mechanics. Within the theoretical sciences, applied mechanics is useful in formulating new ideas and theories, discovering and interpreting phenomena, and developing experimental and computational tools.
+                    </p>
+                </div>
+
+                <!-- Core Discipline Specializations -->
+                <div class="dept-programme-section">
+                    <div class="dept-section-header">
+                        <span class="dept-section-kicker">DISCIPLINE &amp; TESTING STREAMS</span>
+                        <h2>Core Specializations</h2>
+                        <p>Providing essential testing infrastructure, structural analysis, and material sciences verification for engineering students.</p>
+                    </div>
+
+                    <div class="dept-avenues-grid">
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-cubes"></i></div>
+                                <h4>Mechanics of Solids &amp; Structures</h4>
+                            </div>
+                            <p>Demonstrating stress-strain relationships, structural stability, bending moments, tensile properties, and material fracture behavior under external loading conditions.</p>
+                        </div>
+
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-mountain"></i></div>
+                                <h4>Geotechnical &amp; Material Testing</h4>
+                            </div>
+                            <p>Characterizing soil shear strength, tri-axial parameters, concrete compressive strength, and aggregate durability adhering strictly to Bureau of Indian Standards (BIS).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Vision & Mission -->
+            <section class="dept-tab-pane" id="tab-vision-mission">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">ACADEMIC CHARTER</span>
+                    <h2>Vision &amp; Mission</h2>
+                    <p>Guiding principles, experimental commitments, and educational objectives defining our engineering mechanics pedagogy.</p>
+                </div>
+
+                <div class="dept-charter-card dept-vision-hero-card">
+                    <span class="dept-vision-quote-mark">“</span>
+                    <blockquote class="dept-vision-statement">
+                        To become a prominent department imparting high-quality foundational knowledge in mechanics, material testing, and structural dynamics, producing competent engineering professionals with strong experimental capabilities, ethical standards, and societal commitment.
+                    </blockquote>
+                </div>
+
+                <div class="dept-charter-card" style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission of the Department</h3>
+                    <ul class="dept-mission-steps">
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">I</span>
+                            <div class="dept-mission-text">
+                                To provide high-quality fundamental and advanced experimental learning in mechanics of solids, structural analysis, and material testing.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">II</span>
+                            <div class="dept-mission-text">
+                                Maintain state-of-the-art BIS and ISI compliant laboratory facilities to foster practical proficiency, precision testing, and research inquiry.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">III</span>
+                            <div class="dept-mission-text">
+                                Enhance industry-institute interaction through material testing, geotechnical investigations, and consultancy services.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">IV</span>
+                            <div class="dept-mission-text">
+                                Inculcate professional ethics, safety consciousness, environmental awareness, and a spirit of social commitment among students.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Objectives (PEOs and PSOs) -->
+                <div class="dept-objectives-grid">
+                    <div class="dept-obj-card">
+                        <h4>Program Educational Objectives (PEOs)</h4>
+                        <div class="dept-obj-lead">Graduates will:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PEO 1:</strong> Apply fundamental concepts of mechanics and material testing to solve complex civil and structural engineering problems.</li>
+                            <li><strong>PEO 2:</strong> Exhibit hands-on experimental expertise in conducting BIS-compliant material, geotechnical, and structural tests.</li>
+                            <li><strong>PEO 3:</strong> Practice engineering with high ethical standards, environmental sensitivity, and safety consciousness.</li>
+                            <li><strong>PEO 4:</strong> Engage in continuous professional learning, adapting to modern testing technologies and computational structural modeling.</li>
+                        </ul>
+                    </div>
+
+                    <div class="dept-obj-card">
+                        <h4>Program Specific Outcomes (PSOs)</h4>
+                        <div class="dept-obj-lead">Students will be able to:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PSO 1:</strong> Evaluate material properties, stress-strain responses, and structural behavior using modern laboratory equipment and analytical tools.</li>
+                            <li><strong>PSO 2:</strong> Conduct rigorous soil mechanics and concrete technology investigations as per Bureau of Indian Standards (BIS) specifications.</li>
+                            <li><strong>PSO 3:</strong> Understand structural dynamics, earthquake response concepts, and vibration damping mechanisms in modern civil infrastructure.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 3: Laboratory facilities -->
+            <section class="dept-tab-pane" id="tab-facilities">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
+                    <h2>Laboratories &amp; Facilities</h2>
+                    <p>Accommodated in the main building, our laboratories are well equipped to meet testing requirements as per BIS and ISI specifications.</p>
+                </div>
+
+                <!-- Laboratory Photo Showcase -->
+                <div class="dept-labs-showcase">
+                    <!-- Lab 1: Mechanics of Solid Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_solid_mechanics.jpg" alt="Mechanics of Solid Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Main Building Wing</span>
+                            <h3 class="dept-lab-title">Mechanics of Solid Lab</h3>
+                            <p class="dept-lab-desc">The objective of the laboratory is to demonstrate the basic principles in the area of engineering mechanics and strength of materials to undergraduate students through a series of experiments. In this lab, experiments are performed based on basic engineering and to measure properties of materials such as impact strength, tensile strength, compressive strength, hardness, ductility, etc.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 2: Concrete Technology Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_concrete_tech.jpg" alt="Concrete Technology Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Materials Annex</span>
+                            <h3 class="dept-lab-title">Concrete Technology Lab</h3>
+                            <p class="dept-lab-desc">The testing and inspection of concrete and concrete making materials like cement and aggregates are important elements in obtaining quality construction. The laboratory allows students to perform tests on materials and assess properties of fresh and hardened concrete affecting performance of concrete members. Apparatus available includes Sieve Shaker, Compressive testing machine, Flexural Testing Machine, and Apparatus for workability measurement.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 3: Geotechnical Engineering Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_geotechnical.jpg" alt="Geotechnical Engineering Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Geotechnical Wing</span>
+                            <h3 class="dept-lab-title">Geotechnical Engineering Lab</h3>
+                            <p class="dept-lab-desc">Soil testing is an integral part of soil mechanics and foundation engineering. A proper evaluation of soil samples and analysis of test results are essential for students and practicing civil engineers. Tri-axial Testing machine, Direct Shear testing machine, Unconfined compression testing machine, and consistency limit testing machines are available in the laboratory.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 4: Earthquake Engineering Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_earthquake.jpg" alt="Earthquake Engineering Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Structural Dynamics Center</span>
+                            <h3 class="dept-lab-title">Earthquake Engineering Lab</h3>
+                            <p class="dept-lab-desc">Several major facilities have been developed in the department to conduct experiments related to earthquake engineering. Some of the major facilities include: a low cost shake table for dynamic testing of structural models like pounding effect, mode shapes, spring mass system, re-entrant corners, and building model with active and passive damper devices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Department Facilities (Below Laboratory Showcase) -->
+                <div class="dept-section-header" style="margin-top: 56px;">
+                    <span class="dept-section-kicker">INFRASTRUCTURE HIGHLIGHTS</span>
+                    <h2>Department Facilities</h2>
+                    <p>Modern testing equipment, experimental benches, and institutional facilities meeting standard BIS and ISI specifications.</p>
+                </div>
+
+                <div class="dept-facilities-grid">
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>BIS &amp; ISI Testing Compliant</h4>
+                            <p>Testing protocols and equipment calibrated strictly as per Bureau of Indian Standards and ISI requirements.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Universal Testing Setup</h4>
+                            <p>High-precision compressive, flexural, and tensile testing rigs for comprehensive material evaluation.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-wave-square"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Structural Dynamics &amp; Shake Table</h4>
+                            <p>Low-cost dynamic shake table facility for structural vibration, pounding effect, and damping modeling.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Concrete &amp; Aggregates Testing</h4>
+                            <p>Motorized sieve shakers, slump cone apparatus, and workability testing units for quality construction analysis.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-mountain"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Tri-Axial &amp; Direct Shear Testing</h4>
+                            <p>Advanced tri-axial and direct shear apparatus for determining soil shear strength and cohesion parameters.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Hardness &amp; Impact Testing Bench</h4>
+                            <p>Charpy and Izod impact testing apparatus and hardness testers for strength of materials laboratory experiments.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-flask"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Soil Consistency &amp; Permeability</h4>
+                            <p>Liquid limit, plastic limit, and unconfined compression machines for thorough foundation soil assessment.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Computing &amp; Numerical Modeling</h4>
+                            <p>Computational facility for finite element structural modeling, data acquisition, and numerical analysis.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-wifi"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Campus Network &amp; Wi-Fi Access</h4>
+                            <p>Integrated internet and campus LAN connection throughout the department premises for faculty and student research.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Seminar &amp; Colloquium Space</h4>
+                            <p>Presentation hall equipped with digital projection systems for expert guest lectures, workshops, and student defenses.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 6: Publications -->
+            <section class="dept-tab-pane" id="tab-publications">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">SCHOLARLY OUTPUT</span>
+                    <h2>Faculty Publications</h2>
+                    <p>Research contributions, journal articles, and conference proceedings published by Applied Mechanics faculty and research scholars.</p>
+                </div>
+
+                <!-- Publications Filter Toolbar -->
+                <div class="dept-pub-toolbar">
+                    <div class="dept-pub-filter-wrap">
+                        <label for="pubYearFilter" class="dept-pub-filter-label">
+                            <i class="fas fa-calendar-alt"></i> Filter by Year:
+                        </label>
+                        <div class="dept-pub-select-box">
+                            <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year" onchange="window.filterPublicationsByYear && window.filterPublicationsByYear(this.value)">
+                                <option value="all">All Years (3)</option>
+                                <option value="2023">2023 (1)</option>
+                                <option value="2022">2022 (1)</option>
+                                <option value="2021">2021 (1)</option>
+                            </select>
+                            <i class="fas fa-chevron-down dept-pub-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="dept-pub-badge" id="pubCountBadge">
+                        Showing <strong>3</strong> publications
+                    </div>
+                </div>
+
+                <div class="dept-citations-list">
+                    <!-- Empty filter state notice -->
+                    <div class="dept-pub-empty" id="pubEmptyState">
+                        <i class="far fa-folder-open"></i>
+                        No publications found for the selected year.
+                    </div>
+
+                    <!-- Publication 1 -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">Experimental Investigation of Dynamic Response in Asymmetric Multi-Story Structures Using Shake Table Testing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Applied Mechanics Faculty, Structural Engineering Group</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 2 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Shear Strength and Settlement Characteristics of Reinforced Soil Under Tri-Axial Compression</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Geotechnical Research Group, GEC Modasa</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 3 -->
+                    <div class="dept-citation-item" data-year="2021">
+                        <h3 class="dept-citation-title">Comparative Study of Workability and Compressive Strength of High-Performance Concrete with Mineral Admixtures</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Materials &amp; Concrete Technology Group</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</div>
+
+<!-- Department Interactive Logic -->
+<script src="js/department.js?v=<?php echo time(); ?>"></script>
+
+<?php
+// Include Footer
+include_once __DIR__ . '/../../includes/footer.php';
+?>

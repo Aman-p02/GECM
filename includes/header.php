@@ -153,7 +153,7 @@ if (!isset($active_page)) {
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
-                            <li><a href="#" class="hdr-dd-link">Applied Mechanics</a></li>
+                            <li><a href="<?= $root_path ?>departments/applied-mechanics/" class="hdr-dd-link">Applied Mechanics</a></li>
                             <li><a href="#" class="hdr-dd-link">Automobile Engineering</a></li>
                             <li><a href="#" class="hdr-dd-link">Civil Engineering</a></li>
                             <li><a href="<?= $root_path ?>departments/computer/" class="hdr-dd-link">Computer Engineering</a></li>

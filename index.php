@@ -157,7 +157,7 @@ if ($departmentsList === null) {
         ['id' => 5, 'name' => 'Civil Engineering', 'code' => 'CIVIL', 'icon_class' => 'fas fa-building', 'learn_more_url' => '#'],
         ['id' => 6, 'name' => 'Electrical Engineering', 'code' => 'EE', 'icon_class' => 'fas fa-bolt', 'learn_more_url' => '#'],
         ['id' => 7, 'name' => 'Electronics & Comm.', 'code' => 'EC', 'icon_class' => 'fas fa-microchip', 'learn_more_url' => '#'],
-        ['id' => 8, 'name' => 'Applied Mechanics', 'code' => 'AM', 'icon_class' => 'fas fa-drafting-compass', 'learn_more_url' => '#'],
+        ['id' => 8, 'name' => 'Applied Mechanics', 'code' => 'AM', 'icon_class' => 'fas fa-drafting-compass', 'learn_more_url' => 'departments/applied-mechanics/'],
         ['id' => 9, 'name' => 'Science & Humanities', 'code' => 'SH', 'icon_class' => 'fas fa-atom', 'learn_more_url' => '#'],
     ];
 }
