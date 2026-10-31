@@ -44,8 +44,8 @@ include_once __DIR__ . '/../../includes/header.php';
                     <span class="dept-stat-label">SPECIALIZED LABS &amp; HALLS</span>
                 </div>
                 <div class="dept-stat-item">
-                    <span class="dept-stat-num">250+</span>
-                    <span class="dept-stat-label">CAMPUS NETWORK NODES</span>
+                    <span class="dept-stat-num">15</span>
+                    <span class="dept-stat-label">FACULTY MEMBERS</span>
                 </div>
             </div>
         </div>

@@ -185,6 +185,86 @@ Empowering future engineers through innovation and technology. Focused on practi
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Department Key Facilities -->
+                <div class="dept-section-header" style="margin-top: 56px;">
+                    <span class="dept-section-kicker">INFRASTRUCTURE HIGHLIGHTS</span>
+                    <h2>Department Facilities</h2>
+                    <p>Modern campus-wide connectivity, state-of-the-art computing laboratories, and high-tech academic amenities powering student innovation.</p>
+                </div>
+
+                <div class="dept-facilities-grid">
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-wifi"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Wi-Fi enabled Department</h4>
+                            <p>High-speed wireless internet access across all departmental blocks, labs, and interactive classrooms.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-network-wired"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Campus Wide Fiber Optic Cable Network</h4>
+                            <p>Gigabit optical backbone seamlessly interconnecting computer laboratories, data centers, and academic blocks.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>System Lab</h4>
+                            <p>High-performance workstations dedicated to fundamental system software, assembly, and core computation.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Network Lab</h4>
+                            <p>Hardware routing, switching gear, and packet simulation environments for hands-on networking practice.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-code"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Programming Language Lab</h4>
+                            <p>Integrated development environments and compiler suites supporting C, C++, Java, and modern programming.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-database"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>DBMS Lab</h4>
+                            <p>Dedicated database management systems facility for relational, NoSQL, and query design experimentation.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-microchip"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Digital Logic Lab</h4>
+                            <p>Hardware logic design trainer kits, breadboards, digital IC testers, and microprocessor experiment benches.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-terminal"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Operating System Lab</h4>
+                            <p>Multi-OS testbed with Unix/Linux environments, kernel experimentation, and process scheduling tools.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Seminar Halls</h4>
+                            <p>Acoustically engineered presentation halls with AV projection systems for expert talks and tech symposiums.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Digital Learning Lab</h4>
+                            <p>E-learning platform terminals, MOOC access, virtual classroom suites, and online certification hub.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Tab 2: Vision & Mission -->
