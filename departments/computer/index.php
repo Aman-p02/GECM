@@ -185,9 +185,81 @@ Empowering future engineers through innovation and technology. Focused on practi
                         </tbody>
                     </table>
                 </div>
+            </section>
 
-                <!-- Department Key Facilities -->
-                <div class="dept-section-header" style="margin-top: 56px;">
+            <!-- Tab 2: Vision & Mission -->
+            <section class="dept-tab-pane" id="tab-vision-mission">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">ACADEMIC CHARTER</span>
+                    <h2>Vision &amp; Mission</h2>
+                    <p>Guiding principles, strategic commitments, and educational objectives defining our engineering pedagogy.</p>
+                </div>
+
+                <div class="dept-charter-card dept-vision-hero-card">
+                    <span class="dept-vision-quote-mark">“</span>
+                    <blockquote class="dept-vision-statement">
+                        To become a prominent department producing competent professionals with research, innovation and entrepreneurial skills, inculcating moral values and societal concerns.
+                    </blockquote>
+                </div>
+
+                <div class="dept-charter-card" style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission of the Department</h3>
+                    <ul class="dept-mission-steps">
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">I</span>
+                            <div class="dept-mission-text">
+                                To create globally competent students having ability to design, develop and test world class software, keeping pace with the latest technological developments.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">II</span>
+                            <div class="dept-mission-text">
+                                Create facilities and expertise in advanced computer technology thereby promote research.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">III</span>
+                            <div class="dept-mission-text">
+                                Enhance Industry Institute Interaction programme to get acquainted with corporate culture.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">IV</span>
+                            <div class="dept-mission-text">
+                                Induce moral, ethical values and spirit of social commitment.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Objectives (PEOs and PSOs) -->
+                <div class="dept-objectives-grid">
+                    <div class="dept-obj-card">
+                        <h4>Program Educational Objectives (PEOs)</h4>
+                        <div class="dept-obj-lead">Graduates will:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PEO 1:</strong> Be an efficient Software developer in diverse fields and will be a successful professional and/or pursue higher studies.</li>
+                            <li><strong>PEO 2:</strong> Be capable to adapt advanced state of the art computing technology for professional excellence and Research and be a lifelong learner.</li>
+                            <li><strong>PEO 3:</strong> Work productively exhibiting ethical qualities for the betterment of society.</li>
+                            <li><strong>PEO 4:</strong> Possess leadership and entrepreneurial qualities, work harmoniously as a team member with effective communication skills.</li>
+                        </ul>
+                    </div>
+
+                    <div class="dept-obj-card">
+                        <h4>Program Specific Outcomes (PSOs)</h4>
+                        <div class="dept-obj-lead">Computer Engineering Graduate will be able to:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PSO 1:</strong> Gain capability to use current / advanced technology, skills and tools necessary for carrying out Real-World Multidisciplinary projects.</li>
+                            <li><strong>PSO 2:</strong> Achieve an ability to build a computer based system, process or a component that meets the desired needs.</li>
+                            <li><strong>PSO 3:</strong> Apply concepts of core areas of Computer Engineering—Data Structures, Database Management Systems, Operating Systems, Computer Architecture and Software Engineering to provide innovative solution.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 3: Laboratory facilities -->
+            <section class="dept-tab-pane" id="tab-facilities">
+                <div class="dept-section-header">
                     <span class="dept-section-kicker">INFRASTRUCTURE HIGHLIGHTS</span>
                     <h2>Department Facilities</h2>
                     <p>Modern campus-wide connectivity, state-of-the-art computing laboratories, and high-tech academic amenities powering student innovation.</p>
@@ -265,83 +337,10 @@ Empowering future engineers through innovation and technology. Focused on practi
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Tab 2: Vision & Mission -->
-            <section class="dept-tab-pane" id="tab-vision-mission">
-                <div class="dept-section-header">
-                    <span class="dept-section-kicker">ACADEMIC CHARTER</span>
-                    <h2>Vision &amp; Mission</h2>
-                    <p>Guiding principles, strategic commitments, and educational objectives defining our engineering pedagogy.</p>
-                </div>
-
-                <div class="dept-charter-card dept-vision-hero-card">
-                    <span class="dept-vision-quote-mark">“</span>
-                    <blockquote class="dept-vision-statement">
-                        To become a prominent department producing competent professionals with research, innovation and entrepreneurial skills, inculcating moral values and societal concerns.
-                    </blockquote>
-                </div>
-
-                <div class="dept-charter-card" style="margin-bottom: 48px;">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission of the Department</h3>
-                    <ul class="dept-mission-steps">
-                        <li class="dept-mission-item">
-                            <span class="dept-mission-index">I</span>
-                            <div class="dept-mission-text">
-                                To create globally competent students having ability to design, develop and test world class software, keeping pace with the latest technological developments.
-                            </div>
-                        </li>
-                        <li class="dept-mission-item">
-                            <span class="dept-mission-index">II</span>
-                            <div class="dept-mission-text">
-                                Create facilities and expertise in advanced computer technology thereby promote research.
-                            </div>
-                        </li>
-                        <li class="dept-mission-item">
-                            <span class="dept-mission-index">III</span>
-                            <div class="dept-mission-text">
-                                Enhance Industry Institute Interaction programme to get acquainted with corporate culture.
-                            </div>
-                        </li>
-                        <li class="dept-mission-item">
-                            <span class="dept-mission-index">IV</span>
-                            <div class="dept-mission-text">
-                                Induce moral, ethical values and spirit of social commitment.
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Objectives (PEOs and PSOs) -->
-                <div class="dept-objectives-grid">
-                    <div class="dept-obj-card">
-                        <h4>Program Educational Objectives (PEOs)</h4>
-                        <div class="dept-obj-lead">Graduates will:</div>
-                        <ul class="dept-obj-list">
-                            <li><strong>PEO 1:</strong> Be an efficient Software developer in diverse fields and will be a successful professional and/or pursue higher studies.</li>
-                            <li><strong>PEO 2:</strong> Be capable to adapt advanced state of the art computing technology for professional excellence and Research and be a lifelong learner.</li>
-                            <li><strong>PEO 3:</strong> Work productively exhibiting ethical qualities for the betterment of society.</li>
-                            <li><strong>PEO 4:</strong> Possess leadership and entrepreneurial qualities, work harmoniously as a team member with effective communication skills.</li>
-                        </ul>
-                    </div>
-
-                    <div class="dept-obj-card">
-                        <h4>Program Specific Outcomes (PSOs)</h4>
-                        <div class="dept-obj-lead">Computer Engineering Graduate will be able to:</div>
-                        <ul class="dept-obj-list">
-                            <li><strong>PSO 1:</strong> Gain capability to use current / advanced technology, skills and tools necessary for carrying out Real-World Multidisciplinary projects.</li>
-                            <li><strong>PSO 2:</strong> Achieve an ability to build a computer based system, process or a component that meets the desired needs.</li>
-                            <li><strong>PSO 3:</strong> Apply concepts of core areas of Computer Engineering—Data Structures, Database Management Systems, Operating Systems, Computer Architecture and Software Engineering to provide innovative solution.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tab 3: Laboratory facilities -->
-            <section class="dept-tab-pane" id="tab-facilities">
-                <div class="dept-section-header">
+                <div class="dept-section-header" style="margin-top: 56px;">
                     <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
-                    <h2>Laboratories &amp; Facilities</h2>
+                    <h2>Department Laboratories</h2>
                     <p>Modern computing infrastructure supporting coursework from fundamental algorithmic programming to advanced capstone innovation.</p>
                 </div>
 
