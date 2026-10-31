@@ -1,143 +1,58 @@
-// Department tab navigation and URL hash routing
+// Department navigation, URL hash routing, scroll reveal, and publication year filter
+
+// Global publication filter function accessible from inline onchange or programmatic calls
+function filterPublicationsByYear(selectedYear) {
+    const yearFilter = document.getElementById('pubYearFilter');
+    const countBadge = document.getElementById('pubCountBadge');
+    const emptyState = document.getElementById('pubEmptyState');
+    const pubItems = document.querySelectorAll('.dept-citation-item');
+
+    if (!pubItems.length) return;
+
+    if (yearFilter && yearFilter.value !== selectedYear) {
+        yearFilter.value = selectedYear;
+    }
+
+    const sel = (selectedYear || 'all').trim();
+    let visibleCount = 0;
+    const totalCount = pubItems.length;
+
+    pubItems.forEach(item => {
+        const itemYear = (item.getAttribute('data-year') || '').trim();
+        if (sel === 'all' || itemYear === sel) {
+            item.style.display = '';
+            item.classList.remove('is-filtered-out');
+            visibleCount++;
+            // Soft reveal animation
+            item.classList.remove('is-revealed');
+            setTimeout(() => item.classList.add('is-revealed'), 25);
+        } else {
+            item.style.display = 'none';
+            item.classList.add('is-filtered-out');
+        }
+    });
+
+    if (emptyState) {
+        emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
+    }
+
+    if (countBadge) {
+        if (sel === 'all') {
+            countBadge.innerHTML = `Showing <strong>${totalCount}</strong> publications`;
+        } else {
+            countBadge.innerHTML = `Showing <strong>${visibleCount}</strong> of <strong>${totalCount}</strong> in <strong>${sel}</strong>`;
+        }
+    }
+}
+window.filterPublicationsByYear = filterPublicationsByYear;
 
 function initDepartment() {
     const tabButtons = document.querySelectorAll('.dept-subnav-link');
     const tabPanes = document.querySelectorAll('.dept-tab-pane');
     const subNavList = document.querySelector('.dept-subnav-list');
+    const subNav = document.getElementById('deptSubNav') || document.querySelector('.dept-subnav-bar');
 
-    // Switch active tab and display matching content pane
-    function activateTab(tabId, shouldScroll = false) {
-        if (!tabId) return;
-        tabId = tabId.replace('#', '');
-
-        // Map tab aliases to primary section IDs
-        if (tabId === 'vision' || tabId === 'mission') {
-            tabId = 'vision-mission';
-        }
-        if (tabId === 'iab' || tabId === 'iab-2025-26' || tabId === 'iab-2023-24') {
-            tabId = 'advisory-board';
-        }
-        if (tabId === 'nl' || tabId === 'nl-vol1-issue2' || tabId === 'nl-vol1-issue1') {
-            tabId = 'newsletters';
-        }
-
-        const targetPane = document.getElementById('tab-' + tabId);
-        if (!targetPane) return;
-
-        // Reset all buttons and tab panes
-        tabButtons.forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.parentElement) {
-                btn.parentElement.classList.remove('active');
-            }
-            btn.setAttribute('aria-selected', 'false');
-        });
-
-        tabPanes.forEach(pane => {
-            pane.classList.remove('active');
-        });
-
-        // Activate button matching selected tab ID
-        const matchedButtons = document.querySelectorAll(`[data-tab="${tabId}"]`);
-        matchedButtons.forEach(btn => {
-            btn.classList.add('active');
-            btn.setAttribute('aria-selected', 'true');
-            if (btn.parentElement) {
-                btn.parentElement.classList.add('active');
-            }
-            // Ensure selected tab is visible inside scrollable nav strip
-            if (subNavList) {
-                try {
-                    const btnRect = btn.getBoundingClientRect();
-                    const listRect = subNavList.getBoundingClientRect();
-                    if (btnRect.left < listRect.left || btnRect.right > listRect.right) {
-                        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                    }
-                } catch (e) {}
-            }
-        });
-
-        // Show target content pane
-        targetPane.classList.add('active');
-
-        // Reveal elements inside the newly active tab pane
-        if (typeof setupRevealElements === 'function') {
-            setupRevealElements(targetPane);
-        }
-
-        // Smoothly scroll to content if user is scrolled past the subnav
-        if (shouldScroll) {
-            const subNav = document.getElementById('deptSubNav') || document.querySelector('.dept-subnav-bar');
-            const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
-            const mainNavHeight = (window.innerWidth > 768 && mainNav) ? (Math.round(mainNav.getBoundingClientRect().height) || 52) : 0;
-            if (subNav) {
-                const subNavRect = subNav.getBoundingClientRect();
-                if (subNavRect.top <= mainNavHeight + 2) {
-                    const targetY = subNav.offsetTop - mainNavHeight;
-                    window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
-                }
-            }
-        }
-    }
-
-    // Attach click events to all sub-navigation buttons
-    tabButtons.forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            const tabId = this.getAttribute('data-tab');
-            if (tabId) {
-                e.preventDefault();
-                if (history.pushState) {
-                    history.pushState(null, null, '#' + tabId);
-                } else {
-                    window.location.hash = tabId;
-                }
-                activateTab(tabId, true);
-            }
-        });
-    });
-
-    // Sync tab state with window location hash
-    function handleHash() {
-        const hash = window.location.hash.substring(1);
-        if (hash === 'syllabus') {
-            window.location.href = 'https://syllabus.gtu.ac.in/';
-            return;
-        }
-        if (hash) {
-            activateTab(hash, false);
-        } else {
-            activateTab('about', false);
-        }
-    }
-
-    window.addEventListener('hashchange', handleHash);
-    handleHash();
-
-    // Dynamically adjust subnav sticky top position to rest flush beneath main navbar on desktop
-    function updateStickySubnavPosition() {
-        const subNav = document.getElementById('deptSubNav') || document.querySelector('.dept-subnav-bar');
-        if (!subNav) return;
-
-        if (window.innerWidth > 768) {
-            const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
-            if (mainNav) {
-                const navHeight = Math.round(mainNav.getBoundingClientRect().height) || 52;
-                document.documentElement.style.setProperty('--site-main-nav-height', `${navHeight}px`);
-                subNav.style.top = `${navHeight}px`;
-            } else {
-                subNav.style.top = '52px';
-            }
-        } else {
-            document.documentElement.style.setProperty('--site-main-nav-height', '0px');
-            subNav.style.top = '0px';
-        }
-    }
-
-    updateStickySubnavPosition();
-    window.addEventListener('resize', updateStickySubnavPosition, { passive: true });
-    window.addEventListener('scroll', updateStickySubnavPosition, { passive: true });
-
-    // Scroll Reveal Observer for gradual content appearance on scroll
+    // 1. Scroll Reveal Observer definition
     const revealSelectors = [
         '.dept-section-header',
         '.dept-stat-item',
@@ -171,7 +86,8 @@ function initDepartment() {
     }
 
     function setupRevealElements(container = document) {
-        // Apply staggered entrance indices to grid containers
+        if (!container) return;
+
         const gridSelectors = [
             '.dept-faculty-roster',
             '.dept-labs-showcase',
@@ -213,40 +129,37 @@ function initDepartment() {
         });
     }
 
-    setupRevealElements();
-
-    // Initialize Publication Year Filter Controller
+    // 2. Publication Filter Controller Setup
     function initPublicationYearFilter() {
         const yearFilter = document.getElementById('pubYearFilter');
-        const countBadge = document.getElementById('pubCountBadge');
-        const emptyState = document.getElementById('pubEmptyState');
         const pubItems = document.querySelectorAll('.dept-citation-item');
 
         if (!yearFilter || !pubItems.length) return;
 
+        // Ensure data-year attributes exist on all items
         const yearCounts = {};
         let totalCount = 0;
 
         pubItems.forEach(item => {
-            let year = item.getAttribute('data-year');
+            let year = (item.getAttribute('data-year') || '').trim();
             if (!year) {
                 const dateEl = item.querySelector('.dept-citation-date');
                 if (dateEl) {
                     const match = dateEl.textContent.match(/\b(20\d\d)\b/);
                     if (match) {
                         year = match[1];
+                        item.setAttribute('data-year', year);
                     }
                 }
             }
 
             if (year) {
-                item.setAttribute('data-year', year);
                 yearCounts[year] = (yearCounts[year] || 0) + 1;
                 totalCount++;
             }
         });
 
-        // If options are not already pre-rendered by server, populate dynamically
+        // If dropdown options were not pre-rendered, populate dynamically
         if (yearFilter.options.length <= 1) {
             const sortedYears = Object.keys(yearCounts).sort((a, b) => parseInt(b, 10) - parseInt(a, 10));
             yearFilter.innerHTML = '';
@@ -263,42 +176,142 @@ function initDepartment() {
             });
         }
 
-        // Filter event handler
+        // Attach change listener to dropdown
         yearFilter.addEventListener('change', function () {
-            const selectedYear = this.value;
-            let visibleCount = 0;
-
-            pubItems.forEach(item => {
-                const itemYear = item.getAttribute('data-year');
-                if (selectedYear === 'all' || itemYear === selectedYear) {
-                    item.style.display = '';
-                    visibleCount++;
-                    // Trigger animation
-                    item.classList.remove('is-revealed');
-                    setTimeout(() => item.classList.add('is-revealed'), 30);
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            if (emptyState) {
-                emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
-            }
-
-            if (countBadge) {
-                if (selectedYear === 'all') {
-                    countBadge.innerHTML = `Showing <strong>${totalCount}</strong> publications`;
-                } else {
-                    countBadge.innerHTML = `Showing <strong>${visibleCount}</strong> of <strong>${totalCount}</strong> in <strong>${selectedYear}</strong>`;
-                }
-            }
+            filterPublicationsByYear(this.value);
         });
     }
 
+    // 3. Tab switching and URL routing
+    function activateTab(tabId, shouldScroll = false) {
+        if (!tabId) return;
+        tabId = tabId.replace('#', '');
+
+        // Map tab aliases to primary section IDs
+        if (tabId === 'vision' || tabId === 'mission') {
+            tabId = 'vision-mission';
+        }
+        if (tabId === 'iab' || tabId === 'iab-2025-26' || tabId === 'iab-2023-24') {
+            tabId = 'advisory-board';
+        }
+        if (tabId === 'nl' || tabId === 'nl-vol1-issue2' || tabId === 'nl-vol1-issue1') {
+            tabId = 'newsletters';
+        }
+
+        const targetPane = document.getElementById('tab-' + tabId);
+        if (!targetPane) return;
+
+        // Reset all buttons and tab panes
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.parentElement) {
+                btn.parentElement.classList.remove('active');
+            }
+            btn.setAttribute('aria-selected', 'false');
+        });
+
+        tabPanes.forEach(pane => {
+            pane.classList.remove('active');
+        });
+
+        // Activate button matching selected tab ID
+        const matchedButtons = document.querySelectorAll(`[data-tab="${tabId}"]`);
+        matchedButtons.forEach(btn => {
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            if (btn.parentElement) {
+                btn.parentElement.classList.add('active');
+            }
+            if (subNavList) {
+                try {
+                    const btnRect = btn.getBoundingClientRect();
+                    const listRect = subNavList.getBoundingClientRect();
+                    if (btnRect.left < listRect.left || btnRect.right > listRect.right) {
+                        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    }
+                } catch (e) {}
+            }
+        });
+
+        // Show target content pane
+        targetPane.classList.add('active');
+
+        // Reveal elements inside the newly active tab pane
+        setupRevealElements(targetPane);
+
+        // Smoothly scroll to content if user is scrolled past the subnav
+        if (shouldScroll) {
+            const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
+            const mainNavHeight = (window.innerWidth > 768 && mainNav) ? (Math.round(mainNav.getBoundingClientRect().height) || 52) : 0;
+            if (subNav) {
+                const subNavRect = subNav.getBoundingClientRect();
+                if (subNavRect.top <= mainNavHeight + 2) {
+                    const targetY = subNav.offsetTop - mainNavHeight;
+                    window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                }
+            }
+        }
+    }
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            const tabId = this.getAttribute('data-tab');
+            if (tabId) {
+                e.preventDefault();
+                if (history.pushState) {
+                    history.pushState(null, null, '#' + tabId);
+                } else {
+                    window.location.hash = tabId;
+                }
+                activateTab(tabId, true);
+            }
+        });
+    });
+
+    // Subnav sticky top position calculation
+    function updateStickySubnavPosition() {
+        if (!subNav) return;
+        if (window.innerWidth > 768) {
+            const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
+            if (mainNav) {
+                const navHeight = Math.round(mainNav.getBoundingClientRect().height) || 52;
+                document.documentElement.style.setProperty('--site-main-nav-height', `${navHeight}px`);
+                subNav.style.top = `${navHeight}px`;
+            } else {
+                subNav.style.top = '52px';
+            }
+        } else {
+            document.documentElement.style.setProperty('--site-main-nav-height', '0px');
+            subNav.style.top = '0px';
+        }
+    }
+
+    updateStickySubnavPosition();
+    window.addEventListener('resize', updateStickySubnavPosition, { passive: true });
+    window.addEventListener('scroll', updateStickySubnavPosition, { passive: true });
+
+    // Initializations
     initPublicationYearFilter();
+    setupRevealElements(document);
+
+    // Initial hash handling
+    function handleHash() {
+        const hash = window.location.hash.substring(1);
+        if (hash === 'syllabus') {
+            window.location.href = 'https://syllabus.gtu.ac.in/';
+            return;
+        }
+        if (hash) {
+            activateTab(hash, false);
+        } else {
+            activateTab('about', false);
+        }
+    }
+
+    window.addEventListener('hashchange', handleHash);
+    handleHash();
 }
 
-// Ensure execution whether DOM is still loading or already ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initDepartment);
 } else {

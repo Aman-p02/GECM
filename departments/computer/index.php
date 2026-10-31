@@ -454,7 +454,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                             <i class="fas fa-calendar-alt"></i> Filter by Year:
                         </label>
                         <div class="dept-pub-select-box">
-                            <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year">
+                            <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year" onchange="window.filterPublicationsByYear && window.filterPublicationsByYear(this.value)">
                                 <option value="all">All Years (153)</option>
                                 <option value="2026">2026 (3)</option>
                                 <option value="2025">2025 (7)</option>

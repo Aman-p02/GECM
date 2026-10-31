@@ -958,6 +958,10 @@
     gap: 12px;
 }
 
+.dept-citation-item.is-filtered-out {
+    display: none !important;
+}
+
 .dept-citation-item:hover {
     border-color: #cbd5e1;
     border-left-color: var(--dept-accent);
