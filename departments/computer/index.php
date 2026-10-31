@@ -69,6 +69,12 @@ Empowering future engineers through innovation and technology. Focused on practi
                         </a>
                     </li>
                     <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Faculty</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Activities</button>
+                    </li>
+                    <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>
                     </li>
                     <li class="dept-subnav-item">
