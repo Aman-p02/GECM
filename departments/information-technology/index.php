@@ -447,19 +447,19 @@ include_once __DIR__ . '/../../includes/header.php';
             <!-- Tab 5: Facilities & Labs -->
             <section class="dept-tab-pane" id="tab-facilities">
                 <div class="dept-section-header">
-                    <span class="dept-section-kicker">INFRASTRUCTURE &amp; COMPUTING</span>
-                    <h2>Facilities &amp; Laboratories</h2>
-                    <p>State-of-the-art computational laboratories, campus networking controllers, and seminar auditoriums equipped with high-performance desktop stations and high-speed internet.</p>
+                    <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
+                    <h2>Laboratories &amp; Facilities</h2>
+                    <p>Modern computing infrastructure supporting coursework from fundamental algorithmic programming to advanced capstone innovation.</p>
                 </div>
 
                 <div class="dept-labs-showcase">
                     <!-- Lab 1 -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-wrap">
-                            <img src="images/labs/lab_8212_project.jpg" alt="IT Project and Research Lab" class="dept-lab-img">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8212_project.jpg" alt="Room 8212 - IT Project &amp; Research Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
                         </div>
-                        <div class="dept-lab-body">
-                            <span class="dept-lab-room">LAB ROOM 8212</span>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8212</span>
                             <h3 class="dept-lab-title">IT Project &amp; Research Lab</h3>
                             <p class="dept-lab-desc">Equipped for final-year undergraduate capstone development, multidisciplinary software research, and prototype validation with high-spec desktop machines.</p>
                         </div>
@@ -467,11 +467,11 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Lab 2 -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-wrap">
-                            <img src="images/labs/8213-lab.png" alt="Web Technology and Cloud Computing Lab" class="dept-lab-img">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/8213-lab.png" alt="Room 8213 - Web Technology &amp; Cloud Computing Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
                         </div>
-                        <div class="dept-lab-body">
-                            <span class="dept-lab-room">LAB ROOM 8213</span>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8213</span>
                             <h3 class="dept-lab-title">Web Technology &amp; Cloud Computing Lab</h3>
                             <p class="dept-lab-desc">Dedicated to Web Development, Cloud Computing, RESTful API Design, and Full-Stack framework development utilizing modern Linux environments.</p>
                         </div>
@@ -479,11 +479,11 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Lab 3 -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-wrap">
-                            <img src="images/labs/lab_8215_programming2.jpg" alt="Database and Software Systems Lab" class="dept-lab-img">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8215_programming2.jpg" alt="Room 8215 - Database &amp; Software Systems Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
                         </div>
-                        <div class="dept-lab-body">
-                            <span class="dept-lab-room">LAB ROOM 8215</span>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8215</span>
                             <h3 class="dept-lab-title">Database &amp; Software Systems Lab</h3>
                             <p class="dept-lab-desc">Equipped with enterprise relational database servers (Oracle, MySQL, PostgreSQL) and software testing suites for practical coursework.</p>
                         </div>
@@ -491,11 +491,11 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Lab 4 -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-wrap">
-                            <img src="images/labs/lab_8216_pps.jpg" alt="Programming for Problem Solving Lab" class="dept-lab-img">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8216_pps.jpg" alt="Room 8216 - Programming for Problem Solving Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
                         </div>
-                        <div class="dept-lab-body">
-                            <span class="dept-lab-room">LAB ROOM 8216</span>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8216</span>
                             <h3 class="dept-lab-title">Programming for Problem Solving Lab</h3>
                             <p class="dept-lab-desc">Designed for first-year IT students to master algorithmic thinking, data structures, and core programming paradigms using C, C++, and Python.</p>
                         </div>
@@ -503,11 +503,11 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Lab 5 -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-wrap">
-                            <img src="images/labs/lab_8217_programming3.jpg" alt="Network Security and IoT Lab" class="dept-lab-img">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8217_programming3.jpg" alt="Room 8217 - Network Security &amp; IoT Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
                         </div>
-                        <div class="dept-lab-body">
-                            <span class="dept-lab-room">LAB ROOM 8217</span>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8217</span>
                             <h3 class="dept-lab-title">Network Security &amp; IoT Lab</h3>
                             <p class="dept-lab-desc">Advanced networking facility with managed switches, traffic analysis tools, Wireshark packet capture stations, and IoT sensor interface nodes.</p>
                         </div>
@@ -515,11 +515,11 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Lab 6 -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-wrap">
-                            <img src="images/labs/seminar_hall.jpg" alt="IT Department Seminar Hall" class="dept-lab-img">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/seminar_hall.jpg" alt="IT Department Seminar Hall" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
                         </div>
-                        <div class="dept-lab-body">
-                            <span class="dept-lab-room">PRESENTATION AUDITORIUM</span>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Presentation Complex</span>
                             <h3 class="dept-lab-title">IT Department Seminar Hall</h3>
                             <p class="dept-lab-desc">Air-conditioned presentation auditorium equipped with digital audiovisual systems for expert guest lectures, workshops, and project viva defenses.</p>
                         </div>
