@@ -4,8 +4,12 @@
 
 :root {
     --dept-primary: #111111;
-    --dept-accent: #ff8800;
-    --dept-kicker: #ff8800;
+    --dept-accent: #15803d; /* IT Department Green derived from #bbf7d0 palette */
+    --dept-accent-hover: #166534;
+    --dept-accent-rgb: 21, 128, 61;
+    --dept-kicker: #15803d;
+    --dept-it-box: #bbf7d0; /* IT box background from main page */
+    --dept-it-border: #a7f3d0; /* IT box border from main page */
     --dept-body: #4b5563;
     --dept-muted: #6b7280;
     --dept-border: #e5e7eb;
@@ -477,8 +481,9 @@
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    background: #eef2ff;
-    color: #1e3a8a;
+    background: #bbf7d0;
+    color: #14532d;
+    border: 1px solid #86efac;
     font-family: var(--dept-font-display);
 }
 
@@ -501,9 +506,9 @@
     font-size: 0.82rem;
     font-weight: 700;
     font-family: var(--dept-font-display);
-    background: var(--dept-bg-subtle);
-    color: #111111;
-    border: 1px solid var(--dept-border);
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
 }
 
 /* Vision and mission styling */
@@ -888,7 +893,7 @@
 .dept-pub-select:focus {
     outline: none;
     border-color: var(--dept-accent);
-    box-shadow: 0 0 0 3px rgba(255, 136, 0, 0.15);
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.18);
 }
 
 .dept-pub-arrow {

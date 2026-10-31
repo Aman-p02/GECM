@@ -121,26 +121,44 @@ include_once __DIR__ . '/../../includes/header.php';
                 <!-- About the Programme Section -->
                 <div class="dept-programme-section">
                     <div class="dept-section-header">
-                        <span class="dept-section-kicker">CURRICULAR INSIGHT</span>
+                        <span class="dept-section-kicker">DISCIPLINE &amp; CAREER PATHS</span>
                         <h2>About the Programme</h2>
-                        <p class="dept-programme-lead">
-                            The field of information technology (IT) covers the design, administration and support of computer and telecommunications systems. Some of the positions in this field include database and network administrators, computer support specialists, computer scientists, software programmers and system analysts. The majority of career tracks in IT entail design and operational tasks related to computer hardware components, networks and software applications.
-                        </p>
+                        <p>Integrating computer science, telecommunications, and software systems to develop robust, secure, and scalable information networks.</p>
+                    </div>
+
+                    <p class="dept-programme-lead">
+                        The field of information technology (IT) covers the design, administration and support of computer and telecommunications systems. Professionals in the IT field work with businesses and organizations to set up and support viable computer networks that will keep systems efficient and reliable. At the professional level, the discipline offers vital career avenues:
+                    </p>
+
+                    <div class="dept-avenues-grid">
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-network-wired"></i></div>
+                                <h4>Network &amp; Security Engineering</h4>
+                            </div>
+                            <p>Design, secure, and administer enterprise computer networks, telecommunications frameworks, cloud architectures, firewalls, and IoT infrastructure.</p>
+                        </div>
+
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-laptop-code"></i></div>
+                                <h4>Software &amp; Web Systems</h4>
+                            </div>
+                            <p>Develop, test, and deploy database-driven web applications, modern RESTful APIs, cloud microservices, and mobile software systems using open-source technologies.</p>
+                        </div>
                     </div>
 
                     <div class="dept-story-body">
                         <p>
-                            Professionals in the IT field work with businesses and organizations to set up and support viable computer networks that will keep systems efficient and reliable. IT encompasses all hardware and software used in the storing, creation and accessing of information. Examples of technologies that professionals work with are firewalls, databases, media storage devices, networks and the Internet.
-                        </p>
-                        <p>
-                            Aspiring IT professionals typically need a bachelor's degree in a technology field, such as computer science, information systems management, programming or networking. Even without a degree, experience in an entry-level help desk position could help IT professionals advance with professional certification or vocational training. The fundamentals of a degree program generally include computer hardware, programming, networking, and technical theory. Depending on the major, students could also learn IT management, website development, computer circuitry, systems analysis and database management. Some programs also include internship opportunities. To work as a computer research scientist, a Ph.D. degree is often necessary.
+                            Aspiring IT professionals typically need a bachelor's degree in a technology field, such as computer science, information systems management, programming or networking. Even without a degree, experience in an entry-level help desk position could help IT professionals advance with professional certification or vocational training. The fundamentals of a degree program generally include computer hardware, programming, networking, and technical theory. Depending on the major, students also learn IT management, website development, computer circuitry, systems analysis, and database management. Some programs also include internship opportunities.
                         </p>
                     </div>
 
                     <!-- Under Graduate Courses Table -->
-                    <div class="dept-section-header" style="margin-top: 40px; margin-bottom: 20px;">
-                        <span class="dept-section-kicker">ACADEMIC OFFERINGS</span>
-                        <h3 style="font-family: var(--dept-font-display); font-size: 1.35rem; font-weight: 700; color: #111111; margin: 0;">Under Graduate / Post Graduate Courses</h3>
+                    <div class="dept-section-header" style="margin-top: 56px;">
+                        <span class="dept-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
+                        <h2>Undergraduate Programmes</h2>
+                        <p>Approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated with Gujarat Technological University (GTU), Ahmedabad.</p>
                     </div>
 
                     <div class="dept-table-wrap">
@@ -148,7 +166,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <thead>
                                 <tr>
                                     <th>Name of Course</th>
-                                    <th>Type</th>
+                                    <th>Degree Type</th>
                                     <th>Period (Years)</th>
                                     <th>Approved Intake</th>
                                     <th>Year of Starting</th>
@@ -157,9 +175,9 @@ include_once __DIR__ . '/../../includes/header.php';
                             <tbody>
                                 <tr>
                                     <td><strong>Information Technology</strong></td>
-                                    <td><span class="dept-tag-ug">UG</span></td>
-                                    <td>4 Years</td>
-                                    <td><strong>120</strong></td>
+                                    <td><span class="dept-tag-ug">UG (B.E.)</span></td>
+                                    <td>4 Years (8 Semesters)</td>
+                                    <td><span class="dept-badge">120 Seats</span></td>
                                     <td>1999</td>
                                 </tr>
                             </tbody>
