@@ -260,6 +260,87 @@ Empowering future engineers through innovation and technology. Focused on practi
             <!-- Tab 3: Laboratory facilities -->
             <section class="dept-tab-pane" id="tab-facilities">
                 <div class="dept-section-header">
+                    <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
+                    <h2>Laboratories &amp; Facilities</h2>
+                    <p>Modern computing infrastructure supporting coursework from fundamental algorithmic programming to advanced capstone innovation.</p>
+                </div>
+
+                <div class="dept-labs-showcase">
+                    <!-- Lab 8112: Project and Research Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8112_project.jpg" alt="Room 8112 - Project &amp; Research Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8112</span>
+                            <h3 class="dept-lab-title">Project &amp; Research Lab</h3>
+                            <p class="dept-lab-desc">Equipped for final-year undergraduate capstone projects, multidisciplinary research, and startup incubation with high-performance desktop towers and gigabit switches.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 8113: Programming Lab 1 -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8113_programming1.jpg" alt="Room 8113 - Programming Laboratory 1" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8113</span>
+                            <h3 class="dept-lab-title">Programming Laboratory - 1</h3>
+                            <p class="dept-lab-desc">Dedicated to Database Management Systems (Oracle/MySQL), Operating Systems internals, Computer Graphics, and Python application development.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 8115: Hardware and Networking Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8115_hardware.jpg" alt="Room 8115 - Computer Hardware &amp; Networking Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8115</span>
+                            <h3 class="dept-lab-title">Computer Hardware &amp; Networking Lab</h3>
+                            <p class="dept-lab-desc">Outfitted with digital electronics trainers, 8085/8086 microprocessor kits, Cisco managed switches, packet sniffing stations, and IoT microcontroller boards.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 8116: PPS Lab 2 -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8116_pps2.jpg" alt="Room 8116 - PPS Laboratory 2" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8116</span>
+                            <h3 class="dept-lab-title">PPS Laboratory - 2</h3>
+                            <p class="dept-lab-desc">Designed for freshman Programming for Problem Solving (PPS) courses, instilling structured programming principles using C/C++ in a networked terminal environment.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 8117: Advanced Software Lab 3 -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_8117_programming3.jpg" alt="Room 8117 - Advanced Software &amp; ML Lab 3" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Room 8117</span>
+                            <h3 class="dept-lab-title">Advanced Software &amp; ML Lab - 3</h3>
+                            <p class="dept-lab-desc">High-speed computational cluster utilized for Compiler Design, Full-Stack Web Technologies, Distributed Cloud Computing, and Machine Learning algorithms.</p>
+                        </div>
+                    </div>
+
+                    <!-- Department Seminar Room -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/seminar_room.jpg" alt="Department Seminar Room" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Seminar Complex</span>
+                            <h3 class="dept-lab-title">Department Seminar Room</h3>
+                            <p class="dept-lab-desc">Acoustically treated conference and colloquium room with ceiling-mounted digital projection, surround audio, and video conferencing capabilities for scholarly defenses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Department Facilities (Below Laboratory Showcase) -->
+                <div class="dept-section-header" style="margin-top: 56px;">
                     <span class="dept-section-kicker">INFRASTRUCTURE HIGHLIGHTS</span>
                     <h2>Department Facilities</h2>
                     <p>Modern campus-wide connectivity, state-of-the-art computing laboratories, and high-tech academic amenities powering student innovation.</p>
@@ -334,86 +415,6 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <div class="dept-facility-info">
                             <h4>Digital Learning Lab</h4>
                             <p>E-learning platform terminals, MOOC access, virtual classroom suites, and online certification hub.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dept-section-header" style="margin-top: 56px;">
-                    <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
-                    <h2>Department Laboratories</h2>
-                    <p>Modern computing infrastructure supporting coursework from fundamental algorithmic programming to advanced capstone innovation.</p>
-                </div>
-
-                <div class="dept-labs-showcase">
-                    <!-- Lab 8112: Project and Research Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_8112_project.jpg" alt="Room 8112 - Project &amp; Research Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Room 8112</span>
-                            <h3 class="dept-lab-title">Project &amp; Research Lab</h3>
-                            <p class="dept-lab-desc">Equipped for final-year undergraduate capstone projects, multidisciplinary research, and startup incubation with high-performance desktop towers and gigabit switches.</p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 8113: Programming Lab 1 -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_8113_programming1.jpg" alt="Room 8113 - Programming Laboratory 1" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Room 8113</span>
-                            <h3 class="dept-lab-title">Programming Laboratory - 1</h3>
-                            <p class="dept-lab-desc">Dedicated to Database Management Systems (Oracle/MySQL), Operating Systems internals, Computer Graphics, and Python application development.</p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 8115: Hardware and Networking Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_8115_hardware.jpg" alt="Room 8115 - Computer Hardware &amp; Networking Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Room 8115</span>
-                            <h3 class="dept-lab-title">Computer Hardware &amp; Networking Lab</h3>
-                            <p class="dept-lab-desc">Outfitted with digital electronics trainers, 8085/8086 microprocessor kits, Cisco managed switches, packet sniffing stations, and IoT microcontroller boards.</p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 8116: PPS Lab 2 -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_8116_pps2.jpg" alt="Room 8116 - PPS Laboratory 2" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Room 8116</span>
-                            <h3 class="dept-lab-title">PPS Laboratory - 2</h3>
-                            <p class="dept-lab-desc">Designed for freshman Programming for Problem Solving (PPS) courses, instilling structured programming principles using C/C++ in a networked terminal environment.</p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 8117: Advanced Software Lab 3 -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_8117_programming3.jpg" alt="Room 8117 - Advanced Software &amp; ML Lab 3" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Room 8117</span>
-                            <h3 class="dept-lab-title">Advanced Software &amp; ML Lab - 3</h3>
-                            <p class="dept-lab-desc">High-speed computational cluster utilized for Compiler Design, Full-Stack Web Technologies, Distributed Cloud Computing, and Machine Learning algorithms.</p>
-                        </div>
-                    </div>
-
-                    <!-- Department Seminar Room -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/seminar_room.jpg" alt="Department Seminar Room" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Seminar Complex</span>
-                            <h3 class="dept-lab-title">Department Seminar Room</h3>
-                            <p class="dept-lab-desc">Acoustically treated conference and colloquium room with ceiling-mounted digital projection, surround audio, and video conferencing capabilities for scholarly defenses.</p>
                         </div>
                     </div>
                 </div>
