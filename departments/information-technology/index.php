@@ -171,107 +171,69 @@ include_once __DIR__ . '/../../includes/header.php';
             <!-- Tab 2: Vision & Mission -->
             <section class="dept-tab-pane" id="tab-vision-mission">
                 <div class="dept-section-header">
-                    <span class="dept-section-kicker">INSTITUTIONAL DIRECTION</span>
+                    <span class="dept-section-kicker">ACADEMIC CHARTER</span>
                     <h2>Vision &amp; Mission</h2>
-                    <p>Guiding values shaping academic rigor, technical innovation, ethical citizenship, and societal commitment.</p>
+                    <p>Guiding principles, strategic commitments, and educational objectives defining our engineering pedagogy.</p>
                 </div>
 
-                <div class="dept-overview-grid">
-                    <!-- Vision Card -->
-                    <div class="dept-feature-card">
-                        <div class="dept-feature-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <h3>Department Vision</h3>
-                        <p>
-                            To become a prominent department producing technically competent and skilled intellectual IT professionals with research, innovation and entrepreneurial skills, inculcating moral values and societal concerns.
-                        </p>
-                    </div>
+                <div class="dept-charter-card dept-vision-hero-card">
+                    <span class="dept-vision-quote-mark">“</span>
+                    <blockquote class="dept-vision-statement">
+                        To become a prominent department producing technically competent and skilled intellectual IT professionals with research, innovation and entrepreneurial skills, inculcating moral values and societal concerns.
+                    </blockquote>
+                </div>
 
-                    <!-- Mission Card -->
-                    <div class="dept-feature-card">
-                        <div class="dept-feature-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3>Department Mission</h3>
-                        <ul class="dept-feature-list">
-                            <li>To create globally competent students having ability to provide technical solutions in the field of Information Technology.</li>
-                            <li>To create facilities and expertise in the field of Information Technology where students and faculty can enhance their understanding of technology.</li>
-                            <li>To enhance industry institute interaction programme to get acquainted with corporate culture.</li>
-                            <li>To induce moral, ethical values and spirit of social commitment.</li>
+                <div class="dept-charter-card" style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission of the Department</h3>
+                    <ul class="dept-mission-steps">
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">I</span>
+                            <div class="dept-mission-text">
+                                To create globally competent students having ability to provide technical solutions in the field of Information Technology.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">II</span>
+                            <div class="dept-mission-text">
+                                To create facilities and expertise in the field of Information Technology where students and faculty can enhance their understanding of technology.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">III</span>
+                            <div class="dept-mission-text">
+                                To enhance industry institute interaction programme to get acquainted with corporate culture.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">IV</span>
+                            <div class="dept-mission-text">
+                                To induce moral, ethical values and spirit of social commitment.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Objectives (PEOs and PSOs) -->
+                <div class="dept-objectives-grid">
+                    <div class="dept-obj-card">
+                        <h4>Program Educational Objectives (PEOs)</h4>
+                        <div class="dept-obj-lead">Graduates will:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PEO 1:</strong> Be prepared to gain employment as a successful IT professional and/or pursue higher studies.</li>
+                            <li><strong>PEO 2:</strong> Be capable to adapt advanced state of the art Information technology for professional excellence and Research and be a lifelong learner.</li>
+                            <li><strong>PEO 3:</strong> Work productively exhibiting ethical qualities for the betterment of society.</li>
+                            <li><strong>PEO 4:</strong> Possess leadership and entrepreneurial qualities, work harmoniously as a team member with effective communication skills.</li>
                         </ul>
                     </div>
-                </div>
 
-                <!-- Program Educational Objectives (PEOs) -->
-                <div style="margin-top: 56px;">
-                    <div class="dept-section-header" style="margin-bottom: 24px;">
-                        <span class="dept-section-kicker">GRADUATE OUTCOMES</span>
-                        <h2>Program Educational Objectives (PEOs)</h2>
-                        <p>Graduates of the Information Technology programme will achieve the following within a few years of graduation:</p>
-                    </div>
-
-                    <div class="dept-table-wrap">
-                        <table class="dept-clean-table">
-                            <thead>
-                                <tr>
-                                    <th style="width: 120px;">Identifier</th>
-                                    <th>Objective Statement (Graduates will)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong style="color: var(--dept-accent);">PEO1</strong></td>
-                                    <td>Be prepared to gain employment as a successful IT professional and/or pursue higher studies.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong style="color: var(--dept-accent);">PEO2</strong></td>
-                                    <td>Be capable to adapt advanced state of the art Information technology for professional excellence and Research and be a lifelong learner.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong style="color: var(--dept-accent);">PEO3</strong></td>
-                                    <td>Work productively exhibiting ethical qualities for the betterment of society.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong style="color: var(--dept-accent);">PEO4</strong></td>
-                                    <td>Possess leadership and entrepreneurial qualities, work harmoniously as a team member with effective communication skills.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Program Specific Outcomes (PSOs) -->
-                <div style="margin-top: 56px;">
-                    <div class="dept-section-header" style="margin-bottom: 24px;">
-                        <span class="dept-section-kicker">DISCIPLINARY COMPETENCIES</span>
-                        <h2>Program Specific Outcomes (PSOs)</h2>
-                        <p>Information Technology Graduate will be able to demonstrate:</p>
-                    </div>
-
-                    <div class="dept-table-wrap">
-                        <table class="dept-clean-table">
-                            <thead>
-                                <tr>
-                                    <th style="width: 120px;">Identifier</th>
-                                    <th>Outcome Competency</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong style="color: var(--dept-accent);">PSO1</strong></td>
-                                    <td>Effectively integrate IT-based solutions into the user environment.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong style="color: var(--dept-accent);">PSO2</strong></td>
-                                    <td>Possess professional skill set of software design process using open source technologies.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong style="color: var(--dept-accent);">PSO3</strong></td>
-                                    <td>Apply concepts of core areas of Information Technology– Data Structures, Database Management Systems, Operating Systems, Computer Network and Software Engineering to provide innovative solution.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="dept-obj-card">
+                        <h4>Program Specific Outcomes (PSOs)</h4>
+                        <div class="dept-obj-lead">Information Technology Graduate will be able to:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PSO 1:</strong> Effectively integrate IT-based solutions into the user environment.</li>
+                            <li><strong>PSO 2:</strong> Possess professional skill set of software design process using open source technologies.</li>
+                            <li><strong>PSO 3:</strong> Apply concepts of core areas of Information Technology– Data Structures, Database Management Systems, Operating Systems, Computer Network and Software Engineering to provide innovative solution.</li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -648,3 +610,4 @@ include_once __DIR__ . '/../../includes/header.php';
 // Include Footer
 include_once __DIR__ . '/../../includes/footer.php';
 ?>
+
