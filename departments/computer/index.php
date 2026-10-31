@@ -69,12 +69,6 @@ Empowering future engineers through innovation and technology. Focused on practi
                         </a>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="faculty" role="tab" aria-selected="false">Faculty</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="activities" role="tab" aria-selected="false">Activities</button>
-                    </li>
-                    <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>
                     </li>
                     <li class="dept-subnav-item">
@@ -257,106 +251,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                 </div>
             </section>
 
-            <!-- Tab 3: Faculty directory -->
-            <section class="dept-tab-pane" id="tab-faculty">
-                <div class="dept-section-header">
-                    <span class="dept-section-kicker">SCHOLARLY DIRECTORY</span>
-                    <h2>Faculty Members</h2>
-                    <p>Our distinguished academic roster of educators, researchers, and technical mentors dedicated to student mastery.</p>
-                </div>
-
-                <div class="dept-faculty-roster">
-                    <div class="dept-faculty-card">
-                        <div class="dept-faculty-initials">HP</div>
-                        <h4 class="dept-faculty-name">Dr. H. M. Patel</h4>
-                        <div class="dept-faculty-rank">Professor &amp; Head of Department</div>
-                        <div class="dept-faculty-degrees">Ph.D., M.Tech (Computer Engineering)<br><small>Specialization: Cloud Security, Distributed Systems</small></div>
-                        <a href="mailto:hod_ce@gecmodasa.ac.in" class="dept-faculty-contact">
-                            <i class="fas fa-envelope"></i> hod_ce@gecmodasa.ac.in
-                        </a>
-                    </div>
-
-                    <div class="dept-faculty-card">
-                        <div class="dept-faculty-initials">AS</div>
-                        <h4 class="dept-faculty-name">Prof. A. S. Shah</h4>
-                        <div class="dept-faculty-rank">Associate Professor</div>
-                        <div class="dept-faculty-degrees">Ph.D. (Pursuing), M.E. (Computer Engineering)<br><small>Specialization: IoT Security, Embedded Networks</small></div>
-                        <a href="mailto:asshah@gecmodasa.ac.in" class="dept-faculty-contact">
-                            <i class="fas fa-envelope"></i> asshah@gecmodasa.ac.in
-                        </a>
-                    </div>
-
-                    <div class="dept-faculty-card">
-                        <div class="dept-faculty-initials">RP</div>
-                        <h4 class="dept-faculty-name">Prof. R. K. Prajapati</h4>
-                        <div class="dept-faculty-rank">Assistant Professor</div>
-                        <div class="dept-faculty-degrees">M.E. (Computer Science &amp; Engineering)<br><small>Specialization: Data Engineering, Cryptography</small></div>
-                        <a href="mailto:rkprajapati@gecmodasa.ac.in" class="dept-faculty-contact">
-                            <i class="fas fa-envelope"></i> rkprajapati@gecmodasa.ac.in
-                        </a>
-                    </div>
-
-                    <div class="dept-faculty-card">
-                        <div class="dept-faculty-initials">PM</div>
-                        <h4 class="dept-faculty-name">Prof. P. N. Mehta</h4>
-                        <div class="dept-faculty-rank">Assistant Professor</div>
-                        <div class="dept-faculty-degrees">M.Tech (Software Engineering)<br><small>Specialization: Microservices, Web Architectures</small></div>
-                        <a href="mailto:pnmehta@gecmodasa.ac.in" class="dept-faculty-contact">
-                            <i class="fas fa-envelope"></i> pnmehta@gecmodasa.ac.in
-                        </a>
-                    </div>
-
-                    <div class="dept-faculty-card">
-                        <div class="dept-faculty-initials">SJ</div>
-                        <h4 class="dept-faculty-name">Prof. S. D. Joshi</h4>
-                        <div class="dept-faculty-rank">Assistant Professor</div>
-                        <div class="dept-faculty-degrees">M.E. (Computer Engineering)<br><small>Specialization: Machine Learning, Neural Signals</small></div>
-                        <a href="mailto:sdjoshi@gecmodasa.ac.in" class="dept-faculty-contact">
-                            <i class="fas fa-envelope"></i> sdjoshi@gecmodasa.ac.in
-                        </a>
-                    </div>
-
-                    <div class="dept-faculty-card">
-                        <div class="dept-faculty-initials">MP</div>
-                        <h4 class="dept-faculty-name">Prof. M. B. Patel</h4>
-                        <div class="dept-faculty-rank">Assistant Professor</div>
-                        <div class="dept-faculty-degrees">M.Tech (Information Technology)<br><small>Specialization: Mobile Systems, Data Mining</small></div>
-                        <a href="mailto:mbpatel@gecmodasa.ac.in" class="dept-faculty-contact">
-                            <i class="fas fa-envelope"></i> mbpatel@gecmodasa.ac.in
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tab 4: Activities and events -->
-            <section class="dept-tab-pane" id="tab-activities">
-                <div class="dept-section-header">
-                    <span class="dept-section-kicker">CAMPUS ENGAGEMENT</span>
-                    <h2>Department Activities</h2>
-                    <p>Annual hackathons, industrial field tours, expert colloquia, and hands-on developer workshops.</p>
-                </div>
-
-                <div class="dept-periodical-grid">
-                    <div class="dept-activity-card">
-                        <h4>Annual CodeFest &amp; Hackathons</h4>
-                        <p>24-hour technical coding sprints challenging student developers to solve real-world industrial and civic governance problems using full-stack frameworks and AI APIs.</p>
-                    </div>
-                    <div class="dept-activity-card">
-                        <h4>Industry Masterclass Series</h4>
-                        <p>Distinguished technical architects and engineering leaders deliver in-depth sessions on cloud infrastructure, container orchestration, and cybersecurity hygiene.</p>
-                    </div>
-                    <div class="dept-activity-card">
-                        <h4>Industrial Research Visits</h4>
-                        <p>Experiential tours to leading scientific centers including BISAG-N Gandhinagar, TCS Garima Park, and ISRO Space Applications Centre to observe production data centers.</p>
-                    </div>
-                    <div class="dept-activity-card">
-                        <h4>Faculty Development Programs (FDP)</h4>
-                        <p>GTU-sponsored short-term training programs on deep learning, internet of things, and advanced pedagogy conducted for regional engineering educators.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tab 5: Laboratory facilities -->
+            <!-- Tab 3: Laboratory facilities -->
             <section class="dept-tab-pane" id="tab-facilities">
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>

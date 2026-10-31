@@ -191,7 +191,7 @@ function initDepartment() {
         if (tabId === 'vision' || tabId === 'mission') {
             tabId = 'vision-mission';
         }
-        if (tabId === 'advisory-board' || tabId === 'newsletters' || tabId === 'iab' || tabId === 'nl') {
+        if (tabId === 'advisory-board' || tabId === 'newsletters' || tabId === 'iab' || tabId === 'nl' || tabId === 'faculty' || tabId === 'activities') {
             return;
         }
 
@@ -253,7 +253,7 @@ function initDepartment() {
     tabButtons.forEach(btn => {
         btn.addEventListener('click', function (e) {
             const tabId = this.getAttribute('data-tab');
-            if (tabId && tabId !== 'advisory-board' && tabId !== 'newsletters') {
+            if (tabId && tabId !== 'advisory-board' && tabId !== 'newsletters' && tabId !== 'faculty' && tabId !== 'activities') {
                 e.preventDefault();
                 if (history.pushState) {
                     history.pushState(null, null, '#' + tabId);
