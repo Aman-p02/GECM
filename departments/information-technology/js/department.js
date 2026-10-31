@@ -64,6 +64,7 @@ function initDepartment() {
         '.dept-lab-card',
         '.dept-activity-card',
         '.dept-avenue-card',
+        '.dept-facility-item',
         '.dept-citation-item',
         '.dept-board-card',
         '.dept-newsletter-card'
@@ -94,6 +95,7 @@ function initDepartment() {
             '.dept-objectives-grid',
             '.dept-periodical-grid',
             '.dept-avenues-grid',
+            '.dept-facilities-grid',
             '.dept-citations-list',
             '.dept-stats-strip'
         ];

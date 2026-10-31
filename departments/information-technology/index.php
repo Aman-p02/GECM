@@ -337,6 +337,86 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
                 </div>
+
+                <!-- Key Department Facilities (Below Laboratory Showcase) -->
+                <div class="dept-section-header" style="margin-top: 56px;">
+                    <span class="dept-section-kicker">INFRASTRUCTURE HIGHLIGHTS</span>
+                    <h2>Department Facilities</h2>
+                    <p>Modern campus-wide connectivity, state-of-the-art computing laboratories, and high-tech academic amenities powering student innovation.</p>
+                </div>
+
+                <div class="dept-facilities-grid">
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-wifi"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Wi-Fi enabled Department</h4>
+                            <p>High-speed wireless connectivity coverage across all departmental classrooms, laboratories, and study areas.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-network-wired"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Campus Wide Fiber Optic Cable Network</h4>
+                            <p>High-bandwidth optical fiber backbone connecting IT department infrastructure with the central campus network.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>System Lab</h4>
+                            <p>Configured with high-performance desktop systems for system software, kernel engineering, and foundational computing.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Network Lab</h4>
+                            <p>Enterprise switches, routers, and network packet simulation testbeds for practical data communications study.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fab fa-android"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Android Lab</h4>
+                            <p>Dedicated mobile application development environment with modern Android SDKs, emulators, and test devices.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Advance Project Lab</h4>
+                            <p>Specialized workspace for final-year engineering capstone initiatives, innovative prototyping, and research projects.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-code"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Appl. Development Lab</h4>
+                            <p>Full-stack software engineering suites, modern frameworks, and cross-platform application development tools.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-database"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>DBMS Lab</h4>
+                            <p>Enterprise database engines including Oracle, MySQL, and PostgreSQL for query optimization and relational schema design.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-microchip"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>DLD Lab</h4>
+                            <p>Digital electronics breadboards, IC testers, logic gates trainer kits, and combinational circuit experiment boards.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-terminal"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Operating System Lab</h4>
+                            <p>Multi-platform Unix/Linux testbeds for process management, thread synchronization, and shell scripting practice.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Tab 6: Publications -->

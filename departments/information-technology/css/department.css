@@ -431,6 +431,75 @@
     margin: 0;
 }
 
+/* Department Key Facilities Grid */
+.dept-facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+    margin-bottom: 48px;
+}
+
+.dept-facility-item {
+    background: #ffffff;
+    border: 1px solid var(--dept-border);
+    border-radius: 6px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: var(--dept-transition);
+}
+
+.dept-facility-item:hover {
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.dept-facility-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    background: rgba(var(--dept-accent-rgb), 0.08);
+    border: 1px solid rgba(var(--dept-accent-rgb), 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dept-accent);
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    transition: var(--dept-transition);
+}
+
+.dept-facility-item:hover .dept-facility-icon {
+    background: var(--dept-accent);
+    color: #ffffff;
+}
+
+.dept-facility-info h4 {
+    font-family: var(--dept-font-display);
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 3px;
+    letter-spacing: -0.01em;
+}
+
+.dept-facility-info p {
+    font-family: var(--dept-font-body);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--dept-body);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .dept-facilities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Clean data tables */
 .dept-table-wrap {
     border: 1px solid var(--dept-border);
