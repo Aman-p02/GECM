@@ -456,6 +456,25 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <div class="dept-pub-select-box">
                             <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year">
                                 <option value="all">All Years (153)</option>
+                                <option value="2026">2026 (3)</option>
+                                <option value="2025">2025 (7)</option>
+                                <option value="2024">2024 (9)</option>
+                                <option value="2023">2023 (7)</option>
+                                <option value="2022">2022 (9)</option>
+                                <option value="2021">2021 (4)</option>
+                                <option value="2020">2020 (1)</option>
+                                <option value="2019">2019 (3)</option>
+                                <option value="2018">2018 (3)</option>
+                                <option value="2017">2017 (13)</option>
+                                <option value="2016">2016 (12)</option>
+                                <option value="2015">2015 (13)</option>
+                                <option value="2014">2014 (12)</option>
+                                <option value="2013">2013 (16)</option>
+                                <option value="2012">2012 (29)</option>
+                                <option value="2011">2011 (2)</option>
+                                <option value="2010">2010 (4)</option>
+                                <option value="2009">2009 (5)</option>
+                                <option value="2008">2008 (1)</option>
                             </select>
                             <i class="fas fa-chevron-down dept-pub-arrow"></i>
                         </div>
@@ -473,7 +492,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 1 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2024">
                         <h3 class="dept-citation-title">Crowd Emotion and Behavior Analysis Using Lightweight CNN Model</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jignesh Vaniya, Safvan Vahora, Uttam Chauhan, Sudhir Vegad</span>
@@ -482,7 +501,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 2 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">A Peculiar Sentiment Analysis Advancement in Big Data</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Yash Patel</span>
@@ -491,7 +510,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 3 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2018">
                         <h3 class="dept-citation-title">An avant-garde approach of Block chain in Big data analytics</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Parth Patel, Shruti Chettiar</span>
@@ -500,7 +519,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 4 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">The Descriptive Study of Preprocessing from Web Usage Mining</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
@@ -509,7 +528,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 5 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">Low Control Overhead for Cluster Maintenance in Wireless Network for DSR Protocol</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nilesh Goriya, Indrjeet Rajput, Mihir Mehta</span>
@@ -518,7 +537,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 6 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">Abstractive Gujarati Text Summarization Using Sequence-To-Sequence Model and Attention Mechanism</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Shilpa Serasiya, Uttam Chauhan</span>
@@ -527,7 +546,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 7 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">A Neoteric Web Recommender System based on Approach of Mining Frequent Sequential Pattern from Customized Web Log Preprocessing</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
@@ -536,7 +555,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 8 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">Image Encryption Using Chaotic Based Artificial Neural Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Minal Chauhan, Rashmin Prajapati</span>
@@ -545,7 +564,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 9 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2018">
                         <h3 class="dept-citation-title">Blazing issues in big data</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Yash Patel</span>
@@ -554,7 +573,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 10 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">AN EXHAUSTIVE STUDY: BIG DATA</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
@@ -563,7 +582,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 11 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">An efficient web recommender system based on approach of mining frequent sequential pattern from Customized Web Log Preprocessing</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
@@ -572,7 +591,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 12 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">Object Removal using Image Inpainting</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Patel Hemangini Gamanbhai, Narenda Limbad</span>
@@ -581,7 +600,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 13 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">A Comprehensive Survey on Text Summarization For Indian Languages: Opportunities, Challenges and Future Prospects</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Shilpa Serasiya, Uttam Chauhan</span>
@@ -590,7 +609,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 14 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">A Survey Paper on Cluster Head Selection Techniques for Mobile Ad-Hoc Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nilesh Goriya</span>
@@ -599,7 +618,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 15 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">A Step up in Data Cleaning and User identification of Preprocessing on Web Usage data</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Shaktisinh Parmar</span>
@@ -608,7 +627,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 16 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">Radical Change through E-Governance in Gujarat</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nilesh Goriya, Indrjeet Rajput, Mihir Mehta</span>
@@ -617,7 +636,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 17 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2026">
                         <h3 class="dept-citation-title">Enhancing Semantic Coherence in Gujarati Topic Models by Eliminating Poor Quality Topics</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Nakul Dave, Avani Dave, Vishwa Kachhadiya, Priyanshi Chavadiya, Megh Dobariya, Ravi Nai, Diti Patel</span>
@@ -626,7 +645,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 18 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2026">
                         <h3 class="dept-citation-title">Parkinson's Disease Detection Using Keystroke Dynamics And With Convolutional Neural Networks</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Bhumiben Mukeshbhai Gentiyal, Safvan A. Vahora, Pradeep Rohitbhai Gamit, Mahendra N Patel, Hirenkumar Ramanbhai Patel, Mahesh Goyani, Uttam Chauhan, Pinal J. Patel</span>
@@ -635,7 +654,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- Publication 19 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2026">
                         <h3 class="dept-citation-title">Multi-Stage Diabetic Retinopathy Classification Using Deep Learning: Trends, Challenges, And Future Directions</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Shreya Dubey, Mahesh Goyani, Mahendrakumar N Patel, Pinal J. Patel, Safvan A. Vahora, Uttam Chauhan</span>
@@ -644,7 +663,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 20 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">Deepfake detection Demodulate Synthetic Videos Using Deep Learning Models</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Priyanshu Hirpara, Hardi Valangar, Vishwa Kachhadiya, Uttam Chauhan</span>
@@ -653,7 +672,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 21 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">HyViSE: (Hybrid ViT-SE) Approach for Crowd Anomaly Detection and Emotion-Behavior Classification</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jignesh Vaniya, Safvan Vahora, Uttam Chauhan, Sudhir Vegad</span>
@@ -662,7 +681,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 22 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">Conceptual Study On Various ML Models Used in Financial Distress Prediction</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Janki Patel, Pinal Patel</span>
@@ -671,7 +690,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 23 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">An outlier detection framework for Air Quality Index prediction using linear and ensemble models</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Viral Patel, Pradeep Kumar Dongre, Upendra Bhoi, Nilesh N. Maltare</span>
@@ -680,7 +699,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 24 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">A Study on Packet Filtering and Network Traffic Management on Linux</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jogin Joshi, Pinal J. Patel</span>
@@ -689,7 +708,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 25 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2024">
                         <h3 class="dept-citation-title">Securing E-Commerce: A Comprehensive Analysis of Fraud Detection Methods</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Rushi Parikh, Krupa Bhavsar, Uttam Chauhan</span>
@@ -698,7 +717,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 26 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2024">
                         <h3 class="dept-citation-title">Performance Evaluation of Text Summarization Models on SAMSUM Chat Data</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jitendra Bhatia, Dip Patel, Jalpan Patel, Malaram Kumhar, Uttam Chauhan, Harshal Trivedi, Sudeep Tanwar</span>
@@ -707,7 +726,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 27 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2024">
                         <h3 class="dept-citation-title">Personalized Features-Based Stress Detection With Hyperparameter Tuning Using Genetic Algorithm</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jigna Jadav, Uttam Chauhan</span>
@@ -716,7 +735,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 28 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2024">
                         <h3 class="dept-citation-title">An Evolutionary Amharic Fake News Detection Based on ML and Deep Learning Approach</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Abirham Ayenew, Uttam Chauhan, Avani N Dave, Jaimin M Shroff, Nakul R Dave, Jigna J Jadav, Amit H Rathod</span>
@@ -725,7 +744,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 29 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2024">
                         <h3 class="dept-citation-title">Analysis Of Personalized Stress Recognition In The Office Environment</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jigna Jadav, Uttam Chauhan</span>
@@ -734,7 +753,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 30 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2024">
                         <h3 class="dept-citation-title">Heart Rate Variability Based LSTM Model for Stress Detection with Explainable AI Insights</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jigna Jadav, Uttam Chauhan</span>
@@ -743,7 +762,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 31 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2024">
                         <h3 class="dept-citation-title">AN ASSESSMENT OF MACHINE LEARNING AND ENSEMBLE MODELS FOR DIABETES PREDICTION</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. Pinal J. Patel, Prof. Priyank Shah, Prof. Rutu Nayak, Prof. Hemangini Shukla, Prof. Chintan Shah, Prof. Navdeepsinh Limbad, Mr. Aayush Kukadiya</span>
@@ -752,7 +771,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 32 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2024">
                         <h3 class="dept-citation-title">HANDWRITTEN GUJARATI VOWEL RECOGNITION USING DEEP LEARNING MODELS</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. Pinal J. Patel, Ms. Dhruvi Aacharya, Prof. Priyank Shah, Prof. Rutu Nayak, Prof. Chintan Shah, Prof. Jignasha Prajapati, Prof. Navdeepsinh Limbad</span>
@@ -761,7 +780,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 33 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">Chatbot For Academic Institutions</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Heeya Amin, Uttam Chauhan, Sahil Patel</span>
@@ -770,7 +789,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 34 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">The Content Based Misinformation Detection for Gujarati Language</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Vinay Sheth, Vishvesh Trivedi, Chintan Bhatt, Juan Manuel Corchado</span>
@@ -779,7 +798,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 35 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">Amharic Language Hate Speech Detection Using Machine Learning</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Abirham Ayenew, Uttam Chauhan</span>
@@ -788,7 +807,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 36 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">Recommendation Systems: Types, Applications, and Challenges</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dhruval Patel, Foram Patel, Uttam Chauhan</span>
@@ -797,7 +816,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 37 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">Modeling Topics in DFA-Based Lemmatized Gujarati Text</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Shrusti Shah, Dharati Shiroya, Dipti Solanki, Zeel Patel, Jitendra Bhatia, Sudeep Tanwar, Ravi Sharma, Verdes Marina, Maria Simona Raboaca</span>
@@ -806,7 +825,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 38 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">Performance analysis of deep learning algorithms for classifying chronic obstructive pulmonary disease</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, Dhanashree Yevle, Daksha Diwan, Shashi Ranga, Kinjal Gandhi, Samay Dumasia, Rutu Nayak</span>
@@ -815,7 +834,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 39 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">Multi feature fusion for COPD classification using Deep Learning algorithms</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, Daksha Diwan, Shashi Ranga, Niral J. Modi, Samay Dumasia</span>
@@ -824,7 +843,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 40 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">IoT Based Scalable Framework for Pollution Aware Route Recommendation</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Radha Govani, Parth Kakadia, Yash Modi, Dhrumin Thakkar, Heta Bhayani, Meshwa Patel, Jitendra Bhatia, Uttam Chauhan, Abdulatif Alabdulatif</span>
@@ -833,7 +852,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 41 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Abstractive Text Summarization For Indian Regional Languages: A Survey</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Shilpa Serasiya, Uttam Chauhan</span>
@@ -842,7 +861,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 42 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">An Overview of Fog Data Analytics for IoT Applications</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jitendra Bhatia, Kiran Italiya, Kuldeepsinh Jadeja, Malaram Kumhar, Uttam Chauhan, Sudeep Tanwar, Madhuri Bhavsar, Ravi Sharma, Daniela Lucia Manea, Marina Verdes, Maria Simona Raboaca</span>
@@ -851,7 +870,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 43 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">5G-enabled deep learning-based framework for healthcare mining State of the art and challenges</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Rahil Parmar, Naitik Panchal, Dhruval Patel, Uttam Chauhan, Jitendra Bhatia</span>
@@ -860,7 +879,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 44 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Plant Disease Detection using Deep Learning</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, Niyati Pandya, Manisha Chaudhari, Kinjal Gandhi, Hardik Mahendrabhai Patel</span>
@@ -869,7 +888,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 45 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Alzheimer Disease Detection using Deep Learning</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. Pinal J. Patel, Ms. Mohini H. Patel, Prof. Kinjal Gandhi, Dr. Shashi V. Ranga</span>
@@ -878,7 +897,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 46 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Offline Handwritten Character Recognition of Gujarati Characters using Convolutional Neural Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, S. Kheni Rukhmani, Urmila Patel, Darshil P. Patel, Kinjal N. Patel &amp; Kinjal A. Patel</span>
@@ -887,7 +906,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 47 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">SIMULTANEOUS ESTIMATION OF NEBIVOLOL AND CILNIDIPINE IN PHARMACEUTICAL FORMULATIONBY REVERSE PHASE HIGH PERFORMANCE LIQUID CHROMATOGRAPHY METHOD</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, Drashti Mahendrabhai Patel, Meghal J. Patel, Manisha Chaudhari, Kinjal Gandhi, Shashi V. Ranga &amp; Hardik Mahendrabhai Patel</span>
@@ -896,7 +915,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 48 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Fraud Detection in Credit Card Data using Unsupervised &amp; Supervised Machine Learning-Based Algorithms</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> PDF Prasanna Kumar Lakineni, Keyurkumar M Nayak, Harikumar Pallathadka, Kamal Gulati, Kapil Pandey, Pinal J. Patel</span>
@@ -905,7 +924,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 49 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2021">
                         <h3 class="dept-citation-title">Coverless Information Hiding: A Review</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nitin Kanzariya, Gaurang Lakhani, Dhaval Jadhav, Uttam Chauhan, Lokesh Gagani</span>
@@ -914,7 +933,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 50 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2021">
                         <h3 class="dept-citation-title">Topic Modeling Using Latent Dirichlet Allocation: A Survey</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Apurva Shah</span>
@@ -923,7 +942,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 51 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2021">
                         <h3 class="dept-citation-title">ResTS: Residual Deep Interpretable Architecture for Plant Disease Detection</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dhruvil Shah, Vishvesh Trivedi, Vinay Sheth, Aakash Shah, Uttam Chauhan</span>
@@ -932,7 +951,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 52 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2021">
                         <h3 class="dept-citation-title">Improving Semantic Coherence of Gujarati Text Topic Model Using Inflectional Forms Reduction and Single-letter Words Removal</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Apurva Shah</span>
@@ -941,7 +960,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 53 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2020">
                         <h3 class="dept-citation-title">Ant Colony Optimization for Travelling Salesman Problem with Modified Pheromone Update Formula</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Rahil Parmar, Naitik Panchal, Dhruval Patel, Uttam Chauhan</span>
@@ -950,7 +969,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 54 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2019">
                         <h3 class="dept-citation-title">Advancement of Text Summarization Using Machine Learning and Deep Learning: A Review</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Rishi Kotadiya, Shivangi Bhatt, Uttam Chauhan</span>
@@ -959,7 +978,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 55 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2019">
                         <h3 class="dept-citation-title">A Survey on Architecture of Deep Convolution Neural Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Prachi Pandya, Pinal J. Patel</span>
@@ -968,7 +987,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 56 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2019">
                         <h3 class="dept-citation-title">Semi Supervised PU learning method for deceptive detection using MKNN</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Priyanka Patani, Pinal Patel</span>
@@ -977,7 +996,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 57 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2018">
                         <h3 class="dept-citation-title">Review on Crop Yield Prediction using Data Mining Focusing on Groundnut Crop and Naive Bayes Technique</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Haresh L. Siju, Pinal J. Patel</span>
@@ -986,7 +1005,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 58 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Biclustering of web usage data using Genetic Algorithm</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mayuree Rathva</span>
@@ -995,7 +1014,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 59 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Speech based Watermark relational databases</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mayuree Rathva</span>
@@ -1004,7 +1023,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 60 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Hybrid Approach for Data Denoising on Image Segmentation</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Minal Chauhan, Binal Bhatt</span>
@@ -1013,7 +1032,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 61 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Solar power forecasting : Analysis of trends in modeling techniques and error minimization</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Archana Gondalia</span>
@@ -1022,7 +1041,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 62 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">AON: A Survey on Emergency Communication Systems during a Catastrophic Disaster</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Vasani Yash Kishorbhai, Nagekar Nainesh Vasantbhai</span>
@@ -1031,7 +1050,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 63 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">The Architecture for Optimizing Semantic Topical Coherence in Gujarati Text Topic Modeling</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Apurva Shah, Uday Yadav</span>
@@ -1040,7 +1059,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 64 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">A Survey - Sophisticated Topic Modeling</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Apurva Shah, Uday Yadav</span>
@@ -1049,7 +1068,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 65 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Performance analysis of neural networks for intrusion detection system</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal J. Patel, J.S.Shah and Jinul Patel</span>
@@ -1058,7 +1077,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 66 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">SOFTWARE MAINTENANCE</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ketan Sangadiya and Pinal Patel</span>
@@ -1067,7 +1086,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 67 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Intrusion detection system using BackPropagation Neural Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal Patel, Dr. J.S.Shah</span>
@@ -1076,7 +1095,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 68 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">RMMM: A SURVEY</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Krishna Dilip Suchak, pinal patel</span>
@@ -1085,7 +1104,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 69 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">A COMPARATIVE STUDY ON INTERNAL &amp; EXTERNAL QUALITY FOR SOFTWARE PROJECT</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Komal Prajapati, Pinal Patel</span>
@@ -1094,7 +1113,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 70 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">A Survey on Node Scheduling Methods for Wireless Sensor Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Neha Patel, Shweta Singh</span>
@@ -1103,7 +1122,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 71 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">A Survey on Techniques for Collision Avoidance in VANET</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Neha Patel, Shweta Singh</span>
@@ -1112,7 +1131,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 72 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">A survey on big data uding cloud storage</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Binal Bhatt, Minal Chauhan</span>
@@ -1121,7 +1140,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 73 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">A Review: Big Data Analysis Framework</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Apurva Shah, Uday Yadav, Mahendra Patel</span>
@@ -1130,7 +1149,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 74 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">Big data solutions and big data vendor’s comparison</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. M.B.Chaudhary, Pianl Patel, Samarth Modi</span>
@@ -1139,7 +1158,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 75 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">CLOUD PLATFORMS AND SIMULATORS: A COMPARATIVE STUDY</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal Patel, Umang Surani</span>
@@ -1148,7 +1167,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 76 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">Weather Prediction using Machine Learning: A Survey</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal Patel, Jyoti Patel</span>
@@ -1157,7 +1176,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 77 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">comparative study of the routing protocol approaches in (DTN) Delay Tolerant Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Sweety Patel, Prof. M.B.1chaudhary, Pinal Patel</span>
@@ -1166,7 +1185,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 78 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">Hierarchical Query Task Clustering using Search Logs</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Vivek Bhojawala, Pinal Patel</span>
@@ -1175,7 +1194,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 79 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">A Brief Survey of Face Recognition Techniques</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal Patel, Nilam Goswami</span>
@@ -1184,7 +1203,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 80 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2016">
                         <h3 class="dept-citation-title">Search Logs Mining: Survey</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Vivek Bhojawala, Pinal Patel</span>
@@ -1193,7 +1212,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 81 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">Performance Enhancement of Facial Expression Recognition using Appearance based features</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jaimini Suthar, Goyani Mahesh</span>
@@ -1202,7 +1221,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 82 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">A Review on AODV Routing Protocol over Simulation Environment</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Neha Patel, Vijay Reshmwala</span>
@@ -1211,7 +1230,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 83 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">A Comparison Analysis of AODV and DSR Protocol over Energy Efficiency</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Neha Patel, Vijay Reshmwala, Shweta Singh</span>
@@ -1220,7 +1239,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 84 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">A Survey on Data Mining Techniques for Crime Hotspots Prediction</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Neha Patel, Shivani.V.Vora</span>
@@ -1229,7 +1248,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 85 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">A Survey on Natural Language Query Processing and Semantic Image Search</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Rashmi Patel</span>
@@ -1238,7 +1257,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 86 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">Object Removal using Image Inpainting</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Patel Hemangini Gamanbhai, Narenda Limbad</span>
@@ -1247,7 +1266,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 87 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">GLIMPSE OF IMAGE RESTORATION TECHNIQUE – IMAGE INPAINTING</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nainesh V Nagekar, Prof. Jayesh Chaudhary</span>
@@ -1256,7 +1275,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 88 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">Web Page Data Extraction and Categorization Web Pages Using Rule Based Classification Algorithm</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nirav Prajapati, Ketan Modi, Uttam Chauhan</span>
@@ -1265,7 +1284,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 89 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">Clustering approach for Moving object detection from video sequence</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Parth V. Parekh, Prof. Pinal J. Patel, Shrikrishna Padalkar, Vaibhavi S. Ghariya</span>
@@ -1274,7 +1293,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 90 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">Wireless Video Streaming using ARM Processor</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Suresh Prasad, Pinal Patel</span>
@@ -1283,7 +1302,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 91 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">Min-Max Selection Sort Algorithm - Improved Version of Selection Sort</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Mohammad Chharchhodawala, Bhargav Mendapara</span>
@@ -1292,7 +1311,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 92 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">Comparison of SUMO and SiMTram for Indian Traffic Scenario Representation</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Viral Patel, Manish Chaturvedi and Sanjay Srivastava</span>
@@ -1301,7 +1320,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 93 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">Green Cloud Computing: An Overview</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Archana Gondalia</span>
@@ -1310,7 +1329,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 94 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">Comparative Analysis of Dynamic Source Routing Protocol with Mobility and without Mobility</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nilesh Goriya, Parth Wadhwa, Mukti Pathak</span>
@@ -1319,7 +1338,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 95 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">A Comparative analysis for accuracy and size of pruned and unpruned decision tree inducted for various datasets</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Uday Yadav, Nakul Dave</span>
@@ -1328,7 +1347,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 96 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">Comprehensive study on Machine Learning Techniques for IDS in Cloud Computing</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Pinal Patel, Dr. J. S. Shah, Meghal Patel</span>
@@ -1337,7 +1356,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 97 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">Detection and prevention zero-day attack in honeypot system for virtualization</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ankit Patel, Pinal Patel</span>
@@ -1346,7 +1365,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 98 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2014">
                         <h3 class="dept-citation-title">Corporate Governance and financial performance</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Gaurang Patel, Pinal Patel</span>
@@ -1355,7 +1374,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 99 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">A literature survey on Facial Expression Recognition using Global Features</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Vaibhavkumar J. Mistry, Mahesh M. Goyani</span>
@@ -1364,7 +1383,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 100 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">Comparison of different image retrieval techniques in CBIR</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Chauhan Nandish, Mahesh Goyani</span>
@@ -1373,7 +1392,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 101 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">Facial Expression Recognition using Gabor Filter by minimizing Feature Vector</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Vaibhavkumar J. Mistry, Mahesh M. Goyani</span>
@@ -1382,7 +1401,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 102 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">Enhanced Multistage Content Based Image Retrieval</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nandish Chauhan, Mahesh Goyani</span>
@@ -1391,7 +1410,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 103 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">Handwritten Character Recognition - A Comprehensive Review</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Harsh Dani, Chahna Dixit</span>
@@ -1400,7 +1419,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 104 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">A Novel Approach as Multi-place Watermarking for security in Database</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mayuree Rathva</span>
@@ -1409,7 +1428,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 105 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">An Efficient Web Recommender System based on Approach of Mining Frequent Sequential Pattern from Customized Web Log</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Uttam Chauhan</span>
@@ -1418,7 +1437,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 106 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">Reducing Avarage Waiting Time for Processes in Distributed System Using Dynamic Priority and Multiple Token Algorithm</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ami Patel, Uttam Chauhan, Sanjay Patel</span>
@@ -1427,7 +1446,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 107 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">Text Based Fuzzy Clustering Algorithm to Filter Spam E- mail</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nakul Dave, Uttam Chauhan, Avani Nakul Dave</span>
@@ -1436,7 +1455,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 108 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">A Neoteric Web Recommender System based on Approach of Mining Frequent Sequential Pattern from Customized Web Log Preprocessing</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera, Uttam Chauhan, Kirit Rathod</span>
@@ -1445,7 +1464,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 109 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">Panoramic Image Mosaicing</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mrs. Hetal M.Patel, Prof. Pinal. J. Patel, Prof. Mr. Sandip G. Patel</span>
@@ -1454,7 +1473,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 110 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">A Secure Cloud using Homomorphic Encryption Scheme</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ms. Parin V. Patel, Mr. Hitesh D. Patel, Prof. Pinal J. Patel</span>
@@ -1463,7 +1482,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 111 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">Cancer Detection Using Modified Watershed</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Shanti L. Kadachha, Pinal J. Patel</span>
@@ -1472,7 +1491,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 112 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Performance Analysis of FDA Based Face Recognition Using Correlation, ANN and SVM</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Akash Dhorajiya, Ronak Paun</span>
@@ -1481,7 +1500,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 113 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Comparative Analysis Between DCT &amp; DWT Techniques of Image Compression</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Anil Kathrotiya, Swati Patel, Mahesh Goyani</span>
@@ -1490,7 +1509,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 114 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Key Frame Detection Based Semantic Event Detection and Classification Using Hierarchical Approach for Cricket Sport Video Indexing</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Shreyash Dutta, Payal Raj</span>
@@ -1499,7 +1518,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 115 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Performance Analysis of Block and Non Block Based Approach of Invisible Image Watermarking Using SVD in DCT Domain</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Gunvantsinh Gohil</span>
@@ -1508,7 +1527,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 116 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Geometry and Skin Color Based Hybrid Approach for Face Tracking in Color Environment</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Gitam Sikkenawis, Brijesh Joshi</span>
@@ -1517,7 +1536,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 117 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">A Review on Handwritten Character Recognition Systems</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
@@ -1526,7 +1545,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 118 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Wicket fall Concept Mining From Cricket Video Using A-Priori Algorithm</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Shreyash Dutta, Gunvantsinh Gohil, Sapan Naik</span>
@@ -1535,7 +1554,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 119 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Handwritten Character Recognition System Using Correlation Coefficient</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
@@ -1544,7 +1563,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 120 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Robust Face Recognition in Low Dimensional Subspace Using Reconstructive and Discriminative Features</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Gunvantsinh Gohil, Amit Chaudhari</span>
@@ -1553,7 +1572,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 121 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Top Down Hierarchical Histogram Based Approach for Printed Devanagari Script Character Isolation</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Trusha Gajjar, Rekha Teraiya, Gunvantsinh Gohil, Mahesh Goyani</span>
@@ -1562,7 +1581,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 122 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">A Detail Study of Digital Image Watermarking Techniques</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Swati Patel, Anil Kathrotiya, Mahesh Goyani</span>
@@ -1571,7 +1590,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 123 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">A Survey on Digital Video Watermarking</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Swati Patel, Anil Kathrotiya, Mahesh Goyani</span>
@@ -1580,7 +1599,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 124 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Chain Code Based Hand Written Character Recognition System Using Neural Network and Support Vector Machine</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ravi Sheth, Narendra Chauhan, Mahesh Goyani</span>
@@ -1589,7 +1608,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 125 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">3D Face Recognition Techniques - A Review</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Preeti B. Sharma, Mahesh M. Goyani</span>
@@ -1598,7 +1617,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 126 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Chain code and holistic features based OCR system for printed Devanagari script using ANN and SVM</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Gunvantsinh Gohil, Rekha Teraiya and Mahesh Goyani</span>
@@ -1607,7 +1626,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 127 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Euler Number, Symmetry and Histogram Based Hierarchical Approach for English OCR</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh M Goyani, Rekha R Teraiya, Trusha Y Gajjar, Gunvantsinh D Gohil</span>
@@ -1616,7 +1635,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 128 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Comparision between DCT and DWT algorithms of Digital Watermarking</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Swati Patel, Anilkumar Katharotiya, Mahesh Goyani</span>
@@ -1625,7 +1644,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 129 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Face recognition using PCA and Modified PCA</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Preeti B. Sharma, Mahesh M. Goyani</span>
@@ -1634,7 +1653,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 130 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">A survey optimize visual image search for sematic web</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jaimin MShroff, Prof. Bhaumik Nagar, Prof. Parth Shah</span>
@@ -1643,7 +1662,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 131 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">A review on sla and various approaches for efficient cloud service provider selection</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Shreyas Patel, Prof. Gordhan B. Jethava</span>
@@ -1652,7 +1671,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 132 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Host Selection Strategy Based On Propagation Delay in Cloud</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dodiya Aniruddhsinh Karshanbhai</span>
@@ -1661,7 +1680,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 133 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Host Selection Technique for Data Intensive Application in Cloud Computing</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dodiya Aniruddhsinh Karshanbhai</span>
@@ -1670,7 +1689,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 134 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Analysis of Multiple path TCP over Heterogeneous networks</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> P R Gamit</span>
@@ -1679,7 +1698,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 135 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Load Sharing Optimization of Multipath TCP in heterogeneous Networks</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> P R Gamit</span>
@@ -1688,7 +1707,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 136 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">An Adaptive Classification approach to filter spam E-mail using Vector Space Model</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nakul Dave, Uttam Chauhan, Avani Nakul Dave</span>
@@ -1697,7 +1716,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 137 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">A Review of spam filtering based on unstructured classification</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nakul Dave, Uttam Chauhan, Dhaval Varia</span>
@@ -1706,7 +1725,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 138 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Comprehensive study and review of image mosaicing methods</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mrs. Hetal M. Patel, Prof. Pinal. J. Patel, Prof. Mr. Sandip G. Patel</span>
@@ -1715,7 +1734,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 139 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2012">
                         <h3 class="dept-citation-title">Survey paper on Architecture of Deep Convolutional Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Prachi Pandya, Pinal J. Patel</span>
@@ -1724,7 +1743,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 140 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2011">
                         <h3 class="dept-citation-title">PCA Based Handwritten Character Recognition System Using Support Vector Machine &amp; Neural Network</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ravi Sheth, N C Chauhan, Mahesh M Goyani, Kinjal A Mehta</span>
@@ -1733,7 +1752,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 141 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2011">
                         <h3 class="dept-citation-title">An analysis and study of decision tree induction operating under adaptive mode to enhance accuracy and uptime in a dataset introduced to spontaneous variation in data attributes</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Y P Kosta, Amit Ganatra, Amit Thakkar</span>
@@ -1742,7 +1761,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 142 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2010">
                         <h3 class="dept-citation-title">Performance Enhancement in Lip Synchronization Using MFCC Parameters</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Narendra Patel, Mukesh Zaveri</span>
@@ -1751,7 +1770,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 143 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2010">
                         <h3 class="dept-citation-title">Acceptance / Rejection Rule Based Algorithm for Multiple Face Detection in Color Images</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Brijesh Joshi, Gitam Sikkenawis</span>
@@ -1760,7 +1779,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 144 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2010">
                         <h3 class="dept-citation-title">Performance Analysis of LPC, PLP and MFCC Parameters in Speech Recognition</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Namrata Dave</span>
@@ -1769,7 +1788,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 145 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2010">
                         <h3 class="dept-citation-title">Performance improvement in Lip Synchronization using LPC, MFCC and PLP Speech Parameters</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Namrata Dave, Narendra Patel</span>
@@ -1778,7 +1797,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 146 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2009">
                         <h3 class="dept-citation-title">Real Time Lip Synchronization</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani</span>
@@ -1787,7 +1806,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 147 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2009">
                         <h3 class="dept-citation-title">Improvement in Lip Detection and Feature Extraction in Dynamic Lighting Conditions and Complex Background</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Parul Tandel, Hetal Chudasama</span>
@@ -1796,7 +1815,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 148 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2009">
                         <h3 class="dept-citation-title">Ear Recognition Using Force Field Feature Extraction</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Japen Pathak</span>
@@ -1805,7 +1824,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 149 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2009">
                         <h3 class="dept-citation-title">Performance Analysis of LPC, PLP and MFCC Parameters in Speech Recognition</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mahesh Goyani, Namrata Dave</span>
@@ -1814,7 +1833,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                     </div>
 
                     <!-- 150 -->
-                    <div class="dept-citation-item">
+                    <div class="dept-citation-item" data-year="2009">
                         <h3 class="dept-citation-title">Classification Using Adaptive Decision Tree Induction Algorithm For accuracy and scale-up measure</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Uttam Chauhan, Amit Ganatra, Amit Thakkar</span>

@@ -1,6 +1,6 @@
 // Department tab navigation and URL hash routing
 
-document.addEventListener('DOMContentLoaded', function () {
+function initDepartment() {
     const tabButtons = document.querySelectorAll('.dept-subnav-link');
     const tabPanes = document.querySelectorAll('.dept-tab-pane');
     const subNavList = document.querySelector('.dept-subnav-list');
@@ -246,22 +246,22 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Sort years descending (newest first: 2026, 2025, ...)
-        const sortedYears = Object.keys(yearCounts).sort((a, b) => parseInt(b, 10) - parseInt(a, 10));
+        // If options are not already pre-rendered by server, populate dynamically
+        if (yearFilter.options.length <= 1) {
+            const sortedYears = Object.keys(yearCounts).sort((a, b) => parseInt(b, 10) - parseInt(a, 10));
+            yearFilter.innerHTML = '';
+            const allOption = document.createElement('option');
+            allOption.value = 'all';
+            allOption.textContent = `All Years (${totalCount})`;
+            yearFilter.appendChild(allOption);
 
-        // Populate options
-        yearFilter.innerHTML = '';
-        const allOption = document.createElement('option');
-        allOption.value = 'all';
-        allOption.textContent = `All Years (${totalCount})`;
-        yearFilter.appendChild(allOption);
-
-        sortedYears.forEach(year => {
-            const opt = document.createElement('option');
-            opt.value = year;
-            opt.textContent = `${year} (${yearCounts[year]})`;
-            yearFilter.appendChild(opt);
-        });
+            sortedYears.forEach(year => {
+                const opt = document.createElement('option');
+                opt.value = year;
+                opt.textContent = `${year} (${yearCounts[year]})`;
+                yearFilter.appendChild(opt);
+            });
+        }
 
         // Filter event handler
         yearFilter.addEventListener('change', function () {
@@ -296,4 +296,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     initPublicationYearFilter();
-});
+}
+
+// Ensure execution whether DOM is still loading or already ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDepartment);
+} else {
+    initDepartment();
+}
