@@ -191,11 +191,8 @@ function initDepartment() {
         if (tabId === 'vision' || tabId === 'mission') {
             tabId = 'vision-mission';
         }
-        if (tabId === 'iab' || tabId === 'iab-2025-26' || tabId === 'iab-2023-24') {
-            tabId = 'advisory-board';
-        }
-        if (tabId === 'nl' || tabId === 'nl-vol1-issue2' || tabId === 'nl-vol1-issue1') {
-            tabId = 'newsletters';
+        if (tabId === 'advisory-board' || tabId === 'newsletters' || tabId === 'iab' || tabId === 'nl') {
+            return;
         }
 
         const targetPane = document.getElementById('tab-' + tabId);
@@ -256,7 +253,7 @@ function initDepartment() {
     tabButtons.forEach(btn => {
         btn.addEventListener('click', function (e) {
             const tabId = this.getAttribute('data-tab');
-            if (tabId) {
+            if (tabId && tabId !== 'advisory-board' && tabId !== 'newsletters') {
                 e.preventDefault();
                 if (history.pushState) {
                     history.pushState(null, null, '#' + tabId);
@@ -264,6 +261,8 @@ function initDepartment() {
                     window.location.hash = tabId;
                 }
                 activateTab(tabId, true);
+            } else {
+                e.preventDefault();
             }
         });
     });

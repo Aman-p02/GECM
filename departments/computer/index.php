@@ -81,10 +81,10 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="advisory-board" role="tab" aria-selected="false">Advisory Board</button>
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Advisory Board</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="newsletters" role="tab" aria-selected="false">Newsletters</button>
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Newsletters</button>
                     </li>
                 </ul>
             </div>
@@ -1865,89 +1865,6 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Manisha Valera</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> January - February 2013</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tab 7: Industry Advisory Board -->
-            <section class="dept-tab-pane" id="tab-advisory-board">
-                <div class="dept-section-header">
-                    <span class="dept-section-kicker">GOVERNANCE &amp; CURRICULUM</span>
-                    <h2>Industry Advisory Board (IAB)</h2>
-                    <p>Distinguished technical directors, senior architects, and researchers actively steering academic relevance and recruitment readiness.</p>
-                </div>
-
-                <div class="dept-table-wrap">
-                    <table class="dept-clean-table">
-                        <thead>
-                            <tr>
-                                <th>Distinguished Member</th>
-                                <th>Organization &amp; Designation</th>
-                                <th>Committee Role</th>
-                                <th>Active Term</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Dr. H. M. Patel</strong></td>
-                                <td>Head of Department, Computer Engineering, GEC Modasa</td>
-                                <td>Chairman</td>
-                                <td>2025–2026</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Mr. Nirav Joshi</strong></td>
-                                <td>Senior Cloud Solutions Architect, Tata Consultancy Services (TCS)</td>
-                                <td>Industry Member</td>
-                                <td>2025–2026</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Ms. Pooja Sharma</strong></td>
-                                <td>Lead Data Scientist, Infosys Limited</td>
-                                <td>Industry Member</td>
-                                <td>2025–2026</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Prof. A. S. Shah</strong></td>
-                                <td>Associate Professor, Computer Engineering, GEC Modasa</td>
-                                <td>Member Secretary</td>
-                                <td>2025–2026</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Mr. Rajesh Vaghela</strong></td>
-                                <td>Vice President of Engineering, eInfochips</td>
-                                <td>Industry Member</td>
-                                <td>2023–2024</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Tab 8: Department newsletters -->
-            <section class="dept-tab-pane" id="tab-newsletters">
-                <div class="dept-section-header">
-                    <span class="dept-section-kicker">DEPARTMENT CHRONICLE</span>
-                    <h2>Department Newsletters</h2>
-                    <p>Official periodic publications recording student victories, research grants, faculty honors, and alumni spotlights.</p>
-                </div>
-
-                <div class="dept-periodical-grid">
-                    <div class="dept-periodical-card">
-                        <div class="dept-periodical-body">
-                            <span class="dept-periodical-meta">Vol. 1, Issue 2 · Academic Year 2024–25</span>
-                            <h4 class="dept-periodical-title">CompTech Chronicle</h4>
-                            <p class="dept-periodical-summary">Features comprehensive recaps of CodeFest 2024, expert lectures by cloud architects, national hackathon podium finishes, and recent faculty IEEE publications.</p>
-                            <a href="#" class="dept-download-btn"><i class="fas fa-file-pdf"></i> Download Newsletter (PDF)</a>
-                        </div>
-                    </div>
-
-                    <div class="dept-periodical-card">
-                        <div class="dept-periodical-body">
-                            <span class="dept-periodical-meta">Vol. 1, Issue 1 · Academic Year 2023–24</span>
-                            <h4 class="dept-periodical-title">CompTech Chronicle (Inaugural Issue)</h4>
-                            <p class="dept-periodical-summary">Inaugural release highlighting the AICTE laboratory modernization grant, establishment of new computational clusters, and alumni career milestones in global tech firms.</p>
-                            <a href="#" class="dept-download-btn"><i class="fas fa-file-pdf"></i> Download Newsletter (PDF)</a>
                         </div>
                     </div>
                 </div>
