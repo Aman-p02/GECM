@@ -53,9 +53,6 @@ require_once __DIR__ . '/includes/header.php';
                         <a href="https://acpc.gujarat.gov.in/be-b-tech" target="_blank" rel="noopener noreferrer" class="admission-btn primary">
                             <i class="fas fa-external-link-alt"></i> ACPC B.E. Portal
                         </a>
-                        <a href="<?= $root_path ?>courses.php" class="admission-btn outline">
-                            <i class="fas fa-list-ul"></i> View Approved Intake
-                        </a>
                     </div>
                 </div>
 
@@ -81,9 +78,6 @@ require_once __DIR__ . '/includes/header.php';
                         <a href="https://acpc.gujarat.gov.in/" target="_blank" rel="noopener noreferrer" class="admission-btn primary">
                             <i class="fas fa-external-link-alt"></i> ACPC Official Portal
                         </a>
-                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="admission-btn outline">
-                            <i class="fas fa-book-open"></i> GTU Syllabus Portal
-                        </a>
                     </div>
                 </div>
 
@@ -97,3 +91,4 @@ require_once __DIR__ . '/includes/header.php';
 <?php
 require_once __DIR__ . '/includes/footer.php';
 ?>
+
