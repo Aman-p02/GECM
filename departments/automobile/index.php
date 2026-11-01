@@ -17,12 +17,18 @@ include_once __DIR__ . '/../../includes/header.php';
     <!-- Hero Header Banner -->
     <header class="dept-hero-banner" role="banner">
         <div class="dept-container">
-            <div class="dept-hero-text" style="max-width: 860px; margin-bottom: 48px;">
-                <span class="dept-kicker">DEPARTMENT OF</span>
-                <h1 class="dept-heading">Automobile Engineering</h1>
-                <p class="dept-tagline">
-                    Constituted in the year 2008 with a separate building with full facilities of Laboratory, workshop and AC Conference room. Dedicated to automotive systems, IC engines, vehicle dynamics, and sustainable mobility innovation.
-                </p>
+            <!-- Two-column hero grid (7 cols left, 5 cols right) -->
+            <div class="dept-hero-grid">
+                <div class="dept-hero-text">
+                    <span class="dept-kicker">DEPARTMENT OF</span>
+                    <h1 class="dept-heading">Automobile Engineering</h1>
+                    <p class="dept-tagline">
+                        Constituted in the year 2008 with a separate building with full facilities of Laboratory, workshop and AC Conference room. Dedicated to automotive systems, IC engines, vehicle dynamics, and sustainable mobility innovation.
+                    </p>
+                </div>
+                <div class="dept-hero-media">
+                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Automobile Engineering Department Building" class="dept-hero-photo">
+                </div>
             </div>
 
             <!-- Key metrics counter strip -->
