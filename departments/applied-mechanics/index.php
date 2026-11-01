@@ -44,8 +44,8 @@ include_once __DIR__ . '/../../includes/header.php';
                     <span class="dept-stat-label">STRUCTURAL PEDAGOGY</span>
                 </div>
                 <div class="dept-stat-item">
-                    <span class="dept-stat-num">100%</span>
-                    <span class="dept-stat-label">EXPERIMENTAL RIGOR</span>
+                    <span class="dept-stat-num">8</span>
+                    <span class="dept-stat-label">FACULTY MEMBERS</span>
                 </div>
             </div>
         </div>
