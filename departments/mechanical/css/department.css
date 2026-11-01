@@ -2,10 +2,10 @@
 
 :root {
     --dept-primary: #111111;
-    --dept-accent: #dc2626;
-    --dept-accent-hover: #b91c1c;
-    --dept-accent-rgb: 220, 38, 38;
-    --dept-kicker: #dc2626;
+    --dept-accent: #2563eb;
+    --dept-accent-hover: #1d4ed8;
+    --dept-accent-rgb: 37, 99, 235;
+    --dept-kicker: #2563eb;
     --dept-body: #4b5563;
     --dept-muted: #6b7280;
     --dept-border: #e5e7eb;
