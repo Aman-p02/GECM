@@ -24,17 +24,12 @@ include_once __DIR__ . '/../../includes/header.php';
     <!-- Hero Header Banner -->
     <header class="dept-hero-banner" role="banner">
         <div class="dept-container">
-            <div class="dept-hero-grid">
-                <div class="dept-hero-text">
-                    <span class="dept-kicker">DEPARTMENT OF</span>
-                    <h1 class="dept-heading">Automobile Engineering</h1>
-                    <p class="dept-tagline">
-                        Constituted in 2008 with a separate building, workshop, and AC conference room. Dedicated to powertrain engineering, vehicle dynamics, and sustainable mobility innovation.
-                    </p>
-                </div>
-                <div class="dept-hero-media">
-                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Automobile Engineering Department Building" class="dept-hero-photo">
-                </div>
+            <div class="dept-hero-text" style="max-width: 860px; margin-bottom: 48px;">
+                <span class="dept-kicker">DEPARTMENT OF</span>
+                <h1 class="dept-heading">Automobile Engineering</h1>
+                <p class="dept-tagline">
+                    Constituted in the year 2008 with a separate building with full facilities of Laboratory, workshop and AC Conference room. Dedicated to automotive systems, IC engines, vehicle dynamics, and sustainable mobility innovation.
+                </p>
             </div>
 
             <!-- Key metrics counter strip -->
@@ -52,8 +47,8 @@ include_once __DIR__ . '/../../includes/header.php';
                     <span class="dept-stat-label">IN GECM (2014 RESULT)</span>
                 </div>
                 <div class="dept-stat-item">
-                    <span class="dept-stat-num">14+</span>
-                    <span class="dept-stat-label">LABS &amp; WORKSHOPS</span>
+                    <span class="dept-stat-num">4</span>
+                    <span class="dept-stat-label">SPECIALIZED LABS &amp; WORKSHOP</span>
                 </div>
             </div>
         </div>
@@ -273,7 +268,7 @@ include_once __DIR__ . '/../../includes/header.php';
 
                 <!-- Featured Laboratory Photo Showcase -->
                 <div class="dept-labs-showcase">
-                    <!-- Featured Lab: Internal Combustion Engine Lab -->
+                    <!-- Lab 1: Internal Combustion Engine Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
                             <img src="images/labs/lab_ice.jpg" alt="Internal Combustion Engine Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
@@ -287,16 +282,44 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Workshop & Chassis Bay -->
+                    <!-- Lab 2: Automobile Electrical & Electronics Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/department_building.jpg" alt="Automobile Workshop &amp; Testing Facility" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                            <img src="images/labs/lab_electrical.jpg" alt="Automobile Electrical &amp; Electronics Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Automobile Annex</span>
-                            <h3 class="dept-lab-title">Automobile Workshop &amp; Chassis Bay</h3>
+                            <span class="dept-lab-room">Electrical &amp; Diagnostics Wing</span>
+                            <h3 class="dept-lab-title">Automobile Electrical &amp; Electronics Lab</h3>
                             <p class="dept-lab-desc">
-                                Comprehensive vehicle servicing and overhaul bays equipped with hydraulic vehicle lifts, computerized wheel alignment apparatus, transmission cut-sections, and heavy component fabrication machinery.
+                                This laboratory comprises instruments like electrical equipment board, auto scanner and diagnostic tool, cut sections of electrical instrument, etc.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 3: Automobile Engineering Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_automobile_engineering.jpg" alt="Automobile Engineering Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Vehicle Systems Block</span>
+                            <h3 class="dept-lab-title">Automobile Engineering Lab</h3>
+                            <p class="dept-lab-desc">
+                                This lab is facilitated by demonstrative instruments like disc brake model, multiple clutch model, cut section of carburetor, Diesel jeep of Mahindra &amp; Mahindra, computerized wheel balancer, garage instruments, cut section of steering mechanism etc.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 4: Automobile Workshop -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_workshop.jpg" alt="Automobile Workshop" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Workshop Room No.: 8XXX (ABC Floor)</span>
+                            <h3 class="dept-lab-title">Automobile Workshop</h3>
+                            <p class="dept-lab-desc">
+                                This workshop has hands-on the experimental setup like machine shop, vehicle maintenance facility, wheel alignment checking and vehicle air condition recovery and recharging facility etc.
                             </p>
                         </div>
                     </div>
@@ -305,86 +328,23 @@ include_once __DIR__ . '/../../includes/header.php';
                 <!-- Comprehensive Department Facilities Grid -->
                 <div class="dept-section-header" style="margin-top: 56px;">
                     <span class="dept-section-kicker">INFRASTRUCTURE HIGHLIGHTS</span>
-                    <h2>Departmental Laboratories &amp; Workshop</h2>
-                    <p>Extensive hands-on testing infrastructure, machine dynamics, and thermal analysis laboratories supporting the curriculum.</p>
+                    <h2>Departmental Facilities</h2>
+                    <p>Core infrastructure supporting vehicle maintenance, diagnostic inspection, and automotive experimentation.</p>
                 </div>
 
                 <div class="dept-facilities-grid">
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-car"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Material Science &amp; Metallurgical Lab</h4>
-                            <p>Microstructural examination, specimen polishing, hardness testing, and heat-treatment analysis for automotive alloys.</p>
+                            <h4>Automobile System</h4>
+                            <p>Demonstrative cut-sections, electrical test equipment boards, engine test rigs, and complete vehicle subsystems.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-ruler-combined"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-tools"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Mechanical Measurement &amp; Metrology Lab</h4>
-                            <p>Precision measurement benches, profile projectors, dial indicators, and surface roughness testers.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-sliders-h"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Control Engineering Lab</h4>
-                            <p>Closed-loop feedback control simulators, pneumatic and electro-pneumatic trainers, and dynamic system analyzers.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-industry"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Power Plant Engineering Lab</h4>
-                            <p>Thermodynamic cycle demonstration setups, boiler performance rigs, and steam turbine energy conversion models.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-fire-alt"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Heat &amp; Mass Transfer Lab</h4>
-                            <p>Conduction, natural/forced convection benches, emissivity apparatus, and multi-pass shell &amp; tube heat exchangers.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-snowflake"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Thermal Engineering &amp; Refrigeration Lab</h4>
-                            <p>Vapour compression test rigs, refrigeration trainers, air conditioning testbeds, and psychrometric measurement systems.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-car-battery"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>ICE &amp; Auto Engineering Lab</h4>
-                            <p>Engine test rigs, transmission assemblies, cut-section engine blocks, and automotive subsystems demonstration units.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Kinematic &amp; Dynamics of Machine Lab</h4>
-                            <p>Motorized gyroscopes, static and dynamic balancing apparatus, whirling of shafts, and governor test rigs.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-cogs"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Theory of Machine Lab</h4>
-                            <p>Epicyclic gear trains, kinematic inversions, cam-follower mechanism benches, and vibration test equipment.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-water"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Fluid Mechanics Lab</h4>
-                            <p>Bernoulli apparatus, Venturimeter &amp; orifice calibration rigs, pipe friction benches, and hydraulic pump testbeds.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-drafting-compass"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Engineering Graphics Lab</h4>
-                            <p>Ergonomic drafting tables for orthographic, isometric, sectioning, and machine component drawing practice.</p>
+                            <h4>Vehicle and Garage Place</h4>
+                            <p>Spacious hands-on workshop bays equipped with vehicle maintenance facilities, wheel alignment, and AC recovery units.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
@@ -392,13 +352,6 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-facility-info">
                             <h4>Computer Centre &amp; CAD Lab</h4>
                             <p>High-performance workstations equipped with parametric modeling, CAE simulation, and automotive drafting suites.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-warehouse"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Automobile Workshop</h4>
-                            <p>Spacious workshop facility with chassis maintenance bays, wheel alignment, hydraulic vehicle lifts, and tools.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
