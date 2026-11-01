@@ -97,7 +97,7 @@
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--primary-color, #0c3b6d);
+    color: #0b2949;
     margin-bottom: 6px;
 }
 
@@ -186,7 +186,7 @@
 }
 
 .course-program-link:hover {
-    color: var(--primary-color, #0c3b6d);
+    color: var(--primary-color, #000000);
 }
 
 .course-program-link i {
