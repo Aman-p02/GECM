@@ -235,8 +235,8 @@ if (!isset($active_page)) {
                 </li>
 
                 <li class="hdr-nav-item">
-                    <a href="<?php echo ($active_page === 'home') ? '#contact' : $root_path . '#contact'; ?>"
-                       class="hdr-nav-link">
+                    <a href="<?= $root_path ?>contact.php"
+                       class="hdr-nav-link <?= ($active_page === 'contact') ? 'active' : '' ?>">
                         Contact Us
                     </a>
                 </li>
