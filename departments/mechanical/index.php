@@ -323,13 +323,19 @@ include_once __DIR__ . '/../../includes/header.php';
                             <option value="2014">2014</option>
                             <option value="2013">2013</option>
                             <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
                             <option value="2009">2009</option>
                             <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
                             <option value="2000">2000</option>
                         </select>
                     </div>
                     <div class="dept-pub-count-badge" id="pubCountBadge">
-                        Showing <strong>135</strong> publications
+                        Showing <strong>159</strong> publications
                     </div>
                 </div>
 
@@ -1552,6 +1558,222 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 136 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Optimization Of Twin Screw Extruder (TSE) Machine for Polyethylene Terephthalate (PET) Polymer Material using ANOVA methods</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 137 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Design of Vibratory Screen used in Coal Mining Industry to Prevent Failure &ndash; A Case Study</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 138 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">A wear investigation of repeatedly used wire in wire cut electrical discharge machine</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> J.R.Mevada, C.D.Shah, B.C.Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 139 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">An investigation of wire wear in WEDM</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> I. K. Bariya and B. C. Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 140 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Experimental Investigation of Performance of Different Electrode Materials in Electro Discharge Machining For Material Removal Rate and Surface Roughness</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 141 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Fault Detection Analysis and Diagnosis of Rotor by Six Sigma Methodology: A Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 142 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Microstructural and mechanical properties of eutectic Al&ndash;Si alloy with grain refined and modified using gravity-die and sand casting</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 143 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Parametric analysis of surface Roughness (SR) and material Removal rate (MRR) of harden steel on CNC turning using ANOVA analysis: A Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 144 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Optimization in Scheduling of Commuter Services</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 145 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">A Comparative Experimental Study on Response Parameters of Ultrasonic Assisted Wire Electric Discharge Machining</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> N.G.Parmar, B.D.Parmar and B.C.Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 146 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Experimental Analysis of Processing Parameters for Improving Mechanical Properties of Fused Deposition Modeling built Parts</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> B.D.Parmar, N.G.Parmar and B.C.Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 147 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">An Experimental Study on Reusable type Wire EDM of HcHcr steel based on Taguchi Methodology</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> N.G.Parmar, B.D.Parmar and B.C.Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 148 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Prediction of Dimensional accuracy of Fused Deposition Modeling (FDM) Built Parts using Fuzzy Inference System and Comparision with Experimental Results</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> N.G.Parmar, B.D.Parmar and B.C.Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 149 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">STEADY STATE THERMOCHEMICAL MODEL OF WOOD BURNING COOK STOVE</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Rahul Shah, A.W. Date,</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 150 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">A Review on Major Challenges and Technological Solutions for Future Manufacturing Systems</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 151 -->
+                    <div class="dept-citation-item" data-year="2010">
+                        <h3 class="dept-citation-title">PREDICTION OF PERFORMANCE OF A WOOD-BURNING STOVE USING A THERMO-CHEMICAL MODEL</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Rahul Shah, A.W. Date,</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2010</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 152 -->
+                    <div class="dept-citation-item" data-year="2010">
+                        <h3 class="dept-citation-title">Analysis of Losses of Refrigeration Capacity of Stirling Cryocooler.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> M. J. VANAJARA, Dr. N.S. Mehta</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2010</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 153 -->
+                    <div class="dept-citation-item" data-year="2007">
+                        <h3 class="dept-citation-title">A Color Petrinet Application to Re-Scheduling of an Activity Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2007</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 154 -->
+                    <div class="dept-citation-item" data-year="2007">
+                        <h3 class="dept-citation-title">Modeling of Manufacturing System and Multi Resource Allocation by Criticality Shifting Heuristic</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2007</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 155 -->
+                    <div class="dept-citation-item" data-year="2006">
+                        <h3 class="dept-citation-title">Constraint Logic Programming for timetabling of Commuter rail Services</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2006</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 156 -->
+                    <div class="dept-citation-item" data-year="2006">
+                        <h3 class="dept-citation-title">A Stochastic Colored Petrinet for Modeling, Simulation and Analysis of Dynamic Decision Systems</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2006</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 157 -->
+                    <div class="dept-citation-item" data-year="2006">
+                        <h3 class="dept-citation-title">Logistics Future Directions</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2006</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 158 -->
+                    <div class="dept-citation-item" data-year="2004">
+                        <h3 class="dept-citation-title">Performance Modeling Analysis and Simulation of Decision Making Systems, a stochastic Colored Petrinet Approach</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2004</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 159 -->
+                    <div class="dept-citation-item" data-year="2003">
+                        <h3 class="dept-citation-title">A Review on Evaluating of Green Manufacturing for Sustainable Development in Foundry Industries (2003)</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2003</span>
                         </div>
                     </div>
                 </div>
