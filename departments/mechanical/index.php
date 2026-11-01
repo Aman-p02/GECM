@@ -167,7 +167,6 @@ include_once __DIR__ . '/../../includes/header.php';
                 <!-- Vision Card -->
                 <div class="dept-charter-card dept-vision-hero-card">
                     <span class="dept-vision-quote-mark">“</span>
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Vision</h3>
                     <blockquote class="dept-vision-statement">
                         Build a strong teaching-learning and research environment to prepare determined, innovative, inventive, self-esteemed and goal oriented mechanical engineers with good technical knowledge, analytical and soft skill.
                     </blockquote>
