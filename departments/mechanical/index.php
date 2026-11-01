@@ -310,7 +310,9 @@ include_once __DIR__ . '/../../includes/header.php';
                         <select id="pubYearFilter" class="dept-pub-year-select" onchange="filterPublicationsByYear(this.value)">
                             <option value="all">All Years</option>
                             <option value="2025">2025</option>
+                            <option value="2024">2024</option>
                             <option value="2023">2023</option>
+                            <option value="2022">2022</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
@@ -327,7 +329,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </select>
                     </div>
                     <div class="dept-pub-count-badge" id="pubCountBadge">
-                        Showing <strong>42</strong> publications
+                        Showing <strong>67</strong> publications
                     </div>
                 </div>
 
@@ -713,6 +715,231 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. Narendra Patel, Dr. Jeetendra Vadher</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 43 -->
+                    <div class="dept-citation-item" data-year="2025">
+                        <h3 class="dept-citation-title">Experimental Investigation and Statistical Optimization of Centrifugal Casting Parameters for LM13 Aluminium Alloy: A Full-Factorial Approach.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Anandkumar K Patel, Jeetendrakumar A Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 44 -->
+                    <div class="dept-citation-item" data-year="2025">
+                        <h3 class="dept-citation-title">A Comparative Study of Machine Learning Algorithms for Predictive Maintenance Using IoT based Refractory Defect Detection and Energy Optimization in Boiler Furnaces.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Meeta P Chauhan, Jeetendrakumar A Vadher, Yagnesh B Chauhan, Shrushti Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 45 -->
+                    <div class="dept-citation-item" data-year="2025">
+                        <h3 class="dept-citation-title">An Impact of reinforcement on Aluminum metal matrix composites: A critical Review.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Kapil Banker, Anand Dhruv, Jeetendra Vadher, Utkarsh Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 46 -->
+                    <div class="dept-citation-item" data-year="2024">
+                        <h3 class="dept-citation-title">Cloud-Powered Transformation: Revolutionizing Engineering to Order Operations, International Journal for Research in Engineering Application &amp; Management (IJREAM) ISSN : 2454-9150 Vol-09, Issue-12, Mar 2024, DOI : 10.35291/2454-9150.2024.0083</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nimesh Soni, Jeetendra Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2024</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 47 -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">Engineering to Order Operation with help of Cloud Computing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jeetendra Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 48 -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">A Calibration Methodology of RRFDTPM Arduino Data Acquisition system with HTI IR-850 Infrared (IR) Industrial Thermometer with detailing of empirical parameter used</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jeetendrakumar A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 49 -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">EXPERIMENTAL INVESTIGATION OF CYLINDRICAL ROLLER BEARING INNER AND OUTER RACE WITH DISTRIBUTED DEFECTS</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ms. Samruddhi Patel, Dr. Utpal Shah, Dr. Bharat Khatri, Dr. Utkarsh Patel, Mr. Sanjay Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 50 -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">Experimental Investigation Of Cylindrical Roller Bearing Inner And Outer Race With Distributed Defects</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. Samruddhi Patel &amp; Dr. Sanjay Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 51 -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">MODELING AND THERMAL ANALYSIS OF CERAMIC BALL BEARING USING CAD/CAE TOOLS</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> R. N. Bodar</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 52 -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">Quality Circle Methodology in Solving Industrial Problem: A Case Study on Pump Breakdown</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Hetal I. Chaudhari, Mital Patel, Milap Madhikar, Kapil Banker, Yogesh Bhoya, Piyush Mistri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 53 -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">Quality Circle Methodology in Solving Industrial Problem: A Case study on pump Breakdown</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Hetal I, Chaudhari, Mital Patel, Milap Madhikar, Kapil Banker, Yogesh Bhoya, Piyush Mistri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 54 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Investigation of Thermal and Wear Behaviour of 3D Printed PA-12 Nylon Polymer Spur Gears</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Anand Kalani, Dr Jeetendrakumar Vadher, Dr Siddhartha Sharma, Dr Rita Jani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 55 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Micro Analysis on Energy Management in Context of SME Industries: A Review of Present Practices, Gaps and Needs and Scope of Implementation of of RRFDTPM system</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Meeta Chauhan, Jeetendra Vadher, Hetalkumar Shah, Vinay Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 56 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Analytical Hierarchy Process Based Decision Making For Fabricating Cfrp For Space Applications Using Nanomaterials, Composites: Mechanics, Computations, Applications</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dhaval Vartak, Pina Bhatt, Yogesh Ghotekar, Satyanarayana, Hetalkumar Shah, Jeetendra Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 57 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Investigation of Thermal and Wear Behaviour of 3D Printed PA-12 Nylon Polymer Spur Gears</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Anand Kalani, Dr. Jeetendra Vadher, Dr. Siddharth Sharma, Dr. Rita Jani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 58 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Experimental Investigation of Effect of Process Parameters on the Tensile Strength of a Near Eutectic Aluminum-Silicon Alloy in Universal Centrifugal Casting Machine (UCCM)</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Anandkumar K Patel, Jeetendrakumar A Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 59 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Review on Engineering to Order Operation with help of Cloud Computing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nimesh Soni, Prof. Dr. Jeetendra Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 60 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Cloud Computing application for Design and Manufacturing in Indian Industries</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nimesh Soni, Dr. Jeetendra Vadher, Dr. Vinay Patel, Dr. Hetalkumar Shah</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 61 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Effect of Bio Lubricant Using Jatropha Biodiesel on Engine Vital Parts Life Cycle</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. S. P. Patel &amp; Dr. P. K. Brahmbhatt</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 62 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Comprehension Review of Biodiesel as an Alternative Fuel for Diesel Engines</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. S. P. Patel &amp; Dr. P. K. Brahmbhatt</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 63 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Research progress on bearing fault diagnosis with localized defects and distributed defects for rolling element bearings</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Samruddhi Patel, Utpal Shah, Bharat Khatri and Utkarsh Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 64 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Review of Fault Diagnosis of Cylindrical Bearing with Defects</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Samruddhi Patel, Dr. U. V. Shah, Dr. B. C. Khatri, Dr. U. A. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 65 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Performance Prediction And Loss Estimation Of Centrifugal Pumps</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mital Patel, Hetal Chaudhari, Milap Madhikar, Kapil Banker, Yogesh Bhoya Piyush Mistri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 66 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Performance Prediction And Loss Estimation Of Centrifugal Pumps</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mital Patel, Hetal Chaudhari, Milap Madhikar, Kapil Banker, Yogesh Bhoya, Piyush Mistri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 67 -->
+                    <div class="dept-citation-item" data-year="2021">
+                        <h3 class="dept-citation-title">Development of RSM model in delamination reduction of E-Glass fiber reinforced composites by ultrasonic machining process</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ketan S. Vaghosi, Dr. G. D. Acharya, Dr. M. G. Bhatt and Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
                         </div>
                     </div>
                 </div>
