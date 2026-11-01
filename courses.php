@@ -129,7 +129,7 @@ require_once __DIR__ . '/includes/header.php';
                                             <span>Mechanical Engineering</span>
                                             <i class="fas fa-arrow-up-right-from-square"></i>
                                         </a>
-                                        <span class="course-nba-pill">NBA Accredited</span>
+                                    
                                     </td>
                                     <td class="course-year-cell">1989</td>
                                     <td><span class="course-intake-badge">60 Seats</span></td>

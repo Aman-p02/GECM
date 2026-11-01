@@ -23,7 +23,7 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="<?= $root_path ?? '' ?>#about"><i class="fas fa-angle-right"></i> About GECM</a></li>
-                        <li><a href="#"><i class="fas fa-angle-right"></i> Admissions</a></li>
+                        <li><a href="<?= $root_path ?? '' ?>admission.php"><i class="fas fa-angle-right"></i> Admissions</a></li>
                         <li><a href="<?= $root_path ?? '' ?>#departments"><i class="fas fa-angle-right"></i> Academics</a></li>
                         <li><a href="#"><i class="fas fa-angle-right"></i> Placements</a></li>
                         <li><a href="#"><i class="fas fa-angle-right"></i> Anti-Ragging Cell</a></li>

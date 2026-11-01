@@ -137,7 +137,7 @@ if (!isset($active_page)) {
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
                             <li><a href="<?= $root_path ?>courses.php" class="hdr-dd-link">Courses</a></li>
-                            <li><a href="#" class="hdr-dd-link">Admission</a></li>
+                            <li><a href="<?= $root_path ?>admission.php" class="hdr-dd-link">Admission</a></li>
                             <li><a href="#" class="hdr-dd-link">Academic Calendar</a></li>
                             <li><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="hdr-dd-link">Syllabus</a></li>
                             <li><a href="#" class="hdr-dd-link">Central Library</a></li>
