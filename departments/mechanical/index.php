@@ -121,16 +121,14 @@ include_once __DIR__ . '/../../includes/header.php';
                         <p>
                             Mechanical Engineering science emerged in the 19th century as a result of developments in the field of physics. The field has continually evolved to incorporate advancements in technology. Mechanical engineers today are pursuing developments in fields such as composites, mechatronics and nano technology. Mechanical Engineering overlaps with aerospace engineering, civil engineering, electrical engineering, petroleum engineering and chemical engineering to varying amounts.
                         </p>
-                        <p style="font-weight: 600; color: #111111;">
-                            B.E. (Mechanical) program offered by the department is accredited by National Board of Accreditation(NBA) for three years till Jun-2024.
-                        </p>
+                       
                     </div>
                 </div>
 
                 <!-- Under Graduate / Post Graduate Courses -->
                 <div class="dept-section-header" style="margin-top: 56px;">
                     <span class="dept-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
-                    <h2>Under Graduate/Post Graduate Courses</h2>
+                    <h2>Undergraduate programme</h2>
                     <p>Approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated with Gujarat Technological University (GTU), Ahmedabad.</p>
                 </div>
 

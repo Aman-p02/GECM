@@ -157,7 +157,7 @@ include_once __DIR__ . '/../../includes/header.php';
                     <!-- Under Graduate Courses Table -->
                     <div class="dept-section-header" style="margin-top: 56px;">
                         <span class="dept-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
-                        <h2>Undergraduate Programmes</h2>
+                        <h2>Undergraduate Programme</h2>
                         <p>Approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated with Gujarat Technological University (GTU), Ahmedabad.</p>
                     </div>
 
