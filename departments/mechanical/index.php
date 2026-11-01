@@ -329,7 +329,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </select>
                     </div>
                     <div class="dept-pub-count-badge" id="pubCountBadge">
-                        Showing <strong>67</strong> publications
+                        Showing <strong>92</strong> publications
                     </div>
                 </div>
 
@@ -940,6 +940,231 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ketan S. Vaghosi, Dr. G. D. Acharya, Dr. M. G. Bhatt and Dr. J. A. Vadher</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 68 -->
+                    <div class="dept-citation-item" data-year="2021">
+                        <h3 class="dept-citation-title">Development of Response Surface Methodology Model In Delamination Reduction Of E type Glass Fiber Reinforced Plastic Material By Ultrasonic Machining Process</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ketan S. Vaghosi, Dr. G.D.Acharya, Dr. M.G.Bhatt and Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 69 -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Numerical Investigation For The Determination Of Equal Vibration Amplitude Of The Linear Undamped Vibrating System Using Conventional And Ground Hook Dynamic Vibration Absorber By Modification In The Damping Factor And Mass Ratio</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. U. V. Shah</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 70 -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Experimental Investigation of mass flow rate in adiabatic capillary tubes for R32</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> M. J. VANAJARA, Dr. Ravi Kumar, Dr. Anil Kumar</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 71 -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Mechanical Characterization of Aluminum LM25 based Metal Matrix Composite made with Conventional Process</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jeetendrakumar A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 72 -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Investigating the effect of change in various process parameters on the mechanical properties of a brazement with Aluminium 6061 as the base material</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Teraiya Vijay, M M Makwana</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 73 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Experimental Study of Heat Transfer in Conical Tube Heat Exchanger</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 74 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Evaluation of Stress Concentration Factor for Shoulder Fillet on Round Bar under Axial Tension Loading</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 75 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Performance Evaluation of Stress Concentration Factor for Shoulder Fillet on Round Bar under Bending Loading</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 76 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Measurement of Stress Concentration Factor for Shoulder Fillet on Flat Plate under Axial Tension using Photoelasticity Method and FEA</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 77 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">DEVELOPING A NEW MODEL OF EXISTING SPLIT AIR CONDITIONER</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Joshi Urvik A, Mistry Urvishkumar A, Khant Renish K, Patel Kishankumar R, Piyushkumar M. Mistri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 78 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">NUMERICAL ANALYSIS OF TRANSMISSION OF SOUND THROUGH VARIOUS MATERIALS</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Vyas Karan, M M Makwana</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 79 -->
+                    <div class="dept-citation-item" data-year="2018">
+                        <h3 class="dept-citation-title">Insights into process innovation through ultrasonically agitated concentric flow dielectric streams for dry wire electric discharge machining</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Bharat C. Khatri, Pravin P. Rathod, Janak B. Valaki &amp; C. D. Sankhavara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 80 -->
+                    <div class="dept-citation-item" data-year="2018">
+                        <h3 class="dept-citation-title">Investigation of optimum stress concentration factor for shoulder fillet in round bar under different loading conditions</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 81 -->
+                    <div class="dept-citation-item" data-year="2018">
+                        <h3 class="dept-citation-title">DESIGN OF UHV COMPATIBLE PERMEATION MEASUREMENT SYSTEM</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Milan Siddhapara, M M Makwana</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 82 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Prospects for Energy saving and Increase the Efficiency in Steel Re-Rolling Mills</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 83 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Investigations on the performance of concentric flow dry wire electric discharge machining (WEDM) for thin sheets of titanium alloy</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Khatri B.C. &amp; Rathod P.P.</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 84 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Municipal solid waste management in Indian cities &ndash; A review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. U. V. Shah, Himanshu Raiyani, Vijay Mistry</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 85 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Numerical Analysis of Centrifugal Compressor for Process Industry</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 86 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Computational Fluid Dynamics Analysis for Centrifugal Compressor using Advanced Technique</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 87 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Computational Fluid Dynamics Analysis for Duct line of a Centrifugal compressor to simulate the dynamic response</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 88 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Different Advances of Metal matrix Composite</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 89 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Study of Application and Advantages of Composite Materials</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 90 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Study of Important Manufacturing Processes used for Composite Materials</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 91 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">A Study on Different Failures of Composite Materials.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 92 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">A Study of Improvement in Different Mechanical Properties for Aluminum Based Metal Matrix Composite</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
                         </div>
                     </div>
                 </div>
