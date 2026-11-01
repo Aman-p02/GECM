@@ -63,9 +63,9 @@ include_once __DIR__ . '/../../includes/header.php';
                         <button type="button" class="dept-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" aria-label="GTU Syllabus Portal">
+                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" aria-label="GTU Official Syllabus Portal">
                             <span>Syllabus</span>
-                            <i class="fas fa-external-link-alt dept-ext-icon"></i>
+                            <i class="fas fa-external-link-alt ext-arrow"></i>
                         </a>
                     </li>
                     <li class="dept-subnav-item">

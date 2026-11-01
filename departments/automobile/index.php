@@ -71,10 +71,10 @@ include_once __DIR__ . '/../../includes/header.php';
                         </a>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false" style="opacity: 0.6; cursor: default;">Faculty</button>
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Faculty</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false" style="opacity: 0.6; cursor: default;">Activities</button>
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Activities</button>
                     </li>
                     <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>

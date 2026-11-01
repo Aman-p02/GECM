@@ -139,7 +139,7 @@ if (!isset($active_page)) {
                             <li><a href="#" class="hdr-dd-link">Courses</a></li>
                             <li><a href="#" class="hdr-dd-link">Admission</a></li>
                             <li><a href="#" class="hdr-dd-link">Academic Calendar</a></li>
-                            <li><a href="#" class="hdr-dd-link">Syllabus</a></li>
+                            <li><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="hdr-dd-link">Syllabus</a></li>
                             <li><a href="#" class="hdr-dd-link">Central Library</a></li>
                         </ul>
                     </div>
