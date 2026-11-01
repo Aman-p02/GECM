@@ -329,7 +329,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </select>
                     </div>
                     <div class="dept-pub-count-badge" id="pubCountBadge">
-                        Showing <strong>92</strong> publications
+                        Showing <strong>110</strong> publications
                     </div>
                 </div>
 
@@ -629,15 +629,6 @@ include_once __DIR__ . '/../../includes/header.php';
                     </div>
 
                     <!-- Publication 33 -->
-                    <div class="dept-citation-item" data-year="2009">
-                        <h3 class="dept-citation-title">A case study on Implementation of Global standard Inspection Process-"GSIP" in a reputed Automobile Company</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dhruv U Panchal, B. Prajapati, R. J. JANI</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> August-2009</span>
-                        </div>
-                    </div>
-
-                    <!-- Publication 34 -->
                     <div class="dept-citation-item" data-year="2021">
                         <h3 class="dept-citation-title">Alternatives of Conventional Gearing Mechanism : A Review</h3>
                         <div class="dept-citation-meta">
@@ -646,7 +637,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 35 -->
+                    <!-- Publication 34 -->
                     <div class="dept-citation-item" data-year="2000">
                         <h3 class="dept-citation-title">Just in time (JIT) realisation in small scale industry</h3>
                         <div class="dept-citation-meta">
@@ -655,7 +646,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 36 -->
+                    <!-- Publication 35 -->
                     <div class="dept-citation-item" data-year="2018">
                         <h3 class="dept-citation-title">INVESTIGATION ON PERFORMANCE AND EMISSION PARAMETERS OF DISC TYPE FUEL INJECTOR NOZZLE IN 4-STROKE SINGLE CYLINDER DIESEL ENGINE</h3>
                         <div class="dept-citation-meta">
@@ -664,7 +655,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 37 -->
+                    <!-- Publication 36 -->
                     <div class="dept-citation-item" data-year="2015">
                         <h3 class="dept-citation-title">Enrichment of CNG in Gasoline Blends - A Technical Review</h3>
                         <div class="dept-citation-meta">
@@ -673,7 +664,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 38 -->
+                    <!-- Publication 37 -->
                     <div class="dept-citation-item" data-year="2013">
                         <h3 class="dept-citation-title">Characteristics and comparison of diesel fuel and biodiesel produced from neem</h3>
                         <div class="dept-citation-meta">
@@ -682,7 +673,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 39 -->
+                    <!-- Publication 38 -->
                     <div class="dept-citation-item" data-year="2008">
                         <h3 class="dept-citation-title">Causes of problems related to two phase fluid flow at cryogenic temperatures.</h3>
                         <div class="dept-citation-meta">
@@ -691,7 +682,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 40 -->
+                    <!-- Publication 39 -->
                     <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">Investigation of Mechanical and Morphological Properties of Adc-12/SiC Reinforced Metal Matrix Composite using Bottom Pouring Stir Casting Methods.</h3>
                         <div class="dept-citation-meta">
@@ -700,7 +691,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 41 -->
+                    <!-- Publication 40 -->
                     <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">Monitoring and Prediction of Boiler Refractory Failure by Remote Refractory Failure Detection and Temperature Pressure Monitoring System an Artificial Intelligence based System Using Machine Learning.</h3>
                         <div class="dept-citation-meta">
@@ -709,7 +700,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 42 -->
+                    <!-- Publication 41 -->
                     <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">Enhancing Manufacturing Efficiency through Design for Manufacturability: A Cost and Time Optimization Approach.</h3>
                         <div class="dept-citation-meta">
@@ -718,7 +709,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 43 -->
+                    <!-- Publication 42 -->
                     <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">Experimental Investigation and Statistical Optimization of Centrifugal Casting Parameters for LM13 Aluminium Alloy: A Full-Factorial Approach.</h3>
                         <div class="dept-citation-meta">
@@ -727,7 +718,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 44 -->
+                    <!-- Publication 43 -->
                     <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">A Comparative Study of Machine Learning Algorithms for Predictive Maintenance Using IoT based Refractory Defect Detection and Energy Optimization in Boiler Furnaces.</h3>
                         <div class="dept-citation-meta">
@@ -736,7 +727,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 45 -->
+                    <!-- Publication 44 -->
                     <div class="dept-citation-item" data-year="2025">
                         <h3 class="dept-citation-title">An Impact of reinforcement on Aluminum metal matrix composites: A critical Review.</h3>
                         <div class="dept-citation-meta">
@@ -745,7 +736,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 46 -->
+                    <!-- Publication 45 -->
                     <div class="dept-citation-item" data-year="2024">
                         <h3 class="dept-citation-title">Cloud-Powered Transformation: Revolutionizing Engineering to Order Operations, International Journal for Research in Engineering Application &amp; Management (IJREAM) ISSN : 2454-9150 Vol-09, Issue-12, Mar 2024, DOI : 10.35291/2454-9150.2024.0083</h3>
                         <div class="dept-citation-meta">
@@ -754,7 +745,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 47 -->
+                    <!-- Publication 46 -->
                     <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">Engineering to Order Operation with help of Cloud Computing</h3>
                         <div class="dept-citation-meta">
@@ -763,7 +754,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 48 -->
+                    <!-- Publication 47 -->
                     <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">A Calibration Methodology of RRFDTPM Arduino Data Acquisition system with HTI IR-850 Infrared (IR) Industrial Thermometer with detailing of empirical parameter used</h3>
                         <div class="dept-citation-meta">
@@ -772,7 +763,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 49 -->
+                    <!-- Publication 48 -->
                     <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">EXPERIMENTAL INVESTIGATION OF CYLINDRICAL ROLLER BEARING INNER AND OUTER RACE WITH DISTRIBUTED DEFECTS</h3>
                         <div class="dept-citation-meta">
@@ -781,16 +772,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 50 -->
-                    <div class="dept-citation-item" data-year="2023">
-                        <h3 class="dept-citation-title">Experimental Investigation Of Cylindrical Roller Bearing Inner And Outer Race With Distributed Defects</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. Samruddhi Patel &amp; Dr. Sanjay Patel</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
-                        </div>
-                    </div>
-
-                    <!-- Publication 51 -->
+                    <!-- Publication 49 -->
                     <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">MODELING AND THERMAL ANALYSIS OF CERAMIC BALL BEARING USING CAD/CAE TOOLS</h3>
                         <div class="dept-citation-meta">
@@ -799,7 +781,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 52 -->
+                    <!-- Publication 50 -->
                     <div class="dept-citation-item" data-year="2023">
                         <h3 class="dept-citation-title">Quality Circle Methodology in Solving Industrial Problem: A Case Study on Pump Breakdown</h3>
                         <div class="dept-citation-meta">
@@ -808,16 +790,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 53 -->
-                    <div class="dept-citation-item" data-year="2023">
-                        <h3 class="dept-citation-title">Quality Circle Methodology in Solving Industrial Problem: A Case study on pump Breakdown</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Hetal I, Chaudhari, Mital Patel, Milap Madhikar, Kapil Banker, Yogesh Bhoya, Piyush Mistri</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
-                        </div>
-                    </div>
-
-                    <!-- Publication 54 -->
+                    <!-- Publication 51 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Investigation of Thermal and Wear Behaviour of 3D Printed PA-12 Nylon Polymer Spur Gears</h3>
                         <div class="dept-citation-meta">
@@ -826,7 +799,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 55 -->
+                    <!-- Publication 52 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Micro Analysis on Energy Management in Context of SME Industries: A Review of Present Practices, Gaps and Needs and Scope of Implementation of of RRFDTPM system</h3>
                         <div class="dept-citation-meta">
@@ -835,7 +808,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 56 -->
+                    <!-- Publication 53 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Analytical Hierarchy Process Based Decision Making For Fabricating Cfrp For Space Applications Using Nanomaterials, Composites: Mechanics, Computations, Applications</h3>
                         <div class="dept-citation-meta">
@@ -844,16 +817,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 57 -->
-                    <div class="dept-citation-item" data-year="2022">
-                        <h3 class="dept-citation-title">Investigation of Thermal and Wear Behaviour of 3D Printed PA-12 Nylon Polymer Spur Gears</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Anand Kalani, Dr. Jeetendra Vadher, Dr. Siddharth Sharma, Dr. Rita Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
-                        </div>
-                    </div>
-
-                    <!-- Publication 58 -->
+                    <!-- Publication 54 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Experimental Investigation of Effect of Process Parameters on the Tensile Strength of a Near Eutectic Aluminum-Silicon Alloy in Universal Centrifugal Casting Machine (UCCM)</h3>
                         <div class="dept-citation-meta">
@@ -862,7 +826,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 59 -->
+                    <!-- Publication 55 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Review on Engineering to Order Operation with help of Cloud Computing</h3>
                         <div class="dept-citation-meta">
@@ -871,7 +835,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 60 -->
+                    <!-- Publication 56 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Cloud Computing application for Design and Manufacturing in Indian Industries</h3>
                         <div class="dept-citation-meta">
@@ -880,7 +844,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 61 -->
+                    <!-- Publication 57 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Effect of Bio Lubricant Using Jatropha Biodiesel on Engine Vital Parts Life Cycle</h3>
                         <div class="dept-citation-meta">
@@ -889,7 +853,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 62 -->
+                    <!-- Publication 58 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Comprehension Review of Biodiesel as an Alternative Fuel for Diesel Engines</h3>
                         <div class="dept-citation-meta">
@@ -898,7 +862,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 63 -->
+                    <!-- Publication 59 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Research progress on bearing fault diagnosis with localized defects and distributed defects for rolling element bearings</h3>
                         <div class="dept-citation-meta">
@@ -907,7 +871,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 64 -->
+                    <!-- Publication 60 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Review of Fault Diagnosis of Cylindrical Bearing with Defects</h3>
                         <div class="dept-citation-meta">
@@ -916,16 +880,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 65 -->
-                    <div class="dept-citation-item" data-year="2022">
-                        <h3 class="dept-citation-title">Performance Prediction And Loss Estimation Of Centrifugal Pumps</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Mital Patel, Hetal Chaudhari, Milap Madhikar, Kapil Banker, Yogesh Bhoya Piyush Mistri</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
-                        </div>
-                    </div>
-
-                    <!-- Publication 66 -->
+                    <!-- Publication 61 -->
                     <div class="dept-citation-item" data-year="2022">
                         <h3 class="dept-citation-title">Performance Prediction And Loss Estimation Of Centrifugal Pumps</h3>
                         <div class="dept-citation-meta">
@@ -934,7 +889,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 67 -->
+                    <!-- Publication 62 -->
                     <div class="dept-citation-item" data-year="2021">
                         <h3 class="dept-citation-title">Development of RSM model in delamination reduction of E-Glass fiber reinforced composites by ultrasonic machining process</h3>
                         <div class="dept-citation-meta">
@@ -943,7 +898,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 68 -->
+                    <!-- Publication 63 -->
                     <div class="dept-citation-item" data-year="2021">
                         <h3 class="dept-citation-title">Development of Response Surface Methodology Model In Delamination Reduction Of E type Glass Fiber Reinforced Plastic Material By Ultrasonic Machining Process</h3>
                         <div class="dept-citation-meta">
@@ -952,7 +907,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 69 -->
+                    <!-- Publication 64 -->
                     <div class="dept-citation-item" data-year="2020">
                         <h3 class="dept-citation-title">Numerical Investigation For The Determination Of Equal Vibration Amplitude Of The Linear Undamped Vibrating System Using Conventional And Ground Hook Dynamic Vibration Absorber By Modification In The Damping Factor And Mass Ratio</h3>
                         <div class="dept-citation-meta">
@@ -961,7 +916,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 70 -->
+                    <!-- Publication 65 -->
                     <div class="dept-citation-item" data-year="2020">
                         <h3 class="dept-citation-title">Experimental Investigation of mass flow rate in adiabatic capillary tubes for R32</h3>
                         <div class="dept-citation-meta">
@@ -970,7 +925,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 71 -->
+                    <!-- Publication 66 -->
                     <div class="dept-citation-item" data-year="2020">
                         <h3 class="dept-citation-title">Mechanical Characterization of Aluminum LM25 based Metal Matrix Composite made with Conventional Process</h3>
                         <div class="dept-citation-meta">
@@ -979,7 +934,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 72 -->
+                    <!-- Publication 67 -->
                     <div class="dept-citation-item" data-year="2020">
                         <h3 class="dept-citation-title">Investigating the effect of change in various process parameters on the mechanical properties of a brazement with Aluminium 6061 as the base material</h3>
                         <div class="dept-citation-meta">
@@ -988,7 +943,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 73 -->
+                    <!-- Publication 68 -->
                     <div class="dept-citation-item" data-year="2019">
                         <h3 class="dept-citation-title">Experimental Study of Heat Transfer in Conical Tube Heat Exchanger</h3>
                         <div class="dept-citation-meta">
@@ -997,7 +952,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 74 -->
+                    <!-- Publication 69 -->
                     <div class="dept-citation-item" data-year="2019">
                         <h3 class="dept-citation-title">Evaluation of Stress Concentration Factor for Shoulder Fillet on Round Bar under Axial Tension Loading</h3>
                         <div class="dept-citation-meta">
@@ -1006,7 +961,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 75 -->
+                    <!-- Publication 70 -->
                     <div class="dept-citation-item" data-year="2019">
                         <h3 class="dept-citation-title">Performance Evaluation of Stress Concentration Factor for Shoulder Fillet on Round Bar under Bending Loading</h3>
                         <div class="dept-citation-meta">
@@ -1015,7 +970,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 76 -->
+                    <!-- Publication 71 -->
                     <div class="dept-citation-item" data-year="2019">
                         <h3 class="dept-citation-title">Measurement of Stress Concentration Factor for Shoulder Fillet on Flat Plate under Axial Tension using Photoelasticity Method and FEA</h3>
                         <div class="dept-citation-meta">
@@ -1024,7 +979,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 77 -->
+                    <!-- Publication 72 -->
                     <div class="dept-citation-item" data-year="2019">
                         <h3 class="dept-citation-title">DEVELOPING A NEW MODEL OF EXISTING SPLIT AIR CONDITIONER</h3>
                         <div class="dept-citation-meta">
@@ -1033,7 +988,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 78 -->
+                    <!-- Publication 73 -->
                     <div class="dept-citation-item" data-year="2019">
                         <h3 class="dept-citation-title">NUMERICAL ANALYSIS OF TRANSMISSION OF SOUND THROUGH VARIOUS MATERIALS</h3>
                         <div class="dept-citation-meta">
@@ -1042,7 +997,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 79 -->
+                    <!-- Publication 74 -->
                     <div class="dept-citation-item" data-year="2018">
                         <h3 class="dept-citation-title">Insights into process innovation through ultrasonically agitated concentric flow dielectric streams for dry wire electric discharge machining</h3>
                         <div class="dept-citation-meta">
@@ -1051,7 +1006,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 80 -->
+                    <!-- Publication 75 -->
                     <div class="dept-citation-item" data-year="2018">
                         <h3 class="dept-citation-title">Investigation of optimum stress concentration factor for shoulder fillet in round bar under different loading conditions</h3>
                         <div class="dept-citation-meta">
@@ -1060,7 +1015,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 81 -->
+                    <!-- Publication 76 -->
                     <div class="dept-citation-item" data-year="2018">
                         <h3 class="dept-citation-title">DESIGN OF UHV COMPATIBLE PERMEATION MEASUREMENT SYSTEM</h3>
                         <div class="dept-citation-meta">
@@ -1069,7 +1024,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 82 -->
+                    <!-- Publication 77 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Prospects for Energy saving and Increase the Efficiency in Steel Re-Rolling Mills</h3>
                         <div class="dept-citation-meta">
@@ -1078,7 +1033,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 83 -->
+                    <!-- Publication 78 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Investigations on the performance of concentric flow dry wire electric discharge machining (WEDM) for thin sheets of titanium alloy</h3>
                         <div class="dept-citation-meta">
@@ -1087,7 +1042,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 84 -->
+                    <!-- Publication 79 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Municipal solid waste management in Indian cities &ndash; A review</h3>
                         <div class="dept-citation-meta">
@@ -1096,7 +1051,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 85 -->
+                    <!-- Publication 80 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Numerical Analysis of Centrifugal Compressor for Process Industry</h3>
                         <div class="dept-citation-meta">
@@ -1105,7 +1060,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 86 -->
+                    <!-- Publication 81 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Computational Fluid Dynamics Analysis for Centrifugal Compressor using Advanced Technique</h3>
                         <div class="dept-citation-meta">
@@ -1114,7 +1069,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 87 -->
+                    <!-- Publication 82 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Computational Fluid Dynamics Analysis for Duct line of a Centrifugal compressor to simulate the dynamic response</h3>
                         <div class="dept-citation-meta">
@@ -1123,7 +1078,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 88 -->
+                    <!-- Publication 83 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Different Advances of Metal matrix Composite</h3>
                         <div class="dept-citation-meta">
@@ -1132,7 +1087,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 89 -->
+                    <!-- Publication 84 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Study of Application and Advantages of Composite Materials</h3>
                         <div class="dept-citation-meta">
@@ -1141,7 +1096,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 90 -->
+                    <!-- Publication 85 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">Study of Important Manufacturing Processes used for Composite Materials</h3>
                         <div class="dept-citation-meta">
@@ -1150,7 +1105,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 91 -->
+                    <!-- Publication 86 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">A Study on Different Failures of Composite Materials.</h3>
                         <div class="dept-citation-meta">
@@ -1159,12 +1114,219 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Publication 92 -->
+                    <!-- Publication 87 -->
                     <div class="dept-citation-item" data-year="2017">
                         <h3 class="dept-citation-title">A Study of Improvement in Different Mechanical Properties for Aluminum Based Metal Matrix Composite</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 88 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Key Performance Indicators of Steel Re-Rolling Mills for Sustainable Manufacturing</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 89 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">A review on development of Adaptive control system for tool vibration minimization and feed optimization for turning centre</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 90 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Numerical Analysis of Conical Heat Exchanger</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 91 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Fatigue Failure Of Spur Gears - A Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Anand D. Kalani, Dr. Jeetendrakumar A. Vadher and Rita K. Jani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 92 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Review on different methods for reducing outgassing rate from vacuum materials</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Vishal Patel, M M Makwana</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 93 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Ultrasonic Vibration Assisted Wire Electric Discharge Machining- A Research Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> BC Khatri, PP Rathod and JB Valaki</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 94 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Analysis of Process Parameter Wire-Electro Discharge Machine by Experimental Work</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. A. Patel, MD Nazibullah, and B. C. Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 95 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Experimental Analysis of Concentric flow Dry Wire Electric Discharge Machining (CDWEDM)</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> BC Khatri and PP Rathod</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 96 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Analysis of Stirling Cycle Cryocooler</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> M. J. VANAJARA, Mr. S.D. Soni</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 97 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Comparative Assessment of Flow Boiling Heat Transfer Correlations for Horizontal Mini and Micro Channels with CO2 as Working Fluid</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jigar C. Gamit, S. A. Channiwala</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 98 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">CFD Analysis of centrifugal compressor using Ansys</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 99 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Optimization of Green sand casting process parameters by Artificial neural network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 100 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Mathematical Modeling centrifugal compressor for process industry</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 101 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Minimizing the sand casting defects using Taguchi method</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 102 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Another look to foundry sand quality for Furan No-bake mould system</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 103 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">A Furan No-Bake Binder System Analysis for Improved Casting Quality</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 104 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Identification and Quantification of Gases Releasing From Furan No Bake Binder</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 105 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Parametric analysis on compressive strength of furan no bakes mould system using ANN</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 106 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Eco friendly Foundry Sand Binders</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 107 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Effect of Process Parameters on AL6061 T-6 using Friction stir welding by RSM Method, IASTEM Conference-Meeting</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 108 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">A Review on Skirt to Dished end Joint of Pressure Vessel</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Gaurang Parmar, M M Makwana</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 109 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Identifying Path to Defect Free Iron Casting Through Evaluation of Sand of FNB Mould System</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 110 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Greening the Foundry Industry &ndash; Past, Present and Future</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
                 </div>
