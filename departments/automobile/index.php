@@ -25,25 +25,15 @@ include_once __DIR__ . '/../../includes/header.php';
     <header class="dept-hero-banner" role="banner">
         <div class="dept-container">
             <div class="dept-hero-grid">
-                <!-- Left text content -->
                 <div class="dept-hero-text">
-                    <span class="dept-kicker">GOVERNMENT ENGINEERING COLLEGE, MODASA</span>
-                    <h1 class="dept-title">Automobile Engineering</h1>
-                    <p class="dept-subtitle">
-                        Premier Center for Automotive Systems, Internal Combustion Engines, Vehicle Dynamics, and Mobility Innovation since 2008.
+                    <span class="dept-kicker">DEPARTMENT OF</span>
+                    <h1 class="dept-heading">Automobile Engineering</h1>
+                    <p class="dept-tagline">
+                        Constituted in 2008 with a separate building, workshop, and AC conference room. Dedicated to powertrain engineering, vehicle dynamics, and sustainable mobility innovation.
                     </p>
                 </div>
-
-                <!-- Right visual building card -->
-                <div class="dept-hero-card">
-                    <div class="dept-card-inner">
-                        <img src="images/department_building.jpg" alt="Automobile Engineering Department Building" class="dept-card-image" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        <div class="dept-card-overlay">
-                            <span class="dept-card-badge">ESTD. 2008</span>
-                            <h3 class="dept-card-title">Automobile Engineering Wing</h3>
-                            <p class="dept-card-meta">Separate Building with Labs, Workshop &amp; AC Conference Room</p>
-                        </div>
-                    </div>
+                <div class="dept-hero-media">
+                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Automobile Engineering Department Building" class="dept-hero-photo">
                 </div>
             </div>
 
