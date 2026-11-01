@@ -65,7 +65,7 @@
 .courses-stat-num {
     font-size: 1.85rem;
     font-weight: 800;
-    color: var(--primary-color, #000000);
+    color: #000000;
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
@@ -75,7 +75,7 @@
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #64748b;
+    color: #5b6779;
 }
 
 /* Content Container & Sections */
