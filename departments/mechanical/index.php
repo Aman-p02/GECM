@@ -125,7 +125,7 @@ include_once __DIR__ . '/../../includes/header.php';
                     </div>
                 </div>
 
-                <!-- Under Graduate / Post Graduate Courses -->
+                <!-- Under Graduate  -->
                 <div class="dept-section-header" style="margin-top: 56px;">
                     <span class="dept-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
                     <h2>Undergraduate programme</h2>
@@ -309,21 +309,25 @@ include_once __DIR__ . '/../../includes/header.php';
                         <label for="pubYearFilter" class="dept-pub-filter-label"><i class="fas fa-filter"></i> Filter by Year:</label>
                         <select id="pubYearFilter" class="dept-pub-year-select" onchange="filterPublicationsByYear(this.value)">
                             <option value="all">All Years</option>
+                            <option value="2025">2025</option>
                             <option value="2023">2023</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
+                            <option value="2017">2017</option>
                             <option value="2016">2016</option>
                             <option value="2015">2015</option>
                             <option value="2014">2014</option>
                             <option value="2013">2013</option>
                             <option value="2012">2012</option>
                             <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2000">2000</option>
                         </select>
                     </div>
                     <div class="dept-pub-count-badge" id="pubCountBadge">
-                        Showing <strong>23</strong> publications
+                        Showing <strong>42</strong> publications
                     </div>
                 </div>
 
@@ -538,6 +542,177 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Rajan D. Bavishi, Nisha V Bora, S. S. Mukherjee, Ranjana Gangradey</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal of Science Technology &amp; Engineering | Volume 1 | Issue 11 | May 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 24 -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Passive heat transfer augmentation techniques to enhance the performance of solar collectors</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nisha V Bora, N M Bhatt</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal of Innovative Research in Technology, Vol 7, Issue 1, June 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 25 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Experimental Evaluation of Apparent Mean Thermal Conductivity of Exfoliated Vermiculite Powder Insulation</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Chirag C Patel, Nisha V Bora</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal of Engineering Research and Technology, Vol 2, Issue 8, Aug 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 26 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Experimental Evaluation of Apparent Mean Thermal Conductivity of Evacuated Vermiculite Powder Insulation</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nisha V Bora, Chirag C Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal of Emerging Technology and Advanced Engineering, Vol 3, Issue 8, Aug 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 27 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">A Review Paper on Cryogenic Storage Vessel for Liquid Hydrogen</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> P. D. Asodariya, Nisha V Bora</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal for Scientific Research &amp; Development, Vol. 2, Issue 03, 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 28 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Design and Optimization of Perforated Plate Type Cryogenic Matrix Heat Exchanger for Hydrogen Liquefaction System</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Vinod Patel, Nisha V Bora</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal for Scientific Research &amp; Development, Vol. 3, Issue 02, 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 29 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Design of Helium Cryogenic Turboexpander</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Renu Gupta, Nisha Bora</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal for Scientific Research &amp; Development (Vol: 1, Issue: 11), 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 30 -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Performance enhancement of solar collector by geometric modifications on the heated surface, use of solar selective coatings and nano-fluids</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nisha V Bora, N M Bhatt</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Advanced Research Journal in Science, Engineering and Technology, Vol 7, Issue 5, June 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 31 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">A review paper on behavior of disc type fuel injector nozzle</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Riddhesh V. Yagnik, R. J. Jani, J. D. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> February 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 32 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">A Review on “Wear Measurement Of Automotive Disc Brake Friction-Material”</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ashish D. Dhangar, R. J. Jani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Dec-2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 33 -->
+                    <div class="dept-citation-item" data-year="2009">
+                        <h3 class="dept-citation-title">A case study on Implementation of Global standard Inspection Process-"GSIP" in a reputed Automobile Company</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dhruv U Panchal, B. Prajapati, R. J. JANI</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> August-2009</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 34 -->
+                    <div class="dept-citation-item" data-year="2021">
+                        <h3 class="dept-citation-title">Alternatives of Conventional Gearing Mechanism : A Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. U. V. Shah and Parita Trivedi</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> August 2021</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 35 -->
+                    <div class="dept-citation-item" data-year="2000">
+                        <h3 class="dept-citation-title">Just in time (JIT) realisation in small scale industry</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> R. J. Jani, Rameshwar sah</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> August 2000</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 36 -->
+                    <div class="dept-citation-item" data-year="2018">
+                        <h3 class="dept-citation-title">INVESTIGATION ON PERFORMANCE AND EMISSION PARAMETERS OF DISC TYPE FUEL INJECTOR NOZZLE IN 4-STROKE SINGLE CYLINDER DIESEL ENGINE</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Darshit P. Parikh, Prof. R. J. Jani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> April 2018</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 37 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Enrichment of CNG in Gasoline Blends - A Technical Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ritesh Kumar Ranjan, Vikas Rai, Prof. Vipul R Bhatt, Prof. R J Jani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> April 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 38 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Characteristics and comparison of diesel fuel and biodiesel produced from neem</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jaivik Prajapati, R. J. Jani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> April 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 39 -->
+                    <div class="dept-citation-item" data-year="2008">
+                        <h3 class="dept-citation-title">Causes of problems related to two phase fluid flow at cryogenic temperatures.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nisha V Bora, Bharti V Dave</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Advances in fluid flow and thermal sciences, June 2008</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 40 -->
+                    <div class="dept-citation-item" data-year="2025">
+                        <h3 class="dept-citation-title">Investigation of Mechanical and Morphological Properties of Adc-12/SiC Reinforced Metal Matrix Composite using Bottom Pouring Stir Casting Methods.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Kapil Banker, Anand Dhruv, Jeetendra Vadher, Utkarsh Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 41 -->
+                    <div class="dept-citation-item" data-year="2025">
+                        <h3 class="dept-citation-title">Monitoring and Prediction of Boiler Refractory Failure by Remote Refractory Failure Detection and Temperature Pressure Monitoring System an Artificial Intelligence based System Using Machine Learning.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Meeta Chauhan, Jeetendra Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 42 -->
+                    <div class="dept-citation-item" data-year="2025">
+                        <h3 class="dept-citation-title">Enhancing Manufacturing Efficiency through Design for Manufacturability: A Cost and Time Optimization Approach.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. Narendra Patel, Dr. Jeetendra Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2025</span>
                         </div>
                     </div>
                 </div>
