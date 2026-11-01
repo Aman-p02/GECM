@@ -329,7 +329,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </select>
                     </div>
                     <div class="dept-pub-count-badge" id="pubCountBadge">
-                        Showing <strong>110</strong> publications
+                        Showing <strong>135</strong> publications
                     </div>
                 </div>
 
@@ -1327,6 +1327,231 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 111 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Design and Dynamic analysis of existing container lifting device used for Solid Waste Management</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. U. V. Shah, Himanshu D. Raiyani, Prof. G. H. Upadhyay</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015, ISSN: 2321-0613</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 112 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Environmental Impact, Personnel Health And Operational Safety Aspects Of Electric Discharge Machining (EDM) &ndash; A Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> JB Valaki, PP Rathod and BC Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 113 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Optimization of Ultrasonic wedm Process Parameter for EN-8 Steel using GA</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> D. M. Pavagadhi, M. S. Rana, B. C. Khatri and J. B. Valaki</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 114 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Process Optimization and Estimation of Oxygen assisted Wire Electric Discharge Machining Performance using Artificial Neural Network</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> M. S. Rana, D. M. Pavagadhi, B. C. Khatri and J. B. Valaki</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 115 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Optimization techniques used in Electric Discharge Machining &ndash; A technical Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> D. M. Pavagadhi, M. S. Rana, B. C. Khatri and J. B. Valaki</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 116 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">A Literature Review on Dry Wire Electric Discharge Machining</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. A. Patel, MD Nazibullah, and B. C. Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 117 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">A Review on Parametric Optimization in Wire Electric Discharge Machining</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. A. Patel, MD Nazibullah, B. C. Khatri and S. P. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 118 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Investigation of Stress Concentration Factor for Keyway on Shaft under Different Loading Conditions: A Case Study</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 119 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Thermal Stress Analysis of Electro Discharge Machining</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 120 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Hot Foundry sand &ndash; A Major Problem in Furan No Back Molding System</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 121 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Adopting sand binders considering sustainable foundry</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 122 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Modeling And Analysis of Track Mounted Conveyor's Chassis Using FEA</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 123 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Parametric Optimization of belt conveyor supporting structure using FEA- DOE hybrid Modeling</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 124 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Analysis of the penstock for pit turbine using computational fluid dynamics</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 125 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Numerical Simulation of Flow Pattern of Boiling Heat Transfer in Mini/Micro Channel Using VOF Method</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jigar C. Gamit, S. A. Channiwala</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 126 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Comparative Assessment of Flow Boiling Heat Transfer Correlations for Horizontal Mini and Micro Channels with R-134a as a Working Fluid</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jigar C. Gamit, S. A. Channiwala</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 127 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">A Review on Evaluating of Green Manufacturing for Sustainable Development in Foundry Industries</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 128 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Experimental Investigation on Modern Furan No-Back system for Foundry Industries</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jeetendrakumar A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 129 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">An implementation of milk run material supply system in vehicle routing with simultaneous pickup and delivery</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jeetendrakumar A. Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 130 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Study on Parallel Individual Drive Hybrid Technology</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> D S Jasolia, M M Makwana</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 131 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Optimization of Process Parameter of Wire Electrical Discharge Machine by Response Surface Methodology on Inconel-600</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> C.D.Shah, J.R.Mevada, B.C.Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 132 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Parametric Investigation of CO2 Laser Cutting of Mild Steel and Hardox-400 Material</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> B. D. Prajapati, R. J. Patel and B. C. Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 133 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Particle Swarm Optimization-fundamental insight</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> G. H. Upadhyay, J. R. Vaghela and B. C. Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 134 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Parametric investigation of CO2 laser cutting on kerf width quality of Hardox-400 material</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> J.M. Patel, B. D. Prajapati and B. C. Khatri</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 135 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Parametric Analysis of Material removal rate and surface roughness of Electro Discharge Machining on EN 9</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. R. Prajapati</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
                         </div>
                     </div>
                 </div>
