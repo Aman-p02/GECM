@@ -1,0 +1,626 @@
+<?php
+// Set Page Variables
+$page_title = "Department of Applied Mechanics — Government Engineering College, Modasa";
+$active_page = "departments";
+$root_path = "../../";
+$extra_css = "departments/applied-mechanics/css/department.css";
+$extra_js = "departments/applied-mechanics/js/department.js";
+
+// Include Header
+include_once __DIR__ . '/../../includes/header.php';
+?>
+
+<div class="dept-page">
+
+    <!-- Hero header section -->
+    <header class="dept-hero-banner">
+        <div class="dept-container">
+            <!-- Two-column hero grid (7 cols left, 5 cols right) -->
+            <div class="dept-hero-grid">
+                <div class="dept-hero-text">
+                    <span class="dept-kicker">DEPARTMENT OF</span>
+                    <h1 class="dept-heading">Applied Mechanics</h1>
+                    <p class="dept-tagline">
+                        Accommodated in the main building, advancing foundational mechanics, materials testing, geotechnical investigations, and earthquake engineering testing.
+                    </p>
+                </div>
+                <div class="dept-hero-media">
+                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Applied Mechanics Department Building" class="dept-hero-photo">
+                </div>
+            </div>
+
+            <!-- Key metrics counter strip -->
+            <div class="dept-stats-strip">
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">4+</span>
+                    <span class="dept-stat-label">SPECIALIZED TESTING LABS</span>
+                </div>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">BIS/ISI</span>
+                    <span class="dept-stat-label">COMPLIANT TESTING</span>
+                </div>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">UG &amp; PG</span>
+                    <span class="dept-stat-label">STRUCTURAL PEDAGOGY</span>
+                </div>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">8</span>
+                    <span class="dept-stat-label">FACULTY MEMBERS</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky sub-navigation bar -->
+    <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
+        <div class="dept-container">
+            <div class="dept-subnav-wrapper">
+                <ul class="dept-subnav-list" role="tablist">
+                    <li class="dept-subnav-item active">
+                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About Department</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Faculty</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Activities</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tab panels container -->
+    <main class="dept-main-content">
+        <div class="dept-container">
+
+            <!-- Tab 1: About Department -->
+            <section class="dept-tab-pane active" id="tab-about">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
+                    <h2>About the Department</h2>
+                    <p>Fostering rigorous experimental foundations in engineering mechanics, materials testing, and geotechnical characterization.</p>
+                </div>
+
+                <div class="dept-story-body">
+                    <blockquote class="dept-lead-quote">
+                        "Bridging the vital gap between physical mechanics theory and modern structural engineering application."
+                    </blockquote>
+                    <p>
+                        This department is accommodated in the main building, having laboratories in area like Engineering Mechanics, Strength of Materials, Concrete Technology and Geotechnic Engineering. All these Laboratories are well equipped to meet the testing requirement as per ISI.
+                    </p>
+                    <p>
+                        This department is having laboratories in area like Mechanics of Solids, Concrete Technology, Structural Engineering, Geotechnical Engineering and Computing. All these laboratories are well equipped to meet the testing requirement as per BIS (Bureau of International Standards).
+                    </p>
+                    <p>
+                        Applied Mechanics is a branch of the physical sciences and the practical application of mechanics. Applied mechanics examines the response of bodies (solids and fluids) or systems of bodies to external forces. Some examples of mechanical systems include the flow of a liquid under pressure, the fracture of a solid from an applied force, or the vibration of an ear in response to sound. A practitioner of the discipline is known as a mechanician. Applied mechanics, as its name suggests, bridges the gap between physical theory and its application to technology.
+                    </p>
+                    <p>
+                        As such, Applied Mechanics is used in many fields of engineering, especially mechanical engineering. In this context, it is commonly referred to as engineering mechanics. Much of modern engineering mechanics is based on Isaac Newton's laws of motion, while the modern practice of their application can be traced back to Stephen Timoshenko, who is said to be the father of modern engineering mechanics. Within the theoretical sciences, applied mechanics is useful in formulating new ideas and theories, discovering and interpreting phenomena, and developing experimental and computational tools.
+                    </p>
+                </div>
+
+                <!-- About the Programme Section -->
+                <div class="dept-programme-section">
+                    <div class="dept-section-header">
+                        <span class="dept-section-kicker">DISCIPLINE &amp; TESTING STREAMS</span>
+                        <h2>Core Specializations</h2>
+                        <p>Providing essential testing infrastructure, structural analysis, and material sciences verification for engineering students.</p>
+                    </div>
+
+                    <div class="dept-avenues-grid">
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-cubes"></i></div>
+                                <h4>Mechanics of Solids &amp; Structures</h4>
+                            </div>
+                            <p>Demonstrating stress-strain relationships, structural stability, bending moments, tensile properties, and material fracture behavior under external loading conditions.</p>
+                        </div>
+
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-mountain"></i></div>
+                                <h4>Geotechnical &amp; Material Testing</h4>
+                            </div>
+                            <p>Characterizing soil shear strength, tri-axial parameters, concrete compressive strength, and aggregate durability adhering strictly to Bureau of Indian Standards (BIS).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Laboratory facilities -->
+            <section class="dept-tab-pane" id="tab-facilities">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
+                    <h2>Laboratories &amp; Facilities</h2>
+                    <p>Accommodated in the main building, our laboratories are well equipped to meet testing requirements as per BIS and ISI specifications.</p>
+                </div>
+
+                <!-- Laboratory Photo Showcase -->
+                <div class="dept-labs-showcase">
+                    <!-- Lab 1: Mechanics of Solid Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_solid_mechanics.jpg" alt="Mechanics of Solid Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Main Building Wing</span>
+                            <h3 class="dept-lab-title">Mechanics of Solid Lab</h3>
+                            <p class="dept-lab-desc">The objective of the laboratory is to demonstrate the basic principles in the area of engineering mechanics and strength of materials to the undergraduate students through a series of experiments. In this lab the experiments are performed based on basic engineering and to measure the properties of the materials such as impact strength, tensile strength, compressive strength, hardness, ductility etc.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 2: Concrete Technology Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_concrete_tech.jpg" alt="Concrete Technology Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Materials Annex</span>
+                            <h3 class="dept-lab-title">Concrete Technology Lab</h3>
+                            <p class="dept-lab-desc">The testing and inspection of concrete and concrete making materials like cement and aggregates are important elements in obtaining quality construction. The laboratory allows the students to perform tests on the materials and also to assess the properties of various fresh and hardened concrete properties that may affect the performance of concrete members. The apparatus and machines available at the concrete technology laboratory are Sieve Shaker, Compressive testing machine, Flexural Testing Machine, Apparatus for workability measurement, etc.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 3: Geotechnical Engineering Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_geotechnical.jpg" alt="Geotechnical Engineering Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Geotechnical Wing</span>
+                            <h3 class="dept-lab-title">Geotechnical Engineering Lab</h3>
+                            <p class="dept-lab-desc">Soil Testing is an integral part of soil mechanics and foundation engineering. A proper evaluation of soil samples and analysis of test results are essential of students and practicing civil Engineers. Tri-axial Testing machine, Direct Shear testing machine, Unconfined compression testing machine, consistency limit testing machines available in the laboratory.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 4: Earthquake Engineering Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_earthquake.jpg" alt="Earthquake Engineering Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Structural Dynamics Center</span>
+                            <h3 class="dept-lab-title">Earthquake Engineering Lab</h3>
+                            <p class="dept-lab-desc">Several major facilities have been developed in the Department to conduct experiments related to earthquake engineering. Some of the major facilities include: a low cost shake table for dynamic testing of structural models like pounding effect, mode shapes, spring mass system, re-entrant corners, building model with active and passive damper devices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Department Facilities (Below Laboratory Showcase) -->
+                <div class="dept-section-header" style="margin-top: 56px;">
+                    <span class="dept-section-kicker">INFRASTRUCTURE HIGHLIGHTS</span>
+                    <h2>Department Facilities</h2>
+                    <p>Modern testing equipment, experimental benches, and institutional facilities meeting standard BIS and ISI specifications.</p>
+                </div>
+
+                <div class="dept-facilities-grid">
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-weight-hanging"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Strength of Material</h4>
+                            <p>Experimental testing of tensile, compressive, shear, and torsional behavior of engineering materials under external mechanical loads.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Engineering Mechanics Laboratory</h4>
+                            <p>Practical verification of fundamental mechanics principles including force polygons, coplanar equilibrium, friction, and moments.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Computer Lab</h4>
+                            <p>Modern computational facility equipped for structural drafting, finite element modeling, data analysis, and computer-aided design.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-cubes"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Concrete Technology &amp; Heavy Structure Laboratory</h4>
+                            <p>Heavy loading frames, compressive and flexural testing machines, and aggregate durability apparatus meeting BIS and ISI standards.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-wave-square"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Earthquake Engineering Lab</h4>
+                            <p>Specialized dynamic shake table setup for experimental analysis of structural response, active/passive damping, and seismic vibration.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-mountain"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Soil mechanics &amp; Foundation Engineering Laboratory</h4>
+                            <p>Standard geotechnical testing apparatus including direct shear, tri-axial testing, and unconfined compression for soil characterization.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 6: Publications -->
+            <section class="dept-tab-pane" id="tab-publications">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">SCHOLARLY OUTPUT</span>
+                    <h2>Faculty Publications</h2>
+                    <p>Research contributions, journal articles, and conference proceedings published by Applied Mechanics faculty and research scholars.</p>
+                </div>
+
+                <!-- Publications Filter Toolbar -->
+                <div class="dept-pub-toolbar">
+                    <div class="dept-pub-filter-wrap">
+                        <label for="pubYearFilter" class="dept-pub-filter-label">
+                            <i class="fas fa-calendar-alt"></i> Filter by Year:
+                        </label>
+                        <div class="dept-pub-select-box">
+                            <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year" onchange="window.filterPublicationsByYear && window.filterPublicationsByYear(this.value)">
+                                <option value="all">All Years (36)</option>
+                                <option value="2020">2020 (1)</option>
+                                <option value="2019">2019 (3)</option>
+                                <option value="2017">2017 (1)</option>
+                                <option value="2016">2016 (4)</option>
+                                <option value="2015">2015 (8)</option>
+                                <option value="2014">2014 (6)</option>
+                                <option value="2013">2013 (2)</option>
+                                <option value="2012">2012 (5)</option>
+                                <option value="2011">2011 (4)</option>
+                                <option value="2010">2010 (2)</option>
+                            </select>
+                            <i class="fas fa-chevron-down dept-pub-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="dept-pub-badge" id="pubCountBadge">
+                        Showing <strong>36</strong> publications
+                    </div>
+                </div>
+
+                <div class="dept-citations-list">
+                    <!-- Empty filter state notice -->
+                    <div class="dept-pub-empty" id="pubEmptyState">
+                        <i class="far fa-folder-open"></i>
+                        No publications found for the selected year.
+                    </div>
+
+                    <!-- Publication 1 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Progressive collapse assessment of Reinforced concrete frame structure with &amp; without considering actual soil condition</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shah B. J. &amp; Patel Bhavik</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> March, 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 2 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Seismic fragility analysis of pile supported wharf- state of art</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shah B. J. &amp; Shah Dhara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> December, 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 3 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Study of deflection and crack patterns of RC beam strengthen in flexure with GFRP</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shah B. J. &amp; Vora Tarak</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> December, 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 4 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Seismic fragility analysis of pile supported wharf using linear time history analysis</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shah B. J. &amp; Shah Dhara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Aug-Sep 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 5 -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Experimental study on influence of ceramic waste and fly ash as part of cement and fine aggregate on microstructure and mechanical property of cement paste and mortar</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ankit Patel, Naumangadhawala</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 6 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Seismic Analysis of Irregular RCC Frame Multi storey Building with Soft storey &amp; Energy Dissipation Device at Various Floor Levels</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. Dinesh B. Sathavara Research Scholar, Asst. Prof. Applied Mechanics Department, Government Engineering College, Modasa, Gujarat (India)</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 7 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">INFLUENCE OF CERAMIC SLUDGE WASTE AS PARTIAL REPLACEMENT OF CEMENT ON STRENGTH AND DURABILITY PROPERTIES OF CONCRETE</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> A.J.Patel, V.M.Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 8 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Effect of Ceramic Sludge Waste as a Part of Cement on Chloride Permeability and Compressive Strength of Concrete</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> A.J.Patel, V.M.Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 9 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Seismic Analysis of G+2 Storey Building Using Passive Energy Dissipation Device</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dinesh B. Sathavara Assistant professor GEC- Modasa</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 10 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">effect of key parameters of reinforced concrete beam-column joints</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. D. B. Sathavara Assistant Professor, Applied Mechanics Department /GEC, Modasa India</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 11 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Experimental investigation on shear capacity of RC beams with GFRP rebars &amp; stirrups</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shah B. J. &amp; Vora Tarak</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 12 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Parametric study of diaphragm wall</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 13 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Analysis and Design of A Lattice Transmission Line Tower with Vertical and Horizontal Configuration of Cross-Arms</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 14 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Automation of Diaphragm Wall Design for 3 Layers of Soil</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 15 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Analysis and Design of Vertical and Horizontal Configurations of Cross-arms in A Transmission Line Tower.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 16 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Review on Partial Replacement of Cement in Concrete</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> A.J.Patel, V.M.Patel, M.A.Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 17 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">EFFECT OF KEY PARAMETERS OF REINFORCED CONCRETE BEAM-COLUMN JOINTS</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. F.Y. Parikh &amp; Prof. D. B. Sathavara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 18 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">APPLICABILITY ASSESSMENT OF WASTE MATERIAL IN PLAIN CONCRETE</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. Dinesh B. Sathavara Research Scholar, Asst. Prof. Applied Mechanics Department, Government Engineering College, Modasa, Gujarat (India)</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 19 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">IMPROVING THE MECHANICAL PROPERTIES OF CONVENTIONAL CONCRETE BY USING FIBER</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> M.A. Farediwala, M.A. Pathan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 20 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Small scale Modelling on effect of Soft Storey</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 21 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Parametric study of non-linear behavior of 3D-frame structure with shear wall under bi-directional excitation</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 22 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Study of non-linear behavior of 3D-frame structure (G+5 storey) having asymmetric shear wall subjected to bi-directional excitation</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 23 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Analysis of Swelling &amp; Shrinkage Properties of Expansive Soil using Brick Dust as a Stabilizer</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> A J Patel, S.N.Bhavsar</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 24 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Effect on concrete by different curing method and efficiency of curing compound- A review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 25 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Shear Strength and Column Depth for RC Beam Column Joint Comparison of Draft Code with Euro Code and NZS Code</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Falak Parikh and Vimlesh Agarawal</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 26 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Relation between workability and compressive strength of self compacting concrete</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> MA Farediwala, MA Jamnu</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 27 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Performance of concrete by using non-recyclable plastic wastes as concrete constituent</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 28 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Feasibility of waste metallised polythene used as concrete constituent</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 29 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">COMPARATIVE STUDY OF ER-FRP LAMINATED BEAM DESIGN WITH ACI-440-2R-08 AND IS METHOD</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> International Journal of Advanced Engineering Technology</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 30 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">COMPARATIVE STUDY OF ER-FRP LAMINATED BEAM DESIGN USING ACI 440 2R-08 AND ISIS CANADA METHOD</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> International Journal of Advanced Engineering Research and Studies</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 31 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Enhancing the punching shear resistance of flat plates using shear heads and shear stud rails and shear stirrups: A comparative study</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 32 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Enhancing the punching shear resistance of flat plates using shear heads and shear stirrups: A comparative study</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 33 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Application of monopole in extra high voltage transmission tower in developing country</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 34 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Cost comparison between flat slabs with drop and without drop in four storey lateral load resisting building</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 35 -->
+                    <div class="dept-citation-item" data-year="2010">
+                        <h3 class="dept-citation-title">Study of beam column junction design as per various codes considering Indian construction and detailing practice</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2010</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 36 -->
+                    <div class="dept-citation-item" data-year="2010">
+                        <h3 class="dept-citation-title">Guidelines for beam column junction detailing considering Indian construction practices</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2010</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</div>
+
+<?php
+// Include Footer
+include_once __DIR__ . '/../../includes/footer.php';
+?>

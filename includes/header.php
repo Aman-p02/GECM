@@ -47,7 +47,7 @@ if (!isset($active_page)) {
             <div class="hdr-brand-inner">
 
                 <!-- Logo & Title -->
-                <a href="<?= $root_path ?>" class="hdr-identity" aria-label="GEC Modasa Home">
+                <a href="<?= $root_path ?>index.php" class="hdr-identity" aria-label="GEC Modasa Home">
                     <img src="<?= $root_path ?>logos/logo.png"
                          alt="GEC Modasa Logo"
                          class="hdr-logo"
@@ -85,25 +85,25 @@ if (!isset($active_page)) {
 
                 <!-- Navigation Links -->
                 <li class="hdr-nav-item">
-                    <a href="<?= $root_path ?>" class="hdr-nav-link">
+                    <a href="<?= $root_path ?>index.php" class="hdr-nav-link <?= ($active_page === 'home') ? 'active' : '' ?>">
                         Home
                     </a>
                 </li>
 
                 <!-- About Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>"
+                    <a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . 'index.php#about'; ?>"
                        class="hdr-nav-link">
                         About <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <div class="hdr-dd-heading">THE INSTITUTE</div>
                         <ul class="hdr-dd-list">
-                            <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>" class="hdr-dd-link">Overview</a></li>
-                            <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . '#about'; ?>" class="hdr-dd-link">Vision &amp; Mission</a></li>
+                            <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . 'index.php#about'; ?>" class="hdr-dd-link">Overview</a></li>
+                            <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . 'index.php#about'; ?>" class="hdr-dd-link">Vision &amp; Mission</a></li>
                             <li><a href="#" class="hdr-dd-link">Principal's Message</a></li>
                             <li><a href="#" class="hdr-dd-link">IDP</a></li>
-                            <li><a href="<?php echo ($active_page === 'home') ? '#facilities' : $root_path . '#facilities'; ?>" class="hdr-dd-link">Facilities</a></li>
+                            <li><a href="<?php echo ($active_page === 'home') ? '#facilities' : $root_path . 'index.php#facilities'; ?>" class="hdr-dd-link">Facilities</a></li>
                             <li><a href="#" class="hdr-dd-link">E-Newsletter</a></li>
                             <li><a href="#" class="hdr-dd-link">Information Brochure</a></li>
                             <li><a href="#" class="hdr-dd-link">Mandatory Disclosure</a></li>
@@ -136,10 +136,10 @@ if (!isset($active_page)) {
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
-                            <li><a href="#" class="hdr-dd-link">Courses</a></li>
-                            <li><a href="#" class="hdr-dd-link">Admission</a></li>
+                            <li><a href="<?= $root_path ?>courses.php" class="hdr-dd-link">Courses</a></li>
+                            <li><a href="<?= $root_path ?>admission.php" class="hdr-dd-link">Admission</a></li>
                             <li><a href="#" class="hdr-dd-link">Academic Calendar</a></li>
-                            <li><a href="#" class="hdr-dd-link">Syllabus</a></li>
+                            <li><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="hdr-dd-link">Syllabus</a></li>
                             <li><a href="#" class="hdr-dd-link">Central Library</a></li>
                         </ul>
                     </div>
@@ -147,14 +147,14 @@ if (!isset($active_page)) {
 
                 <!-- Departments Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . '#departments'; ?>"
+                    <a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . 'index.php#departments'; ?>"
                        class="hdr-nav-link">
                         Departments <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
-                            <li><a href="#" class="hdr-dd-link">Applied Mechanics</a></li>
-                            <li><a href="#" class="hdr-dd-link">Automobile Engineering</a></li>
+                            <li><a href="<?= $root_path ?>departments/applied-mechanics/" class="hdr-dd-link">Applied Mechanics</a></li>
+                            <li><a href="<?= $root_path ?>departments/automobile/" class="hdr-dd-link">Automobile Engineering</a></li>
                             <li><a href="#" class="hdr-dd-link">Civil Engineering</a></li>
                             <li><a href="<?= $root_path ?>departments/computer/" class="hdr-dd-link">Computer Engineering</a></li>
                             <li><a href="#" class="hdr-dd-link">Electrical Engineering</a></li>
@@ -168,7 +168,7 @@ if (!isset($active_page)) {
 
                 <!-- Activities Dropdown (Categorized) -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . '#events'; ?>"
+                    <a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . 'index.php#events'; ?>"
                        class="hdr-nav-link">
                         Activities <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
@@ -228,15 +228,15 @@ if (!isset($active_page)) {
                 </li>
 
                 <li class="hdr-nav-item">
-                    <a href="<?php echo ($active_page === 'home') ? '#alumni' : $root_path . '#alumni'; ?>"
+                    <a href="<?php echo ($active_page === 'home') ? '#alumni' : $root_path . 'index.php#alumni'; ?>"
                        class="hdr-nav-link">
                         Placement
                     </a>
                 </li>
 
                 <li class="hdr-nav-item">
-                    <a href="<?php echo ($active_page === 'home') ? '#contact' : $root_path . '#contact'; ?>"
-                       class="hdr-nav-link">
+                    <a href="<?= $root_path ?>contact.php"
+                       class="hdr-nav-link <?= ($active_page === 'contact') ? 'active' : '' ?>">
                         Contact Us
                     </a>
                 </li>

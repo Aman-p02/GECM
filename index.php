@@ -153,11 +153,11 @@ if ($departmentsList === null) {
         ['id' => 1, 'name' => 'Computer Engineering', 'code' => 'CE', 'icon_class' => 'fas fa-laptop-code', 'learn_more_url' => 'departments/computer/'],
         ['id' => 2, 'name' => 'Information Technology', 'code' => 'IT', 'icon_class' => 'fas fa-network-wired', 'learn_more_url' => 'departments/information-technology/'],
         ['id' => 3, 'name' => 'Mechanical Engineering', 'code' => 'ME', 'icon_class' => 'fas fa-cogs', 'learn_more_url' => 'departments/mechanical/'],
-        ['id' => 4, 'name' => 'Automobile Engineering', 'code' => 'AE', 'icon_class' => 'fas fa-car', 'learn_more_url' => '#'],
+        ['id' => 4, 'name' => 'Automobile Engineering', 'code' => 'AE', 'icon_class' => 'fas fa-car', 'learn_more_url' => 'departments/automobile/'],
         ['id' => 5, 'name' => 'Civil Engineering', 'code' => 'CIVIL', 'icon_class' => 'fas fa-building', 'learn_more_url' => '#'],
         ['id' => 6, 'name' => 'Electrical Engineering', 'code' => 'EE', 'icon_class' => 'fas fa-bolt', 'learn_more_url' => '#'],
         ['id' => 7, 'name' => 'Electronics & Comm.', 'code' => 'EC', 'icon_class' => 'fas fa-microchip', 'learn_more_url' => '#'],
-        ['id' => 8, 'name' => 'Applied Mechanics', 'code' => 'AM', 'icon_class' => 'fas fa-drafting-compass', 'learn_more_url' => '#'],
+        ['id' => 8, 'name' => 'Applied Mechanics', 'code' => 'AM', 'icon_class' => 'fas fa-drafting-compass', 'learn_more_url' => 'departments/applied-mechanics/'],
         ['id' => 9, 'name' => 'Science & Humanities', 'code' => 'SH', 'icon_class' => 'fas fa-atom', 'learn_more_url' => '#'],
     ];
 }
