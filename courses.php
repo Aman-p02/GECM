@@ -9,19 +9,6 @@ require_once __DIR__ . '/includes/header.php';
 
 <div class="courses-page" id="mainContent">
 
-    <!-- Breadcrumb Navigation -->
-    <div class="courses-breadcrumb-wrap">
-        <div class="container">
-            <ul class="courses-breadcrumb" aria-label="Breadcrumb">
-                <li><a href="<?= $root_path ?>index.php"><i class="fas fa-home"></i> Home</a></li>
-                <li class="sep"><i class="fas fa-chevron-right"></i></li>
-                <li><span>Academic</span></li>
-                <li class="sep"><i class="fas fa-chevron-right"></i></li>
-                <li class="current"><span>Courses</span></li>
-            </ul>
-        </div>
-    </div>
-
     <!-- Page Hero Banner -->
     <header class="courses-hero">
         <div class="container">
@@ -201,24 +188,6 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
             </section>
 
-            <!-- Admission & Syllabus Information Card -->
-            <div class="courses-info-card">
-                <div class="courses-info-text">
-                    <h4>Curriculum &amp; Centralized Admission Process</h4>
-                    <p>
-                        All engineering curricula, course structures, and examination schemes are governed by Gujarat Technological University (GTU). Admissions to all seats are strictly merit-based via the Admission Committee for Professional Courses (ACPC), Gujarat.
-                    </p>
-                </div>
-                <div class="courses-info-actions">
-                    <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="courses-action-btn primary">
-                        <i class="fas fa-book-open"></i> GTU Syllabus Portal
-                    </a>
-                    <a href="https://acpc.gujarat.gov.in/" target="_blank" rel="noopener noreferrer" class="courses-action-btn outline">
-                        <i class="fas fa-external-link-alt"></i> ACPC Portal
-                    </a>
-                </div>
-            </div>
-
         </div>
     </main>
 
@@ -227,3 +196,4 @@ require_once __DIR__ . '/includes/header.php';
 <?php
 require_once __DIR__ . '/includes/footer.php';
 ?>
+
