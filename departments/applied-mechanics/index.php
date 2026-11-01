@@ -290,16 +290,20 @@ include_once __DIR__ . '/../../includes/header.php';
                         </label>
                         <div class="dept-pub-select-box">
                             <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year" onchange="window.filterPublicationsByYear && window.filterPublicationsByYear(this.value)">
-                                <option value="all">All Years (3)</option>
-                                <option value="2023">2023 (1)</option>
-                                <option value="2022">2022 (1)</option>
-                                <option value="2021">2021 (1)</option>
+                                <option value="all">All Years (25)</option>
+                                <option value="2020">2020 (1)</option>
+                                <option value="2019">2019 (3)</option>
+                                <option value="2017">2017 (1)</option>
+                                <option value="2016">2016 (4)</option>
+                                <option value="2015">2015 (8)</option>
+                                <option value="2014">2014 (6)</option>
+                                <option value="2013">2013 (2)</option>
                             </select>
                             <i class="fas fa-chevron-down dept-pub-arrow"></i>
                         </div>
                     </div>
                     <div class="dept-pub-badge" id="pubCountBadge">
-                        Showing <strong>3</strong> publications
+                        Showing <strong>25</strong> publications
                     </div>
                 </div>
 
@@ -311,29 +315,227 @@ include_once __DIR__ . '/../../includes/header.php';
                     </div>
 
                     <!-- Publication 1 -->
-                    <div class="dept-citation-item" data-year="2023">
-                        <h3 class="dept-citation-title">Experimental Investigation of Dynamic Response in Asymmetric Multi-Story Structures Using Shake Table Testing</h3>
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Progressive collapse assessment of Reinforced concrete frame structure with &amp; without considering actual soil condition</h3>
                         <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Applied Mechanics Faculty, Structural Engineering Group</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shah B. J. &amp; Patel Bhavik</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> March, 2017</span>
                         </div>
                     </div>
 
                     <!-- Publication 2 -->
-                    <div class="dept-citation-item" data-year="2022">
-                        <h3 class="dept-citation-title">Shear Strength and Settlement Characteristics of Reinforced Soil Under Tri-Axial Compression</h3>
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Seismic fragility analysis of pile supported wharf- state of art</h3>
                         <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Geotechnical Research Group, GEC Modasa</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shah B. J. &amp; Shah Dhara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> December, 2014</span>
                         </div>
                     </div>
 
                     <!-- Publication 3 -->
-                    <div class="dept-citation-item" data-year="2021">
-                        <h3 class="dept-citation-title">Comparative Study of Workability and Compressive Strength of High-Performance Concrete with Mineral Admixtures</h3>
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Study of deflection and crack patterns of RC beam strengthen in flexure with GFRP</h3>
                         <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Materials &amp; Concrete Technology Group</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shah B. J. &amp; Vora Tarak</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> December, 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 4 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Seismic fragility analysis of pile supported wharf using linear time history analysis</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shah B. J. &amp; Shah Dhara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Aug-Sep 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 5 -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Experimental study on influence of ceramic waste and fly ash as part of cement and fine aggregate on microstructure and mechanical property of cement paste and mortar</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Ankit Patel, Naumangadhawala</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 6 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Seismic Analysis of Irregular RCC Frame Multi storey Building with Soft storey &amp; Energy Dissipation Device at Various Floor Levels</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. Dinesh B. Sathavara Research Scholar, Asst. Prof. Applied Mechanics Department, Government Engineering College, Modasa, Gujarat (India)</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 7 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">INFLUENCE OF CERAMIC SLUDGE WASTE AS PARTIAL REPLACEMENT OF CEMENT ON STRENGTH AND DURABILITY PROPERTIES OF CONCRETE</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> A.J.Patel, V.M.Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 8 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Effect of Ceramic Sludge Waste as a Part of Cement on Chloride Permeability and Compressive Strength of Concrete</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> A.J.Patel, V.M.Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 9 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Seismic Analysis of G+2 Storey Building Using Passive Energy Dissipation Device</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dinesh B. Sathavara Assistant professor GEC- Modasa</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 10 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">effect of key parameters of reinforced concrete beam-column joints</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. D. B. Sathavara Assistant Professor, Applied Mechanics Department /GEC, Modasa India</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 11 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Experimental investigation on shear capacity of RC beams with GFRP rebars &amp; stirrups</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shah B. J. &amp; Vora Tarak</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 12 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Parametric study of diaphragm wall</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 13 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Analysis and Design of A Lattice Transmission Line Tower with Vertical and Horizontal Configuration of Cross-Arms</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 14 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Automation of Diaphragm Wall Design for 3 Layers of Soil</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 15 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Analysis and Design of Vertical and Horizontal Configurations of Cross-arms in A Transmission Line Tower.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 16 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Review on Partial Replacement of Cement in Concrete</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> A.J.Patel, V.M.Patel, M.A.Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 17 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">EFFECT OF KEY PARAMETERS OF REINFORCED CONCRETE BEAM-COLUMN JOINTS</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. F.Y. Parikh &amp; Prof. D. B. Sathavara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 18 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">APPLICABILITY ASSESSMENT OF WASTE MATERIAL IN PLAIN CONCRETE</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. Dinesh B. Sathavara Research Scholar, Asst. Prof. Applied Mechanics Department, Government Engineering College, Modasa, Gujarat (India)</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 19 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">IMPROVING THE MECHANICAL PROPERTIES OF CONVENTIONAL CONCRETE BY USING FIBER</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> M.A. Farediwala, M.A. Pathan</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 20 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Small scale Modelling on effect of Soft Storey</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 21 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Parametric study of non-linear behavior of 3D-frame structure with shear wall under bi-directional excitation</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 22 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Study of non-linear behavior of 3D-frame structure (G+5 storey) having asymmetric shear wall subjected to bi-directional excitation</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 23 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Analysis of Swelling &amp; Shrinkage Properties of Expansive Soil using Brick Dust as a Stabilizer</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> A J Patel, S.N.Bhavsar</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 24 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Effect on concrete by different curing method and efficiency of curing compound- A review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 25 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Shear Strength and Column Depth for RC Beam Column Joint Comparison of Draft Code with Euro Code and NZS Code</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Falak Parikh and Vimlesh Agarawal</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
                         </div>
                     </div>
                 </div>
