@@ -472,39 +472,44 @@ include_once __DIR__ . '/../../includes/header.php';
                     <p>Research contributions and peer-reviewed articles authored by Mechanical Engineering department faculty members.</p>
                 </div>
 
-                <!-- Publications Filter and Count Bar -->
-                <div class="dept-citations-header-bar">
+                <!-- Publications Filter Toolbar -->
+                <div class="dept-pub-toolbar">
                     <div class="dept-pub-filter-wrap">
-                        <label for="pubYearFilter" class="dept-pub-filter-label"><i class="fas fa-filter"></i> Filter by Year:</label>
-                        <select id="pubYearFilter" class="dept-pub-year-select" onchange="filterPublicationsByYear(this.value)">
-                            <option value="all">All Years</option>
-                            <option value="2025">2025</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                            <option value="2019">2019</option>
-                            <option value="2018">2018</option>
-                            <option value="2017">2017</option>
-                            <option value="2016">2016</option>
-                            <option value="2015">2015</option>
-                            <option value="2014">2014</option>
-                            <option value="2013">2013</option>
-                            <option value="2012">2012</option>
-                            <option value="2011">2011</option>
-                            <option value="2010">2010</option>
-                            <option value="2009">2009</option>
-                            <option value="2008">2008</option>
-                            <option value="2007">2007</option>
-                            <option value="2006">2006</option>
-                            <option value="2004">2004</option>
-                            <option value="2003">2003</option>
-                            <option value="2000">2000</option>
-                            <option value="1998">1998</option>
-                        </select>
+                        <label for="pubYearFilter" class="dept-pub-filter-label">
+                            <i class="fas fa-calendar-alt"></i> Filter by Year:
+                        </label>
+                        <div class="dept-pub-select-box">
+                            <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year" onchange="window.filterPublicationsByYear && window.filterPublicationsByYear(this.value)">
+                                <option value="all">All Years (179)</option>
+                                <option value="2025">2025 (6)</option>
+                                <option value="2024">2024 (1)</option>
+                                <option value="2023">2023 (7)</option>
+                                <option value="2022">2022 (11)</option>
+                                <option value="2021">2021 (4)</option>
+                                <option value="2020">2020 (7)</option>
+                                <option value="2019">2019 (8)</option>
+                                <option value="2018">2018 (8)</option>
+                                <option value="2017">2017 (21)</option>
+                                <option value="2016">2016 (18)</option>
+                                <option value="2015">2015 (24)</option>
+                                <option value="2014">2014 (11)</option>
+                                <option value="2013">2013 (12)</option>
+                                <option value="2012">2012 (8)</option>
+                                <option value="2011">2011 (6)</option>
+                                <option value="2010">2010 (2)</option>
+                                <option value="2009">2009 (1)</option>
+                                <option value="2008">2008 (2)</option>
+                                <option value="2007">2007 (2)</option>
+                                <option value="2006">2006 (3)</option>
+                                <option value="2004">2004 (1)</option>
+                                <option value="2003">2003 (3)</option>
+                                <option value="2000">2000 (2)</option>
+                                <option value="1998">1998 (1)</option>
+                            </select>
+                            <i class="fas fa-chevron-down dept-pub-arrow"></i>
+                        </div>
                     </div>
-                    <div class="dept-pub-count-badge" id="pubCountBadge">
+                    <div class="dept-pub-badge" id="pubCountBadge">
                         Showing <strong>179</strong> publications
                     </div>
                 </div>
