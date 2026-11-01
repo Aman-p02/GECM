@@ -202,73 +202,45 @@ include_once __DIR__ . '/../../includes/header.php';
 
                 <div class="dept-facilities-grid">
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-weight-hanging"></i></div>
                         <div class="dept-facility-info">
-                            <h4>BIS &amp; ISI Testing Compliant</h4>
-                            <p>Testing protocols and equipment calibrated strictly as per Bureau of Indian Standards and ISI requirements.</p>
+                            <h4>Strength of Material</h4>
+                            <p>Experimental testing of tensile, compressive, shear, and torsional behavior of engineering materials under external mechanical loads.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-cogs"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Universal Testing Setup</h4>
-                            <p>High-precision compressive, flexural, and tensile testing rigs for comprehensive material evaluation.</p>
+                            <h4>Engineering Mechanics Laboratory</h4>
+                            <p>Practical verification of fundamental mechanics principles including force polygons, coplanar equilibrium, friction, and moments.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Computer Lab</h4>
+                            <p>Modern computational facility equipped for structural drafting, finite element modeling, data analysis, and computer-aided design.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-cubes"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Concrete Technology &amp; Heavy Structure Laboratory</h4>
+                            <p>Heavy loading frames, compressive and flexural testing machines, and aggregate durability apparatus meeting BIS and ISI standards.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-wave-square"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Structural Dynamics &amp; Shake Table</h4>
-                            <p>Low-cost dynamic shake table facility for structural vibration, pounding effect, and damping modeling.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-layer-group"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Concrete &amp; Aggregates Testing</h4>
-                            <p>Motorized sieve shakers, slump cone apparatus, and workability testing units for quality construction analysis.</p>
+                            <h4>Earthquake Engineering Lab</h4>
+                            <p>Specialized dynamic shake table setup for experimental analysis of structural response, active/passive damping, and seismic vibration.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-mountain"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Tri-Axial &amp; Direct Shear Testing</h4>
-                            <p>Advanced tri-axial and direct shear apparatus for determining soil shear strength and cohesion parameters.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-shield-alt"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Hardness &amp; Impact Testing Bench</h4>
-                            <p>Charpy and Izod impact testing apparatus and hardness testers for strength of materials laboratory experiments.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-flask"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Soil Consistency &amp; Permeability</h4>
-                            <p>Liquid limit, plastic limit, and unconfined compression machines for thorough foundation soil assessment.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-laptop-code"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Computing &amp; Numerical Modeling</h4>
-                            <p>Computational facility for finite element structural modeling, data acquisition, and numerical analysis.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-wifi"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Campus Network &amp; Wi-Fi Access</h4>
-                            <p>Integrated internet and campus LAN connection throughout the department premises for faculty and student research.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Seminar &amp; Colloquium Space</h4>
-                            <p>Presentation hall equipped with digital projection systems for expert guest lectures, workshops, and student defenses.</p>
+                            <h4>Soil mechanics &amp; Foundation Engineering Laboratory</h4>
+                            <p>Standard geotechnical testing apparatus including direct shear, tri-axial testing, and unconfined compression for soil characterization.</p>
                         </div>
                     </div>
                 </div>
