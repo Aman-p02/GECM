@@ -50,11 +50,6 @@ require_once __DIR__ . '/includes/header.php';
                             title="Government Engineering College Modasa Campus Map">
                         </iframe>
                     </div>
-                    <div class="contact-map-footer">
-                        <a href="https://maps.google.com/?q=Government+Engineering+College+Modasa" target="_blank" rel="noopener noreferrer" class="contact-map-btn">
-                            <i class="fas fa-directions"></i> Open in Google Maps
-                        </a>
-                    </div>
                 </div>
 
                 <!-- Right Column: Campus Details & Working Hours -->
