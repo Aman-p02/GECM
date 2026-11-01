@@ -1,12 +1,5 @@
 <?php
-/**
- * Government Engineering College, Modasa (GECM)
- * Department of Automobile Engineering
- *
- * Production-ready, fully responsive institutional department portal.
- * Adheres strictly to the GECM Design System, WCAG 2.2 AA accessibility,
- * and high-performance standards.
- */
+
 
 $page_title = "Automobile Engineering | Government Engineering College, Modasa";
 $active_page = "departments";
@@ -316,7 +309,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <img src="images/labs/lab_workshop.jpg" alt="Automobile Workshop" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Workshop Room No.: 8XXX (ABC Floor)</span>
+                            <span class="dept-lab-room">Workshop </span>
                             <h3 class="dept-lab-title">Automobile Workshop</h3>
                             <p class="dept-lab-desc">
                                 This workshop has hands-on the experimental setup like machine shop, vehicle maintenance facility, wheel alignment checking and vehicle air condition recovery and recharging facility etc.
@@ -345,20 +338,6 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-facility-info">
                             <h4>Vehicle and Garage Place</h4>
                             <p>Spacious hands-on workshop bays equipped with vehicle maintenance facilities, wheel alignment, and AC recovery units.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Computer Centre &amp; CAD Lab</h4>
-                            <p>High-performance workstations equipped with parametric modeling, CAE simulation, and automotive drafting suites.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>AC Conference Room</h4>
-                            <p>Fully air-conditioned presentation and conference facility with digital audio-visual setup for seminars and project reviews.</p>
                         </div>
                     </div>
                 </div>
