@@ -57,16 +57,7 @@ include_once __DIR__ . '/../../includes/header.php';
             <div class="dept-subnav-wrapper">
                 <ul class="dept-subnav-list" role="tablist">
                     <li class="dept-subnav-item active">
-                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" aria-label="GTU Syllabus Portal">
-                            <span>Syllabus</span>
-                            <i class="fas fa-external-link-alt dept-ext-icon"></i>
-                        </a>
+                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About Department</button>
                     </li>
                     <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Faculty</button>
@@ -75,16 +66,10 @@ include_once __DIR__ . '/../../includes/header.php';
                         <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Activities</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>
+                        <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities</button>
                     </li>
                     <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Advisory Board</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Newsletters</button>
                     </li>
                 </ul>
             </div>
@@ -149,77 +134,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
             </section>
 
-            <!-- Tab 2: Vision & Mission -->
-            <section class="dept-tab-pane" id="tab-vision-mission">
-                <div class="dept-section-header">
-                    <span class="dept-section-kicker">ACADEMIC CHARTER</span>
-                    <h2>Vision &amp; Mission</h2>
-                    <p>Guiding principles, experimental commitments, and educational objectives defining our engineering mechanics pedagogy.</p>
-                </div>
-
-                <div class="dept-charter-card dept-vision-hero-card">
-                    <span class="dept-vision-quote-mark">“</span>
-                    <blockquote class="dept-vision-statement">
-                        To become a prominent department imparting high-quality foundational knowledge in mechanics, material testing, and structural dynamics, producing competent engineering professionals with strong experimental capabilities, ethical standards, and societal commitment.
-                    </blockquote>
-                </div>
-
-                <div class="dept-charter-card" style="margin-bottom: 48px;">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission of the Department</h3>
-                    <ul class="dept-mission-steps">
-                        <li class="dept-mission-item">
-                            <span class="dept-mission-index">I</span>
-                            <div class="dept-mission-text">
-                                To provide high-quality fundamental and advanced experimental learning in mechanics of solids, structural analysis, and material testing.
-                            </div>
-                        </li>
-                        <li class="dept-mission-item">
-                            <span class="dept-mission-index">II</span>
-                            <div class="dept-mission-text">
-                                Maintain state-of-the-art BIS and ISI compliant laboratory facilities to foster practical proficiency, precision testing, and research inquiry.
-                            </div>
-                        </li>
-                        <li class="dept-mission-item">
-                            <span class="dept-mission-index">III</span>
-                            <div class="dept-mission-text">
-                                Enhance industry-institute interaction through material testing, geotechnical investigations, and consultancy services.
-                            </div>
-                        </li>
-                        <li class="dept-mission-item">
-                            <span class="dept-mission-index">IV</span>
-                            <div class="dept-mission-text">
-                                Inculcate professional ethics, safety consciousness, environmental awareness, and a spirit of social commitment among students.
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Objectives (PEOs and PSOs) -->
-                <div class="dept-objectives-grid">
-                    <div class="dept-obj-card">
-                        <h4>Program Educational Objectives (PEOs)</h4>
-                        <div class="dept-obj-lead">Graduates will:</div>
-                        <ul class="dept-obj-list">
-                            <li><strong>PEO 1:</strong> Apply fundamental concepts of mechanics and material testing to solve complex civil and structural engineering problems.</li>
-                            <li><strong>PEO 2:</strong> Exhibit hands-on experimental expertise in conducting BIS-compliant material, geotechnical, and structural tests.</li>
-                            <li><strong>PEO 3:</strong> Practice engineering with high ethical standards, environmental sensitivity, and safety consciousness.</li>
-                            <li><strong>PEO 4:</strong> Engage in continuous professional learning, adapting to modern testing technologies and computational structural modeling.</li>
-                        </ul>
-                    </div>
-
-                    <div class="dept-obj-card">
-                        <h4>Program Specific Outcomes (PSOs)</h4>
-                        <div class="dept-obj-lead">Students will be able to:</div>
-                        <ul class="dept-obj-list">
-                            <li><strong>PSO 1:</strong> Evaluate material properties, stress-strain responses, and structural behavior using modern laboratory equipment and analytical tools.</li>
-                            <li><strong>PSO 2:</strong> Conduct rigorous soil mechanics and concrete technology investigations as per Bureau of Indian Standards (BIS) specifications.</li>
-                            <li><strong>PSO 3:</strong> Understand structural dynamics, earthquake response concepts, and vibration damping mechanisms in modern civil infrastructure.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tab 3: Laboratory facilities -->
+            <!-- Tab 2: Laboratory facilities -->
             <section class="dept-tab-pane" id="tab-facilities">
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
