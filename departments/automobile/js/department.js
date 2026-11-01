@@ -247,6 +247,11 @@ function initDepartment() {
 
     tabButtons.forEach(btn => {
         btn.addEventListener('click', function (e) {
+            // Allow anchor links with valid href (e.g. GTU syllabus portal) to navigate normally
+            if (this.tagName === 'A' && this.getAttribute('href') && this.getAttribute('href') !== '#') {
+                return;
+            }
+
             const tabId = this.getAttribute('data-tab');
             if (tabId && tabId !== 'faculty' && tabId !== 'activities') {
                 e.preventDefault();
