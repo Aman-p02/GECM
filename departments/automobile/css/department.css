@@ -152,7 +152,8 @@
     transition: top 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-.dept-subnav-wrap {
+.dept-subnav-wrap,
+.dept-subnav-wrapper {
     position: relative;
     width: 100%;
 }
@@ -1199,7 +1200,8 @@
     }
 
     /* Edge gradient indicator for scrollable tabs */
-    .dept-subnav-wrap {
+    .dept-subnav-wrap,
+    .dept-subnav-wrapper {
         mask-image: linear-gradient(to right, transparent 0, black 16px, black calc(100% - 24px), transparent 100%);
         -webkit-mask-image: linear-gradient(to right, transparent 0, black 16px, black calc(100% - 24px), transparent 100%);
     }

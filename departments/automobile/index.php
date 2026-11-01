@@ -72,16 +72,19 @@ include_once __DIR__ . '/../../includes/header.php';
     <!-- Sticky sub-navigation bar -->
     <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
-            <div class="dept-subnav-wrapper">
+            <div class="dept-subnav-wrap">
                 <ul class="dept-subnav-list" role="tablist">
                     <li class="dept-subnav-item active">
-                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About Department</button>
+                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="vision" role="tab" aria-selected="false">Vision &amp; Mission</button>
+                        <button type="button" class="dept-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <a href="https://www.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" role="tab" aria-selected="false">Syllabus <i class="fas fa-external-link-alt" style="font-size: 0.72rem; margin-left: 4px;"></i></a>
+                        <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-subnav-link" aria-label="GTU Official Syllabus Portal">
+                            <span>Syllabus</span>
+                            <i class="fas fa-external-link-alt ext-arrow"></i>
+                        </a>
                     </li>
                     <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" role="tab" aria-selected="false" style="opacity: 0.6; cursor: default;">Faculty</button>
@@ -107,12 +110,15 @@ include_once __DIR__ . '/../../includes/header.php';
             <!-- Tab 1: About Department -->
             <section class="dept-tab-pane active" id="tab-about">
                 <div class="dept-section-header">
-                    <span class="dept-section-kicker">INSTITUTIONAL OVERVIEW</span>
-                    <h2>About Department</h2>
-                    <p>Dedicated to fostering automotive excellence, practical hands-on engineering, and industry-oriented innovation.</p>
+                    <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
+                    <h2>About the Department</h2>
+                    <p>Pioneering automotive engineering education, vehicle dynamics research, and state-of-the-art laboratory experimentation at GEC Modasa since 2008.</p>
                 </div>
 
-                <div class="dept-prose-block">
+                <div class="dept-story-body">
+                    <blockquote class="dept-lead-quote">
+                        "Empowering future automotive engineers through advanced powertrain innovation, vehicle dynamics research, and state-of-the-art laboratory experimentation."
+                    </blockquote>
                     <p>
                         This department is constituted in the year 2008 with a view to meet the demands of automobile engineers by transport and automobile sectors. Automobile Department has a separate building with full facilities of Laboratory, workshop and AC Conference room.
                     </p>
@@ -131,177 +137,139 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
 
                 <!-- About the Programme Section -->
-                <div class="dept-programme-section" style="margin-top: 56px;">
+                <div class="dept-programme-section">
                     <div class="dept-section-header">
-                        <span class="dept-section-kicker">ACADEMIC PROGRAMME</span>
+                        <span class="dept-section-kicker">DISCIPLINE &amp; CAREER PATHS</span>
                         <h2>About the Programme</h2>
-                        <p>Comprehensive 4-year undergraduate curriculum fostering next-generation automotive designers, manufacturing innovators, and mobility specialists.</p>
+                        <p>Specialization in vehicle designing, testing, assembling, and manufacturing with interdisciplinary engineering sub-systems.</p>
                     </div>
 
-                    <div class="dept-prose-block">
-                        <p>
-                            Automobile Engineering or Automotive Engineering is a part of Mechanical Engineering. Through the application of automotive technology, the course offers specialisation in vehicle designing, repairing, testing and assembling. In this programme, one can also learn safety engineering, quality management and control, automotive analytics as well as assembling and installation of various automobiles. BE/B.Tech in Automobile Engineering is a 4-year programme. This programme also involves the study of courses related to aerospace and marine engineering. It enables the students to explore new areas, create new avenues in the fields of research and development of technologies in the field of automobile engineering. One can pursue M.Tech in Automobile Engineering after successful completion of BE/B.Tech.
-                        </p>
+                    <p class="dept-programme-lead">
+                        Automobile Engineering or Automotive Engineering is a part of Mechanical Engineering. Through the application of automotive technology, the course offers specialisation in vehicle designing, repairing, testing and assembling. In this programme, one can also learn safety engineering, quality management and control, automotive analytics as well as assembling and installation of various automobiles. BE/B.Tech in Automobile Engineering is a 4-year programme. This programme also involves the study of courses related to aerospace and marine engineering. It enables the students to explore new areas, create new avenues in the fields of research and development of technologies in the field of automobile engineering. One can pursue M.Tech in Automobile Engineering after successful completion of BE/B.Tech.
+                    </p>
+
+                    <div class="dept-story-body">
                         <p>
                             This branch deals with the designing, developing, manufacturing, testing and repairing and servicing automobiles such as cars, trucks, motorcycles, scooters etc &amp; the related sub Engineering systems. For the perfect blend of manufacturing and designing automobiles, Automobile Engineering uses the features of different elements of Engineering such as Mechanical, Electrical, Electronics, Software and Safety Engineering.
                         </p>
                     </div>
 
-                    <!-- Under Graduate/Post Graduate Courses Table -->
-                    <div class="dept-table-wrap" style="margin-top: 32px;">
-                        <table class="dept-clean-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col"><i class="fas fa-graduation-cap" style="margin-right: 6px; color: var(--dept-accent);"></i> Name of Course</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Period (Years)</th>
-                                    <th scope="col">Intake</th>
-                                    <th scope="col">Year of Starting</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="font-weight: 700; color: #111111;">Automobile Engineering</td>
-                                    <td><span class="dept-tag-ug">UG</span></td>
-                                    <td>4</td>
-                                    <td style="font-weight: 600;">30</td>
-                                    <td>2008</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Core Specializations Grid -->
-                    <div class="dept-avenues-grid" style="margin-top: 36px;">
+                    <div class="dept-avenues-grid">
                         <div class="dept-avenue-card">
                             <div class="dept-avenue-header">
                                 <div class="dept-avenue-icon"><i class="fas fa-cogs"></i></div>
-                                <h4>Powertrain &amp; ICE Systems</h4>
+                                <h4>Vehicle Design &amp; Assembly</h4>
                             </div>
-                            <p>Modern engine design, variable compression ratio rigs, combustion dynamics, and alternative fuel vehicle technology.</p>
+                            <p>Designing, developing, testing, and servicing automobiles such as cars, trucks, and motorcycles integrating mechanical, electrical, and safety systems.</p>
                         </div>
 
                         <div class="dept-avenue-card">
                             <div class="dept-avenue-header">
-                                <div class="dept-avenue-icon"><i class="fas fa-car-side"></i></div>
-                                <h4>Vehicle Dynamics &amp; Chassis</h4>
+                                <div class="dept-avenue-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <h4>Powertrain &amp; Quality Control</h4>
                             </div>
-                            <p>Aerodynamics, suspension tuning, braking mechanics, steering geometry, and structural crashworthiness analysis.</p>
-                        </div>
-
-                        <div class="dept-avenue-card">
-                            <div class="dept-avenue-header">
-                                <div class="dept-avenue-icon"><i class="fas fa-microchip"></i></div>
-                                <h4>Automotive Electronics &amp; Telemetry</h4>
-                            </div>
-                            <p>Electronic control units (ECU), sensor integration, diagnostics, and modern electric mobility architectures.</p>
-                        </div>
-
-                        <div class="dept-avenue-card">
-                            <div class="dept-avenue-header">
-                                <div class="dept-avenue-icon"><i class="fas fa-tools"></i></div>
-                                <h4>Design, Testing &amp; Manufacturing</h4>
-                            </div>
-                            <p>CAD/CAM prototyping, metallurgy analysis, emission diagnostics, and comprehensive workshop fabrication.</p>
+                            <p>Specializing in powertrain engineering, safety systems, quality control, automotive analytics, and advanced diagnostics.</p>
                         </div>
                     </div>
+                </div>
+
+                <!-- Under Graduate / Post Graduate Courses -->
+                <div class="dept-section-header" style="margin-top: 56px;">
+                    <span class="dept-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
+                    <h2>Undergraduate &amp; Postgraduate Programmes</h2>
+                    <p>Approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated with Gujarat Technological University (GTU), Ahmedabad.</p>
+                </div>
+
+                <div class="dept-table-wrap">
+                    <table class="dept-clean-table">
+                        <thead>
+                            <tr>
+                                <th>Name of Course</th>
+                                <th>Degree Type</th>
+                                <th>Period (Years)</th>
+                                <th>Approved Intake</th>
+                                <th>Year of Starting</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Automobile Engineering</strong></td>
+                                <td><span class="dept-tag-ug">UG (B.E.)</span></td>
+                                <td>4 Years (8 Semesters)</td>
+                                <td><span class="dept-badge">30 Seats</span></td>
+                                <td>2008</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
             <!-- Tab 2: Vision & Mission -->
-            <section class="dept-tab-pane" id="tab-vision">
+            <section class="dept-tab-pane" id="tab-vision-mission">
                 <div class="dept-section-header">
-                    <span class="dept-section-kicker">GUIDING PRINCIPLES</span>
+                    <span class="dept-section-kicker">ACADEMIC CHARTER</span>
                     <h2>Vision &amp; Mission</h2>
-                    <p>Guiding principles shaping future automotive engineers equipped to lead industry, research, and societal development.</p>
+                    <p>Guiding principles, strategic commitments, and educational objectives defining our engineering pedagogy.</p>
                 </div>
 
-                <div class="dept-overview-grid">
-                    <div class="dept-feature-card">
-                        <div class="dept-card-icon-wrap"><i class="fas fa-eye"></i></div>
-                        <h3>Vision</h3>
-                        <p>
-                            Build a strong teaching-learning and research environment to prepare determined, innovative, inventive, self-esteemed and goal oriented Automobile engineers with good technical knowledge, analytical and soft skill.
-                        </p>
-                    </div>
+                <div class="dept-charter-card dept-vision-hero-card">
+                    <span class="dept-vision-quote-mark">“</span>
+                    <blockquote class="dept-vision-statement">
+                        Build a strong teaching-learning and research environment to prepare determined, innovative, inventive, self-esteemed and goal oriented Automobile engineers with good technical knowledge, analytical and soft skill.
+                    </blockquote>
+                </div>
 
-                    <div class="dept-feature-card">
-                        <div class="dept-card-icon-wrap"><i class="fas fa-bullseye"></i></div>
-                        <h3>Mission</h3>
-                        <p style="margin-bottom: 12px; font-weight: 500;">
-                            To equip automobile engineering graduates to face challenges of industries, society and nation by:
-                        </p>
-                        <ul style="padding-left: 20px; line-height: 1.7; color: var(--dept-body); margin: 0;">
-                            <li>Providing domain knowledge through qualified, experienced and trained faculties in healthy environment.</li>
-                            <li>Developing technical skills and creating awareness about needs of industries by encouraging entrepreneurial attitude.</li>
-                            <li>Encouraging graduates to think innovatively through project works with professional ethical practices.</li>
-                            <li>Providing all kinds of support for overall personality development.</li>
+                <div class="dept-charter-card" style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission of the Department</h3>
+                    <ul class="dept-mission-steps">
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">I</span>
+                            <div class="dept-mission-text">
+                                Providing domain knowledge through qualified, experienced and trained faculties in healthy environment.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">II</span>
+                            <div class="dept-mission-text">
+                                Developing technical skills and creating awareness about needs of industries by encouraging entrepreneurial attitude.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">III</span>
+                            <div class="dept-mission-text">
+                                Encouraging graduates to think innovatively through project works with professional ethical practices.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">IV</span>
+                            <div class="dept-mission-text">
+                                Providing all kinds of support for overall personality development.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Objectives (PEOs and PSOs) -->
+                <div class="dept-objectives-grid">
+                    <div class="dept-obj-card">
+                        <h4>Program Educational Objectives (PEOs)</h4>
+                        <div class="dept-obj-lead">Graduates from the Automobile Engineering Program are expected to attain:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PEO 1:</strong> Implement the acquired knowledge of science, technology, engineering, management (STEM) with good human values for a successful career.</li>
+                            <li><strong>PEO 2:</strong> Achieve a position of leadership in the organization through managerial, communication and professional skills with ethical values.</li>
+                            <li><strong>PEO 3:</strong> Be a foundation for innovative solutions of complicated problems as a successful entrepreneur.</li>
+                            <li><strong>PEO 4:</strong> Provide feasible solutions for sustainable and environment friendly development.</li>
                         </ul>
                     </div>
-                </div>
 
-                <!-- Program Educational Objectives (PEOs) Table -->
-                <div class="dept-section-header" style="margin-top: 56px;">
-                    <span class="dept-section-kicker">EDUCATIONAL OBJECTIVES</span>
-                    <h2>Program Educational Objectives (PEOs)</h2>
-                    <p>Graduates from the Automobile Engineering Program are expected to attain or achieve the following Program Educational Objectives:</p>
-                </div>
-
-                <div class="dept-table-wrap">
-                    <table class="dept-clean-table">
-                        <thead>
-                            <tr>
-                                <th scope="col" style="width: 120px;">Code</th>
-                                <th scope="col">Educational Objective Statement</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="font-weight: 700; color: var(--dept-accent);">PEO 1</td>
-                                <td>Implement the acquired knowledge of science, technology, engineering, management (STEM) with good human values for a successful career.</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 700; color: var(--dept-accent);">PEO 2</td>
-                                <td>Achieve a position of leadership in the organization through managerial, communication and professional skills with ethical values.</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 700; color: var(--dept-accent);">PEO 3</td>
-                                <td>Be a foundation for innovative solutions of complicated problems as a successful entrepreneur.</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 700; color: var(--dept-accent);">PEO 4</td>
-                                <td>Provide feasible solutions for sustainable and environment friendly development.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Program Specific Outcomes (PSOs) Table -->
-                <div class="dept-section-header" style="margin-top: 56px;">
-                    <span class="dept-section-kicker">PROGRAM SPECIFIC OUTCOMES</span>
-                    <h2>Program Specific Outcomes (PSOs)</h2>
-                    <p>Automobile Engineering graduates will be able to demonstrate:</p>
-                </div>
-
-                <div class="dept-table-wrap">
-                    <table class="dept-clean-table">
-                        <thead>
-                            <tr>
-                                <th scope="col" style="width: 120px;">Code</th>
-                                <th scope="col">Specific Outcome Statement</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="font-weight: 700; color: var(--dept-accent);">PSO 1</td>
-                                <td>Apply the specific skill acquired for solving problems related to automobile engineering and interdisciplinary problems with knowledge of Science, Technology, Engineering and Mathematics (STEM) and modern software skills.</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 700; color: var(--dept-accent);">PSO 2</td>
-                                <td>Develop optimum engineering systems in specialized areas such as product design and its optimization.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="dept-obj-card">
+                        <h4>Program Specific Outcomes (PSOs)</h4>
+                        <div class="dept-obj-lead">Automobile Engineering Graduate will be able to:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PSO 1:</strong> Apply the specific skill acquired for solving problems related to automobile engineering and interdisciplinary problems with knowledge of Science, Technology, Engineering and Mathematics (STEM) and modern software skills.</li>
+                            <li><strong>PSO 2:</strong> Develop optimum engineering systems in specialized areas such as product design and its optimization.</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
@@ -310,21 +278,35 @@ include_once __DIR__ . '/../../includes/header.php';
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
                     <h2>Laboratories &amp; Facilities</h2>
-                    <p>Separate departmental complex equipped with specialized laboratory facilities, a dedicated automotive workshop, and modern testing test-rigs.</p>
+                    <p>Dedicated departmental building equipped with specialized test-rigs, IC engine dynamometers, and comprehensive fabrication workshop.</p>
                 </div>
 
                 <!-- Featured Laboratory Photo Showcase -->
                 <div class="dept-labs-showcase">
                     <!-- Featured Lab: Internal Combustion Engine Lab -->
-                    <div class="dept-lab-card" style="grid-column: 1 / -1; max-width: 900px; margin: 0 auto; width: 100%;">
+                    <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
                             <img src="images/labs/lab_ice.jpg" alt="Internal Combustion Engine Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Automobile Department Block</span>
+                            <span class="dept-lab-room">Main Automobile Block</span>
                             <h3 class="dept-lab-title">Internal Combustion Engine Lab</h3>
                             <p class="dept-lab-desc">
                                 This laboratory is equipped with modern instruments like modern internal combustion engine test rig, diesel smoke meter, variable compression ratio engine test rig, five gas exhaust gas analyzer etc.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Workshop & Chassis Bay -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/department_building.jpg" alt="Automobile Workshop &amp; Testing Facility" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Automobile Annex</span>
+                            <h3 class="dept-lab-title">Automobile Workshop &amp; Chassis Bay</h3>
+                            <p class="dept-lab-desc">
+                                Comprehensive vehicle servicing and overhaul bays equipped with hydraulic vehicle lifts, computerized wheel alignment apparatus, transmission cut-sections, and heavy component fabrication machinery.
                             </p>
                         </div>
                     </div>
