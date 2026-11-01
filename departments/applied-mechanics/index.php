@@ -290,7 +290,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </label>
                         <div class="dept-pub-select-box">
                             <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year" onchange="window.filterPublicationsByYear && window.filterPublicationsByYear(this.value)">
-                                <option value="all">All Years (25)</option>
+                                <option value="all">All Years (36)</option>
                                 <option value="2020">2020 (1)</option>
                                 <option value="2019">2019 (3)</option>
                                 <option value="2017">2017 (1)</option>
@@ -298,12 +298,15 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <option value="2015">2015 (8)</option>
                                 <option value="2014">2014 (6)</option>
                                 <option value="2013">2013 (2)</option>
+                                <option value="2012">2012 (5)</option>
+                                <option value="2011">2011 (4)</option>
+                                <option value="2010">2010 (2)</option>
                             </select>
                             <i class="fas fa-chevron-down dept-pub-arrow"></i>
                         </div>
                     </div>
                     <div class="dept-pub-badge" id="pubCountBadge">
-                        Showing <strong>25</strong> publications
+                        Showing <strong>36</strong> publications
                     </div>
                 </div>
 
@@ -536,6 +539,105 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Falak Parikh and Vimlesh Agarawal</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 26 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Relation between workability and compressive strength of self compacting concrete</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> MA Farediwala, MA Jamnu</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 27 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Performance of concrete by using non-recyclable plastic wastes as concrete constituent</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 28 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Feasibility of waste metallised polythene used as concrete constituent</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 29 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">COMPARATIVE STUDY OF ER-FRP LAMINATED BEAM DESIGN WITH ACI-440-2R-08 AND IS METHOD</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> International Journal of Advanced Engineering Technology</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 30 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">COMPARATIVE STUDY OF ER-FRP LAMINATED BEAM DESIGN USING ACI 440 2R-08 AND ISIS CANADA METHOD</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> International Journal of Advanced Engineering Research and Studies</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 31 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Enhancing the punching shear resistance of flat plates using shear heads and shear stud rails and shear stirrups: A comparative study</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 32 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Enhancing the punching shear resistance of flat plates using shear heads and shear stirrups: A comparative study</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 33 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Application of monopole in extra high voltage transmission tower in developing country</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 34 -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Cost comparison between flat slabs with drop and without drop in four storey lateral load resisting building</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 35 -->
+                    <div class="dept-citation-item" data-year="2010">
+                        <h3 class="dept-citation-title">Study of beam column junction design as per various codes considering Indian construction and detailing practice</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2010</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 36 -->
+                    <div class="dept-citation-item" data-year="2010">
+                        <h3 class="dept-citation-title">Guidelines for beam column junction detailing considering Indian construction practices</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Binita A. Vyas</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2010</span>
                         </div>
                     </div>
                 </div>
