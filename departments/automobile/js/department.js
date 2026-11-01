@@ -56,18 +56,13 @@ function initDepartment() {
     const revealSelectors = [
         '.dept-section-header',
         '.dept-stat-item',
-        '.dept-feature-card',
-        '.dept-overview-grid',
-        '.dept-about-overview',
+        '.dept-quote-callout',
+        '.dept-charter-card',
         '.dept-objective-card',
-        '.dept-faculty-card',
         '.dept-lab-card',
-        '.dept-activity-card',
         '.dept-avenue-card',
         '.dept-facility-item',
-        '.dept-citation-item',
-        '.dept-board-card',
-        '.dept-newsletter-card'
+        '.dept-citation-item'
     ];
 
     let revealObserver = null;
@@ -90,10 +85,8 @@ function initDepartment() {
         if (!container) return;
 
         const gridSelectors = [
-            '.dept-faculty-roster',
             '.dept-labs-showcase',
             '.dept-objectives-grid',
-            '.dept-periodical-grid',
             '.dept-avenues-grid',
             '.dept-facilities-grid',
             '.dept-citations-list',
@@ -193,7 +186,7 @@ function initDepartment() {
         if (tabId === 'vision' || tabId === 'mission') {
             tabId = 'vision-mission';
         }
-        if (tabId === 'advisory-board' || tabId === 'newsletters' || tabId === 'iab' || tabId === 'nl' || tabId === 'faculty' || tabId === 'activities') {
+        if (tabId === 'faculty' || tabId === 'activities') {
             return;
         }
 
@@ -255,7 +248,7 @@ function initDepartment() {
     tabButtons.forEach(btn => {
         btn.addEventListener('click', function (e) {
             const tabId = this.getAttribute('data-tab');
-            if (tabId && tabId !== 'advisory-board' && tabId !== 'newsletters' && tabId !== 'faculty' && tabId !== 'activities') {
+            if (tabId && tabId !== 'faculty' && tabId !== 'activities') {
                 e.preventDefault();
                 if (history.pushState) {
                     history.pushState(null, null, '#' + tabId);

@@ -2,12 +2,10 @@
 
 :root {
     --dept-primary: #111111;
-    --dept-accent: #dc2626; /* Automobile Crimson Red */
+    --dept-accent: #dc2626;
     --dept-accent-hover: #b91c1c;
     --dept-accent-rgb: 220, 38, 38;
     --dept-kicker: #dc2626;
-    --dept-ae-box: #fecdd3; /* Automobile box background from home */
-    --dept-ae-border: #fca5a5; /* Automobile box border from home */
     --dept-body: #4b5563;
     --dept-muted: #6b7280;
     --dept-border: #e5e7eb;
@@ -48,15 +46,6 @@
     border-bottom: none;
 }
 
-/* Two-column hero grid (7 cols left, 5 cols right) */
-.dept-hero-grid {
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    gap: 56px;
-    align-items: center;
-    margin-bottom: 56px;
-}
-
 .dept-kicker {
     font-family: var(--dept-font-display);
     font-size: 0.8rem;
@@ -86,22 +75,6 @@
     max-width: 660px;
     margin: 0;
     font-weight: 400;
-}
-
-/* Hero photograph */
-.dept-hero-media {
-    width: 100%;
-}
-
-.dept-hero-photo {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 4px;
-    filter: saturate(0.95);
-    display: block;
-    border: none;
-    box-shadow: none;
 }
 
 /* Stats counter strip */
@@ -719,127 +692,6 @@
     color: #111111;
 }
 
-/* Faculty members directory cards */
-.dept-faculty-roster {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 30px;
-}
-
-.dept-faculty-card {
-    background: #ffffff;
-    border: 1px solid var(--dept-border);
-    border-radius: 6px;
-    padding: 28px 24px;
-    display: flex;
-    flex-direction: column;
-    transition: var(--dept-transition);
-}
-
-.dept-faculty-card:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    transform: translateY(-2px);
-}
-
-.dept-faculty-initials {
-    width: 58px;
-    height: 58px;
-    border-radius: 6px;
-    background: var(--dept-bg-subtle);
-    color: #111111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--dept-font-display);
-    font-size: 1.35rem;
-    font-weight: 700;
-    border: 1px solid var(--dept-border);
-    margin-bottom: 20px;
-}
-
-.dept-faculty-name {
-    font-family: var(--dept-font-display);
-    font-size: 1.35rem;
-    font-weight: 700;
-    letter-spacing: -0.015em;
-    color: #111111;
-    margin: 0 0 4px;
-    line-height: 1.25;
-}
-
-.dept-faculty-rank {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--dept-accent);
-    margin: 0 0 10px;
-    letter-spacing: 0.02em;
-    font-family: var(--dept-font-display);
-}
-
-.dept-faculty-degrees {
-    font-size: 0.84rem;
-    color: var(--dept-muted);
-    line-height: 1.5;
-    margin: 0 0 20px;
-    flex-grow: 1;
-}
-
-.dept-faculty-degrees small {
-    display: block;
-    margin-top: 4px;
-    color: var(--dept-body);
-}
-
-.dept-faculty-contact {
-    font-size: 0.84rem;
-    font-weight: 600;
-    color: #111111;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    border-top: 1px solid var(--dept-border-subtle);
-    padding-top: 14px;
-    transition: var(--dept-transition);
-}
-
-.dept-faculty-contact:hover {
-    color: var(--dept-accent);
-}
-
-/* Activity cards */
-.dept-activity-card {
-    background: #ffffff;
-    border: 1px solid var(--dept-border);
-    border-radius: 6px;
-    padding: 24px;
-    transition: var(--dept-transition);
-}
-
-.dept-activity-card:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-}
-
-.dept-activity-card h4 {
-    font-family: var(--dept-font-display);
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: #111111;
-    margin: 0 0 8px;
-}
-
-.dept-activity-card p {
-    font-family: var(--dept-font-body);
-    font-size: 0.94rem;
-    color: var(--dept-body);
-    line-height: 1.65;
-    margin: 0;
-}
-
 /* Laboratory facilities cards */
 .dept-labs-showcase {
     display: grid;
@@ -1109,83 +961,8 @@
     font-size: 0.8rem;
 }
 
-/* Activities and newsletters cards */
-.dept-periodical-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.dept-periodical-card {
-    border: 1px solid var(--dept-border);
-    border-radius: 6px;
-    padding: 28px;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.dept-periodical-meta {
-    font-size: 0.76rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--dept-accent);
-    display: block;
-    margin-bottom: 8px;
-    font-family: var(--dept-font-display);
-}
-
-.dept-periodical-title {
-    font-family: var(--dept-font-display);
-    font-size: 1.45rem;
-    font-weight: 700;
-    letter-spacing: -0.015em;
-    color: #111111;
-    margin: 0 0 10px;
-}
-
-.dept-periodical-summary {
-    font-size: 0.94rem;
-    color: var(--dept-body);
-    line-height: 1.7;
-    margin: 0 0 24px;
-}
-
-.dept-download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #111111;
-    background: #ffffff;
-    border: 1px solid #111111;
-    padding: 10px 18px;
-    border-radius: 4px;
-    text-decoration: none;
-    width: fit-content;
-    transition: var(--dept-transition);
-    font-family: var(--dept-font-display);
-}
-
-.dept-download-btn:hover {
-    background: #111111;
-    color: #ffffff;
-}
-
 /* Responsive styles - tablet screens */
 @media (max-width: 1024px) {
-    .dept-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-        margin-bottom: 40px;
-    }
-
     .dept-heading {
         font-size: 2.8rem;
     }
@@ -1193,10 +970,6 @@
     .dept-stats-strip {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
-    }
-
-    .dept-faculty-roster {
-        grid-template-columns: repeat(2, 1fr);
     }
 
     /* Edge gradient indicator for scrollable tabs */
@@ -1215,11 +988,6 @@
 @media (max-width: 768px) {
     .dept-hero-banner {
         padding: 44px 0 32px;
-    }
-
-    .dept-hero-grid {
-        gap: 28px;
-        margin-bottom: 36px;
     }
 
     .dept-heading {
@@ -1253,9 +1021,7 @@
 
     .dept-objectives-grid,
     .dept-labs-showcase,
-    .dept-periodical-grid,
-    .dept-avenues-grid,
-    .dept-faculty-roster {
+    .dept-avenues-grid {
         grid-template-columns: 1fr;
     }
 

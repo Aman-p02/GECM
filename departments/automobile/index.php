@@ -359,21 +359,99 @@ include_once __DIR__ . '/../../includes/header.php';
                         </label>
                         <div class="dept-pub-select-box">
                             <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year" onchange="window.filterPublicationsByYear && window.filterPublicationsByYear(this.value)">
-                                <option value="all">All Years</option>
+                                <option value="all">All Years (8)</option>
+                                <option value="2022">2022 (1)</option>
+                                <option value="2020">2020 (1)</option>
+                                <option value="2016">2016 (1)</option>
+                                <option value="2014">2014 (2)</option>
+                                <option value="2013">2013 (2)</option>
+                                <option value="2012">2012 (1)</option>
                             </select>
                             <i class="fas fa-chevron-down dept-pub-arrow"></i>
                         </div>
                     </div>
                     <div class="dept-pub-badge" id="pubCountBadge">
-                        Department Publications
+                        Showing <strong>8</strong> publications
                     </div>
                 </div>
 
                 <div class="dept-citations-list">
-                    <!-- Notice for publications -->
-                    <div class="dept-pub-empty" id="pubEmptyState" style="display: block;">
+                    <!-- Empty filter state notice -->
+                    <div class="dept-pub-empty" id="pubEmptyState" style="display: none;">
                         <i class="far fa-folder-open"></i>
-                        Faculty publications and research archives are currently being compiled.
+                        No publications found for the selected year.
+                    </div>
+
+                    <!-- Publication 1 -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Modelling and analysis of Wheel rim in MUV vehicle using CAD/CAE tools</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Fadadu Kunal Kumar Vinodbhai</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 2 -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Traffic Noise Menace Investigation at Signalized Road Intersections in Ahmedabad</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shivendra Kumar Jha, Dr. Piyush J. Patel, Jitisha Kamble, Kalpesh Vaghela</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 3 -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Review on Design of Intake Manifold for a Formula SAE Car</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nimesh Shukla, Kalpesh Vaghela, Anand Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 4 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Optimization of Roof Fairing angle to reduce the Aerodynamic Drag of Heavy Duty Truck</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Kalpesh Vaghela</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 5 -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">Investigation of Performance and Air Pollution of Charcoal Blended Diesel on CI Engine</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Kalpesh Vaghela, Dabhi Shyam</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 6 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Performance studies of Tire Pyrolysis Oil blends with Diesel Fuel. International Journal of Engineering and Advanced Technology</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Jinang M. Patel, Krunal J. Patel, Vatsal V. Patel, Kalpesh V. Vaghela</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 7 -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Review of charcoal-diesel slurry an alternative fuel for compression ignition engine</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Vaghela Kalpesh, Dabhi Shyam</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 8 -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Investigation of suitability of wood charcoal as an alternative fuel for diesel engine</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Kalpesh Vaghela</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
                     </div>
                 </div>
             </section>
