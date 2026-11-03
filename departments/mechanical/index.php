@@ -465,10 +465,11 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Facility 5: Heat Transfer Science Lab -->
+                                        <!-- Facility 5: Heat Transfer Science Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_heat_transfer.jpg" alt="Coolpex Cross Flow Heat Exchanger &amp; Science Rig" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                        <div class="dept-lab-image-frame has-dual-images">
+                            <img src="images/labs/lab_heat_transfer.jpg" alt="Coolpex Cross Flow Heat Exchanger" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                            <img src="images/labs/lab_heat_transfer_rigs.jpg" alt="Thermal Convection &amp; Conduction Test Bench" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Thermal Engineering Wing &bull; Energy Systems</span>
@@ -481,8 +482,9 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Facility 6: Refrigeration and Air Conditioning Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_rac.jpg" alt="Refrigeration and Air Conditioning Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                        <div class="dept-lab-image-frame has-dual-images">
+                            <img src="images/labs/lab_rac.jpg" alt="Vapour Compression Refrigeration Test Setup" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                            <img src="images/labs/lab_rac_appliances.jpg" alt="Electrolux Refrigerator &amp; Window Air Conditioner" loading="lazy" onerror="this.src='../../images/hero_campus_4.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Thermal Engineering Wing &bull; RAC Complex</span>
@@ -495,8 +497,9 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Facility 7: Kinematics & Dynamics of Machine Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_dynamics_machines.jpg" alt="Kinematics and Dynamics of Machines Rig" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                        <div class="dept-lab-image-frame has-dual-images">
+                            <img src="images/labs/lab_dynamics_gears.jpg" alt="Differential Gear Train &amp; Motion Transmission" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_dynamics_machines.jpg" alt="Kinematic Mechanism Models &amp; Governor Rigs" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Building No. 6 &bull; Machine Dynamics &amp; Mechanisms Wing</span>
