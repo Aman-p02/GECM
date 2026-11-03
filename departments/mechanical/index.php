@@ -447,6 +447,90 @@ include_once __DIR__ . '/../../includes/header.php';
                             </p>
                         </div>
                     </div>
+
+                    <!-- Facility 4: IC Engine & Automobile Engineering Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_ic_engine.jpg" alt="Internal Combustion Engine &amp; Automobile Engineering Lab" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Workshop Building &bull; Automotive &amp; Power Systems</span>
+                            <h3 class="dept-lab-title">Internal Combustion Engine &amp; Automobile Lab</h3>
+                            <p class="dept-lab-desc">
+                                Equipped with modern internal combustion engine test rigs, diesel smoke meter, variable compression ratio (VCR) engine test setup, and five-gas exhaust gas analyzers for power, fuel consumption, and emission analysis. Features a Car Model Chassis, cut sections of 4-stroke 4-cylinder and 3-cylinder diesel engines, and working models of 4-stroke 1-cylinder diesel engines.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 5: Fluid Mechanics & Hydraulic Machinery Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_fluid_mechanics.jpg" alt="Fluid Mechanics &amp; Hydraulic Machine Lab" loading="lazy" onerror="this.src='../../images/hero_campus_4.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Workshop Building &bull; Fluid Machinery Wing</span>
+                            <h3 class="dept-lab-title">Fluid Mechanics &amp; Hydraulic Machine Lab</h3>
+                            <p class="dept-lab-desc">
+                                Features modern turbomachinery and fundamental hydrodynamic experimental setups including Volumetric Hydraulic Bench, Reynolds Apparatus, Pelton Wheel Turbine Test Rig, Centrifugal Pump Test Rig, Reciprocating Pump Test Rig, Reciprocating Compressor Test Rig, and Axial Flow Pump test ring.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 6: Heat Transfer Science Laboratory -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_heat_transfer.jpg" alt="Heat Transfer Science Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Thermal Engineering Wing &bull; Energy Systems</span>
+                            <h3 class="dept-lab-title">Heat Transfer Science Lab</h3>
+                            <p class="dept-lab-desc">
+                                State-of-the-art experimental rigs addressing heat transfer science. Dedicated facilities for Thermal Conductivity of Insulating Powder, Composite Wall Apparatus, Forced Convection through pipe, Vertical Tube losing heat by natural convection, Emissivity of test plate setup, and Pin-fin Apparatus.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 7: Refrigeration & Air Conditioning Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_rac.jpg" alt="Refrigeration and Air Conditioning Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Thermal Engineering Wing &bull; RAC Complex</span>
+                            <h3 class="dept-lab-title">Refrigeration &amp; Air Conditioning (RAC) Lab</h3>
+                            <p class="dept-lab-desc">
+                                Facilitates thermodynamic cooling experiments including determination of COP of Vapour Compression Refrigeration Systems and Vapour Absorption Systems. Major setups include Vapour Compression Refrigeration Test Rig, Electrolux Refrigerator, Window Air Conditioner, and Domestic Refrigerator units.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 8: Kinematics & Dynamics of Machines Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_dynamics_machines.jpg" alt="Kinematics and Dynamics of Machines Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Building No. 6 &bull; Machine Dynamics &amp; Mechanisms Wing</span>
+                            <h3 class="dept-lab-title">Kinematics &amp; Dynamics of Machines Lab</h3>
+                            <p class="dept-lab-desc">
+                                Focuses on working principles of mechanisms, motion transmission, and dynamic forces. Enables experimental study of static and dynamic balancing, unbalanced forces in rotary and reciprocating engines, vibrational system frequencies, time periods, and precision vibration measurement techniques.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 9: Central Mechanical Workshop -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="../../images/hero_campus_1.jpg" alt="Central Mechanical Workshop" loading="lazy">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Workshop Building</span>
+                            <h3 class="dept-lab-title">Central Mechanical Workshop</h3>
+                            <p class="dept-lab-desc">
+                                Comprehensive heavy fabrication and machine tooling bays equipped with center lathes, universal milling machines, shapers, radial drills, carpentry benches, fitting vises, and electric arc/gas welding equipment for student manufacturing projects.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Key Department Facilities Summary Grid -->
@@ -500,17 +584,24 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-tools"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-snowflake"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Central Mechanical Workshop</h4>
-                            <p>Comprehensive machine tooling, carpentry, fitting, turning, milling, and welding bays.</p>
+                            <h4>Refrigeration &amp; Air Conditioning</h4>
+                            <p>Vapour compression &amp; absorption systems, Electrolux refrigerator, and air conditioning test benches.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-cogs"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Dynamics of Machines Lab</h4>
-                            <p>Static/dynamic balancing apparatus, motorized gyroscope, governors, and vibration analysis equipment.</p>
+                            <h4>Dynamics &amp; Kinematics of Machines</h4>
+                            <p>Mechanism models, balancing rigs, motorized gyroscope, governors, and vibration analysis equipment.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-tools"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Central Mechanical Workshop</h4>
+                            <p>Comprehensive machine tooling, carpentry, fitting, turning, milling, and welding bays.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
