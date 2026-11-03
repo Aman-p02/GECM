@@ -742,6 +742,13 @@
     position: relative;
 }
 
+.dept-lab-image-frame.has-dual-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    background: #e2e8f0;
+}
+
 .dept-lab-image-frame img {
     width: 100%;
     height: 100%;
