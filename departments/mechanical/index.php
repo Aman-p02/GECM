@@ -406,86 +406,44 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
 
                 <div class="dept-labs-showcase">
-                    <!-- Facility 1: CAD/CAM & Robotics Lab -->
+                    <!-- Facility 1: Advanced CNC & Manufacturing Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_cad_cam.jpg" alt="CAD/CAM &amp; Robotics Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                            <img src="images/labs/lab_cnc_manufacturing.jpg" alt="Advanced CNC Turning &amp; Flexible Manufacturing Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Building No. 6 &bull; Advanced Manufacturing Wing</span>
-                            <h3 class="dept-lab-title">CAD / CAM &amp; Robotics Lab</h3>
+                            <h3 class="dept-lab-title">Advanced CNC &amp; Flexible Manufacturing Lab</h3>
                             <p class="dept-lab-desc">
-                                Emphasizes computer-aided design and manufacturing, quality control, precision metrology, nonconventional manufacturing, flexible manufacturing systems (FMS), and industrial automation. Equipped with an industrial CNC turning centre, a 5-axis articulated robotic arm, and advanced syllabus-aligned manufacturing machinery.
+                                Equipped with industrial-grade Fortune V-Turn Precision Compact V-1000 CNC Turning Center and precision vertical milling machinery. Emphasizes computer-aided manufacturing, automated toolpath generation, G/M-code programming, and flexible manufacturing system (FMS) operations.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Facility 2: CAD Computing & Simulation Center -->
+                    <!-- Facility 2: Non-Conventional Machining & Wire-Cut EDM Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_cad_center.jpg" alt="CAD Simulation and Computing Center" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_wirecut_edm.jpg" alt="Electronica Wire-Cut EDM &amp; Spark Erosion Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Building No. 6 &bull; Advanced Manufacturing Wing</span>
+                            <h3 class="dept-lab-title">Non-Conventional Machining &amp; Wire-Cut EDM Lab</h3>
+                            <p class="dept-lab-desc">
+                                State-of-the-art non-traditional machining facility equipped with Electronica CNC Wire-Cut Electro-Discharge Machine (EDM FP-20 with CNC-E2 controller) and Spark Erosion Machine (H-36-1060) for precision micro-machining, die sinking, and intricate profile cutting in specialized hardened alloys.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 3: CAD Simulation & High-Performance Computing Center -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_cad_simulation.jpg" alt="CAD Simulation and High-Performance Computing Center" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Building No. 6 &bull; High-Performance Computing Center</span>
                             <h3 class="dept-lab-title">CAD Simulation &amp; Computing Center</h3>
                             <p class="dept-lab-desc">
-                                High-performance computing facility equipped with sufficient high-speed personal workstations running advanced licensed engineering packages including ANSYS, MATLAB, and modern CAD modeling suites for finite element analysis and thermal-fluid simulations.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Facility 3: IC Engine & Automobile Engineering Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_ic_engine.jpg" alt="Internal Combustion Engine &amp; Automobile Engineering Lab" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Workshop Building &bull; Automotive &amp; Power Systems</span>
-                            <h3 class="dept-lab-title">Internal Combustion Engine &amp; Automobile Lab</h3>
-                            <p class="dept-lab-desc">
-                                Equipped with modern IC engine test rigs, diesel smoke meter, variable compression ratio (VCR) engine test setup, and five-gas exhaust gas analyzer for power, fuel consumption, and emission analysis. Features a Car Model Chassis, cut sections of 4-stroke 4-cylinder and 3-cylinder diesel engines, and working models of 4-stroke 1-cylinder diesel engines.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Facility 4: Fluid Mechanics & Hydraulic Machinery Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_fluid_mechanics.jpg" alt="Fluid Mechanics &amp; Hydraulic Machine Lab" loading="lazy" onerror="this.src='../../images/hero_campus_4.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Fluid Machinery Wing</span>
-                            <h3 class="dept-lab-title">Fluid Mechanics &amp; Hydraulic Machine Lab</h3>
-                            <p class="dept-lab-desc">
-                                Features modern turbomachinery and fundamental hydrodynamic test rigs including Volumetric Hydraulic Bench, Reynolds Apparatus, Pelton Wheel Turbine Test Rig, Centrifugal Pump Test Rig, Reciprocating Pump Test Rig, Reciprocating Compressor Test Rig, and Axial Flow Pump test ring.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Facility 5: Heat Transfer Science Laboratory -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_heat_transfer.jpg" alt="Heat Transfer Science Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Thermal Engineering Wing</span>
-                            <h3 class="dept-lab-title">Heat Transfer Science Lab</h3>
-                            <p class="dept-lab-desc">
-                                State-of-the-art experimental rigs addressing foundational conduction, convection, and radiation topics. Features experimental setups for Thermal Conductivity of Insulating Powder, Composite Wall Apparatus, Forced Convection through pipe, Vertical Tube losing heat by natural convection, Emissivity of test plate setup, and Pin-fin Apparatus.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Facility 6: Central Mechanical Workshop -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="../../images/hero_campus_1.jpg" alt="Central Mechanical Workshop" loading="lazy">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Workshop Building</span>
-                            <h3 class="dept-lab-title">Central Mechanical Workshop</h3>
-                            <p class="dept-lab-desc">
-                                Comprehensive heavy fabrication and machine tooling bays equipped with center lathes, universal milling machines, shapers, radial drills, carpentry benches, fitting vises, and electric arc/gas welding equipment for student manufacturing projects.
+                                High-performance computing facility equipped with personal computer workstations running licensed advanced engineering packages including ANSYS, MATLAB, and modern CAD modeling suites for finite element analysis (FEA), thermal-fluid simulations, and design optimization.
                             </p>
                         </div>
                     </div>
@@ -502,15 +460,22 @@ include_once __DIR__ . '/../../includes/header.php';
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-robot"></i></div>
                         <div class="dept-facility-info">
-                            <h4>CAD / CAM &amp; Robotics</h4>
-                            <p>CNC turning centre, 5-axis articulated robot, flexible manufacturing, and automation equipment.</p>
+                            <h4>Advanced CNC &amp; CAM Lab</h4>
+                            <p>Industrial Fortune CNC turning centre, vertical milling, G/M-code programming, and automation equipment.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Wire-Cut EDM &amp; Spark Erosion</h4>
+                            <p>Electronica CNC Wire-Cut EDM and spark erosion machinery for non-conventional micro-precision machining.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
                         <div class="dept-facility-info">
                             <h4>Simulation &amp; Computing Center</h4>
-                            <p>High-end personal workstations equipped with licensed ANSYS, MATLAB, and CAD software.</p>
+                            <p>High-end personal workstations equipped with licensed ANSYS, MATLAB, and 3D CAD modeling software.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
@@ -542,17 +507,17 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-microscope"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Material Science &amp; Metallurgy</h4>
-                            <p>Metallurgical specimen preparation, polishing machines, inverted microscopes, and hardness testing.</p>
-                        </div>
-                    </div>
-                    <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-cogs"></i></div>
                         <div class="dept-facility-info">
                             <h4>Dynamics of Machines Lab</h4>
                             <p>Static/dynamic balancing apparatus, motorized gyroscope, governors, and vibration analysis equipment.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-microscope"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Material Science &amp; Metallurgy</h4>
+                            <p>Metallurgical specimen preparation, polishing machines, inverted microscopes, and hardness testing.</p>
                         </div>
                     </div>
                 </div>
