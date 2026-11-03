@@ -457,12 +457,26 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Workshop Building &bull; Automotive &amp; Power Systems</span>
                             <h3 class="dept-lab-title">Internal Combustion Engine &amp; Automobile Lab</h3>
                             <p class="dept-lab-desc">
-                                Equipped with modern internal combustion engine test rigs, diesel smoke meter, variable compression ratio (VCR) engine test setup, and five-gas exhaust gas analyzers for power, fuel consumption, and emission analysis. Features a Car Model Chassis, cut sections of 4-stroke 4-cylinder and 3-cylinder diesel engines, and working models of 4-stroke 1-cylinder diesel engines.
+                                Equipped with modern internal combustion engine test rigs, diesel smoke meter, variable compression ratio (VCR) engine test setup, and five-gas exhaust gas analyzers for power, fuel consumption, and emission analysis. Features a working Car Model Chassis, cut sections of 4-stroke 4-cylinder and 3-cylinder diesel engines, and working models of 4-stroke 1-cylinder diesel engines.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Facility 5: Fluid Mechanics & Hydraulic Machinery Lab -->
+                    <!-- Facility 5: Automobile Systems & Chassis Dynamics Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_automobile_systems.jpg" alt="Automobile Transmission &amp; Suspension Systems Lab" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Workshop Building &bull; Vehicle Systems Wing</span>
+                            <h3 class="dept-lab-title">Automobile Systems &amp; Chassis Dynamics Lab</h3>
+                            <p class="dept-lab-desc">
+                                Dedicated vehicle engineering facility featuring complete automotive chassis models, steering gear mechanisms, front &amp; rear disc and drum braking trainers, McPherson strut suspension rigs, and multi-ratio mechanical transmission demonstration units for in-depth automotive diagnostics.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 6: Fluid Mechanics & Hydraulic Machinery Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
                             <img src="images/labs/lab_fluid_mechanics.jpg" alt="Fluid Mechanics &amp; Hydraulic Machine Lab" loading="lazy" onerror="this.src='../../images/hero_campus_4.jpg'">
@@ -471,49 +485,35 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Workshop Building &bull; Fluid Machinery Wing</span>
                             <h3 class="dept-lab-title">Fluid Mechanics &amp; Hydraulic Machine Lab</h3>
                             <p class="dept-lab-desc">
-                                Features modern turbomachinery and fundamental hydrodynamic experimental setups including Volumetric Hydraulic Bench, Reynolds Apparatus, Pelton Wheel Turbine Test Rig, Centrifugal Pump Test Rig, Reciprocating Pump Test Rig, Reciprocating Compressor Test Rig, and Axial Flow Pump test ring.
+                                Features modern turbomachinery and fundamental hydrodynamic experimental setups including Volumetric Hydraulic Bench, Reynolds Apparatus, Pelton Wheel Turbine Test Rig, Centrifugal Pump Test Rig, Reciprocating Pump Test Rig, and precision flow measurement apparatus.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Facility 6: Heat Transfer Science Laboratory -->
+                    <!-- Facility 7: Fluid Power & Compressor Testing Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_heat_transfer.jpg" alt="Heat Transfer Science Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_fluid_turbomachines.jpg" alt="Turbomachinery &amp; Reciprocating Air Compressor Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Workshop Building &bull; Fluid Machinery Wing</span>
+                            <h3 class="dept-lab-title">Fluid Power &amp; Compressor Testing Lab</h3>
+                            <p class="dept-lab-desc">
+                                Equipped with heavy-duty Indo-Air multi-stage reciprocating air compressor test rig, receiver pressure measurement instrumentation, centrifugal flow pumping stations, and closed-loop hydraulic power benches for thermodynamic and fluid power analysis.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 8: Heat Transfer Science Laboratory -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_heat_transfer.jpg" alt="Heat Transfer Science Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Thermal Engineering Wing &bull; Energy Systems</span>
                             <h3 class="dept-lab-title">Heat Transfer Science Lab</h3>
                             <p class="dept-lab-desc">
-                                State-of-the-art experimental rigs addressing heat transfer science. Dedicated facilities for Thermal Conductivity of Insulating Powder, Composite Wall Apparatus, Forced Convection through pipe, Vertical Tube losing heat by natural convection, Emissivity of test plate setup, and Pin-fin Apparatus.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Facility 7: Refrigeration & Air Conditioning Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_rac.jpg" alt="Refrigeration and Air Conditioning Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Thermal Engineering Wing &bull; RAC Complex</span>
-                            <h3 class="dept-lab-title">Refrigeration &amp; Air Conditioning (RAC) Lab</h3>
-                            <p class="dept-lab-desc">
-                                Facilitates thermodynamic cooling experiments including determination of COP of Vapour Compression Refrigeration Systems and Vapour Absorption Systems. Major setups include Vapour Compression Refrigeration Test Rig, Electrolux Refrigerator, Window Air Conditioner, and Domestic Refrigerator units.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Facility 8: Kinematics & Dynamics of Machines Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_dynamics_machines.jpg" alt="Kinematics and Dynamics of Machines Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Building No. 6 &bull; Machine Dynamics &amp; Mechanisms Wing</span>
-                            <h3 class="dept-lab-title">Kinematics &amp; Dynamics of Machines Lab</h3>
-                            <p class="dept-lab-desc">
-                                Focuses on working principles of mechanisms, motion transmission, and dynamic forces. Enables experimental study of static and dynamic balancing, unbalanced forces in rotary and reciprocating engines, vibrational system frequencies, time periods, and precision vibration measurement techniques.
+                                State-of-the-art experimental rigs addressing heat transfer science. Dedicated facilities for Coolpex Cross Flow Heat Exchanger, two-phase flow pattern observation, Thermal Conductivity of Insulating Powder, Composite Wall Apparatus, Forced Convection through pipe, and Emissivity test rig.
                             </p>
                         </div>
                     </div>
@@ -570,6 +570,13 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
                     <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Chassis &amp; Vehicle Systems</h4>
+                            <p>Braking system demonstrators, steering gear trainers, and suspension testing apparatus.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-water"></i></div>
                         <div class="dept-facility-info">
                             <h4>Fluid Mechanics &amp; Turbomachines</h4>
@@ -577,10 +584,17 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
                     <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-wind"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Compressor &amp; Fluid Power</h4>
+                            <p>Indo-Air multi-stage reciprocating compressor test setup and pneumatic/hydraulic power systems.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-fire-alt"></i></div>
                         <div class="dept-facility-info">
                             <h4>Heat Transfer Laboratory</h4>
-                            <p>Thermal conductivity of powder, composite wall apparatus, forced/natural convection, and emissivity test rig.</p>
+                            <p>Cross flow heat exchanger, two-phase flow rig, thermal conductivity, and convection test benches.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
@@ -591,7 +605,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-project-diagram"></i></div>
                         <div class="dept-facility-info">
                             <h4>Dynamics &amp; Kinematics of Machines</h4>
                             <p>Mechanism models, balancing rigs, motorized gyroscope, governors, and vibration analysis equipment.</p>
