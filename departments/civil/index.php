@@ -6,6 +6,7 @@ $root_path = "../../";
 include_once __DIR__ . '/../../includes/header.php';
 ?>
 
+<!-- Civil Department Stylesheet -->
 <link rel="stylesheet" href="css/department.css">
 
 <div class="dept-page" id="mainContent">
@@ -22,7 +23,7 @@ include_once __DIR__ . '/../../includes/header.php';
                     </p>
                 </div>
                 <div class="dept-hero-media">
-                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Civil Engineering Department" class="dept-hero-photo" onerror="this.src='../../images/hero_campus_1.jpg'">
+                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Civil Engineering Department Building" class="dept-hero-photo" onerror="this.src='../../images/hero_campus_1.jpg'">
                 </div>
             </div>
 
@@ -30,7 +31,7 @@ include_once __DIR__ . '/../../includes/header.php';
             <div class="dept-stats-strip">
                 <div class="dept-stat-item">
                     <span class="dept-stat-num">1984</span>
-                    <span class="dept-stat-label">ESTABLISHED YEAR</span>
+                    <span class="dept-stat-label">CONSTITUTED YEAR</span>
                 </div>
                 <div class="dept-stat-item">
                     <span class="dept-stat-num">120</span>
@@ -42,19 +43,19 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
                 <div class="dept-stat-item">
                     <span class="dept-stat-num">10</span>
-                    <span class="dept-stat-label">SPECIALIZED LABORATORIES</span>
+                    <span class="dept-stat-label">SPECIALIZED LABS</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Sub-navigation bar -->
+    <!-- Sticky sub-navigation bar -->
     <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
             <div class="dept-subnav-wrap">
                 <ul class="dept-subnav-list" role="tablist">
                     <li class="dept-subnav-item active">
-                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About Department</button>
+                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About</button>
                     </li>
                     <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="vision-mission" role="tab" aria-selected="false">Vision &amp; Mission</button>
@@ -66,13 +67,13 @@ include_once __DIR__ . '/../../includes/header.php';
                         </a>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="faculty" role="tab" aria-selected="false">Faculty</button>
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Faculty</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="activities" role="tab" aria-selected="false">Activities</button>
+                        <button type="button" class="dept-subnav-link" role="tab" aria-selected="false">Activities</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities</button>
+                        <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities &amp; Labs</button>
                     </li>
                     <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
@@ -91,7 +92,7 @@ include_once __DIR__ . '/../../includes/header.php';
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
                     <h2>About Department</h2>
-                    <p>Fostering academic rigor, experimental infrastructure, and professional engineering skills in Civil Engineering.</p>
+                    <p>Delivering foundational and advanced civil engineering education, experimental laboratory testing, and professional infrastructure development since 1984.</p>
                 </div>
 
                 <div class="dept-story-body">
@@ -109,9 +110,8 @@ include_once __DIR__ . '/../../includes/header.php';
                 <!-- About the Programme Section -->
                 <div class="dept-programme-section">
                     <div class="dept-section-header">
-                        <span class="dept-section-kicker">DISCIPLINE &amp; CAREER PATHS</span>
+                        <span class="dept-section-kicker">PROFESSIONAL CURRICULUM</span>
                         <h2>About the Programme</h2>
-                        <p>Comprehensive education in planning, designing, constructing, and maintaining critical infrastructure.</p>
                     </div>
 
                     <div class="dept-story-body">
@@ -126,41 +126,60 @@ include_once __DIR__ . '/../../includes/header.php';
                         </p>
                     </div>
 
-                    <!-- Under Graduate / Post Graduate Courses -->
-                    <div class="dept-table-card">
-                        <div class="dept-table-banner">
-                            <i class="fas fa-layer-group"></i> Under Graduate/Post Graduate Courses
+                    <div class="dept-avenues-grid">
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-building"></i></div>
+                                <h4>Structural &amp; Environmental Infrastructure</h4>
+                            </div>
+                            <p>Planning, designing, and supervising buildings, bridges, water supply systems, and wastewater treatment facilities to preserve environmental sustainability.</p>
                         </div>
-                        <div class="dept-table-wrap">
-                            <table class="dept-clean-table">
-                                <thead>
-                                    <tr>
-                                        <th>Name of Course</th>
-                                        <th>Type</th>
-                                        <th>Period (Years)</th>
-                                        <th>Intake</th>
-                                        <th>Year of Starting</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Civil Engineering</strong></td>
-                                        <td><span class="dept-tag-ug">UG</span></td>
-                                        <td>4</td>
-                                        <td>120</td>
-                                        <td>1984</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Transportation Engineering</strong></td>
-                                        <td><span class="dept-tag-pg">PG</span></td>
-                                        <td>2</td>
-                                        <td>18</td>
-                                        <td>2010</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-road"></i></div>
+                                <h4>Transportation &amp; Public Works</h4>
+                            </div>
+                            <p>Engineering highways, transit networks, railways, and harbors for state and central infrastructure projects like PWD, railways, and defense works.</p>
                         </div>
                     </div>
+                </div>
+
+                <!-- Under Graduate / Post Graduate Courses -->
+                <div class="dept-section-header" style="margin-top: 56px;">
+                    <span class="dept-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
+                    <h2>Undergraduate &amp; Postgraduate Programmes</h2>
+                    <p>Approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated with Gujarat Technological University (GTU), Ahmedabad.</p>
+                </div>
+
+                <div class="dept-table-wrap">
+                    <table class="dept-clean-table">
+                        <thead>
+                            <tr>
+                                <th>Name of Course</th>
+                                <th>Type</th>
+                                <th>Period (Years)</th>
+                                <th>Intake</th>
+                                <th>Year of Starting</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Civil Engineering</strong></td>
+                                <td><span class="dept-tag-ug">UG</span></td>
+                                <td>4</td>
+                                <td>120</td>
+                                <td>1984</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Transportation Engineering</strong></td>
+                                <td><span class="dept-tag-pg">PG</span></td>
+                                <td>2</td>
+                                <td>18</td>
+                                <td>2010</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
@@ -169,47 +188,47 @@ include_once __DIR__ . '/../../includes/header.php';
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">ACADEMIC CHARTER</span>
                     <h2>Vision &amp; Mission</h2>
-                    <p>Guiding values, educational mission, and professional objectives of the Civil Engineering Department.</p>
+                    <p>Guiding principles, strategic commitments, and educational objectives defining our engineering pedagogy.</p>
                 </div>
 
                 <!-- Vision Card -->
                 <div class="dept-charter-card dept-vision-hero-card">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Vision</h3>
+                    <span class="dept-vision-quote-mark">“</span>
                     <blockquote class="dept-vision-statement">
                         Produce globally employable competent civil engineers committed to research, innovation and entrepreneurship with core values.
                     </blockquote>
                 </div>
 
                 <!-- Mission Card -->
-                <div class="dept-charter-card">
-                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission</h3>
+                <div class="dept-charter-card" style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission of the Department</h3>
                     <ul class="dept-mission-steps">
                         <li class="dept-mission-item">
-                            <span class="dept-mission-index">1</span>
+                            <span class="dept-mission-index">I</span>
                             <div class="dept-mission-text">
                                 To impart quality in academics through experimental innovation with core values.
                             </div>
                         </li>
                         <li class="dept-mission-item">
-                            <span class="dept-mission-index">2</span>
+                            <span class="dept-mission-index">II</span>
                             <div class="dept-mission-text">
                                 To promote innovative practices in the field of civil engineering.
                             </div>
                         </li>
                         <li class="dept-mission-item">
-                            <span class="dept-mission-index">3</span>
+                            <span class="dept-mission-index">III</span>
                             <div class="dept-mission-text">
                                 To inculcate entrepreneurial approach among the learners as civil engineer.
                             </div>
                         </li>
                         <li class="dept-mission-item">
-                            <span class="dept-mission-index">4</span>
+                            <span class="dept-mission-index">IV</span>
                             <div class="dept-mission-text">
                                 To enhance industry – academia collaboration for promoting research and placement.
                             </div>
                         </li>
                         <li class="dept-mission-item">
-                            <span class="dept-mission-index">5</span>
+                            <span class="dept-mission-index">V</span>
                             <div class="dept-mission-text">
                                 To offer the services to community.
                             </div>
@@ -217,156 +236,143 @@ include_once __DIR__ . '/../../includes/header.php';
                     </ul>
                 </div>
 
-                <!-- Program Education Objectives (PEOs) Table -->
-                <div class="dept-table-card">
-                    <div class="dept-table-banner">
-                        <i class="fas fa-server"></i> Program Education Objectives (PEOs)
+                <!-- Objectives (PEOs and PSOs) -->
+                <div class="dept-objectives-grid">
+                    <div class="dept-obj-card">
+                        <h4>Program Education Objectives (PEOs)</h4>
+                        <div class="dept-obj-lead">After successful completion of the program, the student will:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PEO 1:</strong> able to pursue higher study for research and innovation in the field of civil engineering.</li>
+                            <li><strong>PEO 2:</strong> be equipped with knowledge, skill, attitude and ability to perform ethically the role of competent professional civil engineer.</li>
+                            <li><strong>PEO 3:</strong> work as an entrepreneur for serving the society.</li>
+                        </ul>
                     </div>
-                    <div class="dept-table-caption-bar">
-                        After successful completion of the program, the student will
-                    </div>
-                    <div class="dept-table-wrap">
-                        <table class="dept-clean-table">
-                            <tbody>
-                                <tr>
-                                    <td style="width: 120px; font-weight: 700; color: #111;">PEO1</td>
-                                    <td>able to pursue higher study for research and innovation in the field of civil engineering.</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: 700; color: #111;">PEO2</td>
-                                    <td>be equipped with knowledge, skill, attitude and ability to perform ethically the role of competent professional civil engineer.</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: 700; color: #111;">PEO3</td>
-                                    <td>work as an entrepreneur for serving the society.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
-                <!-- Programme Specific Outcomes (PSOs) Table -->
-                <div class="dept-table-card">
-                    <div class="dept-table-banner">
-                        <i class="fas fa-server"></i> Programme Specific Outcomes (PSOs)
-                    </div>
-                    <div class="dept-table-caption-bar">
-                        At the end of the program, the student will be able to
-                    </div>
-                    <div class="dept-table-wrap">
-                        <table class="dept-clean-table">
-                            <tbody>
-                                <tr>
-                                    <td style="width: 120px; font-weight: 700; color: #111;">PSO1</td>
-                                    <td>apply the knowledge of civil engineering to avail the services in planning, designing and execution of various projects with professional ethics.</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: 700; color: #111;">PSO2</td>
-                                    <td>plan, design and construct infrastructure facilities to satisfy economic, environmental and societal need in a sustainable manner.</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: 700; color: #111;">PSO3</td>
-                                    <td>solve the real life problems of Transportation Engineering.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="dept-obj-card">
+                        <h4>Programme Specific Outcomes (PSOs)</h4>
+                        <div class="dept-obj-lead">At the end of the program, the student will be able to:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PSO 1:</strong> apply the knowledge of civil engineering to avail the services in planning, designing and execution of various projects with professional ethics.</li>
+                            <li><strong>PSO 2:</strong> plan, design and construct infrastructure facilities to satisfy economic, environmental and societal need in a sustainable manner.</li>
+                            <li><strong>PSO 3:</strong> solve the real life problems of Transportation Engineering.</li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- Tab 3: Faculty -->
-            <section class="dept-tab-pane" id="tab-faculty">
-                <div class="dept-section-header">
-                    <span class="dept-section-kicker">ACADEMIC EXCELLENCE</span>
-                    <h2>Faculty Members</h2>
-                    <p>Distinguished professors, associate professors, and assistant professors of the Civil Engineering Department.</p>
-                </div>
-                <div class="dept-empty-card">
-                    <i class="fas fa-user-graduate"></i>
-                    <h3>Faculty Directory</h3>
-                    <p>Faculty details and profiles are being updated.</p>
-                </div>
-            </section>
-
-            <!-- Tab 4: Activities -->
-            <section class="dept-tab-pane" id="tab-activities">
-                <div class="dept-section-header">
-                    <span class="dept-section-kicker">EVENTS &amp; WORKSHOPS</span>
-                    <h2>Department Activities</h2>
-                    <p>Seminars, technical site visits, expert talks, and student workshops conducted by Civil Engineering.</p>
-                </div>
-                <div class="dept-empty-card">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3>Activities &amp; Events</h3>
-                    <p>Recent department activities and workshop records are being updated.</p>
-                </div>
-            </section>
-
-            <!-- Tab 5: Facilities -->
+            <!-- Tab 3: Facilities & Labs -->
             <section class="dept-tab-pane" id="tab-facilities">
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
-                    <h2>Facilities</h2>
-                    <p>Laboratories equipped for imparting practical knowledge and testing across all core civil engineering disciplines.</p>
+                    <h2>Laboratories &amp; Facilities</h2>
+                    <p>Housed in the main building of the college, equipped with specialized testing apparatus, experimental benches, and engineering laboratories.</p>
                 </div>
 
-                <div class="dept-charter-card">
-                    <div class="dept-facilities-list-grid">
-                        <div class="dept-facility-bullet-item">
-                            <i class="fas fa-chevron-circle-right dept-facility-bullet-icon"></i>
-                            <span>Drawing hall</span>
+                <!-- Key Department Facilities Grid -->
+                <div class="dept-facilities-grid">
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-drafting-compass"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Drawing hall</h4>
+                            <p>Spacious drawing hall dedicated to engineering graphics, structural drawing, and manual blueprint preparation.</p>
                         </div>
-                        <div class="dept-facility-bullet-item">
-                            <i class="fas fa-chevron-circle-right dept-facility-bullet-icon"></i>
-                            <span>Geoinformatic / Geology Lab</span>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Surveying Lab</h4>
+                            <p>Equipped with total stations, optical theodolites, auto-levels, and measurement chains for comprehensive field surveying.</p>
                         </div>
-                        <div class="dept-facility-bullet-item">
-                            <i class="fas fa-chevron-circle-right dept-facility-bullet-icon"></i>
-                            <span>Surveying Lab</span>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-water"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Fluid Mechanics Lab</h4>
+                            <p>Flow measurement benches, hydraulic flumes, pipe friction apparatus, and fluid dynamics experimental setups.</p>
                         </div>
-                        <div class="dept-facility-bullet-item">
-                            <i class="fas fa-chevron-circle-right dept-facility-bullet-icon"></i>
-                            <span>Water Resources Lab</span>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Environmental Engineering Lab</h4>
+                            <p>Water and wastewater testing equipment, pH meters, turbidity meters, BOD/COD incubators, and air quality analysis.</p>
                         </div>
-                        <div class="dept-facility-bullet-item">
-                            <i class="fas fa-chevron-circle-right dept-facility-bullet-icon"></i>
-                            <span>Fluid Mechanics Lab</span>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-road"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Transportation Engineering Lab</h4>
+                            <p>Pavement material testing apparatus including bitumen penetration, ductility, softening point, and aggregate impact tests.</p>
                         </div>
-                        <div class="dept-facility-bullet-item">
-                            <i class="fas fa-chevron-circle-right dept-facility-bullet-icon"></i>
-                            <span>Concrete Laboratory</span>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-globe-asia"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Geoinformatic / Geology Lab</h4>
+                            <p>Geological mineral specimen collections, petrological study microscopes, rock classification, and GIS mapping tools.</p>
                         </div>
-                        <div class="dept-facility-bullet-item">
-                            <i class="fas fa-chevron-circle-right dept-facility-bullet-icon"></i>
-                            <span>Environmental Engineering Lab</span>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-tint"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Water Resources Lab</h4>
+                            <p>Hydrological measurement instruments, rainfall simulation benches, and groundwater seepage demonstration models.</p>
                         </div>
-                        <div class="dept-facility-bullet-item">
-                            <i class="fas fa-chevron-circle-right dept-facility-bullet-icon"></i>
-                            <span>Structure &amp; Heavy Structures Laboratory</span>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-cubes"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Concrete Laboratory</h4>
+                            <p>Compressive testing machine, sieve shaker, workability slump test apparatus, and concrete mix design facilities.</p>
                         </div>
-                        <div class="dept-facility-bullet-item">
-                            <i class="fas fa-chevron-circle-right dept-facility-bullet-icon"></i>
-                            <span>Transportation Engineering Lab</span>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-archway"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Structure &amp; Heavy Structures Laboratory</h4>
+                            <p>Heavy loading frames for structural deflection, column buckling, beam bending moments, and frame analysis.</p>
                         </div>
-                        <div class="dept-facility-bullet-item">
-                            <i class="fas fa-chevron-circle-right dept-facility-bullet-icon"></i>
-                            <span>Soil &amp; Material Testing Laboratory</span>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-mountain"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Soil &amp; Material Testing Laboratory</h4>
+                            <p>Tri-axial shear apparatus, direct shear machines, unconfined compression, and soil consolidation testing equipment.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Tab 6: Publications -->
+            <!-- Tab 4: Publications -->
             <section class="dept-tab-pane" id="tab-publications">
                 <div class="dept-section-header">
-                    <span class="dept-section-kicker">SCHOLARLY CONTRIBUTIONS</span>
-                    <h2>Publications</h2>
-                    <p>Research contributions and journal articles by Civil Engineering faculty members.</p>
+                    <span class="dept-section-kicker">SCHOLARLY OUTPUT</span>
+                    <h2>Faculty Publications</h2>
+                    <p>Research contributions, technical papers, and conference proceedings published by Civil Engineering faculty and research scholars.</p>
                 </div>
-                <div class="dept-empty-card">
-                    <i class="fas fa-book-open"></i>
-                    <h3>Publications Archive</h3>
-                    <p>Department research papers and publication citations are being compiled.</p>
+
+                <div class="dept-pub-toolbar">
+                    <div class="dept-pub-filter-wrap">
+                        <label for="pubYearFilter" class="dept-pub-filter-label">
+                            <i class="fas fa-calendar-alt"></i> Filter by Year:
+                        </label>
+                        <div class="dept-pub-select-box">
+                            <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year" onchange="window.filterPublicationsByYear && window.filterPublicationsByYear(this.value)">
+                                <option value="all">All Years (0)</option>
+                            </select>
+                            <i class="fas fa-chevron-down dept-pub-arrow"></i>
+                        </div>
+                    </div>
+                    <div class="dept-pub-badge" id="pubCountBadge">
+                        Showing <strong>0</strong> publications
+                    </div>
+                </div>
+
+                <div class="dept-citations-list">
+                    <div class="dept-pub-empty" id="pubEmptyState">
+                        <i class="far fa-folder-open"></i>
+                        Publications list is currently being compiled and will be available soon.
+                    </div>
                 </div>
             </section>
 
