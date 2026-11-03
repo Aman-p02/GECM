@@ -247,7 +247,7 @@ include_once __DIR__ . '/includes/header.php';
         </div>
         <div class="notice-scroll-container">
             <?php if (!empty($noticesList)): ?>
-            <div class="notice-marquee">
+            <div class="notice-marquee<?= (count($noticesList) > 4) ? ' is-scrolling' : '' ?>">
                 <?php
                 // Helper function to render notice rows
                 $renderNoticeItems = function($notices) {
@@ -400,120 +400,6 @@ include_once __DIR__ . '/includes/header.php';
         </div>
     </div>
 </section>
-
-    <!-- Stacked Card Carousel: Campus Life & Highlights -->
-    <section id="campus-showcase" class="stacked-carousel-section">
-        <div class="stacked-carousel-container">
-            <!-- Left Text / Narrative -->
-            <div class="stacked-text-col">
-                <span class="stacked-tag"><i class="fas fa-sparkles"></i> Campus Life &amp; Events</span>
-                <h2 class="stacked-title">Experience the Energy of GEC Modasa</h2>
-                <p class="stacked-desc">From national hackathons and flagship technical symposiums to cultural youth fests and athletics championships &mdash; discover what makes student life truly unforgettable.</p>
-                <div class="stacked-controls">
-                    <button class="stacked-btn" id="stackedPrevBtn" aria-label="Previous Highlight"><i class="fas fa-arrow-left"></i></button>
-                    <button class="stacked-btn" id="stackedNextBtn" aria-label="Next Highlight"><i class="fas fa-arrow-right"></i></button>
-                    <div class="stacked-counter">
-                        <span id="stackedCurrentNum">01</span> / <span id="stackedTotalNum">06</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right 3D Physical Deck of Cards -->
-            <div class="stacked-deck-wrapper">
-                <div class="stacked-deck" id="stackedDeck">
-                    <!-- Card 1 -->
-                    <div class="stacked-card" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
-                        <span class="stacked-card-badge"><i class="fas fa-microchip"></i> Symposium</span>
-                        <button class="stacked-card-heart" aria-label="Save to favorites"><i class="far fa-heart"></i></button>
-                        <div class="stacked-card-content">
-                            <span class="stacked-card-meta">Annual Flagship &bull; 50+ Colleges</span>
-                            <h3 class="stacked-card-title">TechFest 2024: Innovation &amp; Beyond</h3>
-                            <p class="stacked-card-desc">National-level symposium with robotics battles, coding sprints, AI workshops, and 2,500+ participants across Gujarat.</p>
-                            <div class="stacked-card-pill">
-                                <span class="stacked-pill-text">Explore Highlights</span>
-                                <span class="stacked-pill-btn"><i class="fas fa-chevron-right"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="stacked-card" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
-                        <span class="stacked-card-badge"><i class="fas fa-graduation-cap"></i> Academics</span>
-                        <button class="stacked-card-heart" aria-label="Save to favorites"><i class="far fa-heart"></i></button>
-                        <div class="stacked-card-content">
-                            <span class="stacked-card-meta">Graduation Class of 2024</span>
-                            <h3 class="stacked-card-title">Annual Convocation Ceremony</h3>
-                            <p class="stacked-card-desc">Celebrating the graduation, achievements, and degrees of our brilliant engineers entering premier global industries.</p>
-                            <div class="stacked-card-pill">
-                                <span class="stacked-pill-text">View Moments</span>
-                                <span class="stacked-pill-btn"><i class="fas fa-chevron-right"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="stacked-card" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
-                        <span class="stacked-card-badge"><i class="fas fa-code"></i> Innovation</span>
-                        <button class="stacked-card-heart" aria-label="Save to favorites"><i class="far fa-heart"></i></button>
-                        <div class="stacked-card-content">
-                            <span class="stacked-card-meta">36-Hour Hackathon &bull; Student Sprint</span>
-                            <h3 class="stacked-card-title">State Level Hackathon 2024</h3>
-                            <p class="stacked-card-desc">Non-stop 36-hour sprint where student teams engineered cutting-edge prototypes for real-world smart governance and industrial automation.</p>
-                            <div class="stacked-card-pill">
-                                <span class="stacked-pill-text">See Winners</span>
-                                <span class="stacked-pill-btn"><i class="fas fa-chevron-right"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="stacked-card" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
-                        <span class="stacked-card-badge"><i class="fas fa-robot"></i> Research</span>
-                        <button class="stacked-card-heart" aria-label="Save to favorites"><i class="far fa-heart"></i></button>
-                        <div class="stacked-card-content">
-                            <span class="stacked-card-meta">Centre of Excellence</span>
-                            <h3 class="stacked-card-title">Robotics &amp; Advanced IoT Hub</h3>
-                            <p class="stacked-card-desc">Hands-on student research with autonomous rovers, smart IoT sensors, embedded controllers, and industrial automation prototypes.</p>
-                            <div class="stacked-card-pill">
-                                <span class="stacked-pill-text">Discover Lab</span>
-                                <span class="stacked-pill-btn"><i class="fas fa-chevron-right"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 5 -->
-                    <div class="stacked-card" style="background-image: url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
-                        <span class="stacked-card-badge"><i class="fas fa-trophy"></i> Athletics</span>
-                        <button class="stacked-card-heart" aria-label="Save to favorites"><i class="far fa-heart"></i></button>
-                        <div class="stacked-card-content">
-                            <span class="stacked-card-meta">Inter-Department Championship</span>
-                            <h3 class="stacked-card-title">Shaurya: Annual Sports Meet</h3>
-                            <p class="stacked-card-desc">Energetic cricket tournaments, volleyball leagues, badminton, and track &amp; field championships driving leadership and sportsmanship.</p>
-                            <div class="stacked-card-pill">
-                                <span class="stacked-pill-text">View Tournaments</span>
-                                <span class="stacked-pill-btn"><i class="fas fa-chevron-right"></i></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 6 -->
-                    <div class="stacked-card" style="background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
-                        <span class="stacked-card-badge"><i class="fas fa-music"></i> Cultural</span>
-                        <button class="stacked-card-heart" aria-label="Save to favorites"><i class="far fa-heart"></i></button>
-                        <div class="stacked-card-content">
-                            <span class="stacked-card-meta">Annual Cultural Fest</span>
-                            <h3 class="stacked-card-title">Prarambh: Vibrant Youth Festival</h3>
-                            <p class="stacked-card-desc">Electrifying musical nights, dramatic theater, traditional Gujarati folk dance, and talent showcases celebrating campus culture.</p>
-                            <div class="stacked-card-pill">
-                                <span class="stacked-pill-text">See Gallery</span>
-                                <span class="stacked-pill-btn"><i class="fas fa-chevron-right"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 <?php if (!empty($alumniList)): ?>
 <!-- Alumni Section -->

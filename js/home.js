@@ -484,153 +484,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         startHeroAutoplay();
     }
-
     // ==============================================================
     // 6. Notice Board Marquee
     // ==============================================================
     const noticeContainer = document.querySelector(".notice-scroll-container");
     const noticeMarquee = document.querySelector(".notice-marquee");
-    const noticeList = document.querySelector(".notice-list");
+    const noticeLists = document.querySelectorAll(".notice-list");
 
-    if (noticeContainer && noticeMarquee && noticeList) {
-        // Activate scrolling when items exceed container height
-        if (noticeList.children.length > 4 && noticeList.offsetHeight > noticeContainer.offsetHeight) {
-            const cloneList = noticeList.cloneNode(true);
-            cloneList.setAttribute("aria-hidden", "true");
-            noticeMarquee.appendChild(cloneList);
+    if (noticeContainer && noticeMarquee && noticeLists.length > 0) {
+        const firstList = noticeLists[0];
+        if (firstList.children.length > 4) {
+            // Clone only if second list doesn't already exist (for seamless 50% loop)
+            if (noticeLists.length < 2) {
+                const cloneList = firstList.cloneNode(true);
+                cloneList.setAttribute("aria-hidden", "true");
+                noticeMarquee.appendChild(cloneList);
+            }
             noticeMarquee.classList.add("is-scrolling");
         } else {
             noticeMarquee.classList.remove("is-scrolling");
         }
     }
-}
-    // ==============================================================
-    // 6. Stacked Card Carousel (3D Physical Layered Deck)
-    // ==============================================================
-    const stackedDeck = document.getElementById("stackedDeck");
-    const stackedPrevBtn = document.getElementById("stackedPrevBtn");
-    const stackedNextBtn = document.getElementById("stackedNextBtn");
-    const stackedCurrentNum = document.getElementById("stackedCurrentNum");
-    const stackedTotalNum = document.getElementById("stackedTotalNum");
-
-    if (stackedDeck) {
-        let cards = Array.from(stackedDeck.querySelectorAll(".stacked-card"));
-        let currentIndex = 0;
-        const totalCards = cards.length;
-        let isAnimating = false;
-
-        if (stackedTotalNum) {
-            stackedTotalNum.textContent = String(totalCards).padStart(2, "0");
-        }
-
-        const updateLayers = () => {
-            cards.forEach((card, index) => {
-                if (index === 0) {
-                    card.setAttribute("data-layer", "0");
-                } else if (index === 1) {
-                    card.setAttribute("data-layer", "1");
-                } else if (index === 2) {
-                    card.setAttribute("data-layer", "2");
-                } else {
-                    card.setAttribute("data-layer", "hidden");
-                }
-            });
-
-            if (stackedCurrentNum) {
-                stackedCurrentNum.textContent = String(currentIndex + 1).padStart(2, "0");
-            }
-        };
-
-        const nextCard = () => {
-            if (isAnimating || cards.length < 2) return;
-            isAnimating = true;
-
-            const leavingCard = cards[0];
-            leavingCard.classList.add("is-leaving");
-
-            currentIndex = (currentIndex + 1) % totalCards;
-
-            // Shift cards array
-            cards.push(cards.shift());
-
-            // Update layers on new front cards immediately
-            setTimeout(() => {
-                updateLayers();
-            }, 100);
-
-            setTimeout(() => {
-                leavingCard.classList.remove("is-leaving");
-                leavingCard.setAttribute("data-layer", "hidden");
-                isAnimating = false;
-            }, 500);
-        };
-
-        const prevCard = () => {
-            if (isAnimating || cards.length < 2) return;
-            isAnimating = true;
-
-            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-
-            const incomingCard = cards.pop();
-            cards.unshift(incomingCard);
-
-            incomingCard.classList.add("is-leaving");
-            updateLayers();
-
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    incomingCard.classList.remove("is-leaving");
-                    setTimeout(() => {
-                        isAnimating = false;
-                    }, 500);
-                });
-            });
-        };
-
-        if (stackedNextBtn) stackedNextBtn.addEventListener("click", nextCard);
-        if (stackedPrevBtn) stackedPrevBtn.addEventListener("click", prevCard);
-
-        // Click directly on stacked cards behind to bring forward
-        stackedDeck.addEventListener("click", (e) => {
-            const clickedCard = e.target.closest(".stacked-card");
-            if (!clickedCard) return;
-
-            const layer = clickedCard.getAttribute("data-layer");
-            if (layer === "1") {
-                nextCard();
-            } else if (layer === "2") {
-                nextCard();
-                setTimeout(nextCard, 200);
-            }
-        });
-
-        // Touch & Swipe Support
-        let touchStartX = 0;
-        let touchStartY = 0;
-
-        stackedDeck.addEventListener("touchstart", (e) => {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-
-        stackedDeck.addEventListener("touchend", (e) => {
-            const touchEndX = e.changedTouches[0].clientX;
-            const touchEndY = e.changedTouches[0].clientY;
-            const diffX = touchStartX - touchEndX;
-            const diffY = touchStartY - touchEndY;
-
-            // Ensure horizontal swipe is dominant
-            if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
-                if (diffX > 0) {
-                    nextCard(); // Swipe left -> Next card
-                } else {
-                    prevCard(); // Swipe right -> Previous card
-                }
-            }
-        }, { passive: true });
-
-        // Initial setup
-        updateLayers();
-    }
-
 });
