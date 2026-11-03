@@ -406,7 +406,77 @@ include_once __DIR__ . '/../../includes/header.php';
                 </div>
 
                 <div class="dept-labs-showcase">
-                    <!-- Facility 1: Central Mechanical Workshop -->
+                    <!-- Facility 1: CAD/CAM & Robotics Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_cad_cam.jpg" alt="CAD/CAM &amp; Robotics Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Building No. 6 &bull; Advanced Manufacturing Wing</span>
+                            <h3 class="dept-lab-title">CAD / CAM &amp; Robotics Lab</h3>
+                            <p class="dept-lab-desc">
+                                Emphasizes computer-aided design and manufacturing, quality control, precision metrology, nonconventional manufacturing, flexible manufacturing systems (FMS), and industrial automation. Equipped with an industrial CNC turning centre, a 5-axis articulated robotic arm, and advanced syllabus-aligned manufacturing machinery.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 2: CAD Computing & Simulation Center -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_cad_center.jpg" alt="CAD Simulation and Computing Center" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Building No. 6 &bull; High-Performance Computing Center</span>
+                            <h3 class="dept-lab-title">CAD Simulation &amp; Computing Center</h3>
+                            <p class="dept-lab-desc">
+                                High-performance computing facility equipped with sufficient high-speed personal workstations running advanced licensed engineering packages including ANSYS, MATLAB, and modern CAD modeling suites for finite element analysis and thermal-fluid simulations.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 3: IC Engine & Automobile Engineering Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_ic_engine.jpg" alt="Internal Combustion Engine &amp; Automobile Engineering Lab" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Workshop Building &bull; Automotive &amp; Power Systems</span>
+                            <h3 class="dept-lab-title">Internal Combustion Engine &amp; Automobile Lab</h3>
+                            <p class="dept-lab-desc">
+                                Equipped with modern IC engine test rigs, diesel smoke meter, variable compression ratio (VCR) engine test setup, and five-gas exhaust gas analyzer for power, fuel consumption, and emission analysis. Features a Car Model Chassis, cut sections of 4-stroke 4-cylinder and 3-cylinder diesel engines, and working models of 4-stroke 1-cylinder diesel engines.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 4: Fluid Mechanics & Hydraulic Machinery Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_fluid_mechanics.jpg" alt="Fluid Mechanics &amp; Hydraulic Machine Lab" loading="lazy" onerror="this.src='../../images/hero_campus_4.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Fluid Machinery Wing</span>
+                            <h3 class="dept-lab-title">Fluid Mechanics &amp; Hydraulic Machine Lab</h3>
+                            <p class="dept-lab-desc">
+                                Features modern turbomachinery and fundamental hydrodynamic test rigs including Volumetric Hydraulic Bench, Reynolds Apparatus, Pelton Wheel Turbine Test Rig, Centrifugal Pump Test Rig, Reciprocating Pump Test Rig, Reciprocating Compressor Test Rig, and Axial Flow Pump test ring.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 5: Heat Transfer Science Laboratory -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_heat_transfer.jpg" alt="Heat Transfer Science Laboratory" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Thermal Engineering Wing</span>
+                            <h3 class="dept-lab-title">Heat Transfer Science Lab</h3>
+                            <p class="dept-lab-desc">
+                                State-of-the-art experimental rigs addressing foundational conduction, convection, and radiation topics. Features experimental setups for Thermal Conductivity of Insulating Powder, Composite Wall Apparatus, Forced Convection through pipe, Vertical Tube losing heat by natural convection, Emissivity of test plate setup, and Pin-fin Apparatus.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 6: Central Mechanical Workshop -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
                             <img src="../../images/hero_campus_1.jpg" alt="Central Mechanical Workshop" loading="lazy">
@@ -415,50 +485,74 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Workshop Building</span>
                             <h3 class="dept-lab-title">Central Mechanical Workshop</h3>
                             <p class="dept-lab-desc">
-                                Equipped with carpentry, fitting, turning, milling, and welding facilities providing comprehensive hands-on practice in manufacturing and machine tools.
+                                Comprehensive heavy fabrication and machine tooling bays equipped with center lathes, universal milling machines, shapers, radial drills, carpentry benches, fitting vises, and electric arc/gas welding equipment for student manufacturing projects.
                             </p>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Facility 2: CAD/CAM Center -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="../../images/hero_campus_2.jpg" alt="CAD/CAM &amp; Computer Center" loading="lazy">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Building No. 6</span>
-                            <h3 class="dept-lab-title">CAD / CAM &amp; Computer Center</h3>
-                            <p class="dept-lab-desc">
-                                High-performance computing center for computer-aided design, finite element analysis, and CNC machining simulation software.
-                            </p>
+                <!-- Key Department Facilities Summary Grid -->
+                <div class="dept-section-header" style="margin-top: 56px;">
+                    <span class="dept-section-kicker">INFRASTRUCTURE HIGHLIGHTS</span>
+                    <h2>Department Laboratory Facilities</h2>
+                    <p>Overview of practical engineering training grounds across mechanical disciplines.</p>
+                </div>
+
+                <div class="dept-facilities-grid">
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-robot"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>CAD / CAM &amp; Robotics</h4>
+                            <p>CNC turning centre, 5-axis articulated robot, flexible manufacturing, and automation equipment.</p>
                         </div>
                     </div>
-
-                    <!-- Facility 3: Heat Power & Thermodynamics Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="../../images/hero_campus_3.jpg" alt="Heat Power &amp; Thermodynamics Lab" loading="lazy">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Thermal Engineering Wing</span>
-                            <h3 class="dept-lab-title">Heat Power &amp; Thermodynamics Lab</h3>
-                            <p class="dept-lab-desc">
-                                Calibrated test rigs for study of heat and mass transfer, thermodynamics cycles, refrigeration, and air conditioning systems.
-                            </p>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Simulation &amp; Computing Center</h4>
+                            <p>High-end personal workstations equipped with licensed ANSYS, MATLAB, and CAD software.</p>
                         </div>
                     </div>
-
-                    <!-- Facility 4: Fluid Mechanics & Fluid Power Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="../../images/hero_campus_4.jpg" alt="Fluid Mechanics &amp; Fluid Power Lab" loading="lazy">
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-car-side"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>IC Engine &amp; Automobile Lab</h4>
+                            <p>VCR engine test rig, 5-gas exhaust analyzer, car model chassis, and multi-cylinder cut sections.</p>
                         </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Fluid Machinery Wing</span>
-                            <h3 class="dept-lab-title">Fluid Mechanics &amp; Fluid Power Lab</h3>
-                            <p class="dept-lab-desc">
-                                Flow measurement benches, hydraulic turbines, centrifugal pumps, and fluid power apparatus for experimental hydrodynamic analysis.
-                            </p>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-water"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Fluid Mechanics &amp; Turbomachines</h4>
+                            <p>Volumetric hydraulic bench, Reynolds apparatus, Pelton turbine, and centrifugal pump test rigs.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-fire-alt"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Heat Transfer Laboratory</h4>
+                            <p>Thermal conductivity of powder, composite wall apparatus, forced/natural convection, and emissivity test rig.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-tools"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Central Mechanical Workshop</h4>
+                            <p>Comprehensive machine tooling, carpentry, fitting, turning, milling, and welding bays.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-microscope"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Material Science &amp; Metallurgy</h4>
+                            <p>Metallurgical specimen preparation, polishing machines, inverted microscopes, and hardness testing.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Dynamics of Machines Lab</h4>
+                            <p>Static/dynamic balancing apparatus, motorized gyroscope, governors, and vibration analysis equipment.</p>
                         </div>
                     </div>
                 </div>
