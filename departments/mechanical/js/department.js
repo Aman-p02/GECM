@@ -46,107 +46,6 @@ function filterPublicationsByYear(selectedYear) {
 }
 window.filterPublicationsByYear = filterPublicationsByYear;
 
-// ==============================================================
-// Facility Laboratory Image Slider Controls
-// ==============================================================
-function setLabSlide(slider, targetIndex) {
-    if (!slider) return;
-    const slides = slider.querySelectorAll('.dept-lab-slide');
-    const dots = slider.querySelectorAll('.dept-lab-dot');
-    const counter = slider.querySelector('.dept-lab-slide-counter');
-    const total = slides.length;
-    if (total === 0) return;
-
-    let idx = targetIndex;
-    if (idx < 0) idx = total - 1;
-    if (idx >= total) idx = 0;
-
-    slider.setAttribute('data-current-slide', idx);
-
-    slides.forEach((s, i) => {
-        if (i === idx) {
-            s.classList.add('active');
-        } else {
-            s.classList.remove('active');
-        }
-    });
-
-    dots.forEach((d, i) => {
-        if (i === idx) {
-            d.classList.add('active');
-            d.setAttribute('aria-current', 'true');
-        } else {
-            d.classList.remove('active');
-            d.removeAttribute('aria-current');
-        }
-    });
-
-    if (counter) {
-        counter.textContent = `${idx + 1} / ${total}`;
-    }
-}
-
-function prevLabSlide(btn, e) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    const slider = btn.closest('.dept-lab-slider');
-    if (!slider) return;
-    const current = parseInt(slider.getAttribute('data-current-slide') || '0', 10);
-    setLabSlide(slider, current - 1);
-}
-
-function nextLabSlide(btn, e) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    const slider = btn.closest('.dept-lab-slider');
-    if (!slider) return;
-    const current = parseInt(slider.getAttribute('data-current-slide') || '0', 10);
-    setLabSlide(slider, current + 1);
-}
-
-function goLabSlide(dot, index, e) {
-    if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    const slider = dot.closest('.dept-lab-slider');
-    if (!slider) return;
-    setLabSlide(slider, index);
-}
-
-function initLabSliders() {
-    const sliders = document.querySelectorAll('.dept-lab-slider');
-    sliders.forEach(slider => {
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        slider.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        slider.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diff = touchEndX - touchStartX;
-            if (Math.abs(diff) > 40) {
-                const current = parseInt(slider.getAttribute('data-current-slide') || '0', 10);
-                if (diff < 0) {
-                    setLabSlide(slider, current + 1);
-                } else {
-                    setLabSlide(slider, current - 1);
-                }
-            }
-        }, { passive: true });
-    });
-}
-
-window.prevLabSlide = prevLabSlide;
-window.nextLabSlide = nextLabSlide;
-window.goLabSlide = goLabSlide;
-
 function initDepartment() {
     const tabButtons = document.querySelectorAll('.dept-subnav-link');
     const tabPanes = document.querySelectorAll('.dept-tab-pane');
@@ -393,7 +292,6 @@ function initDepartment() {
     // Initializations
     initPublicationYearFilter();
     setupRevealElements(document);
-    initLabSliders();
 
     // Initial hash handling
     function handleHash() {
