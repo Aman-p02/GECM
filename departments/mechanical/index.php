@@ -408,9 +408,28 @@ include_once __DIR__ . '/../../includes/header.php';
                 <div class="dept-labs-showcase">
                     <!-- Facility 1: CAD / CAM Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame has-dual-images">
-                            <img src="images/labs/lab_cnc_manufacturing.jpg" alt="Fortune Industrial CNC Turning Center" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
-                            <img src="images/labs/lab_wirecut_edm.jpg" alt="Electronica Wire-Cut EDM &amp; Spark Erosion Machine" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        <div class="dept-lab-image-frame dept-lab-slider" data-lab-slider>
+                            <div class="dept-lab-slides">
+                                <div class="dept-lab-slide active">
+                                    <img src="images/labs/lab_cnc_manufacturing.jpg" alt="Fortune Industrial CNC Turning Center" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                                    <span class="dept-lab-slide-caption">Fortune Industrial CNC Turning Center</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/lab_wirecut_edm.jpg" alt="Electronica Wire-Cut EDM &amp; Spark Erosion Machine" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Electronica Wire-Cut EDM &amp; Spark Erosion Machine</span>
+                                </div>
+                            </div>
+                            <button type="button" class="dept-lab-slide-nav prev" aria-label="Previous image" onclick="prevLabSlide(this, event)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="dept-lab-slide-nav next" aria-label="Next image" onclick="nextLabSlide(this, event)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dept-lab-slide-dots">
+                                <button type="button" class="dept-lab-dot active" aria-label="Slide 1" onclick="goLabSlide(this, 0, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Slide 2" onclick="goLabSlide(this, 1, event)"></button>
+                            </div>
+                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Building No. 6 &bull; Advanced Manufacturing Wing</span>
@@ -437,9 +456,28 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Facility 3: Internal Combustion Engine and Automobile Engineering Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame has-dual-images">
-                            <img src="images/labs/lab_ic_engine.jpg" alt="Working Car Model Chassis Rig" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
-                            <img src="images/labs/lab_automobile_systems.jpg" alt="Vehicle Steering, Suspension &amp; Brake Test Setup" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                        <div class="dept-lab-image-frame dept-lab-slider" data-lab-slider>
+                            <div class="dept-lab-slides">
+                                <div class="dept-lab-slide active">
+                                    <img src="images/labs/lab_ic_engine.jpg" alt="Working Car Model Chassis Rig" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                                    <span class="dept-lab-slide-caption">Car Model Chassis &amp; Engine Test Rig</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/lab_automobile_systems.jpg" alt="Vehicle Steering, Suspension &amp; Brake Test Setup" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                                    <span class="dept-lab-slide-caption">Automotive Steering, Suspension &amp; Brake Rig</span>
+                                </div>
+                            </div>
+                            <button type="button" class="dept-lab-slide-nav prev" aria-label="Previous image" onclick="prevLabSlide(this, event)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="dept-lab-slide-nav next" aria-label="Next image" onclick="nextLabSlide(this, event)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dept-lab-slide-dots">
+                                <button type="button" class="dept-lab-dot active" aria-label="Slide 1" onclick="goLabSlide(this, 0, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Slide 2" onclick="goLabSlide(this, 1, event)"></button>
+                            </div>
+                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Workshop Building &bull; Automotive &amp; Power Systems</span>
@@ -452,9 +490,28 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Facility 4: Fluid Mechanics and Hydraulic Machine Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame has-dual-images">
-                            <img src="images/labs/lab_fluid_mechanics.jpg" alt="Centrifugal Pump Test Rig &amp; Hydraulic Bench" loading="lazy" onerror="this.src='../../images/hero_campus_4.jpg'">
-                            <img src="images/labs/lab_fluid_turbomachines.jpg" alt="Indo-Air Reciprocating Air Compressor Rig" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        <div class="dept-lab-image-frame dept-lab-slider" data-lab-slider>
+                            <div class="dept-lab-slides">
+                                <div class="dept-lab-slide active">
+                                    <img src="images/labs/lab_fluid_mechanics.jpg" alt="Centrifugal Pump Test Rig &amp; Hydraulic Bench" loading="lazy" onerror="this.src='../../images/hero_campus_4.jpg'">
+                                    <span class="dept-lab-slide-caption">Centrifugal Pump Test Rig &amp; Hydraulic Bench</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/lab_fluid_turbomachines.jpg" alt="Indo-Air Reciprocating Air Compressor Rig" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Indo-Air Multi-Stage Air Compressor Test Rig</span>
+                                </div>
+                            </div>
+                            <button type="button" class="dept-lab-slide-nav prev" aria-label="Previous image" onclick="prevLabSlide(this, event)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="dept-lab-slide-nav next" aria-label="Next image" onclick="nextLabSlide(this, event)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dept-lab-slide-dots">
+                                <button type="button" class="dept-lab-dot active" aria-label="Slide 1" onclick="goLabSlide(this, 0, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Slide 2" onclick="goLabSlide(this, 1, event)"></button>
+                            </div>
+                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Workshop Building &bull; Fluid Machinery Wing</span>
@@ -465,11 +522,30 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
 
-                                        <!-- Facility 5: Heat Transfer Science Lab -->
+                    <!-- Facility 5: Heat Transfer Science Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame has-dual-images">
-                            <img src="images/labs/lab_heat_transfer.jpg" alt="Coolpex Cross Flow Heat Exchanger" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
-                            <img src="images/labs/lab_heat_transfer_rigs.jpg" alt="Thermal Convection &amp; Conduction Test Bench" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        <div class="dept-lab-image-frame dept-lab-slider" data-lab-slider>
+                            <div class="dept-lab-slides">
+                                <div class="dept-lab-slide active">
+                                    <img src="images/labs/lab_heat_transfer.jpg" alt="Coolpex Cross Flow Heat Exchanger" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                                    <span class="dept-lab-slide-caption">Coolpex Cross Flow Heat Exchanger Apparatus</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/lab_heat_transfer_rigs.jpg" alt="Thermal Convection &amp; Conduction Test Bench" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Thermal Convection &amp; Heat Transfer Test Rig</span>
+                                </div>
+                            </div>
+                            <button type="button" class="dept-lab-slide-nav prev" aria-label="Previous image" onclick="prevLabSlide(this, event)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="dept-lab-slide-nav next" aria-label="Next image" onclick="nextLabSlide(this, event)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dept-lab-slide-dots">
+                                <button type="button" class="dept-lab-dot active" aria-label="Slide 1" onclick="goLabSlide(this, 0, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Slide 2" onclick="goLabSlide(this, 1, event)"></button>
+                            </div>
+                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Thermal Engineering Wing &bull; Energy Systems</span>
@@ -482,9 +558,28 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Facility 6: Refrigeration and Air Conditioning Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame has-dual-images">
-                            <img src="images/labs/lab_rac.jpg" alt="Vapour Compression Refrigeration Test Setup" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
-                            <img src="images/labs/lab_rac_appliances.jpg" alt="Electrolux Refrigerator &amp; Window Air Conditioner" loading="lazy" onerror="this.src='../../images/hero_campus_4.jpg'">
+                        <div class="dept-lab-image-frame dept-lab-slider" data-lab-slider>
+                            <div class="dept-lab-slides">
+                                <div class="dept-lab-slide active">
+                                    <img src="images/labs/lab_rac.jpg" alt="Vapour Compression Refrigeration Test Setup" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                                    <span class="dept-lab-slide-caption">Vapour Compression Refrigeration Test Setup</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/lab_rac_appliances.jpg" alt="Electrolux Refrigerator &amp; Window Air Conditioner" loading="lazy" onerror="this.src='../../images/hero_campus_4.jpg'">
+                                    <span class="dept-lab-slide-caption">Electrolux Refrigerator &amp; Window Air Conditioner</span>
+                                </div>
+                            </div>
+                            <button type="button" class="dept-lab-slide-nav prev" aria-label="Previous image" onclick="prevLabSlide(this, event)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="dept-lab-slide-nav next" aria-label="Next image" onclick="nextLabSlide(this, event)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dept-lab-slide-dots">
+                                <button type="button" class="dept-lab-dot active" aria-label="Slide 1" onclick="goLabSlide(this, 0, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Slide 2" onclick="goLabSlide(this, 1, event)"></button>
+                            </div>
+                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Thermal Engineering Wing &bull; RAC Complex</span>
@@ -497,9 +592,28 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Facility 7: Kinematics & Dynamics of Machine Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame has-dual-images">
-                            <img src="images/labs/lab_dynamics_gears.jpg" alt="Differential Gear Train &amp; Motion Transmission" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
-                            <img src="images/labs/lab_dynamics_machines.jpg" alt="Kinematic Mechanism Models &amp; Governor Rigs" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                        <div class="dept-lab-image-frame dept-lab-slider" data-lab-slider>
+                            <div class="dept-lab-slides">
+                                <div class="dept-lab-slide active">
+                                    <img src="images/labs/lab_dynamics_gears.jpg" alt="Differential Gear Train &amp; Motion Transmission" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Differential Gear Mechanism &amp; Power Transmission</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/lab_dynamics_machines.jpg" alt="Kinematic Mechanism Models &amp; Governor Rigs" loading="lazy" onerror="this.src='../../images/hero_campus_3.jpg'">
+                                    <span class="dept-lab-slide-caption">Kinematic Mechanism Models &amp; Governor Rigs</span>
+                                </div>
+                            </div>
+                            <button type="button" class="dept-lab-slide-nav prev" aria-label="Previous image" onclick="prevLabSlide(this, event)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="dept-lab-slide-nav next" aria-label="Next image" onclick="nextLabSlide(this, event)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dept-lab-slide-dots">
+                                <button type="button" class="dept-lab-dot active" aria-label="Slide 1" onclick="goLabSlide(this, 0, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Slide 2" onclick="goLabSlide(this, 1, event)"></button>
+                            </div>
+                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Building No. 6 &bull; Machine Dynamics &amp; Mechanisms Wing</span>

@@ -720,8 +720,8 @@
 /* Laboratory facilities cards */
 .dept-labs-showcase {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
     margin-top: 30px;
 }
 
@@ -743,17 +743,11 @@
 
 .dept-lab-image-frame {
     width: 100%;
-    height: 380px;
-    background: #f8fafc;
+    height: 290px;
+    background: #0f172a;
     overflow: hidden;
     position: relative;
-}
-
-.dept-lab-image-frame.has-dual-images {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    background: #e2e8f0;
+    user-select: none;
 }
 
 .dept-lab-image-frame img {
@@ -767,6 +761,156 @@
 
 .dept-lab-card:hover .dept-lab-image-frame img {
     transform: scale(1.02);
+}
+
+/* Lab Card Image Slider */
+.dept-lab-slider {
+    position: relative;
+}
+
+.dept-lab-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.dept-lab-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+    transform: scale(1.02);
+    z-index: 1;
+}
+
+.dept-lab-slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 2;
+}
+
+.dept-lab-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Slide Caption Overlay (bottom gradient) */
+.dept-lab-slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 26px 16px 10px;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.45) 55%, transparent 100%);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    z-index: 3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Slide Navigation Arrows */
+.dept-lab-slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    cursor: pointer;
+    z-index: 5;
+    opacity: 0.75;
+    transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.dept-lab-card:hover .dept-lab-slide-nav {
+    opacity: 1;
+}
+
+.dept-lab-slide-nav:hover {
+    background: rgba(15, 23, 42, 0.95);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.dept-lab-slide-nav.prev {
+    left: 10px;
+}
+
+.dept-lab-slide-nav.next {
+    right: 10px;
+}
+
+/* Dots Indicator */
+.dept-lab-slide-dots {
+    position: absolute;
+    bottom: 9px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 5;
+    background: rgba(15, 23, 42, 0.65);
+    padding: 4px 8px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.dept-lab-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.45);
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.25s ease, width 0.25s ease;
+}
+
+.dept-lab-dot.active {
+    background: #ffffff;
+    width: 14px;
+    border-radius: 4px;
+}
+
+/* Slide Counter Badge */
+.dept-lab-slide-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(15, 23, 42, 0.7);
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    z-index: 5;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .dept-lab-details {
@@ -1077,16 +1221,7 @@
     }
 
     .dept-lab-image-frame {
-        height: 240px;
-    }
-
-    .dept-lab-image-frame.has-dual-images {
-        grid-template-columns: 1fr;
-        height: auto;
-    }
-
-    .dept-lab-image-frame.has-dual-images img {
-        height: 220px;
+        height: 250px;
     }
 
     .dept-main-content {
