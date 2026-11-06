@@ -592,8 +592,28 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Facility 7: Kinematics & Dynamics of Machine Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_dynamics_machines.jpg" alt="Kinematics &amp; Dynamics of Machine Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        <div class="dept-lab-image-frame dept-lab-slider" data-lab-slider data-autoplay="4000">
+                            <div class="dept-lab-slides">
+                                <div class="dept-lab-slide active">
+                                    <img src="images/labs/lab_dynamics_machines.jpg" alt="Kinematic Mechanism Models &amp; Gear Trains" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                                    <span class="dept-lab-slide-caption">Kinematic Mechanism Models &amp; Gear Trains</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/lab_dynamics_gears.jpg" alt="Differential Gear Mechanism &amp; Dynamic Balancing Rig" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                                    <span class="dept-lab-slide-caption">Differential Gear Mechanism &amp; Dynamic Balancing Rig</span>
+                                </div>
+                            </div>
+                            <button type="button" class="dept-lab-slide-nav prev" aria-label="Previous photo" onclick="prevLabSlide(this, event)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="dept-lab-slide-nav next" aria-label="Next photo" onclick="nextLabSlide(this, event)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dept-lab-slide-dots">
+                                <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
+                            </div>
+                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Building No. 6 &bull; Machine Dynamics &amp; Mechanisms Wing</span>
