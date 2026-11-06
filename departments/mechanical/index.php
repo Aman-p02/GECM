@@ -637,6 +637,34 @@ include_once __DIR__ . '/../../includes/header.php';
                             </p>
                         </div>
                     </div>
+
+                    <!-- Facility 9: Manufacturing Process Lab (Machine Lab) -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_manufacturing_process.jpg" alt="Manufacturing Process Lab (Machine Lab)" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Workshop Building &bull; Machine Tools &amp; Production Wing</span>
+                            <h3 class="dept-lab-title">Manufacturing Process Lab (Machine Lab)</h3>
+                            <p class="dept-lab-desc">
+                                Contains laboratories for Manufacturing Technology and Production Technology subjects, where students conduct hands-on machining, metal cutting, machine tooling, jigs &amp; fixtures, die &amp; mould design, and machine manufacturing. Equipped with center lathes, drilling machines, shaper machines, shearing machines, power press, Die Sinking EDM machine, and Wire Cut EDM machine.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Facility 10: Basic Mechanical Engineering Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_basic_mechanical.jpg" alt="Basic Mechanical Engineering Lab" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Building No. 6 &bull; Thermal Power &amp; Energy Models</span>
+                            <h3 class="dept-lab-title">Basic Mechanical Engineering Lab</h3>
+                            <p class="dept-lab-desc">
+                                Equipped with authentic cut-section demonstration boiler models including Cochran Boiler, Babcock &amp; Wilcox Water Tube Boiler, and Lancashire Boiler, alongside comprehensive steam boiler mountings, valves, and accessories for foundational understanding of steam power cycles and thermodynamics.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Key Department Facilities Summary Grid -->
