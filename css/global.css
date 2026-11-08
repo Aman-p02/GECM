@@ -1061,6 +1061,7 @@ h4 {
 
     /* Mobile drawer navigation container */
     .hdr-nav-list {
+        display: none !important;
         position: absolute;
         top: 6px;
         left: 10px;
@@ -1088,10 +1089,23 @@ h4 {
     }
 
     .hdr-nav-list.is-open {
+        display: flex !important;
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
         pointer-events: auto;
+    }
+
+    .hdr-nav-list:not(.is-open) {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    .hdr-nav-list:not(.is-open) * {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
     }
 
     .hdr-nav-list>li {
@@ -1200,7 +1214,7 @@ h4 {
         pointer-events: none;
     }
 
-    .hdr-nav-item.has-dropdown.is-sub-open>.hdr-dropdown {
+    .hdr-nav-list.is-open .hdr-nav-item.has-dropdown.is-sub-open>.hdr-dropdown {
         max-height: 850px;
         opacity: 1;
         visibility: visible;

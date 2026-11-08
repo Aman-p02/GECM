@@ -24,6 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (isOpen) {
             resetMobileSubpanels();
+        } else {
+            // Opening menu: auto-expand active section dropdown if present
+            const activeSubLink = list.querySelector(".hdr-dd-link.is-active");
+            if (activeSubLink) {
+                const parent = activeSubLink.closest(".hdr-nav-item.has-dropdown");
+                if (parent) parent.classList.add("is-sub-open");
+            }
         }
 
         list.querySelectorAll("a").forEach(link => {
@@ -192,10 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const isHomePath = (linkPath === "" || linkPath === "/GECM-main" || linkPath.endsWith("/index.php") || linkPath.endsWith("/index.html"));
                 if (!isHomePath && linkPath === currentPath) {
                     link.classList.add("is-active");
-                    const parentDropdown = link.closest(".hdr-nav-item.has-dropdown");
-                    if (parentDropdown && window.innerWidth <= 768) {
-                        parentDropdown.classList.add("is-sub-open");
-                    }
                 }
             }
         } catch (err) {}
