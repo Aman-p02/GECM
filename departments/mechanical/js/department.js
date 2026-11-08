@@ -47,10 +47,11 @@ function filterPublicationsByYear(selectedYear) {
 window.filterPublicationsByYear = filterPublicationsByYear;
 
 // ==============================================================
-// Facility Laboratory Image Slider & Auto-Advance Controls
+// Facility Laboratory Image Slider & Real-Time Touch Gestures
 // ==============================================================
-function setLabSlide(slider, targetIndex) {
+function setLabSlide(slider, targetIndex, animate = true) {
     if (!slider) return;
+    const slidesContainer = slider.querySelector('.dept-lab-slides');
     const slides = slider.querySelectorAll('.dept-lab-slide');
     const dots = slider.querySelectorAll('.dept-lab-dot');
     const counter = slider.querySelector('.dept-lab-slide-counter');
@@ -62,6 +63,15 @@ function setLabSlide(slider, targetIndex) {
     if (idx >= total) idx = 0;
 
     slider.setAttribute('data-current-slide', idx);
+
+    if (slidesContainer) {
+        if (!animate) {
+            slidesContainer.style.transition = 'none';
+        } else {
+            slidesContainer.style.transition = 'transform 0.38s cubic-bezier(0.25, 1, 0.5, 1)';
+        }
+        slidesContainer.style.transform = `translateX(-${idx * 100}%)`;
+    }
 
     slides.forEach((s, i) => {
         if (i === idx) {
@@ -99,7 +109,7 @@ function resetLabSliderTimer(slider) {
     }
     if (delay > 0) {
         slider._autoSlideTimer = setInterval(() => {
-            if (!slider.matches(':hover') && !document.hidden) {
+            if (!slider.matches(':hover') && !document.hidden && !slider.classList.contains('is-dragging')) {
                 const current = parseInt(slider.getAttribute('data-current-slide') || '0', 10);
                 setLabSlide(slider, current + 1);
             }
@@ -142,43 +152,177 @@ function goLabSlide(dot, index, e) {
     resetLabSliderTimer(slider);
 }
 
+function bindLabSliderGestures(slider) {
+    if (!slider || slider._gesturesBound) return;
+    slider._gesturesBound = true;
+
+    const slidesContainer = slider.querySelector('.dept-lab-slides');
+    if (!slidesContainer) return;
+
+    let startX = 0;
+    let startY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let isDragging = false;
+    let isHorizontalSwipe = false;
+    let currentSlideIdx = 0;
+    let sliderWidth = 0;
+    let totalSlides = slider.querySelectorAll('.dept-lab-slide').length;
+
+    if (totalSlides <= 1) return;
+
+    function handleDragStart(clientX, clientY) {
+        currentSlideIdx = parseInt(slider.getAttribute('data-current-slide') || '0', 10);
+        totalSlides = slider.querySelectorAll('.dept-lab-slide').length;
+        sliderWidth = slider.offsetWidth || 300;
+        startX = clientX;
+        startY = clientY;
+        currentX = clientX;
+        currentY = clientY;
+        isDragging = true;
+        isHorizontalSwipe = false;
+
+        // Pause auto timer during hand touch
+        if (slider._autoSlideTimer) {
+            clearInterval(slider._autoSlideTimer);
+            slider._autoSlideTimer = null;
+        }
+        slider.classList.add('is-dragging');
+    }
+
+    function handleDragMove(clientX, clientY, e) {
+        if (!isDragging) return;
+        currentX = clientX;
+        currentY = clientY;
+
+        const diffX = currentX - startX;
+        const diffY = currentY - startY;
+
+        if (!isHorizontalSwipe) {
+            // Determine vertical page scrolling vs horizontal image swiping
+            if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 8) {
+                // User is scrolling the page vertically
+                isDragging = false;
+                slider.classList.remove('is-dragging');
+                return;
+            }
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 8) {
+                isHorizontalSwipe = true;
+                slidesContainer.style.transition = 'none';
+            }
+        }
+
+        if (isHorizontalSwipe) {
+            if (e && e.cancelable) {
+                e.preventDefault();
+            }
+            // Add resistance at edge boundaries
+            let delta = diffX;
+            if ((currentSlideIdx === 0 && diffX > 0) || (currentSlideIdx === totalSlides - 1 && diffX < 0)) {
+                delta = diffX * 0.32;
+            }
+            slidesContainer.style.transform = `translateX(calc(-${currentSlideIdx * 100}% + ${delta}px))`;
+        }
+    }
+
+    function handleDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        slider.classList.remove('is-dragging');
+
+        if (isHorizontalSwipe) {
+            const diffX = currentX - startX;
+            const threshold = Math.max(sliderWidth * 0.15, 40);
+
+            slidesContainer.style.transition = 'transform 0.36s cubic-bezier(0.25, 1, 0.5, 1)';
+
+            if (diffX < -threshold) {
+                // Swiped left -> next slide
+                if (currentSlideIdx < totalSlides - 1) {
+                    setLabSlide(slider, currentSlideIdx + 1);
+                } else {
+                    setLabSlide(slider, currentSlideIdx);
+                }
+            } else if (diffX > threshold) {
+                // Swiped right -> previous slide
+                if (currentSlideIdx > 0) {
+                    setLabSlide(slider, currentSlideIdx - 1);
+                } else {
+                    setLabSlide(slider, 0);
+                }
+            } else {
+                // Not dragged past threshold -> snap back to current
+                setLabSlide(slider, currentSlideIdx);
+            }
+        }
+
+        resetLabSliderTimer(slider);
+    }
+
+    // --- Touch Events for Mobile (Phone / Tablet) ---
+    slider.addEventListener('touchstart', e => {
+        if (e.touches && e.touches.length === 1) {
+            handleDragStart(e.touches[0].clientX, e.touches[0].clientY);
+        }
+    }, { passive: true });
+
+    slider.addEventListener('touchmove', e => {
+        if (e.touches && e.touches.length === 1) {
+            handleDragMove(e.touches[0].clientX, e.touches[0].clientY, e);
+        }
+    }, { passive: false });
+
+    slider.addEventListener('touchend', () => {
+        handleDragEnd();
+    }, { passive: true });
+
+    slider.addEventListener('touchcancel', () => {
+        handleDragEnd();
+    }, { passive: true });
+
+    // --- Mouse Drag for Desktop / Emulators ---
+    slider.addEventListener('mousedown', e => {
+        if (e.button !== 0) return;
+        if (e.target.closest('.dept-lab-slide-nav') || e.target.closest('.dept-lab-dot')) return;
+        e.preventDefault();
+        handleDragStart(e.clientX, e.clientY);
+
+        function onMouseMove(moveEvent) {
+            handleDragMove(moveEvent.clientX, moveEvent.clientY, moveEvent);
+        }
+
+        function onMouseUp() {
+            window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('mouseup', onMouseUp);
+            handleDragEnd();
+        }
+
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
+    });
+
+    // Pause on hover
+    slider.addEventListener('mouseenter', () => {
+        if (slider._autoSlideTimer) {
+            clearInterval(slider._autoSlideTimer);
+            slider._autoSlideTimer = null;
+        }
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        if (!isDragging) {
+            resetLabSliderTimer(slider);
+        }
+    });
+}
+
 function initLabSliders() {
     const sliders = document.querySelectorAll('.dept-lab-slider');
     sliders.forEach(slider => {
         slider.setAttribute('data-current-slide', '0');
+        setLabSlide(slider, 0, false);
         resetLabSliderTimer(slider);
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        slider.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        slider.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diff = touchEndX - touchStartX;
-            if (Math.abs(diff) > 40) {
-                const current = parseInt(slider.getAttribute('data-current-slide') || '0', 10);
-                if (diff < 0) {
-                    setLabSlide(slider, current + 1);
-                } else {
-                    setLabSlide(slider, current - 1);
-                }
-                resetLabSliderTimer(slider);
-            }
-        }, { passive: true });
-
-        slider.addEventListener('mouseenter', () => {
-            if (slider._autoSlideTimer) {
-                clearInterval(slider._autoSlideTimer);
-                slider._autoSlideTimer = null;
-            }
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            resetLabSliderTimer(slider);
-        });
+        bindLabSliderGestures(slider);
     });
 }
 
@@ -370,6 +514,10 @@ function initDepartment() {
 
         // Reveal elements inside the newly active tab pane
         setupRevealElements(targetPane);
+
+        if (tabId === 'facilities') {
+            initLabSliders();
+        }
 
         // Smoothly scroll to content if user is scrolled past the subnav
         if (shouldScroll) {
