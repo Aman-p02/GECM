@@ -759,6 +759,7 @@
 .dept-lab-slider {
     position: relative;
     user-select: none;
+    touch-action: pan-y;
 }
 
 .dept-lab-slides {
@@ -1213,8 +1214,68 @@
         grid-template-columns: 1fr;
     }
 
+    .dept-labs-showcase {
+        gap: 24px;
+        margin-top: 22px;
+    }
+
+    .dept-lab-card {
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
     .dept-lab-image-frame {
-        height: 250px;
+        height: 240px;
+    }
+
+    .dept-lab-details {
+        padding: 20px 18px;
+    }
+
+    .dept-lab-title {
+        font-size: 1.25rem;
+        margin: 0 0 8px;
+    }
+
+    .dept-lab-desc {
+        font-size: 0.9rem;
+        line-height: 1.62;
+    }
+
+    /* On mobile/touch devices, ensure navigation buttons and indicators are clearly visible */
+    .dept-lab-slide-nav {
+        opacity: 0.88;
+        width: 36px;
+        height: 36px;
+        font-size: 0.76rem;
+    }
+
+    .dept-lab-slide-nav.prev {
+        left: 6px;
+    }
+
+    .dept-lab-slide-nav.next {
+        right: 6px;
+    }
+
+    .dept-lab-slide-caption {
+        font-size: 0.68rem;
+        padding: 22px 10px 6px;
+        max-width: calc(100% - 70px);
+    }
+
+    .dept-lab-slide-dots {
+        bottom: 6px;
+        right: 8px;
+        padding: 3px 6px;
+        gap: 4px;
+    }
+
+    .dept-lab-slide-counter {
+        top: 6px;
+        right: 6px;
+        font-size: 0.64rem;
+        padding: 2px 6px;
     }
 
     .dept-main-content {
@@ -1266,5 +1327,70 @@
 
     .dept-citation-date {
         align-self: flex-start;
+    }
+}
+
+/* Extra small mobile devices (phones under 480px) */
+@media (max-width: 480px) {
+    .dept-labs-showcase {
+        gap: 18px;
+    }
+
+    .dept-lab-image-frame {
+        height: 205px;
+    }
+
+    .dept-lab-details {
+        padding: 16px 14px;
+    }
+
+    .dept-lab-room {
+        font-size: 0.68rem;
+        margin-bottom: 4px;
+    }
+
+    .dept-lab-title {
+        font-size: 1.15rem;
+        margin: 0 0 6px;
+    }
+
+    .dept-lab-desc {
+        font-size: 0.85rem;
+        line-height: 1.55;
+    }
+
+    .dept-lab-slide-nav {
+        width: 32px;
+        height: 32px;
+        font-size: 0.7rem;
+    }
+
+    .dept-lab-slide-caption {
+        font-size: 0.62rem;
+        padding: 18px 8px 5px;
+        max-width: calc(100% - 62px);
+    }
+
+    .dept-lab-slide-dots {
+        bottom: 5px;
+        right: 6px;
+        padding: 2px 5px;
+        gap: 3px;
+    }
+
+    .dept-lab-dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .dept-lab-dot.active {
+        width: 10px;
+    }
+
+    .dept-lab-slide-counter {
+        top: 5px;
+        right: 5px;
+        font-size: 0.6rem;
+        padding: 2px 5px;
     }
 }
