@@ -640,8 +640,33 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Facility 9: Manufacturing Process Lab (Machine Lab) -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_manufacturing_process.jpg" alt="Manufacturing Process Lab (Machine Lab)" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        <div class="dept-lab-image-frame dept-lab-slider" data-lab-slider data-autoplay="4000">
+                            <div class="dept-lab-slides">
+                                <div class="dept-lab-slide active">
+                                    <img src="images/labs/lab_manufacturing_process.jpg" alt="Precision Turning Machines &amp; Lathe Line" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Precision Turning Machines &amp; Lathe Line</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/lab_manufacturing_lathes.jpg" alt="HMT Series-10 Precision Lathe Machines" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">HMT Series-10 Precision Lathe Machines</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/lab_manufacturing_shearing.jpg" alt="Industrial Hydraulic Shearing &amp; Cutting Machine" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Industrial Hydraulic Shearing &amp; Cutting Machine</span>
+                                </div>
+                            </div>
+                            <button type="button" class="dept-lab-slide-nav prev" aria-label="Previous photo" onclick="prevLabSlide(this, event)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="dept-lab-slide-nav next" aria-label="Next photo" onclick="nextLabSlide(this, event)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dept-lab-slide-dots">
+                                <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Photo 3" onclick="goLabSlide(this, 2, event)"></button>
+                            </div>
+                            <span class="dept-lab-slide-counter">1 / 3</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Workshop Building &bull; Machine Tools &amp; Production Wing</span>
