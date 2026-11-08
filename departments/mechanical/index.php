@@ -679,8 +679,28 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Facility 10: Basic Mechanical Engineering Lab -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_basic_mechanical.jpg" alt="Basic Mechanical Engineering Lab" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                        <div class="dept-lab-image-frame dept-lab-slider" data-lab-slider data-autoplay="4000">
+                            <div class="dept-lab-slides">
+                                <div class="dept-lab-slide active">
+                                    <img src="images/labs/lab_basic_mechanical.jpg" alt="Steam Boiler Cut-Section &amp; Fire Tube Demonstration Models" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                                    <span class="dept-lab-slide-caption">Steam Boiler Cut-Section &amp; Fire Tube Demonstration Models</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/lab_basic_mechanical_boilers.jpg" alt="Water Tube Boilers, Evaporator &amp; Engine Models" loading="lazy" onerror="this.src='../../images/hero_campus_2.jpg'">
+                                    <span class="dept-lab-slide-caption">Water Tube Boilers, Evaporator &amp; Engine Models</span>
+                                </div>
+                            </div>
+                            <button type="button" class="dept-lab-slide-nav prev" aria-label="Previous photo" onclick="prevLabSlide(this, event)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="dept-lab-slide-nav next" aria-label="Next photo" onclick="nextLabSlide(this, event)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dept-lab-slide-dots">
+                                <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
+                            </div>
+                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Building No. 6 &bull; Thermal Power &amp; Energy Models</span>
