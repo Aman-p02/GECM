@@ -435,7 +435,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Building No. 6 &bull; Advanced Manufacturing Wing</span>
                             <h3 class="dept-lab-title">CAD / CAM Lab</h3>
                             <p class="dept-lab-desc">
-                                Emphasizes computer-aided design and manufacturing, quality control, precision metrology, nonconventional manufacturing, flexible manufacturing systems (FMS), and automation. Equipped with an industrial Fortune CNC turning centre, Electronica Wire-Cut EDM, spark erosion machine, 5-axis articulated robot, and specialized manufacturing machinery.
+                                Equipped with industrial Fortune CNC turning centre, Electronica Wire-Cut EDM, spark erosion machine, and 5-axis robot for hands-on precision machining, CAD/CAM integration, and automation.
                             </p>
                         </div>
                     </div>
@@ -449,7 +449,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Building No. 6 &bull; High-Performance Computing Center</span>
                             <h3 class="dept-lab-title">CAD Simulation &amp; Computing Center</h3>
                             <p class="dept-lab-desc">
-                                High-performance computing facility equipped with dedicated personal computer workstations running licensed advanced engineering packages including ANSYS, MATLAB, and modern CAD modeling suites for finite element analysis (FEA), thermal-fluid simulations, and design optimization.
+                                High-performance computing center with dedicated workstations running licensed ANSYS, MATLAB, and modern 3D CAD suites for finite element analysis (FEA), thermal-fluid modeling, and design optimization.
                             </p>
                         </div>
                     </div>
@@ -483,7 +483,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Workshop Building &bull; Automotive &amp; Power Systems</span>
                             <h3 class="dept-lab-title">Internal Combustion Engine &amp; Automobile Lab</h3>
                             <p class="dept-lab-desc">
-                                Equipped with modern internal combustion engine test rigs, diesel smoke meter, variable compression ratio (VCR) engine test setup, and five-gas exhaust gas analyzers for power, fuel consumption, and emission analysis. Features a working Car Model Chassis, vehicle steering &amp; suspension systems, cut sections of 4-stroke 4-cylinder and 3-cylinder diesel engines, and working models of 4-stroke 1-cylinder diesel engines.
+                                Features computerized VCR engine test rigs, 5-gas exhaust analyzer, full car chassis demonstration rig, steering-suspension setups, and cut-section multi-cylinder diesel engines.
                             </p>
                         </div>
                     </div>
@@ -517,7 +517,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Workshop Building &bull; Fluid Machinery Wing</span>
                             <h3 class="dept-lab-title">Fluid Mechanics &amp; Hydraulic Machine Lab</h3>
                             <p class="dept-lab-desc">
-                                Features modern turbomachinery and fundamental hydrodynamic experimental setups including Volumetric Hydraulic Bench, Reynolds Apparatus, Pelton Wheel Turbine Test Rig, Centrifugal Pump Test Rig, Reciprocating Pump Test Rig, Indo-Air Reciprocating Compressor Test Rig, and Axial Flow Pump test ring.
+                                Equipped with Volumetric Hydraulic Bench, Pelton turbine, centrifugal pump test rig, reciprocating pump apparatus, and Indo-Air multi-stage air compressor for hydrodynamic and turbomachinery analysis.
                             </p>
                         </div>
                     </div>
@@ -551,7 +551,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Thermal Engineering Wing &bull; Energy Systems</span>
                             <h3 class="dept-lab-title">Heat Transfer Science Lab</h3>
                             <p class="dept-lab-desc">
-                                State-of-the-art experimental rigs addressing heat transfer science. Dedicated facilities for Coolpex Cross Flow Heat Exchanger, two-phase flow pattern observation, Thermal Conductivity of Insulating Powder, Composite Wall Apparatus, Forced Convection through pipe, Vertical Tube losing heat by natural convection, and Emissivity test rig.
+                                Features Coolpex cross-flow heat exchanger, composite wall thermal conduction apparatus, natural and forced convection rigs, and emissivity setups for thermodynamic experiments.
                             </p>
                         </div>
                     </div>
@@ -585,7 +585,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Thermal Engineering Wing &bull; RAC Complex</span>
                             <h3 class="dept-lab-title">Refrigeration &amp; Air Conditioning (RAC) Lab</h3>
                             <p class="dept-lab-desc">
-                                Facilitates thermodynamic cooling experiments including determination of COP of Vapour Compression Refrigeration Systems and Vapour Absorption Systems. Major setups include Vapour Compression Refrigeration Test Rig, Electrolux Refrigerator, Window Air Conditioner, and Domestic Refrigerator units.
+                                Equipped with Vapour Compression and Absorption test rigs, air conditioning trainers, and pin-fin heat transfer apparatus for determining system COP and thermodynamic cooling performance.
                             </p>
                         </div>
                     </div>
@@ -619,7 +619,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Building No. 6 &bull; Machine Dynamics &amp; Mechanisms Wing</span>
                             <h3 class="dept-lab-title">Kinematics &amp; Dynamics of Machine Lab</h3>
                             <p class="dept-lab-desc">
-                                Helps students understand the working principles of machines, motion transmission, and dynamic forces. Enables experimental study of static and dynamic balancing, unbalanced forces in rotary and reciprocating engines, vibrational system frequencies, time periods, and precision vibration measurement techniques.
+                                Features gear train mechanisms, cut-section differential drive, static and dynamic balancing rigs, and vibration measurement apparatus for studying motion transmission and machine dynamics.
                             </p>
                         </div>
                     </div>
@@ -658,7 +658,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Workshop Building &bull; Machine Tools &amp; Production Wing</span>
                             <h3 class="dept-lab-title">Manufacturing Process Lab (Machine Lab)</h3>
                             <p class="dept-lab-desc">
-                                Contains laboratories for Manufacturing Technology and Production Technology subjects, where students conduct hands-on machining, metal cutting, machine tooling, jigs &amp; fixtures, die &amp; mould design, and machine manufacturing. Equipped with center lathes, drilling machines, shaper machines, shearing machines, power press, Die Sinking EDM machine, and Wire Cut EDM machine.
+                                Equipped with heavy industrial center lathes, shapers, radial drills, power press, hydraulic sheet shearing machine, Die Sinking EDM, and Wire Cut EDM for comprehensive metal cutting and fabrication training.
                             </p>
                         </div>
                     </div>
@@ -692,7 +692,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Building No. 6 &bull; Thermal Power &amp; Energy Models</span>
                             <h3 class="dept-lab-title">Basic Mechanical Engineering Lab</h3>
                             <p class="dept-lab-desc">
-                                Equipped with authentic cut-section demonstration boiler models including Cochran Boiler, Babcock &amp; Wilcox Water Tube Boiler, and Lancashire Boiler, alongside comprehensive steam boiler mountings, valves, and accessories for foundational understanding of steam power cycles and thermodynamics.
+                                Features authentic cut-section demonstration models of Cochran, Babcock &amp; Wilcox, and Lancashire steam boilers with essential mountings and accessories for foundational thermal engineering training.
                             </p>
                         </div>
                     </div>
@@ -741,7 +741,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             <span class="dept-lab-room">Workshop Building</span>
                             <h3 class="dept-lab-title">Central Mechanical Workshop</h3>
                             <p class="dept-lab-desc">
-                                Comprehensive heavy fabrication and machine tooling bays equipped with center lathes, universal milling machines, shapers, radial drills, carpentry benches, fitting vises, and electric arc/gas welding equipment for student manufacturing projects.
+                                Spacious central fabrication bays equipped with center lathes, universal milling machines, shaping machines, carpentry benches, fitting vises, and welding booths for hands-on institutional projects.
                             </p>
                         </div>
                     </div>

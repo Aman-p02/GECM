@@ -92,7 +92,11 @@ function resetLabSliderTimer(slider) {
         clearInterval(slider._autoSlideTimer);
         slider._autoSlideTimer = null;
     }
-    const delay = parseInt(slider.getAttribute('data-autoplay') || '4000', 10);
+    let delay = parseInt(slider.getAttribute('data-autoplay') || '4000', 10);
+    // On mobile / phone view, slow down auto-slide interval so photos can be viewed comfortably
+    if (window.innerWidth <= 768) {
+        delay = Math.max(delay, 7000);
+    }
     if (delay > 0) {
         slider._autoSlideTimer = setInterval(() => {
             if (!slider.matches(':hover') && !document.hidden) {
