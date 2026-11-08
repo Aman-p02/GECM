@@ -626,8 +626,43 @@ include_once __DIR__ . '/../../includes/header.php';
 
                     <!-- Facility 8: Central Mechanical Workshop -->
                     <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="../../images/hero_campus_1.jpg" alt="Central Mechanical Workshop" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        <div class="dept-lab-image-frame dept-lab-slider" data-lab-slider data-autoplay="4000">
+                            <div class="dept-lab-slides">
+                                <div class="dept-lab-slide active">
+                                    <img src="images/labs/workshop_building_exterior.jpg" alt="Workshop Building Main Entrance" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Workshop Building &bull; Main Entrance</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/workshop_main_bay.jpg" alt="Central Workshop Main Machine and Fabrication Bay" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Central Workshop Main Machine &amp; Fabrication Bay</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/workshop_fitting_carpentry.jpg" alt="Fitting and Carpentry Workbenches with Heavy Vises" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Fitting &amp; Carpentry Benches with Heavy Vises</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/workshop_milling_shapers.jpg" alt="Universal Milling Machine and Shaping Machinery Row" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Universal Milling Machine &amp; Shaping Machinery Row</span>
+                                </div>
+                                <div class="dept-lab-slide">
+                                    <img src="images/labs/workshop_lathe_machines.jpg" alt="Heavy Industrial Center Lathes Section" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                                    <span class="dept-lab-slide-caption">Heavy Industrial Center Lathes Section</span>
+                                </div>
+                            </div>
+                            <button type="button" class="dept-lab-slide-nav prev" aria-label="Previous photo" onclick="prevLabSlide(this, event)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="dept-lab-slide-nav next" aria-label="Next photo" onclick="nextLabSlide(this, event)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="dept-lab-slide-dots">
+                                <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Photo 3" onclick="goLabSlide(this, 2, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Photo 4" onclick="goLabSlide(this, 3, event)"></button>
+                                <button type="button" class="dept-lab-dot" aria-label="Photo 5" onclick="goLabSlide(this, 4, event)"></button>
+                            </div>
+                            <span class="dept-lab-slide-counter">1 / 5</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Workshop Building</span>
