@@ -7,7 +7,7 @@ include_once __DIR__ . '/../../includes/header.php';
 ?>
 
 <!-- Mechanical Department Stylesheet -->
-<link rel="stylesheet" href="css/department.css">
+<link rel="stylesheet" href="css/department.css?v=<?= filemtime(__DIR__ . '/css/department.css') ?>">
 
 <div class="dept-page" id="mainContent">
 
@@ -2289,7 +2289,7 @@ include_once __DIR__ . '/../../includes/header.php';
 </div>
 
 <!-- Department JavaScript Component -->
-<script src="js/department.js"></script>
+<script src="js/department.js?v=<?= filemtime(__DIR__ . '/js/department.js') ?>"></script>
 
 <?php
 include_once __DIR__ . '/../../includes/footer.php';

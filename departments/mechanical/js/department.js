@@ -333,6 +333,13 @@ function initLabSliders() {
         resetLabSliderTimer(slider);
         bindLabSliderGestures(slider);
     });
+
+    // Prevent any click zoom/enlarge on laboratory images
+    document.querySelectorAll('.dept-lab-image-frame img').forEach(img => {
+        img.addEventListener('click', e => {
+            e.preventDefault();
+        });
+    });
 }
 
 window.prevLabSlide = prevLabSlide;

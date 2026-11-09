@@ -740,7 +740,7 @@
     background: #f8fafc;
     overflow: hidden;
     position: relative;
-    cursor: pointer;
+    cursor: default;
 }
 
 .dept-lab-image-frame img {
@@ -749,11 +749,6 @@
     object-fit: cover;
     object-position: center;
     display: block;
-    transition: transform 0.4s ease;
-}
-
-.dept-lab-card:hover .dept-lab-image-frame img {
-    transform: scale(1.03);
 }
 
 /* Lab Card Image Slider */
