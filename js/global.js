@@ -255,4 +255,192 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateStickyNav();
     }
+
+    // Global Mobile Department Navigation Integration (Replaces main navbar on mobile <= 768px with Dept Menu + Home)
+    function initGlobalDepartmentNav() {
+        const deptSubNav = document.getElementById("deptSubNav") || document.querySelector(".dept-subnav-bar");
+        if (!deptSubNav) return;
+
+        const mainNavList = document.getElementById("mainNavLinks");
+        const hamburgerBtn = document.getElementById("hamburgerBtn");
+        if (!mainNavList || !hamburgerBtn) return;
+
+        let defaultNavHtml = null;
+
+        function buildDeptNav() {
+            const subnavItems = deptSubNav.querySelectorAll(".dept-subnav-list > li");
+            let html = `
+                <li class="hdr-nav-item">
+                    <a href="../../index.php" class="hdr-nav-link dept-home-nav-link">
+                        Home
+                    </a>
+                </li>
+            `;
+
+            subnavItems.forEach(item => {
+                const dropdownToggle = item.querySelector(".dept-dropdown-toggle");
+                const dropdownMenu = item.querySelector(".dept-subnav-menu");
+
+                if (dropdownToggle && dropdownMenu) {
+                    const toggleText = (dropdownToggle.querySelector("span")?.textContent || dropdownToggle.textContent || "").trim();
+                    const menuLinks = dropdownMenu.querySelectorAll(".dept-subnav-menu-link, a");
+
+                    let subLinksHtml = "";
+                    menuLinks.forEach(subLink => {
+                        const tabId = subLink.getAttribute("data-tab") || "";
+                        const rowId = subLink.getAttribute("data-row-id") || "";
+                        const text = subLink.textContent.trim();
+                        subLinksHtml += `<li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="${tabId}" data-row-id="${rowId}">${text}</a></li>`;
+                    });
+
+                    html += `
+                        <li class="hdr-nav-item has-dropdown">
+                            <a href="javascript:void(0);" class="hdr-nav-link">
+                                ${toggleText} <i class="fas fa-chevron-down hdr-arrow"></i>
+                            </a>
+                            <div class="hdr-dropdown">
+                                <ul class="hdr-dd-list">
+                                    ${subLinksHtml}
+                                </ul>
+                            </div>
+                        </li>
+                    `;
+                } else {
+                    const linkOrBtn = item.querySelector(".dept-subnav-link");
+                    if (!linkOrBtn) return;
+
+                    const isLink = linkOrBtn.tagName === "A";
+                    const href = linkOrBtn.getAttribute("href");
+                    const dataTab = linkOrBtn.getAttribute("data-tab");
+                    const text = (linkOrBtn.querySelector("span")?.textContent || linkOrBtn.textContent || "").trim();
+
+                    if (isLink && href && href !== "#") {
+                        const target = linkOrBtn.getAttribute("target") || "_self";
+                        html += `
+                            <li class="hdr-nav-item">
+                                <a href="${href}" target="${target}" rel="noopener noreferrer" class="hdr-nav-link dept-ext-nav-link">
+                                    ${text}
+                                </a>
+                            </li>
+                        `;
+                    } else if (dataTab) {
+                        const isActive = linkOrBtn.classList.contains("active") || linkOrBtn.getAttribute("aria-selected") === "true";
+                        html += `
+                            <li class="hdr-nav-item">
+                                <a href="javascript:void(0);" class="hdr-nav-link ${isActive ? 'active is-active' : ''}" data-tab="${dataTab}">
+                                    ${text}
+                                </a>
+                            </li>
+                        `;
+                    }
+                }
+            });
+
+            return html;
+        }
+
+        function checkAndApplyMobileNav() {
+            if (window.innerWidth <= 768) {
+                if (!defaultNavHtml) {
+                    defaultNavHtml = mainNavList.innerHTML;
+                }
+                if (mainNavList.getAttribute("data-mode") !== "department") {
+                    mainNavList.innerHTML = buildDeptNav();
+                    mainNavList.setAttribute("data-mode", "department");
+                    bindDeptMobileEvents();
+                }
+            } else {
+                if (defaultNavHtml && mainNavList.getAttribute("data-mode") === "department") {
+                    mainNavList.innerHTML = defaultNavHtml;
+                    mainNavList.setAttribute("data-mode", "default");
+                }
+            }
+        }
+
+        function bindDeptMobileEvents() {
+            // Tab links inside drawer
+            mainNavList.querySelectorAll("[data-tab]").forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute("data-tab");
+                    const rowId = this.getAttribute("data-row-id");
+
+                    // Close mobile drawer
+                    mainNavList.classList.remove("is-open");
+                    hamburgerBtn.setAttribute("aria-expanded", "false");
+                    hamburgerBtn.classList.remove("is-active");
+
+                    if (tabId) {
+                        if (typeof window.activateTab === "function") {
+                            window.activateTab(tabId, !rowId);
+                        } else {
+                            const subBtn = deptSubNav.querySelector(`.dept-subnav-link[data-tab="${tabId}"]`);
+                            if (subBtn) subBtn.click();
+                        }
+
+                        // Update data-active-tab on .dept-page and body
+                        const deptPage = document.querySelector(".dept-page") || document.body;
+                        deptPage.setAttribute("data-active-tab", tabId);
+                        document.body.setAttribute("data-active-tab", tabId);
+                    }
+
+                    // Update active highlight in mobile drawer
+                    mainNavList.querySelectorAll(".hdr-nav-link, .hdr-dd-link").forEach(el => {
+                        el.classList.remove("active", "is-active");
+                    });
+                    this.classList.add("active");
+
+                    if (rowId) {
+                        setTimeout(() => {
+                            const targetEl = document.getElementById(rowId);
+                            if (targetEl) {
+                                const elY = targetEl.getBoundingClientRect().top + window.pageYOffset - 70;
+                                window.scrollTo({ top: Math.max(0, elY), behavior: "smooth" });
+                                targetEl.classList.remove("is-row-highlight");
+                                void targetEl.offsetWidth;
+                                targetEl.classList.add("is-row-highlight");
+                            }
+                        }, 260);
+                    } else if (tabId) {
+                        setTimeout(() => {
+                            const scrollTarget = document.querySelector(".dept-main-content") || document.getElementById("tab-" + tabId);
+                            if (scrollTarget) {
+                                const targetY = scrollTarget.getBoundingClientRect().top + window.pageYOffset - 60;
+                                window.scrollTo({ top: Math.max(0, targetY), behavior: "smooth" });
+                            }
+                        }, 100);
+                    }
+                });
+            });
+
+            // Accordion toggle for mobile dropdowns
+            mainNavList.querySelectorAll(".hdr-nav-item.has-dropdown > .hdr-nav-link").forEach(toggle => {
+                toggle.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = this.closest(".hdr-nav-item.has-dropdown");
+                    if (!parent) return;
+                    const isOpen = parent.classList.contains("is-sub-open");
+                    mainNavList.querySelectorAll(".hdr-nav-item.has-dropdown.is-sub-open").forEach(item => {
+                        if (item !== parent) item.classList.remove("is-sub-open");
+                    });
+                    parent.classList.toggle("is-sub-open", !isOpen);
+                });
+            });
+
+            // Close drawer when external links or Home link clicked
+            mainNavList.querySelectorAll(".dept-ext-nav-link, .dept-home-nav-link").forEach(link => {
+                link.addEventListener("click", function () {
+                    mainNavList.classList.remove("is-open");
+                    hamburgerBtn.setAttribute("aria-expanded", "false");
+                    hamburgerBtn.classList.remove("is-active");
+                });
+            });
+        }
+
+        checkAndApplyMobileNav();
+        window.addEventListener("resize", checkAndApplyMobileNav, { passive: true });
+    }
+
+    initGlobalDepartmentNav();
 });

@@ -1679,3 +1679,31 @@ img.zoom-hover {
 img.zoom-hover:hover {
     transform: scale(1.04);
 }
+
+/* ==========================================================================
+   Global Mobile Department Navigation & Subnav Removal (<= 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .dept-subnav-bar {
+        display: none !important;
+    }
+}
+
+/* Department Hero Photo & Stats - Only visible on 'About' tab (All Devices) */
+.dept-page:not([data-active-tab="about"]) .dept-hero-media,
+.dept-page:not([data-active-tab="about"]) .dept-stats-strip {
+    display: none !important;
+}
+
+.dept-page:not([data-active-tab="about"]) .dept-hero-grid {
+    grid-template-columns: 1fr !important;
+}
+
+.dept-page:not([data-active-tab="about"]) .dept-hero-banner {
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+}
+
+.dept-page:not([data-active-tab="about"]) .dept-tagline {
+    display: none !important;
+}

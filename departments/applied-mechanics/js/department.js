@@ -200,6 +200,11 @@ function initDepartment() {
         const targetPane = document.getElementById('tab-' + tabId);
         if (!targetPane) return;
 
+        // Update data-active-tab on .dept-page and body (controls photo & stats visibility)
+        const deptPage = document.querySelector('.dept-page') || document.body;
+        deptPage.setAttribute('data-active-tab', tabId);
+        document.body.setAttribute('data-active-tab', tabId);
+
         // Reset all buttons and tab panes
         tabButtons.forEach(btn => {
             btn.classList.remove('active');
@@ -240,17 +245,27 @@ function initDepartment() {
 
         // Smoothly scroll to content if user is scrolled past the subnav
         if (shouldScroll) {
-            const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
-            const mainNavHeight = (window.innerWidth > 768 && mainNav) ? (Math.round(mainNav.getBoundingClientRect().height) || 52) : 0;
-            if (subNav) {
-                const subNavRect = subNav.getBoundingClientRect();
-                if (subNavRect.top <= mainNavHeight + 2) {
-                    const targetY = subNav.offsetTop - mainNavHeight;
+            if (window.innerWidth <= 768) {
+                const scrollTarget = document.querySelector('.dept-main-content') || targetPane;
+                if (scrollTarget) {
+                    const headerHeight = 60;
+                    const targetY = scrollTarget.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                     window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                }
+            } else {
+                const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
+                const mainNavHeight = (window.innerWidth > 768 && mainNav) ? (Math.round(mainNav.getBoundingClientRect().height) || 52) : 0;
+                if (subNav) {
+                    const subNavRect = subNav.getBoundingClientRect();
+                    if (subNavRect.top <= mainNavHeight + 2) {
+                        const targetY = subNav.offsetTop - mainNavHeight;
+                        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                    }
                 }
             }
         }
     }
+    window.activateTab = activateTab;
 
     tabButtons.forEach(btn => {
         btn.addEventListener('click', function (e) {

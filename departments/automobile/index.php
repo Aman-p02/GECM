@@ -12,7 +12,7 @@ include_once __DIR__ . '/../../includes/header.php';
 <!-- Automobile Department Stylesheet -->
 <link rel="stylesheet" href="css/department.css">
 
-<div class="dept-page" id="mainContent">
+<div class="dept-page" id="mainContent" data-active-tab="about">
 
     <!-- Hero Header Banner -->
     <header class="dept-hero-banner" role="banner">

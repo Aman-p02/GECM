@@ -10,7 +10,7 @@ $extra_js = "departments/computer/js/department.js";
 include_once __DIR__ . '/../../includes/header.php';
 ?>
 
-<div class="dept-page">
+<div class="dept-page" id="mainContent" data-active-tab="about">
 
     <!-- Hero header section -->
     <header class="dept-hero-banner">
