@@ -346,6 +346,201 @@ window.prevLabSlide = prevLabSlide;
 window.nextLabSlide = nextLabSlide;
 window.goLabSlide = goLabSlide;
 
+    // 6. Mobile Department Navigation Integration (Replaces main navbar on mobile with Dept Menu + Home)
+    function setupMobileDepartmentNav() {
+        const mainNavList = document.getElementById('mainNavLinks');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        if (!mainNavList || !hamburgerBtn) return;
+
+        let defaultNavHtml = null;
+        let deptNavHtml = null;
+
+        function buildDeptNav() {
+            if (deptNavHtml) return deptNavHtml;
+
+            deptNavHtml = `
+                <li class="hdr-nav-item dept-mobile-home-item">
+                    <a href="../../index.php" class="hdr-nav-link dept-mobile-home-link">
+                        <span><i class="fas fa-home" style="margin-right: 8px;"></i> GEC Modasa Home</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </li>
+                <li class="hdr-nav-item dept-mobile-title-item">
+                    <div class="dept-mobile-title-block">
+                        <span class="dept-mobile-dept-kicker">DEPARTMENT MENU</span>
+                        <strong class="dept-mobile-dept-name">Mechanical Engineering</strong>
+                    </div>
+                </li>
+                <li class="hdr-nav-item">
+                    <button type="button" class="hdr-nav-link dept-mobile-tab-btn" data-tab="about">
+                        <span><i class="fas fa-info-circle" style="width: 20px; color: #64748b; margin-right: 8px;"></i> About Department</span>
+                    </button>
+                </li>
+                <li class="hdr-nav-item">
+                    <button type="button" class="hdr-nav-link dept-mobile-tab-btn" data-tab="vision-mission">
+                        <span><i class="fas fa-bullseye" style="width: 20px; color: #64748b; margin-right: 8px;"></i> Vision &amp; Mission</span>
+                    </button>
+                </li>
+                <li class="hdr-nav-item">
+                    <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="hdr-nav-link">
+                        <span><i class="fas fa-book" style="width: 20px; color: #64748b; margin-right: 8px;"></i> GTU Syllabus</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.72rem; opacity: 0.6;"></i>
+                    </a>
+                </li>
+                <li class="hdr-nav-item">
+                    <button type="button" class="hdr-nav-link dept-mobile-tab-btn" data-tab="facilities">
+                        <span><i class="fas fa-flask" style="width: 20px; color: #64748b; margin-right: 8px;"></i> Facilities &amp; Labs</span>
+                    </button>
+                </li>
+                <li class="hdr-nav-item">
+                    <button type="button" class="hdr-nav-link dept-mobile-tab-btn" data-tab="publications">
+                        <span><i class="fas fa-file-alt" style="width: 20px; color: #64748b; margin-right: 8px;"></i> Publications</span>
+                    </button>
+                </li>
+                <li class="hdr-nav-item">
+                    <button type="button" class="hdr-nav-link dept-mobile-tab-btn" data-tab="instruction-material">
+                        <span><i class="fas fa-book-open" style="width: 20px; color: #64748b; margin-right: 8px;"></i> Instruction Material</span>
+                    </button>
+                </li>
+                <li class="hdr-nav-item">
+                    <button type="button" class="hdr-nav-link dept-mobile-tab-btn" data-tab="learning-resources">
+                        <span><i class="fas fa-laptop-code" style="width: 20px; color: #64748b; margin-right: 8px;"></i> Learning Resources</span>
+                    </button>
+                </li>
+                <li class="hdr-nav-item">
+                    <button type="button" class="hdr-nav-link dept-mobile-tab-btn" data-tab="instruction-feedback">
+                        <span><i class="fas fa-comment-dots" style="width: 20px; color: #64748b; margin-right: 8px;"></i> Feedback for Instruction material</span>
+                    </button>
+                </li>
+                <li class="hdr-nav-item has-dropdown dept-mobile-accordion">
+                    <a href="javascript:void(0);" class="hdr-nav-link dept-mobile-accordion-toggle">
+                        <span><i class="fas fa-calendar-alt" style="width: 20px; color: #64748b; margin-right: 8px;"></i> Academic Calendar</span>
+                        <i class="fas fa-chevron-down hdr-arrow"></i>
+                    </a>
+                    <div class="hdr-dropdown dept-mobile-dropdown">
+                        <ul class="hdr-dd-list">
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="academic-calendar" data-row-id="cal-even-2025-26">EVEN 2025-26</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="academic-calendar" data-row-id="cal-odd-2025-26">ODD 2025-26</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="academic-calendar" data-row-id="cal-even-2024-25">EVEN 2024-25</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="academic-calendar" data-row-id="cal-odd-2024-25-rev">ODD 2024-25 (Revised)</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="academic-calendar" data-row-id="cal-odd-2024-25">ODD 2024-25</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="academic-calendar" data-row-id="cal-even-2023-24-rev">EVEN 2023-24 (Revised)</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="academic-calendar" data-row-id="cal-even-2023-24">EVEN 2023-24</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="academic-calendar" data-row-id="cal-odd-2023-24">ODD 2023-24</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="academic-calendar" data-row-id="cal-even-2022-23">EVEN 2022-23</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="academic-calendar" data-row-id="cal-odd-2022-23">ODD 2022-23</button></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="hdr-nav-item has-dropdown dept-mobile-accordion">
+                    <a href="javascript:void(0);" class="hdr-nav-link dept-mobile-accordion-toggle">
+                        <span><i class="fas fa-handshake" style="width: 20px; color: #64748b; margin-right: 8px;"></i> Industry Advisory Board</span>
+                        <i class="fas fa-chevron-down hdr-arrow"></i>
+                    </a>
+                    <div class="hdr-dropdown dept-mobile-dropdown">
+                        <ul class="hdr-dd-list">
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="industry-advisory-board" data-row-id="iab-2025-26">IAB 2025-26</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="industry-advisory-board" data-row-id="iab-2024-25">IAB 2024-25</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="industry-advisory-board" data-row-id="iab-2023-24">IAB 2023-24</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="industry-advisory-board" data-row-id="iab-2022-23">IAB 2022-23</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="industry-advisory-board" data-row-id="iab-2021-22">IAB 2021-22</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="industry-advisory-board" data-row-id="iab-2020-21">IAB 2020-21</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="industry-advisory-board" data-row-id="iab-2019-20">IAB 2019-20</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="industry-advisory-board" data-row-id="iab-2018-19">IAB 2018-19</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="industry-advisory-board" data-row-id="iab-2017-18">IAB 2017-18</button></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="hdr-nav-item has-dropdown dept-mobile-accordion">
+                    <a href="javascript:void(0);" class="hdr-nav-link dept-mobile-accordion-toggle">
+                        <span><i class="fas fa-newspaper" style="width: 20px; color: #64748b; margin-right: 8px;"></i> News Letters</span>
+                        <i class="fas fa-chevron-down hdr-arrow"></i>
+                    </a>
+                    <div class="hdr-dropdown dept-mobile-dropdown">
+                        <ul class="hdr-dd-list">
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="newsletters" data-row-id="nl-2025">News Letter 2025</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="newsletters" data-row-id="nl-2024">News Letter 2024</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="newsletters" data-row-id="nl-2023">News Letter 2023</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="newsletters" data-row-id="nl-2022">News Letter 2022</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="newsletters" data-row-id="nl-2021">News Letter 2021</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="newsletters" data-row-id="nl-2020">News Letter 2020</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="newsletters" data-row-id="nl-2019">News Letter 2019</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="newsletters" data-row-id="nl-2018">News Letter 2018</button></li>
+                            <li><button type="button" class="hdr-dd-link dept-mobile-tab-btn" data-tab="newsletters" data-row-id="nl-2017">News Letter 2017</button></li>
+                        </ul>
+                    </div>
+                </li>
+            `;
+            return deptNavHtml;
+        }
+
+        function checkAndApplyMobileNav() {
+            if (window.innerWidth <= 768) {
+                if (!defaultNavHtml) {
+                    defaultNavHtml = mainNavList.innerHTML;
+                }
+                if (mainNavList.getAttribute('data-mode') !== 'department') {
+                    mainNavList.innerHTML = buildDeptNav();
+                    mainNavList.setAttribute('data-mode', 'department');
+                    bindDeptMobileEvents();
+                }
+            } else {
+                if (defaultNavHtml && mainNavList.getAttribute('data-mode') === 'department') {
+                    mainNavList.innerHTML = defaultNavHtml;
+                    mainNavList.setAttribute('data-mode', 'default');
+                }
+            }
+        }
+
+        function bindDeptMobileEvents() {
+            mainNavList.querySelectorAll('.dept-mobile-tab-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    const rowId = this.getAttribute('data-row-id');
+
+                    // Close mobile drawer
+                    mainNavList.classList.remove('is-open');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    hamburgerBtn.classList.remove('is-active');
+
+                    if (tabId) {
+                        activateTab(tabId, true);
+                    }
+
+                    if (rowId) {
+                        setTimeout(() => {
+                            const targetEl = document.getElementById(rowId);
+                            if (targetEl) {
+                                targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                targetEl.classList.remove('is-row-highlight');
+                                void targetEl.offsetWidth;
+                                targetEl.classList.add('is-row-highlight');
+                            }
+                        }, 220);
+                    }
+                });
+            });
+
+            mainNavList.querySelectorAll('.dept-mobile-accordion-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = this.closest('.dept-mobile-accordion');
+                    if (!parent) return;
+                    const isOpen = parent.classList.contains('is-sub-open');
+                    mainNavList.querySelectorAll('.dept-mobile-accordion.is-sub-open').forEach(item => {
+                        if (item !== parent) item.classList.remove('is-sub-open');
+                    });
+                    parent.classList.toggle('is-sub-open', !isOpen);
+                });
+            });
+        }
+
+        checkAndApplyMobileNav();
+        window.addEventListener('resize', checkAndApplyMobileNav, { passive: true });
+    }
+
 function initDepartment() {
     const tabButtons = document.querySelectorAll('.dept-subnav-link');
     const tabPanes = document.querySelectorAll('.dept-tab-pane');
@@ -782,6 +977,7 @@ function initDepartment() {
     initPublicationYearFilter();
     initSubnavDropdowns();
     initSubnavScrollHint();
+    setupMobileDepartmentNav();
     setupRevealElements(document);
     initLabSliders();
 
