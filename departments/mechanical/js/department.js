@@ -346,198 +346,6 @@ window.prevLabSlide = prevLabSlide;
 window.nextLabSlide = nextLabSlide;
 window.goLabSlide = goLabSlide;
 
-    // 6. Mobile Department Navigation Integration (Replaces main navbar on mobile with simple Dept Menu + Home)
-    function setupMobileDepartmentNav() {
-        const mainNavList = document.getElementById('mainNavLinks');
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        if (!mainNavList || !hamburgerBtn) return;
-
-        let defaultNavHtml = null;
-        let deptNavHtml = null;
-
-        function buildDeptNav() {
-            if (deptNavHtml) return deptNavHtml;
-
-            deptNavHtml = `
-                <li class="hdr-nav-item">
-                    <a href="../../index.php" class="hdr-nav-link">
-                        Home
-                    </a>
-                </li>
-                <li class="hdr-nav-item">
-                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="about">
-                        About
-                    </a>
-                </li>
-                <li class="hdr-nav-item">
-                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="vision-mission">
-                        Vision &amp; Mission
-                    </a>
-                </li>
-                <li class="hdr-nav-item">
-                    <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="hdr-nav-link">
-                        GTU Syllabus
-                    </a>
-                </li>
-                <li class="hdr-nav-item">
-                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="facilities">
-                        Facilities
-                    </a>
-                </li>
-                <li class="hdr-nav-item">
-                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="publications">
-                        Publications
-                    </a>
-                </li>
-                <li class="hdr-nav-item">
-                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="instruction-material">
-                        Instruction Material
-                    </a>
-                </li>
-                <li class="hdr-nav-item">
-                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="learning-resources">
-                        Learning Resources
-                    </a>
-                </li>
-                <li class="hdr-nav-item">
-                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="instruction-feedback">
-                        Feedback for Instruction material
-                    </a>
-                </li>
-                <li class="hdr-nav-item has-dropdown">
-                    <a href="javascript:void(0);" class="hdr-nav-link">
-                        Department Academic Calendar <i class="fas fa-chevron-down hdr-arrow"></i>
-                    </a>
-                    <div class="hdr-dropdown">
-                        <ul class="hdr-dd-list">
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-even-2025-26">EVEN 2025-26</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-odd-2025-26">ODD 2025-26</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-even-2024-25">EVEN 2024-25</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-odd-2024-25-rev">ODD 2024-25 (Revised)</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-odd-2024-25">ODD 2024-25</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-even-2023-24-rev">EVEN 2023-24 (Revised)</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-even-2023-24">EVEN 2023-24</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-odd-2023-24">ODD 2023-24</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-even-2022-23">EVEN 2022-23</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-odd-2022-23">ODD 2022-23</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="hdr-nav-item has-dropdown">
-                    <a href="javascript:void(0);" class="hdr-nav-link">
-                        Industry Advisory Board <i class="fas fa-chevron-down hdr-arrow"></i>
-                    </a>
-                    <div class="hdr-dropdown">
-                        <ul class="hdr-dd-list">
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2025-26">IAB 2025-26</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2024-25">IAB 2024-25</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2023-24">IAB 2023-24</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2022-23">IAB 2022-23</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2021-22">IAB 2021-22</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2020-21">IAB 2020-21</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2019-20">IAB 2019-20</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2018-19">IAB 2018-19</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2017-18">IAB 2017-18</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="hdr-nav-item has-dropdown">
-                    <a href="javascript:void(0);" class="hdr-nav-link">
-                        News Letters <i class="fas fa-chevron-down hdr-arrow"></i>
-                    </a>
-                    <div class="hdr-dropdown">
-                        <ul class="hdr-dd-list">
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2025">News Letter 2025</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2024">News Letter 2024</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2023">News Letter 2023</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2022">News Letter 2022</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2021">News Letter 2021</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2020">News Letter 2020</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2019">News Letter 2019</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2018">News Letter 2018</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2017">News Letter 2017</a></li>
-                        </ul>
-                    </div>
-                </li>
-            `;
-            return deptNavHtml;
-        }
-
-        function checkAndApplyMobileNav() {
-            if (window.innerWidth <= 768) {
-                if (!defaultNavHtml) {
-                    defaultNavHtml = mainNavList.innerHTML;
-                }
-                if (mainNavList.getAttribute('data-mode') !== 'department') {
-                    mainNavList.innerHTML = buildDeptNav();
-                    mainNavList.setAttribute('data-mode', 'department');
-                    bindDeptMobileEvents();
-                }
-            } else {
-                if (defaultNavHtml && mainNavList.getAttribute('data-mode') === 'department') {
-                    mainNavList.innerHTML = defaultNavHtml;
-                    mainNavList.setAttribute('data-mode', 'default');
-                }
-            }
-        }
-
-        function bindDeptMobileEvents() {
-            // Tab links inside drawer
-            mainNavList.querySelectorAll('[data-tab]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const tabId = this.getAttribute('data-tab');
-                    const rowId = this.getAttribute('data-row-id');
-
-                    // Close mobile drawer
-                    mainNavList.classList.remove('is-open');
-                    hamburgerBtn.setAttribute('aria-expanded', 'false');
-                    hamburgerBtn.classList.remove('is-active');
-
-                    if (tabId) {
-                        activateTab(tabId, true);
-                    }
-
-                    // Update active highlight in mobile drawer
-                    mainNavList.querySelectorAll('.hdr-nav-link, .hdr-dd-link').forEach(el => {
-                        el.classList.remove('active', 'is-active');
-                    });
-                    this.classList.add('active');
-
-                    if (rowId) {
-                        setTimeout(() => {
-                            const targetEl = document.getElementById(rowId);
-                            if (targetEl) {
-                                targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                targetEl.classList.remove('is-row-highlight');
-                                void targetEl.offsetWidth;
-                                targetEl.classList.add('is-row-highlight');
-                            }
-                        }, 220);
-                    }
-                });
-            });
-
-            // Accordion toggle for mobile dropdowns
-            mainNavList.querySelectorAll('.hdr-nav-item.has-dropdown > .hdr-nav-link').forEach(toggle => {
-                toggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const parent = this.closest('.hdr-nav-item.has-dropdown');
-                    if (!parent) return;
-                    const isOpen = parent.classList.contains('is-sub-open');
-                    mainNavList.querySelectorAll('.hdr-nav-item.has-dropdown.is-sub-open').forEach(item => {
-                        if (item !== parent) item.classList.remove('is-sub-open');
-                    });
-                    parent.classList.toggle('is-sub-open', !isOpen);
-                });
-            });
-        }
-
-        checkAndApplyMobileNav();
-        window.addEventListener('resize', checkAndApplyMobileNav, { passive: true });
-    }
-
 function initDepartment() {
     const tabButtons = document.querySelectorAll('.dept-subnav-link');
     const tabPanes = document.querySelectorAll('.dept-tab-pane');
@@ -685,6 +493,11 @@ function initDepartment() {
         const targetPane = document.getElementById('tab-' + tabId);
         if (!targetPane) return;
 
+        // Update data-active-tab on .dept-page and body (controls photo & stats visibility)
+        const deptPage = document.querySelector('.dept-page') || document.body;
+        deptPage.setAttribute('data-active-tab', tabId);
+        document.body.setAttribute('data-active-tab', tabId);
+
         // Reset all buttons and tab panes
         tabButtons.forEach(btn => {
             btn.classList.remove('active');
@@ -717,6 +530,18 @@ function initDepartment() {
             }
         });
 
+        // Update active highlight in mobile navigation drawer as well
+        const mainNavList = document.getElementById('mainNavLinks');
+        if (mainNavList) {
+            mainNavList.querySelectorAll('.hdr-nav-link, .hdr-dd-link').forEach(el => {
+                if (el.getAttribute('data-tab') === tabId) {
+                    el.classList.add('active', 'is-active');
+                } else {
+                    el.classList.remove('active', 'is-active');
+                }
+            });
+        }
+
         // Show target content pane
         targetPane.classList.add('active');
 
@@ -727,18 +552,232 @@ function initDepartment() {
             initLabSliders();
         }
 
-        // Smoothly scroll to content if user is scrolled past the subnav
+        // Smoothly scroll to content
         if (shouldScroll) {
-            const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
-            const mainNavHeight = (window.innerWidth > 768 && mainNav) ? (Math.round(mainNav.getBoundingClientRect().height) || 52) : 0;
-            if (subNav) {
-                const subNavRect = subNav.getBoundingClientRect();
-                if (subNavRect.top <= mainNavHeight + 2) {
-                    const targetY = subNav.offsetTop - mainNavHeight;
+            if (window.innerWidth <= 768) {
+                // Mobile view: scroll smoothly to content
+                const scrollTarget = document.querySelector('.dept-main-content') || targetPane;
+                if (scrollTarget) {
+                    const headerHeight = 60;
+                    const targetY = scrollTarget.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                     window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                }
+            } else {
+                // Desktop view: scroll if past subnav
+                const mainNav = document.getElementById('mainNavbar') || document.querySelector('.hdr-nav') || document.querySelector('.navbar');
+                const mainNavHeight = mainNav ? (Math.round(mainNav.getBoundingClientRect().height) || 52) : 0;
+                if (subNav) {
+                    const subNavRect = subNav.getBoundingClientRect();
+                    if (subNavRect.top <= mainNavHeight + 2) {
+                        const targetY = subNav.offsetTop - mainNavHeight;
+                        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                    }
                 }
             }
         }
+    }
+    window.activateTab = activateTab;
+
+    // Mobile Department Navigation Integration (Replaces main navbar on mobile with simple Dept Menu + Home)
+    function setupMobileDepartmentNav() {
+        const mainNavList = document.getElementById('mainNavLinks');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        if (!mainNavList || !hamburgerBtn) return;
+
+        let defaultNavHtml = null;
+        let deptNavHtml = null;
+
+        function buildDeptNav() {
+            if (deptNavHtml) return deptNavHtml;
+
+            deptNavHtml = `
+                <li class="hdr-nav-item">
+                    <a href="../../index.php" class="hdr-nav-link">
+                        Home
+                    </a>
+                </li>
+                <li class="hdr-nav-item">
+                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="about">
+                        About
+                    </a>
+                </li>
+                <li class="hdr-nav-item">
+                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="vision-mission">
+                        Vision &amp; Mission
+                    </a>
+                </li>
+                <li class="hdr-nav-item">
+                    <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="hdr-nav-link" id="deptMobileSyllabusLink">
+                        GTU Syllabus
+                    </a>
+                </li>
+                <li class="hdr-nav-item">
+                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="facilities">
+                        Facilities
+                    </a>
+                </li>
+                <li class="hdr-nav-item">
+                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="publications">
+                        Publications
+                    </a>
+                </li>
+                <li class="hdr-nav-item">
+                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="instruction-material">
+                        Instruction Material
+                    </a>
+                </li>
+                <li class="hdr-nav-item">
+                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="learning-resources">
+                        Learning Resources
+                    </a>
+                </li>
+                <li class="hdr-nav-item">
+                    <a href="javascript:void(0);" class="hdr-nav-link" data-tab="instruction-feedback">
+                        Feedback for Instruction material
+                    </a>
+                </li>
+                <li class="hdr-nav-item has-dropdown">
+                    <a href="javascript:void(0);" class="hdr-nav-link">
+                        Department Academic Calendar <i class="fas fa-chevron-down hdr-arrow"></i>
+                    </a>
+                    <div class="hdr-dropdown">
+                        <ul class="hdr-dd-list">
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-even-2025-26">EVEN 2025-26</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-odd-2025-26">ODD 2025-26</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-even-2024-25">EVEN 2024-25</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-odd-2024-25-rev">ODD 2024-25 (Revised)</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-odd-2024-25">ODD 2024-25</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-even-2023-24-rev">EVEN 2023-24 (Revised)</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-even-2023-24">EVEN 2023-24</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-odd-2023-24">ODD 2023-24</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-even-2022-23">EVEN 2022-23</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="academic-calendar" data-row-id="cal-odd-2022-23">ODD 2022-23</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="hdr-nav-item has-dropdown">
+                    <a href="javascript:void(0);" class="hdr-nav-link">
+                        Industry Advisory Board <i class="fas fa-chevron-down hdr-arrow"></i>
+                    </a>
+                    <div class="hdr-dropdown">
+                        <ul class="hdr-dd-list">
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2025-26">IAB 2025-26</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2024-25">IAB 2024-25</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2023-24">IAB 2023-24</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2022-23">IAB 2022-23</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2021-22">IAB 2021-22</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2020-21">IAB 2020-21</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2019-20">IAB 2019-20</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2018-19">IAB 2018-19</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="industry-advisory-board" data-row-id="iab-2017-18">IAB 2017-18</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="hdr-nav-item has-dropdown">
+                    <a href="javascript:void(0);" class="hdr-nav-link">
+                        News Letters <i class="fas fa-chevron-down hdr-arrow"></i>
+                    </a>
+                    <div class="hdr-dropdown">
+                        <ul class="hdr-dd-list">
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2025">News Letter 2025</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2024">News Letter 2024</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2023">News Letter 2023</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2022">News Letter 2022</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2021">News Letter 2021</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2020">News Letter 2020</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2019">News Letter 2019</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2018">News Letter 2018</a></li>
+                            <li><a href="javascript:void(0);" class="hdr-dd-link" data-tab="newsletters" data-row-id="nl-2017">News Letter 2017</a></li>
+                        </ul>
+                    </div>
+                </li>
+            `;
+            return deptNavHtml;
+        }
+
+        function checkAndApplyMobileNav() {
+            if (window.innerWidth <= 768) {
+                if (!defaultNavHtml) {
+                    defaultNavHtml = mainNavList.innerHTML;
+                }
+                if (mainNavList.getAttribute('data-mode') !== 'department') {
+                    mainNavList.innerHTML = buildDeptNav();
+                    mainNavList.setAttribute('data-mode', 'department');
+                    bindDeptMobileEvents();
+                }
+            } else {
+                if (defaultNavHtml && mainNavList.getAttribute('data-mode') === 'department') {
+                    mainNavList.innerHTML = defaultNavHtml;
+                    mainNavList.setAttribute('data-mode', 'default');
+                }
+            }
+        }
+
+        function bindDeptMobileEvents() {
+            // Tab links inside drawer
+            mainNavList.querySelectorAll('[data-tab]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    const rowId = this.getAttribute('data-row-id');
+
+                    // Close mobile drawer
+                    mainNavList.classList.remove('is-open');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    hamburgerBtn.classList.remove('is-active');
+
+                    if (tabId) {
+                        if (history.pushState) {
+                            history.pushState(null, null, '#' + tabId);
+                        } else {
+                            window.location.hash = tabId;
+                        }
+                        activateTab(tabId, !rowId);
+                    }
+
+                    if (rowId) {
+                        setTimeout(() => {
+                            const targetEl = document.getElementById(rowId);
+                            if (targetEl) {
+                                const elY = targetEl.getBoundingClientRect().top + window.pageYOffset - 70;
+                                window.scrollTo({ top: Math.max(0, elY), behavior: 'smooth' });
+                                targetEl.classList.remove('is-row-highlight');
+                                void targetEl.offsetWidth;
+                                targetEl.classList.add('is-row-highlight');
+                            }
+                        }, 260);
+                    }
+                });
+            });
+
+            // Accordion toggle for mobile dropdowns
+            mainNavList.querySelectorAll('.hdr-nav-item.has-dropdown > .hdr-nav-link').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = this.closest('.hdr-nav-item.has-dropdown');
+                    if (!parent) return;
+                    const isOpen = parent.classList.contains('is-sub-open');
+                    mainNavList.querySelectorAll('.hdr-nav-item.has-dropdown.is-sub-open').forEach(item => {
+                        if (item !== parent) item.classList.remove('is-sub-open');
+                    });
+                    parent.classList.toggle('is-sub-open', !isOpen);
+                });
+            });
+
+            // Close drawer when GTU Syllabus or Home is tapped
+            const syllabusLink = mainNavList.querySelector('#deptMobileSyllabusLink');
+            if (syllabusLink) {
+                syllabusLink.addEventListener('click', function() {
+                    mainNavList.classList.remove('is-open');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    hamburgerBtn.classList.remove('is-active');
+                });
+            }
+        }
+
+        checkAndApplyMobileNav();
+        window.addEventListener('resize', checkAndApplyMobileNav, { passive: true });
     }
 
     tabButtons.forEach(btn => {
