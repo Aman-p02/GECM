@@ -165,6 +165,7 @@ function bindLabSliderGestures(slider) {
     let currentY = 0;
     let isDragging = false;
     let isHorizontalSwipe = false;
+    let hasDragged = false;
     let currentSlideIdx = 0;
     let sliderWidth = 0;
     let totalSlides = slider.querySelectorAll('.dept-lab-slide').length;
@@ -181,6 +182,7 @@ function bindLabSliderGestures(slider) {
         currentY = clientY;
         isDragging = true;
         isHorizontalSwipe = false;
+        hasDragged = false;
 
         // Pause auto timer during hand touch
         if (slider._autoSlideTimer) {
@@ -197,6 +199,10 @@ function bindLabSliderGestures(slider) {
 
         const diffX = currentX - startX;
         const diffY = currentY - startY;
+
+        if (Math.hypot(diffX, diffY) > 8) {
+            hasDragged = true;
+        }
 
         if (!isHorizontalSwipe) {
             // Determine vertical page scrolling vs horizontal image swiping
@@ -229,6 +235,13 @@ function bindLabSliderGestures(slider) {
         if (!isDragging) return;
         isDragging = false;
         slider.classList.remove('is-dragging');
+
+        if (hasDragged) {
+            slider._justSwiped = true;
+            setTimeout(() => {
+                slider._justSwiped = false;
+            }, 260);
+        }
 
         if (isHorizontalSwipe) {
             const diffX = currentX - startX;
@@ -323,6 +336,264 @@ function initLabSliders() {
         setLabSlide(slider, 0, false);
         resetLabSliderTimer(slider);
         bindLabSliderGestures(slider);
+    });
+    initLabLightbox();
+}
+
+// ==============================================================
+// Facility Laboratory Full-Screen Lightbox / Image Viewer
+// ==============================================================
+let activeLightbox = null;
+
+function ensureLightboxElement() {
+    let lb = document.getElementById('deptLightbox');
+    if (lb) return lb;
+
+    lb = document.createElement('div');
+    lb.id = 'deptLightbox';
+    lb.className = 'dept-lightbox';
+    lb.setAttribute('aria-hidden', 'true');
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-label', 'Laboratory Image Preview');
+
+    lb.innerHTML = `
+        <div class="dept-lightbox-backdrop" data-lb-action="close"></div>
+        <div class="dept-lightbox-container">
+            <button type="button" class="dept-lightbox-btn dept-lightbox-close" data-lb-action="close" aria-label="Close image preview">
+                <i class="fas fa-times"></i>
+            </button>
+            <button type="button" class="dept-lightbox-btn dept-lightbox-prev" data-lb-action="prev" aria-label="Previous photo">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button type="button" class="dept-lightbox-btn dept-lightbox-next" data-lb-action="next" aria-label="Next photo">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="dept-lightbox-stage">
+                <div class="dept-lightbox-figure">
+                    <img class="dept-lightbox-img" src="" alt="" loading="eager">
+                    <div class="dept-lightbox-info">
+                        <span class="dept-lightbox-lab"></span>
+                        <span class="dept-lightbox-divider">&bull;</span>
+                        <span class="dept-lightbox-caption"></span>
+                        <span class="dept-lightbox-counter"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(lb);
+
+    // Event delegation for lightbox buttons
+    lb.addEventListener('click', e => {
+        const actionBtn = e.target.closest('[data-lb-action]');
+        if (!actionBtn) return;
+        const action = actionBtn.getAttribute('data-lb-action');
+        if (action === 'close') {
+            closeLabLightbox();
+        } else if (action === 'prev') {
+            navigateLightbox(-1);
+        } else if (action === 'next') {
+            navigateLightbox(1);
+        }
+    });
+
+    // Touch swipe inside lightbox on mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    lb.addEventListener('touchstart', e => {
+        if (e.touches && e.touches.length === 1) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchEndX = touchStartX;
+            touchEndY = touchStartY;
+        }
+    }, { passive: true });
+
+    lb.addEventListener('touchmove', e => {
+        if (e.touches && e.touches.length === 1) {
+            touchEndX = e.touches[0].clientX;
+            touchEndY = e.touches[0].clientY;
+        }
+    }, { passive: true });
+
+    lb.addEventListener('touchend', () => {
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX < 0) {
+                navigateLightbox(1); // Swipe left -> next image
+            } else {
+                navigateLightbox(-1); // Swipe right -> prev image
+            }
+        }
+    }, { passive: true });
+
+    return lb;
+}
+
+function openLabLightbox(frame, clickedIndex = 0) {
+    const card = frame.closest('.dept-lab-card');
+    const labTitle = card ? (card.querySelector('.dept-lab-title')?.textContent.trim() || '') : '';
+    const slides = frame.querySelectorAll('.dept-lab-slide');
+    const items = [];
+
+    if (slides.length > 0) {
+        slides.forEach(slide => {
+            const img = slide.querySelector('img');
+            const cap = slide.querySelector('.dept-lab-slide-caption');
+            if (img) {
+                items.push({
+                    src: img.getAttribute('src') || img.src,
+                    alt: img.getAttribute('alt') || '',
+                    caption: cap ? cap.textContent.trim() : (img.getAttribute('alt') || '')
+                });
+            }
+        });
+    } else {
+        const img = frame.querySelector('img');
+        if (img) {
+            items.push({
+                src: img.getAttribute('src') || img.src,
+                alt: img.getAttribute('alt') || '',
+                caption: img.getAttribute('alt') || labTitle
+            });
+        }
+    }
+
+    if (!items.length) return;
+
+    const lb = ensureLightboxElement();
+    const safeIndex = Math.max(0, Math.min(clickedIndex, items.length - 1));
+
+    activeLightbox = {
+        frame,
+        items,
+        currentIndex: safeIndex,
+        labTitle
+    };
+
+    updateLightboxView();
+
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('dept-lightbox-locked');
+
+    window.addEventListener('keydown', handleLightboxKeydown);
+}
+
+function updateLightboxView() {
+    if (!activeLightbox) return;
+    const { items, currentIndex, labTitle } = activeLightbox;
+    const item = items[currentIndex];
+    if (!item) return;
+
+    const lb = document.getElementById('deptLightbox');
+    if (!lb) return;
+
+    const imgEl = lb.querySelector('.dept-lightbox-img');
+    const labEl = lb.querySelector('.dept-lightbox-lab');
+    const capEl = lb.querySelector('.dept-lightbox-caption');
+    const counterEl = lb.querySelector('.dept-lightbox-counter');
+    const prevBtn = lb.querySelector('.dept-lightbox-prev');
+    const nextBtn = lb.querySelector('.dept-lightbox-next');
+
+    // Smooth image load fade
+    imgEl.style.opacity = '0.35';
+    imgEl.onload = () => {
+        imgEl.style.opacity = '1';
+    };
+    imgEl.src = item.src;
+    imgEl.alt = item.alt || item.caption || labTitle;
+
+    if (labEl) labEl.textContent = labTitle;
+    if (capEl) capEl.textContent = item.caption || item.alt || '';
+
+    if (items.length > 1) {
+        if (counterEl) {
+            counterEl.textContent = `${currentIndex + 1} / ${items.length}`;
+            counterEl.style.display = 'block';
+        }
+        if (prevBtn) prevBtn.classList.remove('is-hidden');
+        if (nextBtn) nextBtn.classList.remove('is-hidden');
+    } else {
+        if (counterEl) counterEl.style.display = 'none';
+        if (prevBtn) prevBtn.classList.add('is-hidden');
+        if (nextBtn) nextBtn.classList.add('is-hidden');
+    }
+
+    // Sync card slider underneath
+    if (activeLightbox.frame && activeLightbox.frame.classList.contains('dept-lab-slider')) {
+        setLabSlide(activeLightbox.frame, currentIndex);
+    }
+}
+
+function navigateLightbox(direction) {
+    if (!activeLightbox || activeLightbox.items.length <= 1) return;
+    const total = activeLightbox.items.length;
+    let nextIndex = activeLightbox.currentIndex + direction;
+    if (nextIndex < 0) nextIndex = total - 1;
+    if (nextIndex >= total) nextIndex = 0;
+    activeLightbox.currentIndex = nextIndex;
+    updateLightboxView();
+}
+
+function closeLabLightbox() {
+    const lb = document.getElementById('deptLightbox');
+    if (lb) {
+        lb.classList.remove('is-open');
+        lb.setAttribute('aria-hidden', 'true');
+    }
+    document.body.classList.remove('dept-lightbox-locked');
+    window.removeEventListener('keydown', handleLightboxKeydown);
+    activeLightbox = null;
+}
+
+function handleLightboxKeydown(e) {
+    if (!activeLightbox) return;
+    if (e.key === 'Escape') {
+        e.preventDefault();
+        closeLabLightbox();
+    } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigateLightbox(-1);
+    } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        navigateLightbox(1);
+    }
+}
+
+function initLabLightbox() {
+    ensureLightboxElement();
+    const frames = document.querySelectorAll('.dept-lab-image-frame');
+    frames.forEach(frame => {
+        // Inject subtle zoom hint icon if not already added
+        if (!frame.querySelector('.dept-lab-zoom-hint')) {
+            const hint = document.createElement('span');
+            hint.className = 'dept-lab-zoom-hint';
+            hint.setAttribute('aria-hidden', 'true');
+            hint.setAttribute('title', 'Click to view photo large');
+            hint.innerHTML = '<i class="fas fa-search-plus"></i>';
+            frame.appendChild(hint);
+        }
+
+        // Attach click listener for opening lightbox
+        if (!frame._lbClickBound) {
+            frame._lbClickBound = true;
+            frame.addEventListener('click', e => {
+                if (e.target.closest('.dept-lab-slide-nav') || e.target.closest('.dept-lab-dot')) {
+                    return;
+                }
+                if (frame._justSwiped) {
+                    return;
+                }
+                const currentSlide = parseInt(frame.getAttribute('data-current-slide') || '0', 10);
+                openLabLightbox(frame, currentSlide);
+            });
+        }
     });
 }
 
