@@ -570,16 +570,6 @@ function initLabLightbox() {
     ensureLightboxElement();
     const frames = document.querySelectorAll('.dept-lab-image-frame');
     frames.forEach(frame => {
-        // Inject subtle zoom hint icon if not already added
-        if (!frame.querySelector('.dept-lab-zoom-hint')) {
-            const hint = document.createElement('span');
-            hint.className = 'dept-lab-zoom-hint';
-            hint.setAttribute('aria-hidden', 'true');
-            hint.setAttribute('title', 'Click to view photo large');
-            hint.innerHTML = '<i class="fas fa-search-plus"></i>';
-            frame.appendChild(hint);
-        }
-
         // Attach click listener for opening lightbox
         if (!frame._lbClickBound) {
             frame._lbClickBound = true;
