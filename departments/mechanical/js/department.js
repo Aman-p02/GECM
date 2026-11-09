@@ -593,8 +593,134 @@ function initDepartment() {
     window.addEventListener('resize', updateStickySubnavPosition, { passive: true });
     window.addEventListener('scroll', updateStickySubnavPosition, { passive: true });
 
+    // 4. Subnav dropdown menus controller
+    function initSubnavDropdowns() {
+        const dropdownItems = document.querySelectorAll('.dept-subnav-dropdown');
+
+        function positionMenu(item) {
+            const btn = item.querySelector('.dept-dropdown-toggle') || item.querySelector('.dept-subnav-link');
+            const menu = item.querySelector('.dept-subnav-menu');
+            if (!btn || !menu) return;
+
+            const rect = btn.getBoundingClientRect();
+            menu.style.top = `${Math.round(rect.bottom + 4)}px`;
+            const menuWidth = menu.offsetWidth || 230;
+            let left = Math.round(rect.left);
+            if (left + menuWidth > window.innerWidth - 12) {
+                left = Math.max(12, window.innerWidth - menuWidth - 12);
+            }
+            menu.style.left = `${left}px`;
+        }
+
+        function closeAllMenus() {
+            dropdownItems.forEach(item => {
+                item.classList.remove('is-open');
+                const btn = item.querySelector('.dept-dropdown-toggle');
+                const menu = item.querySelector('.dept-subnav-menu');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+                if (menu) menu.classList.remove('is-open');
+            });
+        }
+
+        dropdownItems.forEach(item => {
+            const btn = item.querySelector('.dept-dropdown-toggle') || item.querySelector('.dept-subnav-link');
+            const menu = item.querySelector('.dept-subnav-menu');
+            if (!btn || !menu) return;
+
+            btn.addEventListener('click', function(e) {
+                const isArrowClick = e.target.closest('.dept-subnav-arrow');
+                const isOpen = item.classList.contains('is-open');
+
+                if (isArrowClick) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (isOpen) {
+                        closeAllMenus();
+                    } else {
+                        closeAllMenus();
+                        item.classList.add('is-open');
+                        menu.classList.add('is-open');
+                        btn.setAttribute('aria-expanded', 'true');
+                        positionMenu(item);
+                    }
+                } else {
+                    const tabId = btn.getAttribute('data-tab');
+                    if (tabId) {
+                        activateTab(tabId, true);
+                    }
+                    if (!isOpen) {
+                        closeAllMenus();
+                        item.classList.add('is-open');
+                        menu.classList.add('is-open');
+                        btn.setAttribute('aria-expanded', 'true');
+                        positionMenu(item);
+                    } else {
+                        closeAllMenus();
+                    }
+                }
+            });
+
+            item.addEventListener('mouseenter', function() {
+                if (window.innerWidth > 992) {
+                    closeAllMenus();
+                    item.classList.add('is-open');
+                    menu.classList.add('is-open');
+                    btn.setAttribute('aria-expanded', 'true');
+                    positionMenu(item);
+                }
+            });
+
+            item.addEventListener('mouseleave', function() {
+                if (window.innerWidth > 992) {
+                    closeAllMenus();
+                }
+            });
+        });
+
+        document.querySelectorAll('.dept-subnav-menu-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeAllMenus();
+
+                const tabId = this.getAttribute('data-tab');
+                const rowId = this.getAttribute('data-row-id');
+
+                if (tabId) {
+                    activateTab(tabId, true);
+                }
+
+                if (rowId) {
+                    setTimeout(() => {
+                        const targetEl = document.getElementById(rowId);
+                        if (targetEl) {
+                            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            targetEl.classList.remove('is-row-highlight');
+                            void targetEl.offsetWidth;
+                            targetEl.classList.add('is-row-highlight');
+                        }
+                    }, 220);
+                }
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dept-subnav-dropdown') && !e.target.closest('.dept-subnav-menu')) {
+                closeAllMenus();
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            closeAllMenus();
+        }, { passive: true });
+
+        window.addEventListener('resize', function() {
+            closeAllMenus();
+        }, { passive: true });
+    }
+
     // Initializations
     initPublicationYearFilter();
+    initSubnavDropdowns();
     setupRevealElements(document);
     initLabSliders();
 

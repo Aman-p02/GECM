@@ -78,6 +78,67 @@ include_once __DIR__ . '/../../includes/header.php';
                     <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
                     </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="instruction-material" role="tab" aria-selected="false">Instruction Material</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="learning-resources" role="tab" aria-selected="false">Learning Resources</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="instruction-feedback" role="tab" aria-selected="false">Feedback for Instruction material</button>
+                    </li>
+                    <li class="dept-subnav-item dept-subnav-dropdown">
+                        <button type="button" class="dept-subnav-link dept-dropdown-toggle" data-tab="academic-calendar" role="tab" aria-selected="false" aria-haspopup="true" aria-expanded="false">
+                            <span>Department Academic Calender</span>
+                            <i class="fas fa-chevron-down dept-subnav-arrow"></i>
+                        </button>
+                        <div class="dept-subnav-menu" role="menu">
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" data-row-id="cal-even-2025-26" role="menuitem">EVEN 2025-26</a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" data-row-id="cal-odd-2025-26" role="menuitem">ODD 2025-26</a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" data-row-id="cal-even-2024-25" role="menuitem">EVEN 2024-25</a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" data-row-id="cal-odd-2024-25-rev" role="menuitem">ODD 2024-25 (Revised)</a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" data-row-id="cal-odd-2024-25" role="menuitem">ODD 2024-25</a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" data-row-id="cal-even-2023-24-rev" role="menuitem">EVEN 2023-24 (Revised)</a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" data-row-id="cal-even-2023-24" role="menuitem">EVEN 2023-24</a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" data-row-id="cal-odd-2023-24" role="menuitem">ODD 2023-24</a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" data-row-id="cal-even-2022-23" role="menuitem">EVEN 2022-23</a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" data-row-id="cal-odd-2022-23" role="menuitem">ODD 2022-23</a>
+                        </div>
+                    </li>
+                    <li class="dept-subnav-item dept-subnav-dropdown">
+                        <button type="button" class="dept-subnav-link dept-dropdown-toggle" data-tab="industry-advisory-board" role="tab" aria-selected="false" aria-haspopup="true" aria-expanded="false">
+                            <span>Industry Advisory Board</span>
+                            <i class="fas fa-chevron-down dept-subnav-arrow"></i>
+                        </button>
+                        <div class="dept-subnav-menu" role="menu">
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" data-row-id="iab-2025-26" role="menuitem">IAB 2025-26</a>
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" data-row-id="iab-2024-25" role="menuitem">IAB 2024-25</a>
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" data-row-id="iab-2023-24" role="menuitem">IAB 2023-24</a>
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" data-row-id="iab-2022-23" role="menuitem">IAB 2022-23</a>
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" data-row-id="iab-2021-22" role="menuitem">IAB 2021-22</a>
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" data-row-id="iab-2020-21" role="menuitem">IAB 2020-21</a>
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" data-row-id="iab-2019-20" role="menuitem">IAB 2019-20</a>
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" data-row-id="iab-2018-19" role="menuitem">IAB 2018-19</a>
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" data-row-id="iab-2017-18" role="menuitem">IAB 2017-18</a>
+                        </div>
+                    </li>
+                    <li class="dept-subnav-item dept-subnav-dropdown">
+                        <button type="button" class="dept-subnav-link dept-dropdown-toggle" data-tab="newsletters" role="tab" aria-selected="false" aria-haspopup="true" aria-expanded="false">
+                            <span>News Letters</span>
+                            <i class="fas fa-chevron-down dept-subnav-arrow"></i>
+                        </button>
+                        <div class="dept-subnav-menu" role="menu">
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" data-row-id="nl-2025" role="menuitem">News Letter 2025</a>
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" data-row-id="nl-2024" role="menuitem">News Letter 2024</a>
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" data-row-id="nl-2023" role="menuitem">News Letter 2023</a>
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" data-row-id="nl-2022" role="menuitem">News Letter 2022</a>
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" data-row-id="nl-2021" role="menuitem">News Letter 2021</a>
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" data-row-id="nl-2020" role="menuitem">News Letter 2020</a>
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" data-row-id="nl-2019" role="menuitem">News Letter 2019</a>
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" data-row-id="nl-2018" role="menuitem">News Letter 2018</a>
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" data-row-id="nl-2017" role="menuitem">News Letter 2017</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -2278,6 +2339,389 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2003</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 5: Instruction Material -->
+            <section class="dept-tab-pane" id="tab-instruction-material">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">CURRICULUM &amp; COURSEWARE</span>
+                    <h2>Instruction Material</h2>
+                    <p>Subject-wise lecture notes, laboratory manuals, assignment sheets, and question banks prepared by faculty members.</p>
+                </div>
+
+                <div class="dept-doc-card">
+                    <div class="dept-doc-empty">
+                        <i class="fas fa-book-open dept-doc-icon"></i>
+                        <h3>Course Materials &amp; Lecture Handouts</h3>
+                        <p>Detailed syllabus units, instructional slides, and lab guides will be uploaded soon. Please check back shortly or contact the department academic coordinator.</p>
+                        <span class="dept-doc-badge"><i class="fas fa-clock"></i> Updating for 2025-26 Session</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 6: Learning Resources -->
+            <section class="dept-tab-pane" id="tab-learning-resources">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">E-LEARNING &amp; DIGITAL REPOSITORIES</span>
+                    <h2>Learning Resources</h2>
+                    <p>Curated digital learning portals, virtual laboratories, video lectures, and open-source simulation tools.</p>
+                </div>
+
+                <div class="dept-resources-grid">
+                    <div class="dept-resource-card">
+                        <div class="dept-resource-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="dept-resource-body">
+                            <h4>NPTEL &amp; SWAYAM Online Courses</h4>
+                            <p>Video courses by IIT &amp; IISc professors in fluid mechanics, heat transfer, CAD/CAM, and dynamics of machines.</p>
+                            <a href="https://nptel.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-resource-link">
+                                <span>Visit NPTEL Portal</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="dept-resource-card">
+                        <div class="dept-resource-icon"><i class="fas fa-flask"></i></div>
+                        <div class="dept-resource-body">
+                            <h4>Virtual Labs (MoE Govt. of India)</h4>
+                            <p>Remote simulation experiments for mechanical engineering laboratories including thermal engineering and vibration analysis.</p>
+                            <a href="https://www.vlab.co.in/" target="_blank" rel="noopener noreferrer" class="dept-resource-link">
+                                <span>Access Virtual Labs</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="dept-resource-card">
+                        <div class="dept-resource-icon"><i class="fas fa-book-reader"></i></div>
+                        <div class="dept-resource-body">
+                            <h4>National Digital Library of India (NDLI)</h4>
+                            <p>Vast repository of academic books, peer-reviewed journals, video lectures, and technical monographs.</p>
+                            <a href="https://ndl.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-resource-link">
+                                <span>Explore NDLI</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="dept-resource-card">
+                        <div class="dept-resource-icon"><i class="fas fa-drafting-compass"></i></div>
+                        <div class="dept-resource-body">
+                            <h4>GTU E-Library &amp; Study Portals</h4>
+                            <p>Gujarat Technological University digital question papers, thesis repositories, and instructional guides.</p>
+                            <a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="dept-resource-link">
+                                <span>GTU Syllabus &amp; Materials</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 7: Feedback for Instruction Material -->
+            <section class="dept-tab-pane" id="tab-instruction-feedback">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">ACADEMIC AUDIT &amp; PEDAGOGY ENHANCEMENT</span>
+                    <h2>Feedback for Instruction Material</h2>
+                    <p>Continuous feedback mechanisms enabling students and stakeholders to assess course materials and suggest improvements.</p>
+                </div>
+
+                <div class="dept-feedback-card">
+                    <div class="dept-feedback-header">
+                        <div class="dept-feedback-icon"><i class="fas fa-comment-dots"></i></div>
+                        <div>
+                            <h3>Instructional Material Feedback Process</h3>
+                            <p>Your constructive feedback helps us elevate course clarity, laboratory exercises, and digital learning outcomes.</p>
+                        </div>
+                    </div>
+                    <div class="dept-feedback-body">
+                        <p>Department of Mechanical Engineering conducts periodic reviews of lecture notes, lab manuals, and assignments. Students are encouraged to provide objective evaluation on content depth, clarity, and industry relevance.</p>
+                        <div class="dept-feedback-actions">
+                            <span class="dept-feedback-status"><i class="fas fa-info-circle"></i> Feedback form links will be activated during the instructional feedback window.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab 8: Department Academic Calendar -->
+            <section class="dept-tab-pane" id="tab-academic-calendar">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">TERM DATES &amp; SESSION SCHEDULES</span>
+                    <h2>Department Academic Calendar</h2>
+                    <p>Official schedules of academic terms, commencement dates, mid-term examinations, and instructional milestones.</p>
+                </div>
+
+                <div class="dept-table-wrap">
+                    <table class="dept-clean-table dept-doc-table">
+                        <thead>
+                            <tr>
+                                <th>Academic Session</th>
+                                <th>Term / Schedule</th>
+                                <th>Status</th>
+                                <th style="text-align: right;">Document</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="cal-even-2025-26">
+                                <td><strong>Academic Year 2025-26</strong></td>
+                                <td><span class="dept-tag-ug">EVEN Term</span> EVEN 2025-26</td>
+                                <td><span class="dept-badge-active">Upcoming</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="cal-odd-2025-26">
+                                <td><strong>Academic Year 2025-26</strong></td>
+                                <td><span class="dept-tag-ug">ODD Term</span> ODD 2025-26</td>
+                                <td><span class="dept-badge-active">Upcoming</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="cal-even-2024-25">
+                                <td><strong>Academic Year 2024-25</strong></td>
+                                <td><span class="dept-tag-ug">EVEN Term</span> EVEN 2024-25</td>
+                                <td><span class="dept-badge">Active</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="cal-odd-2024-25-rev">
+                                <td><strong>Academic Year 2024-25</strong></td>
+                                <td><span class="dept-tag-ug">ODD Term</span> ODD 2024-25 (Revised)</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="cal-odd-2024-25">
+                                <td><strong>Academic Year 2024-25</strong></td>
+                                <td><span class="dept-tag-ug">ODD Term</span> ODD 2024-25</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="cal-even-2023-24-rev">
+                                <td><strong>Academic Year 2023-24</strong></td>
+                                <td><span class="dept-tag-ug">EVEN Term</span> EVEN 2023-24 (Revised)</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="cal-even-2023-24">
+                                <td><strong>Academic Year 2023-24</strong></td>
+                                <td><span class="dept-tag-ug">EVEN Term</span> EVEN 2023-24</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="cal-odd-2023-24">
+                                <td><strong>Academic Year 2023-24</strong></td>
+                                <td><span class="dept-tag-ug">ODD Term</span> ODD 2023-24</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="cal-even-2022-23">
+                                <td><strong>Academic Year 2022-23</strong></td>
+                                <td><span class="dept-tag-ug">EVEN Term</span> EVEN 2022-23</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="cal-odd-2022-23">
+                                <td><strong>Academic Year 2022-23</strong></td>
+                                <td><span class="dept-tag-ug">ODD Term</span> ODD 2022-23</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Tab 9: Industry Advisory Board -->
+            <section class="dept-tab-pane" id="tab-industry-advisory-board">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">INDUSTRY COLLABORATION &amp; GOVERNANCE</span>
+                    <h2>Industry Advisory Board (IAB)</h2>
+                    <p>Strategic advisory committee comprising leading industry executives, alumni technocrats, and academic mentors to guide curriculum and industry readiness.</p>
+                </div>
+
+                <div class="dept-table-wrap">
+                    <table class="dept-clean-table dept-doc-table">
+                        <thead>
+                            <tr>
+                                <th>Session</th>
+                                <th>Board Representation</th>
+                                <th>Status</th>
+                                <th style="text-align: right;">Minutes &amp; ATR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="iab-2025-26">
+                                <td><strong>IAB 2025-26</strong></td>
+                                <td>Industry Advisory Board Meeting Minutes &amp; Agenda</td>
+                                <td><span class="dept-badge-active">Upcoming</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="iab-2024-25">
+                                <td><strong>IAB 2024-25</strong></td>
+                                <td>Industry Advisory Board Meeting Minutes &amp; Agenda</td>
+                                <td><span class="dept-badge">Active</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="iab-2023-24">
+                                <td><strong>IAB 2023-24</strong></td>
+                                <td>Industry Advisory Board Meeting Minutes &amp; Agenda</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="iab-2022-23">
+                                <td><strong>IAB 2022-23</strong></td>
+                                <td>Industry Advisory Board Meeting Minutes &amp; Agenda</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="iab-2021-22">
+                                <td><strong>IAB 2021-22</strong></td>
+                                <td>Industry Advisory Board Meeting Minutes &amp; Agenda</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="iab-2020-21">
+                                <td><strong>IAB 2020-21</strong></td>
+                                <td>Industry Advisory Board Meeting Minutes &amp; Agenda</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="iab-2019-20">
+                                <td><strong>IAB 2019-20</strong></td>
+                                <td>Industry Advisory Board Meeting Minutes &amp; Agenda</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="iab-2018-19">
+                                <td><strong>IAB 2018-19</strong></td>
+                                <td>Industry Advisory Board Meeting Minutes &amp; Agenda</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                            <tr id="iab-2017-18">
+                                <td><strong>IAB 2017-18</strong></td>
+                                <td>Industry Advisory Board Meeting Minutes &amp; Agenda</td>
+                                <td><span class="dept-badge">Archived</span></td>
+                                <td style="text-align: right;"><button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Tab 10: Department Newsletters -->
+            <section class="dept-tab-pane" id="tab-newsletters">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">DISPATCHES &amp; MILESTONES</span>
+                    <h2>Department Newsletters</h2>
+                    <p>Annual newsletters recording faculty publications, student patents, industrial visits, expert lectures, and achievements.</p>
+                </div>
+
+                <div class="dept-newsletters-grid">
+                    <div class="dept-newsletter-card" id="nl-2025">
+                        <div class="dept-nl-cover">
+                            <i class="far fa-newspaper dept-nl-icon"></i>
+                            <span class="dept-nl-year">2025</span>
+                        </div>
+                        <div class="dept-nl-content">
+                            <h4>News Letter 2025</h4>
+                            <p>Department annual dispatch highlighting academic events, placements, and achievements.</p>
+                            <button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="dept-newsletter-card" id="nl-2024">
+                        <div class="dept-nl-cover">
+                            <i class="far fa-newspaper dept-nl-icon"></i>
+                            <span class="dept-nl-year">2024</span>
+                        </div>
+                        <div class="dept-nl-content">
+                            <h4>News Letter 2024</h4>
+                            <p>Department annual dispatch highlighting academic events, placements, and achievements.</p>
+                            <button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="dept-newsletter-card" id="nl-2023">
+                        <div class="dept-nl-cover">
+                            <i class="far fa-newspaper dept-nl-icon"></i>
+                            <span class="dept-nl-year">2023</span>
+                        </div>
+                        <div class="dept-nl-content">
+                            <h4>News Letter 2023</h4>
+                            <p>Department annual dispatch highlighting academic events, placements, and achievements.</p>
+                            <button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="dept-newsletter-card" id="nl-2022">
+                        <div class="dept-nl-cover">
+                            <i class="far fa-newspaper dept-nl-icon"></i>
+                            <span class="dept-nl-year">2022</span>
+                        </div>
+                        <div class="dept-nl-content">
+                            <h4>News Letter 2022</h4>
+                            <p>Department annual dispatch highlighting academic events, placements, and achievements.</p>
+                            <button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="dept-newsletter-card" id="nl-2021">
+                        <div class="dept-nl-cover">
+                            <i class="far fa-newspaper dept-nl-icon"></i>
+                            <span class="dept-nl-year">2021</span>
+                        </div>
+                        <div class="dept-nl-content">
+                            <h4>News Letter 2021</h4>
+                            <p>Department annual dispatch highlighting academic events, placements, and achievements.</p>
+                            <button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="dept-newsletter-card" id="nl-2020">
+                        <div class="dept-nl-cover">
+                            <i class="far fa-newspaper dept-nl-icon"></i>
+                            <span class="dept-nl-year">2020</span>
+                        </div>
+                        <div class="dept-nl-content">
+                            <h4>News Letter 2020</h4>
+                            <p>Department annual dispatch highlighting academic events, placements, and achievements.</p>
+                            <button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="dept-newsletter-card" id="nl-2019">
+                        <div class="dept-nl-cover">
+                            <i class="far fa-newspaper dept-nl-icon"></i>
+                            <span class="dept-nl-year">2019</span>
+                        </div>
+                        <div class="dept-nl-content">
+                            <h4>News Letter 2019</h4>
+                            <p>Department annual dispatch highlighting academic events, placements, and achievements.</p>
+                            <button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="dept-newsletter-card" id="nl-2018">
+                        <div class="dept-nl-cover">
+                            <i class="far fa-newspaper dept-nl-icon"></i>
+                            <span class="dept-nl-year">2018</span>
+                        </div>
+                        <div class="dept-nl-content">
+                            <h4>News Letter 2018</h4>
+                            <p>Department annual dispatch highlighting academic events, placements, and achievements.</p>
+                            <button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button>
+                        </div>
+                    </div>
+
+                    <div class="dept-newsletter-card" id="nl-2017">
+                        <div class="dept-nl-cover">
+                            <i class="far fa-newspaper dept-nl-icon"></i>
+                            <span class="dept-nl-year">2017</span>
+                        </div>
+                        <div class="dept-nl-content">
+                            <h4>News Letter 2017</h4>
+                            <p>Department annual dispatch highlighting academic events, placements, and achievements.</p>
+                            <button type="button" class="dept-btn-download" disabled><i class="fas fa-file-pdf"></i> Download PDF</button>
                         </div>
                     </div>
                 </div>
