@@ -100,9 +100,6 @@ include_once __DIR__ . '/../../includes/header.php';
                         "Delivering technical programs and services to meet the changing needs of society and industry, empowering graduates to design, analyze, and manufacture cutting-edge mechanical systems."
                     </blockquote>
                     <p>
-                        It is accommodated in separate building. This department has various laboratories in the areas of Heat Power, Thermodynamics, Heat and Mass Transfer, IC Engines, Automobiles, Fluid Mechanics and Fluid Power, Kinematics and dynamics, Material Technology, Metrology and Instrumentation, and CAD. The Department has excellent Computer Centre and workshop facilities consisting of carpentry, fitting, turning and milling.
-                    </p>
-                    <p>
                         This department has two wings, one at Workshop Building and another at New Academic Building i.e. Building No. 6. It has various laboratories in the area of Heat Power, Thermo Dynamics, Heat and Mass Transfer, IC Engines, Automobiles, Fluid Mechanics and Fluid Power, Kinematics and Dynamics, Material Technology, Metrology and Instrumentation, CAD, CAM and Production Technology. The department has excellent Computer Center and Workshop facilities consisting of carpentry, fitting, turning and milling.
                     </p>
                 </div>
@@ -153,176 +150,7 @@ include_once __DIR__ . '/../../includes/header.php';
                             </tr>
                         </tbody>
                     </table>
-                    <!-- Publication 1 -->
-                    <div class="dept-citation-item" data-year="2003">
-                        <h3 class="dept-citation-title">Decision Support System for Flexible Manufacturing System</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2003</span>
-                        </div>
-                    </div>
-                    <!-- Publication 2 -->
-                    <div class="dept-citation-item" data-year="2003">
-                        <h3 class="dept-citation-title">Modeling of Manufacturing System, A Petri Nets Approach</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2003</span>
-                        </div>
-                    </div>
-                    <!-- Publication 3 -->
-                    <div class="dept-citation-item" data-year="2000">
-                        <h3 class="dept-citation-title">Petrinets for Project Management and Resource Leveling</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2000</span>
-                        </div>
-                    </div>
-                    <!-- Publication 4 -->
-                    <div class="dept-citation-item" data-year="1998">
-                        <h3 class="dept-citation-title">Petrinet Application to Project Management</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 1998</span>
-                        </div>
-                    </div>
-                    <!-- Publication 5 -->
-                    <div class="dept-citation-item" data-year="2018">
-                        <h3 class="dept-citation-title">Empirical Relation of Raw Material and Fuel consumption in Steel Re-Rolling Mills.</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
-                        </div>
-                    </div>
-                    <!-- Publication 6 -->
-                    <div class="dept-citation-item" data-year="2017">
-                        <h3 class="dept-citation-title">Sustainability in Manufacturing Industries &ndash; case study of steel re rolling mills.</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
-                        </div>
-                    </div>
-                    <!-- Publication 7 -->
-                    <div class="dept-citation-item" data-year="2017">
-                        <h3 class="dept-citation-title">Energy Performance Assessment by Means of Processing Heating Assessment and Survey Tool (PHAST) and Feasibility Evaluation of waste heat recuperation in the Reheat furnace at Steel Re _ Rolling mill</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
-                        </div>
-                    </div>
-                    <!-- Publication 8 -->
-                    <div class="dept-citation-item" data-year="all">
-                        <h3 class="dept-citation-title">Heat transfer enhancement technique Review</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
-                        </div>
-                    </div>
-                    <!-- Publication 9 -->
-                    <div class="dept-citation-item" data-year="all">
-                        <h3 class="dept-citation-title">Optimization of green sand casting process using Genetic algorithm</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
-                        </div>
-                    </div>
-                    <!-- Publication 10 -->
-                    <div class="dept-citation-item" data-year="all">
-                        <h3 class="dept-citation-title">Cantilever Beam Analogy for the Performance Assessment of Cutting Tools</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
-                        </div>
-                    </div>
-                    <!-- Publication 11 -->
-                    <div class="dept-citation-item" data-year="all">
-                        <h3 class="dept-citation-title">Performance Assessment of Cutting Tools&ndash;A Review</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
-                        </div>
-                    </div>
-                    <!-- Publication 12 -->
-                    <div class="dept-citation-item" data-year="all">
-                        <h3 class="dept-citation-title">An Experimental Investigation on the Performance of Cutting Tool under Vibration Behavior with Variable System Parameters</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
-                        </div>
-                    </div>
-                    <!-- Publication 13 -->
-                    <div class="dept-citation-item" data-year="all">
-                        <h3 class="dept-citation-title">Implementation of Adaptive Control for Cutting Tool Vibration Minimization</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
-                        </div>
-                    </div>
-                    <!-- Publication 14 -->
-                    <div class="dept-citation-item" data-year="all">
-                        <h3 class="dept-citation-title">Investigation & Optimization of Process Parameters of Roll Bending machine in realizing Conical Shells in Aluminum 6063</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nimesh M. Patel, Prof. Dr. Jeetendra Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
-                        </div>
-                    </div>
-                    <!-- Publication 15 -->
-                    <div class="dept-citation-item" data-year="all">
-                        <h3 class="dept-citation-title">Petrinet, A Tool for Project Management</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
-                        </div>
-                    </div>
-                    <!-- Publication 16 -->
-                    <div class="dept-citation-item" data-year="all">
-                        <h3 class="dept-citation-title">A Review on Manufacturing for Future: Challenges and Strategic Technological Solutions</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
-                        </div>
-                    </div>
-                    <!-- Publication 17 -->
-                    <div class="dept-citation-item" data-year="2017">
-                        <h3 class="dept-citation-title">Effect of hydrogen enhancement on performance characteristics of petrol engine</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Sagar J. Babariya, Shaishav B. Patel, R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2017</span>
-                        </div>
-                    </div>
-                    <!-- Publication 18 -->
-                    <div class="dept-citation-item" data-year="2017">
-                        <h3 class="dept-citation-title">Effect of HYDROXYGEN (H2 & O2 ) Gas addition on gasoline engine performance and emission with variable compression ratio</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shaishav B. Patel, Sagar J. Babariya, R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> July 2017</span>
-                        </div>
-                    </div>
-                    <!-- Publication 19 -->
-                    <div class="dept-citation-item" data-year="2019">
-                        <h3 class="dept-citation-title">Probing Low Productive area in Steel Re-Rolling Mills</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
-                        </div>
-                    </div>
-                    <!-- Publication 20 -->
-                    <div class="dept-citation-item" data-year="2015">
-                        <h3 class="dept-citation-title">Evaluation of Gas Porosity Defect in Furan No Back System</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
-                        </div>
-                    </div>
-                    <!-- Publication 21 -->
-                    <div class="dept-citation-item" data-year="2008">
-                        <h3 class="dept-citation-title">Dynamic Scheduling of Manufacturing System with Stochastic Timed Petrinet: A Genetic Algorithm Approach</h3>
-                        <div class="dept-citation-meta">
-                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2008</span>
-                        </div>
-                    </div>
-                
-                </div>
+</div>
             </section>
 
             <!-- Tab 2: Vision & Mission -->
@@ -860,6 +688,175 @@ include_once __DIR__ . '/../../includes/header.php';
                     <div class="dept-pub-empty" id="pubEmptyState" style="display: none;">
                         <i class="far fa-folder-open"></i>
                         No publications found for the selected year.
+                    </div>
+
+<!-- Publication 1 -->
+                    <div class="dept-citation-item" data-year="2003">
+                        <h3 class="dept-citation-title">Decision Support System for Flexible Manufacturing System</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2003</span>
+                        </div>
+                    </div>
+                    <!-- Publication 2 -->
+                    <div class="dept-citation-item" data-year="2003">
+                        <h3 class="dept-citation-title">Modeling of Manufacturing System, A Petri Nets Approach</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2003</span>
+                        </div>
+                    </div>
+                    <!-- Publication 3 -->
+                    <div class="dept-citation-item" data-year="2000">
+                        <h3 class="dept-citation-title">Petrinets for Project Management and Resource Leveling</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2000</span>
+                        </div>
+                    </div>
+                    <!-- Publication 4 -->
+                    <div class="dept-citation-item" data-year="1998">
+                        <h3 class="dept-citation-title">Petrinet Application to Project Management</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 1998</span>
+                        </div>
+                    </div>
+                    <!-- Publication 5 -->
+                    <div class="dept-citation-item" data-year="2018">
+                        <h3 class="dept-citation-title">Empirical Relation of Raw Material and Fuel consumption in Steel Re-Rolling Mills.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
+                        </div>
+                    </div>
+                    <!-- Publication 6 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Sustainability in Manufacturing Industries &ndash; case study of steel re rolling mills.</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+                    <!-- Publication 7 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Energy Performance Assessment by Means of Processing Heating Assessment and Survey Tool (PHAST) and Feasibility Evaluation of waste heat recuperation in the Reheat furnace at Steel Re _ Rolling mill</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+                    <!-- Publication 8 -->
+                    <div class="dept-citation-item" data-year="all">
+                        <h3 class="dept-citation-title">Heat transfer enhancement technique Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
+                        </div>
+                    </div>
+                    <!-- Publication 9 -->
+                    <div class="dept-citation-item" data-year="all">
+                        <h3 class="dept-citation-title">Optimization of green sand casting process using Genetic algorithm</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
+                        </div>
+                    </div>
+                    <!-- Publication 10 -->
+                    <div class="dept-citation-item" data-year="all">
+                        <h3 class="dept-citation-title">Cantilever Beam Analogy for the Performance Assessment of Cutting Tools</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
+                        </div>
+                    </div>
+                    <!-- Publication 11 -->
+                    <div class="dept-citation-item" data-year="all">
+                        <h3 class="dept-citation-title">Performance Assessment of Cutting Tools&ndash;A Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
+                        </div>
+                    </div>
+                    <!-- Publication 12 -->
+                    <div class="dept-citation-item" data-year="all">
+                        <h3 class="dept-citation-title">An Experimental Investigation on the Performance of Cutting Tool under Vibration Behavior with Variable System Parameters</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
+                        </div>
+                    </div>
+                    <!-- Publication 13 -->
+                    <div class="dept-citation-item" data-year="all">
+                        <h3 class="dept-citation-title">Implementation of Adaptive Control for Cutting Tool Vibration Minimization</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
+                        </div>
+                    </div>
+                    <!-- Publication 14 -->
+                    <div class="dept-citation-item" data-year="all">
+                        <h3 class="dept-citation-title">Investigation & Optimization of Process Parameters of Roll Bending machine in realizing Conical Shells in Aluminum 6063</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Nimesh M. Patel, Prof. Dr. Jeetendra Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
+                        </div>
+                    </div>
+                    <!-- Publication 15 -->
+                    <div class="dept-citation-item" data-year="all">
+                        <h3 class="dept-citation-title">Petrinet, A Tool for Project Management</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
+                        </div>
+                    </div>
+                    <!-- Publication 16 -->
+                    <div class="dept-citation-item" data-year="all">
+                        <h3 class="dept-citation-title">A Review on Manufacturing for Future: Challenges and Strategic Technological Solutions</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
+                        </div>
+                    </div>
+                    <!-- Publication 17 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Effect of hydrogen enhancement on performance characteristics of petrol engine</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Sagar J. Babariya, Shaishav B. Patel, R. J. Jani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2017</span>
+                        </div>
+                    </div>
+                    <!-- Publication 18 -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Effect of HYDROXYGEN (H2 & O2 ) Gas addition on gasoline engine performance and emission with variable compression ratio</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Shaishav B. Patel, Sagar J. Babariya, R. J. Jani</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> July 2017</span>
+                        </div>
+                    </div>
+                    <!-- Publication 19 -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Probing Low Productive area in Steel Re-Rolling Mills</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+                    <!-- Publication 20 -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Evaluation of Gas Porosity Defect in Furan No Back System</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+                    <!-- Publication 21 -->
+                    <div class="dept-citation-item" data-year="2008">
+                        <h3 class="dept-citation-title">Dynamic Scheduling of Manufacturing System with Stochastic Timed Petrinet: A Genetic Algorithm Approach</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr.J.A.Vadher</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2008</span>
+                        </div>
                     </div>
 
                     <!-- Publication 22 -->
