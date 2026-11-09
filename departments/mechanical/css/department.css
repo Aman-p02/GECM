@@ -830,23 +830,10 @@
     pointer-events: none;
 }
 
-/* Slide Caption Overlay (bottom gradient) */
-.dept-lab-slide-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 24px 14px 8px;
-    background: linear-gradient(to top, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.45) 55%, transparent 100%);
-    color: #ffffff;
-    font-size: 0.74rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    pointer-events: none;
-    z-index: 3;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+/* Slide Caption Overlay and Counter Badge (Removed from card view as requested) */
+.dept-lab-slide-caption,
+.dept-lab-slide-counter {
+    display: none !important;
 }
 
 /* Slide Navigation Arrows */
@@ -889,18 +876,19 @@
     right: 8px;
 }
 
-/* Dots Indicator */
+/* Dots Indicator (Centered at bottom) */
 .dept-lab-slide-dots {
     position: absolute;
-    bottom: 8px;
-    right: 10px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     z-index: 5;
     background: rgba(15, 23, 42, 0.62);
-    padding: 3px 7px;
-    border-radius: 10px;
+    padding: 4px 8px;
+    border-radius: 12px;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 }
@@ -920,24 +908,6 @@
     background: #ffffff;
     width: 12px;
     border-radius: 3px;
-}
-
-/* Slide Counter Badge */
-.dept-lab-slide-counter {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: rgba(15, 23, 42, 0.72);
-    color: #ffffff;
-    font-size: 0.66rem;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 8px;
-    z-index: 5;
-    letter-spacing: 0.04em;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .dept-lab-details {
@@ -1301,24 +1271,13 @@
         right: 6px;
     }
 
-    .dept-lab-slide-caption {
-        font-size: 0.68rem;
-        padding: 22px 10px 6px;
-        max-width: calc(100% - 70px);
-    }
-
     .dept-lab-slide-dots {
-        bottom: 6px;
-        right: 8px;
+        bottom: 8px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
         padding: 3px 6px;
         gap: 4px;
-    }
-
-    .dept-lab-slide-counter {
-        top: 6px;
-        right: 6px;
-        font-size: 0.64rem;
-        padding: 2px 6px;
     }
 
     .dept-main-content {
@@ -1408,15 +1367,11 @@
         font-size: 0.7rem;
     }
 
-    .dept-lab-slide-caption {
-        font-size: 0.62rem;
-        padding: 18px 8px 5px;
-        max-width: calc(100% - 62px);
-    }
-
     .dept-lab-slide-dots {
-        bottom: 5px;
-        right: 6px;
+        bottom: 6px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
         padding: 2px 5px;
         gap: 3px;
     }
@@ -1428,13 +1383,6 @@
 
     .dept-lab-dot.active {
         width: 10px;
-    }
-
-    .dept-lab-slide-counter {
-        top: 5px;
-        right: 5px;
-        font-size: 0.6rem;
-        padding: 2px 5px;
     }
 }
 

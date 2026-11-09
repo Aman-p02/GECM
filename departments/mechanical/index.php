@@ -429,7 +429,6 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
                             </div>
-                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Building No. 6 &bull; Advanced Manufacturing Wing</span>
@@ -477,7 +476,6 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
                             </div>
-                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Workshop Building &bull; Automotive &amp; Power Systems</span>
@@ -511,7 +509,6 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
                             </div>
-                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Workshop Building &bull; Fluid Machinery Wing</span>
@@ -545,7 +542,6 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
                             </div>
-                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Thermal Engineering Wing &bull; Energy Systems</span>
@@ -579,7 +575,6 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
                             </div>
-                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Thermal Engineering Wing &bull; RAC Complex</span>
@@ -613,7 +608,6 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
                             </div>
-                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Building No. 6 &bull; Machine Dynamics &amp; Mechanisms Wing</span>
@@ -652,7 +646,6 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 3" onclick="goLabSlide(this, 2, event)"></button>
                             </div>
-                            <span class="dept-lab-slide-counter">1 / 3</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Workshop Building &bull; Machine Tools &amp; Production Wing</span>
@@ -686,7 +679,6 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <button type="button" class="dept-lab-dot active" aria-label="Photo 1" onclick="goLabSlide(this, 0, event)"></button>
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 2" onclick="goLabSlide(this, 1, event)"></button>
                             </div>
-                            <span class="dept-lab-slide-counter">1 / 2</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Building No. 6 &bull; Thermal Power &amp; Energy Models</span>
@@ -735,7 +727,6 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 4" onclick="goLabSlide(this, 3, event)"></button>
                                 <button type="button" class="dept-lab-dot" aria-label="Photo 5" onclick="goLabSlide(this, 4, event)"></button>
                             </div>
-                            <span class="dept-lab-slide-counter">1 / 5</span>
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Workshop Building</span>
