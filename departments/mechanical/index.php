@@ -327,7 +327,6 @@ include_once __DIR__ . '/../../includes/header.php';
                             </div>
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Building No. 6 &bull; Advanced Manufacturing Wing</span>
                             <h3 class="dept-lab-title">CAD / CAM Lab</h3>
                             <p class="dept-lab-desc">
                                 Equipped with industrial CNC turning, Wire-Cut EDM, spark erosion, and 5-axis robotic automation.
@@ -341,7 +340,6 @@ include_once __DIR__ . '/../../includes/header.php';
                             <img src="images/labs/lab_cad_simulation.jpg" alt="CAD Simulation and High-Performance Computing Center" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Building No. 6 &bull; High-Performance Computing Center</span>
                             <h3 class="dept-lab-title">CAD Simulation &amp; Computing Center</h3>
                             <p class="dept-lab-desc">
                                 High-performance workstations running licensed ANSYS, MATLAB, and 3D design modeling packages.
@@ -374,7 +372,6 @@ include_once __DIR__ . '/../../includes/header.php';
                             </div>
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Workshop Building &bull; Automotive &amp; Power Systems</span>
                             <h3 class="dept-lab-title">Internal Combustion Engine &amp; Automobile Lab</h3>
                             <p class="dept-lab-desc">
                                 Computerized VCR engine test rigs, 5-gas exhaust analyzer, and working vehicle chassis setup.
@@ -407,7 +404,6 @@ include_once __DIR__ . '/../../includes/header.php';
                             </div>
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Workshop Building &bull; Fluid Machinery Wing</span>
                             <h3 class="dept-lab-title">Fluid Mechanics &amp; Hydraulic Machine Lab</h3>
                             <p class="dept-lab-desc">
                                 Volumetric hydraulic bench, Pelton turbine, pump test rigs, and multi-stage air compressor.
@@ -440,7 +436,6 @@ include_once __DIR__ . '/../../includes/header.php';
                             </div>
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Thermal Engineering Wing &bull; Energy Systems</span>
                             <h3 class="dept-lab-title">Heat Transfer Science Lab</h3>
                             <p class="dept-lab-desc">
                                 Cross-flow heat exchangers, conduction apparatus, convection test rigs, and emissivity setups.
@@ -473,7 +468,6 @@ include_once __DIR__ . '/../../includes/header.php';
                             </div>
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Thermal Engineering Wing &bull; RAC Complex</span>
                             <h3 class="dept-lab-title">Refrigeration &amp; Air Conditioning (RAC) Lab</h3>
                             <p class="dept-lab-desc">
                                 Vapour compression and absorption rigs, air conditioning test trainers, and cooling apparatus.
@@ -506,7 +500,6 @@ include_once __DIR__ . '/../../includes/header.php';
                             </div>
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Building No. 6 &bull; Machine Dynamics &amp; Mechanisms Wing</span>
                             <h3 class="dept-lab-title">Kinematics &amp; Dynamics of Machine Lab</h3>
                             <p class="dept-lab-desc">
                                 Gear train mechanisms, differential drive, balancing test rigs, and vibration measurement apparatus.
@@ -544,7 +537,6 @@ include_once __DIR__ . '/../../includes/header.php';
                             </div>
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Workshop Building &bull; Machine Tools &amp; Production Wing</span>
                             <h3 class="dept-lab-title">Manufacturing Process Lab (Machine Lab)</h3>
                             <p class="dept-lab-desc">
                                 Center lathes, shapers, radial drills, hydraulic shearing, power press, and EDM machinery.
@@ -577,7 +569,6 @@ include_once __DIR__ . '/../../includes/header.php';
                             </div>
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Building No. 6 &bull; Thermal Power &amp; Energy Models</span>
                             <h3 class="dept-lab-title">Basic Mechanical Engineering Lab</h3>
                             <p class="dept-lab-desc">
                                 Cut-section demonstration models of Cochran, Babcock &amp; Wilcox, and Lancashire steam boilers.
@@ -625,7 +616,6 @@ include_once __DIR__ . '/../../includes/header.php';
                             </div>
                         </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">Workshop Building</span>
                             <h3 class="dept-lab-title">Central Mechanical Workshop</h3>
                             <p class="dept-lab-desc">
                                 Machine bays with center lathes, milling machines, shapers, carpentry, and welding booths.
