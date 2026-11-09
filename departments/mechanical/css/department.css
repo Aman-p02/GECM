@@ -1001,7 +1001,14 @@
 }
 
 .dept-lab-room {
-    display: none !important;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dept-accent);
+    margin-bottom: 5px;
+    font-family: var(--dept-font-display);
+    display: inline-block;
 }
 
 .dept-lab-title {
