@@ -823,7 +823,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Effect of hydrogen enhancement on performance characteristics of petrol engine</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Sagar J. Babariya, Shaishav B. Patel, R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2017</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
                         </div>
                     </div>
                     <!-- Publication 18 -->
@@ -831,7 +831,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Effect of HYDROXYGEN (H2 & O2 ) Gas addition on gasoline engine performance and emission with variable compression ratio</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Shaishav B. Patel, Sagar J. Babariya, R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> July 2017</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
                         </div>
                     </div>
                     <!-- Publication 19 -->
@@ -864,7 +864,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Optimization of Green Sand Casting Process Parameters by Taguchi Method And Artificial Neural Network.</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. J. A. Vadher</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Research Publication</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> -</span>
                         </div>
                     </div>
 
@@ -873,7 +873,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Optimization of Hydraulic Cylinder Design used for container lifting device using Genetic Algorithm</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. U. V. Shah, Dr. G. H. Upadhyay</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Volume 4 Issue 1 &ndash; 2018</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
                         </div>
                     </div>
 
@@ -882,7 +882,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Experimental investigation of performance of 4S 100 cc gasoline DTSi bike on road with hydroxygen as an additive</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> R. J. Jani, P. P. Rathod</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> September 2019</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
                         </div>
                     </div>
 
@@ -891,7 +891,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">A case study on Implementation of Global standard Inspection Process-"GSIP" in a reputed Automobile Company</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dhruv U Panchal, B. Prajapati, R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Sept 2009</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2009</span>
                         </div>
                     </div>
 
@@ -900,7 +900,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Scenario of Municipal Solid Waste Management in India &ndash; A Review</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. U. V. Shah, Himanshu Raiyani, Vijay Mistry</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> NCTWE &ndash; 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
@@ -909,7 +909,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Development of Portable Experimental Set-up for AFM to Work at Cryogenic Temperature</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> D. H. Agrawal, A. M. Pathan, P. M. Bhatt, B. V. Dave, N. V. Bora</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> National Conference on Recent Trends in Engineering &amp; Technology, June 2012</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
                         </div>
                     </div>
 
@@ -918,7 +918,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Comparative performance and emission study of a lean mixed DTS-I spark ignition engine operated on single and dual spark</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Hardik Bambhania, Vijay Pithiya, R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2016</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
                         </div>
                     </div>
 
@@ -927,7 +927,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Effect of hydrogen and oxygen addition as a lean mixture on emission and performance characteristics of a two wheeler gasoline engine</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Hardik Bambhania, Vijay Pithiya, R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2016</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
                         </div>
                     </div>
 
@@ -936,7 +936,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Effect of Injection Pressure Variation on Performance Characteristics of CI Engine Fuelled with Dual Biofuel of Neem and Jatropha</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mr. Malav Dharmendrakumar Shah and Dr. R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2023</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
                         </div>
                     </div>
 
@@ -945,7 +945,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Hydrogen as an additive in Internal Combustion Engines a Review</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Rituraj Choube, Prof. R J Jani, Prof. Gaurav N Sutaria</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2018</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
                         </div>
                     </div>
 
@@ -954,7 +954,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Performance Enhancement &amp; Emission Reduction of Single Cylinder S.I. Engine using Tri Fuels - An Experimental Investigation</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Vikas Rai, Ritesh Kumar Ranjan, Prof. R J Jani, Prof. Vipul R Bhatt</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
@@ -963,7 +963,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Performance Optimization of single Cylinder Four Stroke S.I. Engine using Tri-Fuel Blending An Experimental Investigation</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Vikas Rai, Ritesh Kumar Ranjan, Prof. R J Jani, Prof. Vipul R Bhatt</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
@@ -972,7 +972,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Effect of blend ratio of plastic pyrolysis oil and Diesel fuel on the performance of single cylinder CI engine</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Kagdi Dhruvin Nileshkumar, R. J. Jani, Tushar M. Patel, Gaurav P. Rathod</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> May 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
@@ -981,7 +981,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">A Scientific Pore over a Solar Cooking Systems</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Piyushkumar M. Mistri, Kedar A. Pathak</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> March 2020</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
                         </div>
                     </div>
 
@@ -990,7 +990,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Enrichment of LPG in Gasoline Blends - A Technical Review</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Vikas Rai, Ritesh Kumar Ranjan, Prof. R J Jani, Prof. Vipul R Bhatt</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> March 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
@@ -999,7 +999,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">A technical review on performance of CI engine fuelled with plastic pyrolysis oil and effect of injection pressure on performance of CI engine fuelled with Diesel.</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Kagdi Dhruvin Nileshkumar, Prof. R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> March 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
@@ -1008,7 +1008,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Reduction in solid plastics waste by converting them into fuel oil by pyrolysis process.</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dhruvin N. Kagdi, R. J. Jani, Tushar Patel</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> March 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
@@ -1017,7 +1017,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Experimental investigation of various Spark Plug gap on Four Stroke Single Cylinder S.I. Engine</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Rituraj Choube, Prof. R J Jani, Prof. Gaurav N Sutaria</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2018</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
                         </div>
                     </div>
 
@@ -1026,7 +1026,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Effect of Injection Pressure Variation on Emission Characteristics of CI Engine Fuelled with Dual Biofuel of Neem and Jatropha</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Mr. Malav Dharmendrakumar Shah and Dr. R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2023</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
                         </div>
                     </div>
 
@@ -1035,7 +1035,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Performance and emission of turbocharged 4-stroke four cylinder diesel engine using blends of diesel and biodiesel which is produced from a neem</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jaivik Prajapati, R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> June 2013</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
                         </div>
                     </div>
 
@@ -1044,7 +1044,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Experimental investigation of spark plug gap on performance and emission of single cylinder 4S SI engine with Hydroxygen as an additive</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> R. J. Jani, P. P. Rathod</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> July 2021</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
                         </div>
                     </div>
 
@@ -1053,7 +1053,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Optimization Technique for the Geometry of Twin Screw Cryogenic Extruder</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Rajan D. Bavishi, Nisha V Bora, S. S. Mukherjee, Ranjana Gangradey</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal of Science Technology &amp; Engineering | Volume 1 | Issue 11 | May 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
@@ -1062,7 +1062,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Passive heat transfer augmentation techniques to enhance the performance of solar collectors</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nisha V Bora, N M Bhatt</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal of Innovative Research in Technology, Vol 7, Issue 1, June 2020</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
                         </div>
                     </div>
 
@@ -1071,7 +1071,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Experimental Evaluation of Apparent Mean Thermal Conductivity of Exfoliated Vermiculite Powder Insulation</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Chirag C Patel, Nisha V Bora</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal of Engineering Research and Technology, Vol 2, Issue 8, Aug 2013</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
                         </div>
                     </div>
 
@@ -1080,7 +1080,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Experimental Evaluation of Apparent Mean Thermal Conductivity of Evacuated Vermiculite Powder Insulation</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nisha V Bora, Chirag C Patel</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal of Emerging Technology and Advanced Engineering, Vol 3, Issue 8, Aug 2013</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
                         </div>
                     </div>
 
@@ -1089,7 +1089,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">A Review Paper on Cryogenic Storage Vessel for Liquid Hydrogen</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> P. D. Asodariya, Nisha V Bora</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal for Scientific Research &amp; Development, Vol. 2, Issue 03, 2014</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
                         </div>
                     </div>
 
@@ -1098,7 +1098,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Design and Optimization of Perforated Plate Type Cryogenic Matrix Heat Exchanger for Hydrogen Liquefaction System</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Vinod Patel, Nisha V Bora</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal for Scientific Research &amp; Development, Vol. 3, Issue 02, 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
@@ -1107,7 +1107,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Design of Helium Cryogenic Turboexpander</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Renu Gupta, Nisha Bora</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Journal for Scientific Research &amp; Development (Vol: 1, Issue: 11), 2014</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
                         </div>
                     </div>
 
@@ -1116,7 +1116,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Performance enhancement of solar collector by geometric modifications on the heated surface, use of solar selective coatings and nano-fluids</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nisha V Bora, N M Bhatt</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> International Advanced Research Journal in Science, Engineering and Technology, Vol 7, Issue 5, June 2020</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
                         </div>
                     </div>
 
@@ -1125,7 +1125,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">A review paper on behavior of disc type fuel injector nozzle</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Riddhesh V. Yagnik, R. J. Jani, J. D. Patel</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> February 2017</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
                         </div>
                     </div>
 
@@ -1134,7 +1134,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">A Review on “Wear Measurement Of Automotive Disc Brake Friction-Material”</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ashish D. Dhangar, R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Dec-2013</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
                         </div>
                     </div>
 
@@ -1143,7 +1143,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Alternatives of Conventional Gearing Mechanism : A Review</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Dr. U. V. Shah and Parita Trivedi</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> August 2021</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
                         </div>
                     </div>
 
@@ -1152,7 +1152,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Just in time (JIT) realisation in small scale industry</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> R. J. Jani, Rameshwar sah</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> August 2000</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2000</span>
                         </div>
                     </div>
 
@@ -1161,7 +1161,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">INVESTIGATION ON PERFORMANCE AND EMISSION PARAMETERS OF DISC TYPE FUEL INJECTOR NOZZLE IN 4-STROKE SINGLE CYLINDER DIESEL ENGINE</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Darshit P. Parikh, Prof. R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> April 2018</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
                         </div>
                     </div>
 
@@ -1170,7 +1170,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Enrichment of CNG in Gasoline Blends - A Technical Review</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Ritesh Kumar Ranjan, Vikas Rai, Prof. Vipul R Bhatt, Prof. R J Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> April 2015</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
@@ -1179,7 +1179,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Characteristics and comparison of diesel fuel and biodiesel produced from neem</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Jaivik Prajapati, R. J. Jani</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> April 2013</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
                         </div>
                     </div>
 
@@ -1188,7 +1188,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Causes of problems related to two phase fluid flow at cryogenic temperatures.</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Nisha V Bora, Bharti V Dave</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> Advances in fluid flow and thermal sciences, June 2008</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2008</span>
                         </div>
                     </div>
 
@@ -1845,7 +1845,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <h3 class="dept-citation-title">Design and Dynamic analysis of existing container lifting device used for Solid Waste Management</h3>
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user"></i> Prof. U. V. Shah, Himanshu D. Raiyani, Prof. G. H. Upadhyay</span>
-                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015, ISSN: 2321-0613</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
                         </div>
                     </div>
 
