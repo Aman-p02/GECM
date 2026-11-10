@@ -268,6 +268,31 @@ include_once __DIR__ . '/../../includes/header.php';
                     <p>Housed in the main building of the college, equipped with specialized testing apparatus, experimental benches, and engineering laboratories.</p>
                 </div>
 
+                <!-- Official Facilities Directory Block -->
+                <div class="dept-facilities-overview-card">
+                    <div class="dept-facilities-divider-heading">
+                        <span class="dept-facilities-divider-line"></span>
+                        <h3 class="dept-facilities-divider-title">Facilities</h3>
+                        <span class="dept-facilities-divider-line"></span>
+                    </div>
+                    <div class="dept-facilities-columns">
+                        <ul class="dept-facility-checklist">
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Drawing hall</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Surveying Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Fluid Mechanics Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Environmental Engineering Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Transportation Engineering Lab</span></li>
+                        </ul>
+                        <ul class="dept-facility-checklist">
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Geoinformatic / Geology Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Water Resources Lab</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Concrete Laboratory</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Structure &amp; Heavy Structures Laboratory</span></li>
+                            <li><i class="fas fa-chevron-circle-right"></i> <span>Soil &amp; Material Testing Laboratory</span></li>
+                        </ul>
+                    </div>
+                </div>
+
                 <!-- Featured Laboratories Showcase with Photos -->
                 <div class="dept-labs-showcase">
                     <!-- Facility 1: Surveying Lab -->
