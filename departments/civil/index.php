@@ -268,31 +268,6 @@ include_once __DIR__ . '/../../includes/header.php';
                     <p>Housed in the main building of the college, equipped with specialized testing apparatus, experimental benches, and engineering laboratories.</p>
                 </div>
 
-                <!-- Official Facilities Directory Block -->
-                <div class="dept-facilities-overview-card">
-                    <div class="dept-facilities-divider-heading">
-                        <span class="dept-facilities-divider-line"></span>
-                        <h3 class="dept-facilities-divider-title">Facilities</h3>
-                        <span class="dept-facilities-divider-line"></span>
-                    </div>
-                    <div class="dept-facilities-columns">
-                        <ul class="dept-facility-checklist">
-                            <li><i class="fas fa-chevron-circle-right"></i> <span>Drawing hall</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i> <span>Surveying Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i> <span>Fluid Mechanics Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i> <span>Environmental Engineering Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i> <span>Transportation Engineering Lab</span></li>
-                        </ul>
-                        <ul class="dept-facility-checklist">
-                            <li><i class="fas fa-chevron-circle-right"></i> <span>Geoinformatic / Geology Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i> <span>Water Resources Lab</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i> <span>Concrete Laboratory</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i> <span>Structure &amp; Heavy Structures Laboratory</span></li>
-                            <li><i class="fas fa-chevron-circle-right"></i> <span>Soil &amp; Material Testing Laboratory</span></li>
-                        </ul>
-                    </div>
-                </div>
-
                 <!-- Featured Laboratories Showcase with Photos -->
                 <div class="dept-labs-showcase">
                     <!-- Facility 1: Surveying Lab -->
@@ -344,33 +319,47 @@ include_once __DIR__ . '/../../includes/header.php';
                     </div>
                 </div>
 
-                <!-- Supplementary Facilities Directory -->
+                <!-- Department Facilities Directory (All 10 Facilities) -->
                 <div class="dept-section-header" style="margin-top: 52px;">
                     <span class="dept-section-kicker">INFRASTRUCTURE DIRECTORY</span>
-                    <h2>Additional Specialized Laboratories &amp; Centers</h2>
-                    <p>Testing centers and specialized laboratory facilities supporting undergraduate and post-graduate civil engineering courses.</p>
+                    <h2>All Department Facilities &amp; Centers</h2>
+                    <p>Comprehensive list of teaching laboratories, workshops, and specialized testing facilities.</p>
                 </div>
 
                 <div class="dept-facilities-grid">
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-cubes"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-drafting-compass"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Concrete Laboratory</h4>
-                            <p>Compressive testing machine, sieve shaker, workability slump test apparatus, and concrete mix design facilities.</p>
+                            <h4>Drawing hall</h4>
+                            <p>Spacious drawing hall dedicated to engineering graphics, structural drawing, and manual blueprint preparation.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-mountain"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-map-marked-alt"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Soil &amp; Material Testing Laboratory</h4>
-                            <p>Tri-axial shear apparatus, direct shear machines, unconfined compression, and soil consolidation testing equipment.</p>
+                            <h4>Surveying Lab</h4>
+                            <p>Equipped with total stations, optical theodolites, auto-levels, and measurement chains for comprehensive field surveying.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-archway"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-water"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Structure &amp; Heavy Structures Laboratory</h4>
-                            <p>Heavy loading frames for structural deflection, column buckling, beam bending moments, and frame analysis.</p>
+                            <h4>Fluid Mechanics Lab</h4>
+                            <p>Flow measurement benches, hydraulic flumes, pipe friction apparatus, and fluid dynamics experimental setups.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-leaf"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Environmental Engineering Lab</h4>
+                            <p>Water and wastewater testing equipment, pH meters, turbidity meters, BOD/COD incubators, and air quality analysis.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-road"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Transportation Engineering Lab</h4>
+                            <p>Pavement material testing apparatus including bitumen penetration, ductility, softening point, and aggregate impact tests.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
@@ -388,10 +377,24 @@ include_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-drafting-compass"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-cubes"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Drawing Hall</h4>
-                            <p>Spacious drawing hall dedicated to engineering graphics, structural drawing, and manual blueprint preparation.</p>
+                            <h4>Concrete Laboratory</h4>
+                            <p>Compressive testing machine, sieve shaker, workability slump test apparatus, and concrete mix design facilities.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-archway"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Structure &amp; Heavy Structures Laboratory</h4>
+                            <p>Heavy loading frames for structural deflection, column buckling, beam bending moments, and frame analysis.</p>
+                        </div>
+                    </div>
+                    <div class="dept-facility-item">
+                        <div class="dept-facility-icon"><i class="fas fa-mountain"></i></div>
+                        <div class="dept-facility-info">
+                            <h4>Soil &amp; Material Testing Laboratory</h4>
+                            <p>Tri-axial shear apparatus, direct shear machines, unconfined compression, and soil consolidation testing equipment.</p>
                         </div>
                     </div>
                 </div>
