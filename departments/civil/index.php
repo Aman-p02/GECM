@@ -358,7 +358,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         </label>
                         <div class="dept-pub-select-box">
                             <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year" onchange="window.filterPublicationsByYear && window.filterPublicationsByYear(this.value)">
-                                <option value="all">All Years (25)</option>
+                                <option value="all">All Years (45)</option>
                                 <option value="2023">2023 (3)</option>
                                 <option value="2022">2022 (3)</option>
                                 <option value="2021">2021 (1)</option>
@@ -366,13 +366,20 @@ include_once __DIR__ . '/../../includes/header.php';
                                 <option value="2019">2019 (2)</option>
                                 <option value="2018">2018 (2)</option>
                                 <option value="2017">2017 (8)</option>
-                                <option value="2016">2016 (3)</option>
+                                <option value="2016">2016 (7)</option>
+                                <option value="2015">2015 (5)</option>
+                                <option value="2014">2014 (1)</option>
+                                <option value="2013">2013 (3)</option>
+                                <option value="2012">2012 (2)</option>
+                                <option value="2011">2011 (1)</option>
+                                <option value="2007">2007 (2)</option>
+                                <option value="2006">2006 (1)</option>
                             </select>
                             <i class="fas fa-chevron-down dept-pub-arrow"></i>
                         </div>
                     </div>
                     <div class="dept-pub-badge" id="pubCountBadge">
-                        Showing <strong>25</strong> publications
+                        Showing <strong>45</strong> publications
                     </div>
                 </div>
 
@@ -604,6 +611,186 @@ include_once __DIR__ . '/../../includes/header.php';
                         <div class="dept-citation-meta">
                             <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Daksha Katariya, Prof. P. K. Shah, Dr. Indra Prakash, Khalid Mehammud</span>
                             <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 26 (2016) -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Impact Of Sanand Branch Canal On Landuse Pattern In Sanand Taluka, Gujarat, India Using Geoinformatics Technology</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Daksha Katariya, Prof. P. K. Shah, Dr. Indra Prakash, Khalid Mehammud</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 27 (2016) -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Assessment of Water Supply System of Deodar Taluka, Banaskantha, Gujarat, India using Geo-informatics Technology and EPANET</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Dhaval B. Patel, P. K. Shah, Khalid Mehmood, Indra Prakash</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 28 (2016) -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Reductive photocatalysis of azo dyes using TiO2 nano-particles in the presence of some natural anti-oxidants as hole scavengers, 252nd ACS National Meeting</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Bhaumik Shah, M. Doshi, J. Ruparelia, U. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 29 (2016) -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Development of Strategy for Up Gradation of Existing Rural Road Links of Aravalli District</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pandya Jay P.</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 30 (2015) -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Rainwater Harvesting - A Case Study of Amba Township, Gandhinagar</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Anant D. Patel, Asst. Prof. Pratima K. Shah</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 31 (2015) -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Analysis of Quality of Ground Water and its Suitability for Drinking Purpose in Visnagar Taluka, Mehsana District, Gujarat</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> D. S. Goswamee, S. K. Raval, P. K. Shah, Y. S. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 32 (2015) -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">TRIP MAKING BEHAVIOUR IN THE MODASA TOWN (Gujarat)</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. K. SHARMA</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 33 (2015) -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">International paper on "Integrated Ozonation and Aerobic Biodegradation of Acid Red 14 and Congo Red Azo Dyes"</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Dr. U. K. Khare, Dr. P. Bose</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 34 (2015) -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Trip Making Behaviour in the Modasa Town</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> Pandya Jay P.</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 35 (2015) -->
+                    <div class="dept-citation-item" data-year="2015">
+                        <h3 class="dept-citation-title">Utilization of Waste Plastic in Construction of Pavement</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. K. SHARMA</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2015</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 36 (2014) -->
+                    <div class="dept-citation-item" data-year="2014">
+                        <h3 class="dept-citation-title">International paper on "Combined ozonation and aerobic biodegradation of Reactive Black-5 and Reactive Violet 5 Dyes"</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Dr. U. K. Khare, Dr. P. Bose</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2014</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 37 (2013) -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">IMPROVEMENT IN TRANSIT SERVICE USING TRANSCAD GIS A CASE STUDY OF HIMATNAGAR BUS DEPOT</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Sathawara Jigar K., Prof. A. K. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 38 (2013) -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">COMPARISON BETWEEN SOAKED AND UNSOAKED CBR</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Sathawara Jigar K., Prof. A. K. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 39 (2013) -->
+                    <div class="dept-citation-item" data-year="2013">
+                        <h3 class="dept-citation-title">Reductive Photocatalysis for Degradation of Toxic Pollutants in water: A Short Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Bhaumik Shah, U D Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2013</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 40 (2012) -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Modification of Webster's Delay Formula Using Modified Saturation Flow Model 41 for Non-Lane Based Heterogeneous Traffic Conditions</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> N. G. Raval, P. J. Gundaliya</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 41 (2012) -->
+                    <div class="dept-citation-item" data-year="2012">
+                        <h3 class="dept-citation-title">Green Highways: Today's Need for Sustainable Development</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> H. B. Thakar, Dr. H. R. Varia, Dr. L. B. Zala</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2012</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 42 (2011) -->
+                    <div class="dept-citation-item" data-year="2011">
+                        <h3 class="dept-citation-title">Public Transport Scenario in Modasa Taluka Region</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> H. B. Thakar, Dr. H. R. Varia, Dr. L. B. Zala</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2011</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 43 (2007) -->
+                    <div class="dept-citation-item" data-year="2007">
+                        <h3 class="dept-citation-title">International paper on "Impact of ozonation on subsequent treatment of azo dye solutions"</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Dr. U. K. Khare, Dr. P. Bose</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2007</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 44 (2007) -->
+                    <div class="dept-citation-item" data-year="2007">
+                        <h3 class="dept-citation-title">Paper titled on "Combined ozonation and aerobic biodegradation of some azo dyes"</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Dr. U. K. Khare, Dr. P. Bose</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2007</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 45 (2006) -->
+                    <div class="dept-citation-item" data-year="2006">
+                        <h3 class="dept-citation-title">Paper titled on "Ozonation of azo dyes:physico-chemical and toxicological aspects"</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Dr. U. K. Khare, Dr. P. Bose</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2006</span>
                         </div>
                     </div>
                 </div>
