@@ -175,6 +175,9 @@ function initDepartment() {
         yearFilter.addEventListener('change', function () {
             filterPublicationsByYear(this.value);
         });
+
+        // Initialize view and count badge
+        filterPublicationsByYear(yearFilter.value || 'all');
     }
 
     // 3. Tab switching and URL routing

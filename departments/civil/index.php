@@ -358,20 +358,253 @@ include_once __DIR__ . '/../../includes/header.php';
                         </label>
                         <div class="dept-pub-select-box">
                             <select id="pubYearFilter" class="dept-pub-select" aria-label="Filter publications by year" onchange="window.filterPublicationsByYear && window.filterPublicationsByYear(this.value)">
-                                <option value="all">All Years (0)</option>
+                                <option value="all">All Years (25)</option>
+                                <option value="2023">2023 (3)</option>
+                                <option value="2022">2022 (3)</option>
+                                <option value="2021">2021 (1)</option>
+                                <option value="2020">2020 (3)</option>
+                                <option value="2019">2019 (2)</option>
+                                <option value="2018">2018 (2)</option>
+                                <option value="2017">2017 (8)</option>
+                                <option value="2016">2016 (3)</option>
                             </select>
                             <i class="fas fa-chevron-down dept-pub-arrow"></i>
                         </div>
                     </div>
                     <div class="dept-pub-badge" id="pubCountBadge">
-                        Showing <strong>0</strong> publications
+                        Showing <strong>25</strong> publications
                     </div>
                 </div>
 
                 <div class="dept-citations-list">
-                    <div class="dept-pub-empty" id="pubEmptyState">
+                    <div class="dept-pub-empty" id="pubEmptyState" style="display: none;">
                         <i class="far fa-folder-open"></i>
-                        Publications list is currently being compiled and will be available soon.
+                        No publications found matching the selected filter.
+                    </div>
+
+                    <!-- Publication 1 (2023) -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">Comparison of Shoreline Change Analysis using EPR and LRR methods along the Coastal Region</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Pratima Shah, Dr. Gargi Rajapara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 2 (2023) -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">A Critical Literature Review on The Effect of Coastal Process and Hydrodynamics Changes along Region of India</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Pratima Shah, Dr. Gargi Rajpara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 3 (2023) -->
+                    <div class="dept-citation-item" data-year="2023">
+                        <h3 class="dept-citation-title">A Critical Literature Review on The Effect of Coastal Process and Hydrodynamics Changes along Region of India</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Pratima Shah, Dr. Gargi Rajpara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2023</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 4 (2022) -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Evaluating socio-economic impacts for micro watersheds of Sabarkantha and Aravalli districts of Gujarat, India</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Vishalkumar R. Gor, Vinodkumar M. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 5 (2022) -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Evaluating the changes in soil erosion for micro watersheds of Sabarkantha and Aravalli districts of Gujarat, India</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Vishalkumar R. Gor, Vinodkumar M. Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 6 (2022) -->
+                    <div class="dept-citation-item" data-year="2022">
+                        <h3 class="dept-citation-title">Coastline Extraction of Gulf of Khambhat using RS and GIS Techniques</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Shah Pratima, Rajpara Gargi</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2022</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 7 (2021) -->
+                    <div class="dept-citation-item" data-year="2021">
+                        <h3 class="dept-citation-title">Mechanistic aspects of photocatalytic degradation of Lindane by TiO2 in the presence of Oxalic acid and EDTA as hole-scavengers</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Bhaumik Shah and U D Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2021</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 8 (2020) -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Water Supply System Planning of Gandhinagar District, Gujarat</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Pratima Shah, Utkarsh Nigam</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 9 (2020) -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Impact of Coastal Processes and Hydrodynamics along Coastal Region: A Literature Review</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Shah Pratima, G. Rajapara, S. Dixit, U. Nigam</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 10 (2020) -->
+                    <div class="dept-citation-item" data-year="2020">
+                        <h3 class="dept-citation-title">Planning of Water Supply System for Sector-27, Gandhinagar District, Gujarat</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Shah Pratima, U. Nigam, S. Dixit</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2020</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 11 (2019) -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Reductive photocatalytic decolourisation of reactive black 5 using immobilized TiO2, 4th International Conference on Bioenergy, Environment and Sustainable Technologies (BEST 2019)</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Bhaumik Shah and U D Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 12 (2019) -->
+                    <div class="dept-citation-item" data-year="2019">
+                        <h3 class="dept-citation-title">Aqueous pollutants in water bodies can be photocatalytically reduced by TiO2 nano-particles in the presence of natural organic matter</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Bhaumik Shah and U D Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2019</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 13 (2018) -->
+                    <div class="dept-citation-item" data-year="2018">
+                        <h3 class="dept-citation-title">Development of Model for Estimating Saturation Flow using Width and Roughness of Road for Mixed Traffic Condition in Urban Area</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> N. G. Raval, Dr. P. J. Gundaliya</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 14 (2018) -->
+                    <div class="dept-citation-item" data-year="2018">
+                        <h3 class="dept-citation-title">Reductive Photocatalytic Decolourization of an Azo Dye Reactive Black 5 Using TiO2: Mechanism and Role of Reductive Species</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Bhaumik Shah and U D Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2018</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 15 (2017) -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Analyzing Urban population Density Gradient for Morbi city</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Toral Vyas, Prof. R. N. Shukla</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 16 (2017) -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Impact Analysis of Branch Canal on Land Use Pattern using GIS Techniques</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Prof. Pratima Shah, Prof. M. B. Dholakia, Daksha Kataria</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 17 (2017) -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Development of Model for Estimating Capacity of Roads for Heterogeneous Traffic Condition in Urban Area</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> N. G. Raval, Dr. P. J. Gundaliya, Dr. Gargee Rajpara</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 18 (2017) -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Development of Relationship Between Saturation Flow &amp; Capacity of Mid-Block Section of urban Road - A Case Study of Ahmedabad City</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> N. G. Raval, Dr. P. J. Gundaliya</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 19 (2017) -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Reductive Photocatalytic Degradation of Triclosan by UV Light and P25: Influence of Experimental Parameters</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Bhaumik Shah and U D Patel</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 20 (2017) -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Willingness towards Rail Transits for Modasa – Lunavada – Godhara route</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Purohit Shekhar, Thakar H.B., Varia H.R., Bhavasar A.M.</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 21 (2017) -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Feasibility of new Proposed Railway link Between Modasa – Lunavada - Godhara</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Purohit Shekhar, Thakar H.B., Varia H.R., Bhavasar A.M.</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 22 (2017) -->
+                    <div class="dept-citation-item" data-year="2017">
+                        <h3 class="dept-citation-title">Use of Waste Marble Powder to Improve the Characteristics of Black cotton soil</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Patel B.B., Thakar H.B., Varia H.R., Mishra C.B.</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2017</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 23 (2016) -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">ROAD SAFETY AUDIT FOR SELECTED RURAL ROAD OF ARAVALLI DISTRICT</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user"></i> H. K. SHARMA</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 24 (2016) -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Feasibility of Public Transport Services in Prantij</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Pandya Jay P. &amp; Patel Gunjan S.</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
+                    </div>
+
+                    <!-- Publication 25 (2016) -->
+                    <div class="dept-citation-item" data-year="2016">
+                        <h3 class="dept-citation-title">Ground water balance study in the command area of Sanand branch canal, Gujarat, India using GEC 1997 and Geoinformatics Technology</h3>
+                        <div class="dept-citation-meta">
+                            <span class="dept-citation-authors"><i class="fas fa-user-friends"></i> Daksha Katariya, Prof. P. K. Shah, Dr. Indra Prakash, Khalid Mehammud</span>
+                            <span class="dept-citation-date"><i class="far fa-calendar-alt"></i> 2016</span>
+                        </div>
                     </div>
                 </div>
             </section>
