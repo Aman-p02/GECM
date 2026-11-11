@@ -56,68 +56,73 @@ if (isset($pdo) && $pdo) {
                         <?php 
                         $photoSrc = !empty($fac['photo_url']) ? $root_path . $fac['photo_url'] : $root_path . 'images/avatar_placeholder.jpg';
                         ?>
-                        <img src="<?= htmlspecialchars($photoSrc) ?>" 
-                             alt="<?= htmlspecialchars($fac['name']) ?>" 
-                             class="faculty-card-photo" 
-                             onerror="this.src='<?= $root_path ?>images/avatar_placeholder.jpg'">
+                        <div class="faculty-photo-frame">
+                            <img src="<?= htmlspecialchars($photoSrc) ?>" 
+                                 alt="<?= htmlspecialchars($fac['name']) ?>" 
+                                 class="faculty-card-photo" 
+                                 loading="lazy"
+                                 onerror="this.src='<?= $root_path ?>images/avatar_placeholder.jpg'">
+                        </div>
                     </div>
-                    <div class="faculty-card-content">
-                        <h3 class="faculty-card-name"><?= htmlspecialchars($fac['name']) ?></h3>
-                        <table class="faculty-info-table">
-                            <tbody>
-                                <tr>
-                                    <th class="faculty-th">Designation</th>
-                                    <td class="faculty-colon">:</td>
-                                    <td class="faculty-td"><?= htmlspecialchars($fac['designation'] ?: ' - ') ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="faculty-th">Qualification</th>
-                                    <td class="faculty-colon">:</td>
-                                    <td class="faculty-td"><?= htmlspecialchars($fac['qualification'] ?: ' - ') ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="faculty-th">Experience</th>
-                                    <td class="faculty-colon">:</td>
-                                    <td class="faculty-td"><?= htmlspecialchars($fac['experience'] ?: ' - ') ?></td>
-                                </tr>
-                                <?php if (!empty($fac['date_of_joining']) && $fac['date_of_joining'] !== '0000-00-00'): ?>
-                                <tr>
-                                    <th class="faculty-th">Date of joining</th>
-                                    <td class="faculty-colon">:</td>
-                                    <td class="faculty-td"><?= date('d-m-Y', strtotime($fac['date_of_joining'])) ?></td>
-                                </tr>
-                                <?php endif; ?>
-                                <?php if (!empty($fac['area_of_interest'])): ?>
-                                <tr>
-                                    <th class="faculty-th">Area of Interest</th>
-                                    <td class="faculty-colon">:</td>
-                                    <td class="faculty-td"><?= htmlspecialchars($fac['area_of_interest']) ?></td>
-                                </tr>
-                                <?php endif; ?>
+                    <div class="faculty-card-body">
+                        <div class="faculty-card-top">
+                            <div class="faculty-rank"><?= htmlspecialchars($fac['designation'] ?: 'Faculty Member') ?></div>
+                            <h3 class="faculty-name">
+                                <a href="<?= $root_path ?>departments/faculty-profile.php?id=<?= $fac['id'] ?>">
+                                    <?= htmlspecialchars($fac['name']) ?>
+                                </a>
+                            </h3>
+                        </div>
+
+                        <div class="faculty-details-row">
+                            <?php if (!empty($fac['qualification'])): ?>
+                            <div class="faculty-detail-col">
+                                <span class="faculty-detail-label">Qualification</span>
+                                <span class="faculty-detail-val"><?= htmlspecialchars($fac['qualification']) ?></span>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if (!empty($fac['experience'])): ?>
+                            <div class="faculty-detail-col">
+                                <span class="faculty-detail-label">Experience</span>
+                                <span class="faculty-detail-val"><?= htmlspecialchars($fac['experience']) ?></span>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if (!empty($fac['date_of_joining']) && $fac['date_of_joining'] !== '0000-00-00'): ?>
+                            <div class="faculty-detail-col">
+                                <span class="faculty-detail-label">Date of Joining</span>
+                                <span class="faculty-detail-val"><?= date('d-m-Y', strtotime($fac['date_of_joining'])) ?></span>
+                            </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <?php if (!empty($fac['area_of_interest'])): ?>
+                        <div class="faculty-research">
+                            <span class="faculty-research-label">Area of Interest:</span>
+                            <span class="faculty-research-val"><?= htmlspecialchars($fac['area_of_interest']) ?></span>
+                        </div>
+                        <?php endif; ?>
+
+                        <div class="faculty-card-bottom">
+                            <div class="faculty-actions-left">
                                 <?php if (!empty($fac['email'])): ?>
-                                <tr>
-                                    <th class="faculty-th">Email</th>
-                                    <td class="faculty-colon">:</td>
-                                    <td class="faculty-td">
-                                        <a href="mailto:<?= htmlspecialchars($fac['email']) ?>"><?= htmlspecialchars($fac['email']) ?></a>
-                                    </td>
-                                </tr>
+                                    <a href="mailto:<?= htmlspecialchars($fac['email']) ?>" class="faculty-link" title="Email <?= htmlspecialchars($fac['name']) ?>">
+                                        <i class="far fa-envelope"></i>
+                                        <span><?= htmlspecialchars($fac['email']) ?></span>
+                                    </a>
                                 <?php endif; ?>
-                                <tr>
-                                    <th class="faculty-th">Website</th>
-                                    <td class="faculty-colon">:</td>
-                                    <td class="faculty-td">
-                                        <?php if (!empty($fac['website']) && $fac['website'] !== '#' && $fac['website'] !== '0'): ?>
-                                            <a href="<?= htmlspecialchars($fac['website']) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($fac['website']) ?></a>
-                                        <?php else: ?>
-                                             - 
-                                        <?php endif; ?>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="faculty-card-footer">
-                            <a href="<?= $root_path ?>departments/faculty-profile.php?id=<?= $fac['id'] ?>" class="faculty-read-more">Read More...</a>
+                                <?php if (!empty($fac['website']) && $fac['website'] !== '#' && $fac['website'] !== '0' && $fac['website'] !== '-'): ?>
+                                    <a href="<?= htmlspecialchars($fac['website']) ?>" target="_blank" rel="noopener noreferrer" class="faculty-link" title="Personal Website">
+                                        <i class="fas fa-globe"></i>
+                                        <span>Website</span>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                            <a href="<?= $root_path ?>departments/faculty-profile.php?id=<?= $fac['id'] ?>" class="faculty-profile-cta">
+                                <span>View Profile</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

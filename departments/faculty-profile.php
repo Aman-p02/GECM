@@ -79,117 +79,116 @@ include_once __DIR__ . '/../includes/header.php';
 <link rel="stylesheet" href="includes/faculty.css">
 
 <div class="dept-page">
-    <div class="dept-container" style="padding-top: 36px; padding-bottom: 60px;">
+    <div class="dept-container" style="padding-top: 32px; padding-bottom: 60px;">
         
-        <!-- Back Link -->
+        <!-- Minimal Back Link -->
         <div style="margin-bottom: 24px;">
-            <a href="<?= htmlspecialchars($deptUrl) ?>#faculty" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-size: 14px; font-weight: 600; color: var(--dept-accent, #1976d2);">
+            <a href="<?= htmlspecialchars($deptUrl) ?>#faculty" class="dept-back-link">
                 <i class="fas fa-arrow-left"></i> Back to <?= htmlspecialchars($deptName) ?> Faculty
             </a>
         </div>
 
         <!-- Faculty Main Info Card -->
-        <div class="faculty-card" style="box-shadow: 0 1px 4px rgba(0,0,0,0.06); border-left: 4px solid var(--dept-accent, #1976d2); margin-bottom: 36px;">
-            <div class="faculty-card-media" style="width: 200px;">
+        <div class="faculty-card" style="margin-bottom: 32px;">
+            <div class="faculty-card-media" style="width: 160px;">
                 <?php 
                 $photoSrc = !empty($faculty['photo_url']) ? '../' . $faculty['photo_url'] : '../images/avatar_placeholder.jpg';
                 ?>
-                <img src="<?= htmlspecialchars($photoSrc) ?>" 
-                     alt="<?= htmlspecialchars($faculty['name']) ?>" 
-                     class="faculty-card-photo" 
-                     onerror="this.src='../images/avatar_placeholder.jpg'">
+                <div class="faculty-photo-frame">
+                    <img src="<?= htmlspecialchars($photoSrc) ?>" 
+                         alt="<?= htmlspecialchars($faculty['name']) ?>" 
+                         class="faculty-card-photo" 
+                         onerror="this.src='../images/avatar_placeholder.jpg'">
+                </div>
             </div>
-            <div class="faculty-card-content">
-                <h1 class="faculty-card-name" style="font-size: 1.6rem; margin-bottom: 14px; color: var(--dept-accent, #1976d2);"><?= htmlspecialchars($faculty['name']) ?></h1>
-                <table class="faculty-info-table">
-                    <tbody>
-                        <tr>
-                            <th class="faculty-th">Designation</th>
-                            <td class="faculty-colon">:</td>
-                            <td class="faculty-td"><?= htmlspecialchars($faculty['designation'] ?: ' - ') ?></td>
-                        </tr>
-                        <tr>
-                            <th class="faculty-th">Qualification</th>
-                            <td class="faculty-colon">:</td>
-                            <td class="faculty-td"><?= htmlspecialchars($faculty['qualification'] ?: ' - ') ?></td>
-                        </tr>
-                        <tr>
-                            <th class="faculty-th">Experience</th>
-                            <td class="faculty-colon">:</td>
-                            <td class="faculty-td"><?= htmlspecialchars($faculty['experience'] ?: ' - ') ?></td>
-                        </tr>
-                        <?php if (!empty($faculty['date_of_joining']) && $faculty['date_of_joining'] !== '0000-00-00'): ?>
-                        <tr>
-                            <th class="faculty-th">Date of joining</th>
-                            <td class="faculty-colon">:</td>
-                            <td class="faculty-td"><?= date('d-m-Y', strtotime($faculty['date_of_joining'])) ?></td>
-                        </tr>
-                        <?php endif; ?>
-                        <?php if (!empty($faculty['area_of_interest'])): ?>
-                        <tr>
-                            <th class="faculty-th">Area of Interest</th>
-                            <td class="faculty-colon">:</td>
-                            <td class="faculty-td"><?= htmlspecialchars($faculty['area_of_interest']) ?></td>
-                        </tr>
-                        <?php endif; ?>
+            <div class="faculty-card-body">
+                <div class="faculty-card-top">
+                    <div class="faculty-rank"><?= htmlspecialchars($faculty['designation'] ?: 'Faculty Member') ?></div>
+                    <h1 class="faculty-name" style="font-size: 1.65rem;"><?= htmlspecialchars($faculty['name']) ?></h1>
+                </div>
+
+                <div class="faculty-details-row">
+                    <?php if (!empty($faculty['qualification'])): ?>
+                    <div class="faculty-detail-col">
+                        <span class="faculty-detail-label">Qualification</span>
+                        <span class="faculty-detail-val"><?= htmlspecialchars($faculty['qualification']) ?></span>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($faculty['experience'])): ?>
+                    <div class="faculty-detail-col">
+                        <span class="faculty-detail-label">Experience</span>
+                        <span class="faculty-detail-val"><?= htmlspecialchars($faculty['experience']) ?></span>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($faculty['date_of_joining']) && $faculty['date_of_joining'] !== '0000-00-00'): ?>
+                    <div class="faculty-detail-col">
+                        <span class="faculty-detail-label">Date of Joining</span>
+                        <span class="faculty-detail-val"><?= date('d-m-Y', strtotime($faculty['date_of_joining'])) ?></span>
+                    </div>
+                    <?php endif; ?>
+                </div>
+
+                <?php if (!empty($faculty['area_of_interest'])): ?>
+                <div class="faculty-research">
+                    <span class="faculty-research-label">Area of Interest:</span>
+                    <span class="faculty-research-val"><?= htmlspecialchars($faculty['area_of_interest']) ?></span>
+                </div>
+                <?php endif; ?>
+
+                <div class="faculty-card-bottom">
+                    <div class="faculty-actions-left">
                         <?php if (!empty($faculty['email'])): ?>
-                        <tr>
-                            <th class="faculty-th">Email</th>
-                            <td class="faculty-colon">:</td>
-                            <td class="faculty-td">
-                                <a href="mailto:<?= htmlspecialchars($faculty['email']) ?>"><?= htmlspecialchars($faculty['email']) ?></a>
-                            </td>
-                        </tr>
+                            <a href="mailto:<?= htmlspecialchars($faculty['email']) ?>" class="faculty-link" title="Email <?= htmlspecialchars($faculty['name']) ?>">
+                                <i class="far fa-envelope"></i>
+                                <span><?= htmlspecialchars($faculty['email']) ?></span>
+                            </a>
                         <?php endif; ?>
-                        <tr>
-                            <th class="faculty-th">Website</th>
-                            <td class="faculty-colon">:</td>
-                            <td class="faculty-td">
-                                <?php if (!empty($faculty['website']) && $faculty['website'] !== '#' && $faculty['website'] !== '0'): ?>
-                                    <a href="<?= htmlspecialchars($faculty['website']) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($faculty['website']) ?></a>
-                                <?php else: ?>
-                                     - 
-                                <?php endif; ?>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <?php if (!empty($faculty['website']) && $faculty['website'] !== '#' && $faculty['website'] !== '0' && $faculty['website'] !== '-'): ?>
+                            <a href="<?= htmlspecialchars($faculty['website']) ?>" target="_blank" rel="noopener noreferrer" class="faculty-link" title="Personal Website">
+                                <i class="fas fa-globe"></i>
+                                <span><?= htmlspecialchars($faculty['website']) ?></span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Detailed Profile Tabs -->
         <div class="faculty-tabs-container">
             <!-- Tab Headers Bar -->
-            <div class="faculty-tabs-nav" role="tablist">
-                <button type="button" class="fac-tab-btn active" data-fac-tab="qualifications">
-                    <i class="fas fa-graduation-cap"></i> Qualifications
+            <div class="fac-subnav-list" role="tablist">
+                <button type="button" class="fac-subnav-btn active" data-fac-tab="qualifications">
+                    Qualifications
                 </button>
-                <button type="button" class="fac-tab-btn" data-fac-tab="publications">
-                    <i class="fas fa-file-alt"></i> Publications <?= !empty($detailsGrouped['publications']) ? '(' . count($detailsGrouped['publications']) . ')' : '' ?>
+                <button type="button" class="fac-subnav-btn" data-fac-tab="publications">
+                    Publications <?= !empty($detailsGrouped['publications']) ? '(' . count($detailsGrouped['publications']) . ')' : '' ?>
                 </button>
-                <button type="button" class="fac-tab-btn" data-fac-tab="books">
-                    <i class="fas fa-book"></i> Books <?= !empty($detailsGrouped['books']) ? '(' . count($detailsGrouped['books']) . ')' : '' ?>
+                <button type="button" class="fac-subnav-btn" data-fac-tab="books">
+                    Books <?= !empty($detailsGrouped['books']) ? '(' . count($detailsGrouped['books']) . ')' : '' ?>
                 </button>
-                <button type="button" class="fac-tab-btn" data-fac-tab="editorial">
-                    <i class="fas fa-pencil-alt"></i> Editorial
+                <button type="button" class="fac-subnav-btn" data-fac-tab="editorial">
+                    Editorial
                 </button>
-                <button type="button" class="fac-tab-btn" data-fac-tab="training">
-                    <i class="fas fa-cogs"></i> Training
+                <button type="button" class="fac-subnav-btn" data-fac-tab="training">
+                    Training
                 </button>
-                <button type="button" class="fac-tab-btn" data-fac-tab="expert_talks">
-                    <i class="fas fa-comments"></i> Expert Talks
+                <button type="button" class="fac-subnav-btn" data-fac-tab="expert_talks">
+                    Expert Talks
                 </button>
-                <button type="button" class="fac-tab-btn" data-fac-tab="workshops">
-                    <i class="fas fa-wrench"></i> Workshops
+                <button type="button" class="fac-subnav-btn" data-fac-tab="workshops">
+                    Workshops
                 </button>
-                <button type="button" class="fac-tab-btn" data-fac-tab="activities">
-                    <i class="fas fa-tasks"></i> Activities
+                <button type="button" class="fac-subnav-btn" data-fac-tab="activities">
+                    Activities
                 </button>
-                <button type="button" class="fac-tab-btn" data-fac-tab="experience">
-                    <i class="fas fa-briefcase"></i> Experience
+                <button type="button" class="fac-subnav-btn" data-fac-tab="experience">
+                    Experience
                 </button>
-                <button type="button" class="fac-tab-btn" data-fac-tab="extra">
-                    <i class="fas fa-plus"></i> Extra
+                <button type="button" class="fac-subnav-btn" data-fac-tab="extra">
+                    Extra
                 </button>
             </div>
 
@@ -299,7 +298,7 @@ include_once __DIR__ . '/../includes/header.php';
 
         <!-- Back button -->
         <div style="margin-top: 40px; text-align: left;">
-            <a href="<?= htmlspecialchars($deptUrl) ?>#faculty" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 10px 20px; font-weight: 600; font-size: 14px; background: #f1f5f9; color: #334155; border-radius: 6px; border: 1px solid #cbd5e1;">
+            <a href="<?= htmlspecialchars($deptUrl) ?>#faculty" class="dept-back-link" style="font-size: 14px;">
                 <i class="fas fa-arrow-left"></i> Back to <?= htmlspecialchars($deptName) ?> Faculty
             </a>
         </div>
@@ -308,56 +307,10 @@ include_once __DIR__ . '/../includes/header.php';
 </div>
 
 <style>
-/* Detailed Faculty Profile Tab Bar Styling */
-.faculty-tabs-container {
-    background: #ffffff;
-    border-radius: 4px;
-    margin-top: 28px;
-}
-
-.faculty-tabs-nav {
-    display: flex;
-    flex-wrap: wrap;
-    border-bottom: 2px solid var(--dept-accent, #1976d2);
-    background: #f8fafc;
-    gap: 2px;
-}
-
-.fac-tab-btn {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-bottom: none;
-    padding: 10px 16px;
-    font-size: 13.5px;
-    font-weight: 500;
-    color: #475569;
-    cursor: pointer;
-    border-radius: 4px 4px 0 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    transition: all 0.15s ease;
-}
-
-.fac-tab-btn:hover {
-    color: var(--dept-accent, #1976d2);
-    background: #ffffff;
-}
-
-.fac-tab-btn.active {
-    background: var(--dept-accent, #1976d2);
-    color: #ffffff;
-    border-color: var(--dept-accent, #1976d2);
-    font-weight: 600;
-}
-
-.fac-tab-btn.active i {
-    color: #ffffff;
-}
-
+/* Detailed Profile Sub-Panes & Tables */
 .fac-tab-pane {
     display: none;
-    padding: 16px 4px;
+    padding: 20px 0;
 }
 
 .fac-tab-pane.active {
@@ -368,65 +321,70 @@ include_once __DIR__ . '/../includes/header.php';
 .fac-qual-table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--dept-border, #e5e7eb);
     font-size: 14px;
+    background: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .fac-qual-table th {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    padding: 10px 16px;
+    background: var(--dept-bg-subtle, #f8fafc);
+    border: 1px solid var(--dept-border, #e5e7eb);
+    padding: 12px 18px;
     text-align: left;
-    color: #334155;
+    color: #111111;
     font-weight: 600;
+    font-family: var(--dept-font-display, inherit);
 }
 
 .fac-qual-table td {
-    border: 1px solid #e2e8f0;
-    padding: 10px 16px;
-    color: #475569;
+    border: 1px solid var(--dept-border, #e5e7eb);
+    padding: 12px 18px;
+    color: var(--dept-body, #4b5563);
 }
 
 .fac-qual-table tr:nth-child(even) td {
-    background: #fcfcfd;
+    background: #fafafa;
 }
 
 .fac-empty-box {
-    background: #f8fafc;
+    background: var(--dept-bg-subtle, #f8fafc);
     border: 1px dashed #cbd5e1;
     border-radius: 6px;
-    padding: 30px;
+    padding: 36px 20px;
     text-align: center;
-    color: #64748b;
-    font-size: 14px;
+    color: var(--dept-muted, #6b7280);
+    font-size: 14.5px;
 }
 
 .fac-numbered-list {
     margin: 0;
-    padding-left: 24px;
+    padding-left: 20px;
 }
 
 .fac-list-item {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     line-height: 1.6;
 }
 
 .fac-item-title {
     font-weight: 600;
-    color: #1e293b;
+    color: #111111;
     font-size: 14.5px;
+    font-family: var(--dept-font-display, inherit);
 }
 
 .fac-item-details {
     font-size: 13.5px;
-    color: #64748b;
+    color: var(--dept-body, #4b5563);
     margin-top: 4px;
 }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const tabBtns = document.querySelectorAll('.fac-tab-btn');
+    const tabBtns = document.querySelectorAll('.fac-subnav-btn');
     const tabPanes = document.querySelectorAll('.fac-tab-pane');
 
     tabBtns.forEach(btn => {
