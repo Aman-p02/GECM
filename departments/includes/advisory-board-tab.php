@@ -54,82 +54,85 @@ $boardPaneId = $boardPaneId ?? 'tab-advisory-board';
 <!-- Tab: Advisory Board -->
 <section class="dept-tab-pane" id="<?= htmlspecialchars($boardPaneId) ?>">
     <div class="dept-section-header">
-        <span class="dept-section-kicker">GOVERNANCE & STRATEGY</span>
+        <span class="dept-section-kicker">GOVERNANCE &amp; STRATEGY</span>
         <h2>Department Advisory Board (DAB)</h2>
         <p>Official constitution, minutes of meetings, and advisory guidelines guiding academic excellence and industry relevance for <?= htmlspecialchars($deptName) ?>.</p>
     </div>
 
-    <?php if (empty($boardDocs)): ?>
-        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 48px 24px; text-align: center; color: #64748b; margin-top: 24px;">
-            <i class="fas fa-file-pdf" style="font-size: 38px; color: #94a3b8; margin-bottom: 14px; display: block;"></i>
-            <p style="font-size: 16px; margin: 0 0 6px 0; font-weight: 600; color: #334155;">Advisory Board Documents Updating</p>
-            <p style="font-size: 14px; margin: 0; color: #64748b;">No advisory board documents have been published for this department yet.</p>
-        </div>
-    <?php else: ?>
-        <!-- Advisory Board Filter Toolbar -->
-        <?php if (!empty($yearCounts) && count($yearCounts) > 1): ?>
-        <div class="dept-board-toolbar">
-            <div class="dept-board-filter-wrap">
-                <label for="boardYearFilter_<?= htmlspecialchars($deptCode) ?>" class="dept-board-filter-label">
-                    <i class="fas fa-filter"></i> Academic Year:
-                </label>
-                <div class="dept-board-select-box">
-                    <select id="boardYearFilter_<?= htmlspecialchars($deptCode) ?>" class="dept-board-select" aria-label="Filter documents by academic year" onchange="filterDeptBoard(this.value, '<?= htmlspecialchars($deptCode) ?>')">
-                        <option value="all">All Documents (<?= $totalDocs ?>)</option>
-                        <?php foreach ($yearCounts as $yr => $cnt): ?>
-                            <option value="<?= htmlspecialchars($yr) ?>"><?= htmlspecialchars($yr) ?> (<?= $cnt ?>)</option>
-                        <?php endforeach; ?>
-                    </select>
-                    <i class="fas fa-chevron-down dept-board-arrow"></i>
+    <div class="dept-board-wrapper">
+        <?php if (empty($boardDocs)): ?>
+            <div style="background: var(--dept-bg-subtle, #f8fafc); border: 1px solid var(--dept-border, #e2e8f0); border-radius: 6px; padding: 48px 24px; text-align: center; color: var(--dept-muted, #64748b); margin-top: 24px;">
+                <i class="fas fa-file-pdf" style="font-size: 36px; color: var(--dept-muted, #94a3b8); margin-bottom: 12px; display: block;"></i>
+                <p style="font-size: 15px; margin: 0 0 6px 0; font-weight: 600; color: #1e293b;">Advisory Board Documents Updating</p>
+                <p style="font-size: 13.5px; margin: 0; color: var(--dept-muted, #64748b);">No advisory board documents have been published for this department yet.</p>
+            </div>
+        <?php else: ?>
+            <!-- Advisory Board Filter Toolbar -->
+            <?php if (!empty($yearCounts) && count($yearCounts) > 1): ?>
+            <div class="dept-board-toolbar">
+                <div class="dept-board-filter-wrap">
+                    <label for="boardYearFilter_<?= htmlspecialchars($deptCode) ?>" class="dept-board-filter-label">
+                        <i class="fas fa-filter"></i> Academic Year:
+                    </label>
+                    <div class="dept-board-select-box">
+                        <select id="boardYearFilter_<?= htmlspecialchars($deptCode) ?>" class="dept-board-select" aria-label="Filter documents by academic year" onchange="filterDeptBoard(this.value, '<?= htmlspecialchars($deptCode) ?>')">
+                            <option value="all">All Documents (<?= $totalDocs ?>)</option>
+                            <?php foreach ($yearCounts as $yr => $cnt): ?>
+                                <option value="<?= htmlspecialchars($yr) ?>"><?= htmlspecialchars($yr) ?> (<?= $cnt ?>)</option>
+                            <?php endforeach; ?>
+                        </select>
+                        <i class="fas fa-chevron-down dept-board-arrow"></i>
+                    </div>
+                </div>
+                <div class="dept-board-badge" id="boardCountBadge_<?= htmlspecialchars($deptCode) ?>">
+                    Showing <strong><?= $totalDocs ?></strong> document<?= $totalDocs > 1 ? 's' : '' ?>
                 </div>
             </div>
-            <div class="dept-board-badge" id="boardCountBadge_<?= htmlspecialchars($deptCode) ?>">
-                Showing <strong><?= $totalDocs ?></strong> document<?= $totalDocs > 1 ? 's' : '' ?>
-            </div>
-        </div>
-        <?php endif; ?>
+            <?php endif; ?>
 
-        <div class="dept-board-grid" id="boardList_<?= htmlspecialchars($deptCode) ?>">
-            <!-- Empty filter state notice -->
-            <div class="dept-board-empty" id="boardEmptyState_<?= htmlspecialchars($deptCode) ?>" style="display: none;">
-                <i class="far fa-folder-open"></i>
-                No documents found for the selected academic year.
-            </div>
+            <div class="dept-board-grid" id="boardList_<?= htmlspecialchars($deptCode) ?>">
+                <!-- Empty filter state notice -->
+                <div class="dept-board-empty" id="boardEmptyState_<?= htmlspecialchars($deptCode) ?>" style="display: none;">
+                    <i class="far fa-folder-open"></i>
+                    No documents found for the selected academic year.
+                </div>
 
-            <?php foreach ($boardDocs as $doc): 
-                $yrAttr = trim($doc['academic_year'] ?: '');
-                $pdfUrl = htmlspecialchars($root_path . ltrim($doc['pdf_file'], '/'));
-                $fileSize = !empty($doc['file_size']) ? htmlspecialchars($doc['file_size']) : 'PDF';
-            ?>
-                <article class="dept-board-card" data-year="<?= htmlspecialchars($yrAttr) ?>">
-                    <div class="dept-board-card-body">
-                        <div class="dept-board-icon-box" aria-hidden="true">
-                            <i class="fas fa-file-pdf"></i>
-                            <span class="dept-board-icon-label">PDF</span>
-                        </div>
-                        <div class="dept-board-info">
-                            <h3 class="dept-board-title"><?= htmlspecialchars($doc['title']) ?></h3>
-                            <div class="dept-board-meta">
-                                <?php if (!empty($doc['academic_year'])): ?>
-                                    <span class="dept-board-year-tag">
-                                        <i class="far fa-calendar-alt"></i> <?= htmlspecialchars($doc['academic_year']) ?>
+                <?php foreach ($boardDocs as $doc): 
+                    $yrAttr = trim($doc['academic_year'] ?: '');
+                    $pdfUrl = htmlspecialchars($root_path . ltrim($doc['pdf_file'], '/'));
+                    $fileSize = !empty($doc['file_size']) ? htmlspecialchars($doc['file_size']) : 'PDF';
+                ?>
+                    <article class="dept-board-card" data-year="<?= htmlspecialchars($yrAttr) ?>">
+                        <div class="dept-board-card-body">
+                            <div class="dept-board-icon-box" aria-hidden="true">
+                                <i class="fas fa-file-pdf"></i>
+                                <span class="dept-board-icon-label">PDF</span>
+                            </div>
+                            <div class="dept-board-info">
+                                <h3 class="dept-board-title"><?= htmlspecialchars($doc['title']) ?></h3>
+                                <div class="dept-board-meta">
+                                    <?php if (!empty($doc['academic_year'])): ?>
+                                        <span class="dept-board-year-tag">
+                                            <i class="far fa-calendar-alt"></i> <?= htmlspecialchars($doc['academic_year']) ?>
+                                        </span>
+                                    <?php endif; ?>
+                                    <span class="dept-board-size">
+                                        <i class="fas fa-paperclip"></i> <?= $fileSize ?>
                                     </span>
-                                <?php endif; ?>
-                                <span class="dept-board-size">
-                                    <i class="fas fa-paperclip"></i> <?= $fileSize ?>
-                                </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="dept-board-footer">
-                        <a href="<?= $pdfUrl ?>" target="_blank" rel="noopener noreferrer" class="dept-board-btn" title="Open <?= htmlspecialchars($doc['title']) ?> in new tab">
-                            <i class="fas fa-external-link-alt"></i> View PDF
-                        </a>
-                    </div>
-                </article>
-            <?php endforeach; ?>
-        </div>
-    <?php endif; ?>
+                        <div class="dept-board-footer">
+                            <a href="<?= $pdfUrl ?>" target="_blank" rel="noopener noreferrer" class="dept-board-btn" title="Open <?= htmlspecialchars($doc['title']) ?> in new tab">
+                                <span>View PDF</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
 </section>
 
 <script>

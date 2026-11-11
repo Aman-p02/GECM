@@ -1,38 +1,35 @@
-/* Department Newsletters & Periodicals Styling */
+/* --------------------------------------------------------------------------
+   DEPARTMENT NEWSLETTERS & PERIODICALS STYLING
+   Minimal, aesthetic and premium design natively integrated with GECM Design System
+   -------------------------------------------------------------------------- */
+
+.dept-nl-wrapper {
+    margin-top: 28px;
+}
+
 .dept-nl-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 20px;
-    margin-top: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 22px;
+    margin-top: 20px;
 }
 
 .dept-nl-card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 22px 20px 18px 20px;
+    border: 1px solid var(--dept-border, #e5e7eb);
+    border-radius: 6px;
+    padding: 22px 22px 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: var(--dept-transition, all 0.2s cubic-bezier(0.16, 1, 0.3, 1));
     position: relative;
     overflow: hidden;
 }
 
-.dept-nl-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #0284c7, #2563eb);
-}
-
 .dept-nl-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.09);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
     border-color: #cbd5e1;
 }
 
@@ -42,47 +39,51 @@
     align-items: flex-start;
 }
 
+/* Icon Box */
 .dept-nl-icon-box {
     flex-shrink: 0;
-    width: 48px;
-    height: 52px;
-    background: #f0f9ff;
-    border: 1px solid #e0f2fe;
-    border-radius: 10px;
+    width: 44px;
+    height: 48px;
+    background: rgba(var(--dept-accent-rgb, 37, 99, 235), 0.08);
+    border: 1px solid rgba(var(--dept-accent-rgb, 37, 99, 235), 0.16);
+    border-radius: 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #0284c7;
-    transition: all 0.25s ease;
+    color: var(--dept-accent, #2563eb);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .dept-nl-card:hover .dept-nl-icon-box {
-    background: #0284c7;
+    background: var(--dept-accent, #2563eb);
     color: #ffffff;
-    border-color: #0284c7;
+    border-color: var(--dept-accent, #2563eb);
 }
 
 .dept-nl-icon-box i {
-    font-size: 22px;
+    font-size: 1.15rem;
 }
 
 .dept-nl-icon-label {
-    font-size: 9px;
+    font-size: 0.58rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
     margin-top: 2px;
 }
 
+/* Info & Content */
 .dept-nl-info {
     flex-grow: 1;
+    min-width: 0;
 }
 
 .dept-nl-title {
-    font-size: 16px;
+    font-family: var(--dept-font-display, inherit);
+    font-size: 1.05rem;
     font-weight: 700;
     line-height: 1.4;
-    color: #0f172a;
+    color: #111111;
     margin: 0 0 8px 0;
     word-break: break-word;
 }
@@ -92,46 +93,47 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 8px 12px;
-    font-size: 12px;
-    color: #64748b;
+    font-size: 0.78rem;
+    color: var(--dept-muted, #64748b);
 }
 
 .dept-nl-vol-tag {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    background: #f1f5f9;
-    color: #334155;
-    padding: 3px 8px;
+    gap: 5px;
+    background: rgba(var(--dept-accent-rgb, 37, 99, 235), 0.08);
+    color: var(--dept-accent, #2563eb);
+    padding: 2px 8px;
     border-radius: 4px;
-    font-weight: 600;
-    font-size: 11.5px;
+    font-weight: 700;
+    font-size: 0.74rem;
+    letter-spacing: 0.02em;
 }
 
 .dept-nl-period-tag {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    background: #f0fdf4;
-    color: #166534;
-    padding: 3px 8px;
+    background: var(--dept-bg-subtle, #f1f5f9);
+    color: #334155;
+    padding: 2px 8px;
     border-radius: 4px;
     font-weight: 600;
-    font-size: 11.5px;
+    font-size: 0.74rem;
 }
 
 .dept-nl-size {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    color: #dc2626;
-    font-weight: 500;
+    color: var(--dept-muted, #64748b);
 }
 
+/* Card Action Footer */
 .dept-nl-footer {
-    margin-top: 18px;
-    padding-top: 14px;
-    border-top: 1px solid #f1f5f9;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--dept-border-subtle, #f3f4f6);
     display: flex;
     justify-content: flex-end;
 }
@@ -139,33 +141,33 @@
 .dept-nl-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: #0284c7;
+    gap: 6px;
+    background: var(--dept-accent, #2563eb);
     color: #ffffff !important;
-    font-size: 13px;
+    font-family: var(--dept-font-display, inherit);
+    font-size: 0.84rem;
     font-weight: 600;
-    padding: 8px 18px;
+    padding: 7px 16px;
     border-radius: 6px;
     text-decoration: none;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 2px rgba(2, 132, 199, 0.2);
+    transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .dept-nl-btn:hover {
-    background: #0369a1;
+    background: var(--dept-accent-hover, var(--dept-accent, #1d4ed8));
     color: #ffffff !important;
     text-decoration: none;
-    box-shadow: 0 3px 6px rgba(2, 132, 199, 0.3);
+    transform: translateY(-1px);
 }
 
-.dept-nl-btn i.fa-external-link-alt {
-    font-size: 11px;
-    opacity: 0.85;
+.dept-nl-btn i {
+    font-size: 0.74rem;
+    opacity: 0.9;
 }
 
 @media (max-width: 640px) {
     .dept-nl-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 }
-
