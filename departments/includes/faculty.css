@@ -202,9 +202,10 @@
     transition: gap 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
 }
 
-.faculty-profile-cta:hover {
+.faculty-profile-cta:hover,
+.faculty-profile-cta:hover i {
     gap: 10px;
-    color: var(--dept-accent-hover, var(--dept-accent, #1d4ed8));
+    color: #009dff;
     text-decoration: none;
 }
 

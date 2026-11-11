@@ -148,7 +148,7 @@
 }
 
 .dept-nl-btn:hover {
-    background: var(--dept-accent-hover, var(--dept-accent, #1d4ed8));
+    background: #009dff;
     color: #ffffff !important;
     text-decoration: none;
     transform: translateY(-1px);

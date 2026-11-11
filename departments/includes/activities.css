@@ -120,9 +120,10 @@
     transition: gap 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
 }
 
-.activity-btn-view:hover {
+.activity-btn-view:hover,
+.activity-btn-view:hover i {
     gap: 10px;
-    color: var(--dept-accent-hover, var(--dept-accent, #1d4ed8));
+    color: #009dff;
 }
 
 .activity-btn-view i {
@@ -273,7 +274,7 @@
 }
 
 .activity-modal-cta:hover {
-    background: var(--dept-accent-hover, var(--dept-accent, #1d4ed8));
+    background: #009dff;
     transform: translateY(-1px);
     text-decoration: none;
 }
