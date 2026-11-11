@@ -1,6 +1,6 @@
 <?php
 /**
- * GEC MODASA — ADMIN AUTH & SESSION HELPER
+ * GEC MODASA - ADMIN AUTH & SESSION HELPER
  */
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

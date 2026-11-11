@@ -188,7 +188,7 @@ if ($pdo) {
 }
 
 $current_page = 'dept-publications';
-$page_title = "Publications — " . $deptName;
+$page_title = "Publications - " . $deptName;
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -223,7 +223,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top">
         <div class="card-title-group">
-            <h2 class="card-title"><?= htmlspecialchars($deptName) ?> — Research Publications</h2>
+            <h2 class="card-title"><?= htmlspecialchars($deptName) ?> - Research Publications</h2>
             <p style="color: #64748b; font-size: 13.5px; margin-top: 4px;">
                 Manage journal publications, conference proceedings, authors, publication dates, and paper links.
             </p>
@@ -301,7 +301,7 @@ require_once __DIR__ . '/includes/header.php';
                             <td>
                                 <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #475569;">
                                     <i class="far fa-calendar-alt" style="color: #2563eb;"></i>
-                                    <span><?= htmlspecialchars($pub['pub_date'] ?: ($pub['pub_year'] ?: '—')) ?></span>
+                                    <span><?= htmlspecialchars($pub['pub_date'] ?: ($pub['pub_year'] ?: ' - ')) ?></span>
                                 </div>
                             </td>
                             <td style="text-align: center;">

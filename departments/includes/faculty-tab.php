@@ -68,17 +68,17 @@ if (isset($pdo) && $pdo) {
                                 <tr>
                                     <th class="faculty-th">Designation</th>
                                     <td class="faculty-colon">:</td>
-                                    <td class="faculty-td"><?= htmlspecialchars($fac['designation'] ?: '—') ?></td>
+                                    <td class="faculty-td"><?= htmlspecialchars($fac['designation'] ?: ' - ') ?></td>
                                 </tr>
                                 <tr>
                                     <th class="faculty-th">Qualification</th>
                                     <td class="faculty-colon">:</td>
-                                    <td class="faculty-td"><?= htmlspecialchars($fac['qualification'] ?: '—') ?></td>
+                                    <td class="faculty-td"><?= htmlspecialchars($fac['qualification'] ?: ' - ') ?></td>
                                 </tr>
                                 <tr>
                                     <th class="faculty-th">Experience</th>
                                     <td class="faculty-colon">:</td>
-                                    <td class="faculty-td"><?= htmlspecialchars($fac['experience'] ?: '—') ?></td>
+                                    <td class="faculty-td"><?= htmlspecialchars($fac['experience'] ?: ' - ') ?></td>
                                 </tr>
                                 <?php if (!empty($fac['date_of_joining']) && $fac['date_of_joining'] !== '0000-00-00'): ?>
                                 <tr>
@@ -110,7 +110,7 @@ if (isset($pdo) && $pdo) {
                                         <?php if (!empty($fac['website']) && $fac['website'] !== '#' && $fac['website'] !== '0'): ?>
                                             <a href="<?= htmlspecialchars($fac['website']) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($fac['website']) ?></a>
                                         <?php else: ?>
-                                            —
+                                             - 
                                         <?php endif; ?>
                                     </td>
                                 </tr>

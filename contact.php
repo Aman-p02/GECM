@@ -106,7 +106,7 @@ require_once __DIR__ . '/includes/header.php';
                         <h2 class="contact-section-title">Working Hours</h2>
                         <ul class="contact-hours-list">
                             <li class="hours-row">
-                                <span class="hours-day">Monday &ndash; Friday:</span>
+                                <span class="hours-day">Monday - Friday:</span>
                                 <span class="hours-time">10:30am to 6:10pm</span>
                             </li>
                             <li class="hours-row">

@@ -238,7 +238,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <li class="dept-mission-item">
                             <span class="dept-mission-index">IV</span>
                             <div class="dept-mission-text">
-                                To enhance industry – academia collaboration for promoting research and placement.
+                                To enhance industry - academia collaboration for promoting research and placement.
                             </div>
                         </li>
                         <li class="dept-mission-item">

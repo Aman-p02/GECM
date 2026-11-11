@@ -122,7 +122,7 @@ if (isset($pdo) && $pdo) {
                         
                         <span class="dept-citation-date">
                             <i class="far fa-calendar-alt" style="color: #64748b;"></i>
-                            <span><?= htmlspecialchars($pub['pub_date'] ?: ($pub['pub_year'] ?: '—')) ?></span>
+                            <span><?= htmlspecialchars($pub['pub_date'] ?: ($pub['pub_year'] ?: ' - ')) ?></span>
                         </span>
                     </div>
 

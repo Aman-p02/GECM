@@ -1,6 +1,6 @@
 <?php
 // Set Page Variables
-$page_title = "Department of Information Technology — Government Engineering College, Modasa";
+$page_title = "Department of Information Technology - Government Engineering College, Modasa";
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/information-technology/css/department.css";
@@ -258,7 +258,7 @@ include_once __DIR__ . '/../../includes/header.php';
                         <ul class="dept-obj-list">
                             <li><strong>PSO 1:</strong> Effectively integrate IT-based solutions into the user environment.</li>
                             <li><strong>PSO 2:</strong> Possess professional skill set of software design process using open source technologies.</li>
-                            <li><strong>PSO 3:</strong> Apply concepts of core areas of Information Technology– Data Structures, Database Management Systems, Operating Systems, Computer Network and Software Engineering to provide innovative solution.</li>
+                            <li><strong>PSO 3:</strong> Apply concepts of core areas of Information Technology- Data Structures, Database Management Systems, Operating Systems, Computer Network and Software Engineering to provide innovative solution.</li>
                         </ul>
                     </div>
                 </div>

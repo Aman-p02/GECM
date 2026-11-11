@@ -195,7 +195,7 @@ if (isset($_GET['manage_quals']) && $pdo) {
 }
 
 $current_page = 'dept-faculty';
-$page_title = $deptName . ' — Faculty Management';
+$page_title = $deptName . ' - Faculty Management';
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -230,7 +230,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top">
         <div class="card-title-group">
-            <h2 class="card-title"><?= htmlspecialchars($deptName) ?> — Faculty Directory</h2>
+            <h2 class="card-title"><?= htmlspecialchars($deptName) ?> - Faculty Directory</h2>
             <p style="color: #64748b; font-size: 13.5px; margin-top: 4px;">
                 Manage professors, designations, contact information, photos, and academic profile tabs.
             </p>
@@ -293,8 +293,8 @@ require_once __DIR__ . '/includes/header.php';
                                 <span style="font-size: 13px; color: #1e90ff; font-weight: 600;"><?= htmlspecialchars($fac['designation']) ?></span>
                             </td>
                             <td>
-                                <div style="font-size: 13.5px; color: #334155; font-weight: 500;"><?= htmlspecialchars($fac['qualification'] ?: '—') ?></div>
-                                <div style="font-size: 12px; color: #64748b; margin-top: 2px;">Exp: <?= htmlspecialchars($fac['experience'] ?: '—') ?></div>
+                                <div style="font-size: 13.5px; color: #334155; font-weight: 500;"><?= htmlspecialchars($fac['qualification'] ?: ' - ') ?></div>
+                                <div style="font-size: 12px; color: #64748b; margin-top: 2px;">Exp: <?= htmlspecialchars($fac['experience'] ?: ' - ') ?></div>
                             </td>
                             <td>
                                 <div style="font-size: 13px; color: #334155;">
@@ -579,7 +579,7 @@ require_once __DIR__ . '/includes/header.php';
                                 <td><strong><?= htmlspecialchars($q['qualification']) ?></strong></td>
                                 <td><?= htmlspecialchars($q['university']) ?></td>
                                 <td><?= htmlspecialchars($q['year_of_passing']) ?></td>
-                                <td><?= htmlspecialchars($q['percentage'] ?: '—') ?></td>
+                                <td><?= htmlspecialchars($q['percentage'] ?: ' - ') ?></td>
                                 <td style="text-align: center;">
                                     <form action="dept-faculty.php?dept=<?= $deptCode ?>" method="POST" onsubmit="return confirm('Delete this qualification?');" style="display:inline;">
                                         <input type="hidden" name="action" value="delete_qualification">

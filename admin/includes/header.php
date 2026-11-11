@@ -1,6 +1,6 @@
 <?php
 /**
- * GEC MODASA — ADMIN PANEL HEADER
+ * GEC MODASA - ADMIN PANEL HEADER
  */
 require_once __DIR__ . '/auth.php';
 checkAdminAuth();
@@ -15,7 +15,7 @@ $page_title = $page_title ?? 'Dashboard Overview';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($page_title) ?> — GEC Admin</title>
+    <title><?= htmlspecialchars($page_title) ?> - GEC Admin</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

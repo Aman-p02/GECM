@@ -1,6 +1,6 @@
 <?php
 /**
- * GEC MODASA — Image Upload Handler
+ * GEC MODASA - Image Upload Handler
  * Supports direct file uploads from PC with validation and preview.
  */
 

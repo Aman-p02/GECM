@@ -202,7 +202,7 @@ if ($pdo) {
 }
 
 $current_page = 'dept-activities';
-$page_title = "Activities — " . $deptName;
+$page_title = "Activities - " . $deptName;
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -237,7 +237,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top">
         <div class="card-title-group">
-            <h2 class="card-title"><?= htmlspecialchars($deptName) ?> — Activities & Events</h2>
+            <h2 class="card-title"><?= htmlspecialchars($deptName) ?> - Activities & Events</h2>
             <p style="color: #64748b; font-size: 13.5px; margin-top: 4px;">
                 Manage departmental workshops, industrial visits, guest lectures, expert talks, and student activities.
             </p>

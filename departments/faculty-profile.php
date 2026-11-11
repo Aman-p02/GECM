@@ -64,7 +64,7 @@ if ($pdo) {
     }
 }
 
-$page_title = htmlspecialchars($faculty['name']) . " — Department of " . htmlspecialchars($deptName);
+$page_title = htmlspecialchars($faculty['name']) . " - Department of " . htmlspecialchars($deptName);
 $active_page = "departments";
 $root_path = "../";
 $extra_css = "departments/computer/css/department.css";
@@ -113,17 +113,17 @@ include_once __DIR__ . '/../includes/header.php';
                         <tr>
                             <th class="faculty-th">Designation</th>
                             <td class="faculty-colon">:</td>
-                            <td class="faculty-td"><?= htmlspecialchars($faculty['designation'] ?: '—') ?></td>
+                            <td class="faculty-td"><?= htmlspecialchars($faculty['designation'] ?: ' - ') ?></td>
                         </tr>
                         <tr>
                             <th class="faculty-th">Qualification</th>
                             <td class="faculty-colon">:</td>
-                            <td class="faculty-td"><?= htmlspecialchars($faculty['qualification'] ?: '—') ?></td>
+                            <td class="faculty-td"><?= htmlspecialchars($faculty['qualification'] ?: ' - ') ?></td>
                         </tr>
                         <tr>
                             <th class="faculty-th">Experience</th>
                             <td class="faculty-colon">:</td>
-                            <td class="faculty-td"><?= htmlspecialchars($faculty['experience'] ?: '—') ?></td>
+                            <td class="faculty-td"><?= htmlspecialchars($faculty['experience'] ?: ' - ') ?></td>
                         </tr>
                         <?php if (!empty($faculty['date_of_joining']) && $faculty['date_of_joining'] !== '0000-00-00'): ?>
                         <tr>
@@ -155,7 +155,7 @@ include_once __DIR__ . '/../includes/header.php';
                                 <?php if (!empty($faculty['website']) && $faculty['website'] !== '#' && $faculty['website'] !== '0'): ?>
                                     <a href="<?= htmlspecialchars($faculty['website']) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($faculty['website']) ?></a>
                                 <?php else: ?>
-                                    —
+                                     - 
                                 <?php endif; ?>
                             </td>
                         </tr>
@@ -225,7 +225,7 @@ include_once __DIR__ . '/../includes/header.php';
                                         <td><strong><?= htmlspecialchars($q['qualification']) ?></strong></td>
                                         <td><?= htmlspecialchars($q['university']) ?></td>
                                         <td><?= htmlspecialchars($q['year_of_passing']) ?></td>
-                                        <td><?= htmlspecialchars($q['percentage'] ?: '—') ?></td>
+                                        <td><?= htmlspecialchars($q['percentage'] ?: ' - ') ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             <?php endif; ?>

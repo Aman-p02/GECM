@@ -217,7 +217,7 @@ if ($pdo) {
 }
 
 $current_page = 'dept-newsletters';
-$page_title = "Newsletters — " . $deptName;
+$page_title = "Newsletters - " . $deptName;
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -252,7 +252,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top">
         <div class="card-title-group">
-            <h2 class="card-title"><?= htmlspecialchars($deptName) ?> — Newsletters &amp; Periodicals</h2>
+            <h2 class="card-title"><?= htmlspecialchars($deptName) ?> - Newsletters &amp; Periodicals</h2>
             <p style="color: #64748b; font-size: 13.5px; margin-top: 4px;">
                 Upload and manage departmental semester magazines, technical newsletters, and periodicals.
             </p>
@@ -331,7 +331,7 @@ require_once __DIR__ . '/includes/header.php';
                                         <?= htmlspecialchars($item['volume_issue']) ?>
                                     </span>
                                 <?php else: ?>
-                                    <span style="color: #94a3b8; font-size: 12px;">—</span>
+                                    <span style="color: #94a3b8; font-size: 12px;"> - </span>
                                 <?php endif; ?>
                             </td>
                             <td>
@@ -340,7 +340,7 @@ require_once __DIR__ . '/includes/header.php';
                                         <?= htmlspecialchars($item['issue_period']) ?>
                                     </span>
                                 <?php else: ?>
-                                    <span style="color: #94a3b8; font-size: 12px;">—</span>
+                                    <span style="color: #94a3b8; font-size: 12px;"> - </span>
                                 <?php endif; ?>
                             </td>
                             <td>

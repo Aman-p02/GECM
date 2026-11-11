@@ -1,6 +1,6 @@
 <?php
 // Set Page Variables
-$page_title = "Department of Computer Engineering — Government Engineering College, Modasa";
+$page_title = "Department of Computer Engineering - Government Engineering College, Modasa";
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/computer/css/department.css";
@@ -144,7 +144,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                                 <div class="dept-avenue-icon"><i class="fas fa-microchip"></i></div>
                                 <h4>Hardware Engineering</h4>
                             </div>
-                            <p>Hardware engineers focus their skills on computer systems and physical components—designing microprocessors, circuit boards, routers, and embedded devices that power modern smart electronics.</p>
+                            <p>Hardware engineers focus their skills on computer systems and physical components - designing microprocessors, circuit boards, routers, and embedded devices that power modern smart electronics.</p>
                         </div>
 
                         <div class="dept-avenue-card">
@@ -259,7 +259,7 @@ Empowering future engineers through innovation and technology. Focused on practi
                         <ul class="dept-obj-list">
                             <li><strong>PSO 1:</strong> Gain capability to use current / advanced technology, skills and tools necessary for carrying out Real-World Multidisciplinary projects.</li>
                             <li><strong>PSO 2:</strong> Achieve an ability to build a computer based system, process or a component that meets the desired needs.</li>
-                            <li><strong>PSO 3:</strong> Apply concepts of core areas of Computer Engineering—Data Structures, Database Management Systems, Operating Systems, Computer Architecture and Software Engineering to provide innovative solution.</li>
+                            <li><strong>PSO 3:</strong> Apply concepts of core areas of Computer Engineering - Data Structures, Database Management Systems, Operating Systems, Computer Architecture and Software Engineering to provide innovative solution.</li>
                         </ul>
                     </div>
                 </div>

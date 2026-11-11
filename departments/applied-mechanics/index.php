@@ -1,6 +1,6 @@
 <?php
 // Set Page Variables
-$page_title = "Department of Applied Mechanics — Government Engineering College, Modasa";
+$page_title = "Department of Applied Mechanics - Government Engineering College, Modasa";
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/applied-mechanics/css/department.css";

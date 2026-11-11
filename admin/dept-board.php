@@ -227,7 +227,7 @@ if ($pdo) {
 }
 
 $current_page = 'dept-board';
-$page_title = "Advisory Board — " . $deptName;
+$page_title = "Advisory Board - " . $deptName;
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -269,7 +269,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top">
         <div class="card-title-group">
-            <h2 class="card-title"><?= htmlspecialchars($deptName) ?> — Advisory Board Documents</h2>
+            <h2 class="card-title"><?= htmlspecialchars($deptName) ?> - Advisory Board Documents</h2>
             <p style="color: #64748b; font-size: 13.5px; margin-top: 4px;">
                 Upload and manage Advisory Board meeting minutes, circulars, agendas, and constitution PDF files.
             </p>
