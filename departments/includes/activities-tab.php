@@ -43,116 +43,86 @@ if (isset($pdo) && $pdo) {
     <div class="dept-section-header">
         <span class="dept-section-kicker">STUDENT ENGAGEMENT &amp; EXPERIENTIAL LEARNING</span>
         <h2>Department Activities</h2>
-        <p>Workshops, technical symposiums, industrial visits, expert lectures, and student enrichment programs
-            conducted by <?= htmlspecialchars($deptName) ?>.</p>
+        <p>Workshops, technical symposiums, industrial visits, expert lectures, and student enrichment programs conducted by <?= htmlspecialchars($deptName) ?>.</p>
     </div>
 
     <div class="dept-activities-wrapper">
         <?php if (empty($deptActivities)): ?>
-            <div
-                style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 48px 24px; text-align: center; color: #64748b; margin-top: 24px;">
-                <i class="fas fa-calendar-alt"
-                    style="font-size: 38px; color: #94a3b8; margin-bottom: 14px; display: block;"></i>
-                <p style="font-size: 16px; margin: 0 0 6px 0; font-weight: 600; color: #334155;">Department Activities
-                    Updating</p>
-                <p style="font-size: 14px; margin: 0; color: #64748b;">No recent activities or events have been published
-                    for this department yet.</p>
+            <div style="background: var(--dept-bg-subtle, #f8fafc); border: 1px solid var(--dept-border, #e2e8f0); border-radius: 6px; padding: 48px 24px; text-align: center; color: var(--dept-muted, #64748b); margin-top: 24px;">
+                <i class="fas fa-calendar-alt" style="font-size: 36px; color: var(--dept-muted, #94a3b8); margin-bottom: 12px; display: block;"></i>
+                <p style="font-size: 15px; margin: 0 0 6px 0; font-weight: 600; color: #1e293b;">Department Activities Updating</p>
+                <p style="font-size: 13.5px; margin: 0; color: var(--dept-muted, #64748b);">No recent activities or events have been published for this department yet.</p>
             </div>
         <?php else: ?>
-            <!-- Alternating Modern Timeline Container -->
-            <div class="activity-timeline">
-                <div class="activity-timeline-line"></div>
-
-                <?php foreach ($deptActivities as $index => $act):
-                    $isRight = ($index % 2 !== 0);
-                    $cardSideClass = $isRight ? 'timeline-right' : 'timeline-left';
+            <!-- Editorial Activities Grid -->
+            <div class="dept-activities-grid">
+                <?php foreach ($deptActivities as $act):
                     $photoSrc = !empty($act['image_url']) ? $root_path . $act['image_url'] : $root_path . 'images/slider/default.jpg';
                     $modalId = 'actModal_' . $act['id'];
-                    ?>
-                    <div class="timeline-row <?= $cardSideClass ?>">
-                        <!-- Center Node Marker -->
-                        <div class="timeline-node">
-                            <i class="fas fa-circle"></i>
-                        </div>
+                ?>
+                    <article class="activity-card">
+                        <?php if (!empty($act['image_url'])): ?>
+                            <div class="activity-card-media">
+                                <img src="<?= htmlspecialchars($photoSrc) ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='<?= $root_path ?>images/slider/default.jpg'">
+                            </div>
+                        <?php endif; ?>
 
-                        <!-- Card Content -->
-                        <div class="timeline-card">
-                            <?php if (!empty($act['image_url'])): ?>
-                                <div class="timeline-media">
-                                    <img src="<?= htmlspecialchars($photoSrc) ?>" alt="<?= htmlspecialchars($act['title']) ?>"
-                                        loading="lazy" onerror="this.src='<?= $root_path ?>images/slider/default.jpg'">
-                                    <?php if (!empty($act['activity_date'])): ?>
-                                        <div class="timeline-date-badge">
-                                            <i class="far fa-calendar-alt"></i> <?= date('M d, Y', strtotime($act['activity_date'])) ?>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
+                        <div class="activity-card-body">
+                            <?php if (!empty($act['activity_date'])): ?>
+                                <span class="activity-date">
+                                    <?= date('M d, Y', strtotime($act['activity_date'])) ?>
+                                </span>
                             <?php endif; ?>
 
-                            <div class="timeline-body">
-                                <?php if (empty($act['image_url']) && !empty($act['activity_date'])): ?>
-                                    <div class="timeline-date-text">
-                                        <i class="far fa-calendar-alt"></i> <?= date('M d, Y', strtotime($act['activity_date'])) ?>
-                                    </div>
+                            <h3 class="activity-title"><?= htmlspecialchars($act['title']) ?></h3>
+
+                            <p class="activity-desc">
+                                <?= nl2br(htmlspecialchars(mb_strimwidth($act['description'], 0, 160, '...'))) ?>
+                            </p>
+
+                            <div class="activity-card-footer">
+                                <button type="button" class="activity-btn-view" onclick="openActivityModal('<?= $modalId ?>')">
+                                    <span>View Details</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                                <?php if (!empty($act['external_url'])): ?>
+                                    <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="activity-link-ext">
+                                        <i class="fas fa-external-link-alt"></i> Report
+                                    </a>
                                 <?php endif; ?>
-
-                                <h3 class="timeline-title"><?= htmlspecialchars($act['title']) ?></h3>
-
-                                <p class="timeline-desc">
-                                    <?= nl2br(htmlspecialchars(mb_strimwidth($act['description'], 0, 180, '...'))) ?>
-                                </p>
-
-                                <div class="timeline-footer">
-                                    <button type="button" class="btn-activity-view"
-                                        onclick="openActivityModal('<?= $modalId ?>')">
-                                        View More <i class="fas fa-arrow-right" style="margin-left: 4px;"></i>
-                                    </button>
-                                    <?php if (!empty($act['external_url'])): ?>
-                                        <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank"
-                                            rel="noopener noreferrer" class="btn-activity-link">
-                                            <i class="fas fa-external-link-alt"></i> Link
-                                        </a>
-                                    <?php endif; ?>
-                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
                     <!-- Full Details Modal for this Activity -->
-                    <div class="activity-modal-backdrop" id="<?= $modalId ?>">
+                    <div class="activity-modal-backdrop" id="<?= $modalId ?>" role="dialog" aria-modal="true" aria-labelledby="<?= $modalId ?>_title">
                         <div class="activity-modal-dialog">
                             <div class="activity-modal-header">
-                                <h3 class="activity-modal-title"><?= htmlspecialchars($act['title']) ?></h3>
-                                <button type="button" class="activity-modal-close"
-                                    onclick="closeActivityModal('<?= $modalId ?>')">&times;</button>
+                                <h3 class="activity-modal-title" id="<?= $modalId ?>_title"><?= htmlspecialchars($act['title']) ?></h3>
+                                <button type="button" class="activity-modal-close" onclick="closeActivityModal('<?= $modalId ?>')" aria-label="Close dialog">&times;</button>
                             </div>
                             <div class="activity-modal-body">
                                 <?php if (!empty($act['image_url'])): ?>
-                                    <div
-                                        style="margin-bottom: 20px; text-align: center; background: #f8fafc; border-radius: 6px; overflow: hidden; border: 1px solid #e2e8f0;">
-                                        <img src="<?= htmlspecialchars($photoSrc) ?>" alt="<?= htmlspecialchars($act['title']) ?>"
-                                            style="max-width: 100%; max-height: 420px; object-fit: contain;">
+                                    <div style="margin-bottom: 20px; text-align: center; background: var(--dept-bg-subtle, #f8fafc); border-radius: 6px; overflow: hidden; border: 1px solid var(--dept-border, #e5e7eb);">
+                                        <img src="<?= htmlspecialchars($photoSrc) ?>" alt="<?= htmlspecialchars($act['title']) ?>" style="max-width: 100%; max-height: 420px; object-fit: contain; display: block; margin: 0 auto;">
                                     </div>
                                 <?php endif; ?>
 
                                 <?php if (!empty($act['activity_date'])): ?>
-                                    <div
-                                        style="font-size: 13.5px; font-weight: 600; color: #2563eb; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
-                                        <i class="far fa-calendar-alt"></i> Date:
-                                        <?= date('F d, Y', strtotime($act['activity_date'])) ?>
+                                    <div class="activity-modal-date">
+                                        <i class="far fa-calendar-alt"></i> <?= date('F d, Y', strtotime($act['activity_date'])) ?>
                                     </div>
                                 <?php endif; ?>
 
-                                <div style="font-size: 15px; line-height: 1.7; color: #334155; white-space: pre-line;">
+                                <div class="activity-modal-text">
                                     <?= htmlspecialchars($act['description']) ?>
                                 </div>
 
                                 <?php if (!empty($act['external_url'])): ?>
-                                    <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0;">
-                                        <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank"
-                                            rel="noopener noreferrer"
-                                            style="display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #ffffff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
-                                            <i class="fas fa-external-link-alt"></i> Open External Link / Report
+                                    <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--dept-border, #e5e7eb);">
+                                        <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="activity-modal-cta">
+                                            <span>Open External Link / Report</span>
+                                            <i class="fas fa-arrow-right"></i>
                                         </a>
                                     </div>
                                 <?php endif; ?>
@@ -184,6 +154,15 @@ if (isset($pdo) && $pdo) {
     document.addEventListener('click', function (e) {
         if (e.target && e.target.classList.contains('activity-modal-backdrop')) {
             e.target.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            var openModals = document.querySelectorAll('.activity-modal-backdrop.is-open');
+            openModals.forEach(function(m) {
+                m.classList.remove('is-open');
+            });
             document.body.style.overflow = '';
         }
     });
