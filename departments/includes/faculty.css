@@ -1,6 +1,6 @@
 /* --------------------------------------------------------------------------
    SHARED FACULTY ROSTER & PROFILE CARDS
-   Matches reference screenshot across all departments
+   Matches reference design across all departments with dynamic theme accent
    -------------------------------------------------------------------------- */
 .faculty-roster-list {
     display: flex;
@@ -12,7 +12,7 @@
 .faculty-card {
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
-    border-left: 4px solid #1976d2;
+    border-left: 4px solid var(--dept-accent, #1976d2);
     border-radius: 4px;
     padding: 24px;
     display: flex;
@@ -24,7 +24,7 @@
 .faculty-card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
     border-color: #cbd5e1;
-    border-left-color: #1565c0;
+    border-left-color: var(--dept-accent-hover, var(--dept-accent, #1565c0));
 }
 
 .faculty-card-media {
@@ -53,7 +53,7 @@
     font-family: var(--dept-font-display, inherit);
     font-size: 1.38rem;
     font-weight: 600;
-    color: #1976d2;
+    color: var(--dept-accent, #1976d2);
     margin: 0 0 14px 0;
     letter-spacing: -0.01em;
 }
@@ -102,7 +102,7 @@
 }
 
 .faculty-td a {
-    color: #1976d2;
+    color: var(--dept-accent, #1976d2);
     text-decoration: none;
     word-break: break-all;
 }
@@ -118,7 +118,7 @@
 }
 
 .faculty-read-more {
-    color: #1976d2;
+    color: var(--dept-accent, #1976d2);
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -126,7 +126,7 @@
 }
 
 .faculty-read-more:hover {
-    color: #0d47a1;
+    color: var(--dept-accent-hover, var(--dept-accent, #0d47a1));
     text-decoration: underline;
 }
 
@@ -151,4 +151,3 @@
         font-size: 13px;
     }
 }
-

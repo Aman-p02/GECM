@@ -67,36 +67,29 @@ if ($pdo) {
 $page_title = htmlspecialchars($faculty['name']) . " - Department of " . htmlspecialchars($deptName);
 $active_page = "departments";
 $root_path = "../";
-$extra_css = "departments/computer/css/department.css";
-$extra_js = "departments/computer/js/department.js";
+
+$deptCssPath = "departments/" . $deptFolder . "/css/department.css";
+$extra_css = file_exists(__DIR__ . '/../' . $deptCssPath) ? $deptCssPath : "departments/computer/css/department.css";
+$deptJsPath = "departments/" . $deptFolder . "/js/department.js";
+$extra_js = file_exists(__DIR__ . '/../' . $deptJsPath) ? $deptJsPath : "departments/computer/js/department.js";
 
 // Include Header
 include_once __DIR__ . '/../includes/header.php';
 ?>
+<link rel="stylesheet" href="includes/faculty.css">
 
 <div class="dept-page">
     <div class="dept-container" style="padding-top: 36px; padding-bottom: 60px;">
         
-        <!-- Breadcrumb & Top Bar matching reference screenshot -->
-        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 16px;">
-            <div style="font-size: 1.15rem; font-weight: 700; color: #1e293b;">
-                <?= htmlspecialchars($faculty['name']) ?>
-            </div>
-            <nav aria-label="breadcrumb">
-                <ol style="list-style: none; display: flex; align-items: center; gap: 8px; margin: 0; padding: 0; font-size: 13px; color: #64748b;">
-                    <li><a href="../index.php" style="color: #1976d2; text-decoration: none;"><i class="fas fa-home" style="margin-right: 4px;"></i></a></li>
-                    <li>/</li>
-                    <li><a href="../index.php#departments" style="color: #1976d2; text-decoration: none;">Departments</a></li>
-                    <li>/</li>
-                    <li><a href="<?= htmlspecialchars($deptUrl) ?>" style="color: #1976d2; text-decoration: none;"><?= htmlspecialchars($deptName) ?></a></li>
-                    <li>/</li>
-                    <li><a href="<?= htmlspecialchars($deptUrl) ?>#faculty" style="color: #1976d2; text-decoration: none;">Faculty</a></li>
-                </ol>
-            </nav>
+        <!-- Back Link -->
+        <div style="margin-bottom: 24px;">
+            <a href="<?= htmlspecialchars($deptUrl) ?>#faculty" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-size: 14px; font-weight: 600; color: var(--dept-accent, #1976d2);">
+                <i class="fas fa-arrow-left"></i> Back to <?= htmlspecialchars($deptName) ?> Faculty
+            </a>
         </div>
 
-        <!-- Faculty Main Info Card matching reference screenshot -->
-        <div class="faculty-card" style="box-shadow: 0 1px 4px rgba(0,0,0,0.06); border-left: 4px solid #1976d2; margin-bottom: 36px;">
+        <!-- Faculty Main Info Card -->
+        <div class="faculty-card" style="box-shadow: 0 1px 4px rgba(0,0,0,0.06); border-left: 4px solid var(--dept-accent, #1976d2); margin-bottom: 36px;">
             <div class="faculty-card-media" style="width: 200px;">
                 <?php 
                 $photoSrc = !empty($faculty['photo_url']) ? '../' . $faculty['photo_url'] : '../images/avatar_placeholder.jpg';
@@ -107,7 +100,7 @@ include_once __DIR__ . '/../includes/header.php';
                      onerror="this.src='../images/avatar_placeholder.jpg'">
             </div>
             <div class="faculty-card-content">
-                <h1 class="faculty-card-name" style="font-size: 1.6rem; margin-bottom: 14px;"><?= htmlspecialchars($faculty['name']) ?></h1>
+                <h1 class="faculty-card-name" style="font-size: 1.6rem; margin-bottom: 14px; color: var(--dept-accent, #1976d2);"><?= htmlspecialchars($faculty['name']) ?></h1>
                 <table class="faculty-info-table">
                     <tbody>
                         <tr>
@@ -164,7 +157,7 @@ include_once __DIR__ . '/../includes/header.php';
             </div>
         </div>
 
-        <!-- Detailed Profile Tabs matching reference screenshot (Image 3) -->
+        <!-- Detailed Profile Tabs -->
         <div class="faculty-tabs-container">
             <!-- Tab Headers Bar -->
             <div class="faculty-tabs-nav" role="tablist">
@@ -200,7 +193,7 @@ include_once __DIR__ . '/../includes/header.php';
                 </button>
             </div>
 
-            <!-- Tab 1: Qualifications Table (Matches Image 3) -->
+            <!-- Tab 1: Qualifications Table -->
             <div class="fac-tab-pane active" id="fac-pane-qualifications">
                 <div class="table-responsive" style="margin-top: 16px;">
                     <table class="fac-qual-table">
@@ -315,7 +308,7 @@ include_once __DIR__ . '/../includes/header.php';
 </div>
 
 <style>
-/* Detailed Faculty Profile Tab Bar Styling (Matches Image 3) */
+/* Detailed Faculty Profile Tab Bar Styling */
 .faculty-tabs-container {
     background: #ffffff;
     border-radius: 4px;
@@ -325,7 +318,7 @@ include_once __DIR__ . '/../includes/header.php';
 .faculty-tabs-nav {
     display: flex;
     flex-wrap: wrap;
-    border-bottom: 2px solid #1976d2;
+    border-bottom: 2px solid var(--dept-accent, #1976d2);
     background: #f8fafc;
     gap: 2px;
 }
@@ -347,14 +340,14 @@ include_once __DIR__ . '/../includes/header.php';
 }
 
 .fac-tab-btn:hover {
-    color: #1976d2;
+    color: var(--dept-accent, #1976d2);
     background: #ffffff;
 }
 
 .fac-tab-btn.active {
-    background: #1976d2;
+    background: var(--dept-accent, #1976d2);
     color: #ffffff;
-    border-color: #1976d2;
+    border-color: var(--dept-accent, #1976d2);
     font-weight: 600;
 }
 
@@ -371,7 +364,7 @@ include_once __DIR__ . '/../includes/header.php';
     display: block;
 }
 
-/* Qualification Table (Matches Image 3) */
+/* Qualification Table */
 .fac-qual-table {
     width: 100%;
     border-collapse: collapse;
@@ -453,4 +446,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php include_once __DIR__ . '/../includes/footer.php'; ?>
-

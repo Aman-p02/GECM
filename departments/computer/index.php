@@ -23,45 +23,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
 <div class="dept-page" id="mainContent" data-active-tab="about">
 
-    <!-- Hero header section -->
-    <header class="dept-hero-banner">
-        <div class="dept-container">
-            <!-- Two-column hero grid (7 cols left, 5 cols right) -->
-            <div class="dept-hero-grid">
-                <div class="dept-hero-text">
-                    <span class="dept-kicker">DEPARTMENT OF</span>
-                    <h1 class="dept-heading">Computer Engineering</h1>
-                    <p class="dept-tagline">
-Empowering future engineers through innovation and technology. Focused on practical learning, software development, and building skills for the digital future.
-                    </p>
-                </div>
-                <div class="dept-hero-media">
-                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Computer Engineering Department Building" class="dept-hero-photo">
-                </div>
-            </div>
-
-            <!-- Key metrics counter strip (separated by single thin 1px line, no boxes, no vertical dividers) -->
-            <div class="dept-stats-strip">
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">2001</span>
-                    <span class="dept-stat-label">YEAR OF ESTABLISHMENT</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">120</span>
-                    <span class="dept-stat-label">ANNUAL APPROVED INTAKE</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">10</span>
-                    <span class="dept-stat-label">SPECIALIZED LABS</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">25</span>
-                    <span class="dept-stat-label">FACULTY MEMBERS</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Sticky sub-navigation bar -->
     <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
@@ -108,6 +69,42 @@ Empowering future engineers through innovation and technology. Focused on practi
 
             <!-- Tab 1: About Department -->
             <section class="dept-tab-pane active" id="tab-about">
+                <div class="dept-about-hero" style="margin-bottom: 56px;">
+                    <!-- Two-column hero grid (7 cols left, 5 cols right) -->
+                    <div class="dept-hero-grid">
+                        <div class="dept-hero-text">
+                            <span class="dept-kicker">DEPARTMENT OF</span>
+                            <h1 class="dept-heading">Computer Engineering</h1>
+                            <p class="dept-tagline">
+                                Empowering future engineers through innovation and technology. Focused on practical learning, software development, and building skills for the digital future.
+                            </p>
+                        </div>
+                        <div class="dept-hero-media">
+                            <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Computer Engineering Department Building" class="dept-hero-photo">
+                        </div>
+                    </div>
+
+                    <!-- Key metrics counter strip -->
+                    <div class="dept-stats-strip">
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">2001</span>
+                            <span class="dept-stat-label">YEAR OF ESTABLISHMENT</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">120</span>
+                            <span class="dept-stat-label">ANNUAL APPROVED INTAKE</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">10</span>
+                            <span class="dept-stat-label">SPECIALIZED LABS</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">25</span>
+                            <span class="dept-stat-label">FACULTY MEMBERS</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
                     <h2>About the Department</h2>

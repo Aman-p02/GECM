@@ -125,4 +125,3 @@ if (isset($pdo) && $pdo) {
         <?php endif; ?>
     </div>
 </section>
-
