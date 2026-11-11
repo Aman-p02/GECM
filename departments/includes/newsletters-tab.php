@@ -59,7 +59,6 @@ if (isset($pdo) && $pdo) {
             <div class="dept-nl-grid">
                 <?php foreach ($newsletters as $item): 
                     $pdfUrl = htmlspecialchars($root_path . ltrim($item['pdf_file'], '/'));
-                    $fileSize = !empty($item['file_size']) ? htmlspecialchars($item['file_size']) : 'PDF';
                 ?>
                     <article class="dept-nl-card">
                         <div class="dept-nl-card-body">
@@ -69,21 +68,20 @@ if (isset($pdo) && $pdo) {
                             </div>
                             <div class="dept-nl-info">
                                 <h3 class="dept-nl-title"><?= htmlspecialchars($item['title']) ?></h3>
-                                <div class="dept-nl-meta">
-                                    <?php if (!empty($item['volume_issue'])): ?>
-                                        <span class="dept-nl-vol-tag">
-                                            <i class="fas fa-bookmark"></i> <?= htmlspecialchars($item['volume_issue']) ?>
-                                        </span>
-                                    <?php endif; ?>
-                                    <?php if (!empty($item['issue_period'])): ?>
-                                        <span class="dept-nl-period-tag">
-                                            <i class="far fa-calendar-alt"></i> <?= htmlspecialchars($item['issue_period']) ?>
-                                        </span>
-                                    <?php endif; ?>
-                                    <span class="dept-nl-size">
-                                        <i class="fas fa-file-pdf"></i> <?= $fileSize ?>
-                                    </span>
-                                </div>
+                                <?php if (!empty($item['volume_issue']) || !empty($item['issue_period'])): ?>
+                                    <div class="dept-nl-meta">
+                                        <?php if (!empty($item['volume_issue'])): ?>
+                                            <span class="dept-nl-vol-tag">
+                                                <i class="fas fa-bookmark"></i> <?= htmlspecialchars($item['volume_issue']) ?>
+                                            </span>
+                                        <?php endif; ?>
+                                        <?php if (!empty($item['issue_period'])): ?>
+                                            <span class="dept-nl-period-tag">
+                                                <i class="far fa-calendar-alt"></i> <?= htmlspecialchars($item['issue_period']) ?>
+                                            </span>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="dept-nl-footer">

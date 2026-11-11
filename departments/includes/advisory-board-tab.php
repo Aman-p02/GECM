@@ -100,7 +100,6 @@ $boardPaneId = $boardPaneId ?? 'tab-advisory-board';
                 <?php foreach ($boardDocs as $doc): 
                     $yrAttr = trim($doc['academic_year'] ?: '');
                     $pdfUrl = htmlspecialchars($root_path . ltrim($doc['pdf_file'], '/'));
-                    $fileSize = !empty($doc['file_size']) ? htmlspecialchars($doc['file_size']) : 'PDF';
                 ?>
                     <article class="dept-board-card" data-year="<?= htmlspecialchars($yrAttr) ?>">
                         <div class="dept-board-card-body">
@@ -110,16 +109,13 @@ $boardPaneId = $boardPaneId ?? 'tab-advisory-board';
                             </div>
                             <div class="dept-board-info">
                                 <h3 class="dept-board-title"><?= htmlspecialchars($doc['title']) ?></h3>
-                                <div class="dept-board-meta">
-                                    <?php if (!empty($doc['academic_year'])): ?>
+                                <?php if (!empty($doc['academic_year'])): ?>
+                                    <div class="dept-board-meta">
                                         <span class="dept-board-year-tag">
                                             <i class="far fa-calendar-alt"></i> <?= htmlspecialchars($doc['academic_year']) ?>
                                         </span>
-                                    <?php endif; ?>
-                                    <span class="dept-board-size">
-                                        <i class="fas fa-paperclip"></i> <?= $fileSize ?>
-                                    </span>
-                                </div>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="dept-board-footer">

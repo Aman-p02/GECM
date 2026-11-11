@@ -193,12 +193,6 @@
     letter-spacing: 0.02em;
 }
 
-.dept-board-size {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    color: var(--dept-muted, #64748b);
-}
 
 /* Card Action Footer */
 .dept-board-footer {

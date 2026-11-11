@@ -122,12 +122,6 @@
     font-size: 0.74rem;
 }
 
-.dept-nl-size {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    color: var(--dept-muted, #64748b);
-}
 
 /* Card Action Footer */
 .dept-nl-footer {
