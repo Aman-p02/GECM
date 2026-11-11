@@ -26,3 +26,4 @@ $deptSchema = [
 <script type="application/ld+json">
 <?= json_encode($deptSchema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>
 </script>
+
