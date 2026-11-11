@@ -5,20 +5,79 @@ if (!isset($root_path)) {
 }
 // Page title
 if (!isset($page_title)) {
-    $page_title = "Government Engineering College, Modasa";
+    $page_title = "Government Engineering College, Modasa (GECM)";
 }
+// Page Meta Description (Default fallback for SEO)
+if (!isset($page_description)) {
+    $page_description = "Government Engineering College, Modasa (GEC Modasa) is a premier engineering institution in Gujarat affiliated with GTU, offering degree programs in CE, IT, ME, Civil, Automobile and Applied Mechanics.";
+}
+// Page Meta Keywords
+if (!isset($page_keywords)) {
+    $page_keywords = "GEC Modasa, Government Engineering College Modasa, GECM, GTU Engineering College, Engineering Admissions Gujarat, Computer Engineering Modasa, IT Engineering Modasa";
+}
+// Canonical URL
+$canonical_url = $canonical_url ?? ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . ($_SERVER['HTTP_HOST'] ?? 'gecmodasa.ac.in') . ($_SERVER['REQUEST_URI'] ?? ''));
 // Active navigation page
 if (!isset($active_page)) {
     $active_page = "home";
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
     <title><?php echo htmlspecialchars($page_title); ?></title>
+    <meta name="title" content="<?php echo htmlspecialchars($page_title); ?>">
+    <meta name="description" content="<?php echo htmlspecialchars($page_description); ?>">
+    <meta name="keywords" content="<?php echo htmlspecialchars($page_keywords); ?>">
+    <meta name="author" content="Government Engineering College, Modasa">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo htmlspecialchars($canonical_url); ?>">
+    <meta property="og:title" content="<?php echo htmlspecialchars($page_title); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($page_description); ?>">
+    <meta property="og:image" content="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'gecmodasa.ac.in') . '/' . ltrim($root_path, '/') ?>images/logo/gec-logo.png">
+    <meta property="og:site_name" content="Government Engineering College, Modasa">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="<?php echo htmlspecialchars($canonical_url); ?>">
+    <meta name="twitter:title" content="<?php echo htmlspecialchars($page_title); ?>">
+    <meta name="twitter:description" content="<?php echo htmlspecialchars($page_description); ?>">
+    <meta name="twitter:image" content="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'gecmodasa.ac.in') . '/' . ltrim($root_path, '/') ?>images/logo/gec-logo.png">
+
+    <!-- JSON-LD Structured Data: CollegeOrUniversity -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollegeOrUniversity",
+      "name": "Government Engineering College, Modasa",
+      "alternateName": ["GEC Modasa", "GECM"],
+      "url": "https://gecmodasa.ac.in",
+      "logo": "https://gecmodasa.ac.in/images/logo/gec-logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shamlaji Road",
+        "addressLocality": "Modasa",
+        "addressRegion": "Gujarat",
+        "postalCode": "383315",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.facebook.com/GECModasaOfficial",
+        "https://www.linkedin.com/school/gecmodasa/"
+      ]
+    }
+    </script>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="<?= $root_path ?>css/global.css?v=<?= file_exists(__DIR__ . '/../css/global.css') ? filemtime(__DIR__ . '/../css/global.css') : time() ?>">
 <?php if (isset($extra_css)): ?>

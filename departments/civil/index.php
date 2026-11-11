@@ -1,5 +1,8 @@
 <?php
 $page_title = "Civil Engineering | Government Engineering College, Modasa";
+$page_description = "Department of Civil Engineering at GEC Modasa. Offering B.Tech in Civil Engineering with surveying, geotechnical, environmental, and concrete technology labs.";
+$page_keywords = "Civil Engineering GEC Modasa, Civil GECM, GTU Civil Engineering, Civil Engineering Faculty Modasa, Concrete Testing Gujarat";
+
 $active_page = "departments";
 $root_path = "../../";
 
@@ -7,6 +10,7 @@ $deptCode = 'CIVIL';
 $deptName = 'Civil Engineering';
 
 include_once __DIR__ . '/../../includes/header.php';
+include_once __DIR__ . '/../includes/department-seo.php';
 ?>
 
 <!-- Civil Department Stylesheet -->

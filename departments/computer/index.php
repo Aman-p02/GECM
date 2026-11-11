@@ -1,6 +1,8 @@
 <?php
 // Set Page Variables
 $page_title = "Department of Computer Engineering - Government Engineering College, Modasa";
+$page_description = "Explore the Computer Engineering department at GEC Modasa. View faculty directory, research publications, modern computing labs, departmental activities, and newsletters.";
+$page_keywords = "Computer Engineering GEC Modasa, CE GECM, GTU Computer Engineering, Computer Science Engineering Gujarat, Computer Engineering Faculty Modasa";
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/computer/css/department.css";
@@ -11,6 +13,7 @@ $deptName = 'Computer Engineering';
 
 // Include Header
 include_once __DIR__ . '/../../includes/header.php';
+include_once __DIR__ . '/../includes/department-seo.php';
 ?>
 <link rel="stylesheet" href="../includes/faculty.css">
 <link rel="stylesheet" href="../includes/activities.css">

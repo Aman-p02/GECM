@@ -2,6 +2,9 @@
 
 
 $page_title = "Automobile Engineering | Government Engineering College, Modasa";
+$page_description = "Department of Automobile Engineering at GEC Modasa. Comprehensive vehicle dynamics, IC engines, automotive electronics, and hybrid mobility curriculum.";
+$page_keywords = "Automobile Engineering GEC Modasa, Automobile GECM, GTU Automobile Engineering, Vehicle Dynamics Gujarat, Automobile Faculty Modasa";
+
 $active_page = "departments";
 $root_path = "../../";
 
@@ -10,6 +13,7 @@ $deptName = 'Automobile Engineering';
 
 // Include global header component
 include_once __DIR__ . '/../../includes/header.php';
+include_once __DIR__ . '/../includes/department-seo.php';
 ?>
 
 <!-- Automobile Department Stylesheet -->

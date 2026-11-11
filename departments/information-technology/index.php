@@ -1,6 +1,8 @@
 <?php
 // Set Page Variables
 $page_title = "Department of Information Technology - Government Engineering College, Modasa";
+$page_description = "Department of Information Technology at GEC Modasa. Discover IT faculty profiles, curriculum, computer laboratories, technical events, syllabus, and publications.";
+$page_keywords = "Information Technology GEC Modasa, IT Engineering GECM, GTU IT Engineering, IT Faculty Modasa, Gujarat IT Admissions";
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/information-technology/css/department.css";
@@ -11,6 +13,7 @@ $deptName = 'Information Technology';
 
 // Include Header
 include_once __DIR__ . '/../../includes/header.php';
+include_once __DIR__ . '/../includes/department-seo.php';
 ?>
 <link rel="stylesheet" href="../includes/faculty.css">
 <link rel="stylesheet" href="../includes/activities.css">

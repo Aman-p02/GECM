@@ -1,6 +1,9 @@
 <?php
 // Set Page Variables
 $page_title = "Department of Applied Mechanics - Government Engineering College, Modasa";
+$page_description = "Department of Applied Mechanics at GEC Modasa. Specializing in structural engineering, concrete testing, strength of materials, and soil mechanics research.";
+$page_keywords = "Applied Mechanics GEC Modasa, Structural Engineering Modasa, GTU Applied Mechanics, Soil Mechanics Gujarat";
+
 $active_page = "departments";
 $root_path = "../../";
 $extra_css = "departments/applied-mechanics/css/department.css";
@@ -11,6 +14,7 @@ $deptName = 'Applied Mechanics';
 
 // Include Header
 include_once __DIR__ . '/../../includes/header.php';
+include_once __DIR__ . '/../includes/department-seo.php';
 ?>
 <link rel="stylesheet" href="../includes/faculty.css">
 <link rel="stylesheet" href="../includes/activities.css">

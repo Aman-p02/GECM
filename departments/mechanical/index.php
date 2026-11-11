@@ -1,5 +1,8 @@
 <?php
 $page_title = "Mechanical Engineering | Government Engineering College, Modasa";
+$page_description = "Department of Mechanical Engineering at GEC Modasa. Discover cutting-edge thermal, fluid dynamics, CAD/CAM, workshop tooling laboratories and faculty publications.";
+$page_keywords = "Mechanical Engineering GEC Modasa, Mechanical GECM, GTU Mechanical Engineering, Mechanical Faculty Modasa, CAD CAM Labs Gujarat";
+
 $active_page = "departments";
 $root_path = "../../";
 
@@ -7,6 +10,7 @@ $deptCode = 'ME';
 $deptName = 'Mechanical Engineering';
 
 include_once __DIR__ . '/../../includes/header.php';
+include_once __DIR__ . '/../includes/department-seo.php';
 ?>
 
 <!-- Mechanical Department Stylesheet -->

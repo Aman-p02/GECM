@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Disallow sensitive internal and admin areas
+Disallow: /admin/
+Disallow: /config/
+Disallow: /database/
+Disallow: /backup*/
+
+# Crawl delay to protect server during peak hours
+Crawl-delay: 1
+
+# Sitemap declaration
+Sitemap: https://gecmodasa.ac.in/sitemap.xml
