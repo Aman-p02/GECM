@@ -117,6 +117,7 @@ a:hover {
 .menu-link {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 12px;
     padding: 11px 18px;
     color: var(--admin-sidebar-text);
@@ -124,10 +125,13 @@ a:hover {
     font-size: 15px;
     font-weight: 500;
     transition: all 0.2s ease;
+    cursor: pointer;
 }
 
-.menu-link i {
-    display: none !important;
+.menu-link > span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .menu-link:hover {
@@ -135,10 +139,65 @@ a:hover {
     color: #ffffff;
 }
 
-.menu-item.active .menu-link {
+.menu-item.active > .menu-link {
     background-color: var(--admin-sidebar-active);
     color: #ffffff;
     font-weight: 600;
+}
+
+/* Submenu / Accordion Dropdown */
+.submenu-arrow {
+    display: inline-block !important;
+    font-size: 12px;
+    transition: transform 0.25s ease;
+    color: #94a3b8;
+}
+
+.menu-item-has-submenu.open > .menu-link .submenu-arrow {
+    transform: rotate(180deg);
+    color: #ffffff;
+}
+
+.submenu-list {
+    list-style: none;
+    padding: 4px 0 6px 12px;
+    margin: 4px 0 4px 10px;
+    border-left: 2px solid rgba(255, 255, 255, 0.12);
+    display: none;
+}
+
+.menu-item-has-submenu.open .submenu-list {
+    display: block;
+}
+
+.submenu-item {
+    margin: 2px 0;
+}
+
+.submenu-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.submenu-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.06);
+    padding-left: 18px;
+}
+
+.submenu-item.active .submenu-link {
+    color: #ffffff;
+    background-color: rgba(30, 144, 255, 0.25);
+    font-weight: 600;
+    border-left: 3px solid #1e90ff;
+    padding-left: 14px;
 }
 
 /* --------------------------------------------------------------------------
@@ -610,22 +669,27 @@ a:hover {
 /* --------------------------------------------------------------------------
    MODAL WINDOWS & FORMS
    -------------------------------------------------------------------------- */
-.modal-overlay {
+.modal-overlay,
+.admin-modal {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(15, 23, 42, 0.65);
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 2000;
     padding: 20px;
+    backdrop-filter: blur(3px);
 }
 
-.modal-overlay.active {
-    display: flex;
+.modal-overlay.active,
+.modal-overlay.show,
+.admin-modal.active,
+.admin-modal.show {
+    display: flex !important;
 }
 
 .modal-dialog {
@@ -667,16 +731,21 @@ a:hover {
     display: none !important;
 }
 
-.modal-close {
+.modal-close,
+.btn-close-modal {
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 24px;
+    line-height: 1;
     cursor: pointer;
-    color: #9aa0a6;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.15s ease;
 }
 
-.modal-close:hover {
-    color: #333;
+.modal-close:hover,
+.btn-close-modal:hover {
+    color: #0f172a;
 }
 
 .modal-body {

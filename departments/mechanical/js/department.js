@@ -486,8 +486,11 @@ function initDepartment() {
         if (tabId === 'vision' || tabId === 'mission') {
             tabId = 'vision-mission';
         }
-        if (tabId === 'faculty' || tabId === 'activities') {
-            return;
+        if (tabId === 'advisory-board' || tabId === 'iab' || tabId === 'industry-advisory-board') {
+            tabId = 'industry-advisory-board';
+        }
+        if (tabId === 'newsletters' || tabId === 'nl') {
+            tabId = 'newsletters';
         }
 
         const targetPane = document.getElementById('tab-' + tabId);
@@ -526,7 +529,7 @@ function initDepartment() {
                     if (btnRect.left < listRect.left || btnRect.right > listRect.right) {
                         btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
                     }
-                } catch (e) {}
+                } catch (e) { }
             }
         });
 
@@ -716,7 +719,7 @@ function initDepartment() {
         function bindDeptMobileEvents() {
             // Tab links inside drawer
             mainNavList.querySelectorAll('[data-tab]').forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
                     const tabId = this.getAttribute('data-tab');
                     const rowId = this.getAttribute('data-row-id');
@@ -752,7 +755,7 @@ function initDepartment() {
 
             // Accordion toggle for mobile dropdowns
             mainNavList.querySelectorAll('.hdr-nav-item.has-dropdown > .hdr-nav-link').forEach(toggle => {
-                toggle.addEventListener('click', function(e) {
+                toggle.addEventListener('click', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
                     const parent = this.closest('.hdr-nav-item.has-dropdown');
@@ -768,7 +771,7 @@ function initDepartment() {
             // Close drawer when GTU Syllabus or Home is tapped
             const syllabusLink = mainNavList.querySelector('#deptMobileSyllabusLink');
             if (syllabusLink) {
-                syllabusLink.addEventListener('click', function() {
+                syllabusLink.addEventListener('click', function () {
                     mainNavList.classList.remove('is-open');
                     hamburgerBtn.setAttribute('aria-expanded', 'false');
                     hamburgerBtn.classList.remove('is-active');
@@ -788,7 +791,7 @@ function initDepartment() {
             }
 
             const tabId = this.getAttribute('data-tab');
-            if (tabId && tabId !== 'faculty' && tabId !== 'activities') {
+            if (tabId) {
                 e.preventDefault();
                 if (history.pushState) {
                     history.pushState(null, null, '#' + tabId);
@@ -858,7 +861,7 @@ function initDepartment() {
             const menu = item.querySelector('.dept-subnav-menu');
             if (!btn || !menu) return;
 
-            btn.addEventListener('click', function(e) {
+            btn.addEventListener('click', function (e) {
                 const isArrowClick = e.target.closest('.dept-subnav-arrow');
                 const isOpen = item.classList.contains('is-open');
 
@@ -891,7 +894,7 @@ function initDepartment() {
                 }
             });
 
-            item.addEventListener('mouseenter', function() {
+            item.addEventListener('mouseenter', function () {
                 if (window.innerWidth > 992) {
                     closeAllMenus();
                     item.classList.add('is-open');
@@ -901,7 +904,7 @@ function initDepartment() {
                 }
             });
 
-            item.addEventListener('mouseleave', function() {
+            item.addEventListener('mouseleave', function () {
                 if (window.innerWidth > 992) {
                     closeAllMenus();
                 }
@@ -909,7 +912,7 @@ function initDepartment() {
         });
 
         document.querySelectorAll('.dept-subnav-menu-link').forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 closeAllMenus();
 
@@ -934,17 +937,17 @@ function initDepartment() {
             });
         });
 
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             if (!e.target.closest('.dept-subnav-dropdown') && !e.target.closest('.dept-subnav-menu')) {
                 closeAllMenus();
             }
         });
 
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             closeAllMenus();
         }, { passive: true });
 
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             closeAllMenus();
         }, { passive: true });
     }

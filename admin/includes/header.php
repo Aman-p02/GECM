@@ -46,40 +46,112 @@ $page_title = $page_title ?? 'Dashboard Overview';
                 </li>
 
                 <li class="menu-category">Content Management</li>
-                <li class="menu-item <?= ($current_page === 'hero') ? 'active' : '' ?>">
-                    <a href="hero.php" class="menu-link">
-                        <span>Hero Slides</span>
+                
+                <?php 
+                $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni'];
+                $isMainPageActive = in_array($current_page, $mainPageItems);
+
+                $deptPageItems = ['dept-faculty', 'dept-activities', 'dept-publications', 'dept-board', 'dept-newsletters'];
+                $isDeptActive = in_array($current_page, $deptPageItems);
+                $activeDeptCode = $_GET['dept'] ?? ($dept_code ?? 'CE');
+                ?>
+                <li class="menu-item menu-item-has-submenu <?= $isMainPageActive ? 'active open' : '' ?>">
+                    <a href="javascript:void(0);" class="menu-link submenu-toggle" id="mainPageMenuToggle">
+                        <span>Main Page</span>
+                        <i class="fas fa-chevron-down submenu-arrow"></i>
                     </a>
+                    <ul class="submenu-list">
+                        <li class="submenu-item <?= ($current_page === 'hero') ? 'active' : '' ?>">
+                            <a href="hero.php" class="submenu-link">
+                                <span>Hero Slides</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'notices') ? 'active' : '' ?>">
+                            <a href="notices.php" class="submenu-link">
+                                <span>Notice Board</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'ticker') ? 'active' : '' ?>">
+                            <a href="ticker.php" class="submenu-link">
+                                <span>News Ticker</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'events') ? 'active' : '' ?>">
+                            <a href="events.php" class="submenu-link">
+                                <span>Recent Events</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'shots') ? 'active' : '' ?>">
+                            <a href="shots.php" class="submenu-link">
+                                <span>Latest Shots</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'departments') ? 'active' : '' ?>">
+                            <a href="departments.php" class="submenu-link">
+                                <span>Departments</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'alumni') ? 'active' : '' ?>">
+                            <a href="alumni.php" class="submenu-link">
+                                <span>Manage Alumni</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="menu-item <?= ($current_page === 'notices') ? 'active' : '' ?>">
-                    <a href="notices.php" class="menu-link">
-                        <span>Notice Board</span>
-                    </a>
-                </li>
-                <li class="menu-item <?= ($current_page === 'ticker') ? 'active' : '' ?>">
-                    <a href="ticker.php" class="menu-link">
-                        <span>News Ticker</span>
-                    </a>
-                </li>
-                <li class="menu-item <?= ($current_page === 'events') ? 'active' : '' ?>">
-                    <a href="events.php" class="menu-link">
-                        <span>Recent Events</span>
-                    </a>
-                </li>
-                <li class="menu-item <?= ($current_page === 'shots') ? 'active' : '' ?>">
-                    <a href="shots.php" class="menu-link">
-                        <span>Latest Shots</span>
-                    </a>
-                </li>
-                <li class="menu-item <?= ($current_page === 'departments') ? 'active' : '' ?>">
-                    <a href="departments.php" class="menu-link">
+
+                <!-- Departments Accordion Dropdown -->
+                <li class="menu-item menu-item-has-submenu <?= $isDeptActive ? 'active open' : '' ?>">
+                    <a href="javascript:void(0);" class="menu-link submenu-toggle" id="departmentsMenuToggle">
                         <span>Departments</span>
+                        <i class="fas fa-chevron-down submenu-arrow"></i>
                     </a>
-                </li>
-                <li class="menu-item <?= ($current_page === 'alumni') ? 'active' : '' ?>">
-                    <a href="alumni.php" class="menu-link">
-                        <span>Manage Alumni</span>
-                    </a>
+                    <ul class="submenu-list">
+                        <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'CE') ? 'active' : '' ?>">
+                            <a href="dept-faculty.php?dept=CE" class="submenu-link">
+                                <span>Computer Engineering</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'IT') ? 'active' : '' ?>">
+                            <a href="dept-faculty.php?dept=IT" class="submenu-link">
+                                <span>Information Technology</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'ME') ? 'active' : '' ?>">
+                            <a href="dept-faculty.php?dept=ME" class="submenu-link">
+                                <span>Mechanical Engineering</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'CIVIL') ? 'active' : '' ?>">
+                            <a href="dept-faculty.php?dept=CIVIL" class="submenu-link">
+                                <span>Civil Engineering</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'EE') ? 'active' : '' ?>">
+                            <a href="dept-faculty.php?dept=EE" class="submenu-link">
+                                <span>Electrical Engineering</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'EC') ? 'active' : '' ?>">
+                            <a href="dept-faculty.php?dept=EC" class="submenu-link">
+                                <span>Electronics &amp; Comm.</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'AE') ? 'active' : '' ?>">
+                            <a href="dept-faculty.php?dept=AE" class="submenu-link">
+                                <span>Automobile Engineering</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'AM') ? 'active' : '' ?>">
+                            <a href="dept-faculty.php?dept=AM" class="submenu-link">
+                                <span>Applied Mechanics</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'SH') ? 'active' : '' ?>">
+                            <a href="dept-faculty.php?dept=SH" class="submenu-link">
+                                <span>Science &amp; Humanities</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="menu-category">System & Settings</li>
@@ -128,4 +200,19 @@ $page_title = $page_title ?? 'Dashboard Overview';
 
             <!-- Main Content Area -->
             <main class="admin-content">
-                <?php renderFlashMessage(); ?>
+                <?php
+                renderFlashMessage();
+                if (getDBConnection() === null):
+                    ?>
+                    <div
+                        style="background: #fee2e2; border: 1px solid #f87171; color: #991b1b; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 20px;"></i>
+                        <div>
+                            <div style="font-size: 15px;">Database Connection Offline</div>
+                            <div style="font-size: 13px; font-weight: 400; color: #7f1d1d; margin-top: 2px;">
+                                MySQL service is not running or unreachable. Please open <strong>XAMPP Control
+                                    Panel</strong> and click <strong>Start</strong> next to MySQL.
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>

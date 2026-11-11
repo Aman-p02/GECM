@@ -5,6 +5,11 @@ checkAdminAuth();
 $pdo = getDBConnection();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!$pdo) {
+        setFlashMessage('danger', 'Database offline. Please start MySQL in XAMPP.');
+        header('Location: settings.php');
+        exit;
+    }
     $settings = $_POST['settings'] ?? [];
     if (!empty($settings) && is_array($settings)) {
         try {

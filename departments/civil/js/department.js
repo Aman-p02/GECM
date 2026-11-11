@@ -189,8 +189,11 @@ function initDepartment() {
         if (tabId === 'vision' || tabId === 'mission') {
             tabId = 'vision-mission';
         }
-        if (tabId === 'faculty' || tabId === 'activities') {
-            return;
+        if (tabId === 'advisory-board' || tabId === 'iab' || tabId === 'industry-advisory-board') {
+            tabId = 'advisory-board';
+        }
+        if (tabId === 'newsletters' || tabId === 'nl') {
+            tabId = 'newsletters';
         }
 
         const targetPane = document.getElementById('tab-' + tabId);
@@ -271,7 +274,7 @@ function initDepartment() {
             }
 
             const tabId = this.getAttribute('data-tab');
-            if (tabId && tabId !== 'faculty' && tabId !== 'activities') {
+            if (tabId) {
                 e.preventDefault();
                 if (history.pushState) {
                     history.pushState(null, null, '#' + tabId);

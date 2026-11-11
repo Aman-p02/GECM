@@ -5,8 +5,13 @@ checkAdminAuth();
 $pdo = getDBConnection();
 $editItem = null;
 
-// Handle Form Submissions
+// Guard against DB connection failure on write requests
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!$pdo) {
+        setFlashMessage('danger', 'Database offline. Please start MySQL in XAMPP Control Panel.');
+        header('Location: notices.php');
+        exit;
+    }
     $action = $_POST['action'] ?? '';
 
     if ($action === 'add') {
@@ -27,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             setFlashMessage('danger', 'Notice title cannot be empty.');
         }
     } elseif ($action === 'edit') {
-        $id = (int)$_POST['id'];
+        $id = (int) $_POST['id'];
         $title = trim($_POST['title'] ?? '');
         $category = trim($_POST['category'] ?? 'General');
         $badge = $_POST['badge'] ?? 'None';
@@ -47,7 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Handle GET Actions (delete, toggle, edit)
 if (isset($_GET['delete'])) {
-    $id = (int)$_GET['delete'];
+    if (!$pdo) {
+        setFlashMessage('danger', 'Database offline. Please start MySQL in XAMPP.');
+        header('Location: notices.php');
+        exit;
+    }
+    $id = (int) $_GET['delete'];
     if ($id > 0) {
         $stmt = $pdo->prepare("DELETE FROM notices WHERE id = ?");
         $stmt->execute([$id]);
@@ -58,7 +68,12 @@ if (isset($_GET['delete'])) {
 }
 
 if (isset($_GET['toggle'])) {
-    $id = (int)$_GET['toggle'];
+    if (!$pdo) {
+        setFlashMessage('danger', 'Database offline. Please start MySQL in XAMPP.');
+        header('Location: notices.php');
+        exit;
+    }
+    $id = (int) $_GET['toggle'];
     if ($id > 0) {
         $stmt = $pdo->prepare("UPDATE notices SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
@@ -68,8 +83,8 @@ if (isset($_GET['toggle'])) {
     }
 }
 
-if (isset($_GET['edit'])) {
-    $id = (int)$_GET['edit'];
+if (isset($_GET['edit']) && $pdo) {
+    $id = (int) $_GET['edit'];
     if ($id > 0) {
         $stmt = $pdo->prepare("SELECT * FROM notices WHERE id = ?");
         $stmt->execute([$id]);
@@ -114,7 +129,8 @@ require_once __DIR__ . '/includes/header.php';
 
             <div class="search-input-group">
                 <i class="fas fa-search"></i>
-                <input type="text" class="search-input" placeholder="Search notices..." data-table-search="noticesTable">
+                <input type="text" class="search-input" placeholder="Search notices..."
+                    data-table-search="noticesTable">
             </div>
         </div>
     </div>
@@ -135,54 +151,60 @@ require_once __DIR__ . '/includes/header.php';
             </thead>
             <tbody>
                 <?php foreach ($notices as $row): ?>
-                <tr data-category="<?= htmlspecialchars($row['category']) ?>" data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
-                    <td style="color: #888;">#<?= $row['id'] ?></td>
-                    <td style="white-space: nowrap; font-weight: 500;"><?= htmlspecialchars($row['publish_date']) ?></td>
-                    <td style="font-weight: 500; color: #1a263d;">
-                        <?= htmlspecialchars($row['title']) ?>
-                        <?php if (!empty($row['link_url']) && $row['link_url'] !== '#'): ?>
-                            <a href="<?= htmlspecialchars($row['link_url']) ?>" target="_blank" style="margin-left: 6px; font-size: 12px; color: #1e88e5;">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        <?php endif; ?>
-                    </td>
-                    <td>
-                        <span class="badge badge-secondary"><?= htmlspecialchars($row['category']) ?></span>
-                    </td>
-                    <td>
-                        <?php if ($row['badge'] === 'New'): ?>
-                            <span class="badge badge-success">New</span>
-                        <?php elseif ($row['badge'] === 'Urgent'): ?>
-                            <span class="badge badge-danger">Urgent</span>
-                        <?php else: ?>
-                            <span style="color: #aaa;">None</span>
-                        <?php endif; ?>
-                    </td>
-                    <td>
-                        <a href="notices.php?toggle=<?= $row['id'] ?>" title="Click to toggle status">
-                            <?php if ($row['is_active']): ?>
-                                <span class="badge badge-success"><i class="fas fa-check"></i> Active</span>
-                            <?php else: ?>
-                                <span class="badge badge-secondary"><i class="fas fa-eye-slash"></i> Inactive</span>
+                    <tr data-category="<?= htmlspecialchars($row['category']) ?>"
+                        data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
+                        <td style="color: #888;">#<?= $row['id'] ?></td>
+                        <td style="white-space: nowrap; font-weight: 500;"><?= htmlspecialchars($row['publish_date']) ?>
+                        </td>
+                        <td style="font-weight: 500; color: #1a263d;">
+                            <?= htmlspecialchars($row['title']) ?>
+                            <?php if (!empty($row['link_url']) && $row['link_url'] !== '#'): ?>
+                                <a href="<?= htmlspecialchars($row['link_url']) ?>" target="_blank"
+                                    style="margin-left: 6px; font-size: 12px; color: #1e88e5;">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
                             <?php endif; ?>
-                        </a>
-                    </td>
-                    <td style="text-align: center;">
-                        <div class="table-actions" style="justify-content: center;">
-                            <a href="notices.php?edit=<?= $row['id'] ?>" class="btn-table-action btn-edit" title="Edit">
-                                <i class="fas fa-edit"></i>
+                        </td>
+                        <td>
+                            <span class="badge badge-secondary"><?= htmlspecialchars($row['category']) ?></span>
+                        </td>
+                        <td>
+                            <?php if ($row['badge'] === 'New'): ?>
+                                <span class="badge badge-success">New</span>
+                            <?php elseif ($row['badge'] === 'Urgent'): ?>
+                                <span class="badge badge-danger">Urgent</span>
+                            <?php else: ?>
+                                <span style="color: #aaa;">None</span>
+                            <?php endif; ?>
+                        </td>
+                        <td>
+                            <a href="notices.php?toggle=<?= $row['id'] ?>" title="Click to toggle status">
+                                <?php if ($row['is_active']): ?>
+                                    <span class="badge badge-success"><i class="fas fa-check"></i> Active</span>
+                                <?php else: ?>
+                                    <span class="badge badge-secondary"><i class="fas fa-eye-slash"></i> Inactive</span>
+                                <?php endif; ?>
                             </a>
-                            <a href="notices.php?delete=<?= $row['id'] ?>" class="btn-table-action btn-delete" title="Delete" onclick="return confirm('Are you sure you want to delete this notice?');">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
+                        </td>
+                        <td style="text-align: center;">
+                            <div class="table-actions" style="justify-content: center;">
+                                <a href="notices.php?edit=<?= $row['id'] ?>" class="btn-table-action btn-edit" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="notices.php?delete=<?= $row['id'] ?>" class="btn-table-action btn-delete"
+                                    title="Delete"
+                                    onclick="return confirm('Are you sure you want to delete this notice?');">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
                 <?php if (empty($notices)): ?>
-                <tr class="no-records-row">
-                    <td colspan="7" style="text-align: center; color: #888; padding: 30px;">No notices available. Click "Post New Notice" to add one.</td>
-                </tr>
+                    <tr class="no-records-row">
+                        <td colspan="7" style="text-align: center; color: #888; padding: 30px;">No notices available. Click
+                            "Post New Notice" to add one.</td>
+                    </tr>
                 <?php endif; ?>
             </tbody>
         </table>
@@ -201,7 +223,8 @@ require_once __DIR__ . '/includes/header.php';
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label" for="title">Notice Title <span class="required">*</span></label>
-                    <textarea name="title" id="title" class="form-control" placeholder="Enter clear, concise notice title..." required></textarea>
+                    <textarea name="title" id="title" class="form-control"
+                        placeholder="Enter clear, concise notice title..." required></textarea>
                 </div>
 
                 <div class="form-row">
@@ -230,12 +253,14 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label" for="publish_date">Publish Date</label>
-                        <input type="date" name="publish_date" id="publish_date" class="form-control" value="<?= date('Y-m-d') ?>" required>
+                        <input type="date" name="publish_date" id="publish_date" class="form-control"
+                            value="<?= date('Y-m-d') ?>" required>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="link_url">External / PDF Link</label>
-                        <input type="text" name="link_url" id="link_url" class="form-control" placeholder="Optional link or #" value="#">
+                        <input type="text" name="link_url" id="link_url" class="form-control"
+                            placeholder="Optional link or #" value="#">
                     </div>
                 </div>
 
@@ -256,67 +281,73 @@ require_once __DIR__ . '/includes/header.php';
 
 <!-- Modal: Edit Notice -->
 <?php if ($editItem): ?>
-<div class="modal-overlay active" id="editNoticeModal">
-    <div class="modal-dialog">
-        <div class="modal-header">
-            <h3 class="modal-title">Edit Notice #<?= $editItem['id'] ?></h3>
-            <a href="notices.php" class="modal-close">&times;</a>
+    <div class="modal-overlay active" id="editNoticeModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Notice #<?= $editItem['id'] ?></h3>
+                <a href="notices.php" class="modal-close">&times;</a>
+            </div>
+            <form method="POST" action="notices.php">
+                <input type="hidden" name="action" value="edit">
+                <input type="hidden" name="id" value="<?= $editItem['id'] ?>">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label" for="edit_title">Notice Title <span class="required">*</span></label>
+                        <textarea name="title" id="edit_title" class="form-control"
+                            required><?= htmlspecialchars($editItem['title']) ?></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="edit_category">Category</label>
+                            <select name="category" id="edit_category" class="form-control">
+                                <?php foreach (['General', 'Exam', 'Scholarship', 'Academic', 'Hostel', 'Events'] as $cat): ?>
+                                    <option value="<?= $cat ?>" <?= ($editItem['category'] === $cat) ? 'selected' : '' ?>>
+                                        <?= $cat ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="edit_badge">Attention Badge</label>
+                            <select name="badge" id="edit_badge" class="form-control">
+                                <option value="None" <?= ($editItem['badge'] === 'None') ? 'selected' : '' ?>>None</option>
+                                <option value="New" <?= ($editItem['badge'] === 'New') ? 'selected' : '' ?>>New</option>
+                                <option value="Urgent" <?= ($editItem['badge'] === 'Urgent') ? 'selected' : '' ?>>Urgent
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="edit_publish_date">Publish Date</label>
+                            <input type="date" name="publish_date" id="edit_publish_date" class="form-control"
+                                value="<?= htmlspecialchars($editItem['publish_date']) ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="edit_link_url">External / PDF Link</label>
+                            <input type="text" name="link_url" id="edit_link_url" class="form-control"
+                                value="<?= htmlspecialchars($editItem['link_url']) ?>">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-check">
+                            <input type="checkbox" name="is_active" value="1" <?= $editItem['is_active'] ? 'checked' : '' ?>>
+                            <span>Notice is Active</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="notices.php" class="btn-secondary">Cancel</a>
+                    <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Save Changes</button>
+                </div>
+            </form>
         </div>
-        <form method="POST" action="notices.php">
-            <input type="hidden" name="action" value="edit">
-            <input type="hidden" name="id" value="<?= $editItem['id'] ?>">
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="form-label" for="edit_title">Notice Title <span class="required">*</span></label>
-                    <textarea name="title" id="edit_title" class="form-control" required><?= htmlspecialchars($editItem['title']) ?></textarea>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" for="edit_category">Category</label>
-                        <select name="category" id="edit_category" class="form-control">
-                            <?php foreach (['General', 'Exam', 'Scholarship', 'Academic', 'Hostel', 'Events'] as $cat): ?>
-                                <option value="<?= $cat ?>" <?= ($editItem['category'] === $cat) ? 'selected' : '' ?>><?= $cat ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="edit_badge">Attention Badge</label>
-                        <select name="badge" id="edit_badge" class="form-control">
-                            <option value="None" <?= ($editItem['badge'] === 'None') ? 'selected' : '' ?>>None</option>
-                            <option value="New" <?= ($editItem['badge'] === 'New') ? 'selected' : '' ?>>New</option>
-                            <option value="Urgent" <?= ($editItem['badge'] === 'Urgent') ? 'selected' : '' ?>>Urgent</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" for="edit_publish_date">Publish Date</label>
-                        <input type="date" name="publish_date" id="edit_publish_date" class="form-control" value="<?= htmlspecialchars($editItem['publish_date']) ?>" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="edit_link_url">External / PDF Link</label>
-                        <input type="text" name="link_url" id="edit_link_url" class="form-control" value="<?= htmlspecialchars($editItem['link_url']) ?>">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-check">
-                        <input type="checkbox" name="is_active" value="1" <?= $editItem['is_active'] ? 'checked' : '' ?>>
-                        <span>Notice is Active</span>
-                    </label>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="notices.php" class="btn-secondary">Cancel</a>
-                <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Save Changes</button>
-            </div>
-        </form>
     </div>
-</div>
 <?php endif; ?>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>

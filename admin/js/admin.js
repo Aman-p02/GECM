@@ -3,6 +3,18 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
+    // 0. Sidebar Submenu Accordion Toggle
+    const submenuToggles = document.querySelectorAll('.submenu-toggle');
+    submenuToggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            const parentItem = this.closest('.menu-item-has-submenu');
+            if (parentItem) {
+                parentItem.classList.toggle('open');
+            }
+        });
+    });
+
     // 1. Mobile Sidebar Toggle
     const sidebar = document.getElementById('adminSidebar');
     const toggleBtn = document.getElementById('sidebarToggleBtn');
@@ -138,6 +150,7 @@ function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.add('active');
+        modal.classList.add('show');
     }
 }
 
@@ -145,12 +158,14 @@ function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.remove('active');
+        modal.classList.remove('show');
     }
 }
 
 // Close modal on backdrop click
 document.addEventListener('click', function (e) {
-    if (e.target && e.target.classList.contains('modal-overlay')) {
+    if (e.target && (e.target.classList.contains('modal-overlay') || e.target.classList.contains('admin-modal'))) {
         e.target.classList.remove('active');
+        e.target.classList.remove('show');
     }
 });

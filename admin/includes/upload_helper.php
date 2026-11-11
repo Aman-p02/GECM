@@ -4,9 +4,15 @@
  * Supports direct file uploads from PC with validation and preview.
  */
 
-function handleImageUpload($fileKey, $subfolder = 'general', $existingPath = null, $urlFallback = null) {
-    if (isset($_FILES[$fileKey]) && $_FILES[$fileKey]['error'] === UPLOAD_ERR_OK) {
-        $file = $_FILES[$fileKey];
+function handleImageUpload($fileOrKey, $subfolder = 'general', $existingPath = null, $urlFallback = null) {
+    $file = null;
+    if (is_array($fileOrKey) && isset($fileOrKey['name'])) {
+        $file = $fileOrKey;
+    } elseif (is_string($fileOrKey) && isset($_FILES[$fileOrKey])) {
+        $file = $_FILES[$fileOrKey];
+    }
+
+    if ($file && $file['error'] === UPLOAD_ERR_OK) {
         $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
         $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
@@ -75,4 +81,70 @@ function getAdminImageSrc($path) {
         return $path;
     }
     return '../' . ltrim($path, '/');
+}
+
+/**
+ * Handle PDF Document Uploads with validation (max 25MB)
+ */
+function handlePdfUpload($fileOrKey, $subfolder = 'documents', $existingPath = null) {
+    $file = null;
+    if (is_array($fileOrKey) && isset($fileOrKey['name'])) {
+        $file = $fileOrKey;
+    } elseif (is_string($fileOrKey) && isset($_FILES[$fileOrKey])) {
+        $file = $_FILES[$fileOrKey];
+    }
+
+    if ($file && $file['error'] === UPLOAD_ERR_OK) {
+        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+
+        if ($ext !== 'pdf') {
+            return [
+                'success' => false,
+                'error'   => 'Only PDF documents (.pdf) are allowed.'
+            ];
+        }
+
+        if ($file['size'] > 25 * 1024 * 1024) {
+            return [
+                'success' => false,
+                'error'   => 'PDF file size exceeds maximum limit of 25MB.'
+            ];
+        }
+
+        $targetDir = __DIR__ . '/../../uploads/' . $subfolder . '/';
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0755, true);
+        }
+
+        $cleanFilename = $subfolder . '_' . time() . '_' . bin2hex(random_bytes(4)) . '.pdf';
+        $targetFile = $targetDir . $cleanFilename;
+
+        if (move_uploaded_file($file['tmp_name'], $targetFile)) {
+            $bytes = $file['size'];
+            $formattedSize = ($bytes >= 1048576) ? number_format($bytes / 1048576, 1) . ' MB' : number_format($bytes / 1024, 0) . ' KB';
+
+            return [
+                'success'   => true,
+                'path'      => 'uploads/' . $subfolder . '/' . $cleanFilename,
+                'file_size' => $formattedSize
+            ];
+        } else {
+            return [
+                'success' => false,
+                'error'   => 'Could not save PDF file to server.'
+            ];
+        }
+    }
+
+    if (!empty($existingPath)) {
+        return [
+            'success' => true,
+            'path'    => $existingPath
+        ];
+    }
+
+    return [
+        'success' => false,
+        'error'   => 'Please select a valid PDF file.'
+    ];
 }

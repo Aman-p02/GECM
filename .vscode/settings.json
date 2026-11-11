@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        "**/backup-9.25.2026_08-50-15_gecmodasa/**": true
+    },
+    "search.exclude": {
+        "**/backup-9.25.2026_08-50-15_gecmodasa/**": true
+    }
+}
+

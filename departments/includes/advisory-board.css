@@ -1,0 +1,255 @@
+/* Department Advisory Board Document Tabs & Cards Styling */
+.dept-board-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin: 24px 0 20px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.dept-board-filter-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dept-board-filter-label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+}
+
+.dept-board-select-box {
+    position: relative;
+    display: inline-block;
+}
+
+.dept-board-select {
+    appearance: none;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 7px 32px 7px 12px;
+    font-size: 13px;
+    color: #1e293b;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dept-board-select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    background: #ffffff;
+}
+
+.dept-board-arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 11px;
+    color: #64748b;
+}
+
+.dept-board-badge {
+    font-size: 13px;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Grid of Advisory Board PDF Cards */
+.dept-board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.dept-board-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+.dept-board-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #dc2626; /* PDF Red Accent */
+    opacity: 0.85;
+}
+
+.dept-board-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+.dept-board-card-body {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.dept-board-icon-box {
+    flex-shrink: 0;
+    width: 44px;
+    height: 48px;
+    background: #fef2f2;
+    border: 1px solid #fee2e2;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #dc2626;
+    transition: all 0.2s ease;
+}
+
+.dept-board-card:hover .dept-board-icon-box {
+    background: #dc2626;
+    color: #ffffff;
+    border-color: #dc2626;
+}
+
+.dept-board-icon-box i {
+    font-size: 20px;
+}
+
+.dept-board-icon-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+.dept-board-info {
+    flex-grow: 1;
+}
+
+.dept-board-title {
+    font-size: 15.5px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+    word-break: break-word;
+}
+
+.dept-board-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.dept-board-year-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 11.5px;
+}
+
+.dept-board-size {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dept-board-footer {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dept-board-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #2563eb;
+    color: #ffffff !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+}
+
+.dept-board-btn:hover {
+    background: #1d4ed8;
+    color: #ffffff !important;
+    text-decoration: none;
+    box-shadow: 0 3px 6px rgba(37, 99, 235, 0.3);
+}
+
+.dept-board-btn i.fa-external-link-alt {
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+/* Empty filter state */
+.dept-board-empty {
+    grid-column: 1 / -1;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 32px 20px;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.dept-board-empty i {
+    font-size: 24px;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 640px) {
+    .dept-board-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .dept-board-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

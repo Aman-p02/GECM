@@ -6,6 +6,11 @@ $pdo = getDBConnection();
 $editItem = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!$pdo) {
+        setFlashMessage('danger', 'Database offline. Please start MySQL in XAMPP.');
+        header('Location: departments.php');
+        exit;
+    }
     $action = $_POST['action'] ?? '';
 
     if ($action === 'add') {
@@ -53,6 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if (isset($_GET['delete'])) {
+    if (!$pdo) {
+        setFlashMessage('danger', 'Database offline. Please start MySQL in XAMPP.');
+        header('Location: departments.php');
+        exit;
+    }
     $id = (int)$_GET['delete'];
     if ($id > 0) {
         $stmt = $pdo->prepare("DELETE FROM departments WHERE id = ?");
@@ -64,6 +74,11 @@ if (isset($_GET['delete'])) {
 }
 
 if (isset($_GET['toggle'])) {
+    if (!$pdo) {
+        setFlashMessage('danger', 'Database offline. Please start MySQL in XAMPP.');
+        header('Location: departments.php');
+        exit;
+    }
     $id = (int)$_GET['toggle'];
     if ($id > 0) {
         $stmt = $pdo->prepare("UPDATE departments SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
@@ -74,7 +89,7 @@ if (isset($_GET['toggle'])) {
     }
 }
 
-if (isset($_GET['edit'])) {
+if (isset($_GET['edit']) && $pdo) {
     $id = (int)$_GET['edit'];
     if ($id > 0) {
         $stmt = $pdo->prepare("SELECT * FROM departments WHERE id = ?");

@@ -1,0 +1,286 @@
+/* --------------------------------------------------------------------------
+   ACTIVITIES TIMELINE & CARDS (Modern Alternating Timeline)
+   -------------------------------------------------------------------------- */
+.dept-activities-wrapper {
+    margin-top: 36px;
+    position: relative;
+}
+
+.activity-timeline {
+    position: relative;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Center vertical timeline stem line */
+.activity-timeline-line {
+    position: absolute;
+    top: 10px;
+    bottom: 20px;
+    left: 50%;
+    width: 2px;
+    background: #e2e8f0;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Timeline Row */
+.timeline-row {
+    position: relative;
+    margin-bottom: 48px;
+    display: flex;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.timeline-row.timeline-left {
+    justify-content: flex-start;
+}
+
+.timeline-row.timeline-right {
+    justify-content: flex-end;
+}
+
+/* Center circle Node on the stem line */
+.timeline-node {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: #2563eb;
+    box-shadow: 0 0 0 4px #eff6ff;
+    z-index: 3;
+}
+
+/* Card Container */
+.timeline-card {
+    width: 45%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.09);
+    border-color: #cbd5e1;
+}
+
+/* Media/Photo inside Card */
+.timeline-media {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    background: #f1f5f9;
+    overflow: hidden;
+}
+
+.timeline-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.timeline-card:hover .timeline-media img {
+    transform: scale(1.03);
+}
+
+.timeline-date-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Body Content */
+.timeline-body {
+    padding: 20px 22px;
+}
+
+.timeline-date-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.timeline-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.4;
+    margin: 0 0 10px 0;
+}
+
+.timeline-desc {
+    font-size: 13.5px;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0 0 18px 0;
+}
+
+/* Card Action Footer */
+.timeline-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.btn-activity-view {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.15s ease;
+}
+
+.btn-activity-view:hover {
+    background: #1d4ed8;
+}
+
+.btn-activity-link {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s ease;
+}
+
+.btn-activity-link:hover {
+    color: #2563eb;
+}
+
+/* ==========================================================================
+   Activity Full Details Modal
+   ========================================================================== */
+.activity-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.activity-modal-backdrop.is-open {
+    display: flex !important;
+}
+
+.activity-modal-dialog {
+    background: #ffffff;
+    border-radius: 8px;
+    max-width: 720px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    animation: actModalFade 0.2s ease-out;
+}
+
+@keyframes actModalFade {
+    from { transform: scale(0.96); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.activity-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.activity-modal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.activity-modal-close {
+    background: none;
+    border: none;
+    font-size: 26px;
+    line-height: 1;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.activity-modal-close:hover {
+    color: #0f172a;
+}
+
+.activity-modal-body {
+    padding: 24px;
+}
+
+/* Responsive adjustment for Mobile */
+@media (max-width: 768px) {
+    .activity-timeline-line {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-node {
+        left: 20px;
+        transform: translate(-50%, -50%);
+    }
+
+    .timeline-row {
+        justify-content: flex-start !important;
+        margin-left: 45px;
+    }
+
+    .timeline-card {
+        width: 100%;
+    }
+
+    .timeline-media {
+        height: 200px;
+    }
+}
+
