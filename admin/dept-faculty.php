@@ -62,15 +62,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $photo_url = $upload['success'] ? $upload['path'] : 'images/avatar_placeholder.jpg';
 
         if (!empty($name) && !empty($designation)) {
-            // Generate clean username
-            $cleanUser = strtolower($deptCode . '_' . substr(preg_replace('/[^a-zA-Z]/', '', $name), 0, 5) . '_' . time());
-            $stmt = $pdo->prepare("INSERT INTO faculties (dept_code, username, name, designation, qualification, experience, date_of_joining, area_of_interest, email, website, photo_url, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->execute([$deptCode, $cleanUser, $name, $designation, $qualification, $experience, $date_of_joining, $area_of_interest, $email, $website, $photo_url, $display_order, $is_active]);
-            $newFacId = $pdo->lastInsertId();
+            try {
+                // Generate clean username
+                $cleanUser = strtolower($deptCode . '_' . substr(preg_replace('/[^a-zA-Z]/', '', $name), 0, 5) . '_' . time());
+                $stmt = $pdo->prepare("INSERT INTO faculties (dept_code, username, name, designation, qualification, experience, date_of_joining, area_of_interest, email, website, photo_url, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->execute([$deptCode, $cleanUser, $name, $designation, $qualification, $experience, $date_of_joining, $area_of_interest, $email, $website, $photo_url, $display_order, $is_active]);
+                $newFacId = $pdo->lastInsertId();
 
-            setFlashMessage('success', "Faculty '{$name}' added successfully to {$deptName}!");
-            header('Location: dept-faculty.php?dept=' . $deptCode);
-            exit;
+                setFlashMessage('success', "Faculty '{$name}' added successfully to {$deptName}!");
+                header('Location: dept-faculty.php?dept=' . $deptCode);
+                exit;
+            } catch (Exception $e) {
+                setFlashMessage('danger', 'Database error: ' . $e->getMessage());
+            }
         } else {
             setFlashMessage('danger', 'Faculty name and designation are required.');
         }
@@ -92,11 +96,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $photo_url = $upload['success'] ? $upload['path'] : $existingPhoto;
 
         if (!empty($name) && !empty($designation) && $id > 0) {
-            $stmt = $pdo->prepare("UPDATE faculties SET name = ?, designation = ?, qualification = ?, experience = ?, date_of_joining = ?, area_of_interest = ?, email = ?, website = ?, photo_url = ?, display_order = ?, is_active = ? WHERE id = ?");
-            $stmt->execute([$name, $designation, $qualification, $experience, $date_of_joining, $area_of_interest, $email, $website, $photo_url, $display_order, $is_active, $id]);
-            setFlashMessage('success', "Faculty profile updated successfully!");
-            header('Location: dept-faculty.php?dept=' . $deptCode);
-            exit;
+            try {
+                $stmt = $pdo->prepare("UPDATE faculties SET name = ?, designation = ?, qualification = ?, experience = ?, date_of_joining = ?, area_of_interest = ?, email = ?, website = ?, photo_url = ?, display_order = ?, is_active = ? WHERE id = ?");
+                $stmt->execute([$name, $designation, $qualification, $experience, $date_of_joining, $area_of_interest, $email, $website, $photo_url, $display_order, $is_active, $id]);
+                setFlashMessage('success', "Faculty profile updated successfully!");
+                header('Location: dept-faculty.php?dept=' . $deptCode);
+                exit;
+            } catch (Exception $e) {
+                setFlashMessage('danger', 'Database error: ' . $e->getMessage());
+            }
         }
     } elseif ($action === 'add_qualification') {
         $faculty_id = (int)$_POST['faculty_id'];
@@ -106,9 +114,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $perc = trim($_POST['percentage'] ?? '');
 
         if ($faculty_id > 0 && !empty($deg)) {
-            $stmt = $pdo->prepare("INSERT INTO faculty_qualifications (faculty_id, qualification, university, year_of_passing, percentage) VALUES (?, ?, ?, ?, ?)");
-            $stmt->execute([$faculty_id, $deg, $uni, $yop, $perc]);
-            setFlashMessage('success', "Qualification entry added!");
+            try {
+                $stmt = $pdo->prepare("INSERT INTO faculty_qualifications (faculty_id, qualification, university, year_of_passing, percentage) VALUES (?, ?, ?, ?, ?)");
+                $stmt->execute([$faculty_id, $deg, $uni, $yop, $perc]);
+                setFlashMessage('success', "Qualification entry added!");
+            } catch (Exception $e) {
+                setFlashMessage('danger', 'Database error: ' . $e->getMessage());
+            }
         }
         header('Location: dept-faculty.php?dept=' . $deptCode . '&manage_quals=' . $faculty_id);
         exit;
@@ -116,9 +128,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $qual_id = (int)$_POST['qual_id'];
         $faculty_id = (int)$_POST['faculty_id'];
         if ($qual_id > 0) {
-            $stmt = $pdo->prepare("DELETE FROM faculty_qualifications WHERE id = ?");
-            $stmt->execute([$qual_id]);
-            setFlashMessage('success', "Qualification entry deleted!");
+            try {
+                $stmt = $pdo->prepare("DELETE FROM faculty_qualifications WHERE id = ?");
+                $stmt->execute([$qual_id]);
+                setFlashMessage('success', "Qualification entry deleted!");
+            } catch (Exception $e) {
+                setFlashMessage('danger', 'Database error: ' . $e->getMessage());
+            }
         }
         header('Location: dept-faculty.php?dept=' . $deptCode . '&manage_quals=' . $faculty_id);
         exit;
@@ -134,11 +150,15 @@ if (isset($_GET['delete'])) {
     }
     $id = (int)$_GET['delete'];
     if ($id > 0) {
-        $stmt = $pdo->prepare("DELETE FROM faculties WHERE id = ?");
-        $stmt->execute([$id]);
-        $pdo->prepare("DELETE FROM faculty_qualifications WHERE faculty_id = ?")->execute([$id]);
-        $pdo->prepare("DELETE FROM faculty_details WHERE faculty_id = ?")->execute([$id]);
-        setFlashMessage('success', 'Faculty record deleted!');
+        try {
+            $stmt = $pdo->prepare("DELETE FROM faculties WHERE id = ?");
+            $stmt->execute([$id]);
+            $pdo->prepare("DELETE FROM faculty_qualifications WHERE faculty_id = ?")->execute([$id]);
+            $pdo->prepare("DELETE FROM faculty_details WHERE faculty_id = ?")->execute([$id]);
+            setFlashMessage('success', 'Faculty record deleted!');
+        } catch (Exception $e) {
+            setFlashMessage('danger', 'Database error: ' . $e->getMessage());
+        }
         header('Location: dept-faculty.php?dept=' . $deptCode);
         exit;
     }
@@ -152,9 +172,13 @@ if (isset($_GET['toggle'])) {
     }
     $id = (int)$_GET['toggle'];
     if ($id > 0) {
-        $stmt = $pdo->prepare("UPDATE faculties SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
-        $stmt->execute([$id]);
-        setFlashMessage('info', 'Faculty status toggled!');
+        try {
+            $stmt = $pdo->prepare("UPDATE faculties SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
+            $stmt->execute([$id]);
+            setFlashMessage('info', 'Faculty status toggled!');
+        } catch (Exception $e) {
+            setFlashMessage('danger', 'Database error: ' . $e->getMessage());
+        }
         header('Location: dept-faculty.php?dept=' . $deptCode);
         exit;
     }
@@ -163,18 +187,26 @@ if (isset($_GET['toggle'])) {
 if (isset($_GET['edit']) && $pdo) {
     $id = (int)$_GET['edit'];
     if ($id > 0) {
-        $stmt = $pdo->prepare("SELECT * FROM faculties WHERE id = ?");
-        $stmt->execute([$id]);
-        $editItem = $stmt->fetch();
+        try {
+            $stmt = $pdo->prepare("SELECT * FROM faculties WHERE id = ?");
+            $stmt->execute([$id]);
+            $editItem = $stmt->fetch();
+        } catch (Exception $e) {
+            $editItem = null;
+        }
     }
 }
 
 // Fetch faculties for this department
 $faculties = [];
 if ($pdo) {
-    $stmt = $pdo->prepare("SELECT * FROM faculties WHERE dept_code = ? ORDER BY display_order ASC, id ASC");
-    $stmt->execute([$deptCode]);
-    $faculties = $stmt->fetchAll();
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM faculties WHERE dept_code = ? ORDER BY display_order ASC, id ASC");
+        $stmt->execute([$deptCode]);
+        $faculties = $stmt->fetchAll();
+    } catch (Exception $e) {
+        $faculties = [];
+    }
 }
 
 // Qualifications manager state
@@ -183,13 +215,18 @@ $facultyQuals = [];
 if (isset($_GET['manage_quals']) && $pdo) {
     $mId = (int)$_GET['manage_quals'];
     if ($mId > 0) {
-        $mStmt = $pdo->prepare("SELECT * FROM faculties WHERE id = ?");
-        $mStmt->execute([$mId]);
-        $managingFaculty = $mStmt->fetch();
-        if ($managingFaculty) {
-            $qStmt = $pdo->prepare("SELECT * FROM faculty_qualifications WHERE faculty_id = ? ORDER BY id ASC");
-            $qStmt->execute([$mId]);
-            $facultyQuals = $qStmt->fetchAll();
+        try {
+            $mStmt = $pdo->prepare("SELECT * FROM faculties WHERE id = ?");
+            $mStmt->execute([$mId]);
+            $managingFaculty = $mStmt->fetch();
+            if ($managingFaculty) {
+                $qStmt = $pdo->prepare("SELECT * FROM faculty_qualifications WHERE faculty_id = ? ORDER BY id ASC");
+                $qStmt->execute([$mId]);
+                $facultyQuals = $qStmt->fetchAll();
+            }
+        } catch (Exception $e) {
+            $managingFaculty = null;
+            $facultyQuals = [];
         }
     }
 }
