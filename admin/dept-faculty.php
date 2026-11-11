@@ -57,8 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
 
-        // Process photo upload
-        $upload = handleImageUpload('photo_file', 'faculty', null, $_POST['photo_url'] ?? null);
+        // Process photo upload into department-specific subfolder (e.g. uploads/faculty/ce/)
+        $deptFolder = 'faculty/' . strtolower($deptCode);
+        $upload = handleImageUpload('photo_file', $deptFolder, null, $_POST['photo_url'] ?? null);
         $photo_url = $upload['success'] ? $upload['path'] : 'images/avatar_placeholder.jpg';
 
         if (!empty($name) && !empty($designation)) {
@@ -92,7 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $is_active = isset($_POST['is_active']) ? 1 : 0;
         $existingPhoto = trim($_POST['existing_photo'] ?? '');
 
-        $upload = handleImageUpload('photo_file', 'faculty', $existingPhoto, $_POST['photo_url'] ?? null);
+        $deptFolder = 'faculty/' . strtolower($deptCode);
+        $upload = handleImageUpload('photo_file', $deptFolder, $existingPhoto, $_POST['photo_url'] ?? null);
         $photo_url = $upload['success'] ? $upload['path'] : $existingPhoto;
 
         if (!empty($name) && !empty($designation) && $id > 0) {
