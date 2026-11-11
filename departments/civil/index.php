@@ -23,44 +23,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
 <div class="dept-page" id="mainContent" data-active-tab="about">
 
-    <!-- Hero Header Banner -->
-    <header class="dept-hero-banner" role="banner">
-        <div class="dept-container">
-            <div class="dept-hero-grid">
-                <div class="dept-hero-text">
-                    <span class="dept-kicker">DEPARTMENT OF</span>
-                    <h1 class="dept-heading">Civil Engineering</h1>
-                    <p class="dept-tagline">
-                        Housed in the main building of the college, imparting practical knowledge and excellence in Surveying, Fluid Mechanics, Transportation, Environmental Engineering, and Geology since 1984.
-                    </p>
-                </div>
-                <div class="dept-hero-media">
-                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Civil Engineering Department Building" class="dept-hero-photo" onerror="this.src='../../images/hero_campus_1.jpg'">
-                </div>
-            </div>
-
-            <!-- Key metrics counter strip -->
-            <div class="dept-stats-strip">
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">1984</span>
-                    <span class="dept-stat-label">CONSTITUTED YEAR</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">120</span>
-                    <span class="dept-stat-label">ANNUAL UG INTAKE</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">18</span>
-                    <span class="dept-stat-label">ANNUAL PG INTAKE</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">10</span>
-                    <span class="dept-stat-label">SPECIALIZED LABS</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Sticky sub-navigation bar -->
     <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
@@ -107,6 +69,41 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
             <!-- Tab 1: About Department -->
             <section class="dept-tab-pane active" id="tab-about">
+                <div class="dept-about-hero" style="margin-bottom: 56px;">
+                    <div class="dept-hero-grid">
+                        <div class="dept-hero-text">
+                            <span class="dept-kicker">DEPARTMENT OF</span>
+                            <h1 class="dept-heading">Civil Engineering</h1>
+                            <p class="dept-tagline">
+                                Housed in the main building of the college, imparting practical knowledge and excellence in Surveying, Fluid Mechanics, Transportation, Environmental Engineering, and Geology since 1984.
+                            </p>
+                        </div>
+                        <div class="dept-hero-media">
+                            <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Civil Engineering Department Building" class="dept-hero-photo" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        </div>
+                    </div>
+
+                    <!-- Key metrics counter strip -->
+                    <div class="dept-stats-strip">
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">1984</span>
+                            <span class="dept-stat-label">CONSTITUTED YEAR</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">120</span>
+                            <span class="dept-stat-label">ANNUAL UG INTAKE</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">18</span>
+                            <span class="dept-stat-label">ANNUAL PG INTAKE</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">10</span>
+                            <span class="dept-stat-label">SPECIALIZED LABS</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
                     <h2>About Department</h2>

@@ -23,48 +23,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
 <div class="dept-page" id="mainContent" data-active-tab="about">
 
-    <!-- Hero Header Banner -->
-    <header class="dept-hero-banner" role="banner">
-        <div class="dept-container">
-            <div class="dept-hero-grid">
-                <div class="dept-hero-text">
-                    <span class="dept-kicker">DEPARTMENT OF</span>
-                    <h1 class="dept-heading">Mechanical Engineering</h1>
-                    <p class="dept-tagline">
-                        Constituted in the year 1989 with two wings at the Workshop Building and New Academic Building
-                        (Building No. 6). Equipped with comprehensive laboratory and workshop facilities dedicated to
-                        thermodynamics, machine design, fluid mechanics, and advanced manufacturing.
-                    </p>
-                </div>
-                <div class="dept-hero-media">
-                    <img src="images/department_building.jpg"
-                        alt="Government Engineering College Modasa - Mechanical Engineering Department Building"
-                        class="dept-hero-photo">
-                </div>
-            </div>
-
-            <!-- Key metrics counter strip -->
-            <div class="dept-stats-strip">
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">1989</span>
-                    <span class="dept-stat-label">CONSTITUTED YEAR</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">60</span>
-                    <span class="dept-stat-label">ANNUAL UG INTAKE</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">NBA</span>
-                    <span class="dept-stat-label">ACCREDITED PROGRAMME</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">4 Yrs</span>
-                    <span class="dept-stat-label">DEGREE PROGRAMME (UG)</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Sticky sub-navigation bar -->
     <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
@@ -225,6 +183,45 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
             <!-- Tab 1: About Department -->
             <section class="dept-tab-pane active" id="tab-about">
+                <div class="dept-about-hero" style="margin-bottom: 56px;">
+                    <div class="dept-hero-grid">
+                        <div class="dept-hero-text">
+                            <span class="dept-kicker">DEPARTMENT OF</span>
+                            <h1 class="dept-heading">Mechanical Engineering</h1>
+                            <p class="dept-tagline">
+                                Constituted in the year 1989 with two wings at the Workshop Building and New Academic Building
+                                (Building No. 6). Equipped with comprehensive laboratory and workshop facilities dedicated to
+                                thermodynamics, machine design, fluid mechanics, and advanced manufacturing.
+                            </p>
+                        </div>
+                        <div class="dept-hero-media">
+                            <img src="images/department_building.jpg"
+                                alt="Government Engineering College Modasa - Mechanical Engineering Department Building"
+                                class="dept-hero-photo">
+                        </div>
+                    </div>
+
+                    <!-- Key metrics counter strip -->
+                    <div class="dept-stats-strip">
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">1989</span>
+                            <span class="dept-stat-label">CONSTITUTED YEAR</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">60</span>
+                            <span class="dept-stat-label">ANNUAL UG INTAKE</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">NBA</span>
+                            <span class="dept-stat-label">ACCREDITED PROGRAMME</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">4 Yrs</span>
+                            <span class="dept-stat-label">DEGREE PROGRAMME (UG)</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
                     <h2>About Department</h2>

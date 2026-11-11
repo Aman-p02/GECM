@@ -24,45 +24,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
 <div class="dept-page" id="mainContent" data-active-tab="about">
 
-    <!-- Hero header section -->
-    <header class="dept-hero-banner">
-        <div class="dept-container">
-            <!-- Two-column hero grid (7 cols left, 5 cols right) -->
-            <div class="dept-hero-grid">
-                <div class="dept-hero-text">
-                    <span class="dept-kicker">DEPARTMENT OF</span>
-                    <h1 class="dept-heading">Applied Mechanics</h1>
-                    <p class="dept-tagline">
-                        Accommodated in the main building, advancing foundational mechanics, materials testing, geotechnical investigations, and earthquake engineering testing.
-                    </p>
-                </div>
-                <div class="dept-hero-media">
-                    <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Applied Mechanics Department Building" class="dept-hero-photo">
-                </div>
-            </div>
-
-            <!-- Key metrics counter strip -->
-            <div class="dept-stats-strip">
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">4+</span>
-                    <span class="dept-stat-label">SPECIALIZED TESTING LABS</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">BIS/ISI</span>
-                    <span class="dept-stat-label">COMPLIANT TESTING</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">UG &amp; PG</span>
-                    <span class="dept-stat-label">STRUCTURAL PEDAGOGY</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">8</span>
-                    <span class="dept-stat-label">FACULTY MEMBERS</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Sticky sub-navigation bar -->
     <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
@@ -100,6 +61,42 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
             <!-- Tab 1: About Department -->
             <section class="dept-tab-pane active" id="tab-about">
+                <div class="dept-about-hero" style="margin-bottom: 56px;">
+                    <!-- Two-column hero grid (7 cols left, 5 cols right) -->
+                    <div class="dept-hero-grid">
+                        <div class="dept-hero-text">
+                            <span class="dept-kicker">DEPARTMENT OF</span>
+                            <h1 class="dept-heading">Applied Mechanics</h1>
+                            <p class="dept-tagline">
+                                Accommodated in the main building, advancing foundational mechanics, materials testing, geotechnical investigations, and earthquake engineering testing.
+                            </p>
+                        </div>
+                        <div class="dept-hero-media">
+                            <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Applied Mechanics Department Building" class="dept-hero-photo">
+                        </div>
+                    </div>
+
+                    <!-- Key metrics counter strip -->
+                    <div class="dept-stats-strip">
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">4+</span>
+                            <span class="dept-stat-label">SPECIALIZED TESTING LABS</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">BIS/ISI</span>
+                            <span class="dept-stat-label">COMPLIANT TESTING</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">UG &amp; PG</span>
+                            <span class="dept-stat-label">STRUCTURAL PEDAGOGY</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">8</span>
+                            <span class="dept-stat-label">FACULTY MEMBERS</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
                     <h2>About the Department</h2>

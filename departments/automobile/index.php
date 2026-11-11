@@ -26,49 +26,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
 <div class="dept-page" id="mainContent" data-active-tab="about">
 
-    <!-- Hero Header Banner -->
-    <header class="dept-hero-banner" role="banner">
-        <div class="dept-container">
-            <!-- Two-column hero grid (7 cols left, 5 cols right) -->
-            <div class="dept-hero-grid">
-                <div class="dept-hero-text">
-                    <span class="dept-kicker">DEPARTMENT OF</span>
-                    <h1 class="dept-heading">Automobile Engineering</h1>
-                    <p class="dept-tagline">
-                        Constituted in the year 2008 with a separate building with full facilities of Laboratory,
-                        workshop and AC Conference room. Dedicated to automotive systems, IC engines, vehicle dynamics,
-                        and sustainable mobility innovation.
-                    </p>
-                </div>
-                <div class="dept-hero-media">
-                    <img src="images/department_building.jpg"
-                        alt="Government Engineering College Modasa - Automobile Engineering Department Building"
-                        class="dept-hero-photo">
-                </div>
-            </div>
-
-            <!-- Key metrics counter strip -->
-            <div class="dept-stats-strip">
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">2008</span>
-                    <span class="dept-stat-label">CONSTITUTED YEAR</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">30</span>
-                    <span class="dept-stat-label">ANNUAL UG INTAKE</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">1st</span>
-                    <span class="dept-stat-label">IN GECM (2014 RESULT)</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">4</span>
-                    <span class="dept-stat-label">SPECIALIZED LABS &amp; WORKSHOP</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Sticky sub-navigation bar -->
     <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
@@ -122,6 +79,46 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
             <!-- Tab 1: About Department -->
             <section class="dept-tab-pane active" id="tab-about">
+                <div class="dept-about-hero" style="margin-bottom: 56px;">
+                    <!-- Two-column hero grid (7 cols left, 5 cols right) -->
+                    <div class="dept-hero-grid">
+                        <div class="dept-hero-text">
+                            <span class="dept-kicker">DEPARTMENT OF</span>
+                            <h1 class="dept-heading">Automobile Engineering</h1>
+                            <p class="dept-tagline">
+                                Constituted in the year 2008 with a separate building with full facilities of Laboratory,
+                                workshop and AC Conference room. Dedicated to automotive systems, IC engines, vehicle dynamics,
+                                and sustainable mobility innovation.
+                            </p>
+                        </div>
+                        <div class="dept-hero-media">
+                            <img src="images/department_building.jpg"
+                                alt="Government Engineering College Modasa - Automobile Engineering Department Building"
+                                class="dept-hero-photo">
+                        </div>
+                    </div>
+
+                    <!-- Key metrics counter strip -->
+                    <div class="dept-stats-strip">
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">2008</span>
+                            <span class="dept-stat-label">CONSTITUTED YEAR</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">30</span>
+                            <span class="dept-stat-label">ANNUAL UG INTAKE</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">1st</span>
+                            <span class="dept-stat-label">IN GECM (2014 RESULT)</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">4</span>
+                            <span class="dept-stat-label">SPECIALIZED LABS &amp; WORKSHOP</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
                     <h2>About the Department</h2>
