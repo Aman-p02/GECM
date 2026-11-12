@@ -14,7 +14,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
 ?>
 
 <!-- Electrical Department Stylesheet -->
-<link rel="stylesheet" href="css/department.css?v=1.0">
+<link rel="stylesheet" href="css/department.css?v=<?= filemtime(__DIR__ . '/css/department.css') ?>">
 <link rel="stylesheet" href="../includes/faculty.css">
 <link rel="stylesheet" href="../includes/activities.css">
 <link rel="stylesheet" href="../includes/publications.css?v=2.4">
@@ -177,7 +177,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                 <!-- Under Graduate Courses Table -->
                 <div class="dept-section-header" style="margin-top: 56px;">
                     <span class="dept-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
-                    <h2>Undergraduate Programmes</h2>
+                    <h2>Undergraduate Programme</h2>
                     <p>Approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated with Gujarat Technological University (GTU), Ahmedabad.</p>
                 </div>
 

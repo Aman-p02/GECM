@@ -2,10 +2,10 @@
 
 :root {
     --dept-primary: #111111;
-    --dept-accent: #d97706; /* Electrical Engineering Electric Gold / Amber */
-    --dept-accent-hover: #b45309;
-    --dept-accent-rgb: 217, 119, 6;
-    --dept-kicker: #d97706;
+    --dept-accent: #ca8a04; /* Electrical Engineering Golden Yellow */
+    --dept-accent-hover: #a16207;
+    --dept-accent-rgb: 202, 138, 4;
+    --dept-kicker: #ca8a04;
     --dept-ee-box: #fef08a; /* Electrical Yellow from home */
     --dept-ee-border: #fde047; /* Electrical Yellow border from home */
     --dept-body: #4b5563;
