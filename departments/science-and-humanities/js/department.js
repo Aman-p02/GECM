@@ -11,8 +11,6 @@ function initDepartment() {
         '.dept-section-header',
         '.dept-stat-item',
         '.dept-quote-callout',
-        '.dept-charter-card',
-        '.dept-objective-card',
         '.dept-lab-card',
         '.dept-avenue-card',
         '.dept-facility-item',
@@ -40,7 +38,6 @@ function initDepartment() {
 
         const gridSelectors = [
             '.dept-labs-showcase',
-            '.dept-objectives-grid',
             '.dept-avenues-grid',
             '.dept-facilities-grid',
             '.dept-citations-list',
@@ -82,17 +79,6 @@ function initDepartment() {
     function activateTab(tabId, shouldScroll = false) {
         if (!tabId) return;
         tabId = tabId.replace('#', '');
-
-        // Map tab aliases to primary section IDs
-        if (tabId === 'vision' || tabId === 'mission') {
-            tabId = 'vision-mission';
-        }
-        if (tabId === 'advisory-board' || tabId === 'iab' || tabId === 'industry-advisory-board') {
-            tabId = 'advisory-board';
-        }
-        if (tabId === 'newsletters' || tabId === 'nl') {
-            tabId = 'newsletters';
-        }
 
         const targetPane = document.getElementById('tab-' + tabId);
         if (!targetPane) return;
