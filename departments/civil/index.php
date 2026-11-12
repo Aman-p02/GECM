@@ -14,7 +14,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
 ?>
 
 <!-- Civil Department Stylesheet -->
-<link rel="stylesheet" href="css/department.css">
+<link rel="stylesheet" href="css/department.css?v=2.1">
 <link rel="stylesheet" href="../includes/faculty.css">
 <link rel="stylesheet" href="../includes/activities.css">
 <link rel="stylesheet" href="../includes/publications.css?v=2.4">
