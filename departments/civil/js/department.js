@@ -1,55 +1,4 @@
-// Department navigation, URL hash routing, scroll reveal, and publication year filter
-
-// Global publication filter function accessible from inline onchange or programmatic calls
-function filterPublicationsByYear(selectedYear) {
-    const yearFilter = document.getElementById('pubYearFilter') || document.querySelector('.dept-pub-select');
-    const countBadge = document.getElementById('pubCountBadge') || document.querySelector('.dept-pub-badge');
-    const emptyState = document.getElementById('pubEmptyState') || document.querySelector('.dept-pub-empty');
-    const pubItems = document.querySelectorAll('.dept-citation-item');
-
-    if (!pubItems.length) return;
-
-    if (yearFilter && yearFilter.value !== selectedYear) {
-        yearFilter.value = selectedYear;
-    }
-
-    const sel = (selectedYear || 'all').toString().trim();
-    let visibleCount = 0;
-    const totalCount = pubItems.length;
-
-    pubItems.forEach(item => {
-        const itemYear = (item.getAttribute('data-year') || '').trim();
-        if (sel === 'all' || itemYear === sel) {
-            item.style.removeProperty('display');
-            item.classList.remove('is-filtered-out');
-            visibleCount++;
-            // Soft reveal animation
-            item.classList.remove('is-revealed');
-            setTimeout(() => item.classList.add('is-revealed'), 25);
-        } else {
-            item.style.setProperty('display', 'none', 'important');
-            item.classList.add('is-filtered-out');
-        }
-    });
-
-    if (emptyState) {
-        if (visibleCount === 0) {
-            emptyState.style.setProperty('display', 'block', 'important');
-        } else {
-            emptyState.style.setProperty('display', 'none', 'important');
-        }
-    }
-
-    if (countBadge) {
-        if (sel === 'all') {
-            countBadge.innerHTML = `Showing <strong>${totalCount}</strong> publications`;
-        } else {
-            countBadge.innerHTML = `Showing <strong>${visibleCount}</strong> of <strong>${totalCount}</strong> in <strong>${sel}</strong>`;
-        }
-    }
-}
-window.filterPublicationsByYear = filterPublicationsByYear;
-window.filterDeptPubs = function(yr) { filterPublicationsByYear(yr); };
+// Department navigation, URL hash routing, and scroll reveal
 
 function initDepartment() {
     const tabButtons = document.querySelectorAll('.dept-subnav-link');
@@ -129,63 +78,7 @@ function initDepartment() {
         });
     }
 
-    // 2. Publication Filter Controller Setup
-    function initPublicationYearFilter() {
-        const yearFilter = document.getElementById('pubYearFilter') || document.querySelector('.dept-pub-select');
-        const pubItems = document.querySelectorAll('.dept-citation-item');
-
-        if (!yearFilter || !pubItems.length) return;
-
-        // Ensure data-year attributes exist on all items
-        const yearCounts = {};
-        let totalCount = 0;
-
-        pubItems.forEach(item => {
-            let year = (item.getAttribute('data-year') || '').trim();
-            if (!year) {
-                const dateEl = item.querySelector('.dept-citation-date');
-                if (dateEl) {
-                    const match = dateEl.textContent.match(/\b(20\d\d)\b/);
-                    if (match) {
-                        year = match[1];
-                        item.setAttribute('data-year', year);
-                    }
-                }
-            }
-
-            if (year) {
-                yearCounts[year] = (yearCounts[year] || 0) + 1;
-                totalCount++;
-            }
-        });
-
-        // If dropdown options were not pre-rendered, populate dynamically
-        if (yearFilter.options.length <= 1) {
-            const sortedYears = Object.keys(yearCounts).sort((a, b) => parseInt(b, 10) - parseInt(a, 10));
-            yearFilter.innerHTML = '';
-            const allOption = document.createElement('option');
-            allOption.value = 'all';
-            allOption.textContent = `All Years (${totalCount})`;
-            yearFilter.appendChild(allOption);
-
-            sortedYears.forEach(year => {
-                const opt = document.createElement('option');
-                opt.value = year;
-                opt.textContent = `${year} (${yearCounts[year]})`;
-                yearFilter.appendChild(opt);
-            });
-        }
-
-        // Attach change listener to dropdown
-        yearFilter.addEventListener('change', function () {
-            filterPublicationsByYear(this.value);
-        });
-
-        // Initialize view and count badge
-        filterPublicationsByYear(yearFilter.value || 'all');
-    }
-
-    // 3. Tab switching and URL routing
+    // 2. Tab switching and URL routing
     function activateTab(tabId, shouldScroll = false) {
         if (!tabId) return;
         tabId = tabId.replace('#', '');
@@ -316,7 +209,6 @@ function initDepartment() {
     window.addEventListener('scroll', updateStickySubnavPosition, { passive: true });
 
     // Initializations
-    initPublicationYearFilter();
     setupRevealElements(document);
 
     // Initial hash handling

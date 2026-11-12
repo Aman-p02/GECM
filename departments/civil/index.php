@@ -14,7 +14,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
 ?>
 
 <!-- Civil Department Stylesheet -->
-<link rel="stylesheet" href="css/department.css?v=2.2">
+<link rel="stylesheet" href="css/department.css?v=2.3">
 <link rel="stylesheet" href="../includes/faculty.css">
 <link rel="stylesheet" href="../includes/activities.css">
 <link rel="stylesheet" href="../includes/publications.css?v=2.4">
@@ -434,7 +434,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
     </main>
 </div>
 
-<script src="js/department.js"></script>
+<script src="js/department.js?v=2.3"></script>
 
 <?php
 include_once __DIR__ . '/../../includes/footer.php';
