@@ -373,17 +373,26 @@ include_once __DIR__ . '/includes/header.php';
                     } elseif ($deptCode === 'SH' || stripos($deptName, 'Science') !== false || stripos($deptName, 'Humanities') !== false) {
                         $colorClass = 'dept-sh';
                     }
+                    $deptUrlMap = [
+                        'CE'    => 'departments/computer/',
+                        'IT'    => 'departments/information-technology/',
+                        'ME'    => 'departments/mechanical/',
+                        'AE'    => 'departments/automobile/',
+                        'CIVIL' => 'departments/civil/',
+                        'AM'    => 'departments/applied-mechanics/'
+                    ];
                     $resolvedUrl = (!empty($dept['learn_more_url']) && $dept['learn_more_url'] !== '#')
                         ? $dept['learn_more_url']
-                        : ($deptCode === 'IT' || stripos($deptName, 'Information Technology') !== false
-                            ? 'departments/information-technology/'
-                            : ($deptCode === 'CE' || stripos($deptName, 'Computer') !== false
-                                ? 'departments/computer/'
-                                : ($deptCode === 'ME' || stripos($deptName, 'Mechanical') !== false
-                                    ? 'departments/mechanical/'
-                                    : '#')));
+                        : ($deptUrlMap[$deptCode] ?? (
+                            stripos($deptName, 'Information') !== false ? 'departments/information-technology/' :
+                            (stripos($deptName, 'Computer') !== false ? 'departments/computer/' :
+                            (stripos($deptName, 'Mechanical') !== false ? 'departments/mechanical/' :
+                            (stripos($deptName, 'Automobile') !== false ? 'departments/automobile/' :
+                            (stripos($deptName, 'Civil') !== false ? 'departments/civil/' :
+                            (stripos($deptName, 'Applied Mechanics') !== false ? 'departments/applied-mechanics/' : '#')))))
+                        ));
                 ?>
-                <div class="dept-card <?= $colorClass ?>" onclick="if('<?= htmlspecialchars($resolvedUrl) ?>' !== '#') { window.location.href='<?= htmlspecialchars($resolvedUrl) ?>'; }" style="cursor: <?= ($resolvedUrl !== '#') ? 'pointer' : 'default' ?>;">
+                <a href="<?= htmlspecialchars($resolvedUrl) ?>" class="dept-card <?= $colorClass ?>" <?= ($resolvedUrl === '#') ? 'tabindex="-1" aria-disabled="true" onclick="return false;"' : '' ?> style="cursor: <?= ($resolvedUrl !== '#') ? 'pointer' : 'default' ?>;">
                     <div class="dept-icon">
                         <?php if (!empty($deptLogos[$dept['name']]) && file_exists(__DIR__ . '/' . $deptLogos[$dept['name']])): ?>
                             <img src="<?= htmlspecialchars($deptLogos[$dept['name']]) ?>" alt="<?= htmlspecialchars($dept['name']) ?> Icon" class="dept-img-icon">
@@ -392,7 +401,7 @@ include_once __DIR__ . '/includes/header.php';
                         <?php endif; ?>
                     </div>
                     <h3><?= htmlspecialchars($dept['name']) ?></h3>
-                </div>
+                </a>
                 <?php endforeach; ?>
             </div>
             <button class="scroll-btn dept-btn right-btn" id="deptRightBtn" aria-label="Next Department"><i

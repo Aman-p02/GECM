@@ -637,6 +637,12 @@
     display: none;
 }
 
+a.dept-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .dept-card {
     flex: 0 0 calc((100% - (24px * 3)) / 4);
     min-width: 250px;
