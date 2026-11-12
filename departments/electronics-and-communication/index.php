@@ -342,59 +342,157 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     </div>
                 </div>
 
-                <!-- Department Key Facilities Grid -->
-                <div class="dept-section-header" style="margin-top: 56px;">
-                    <span class="dept-section-kicker">CAMPUS ECOSYSTEM</span>
-                    <h2>Key Facilities &amp; Thrust Centers</h2>
-                    <p>Advanced departmental facilities and laboratories supporting academic research, project innovation, and practical discovery.</p>
-                </div>
-
-                <div class="dept-facilities-grid">
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-satellite-dish"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Antenna &amp; Microwave Lab</h4>
-                            <p>Microwave test benches, klystron oscillators, frequency meters, slotted lines, and antenna radiation pattern apparatus.</p>
-                        </div>
+                <!-- Department Key Facilities Grid (All 16 Facilities from Portal) -->
+                <div class="dept-section-block" style="margin-top: 56px;">
+                    <div class="dept-section-header">
+                        <span class="dept-section-kicker">CENTRAL RESOURCES &amp; INFRASTRUCTURE</span>
+                        <h2>Department Facilities</h2>
+                        <p>Comprehensive specialized laboratories and academic facilities supporting undergraduate experimentation, project work, and research operations.</p>
                     </div>
 
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-microchip"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Microprocessor &amp; Microcontroller Center</h4>
-                            <p>8085/8086 microprocessors, 8051 and ARM Cortex trainer kits with ADC/DAC, motor and keyboard interface modules.</p>
+                    <div class="dept-facilities-grid">
+                        <!-- 1. Analog & Digital Electronics Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-microchip"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Analog &amp; Digital Electronics Lab</h4>
+                                <p>Equipped with lab stations, digital trainer kits, oscilloscopes, and logic design verification setups.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Departmental Computer Center</h4>
-                            <p>High-performance computing workstations equipped with MATLAB, Multisim, Xilinx Vivado, and Keil microVision software.</p>
+                        <!-- 2. Digital Communication Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-broadcast-tower"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Digital Communication Lab</h4>
+                                <p>Digital Storage Oscilloscopes (DSO), ASK/FSK/PSK modulators, multiplexers, and signal analysis kits.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-book-reader"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Departmental Library</h4>
-                            <p>Extensive repository of specialized electronics and communication reference texts, research monographs, and IEEE publications.</p>
+                        <!-- 3. R.F Laboratory -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-wave-square"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>R.F Laboratory</h4>
+                                <p>Radio frequency signal generators, spectrum analyzers, RF amplifiers, filters, and impedance matching setups.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-project-diagram"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>PCB Design &amp; Prototyping Station</h4>
-                            <p>Equipped with schematic tools, PCB layout workstations, chemical etching tanks, drilling machines, and SMD soldering stations.</p>
+                        <!-- 4. Basic & Advanced Electronics -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-plug"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Basic &amp; Advanced Electronics</h4>
+                                <p>Semiconductor diode characteristics, BJT/FET amplifiers, operational amplifiers, and timer IC setups.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-ethernet"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Fiber Optic &amp; Telecommunication Lab</h4>
-                            <p>Fiber-optic transmission kits, laser sources, photo detectors, power meters, optical splicing, and modulation kits.</p>
+                        <!-- 5. Power Electronics Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Power Electronics Lab</h4>
+                                <p>Thyristor/SCR trigger circuits, MOSFET/IGBT converters, inverters, choppers, and DC/AC motor controllers.</p>
+                            </div>
+                        </div>
+
+                        <!-- 6. Microprocessor & Microcontroller Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-memory"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Microprocessor &amp; Microcontroller Lab</h4>
+                                <p>8085/8086 microprocessors, 8051 and ARM Cortex development trainer boards with DAC/ADC peripheral interfaces.</p>
+                            </div>
+                        </div>
+
+                        <!-- 7. Telecom and Switching Network Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-network-wired"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Telecom and Switching Network Lab</h4>
+                                <p>Electronic exchange simulators, time-division multiplexing (TDM), crossbar switching, and telephony setups.</p>
+                            </div>
+                        </div>
+
+                        <!-- 8. Electronics measurement & Instrument Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Electronics measurement &amp; Instrument Lab</h4>
+                                <p>Precision digital multimeters, LCR bridges, frequency counters, function generators, and sensor calibration.</p>
+                            </div>
+                        </div>
+
+                        <!-- 9. Optical Communication Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-ethernet"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Optical Communication Lab</h4>
+                                <p>Laser transmitters, LED optical sources, photodetectors, optical power meters, and fiber-optic splicing apparatus.</p>
+                            </div>
+                        </div>
+
+                        <!-- 10. Electronics Workshop Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-tools"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Electronics Workshop Lab</h4>
+                                <p>Component identification, soldering/desoldering stations, PCB layout designing, and chassis assembly practice.</p>
+                            </div>
+                        </div>
+
+                        <!-- 11. Antenna and Microwave Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-satellite-dish"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Antenna and Microwave Lab</h4>
+                                <p>Microwave waveguide test benches, reflex klystron, Gunn oscillator, VSWR meter, and antenna radiation pattern rigs.</p>
+                            </div>
+                        </div>
+
+                        <!-- 12. VLSI & Embedded System Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-laptop-code"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>VLSI &amp; Embedded System Lab</h4>
+                                <p>FPGA/CPLD trainer kits, Xilinx Vivado/ModelSim workstations, and hardware description language (VHDL/Verilog) testing.</p>
+                            </div>
+                        </div>
+
+                        <!-- 13. Mobile & Wireless Communication Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Mobile &amp; Wireless Communication Lab</h4>
+                                <p>Cellular GSM/CDMA trainer kits, base-station simulation modules, mobile antenna propagation, and modulation analyzers.</p>
+                            </div>
+                        </div>
+
+                        <!-- 14. Digital Signal Processing Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-sliders-h"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Digital Signal Processing Lab</h4>
+                                <p>TI TMS320C67xx DSP processor kits, MATLAB/Simulink algorithm development, and audio-biomedical filter design.</p>
+                            </div>
+                        </div>
+
+                        <!-- 15. Analog Communication Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-radio"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Analog Communication Lab</h4>
+                                <p>AM, FM, DSB/SSB modulation and demodulation kits, superheterodyne receiver setups, and mixer circuits.</p>
+                            </div>
+                        </div>
+
+                        <!-- 16. Electronic Project & Innovation Lab -->
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Electronic Project &amp; Innovation Lab</h4>
+                                <p>Dedicated workspace for final year design projects, microcontroller prototyping, IoT sensor nodes, and innovation development.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
