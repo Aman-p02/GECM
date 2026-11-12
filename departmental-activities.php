@@ -162,7 +162,6 @@ require_once __DIR__ . '/includes/header.php';
                     
                     <div class="act-card-media">
                         <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='images/hero_campus_1.jpg'">
-                        <span class="act-dept-badge <?= $badgeClass ?>"><?= htmlspecialchars($code) ?> &bull; <?= htmlspecialchars($deptTitle) ?></span>
                     </div>
 
                     <div class="act-card-body">
