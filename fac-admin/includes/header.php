@@ -151,3 +151,4 @@ $deptName = $deptLabels[$faculty['dept_code']] ?? $faculty['dept_code'];
                         <span><?= htmlspecialchars($flash['message']) ?></span>
                     </div>
                 <?php endif; ?>
+

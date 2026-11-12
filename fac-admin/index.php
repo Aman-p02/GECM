@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $error = 'Photo file size exceeds 3MB limit.';
             } else {
                 $deptFolder = strtolower($faculty['dept_code']);
-                $uploadDir = __DIR__ . '/../../uploads/faculty/' . $deptFolder . '/';
+                $uploadDir = __DIR__ . '/../uploads/faculty/' . $deptFolder . '/';
                 if (!is_dir($uploadDir)) {
                     mkdir($uploadDir, 0777, true);
                 }
@@ -192,3 +192,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
+

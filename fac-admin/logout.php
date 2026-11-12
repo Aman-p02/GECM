@@ -9,3 +9,4 @@ unset($_SESSION['faculty_dept']);
 
 header('Location: login.php');
 exit;
+

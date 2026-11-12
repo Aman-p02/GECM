@@ -46,3 +46,4 @@ function getFacultyFlash() {
     }
     return null;
 }
+

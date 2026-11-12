@@ -3,7 +3,7 @@
  * AJAX: Fetch unregistered faculties by department
  */
 header('Content-Type: application/json');
-require_once __DIR__ . '/../../includes/db.php';
+require_once __DIR__ . '/../includes/db.php';
 
 $dept = isset($_GET['dept']) ? trim($_GET['dept']) : '';
 
@@ -27,3 +27,4 @@ try {
 } catch (Exception $e) {
     echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }
+
