@@ -1,6 +1,6 @@
 <?php
 /**
- * GEC MODASA - Image Upload Handler
+ * GEC MODASA - Image & PDF Upload Handler
  * Supports direct file uploads from PC with validation and preview.
  */
 
@@ -30,18 +30,27 @@ function handleImageUpload($fileOrKey, $subfolder = 'general', $existingPath = n
             ];
         }
 
-        $targetDir = __DIR__ . '/../../uploads/' . $subfolder . '/';
+        // Clean subfolder name (e.g. dept_activities/civil)
+        $cleanSubfolder = trim(str_replace('\\', '/', $subfolder), '/');
+        $targetDir = realpath(__DIR__ . '/../../uploads');
+        if (!$targetDir) {
+            $targetDir = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'uploads';
+        }
+        $targetDir .= DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $cleanSubfolder) . DIRECTORY_SEPARATOR;
+
         if (!is_dir($targetDir)) {
-            mkdir($targetDir, 0755, true);
+            mkdir($targetDir, 0777, true);
         }
 
-        $cleanFilename = $subfolder . '_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
+        // Clean base filename without slash/subfolder path
+        $baseNamePrefix = basename(str_replace('\\', '/', $cleanSubfolder));
+        $cleanFilename = $baseNamePrefix . '_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
         $targetFile = $targetDir . $cleanFilename;
 
         if (move_uploaded_file($file['tmp_name'], $targetFile)) {
             return [
                 'success' => true,
-                'path'    => 'uploads/' . $subfolder . '/' . $cleanFilename
+                'path'    => 'uploads/' . $cleanSubfolder . '/' . $cleanFilename
             ];
         } else {
             return [
@@ -111,12 +120,20 @@ function handlePdfUpload($fileOrKey, $subfolder = 'documents', $existingPath = n
             ];
         }
 
-        $targetDir = __DIR__ . '/../../uploads/' . $subfolder . '/';
+        $cleanSubfolder = trim(str_replace('\\', '/', $subfolder), '/');
+        $targetDir = realpath(__DIR__ . '/../../uploads');
+        if (!$targetDir) {
+            $targetDir = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'uploads';
+        }
+        $targetDir .= DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $cleanSubfolder) . DIRECTORY_SEPARATOR;
+
         if (!is_dir($targetDir)) {
-            mkdir($targetDir, 0755, true);
+            mkdir($targetDir, 0777, true);
         }
 
-        $cleanFilename = $subfolder . '_' . time() . '_' . bin2hex(random_bytes(4)) . '.pdf';
+        // Clean base filename prefix without directory slashes!
+        $baseNamePrefix = basename(str_replace('\\', '/', $cleanSubfolder));
+        $cleanFilename = $baseNamePrefix . '_' . time() . '_' . bin2hex(random_bytes(4)) . '.pdf';
         $targetFile = $targetDir . $cleanFilename;
 
         if (move_uploaded_file($file['tmp_name'], $targetFile)) {
@@ -125,7 +142,7 @@ function handlePdfUpload($fileOrKey, $subfolder = 'documents', $existingPath = n
 
             return [
                 'success'   => true,
-                'path'      => 'uploads/' . $subfolder . '/' . $cleanFilename,
+                'path'      => 'uploads/' . $cleanSubfolder . '/' . $cleanFilename,
                 'file_size' => $formattedSize
             ];
         } else {
