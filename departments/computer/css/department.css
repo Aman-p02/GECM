@@ -1251,60 +1251,46 @@
     }
 
     .dept-citation-item {
-        padding: 12px 14px;
-        gap: 6px;
+        padding: 14px 16px;
+        gap: 8px;
         border-radius: 6px;
         border-left: none;
     }
 
-    .dept-citation-title {
-        font-size: 0.92rem;
-        line-height: 1.35;
-    }
-
-    .dept-pub-toolbar {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 10px 12px;
-        gap: 8px;
-    }
-
-    .dept-pub-filter-wrap {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-    }
-
-    .dept-pub-select {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .dept-pub-badge {
-        text-align: center;
-        align-self: flex-start;
-    }
-
-    .dept-citation-meta {
+    .dept-citation-header {
         display: flex;
-        flex-direction: row;
         align-items: flex-start;
         justify-content: space-between;
-        gap: 8px;
-        margin-top: 2px;
+        gap: 12px;
     }
 
-    .dept-citation-authors {
-        flex: 1 1 auto;
-        font-size: 0.78rem;
-        line-height: 1.35;
+    .dept-citation-title {
+        font-size: 0.94rem;
+        line-height: 1.38;
+        font-weight: 700;
+        margin: 0;
     }
 
     .dept-citation-date {
-        align-self: flex-start;
+        font-size: 0.74rem;
+        padding: 2px 8px;
+        border-radius: 4px;
         flex-shrink: 0;
-        font-size: 0.72rem;
-        padding: 2px 7px;
+        margin: 0;
+    }
+
+    .dept-citation-authors {
+        font-size: 0.82rem;
+        line-height: 1.45;
+        gap: 6px;
+        margin-top: 4px;
+    }
+
+    .dept-citation-journal {
+        font-size: 0.78rem;
+        line-height: 1.4;
+        margin-top: 4px;
+        padding-top: 6px;
     }
 }
 

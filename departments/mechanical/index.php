@@ -17,7 +17,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
 <link rel="stylesheet" href="css/department.css?v=<?= filemtime(__DIR__ . '/css/department.css') ?>">
 <link rel="stylesheet" href="../includes/faculty.css">
 <link rel="stylesheet" href="../includes/activities.css">
-<link rel="stylesheet" href="../includes/publications.css?v=2.1">
+<link rel="stylesheet" href="../includes/publications.css?v=2.2">
 <link rel="stylesheet" href="../includes/advisory-board.css">
 <link rel="stylesheet" href="../includes/newsletters.css">
 

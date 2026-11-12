@@ -102,28 +102,28 @@ if (isset($pdo) && $pdo) {
                     $yrAttr = $m[1];
                 }
             ?>
-                <!-- Publication Item matching reference screenshot -->
+                <!-- Publication Item -->
                 <div class="dept-citation-item" data-year="<?= htmlspecialchars($yrAttr) ?>">
-                    <h3 class="dept-citation-title">
-                        <?php if (!empty($pub['paper_url'])): ?>
-                            <a href="<?= htmlspecialchars($pub['paper_url']) ?>" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">
+                    <div class="dept-citation-header">
+                        <h3 class="dept-citation-title">
+                            <?php if (!empty($pub['paper_url'])): ?>
+                                <a href="<?= htmlspecialchars($pub['paper_url']) ?>" target="_blank" rel="noopener noreferrer">
+                                    <?= htmlspecialchars($pub['title']) ?>
+                                </a>
+                            <?php else: ?>
                                 <?= htmlspecialchars($pub['title']) ?>
-                            </a>
-                        <?php else: ?>
-                            <?= htmlspecialchars($pub['title']) ?>
-                        <?php endif; ?>
-                    </h3>
-                    
-                    <div class="dept-citation-meta">
-                        <span class="dept-citation-authors">
-                            <i class="fas fa-user" style="color: #64748b;"></i>
-                            <span><?= htmlspecialchars($pub['authors']) ?></span>
-                        </span>
-                        
-                        <span class="dept-citation-date">
-                            <i class="far fa-calendar-alt" style="color: #64748b;"></i>
+                            <?php endif; ?>
+                        </h3>
+
+                        <span class="dept-citation-date" title="Publication Year: <?= htmlspecialchars($yrAttr) ?>">
+                            <i class="far fa-calendar-alt"></i>
                             <span><?= htmlspecialchars($pub['pub_date'] ?: ($pub['pub_year'] ?: ' - ')) ?></span>
                         </span>
+                    </div>
+
+                    <div class="dept-citation-authors">
+                        <i class="fas fa-user"></i>
+                        <span><?= htmlspecialchars($pub['authors']) ?></span>
                     </div>
 
                     <?php if (!empty($pub['journal_details'])): ?>
