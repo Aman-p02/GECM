@@ -177,7 +177,21 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
                 <!-- Laboratory Photo Showcase (Concise 1-line descriptions) -->
                 <div class="dept-labs-showcase">
-                    <!-- Lab 1: Physics Lab -->
+                    <!-- Lab 1: Language Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_language.jpg" alt="Language Laboratory" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">Main Building</span>
+                            <h3 class="dept-lab-title">Language Laboratory</h3>
+                            <p class="dept-lab-desc">
+                                Computerized audio-visual speech booths and multimedia English language learning software.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 2: Physics Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
                             <img src="images/labs/lab_physics.jpg" alt="Physics Laboratory" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
@@ -187,48 +201,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <h3 class="dept-lab-title">Physics Laboratory</h3>
                             <p class="dept-lab-desc">
                                 Hall effect setups, four-probe resistivity meters, ultrasonic velocity kits, and B-H curve tracers.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 2: Language Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_language.jpg" alt="Language & Communication Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Main Building</span>
-                            <h3 class="dept-lab-title">Language &amp; Communication Lab</h3>
-                            <p class="dept-lab-desc">
-                                Computerized audio-visual speech booths and multimedia English language learning software.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 3: Mathematics Tutorial Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_mathematics.jpg" alt="Mathematics Tutorial Lab" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Main Building</span>
-                            <h3 class="dept-lab-title">Mathematics Tutorial Cell</h3>
-                            <p class="dept-lab-desc">
-                                Interactive computational tutorial workspace for calculus, numerical analysis, and modeling.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 4: CPD & Seminar Hall -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_cpd_seminar.jpg" alt="Personality Development & Seminar Hall" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Main Building</span>
-                            <h3 class="dept-lab-title">CPD &amp; Seminar Facility</h3>
-                            <p class="dept-lab-desc">
-                                Dedicated presentation and seminar hall for group discussions, grooming, and expert lectures.
                             </p>
                         </div>
                     </div>
@@ -243,50 +215,18 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
                 <div class="dept-facilities-grid">
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-wave-square"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-language"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Ultrasonic &amp; Optics Benches</h4>
-                            <p>Ultrasonic interferometer and laser optic kits for wave velocity determination.</p>
+                            <h4>Language Laboratory</h4>
+                            <p>Audio-visual speech booths, interactive English software, and communication training modules.</p>
                         </div>
                     </div>
 
                     <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-magnet"></i></div>
+                        <div class="dept-facility-icon"><i class="fas fa-atom"></i></div>
                         <div class="dept-facility-info">
-                            <h4>Magnetic Hysteresis Tracer</h4>
-                            <p>Apparatus for testing ferromagnetic core loss and magnetic coercivity.</p>
-                        </div>
-                    </div>
-
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-microchip"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Four-Probe Semiconductor Bench</h4>
-                            <p>Setup for band gap energy and resistivity measurement in semiconductor wafers.</p>
-                        </div>
-                    </div>
-
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-info"><i class="fas fa-headphones"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Audio-Visual Language Console</h4>
-                            <p>Interactive listening booths with BBC audio-visual archives and speech modules.</p>
-                        </div>
-                    </div>
-
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-calculator"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Mathematics Tutorial Center</h4>
-                            <p>Weekly tutorial sessions supporting 300+ hours of academic problem-solving load.</p>
-                        </div>
-                    </div>
-
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-book-reader"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Departmental Reference Library</h4>
-                            <p>Curated collection of reference texts in physics, mathematics, and linguistics.</p>
+                            <h4>Physics Laboratory</h4>
+                            <p>Hall effect apparatus, four-probe resistivity meters, ultrasonic velocity kits, and B-H curve tracers.</p>
                         </div>
                     </div>
                 </div>
