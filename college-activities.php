@@ -7,6 +7,8 @@ $extra_css = "css/activities-hub.css";
 require_once __DIR__ . '/includes/db.php';
 $pdo = getDBConnection();
 
+$selectedYear = trim($_GET['year'] ?? 'ALL');
+
 $collegeEvents = [];
 if ($pdo) {
     try {
@@ -34,8 +36,8 @@ if (empty($collegeEvents)) {
         ],
         [
             'id' => 2,
-            'title' => 'Annual Technical Symposium: TechFest 2026',
-            'event_date' => '2026-09-20',
+            'title' => 'Annual Technical Symposium: TechFest 2025',
+            'event_date' => '2025-09-20',
             'image_url' => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             'description' => 'Flagship inter-college technical symposium featuring 50+ competitions including Roborace, Drone Obstacle Race, Circuit Debugging, Paper Presentation, and Code Clash with massive student participation.',
             'view_url' => '#'
@@ -43,7 +45,7 @@ if (empty($collegeEvents)) {
         [
             'id' => 3,
             'title' => 'Annual Engineering Convocation Ceremony',
-            'event_date' => '2026-08-05',
+            'event_date' => '2024-08-05',
             'image_url' => 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             'description' => 'Graduation ceremony celebrating the passing out batch of engineers. Meritorious rank holders and departmental toppers were awarded gold medals and degree certificates by distinguished guests.',
             'view_url' => '#'
@@ -59,7 +61,7 @@ if (empty($collegeEvents)) {
         [
             'id' => 5,
             'title' => 'Annual Campus Athletics & Inter-Department Sports Meet',
-            'event_date' => '2026-02-18',
+            'event_date' => '2025-02-18',
             'image_url' => 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             'description' => 'Annual college sports championship organized by Gymkhana committee featuring cricket, football, volleyball, badminton, table tennis, and track & field tournaments.',
             'view_url' => '#'
@@ -67,13 +69,25 @@ if (empty($collegeEvents)) {
         [
             'id' => 6,
             'title' => 'National Blood Donation & Mega Health Awareness Camp',
-            'event_date' => '2026-01-26',
+            'event_date' => '2024-01-26',
             'image_url' => 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             'description' => 'Organized jointly by NSS GEC Modasa unit and Red Cross Society. Faculty members, staff, and over 250 student volunteers donated blood to support community healthcare.',
             'view_url' => '#'
         ]
     ];
 }
+
+// Collect available years
+$availableYears = [];
+foreach ($collegeEvents as $ev) {
+    if (!empty($ev['event_date'])) {
+        $yr = date('Y', strtotime($ev['event_date']));
+        if (!in_array($yr, $availableYears)) {
+            $availableYears[] = $yr;
+        }
+    }
+}
+rsort($availableYears);
 
 require_once __DIR__ . '/includes/header.php';
 ?>
@@ -88,15 +102,51 @@ require_once __DIR__ . '/includes/header.php';
         </div>
     </header>
 
+    <!-- Minimalist Filter Bar (Year Custom Dropdown) -->
+    <div class="act-toolbar-strip" style="margin-top: 14px;">
+        <div class="act-toolbar-inner" style="justify-content: space-between;">
+            <div class="act-toolbar-filters">
+                <!-- Year Custom Dropdown (Navbar-style) -->
+                <div class="custom-select-wrap" id="yearDropdownWrap">
+                    <button type="button" class="custom-select-trigger" id="yearDropdownTrigger" aria-expanded="false" aria-haspopup="listbox">
+                        <span class="custom-select-value" id="yearSelectedLabel"><?= ($selectedYear === 'ALL') ? 'All Years' : $selectedYear ?></span>
+                        <i class="fas fa-chevron-down custom-select-arrow"></i>
+                    </button>
+                    <div class="custom-select-menu" id="yearDropdownMenu" role="listbox" aria-label="Select Year" style="min-width: 140px;">
+                        <div class="custom-select-option <?= ($selectedYear === 'ALL') ? 'is-selected' : '' ?>" data-value="ALL" role="option">
+                            All Years
+                        </div>
+                        <?php foreach ($availableYears as $yr): ?>
+                            <div class="custom-select-option <?= ($selectedYear == $yr) ? 'is-selected' : '' ?>" data-value="<?= $yr ?>" role="option">
+                                <?= $yr ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="act-toolbar-meta">
+                <div class="act-count-pill" id="resultsCount">
+                    Showing <strong><?= count($collegeEvents) ?></strong> activities
+                </div>
+
+                <button type="button" id="resetFiltersBtn" class="act-reset-link" style="display: none;">
+                    <i class="fas fa-undo-alt"></i> Reset filters
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Activities Grid Container -->
-    <main class="act-container" style="margin-top: 40px;">
-        <div class="act-grid">
+    <main class="act-container" style="margin-top: 36px;">
+        <div class="act-grid" id="collegeActivitiesGrid">
             <?php foreach ($collegeEvents as $event):
+                $evYear = !empty($event['event_date']) ? date('Y', strtotime($event['event_date'])) : '2026';
                 $eventDate = !empty($event['event_date']) ? date('M d, Y', strtotime($event['event_date'])) : 'Annual Flagship';
                 $photoSrc = !empty($event['image_url']) ? htmlspecialchars($event['image_url']) : 'images/hero_campus_1.jpg';
                 $modalId = 'eventModal_' . $event['id'];
             ?>
-                <article class="act-card">
+                <article class="act-card" data-year="<?= htmlspecialchars($evYear) ?>">
                     <div class="act-card-media">
                         <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($event['title']) ?>" loading="lazy" onerror="this.src='images/hero_campus_1.jpg'">
                         <span class="act-dept-badge badge-college">GEC Modasa &bull; Campus</span>
@@ -169,11 +219,139 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
                 </div>
             <?php endforeach; ?>
+
+            <!-- Empty State Container -->
+            <div class="act-empty-state" id="emptyState" style="display: none;">
+                <i class="fas fa-calendar-times act-empty-icon"></i>
+                <h4 class="act-empty-title">No Activities Found</h4>
+                <p class="act-empty-desc">No college activities match the selected year.</p>
+                <button type="button" class="btn btn-primary" id="emptyResetBtn" style="margin-top: 16px; padding: 8px 22px; font-size: 0.86rem; border-radius: 9999px;">
+                    <i class="fas fa-undo"></i> Show All Activities
+                </button>
+            </div>
         </div>
     </main>
 </div>
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const yearDropdownWrap = document.getElementById("yearDropdownWrap");
+    const yearDropdownTrigger = document.getElementById("yearDropdownTrigger");
+    const yearSelectedLabel = document.getElementById("yearSelectedLabel");
+    const yearOptions = Array.from(document.querySelectorAll("#yearDropdownMenu .custom-select-option"));
+
+    const resetFiltersBtn = document.getElementById("resetFiltersBtn");
+    const emptyResetBtn = document.getElementById("emptyResetBtn");
+    const cards = Array.from(document.querySelectorAll("#collegeActivitiesGrid .act-card"));
+    const emptyState = document.getElementById("emptyState");
+    const resultsCount = document.getElementById("resultsCount");
+
+    let currentYear = "<?= htmlspecialchars($selectedYear) ?>";
+    if (!currentYear) currentYear = "ALL";
+
+    // Toggle Dropdown
+    yearDropdownTrigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = yearDropdownWrap.classList.contains("is-open");
+        yearDropdownWrap.classList.toggle("is-open", !isOpen);
+        yearDropdownTrigger.setAttribute("aria-expanded", !isOpen ? "true" : "false");
+    });
+
+    function closeDropdown() {
+        yearDropdownWrap.classList.remove("is-open");
+        yearDropdownTrigger.setAttribute("aria-expanded", "false");
+    }
+
+    document.addEventListener("click", (e) => {
+        if (!yearDropdownWrap.contains(e.target)) {
+            closeDropdown();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeDropdown();
+        }
+    });
+
+    // Handle Year Selection
+    yearOptions.forEach(opt => {
+        opt.addEventListener("click", () => {
+            const val = opt.getAttribute("data-value") || "ALL";
+            const labelText = opt.textContent.trim();
+
+            currentYear = val;
+            yearSelectedLabel.textContent = labelText;
+
+            yearOptions.forEach(o => o.classList.toggle("is-selected", o === opt));
+            closeDropdown();
+
+            filterActivities();
+            updateURL();
+        });
+    });
+
+    function filterActivities() {
+        const isFiltered = (currentYear !== "ALL");
+        if (resetFiltersBtn) {
+            resetFiltersBtn.style.display = isFiltered ? "inline-block" : "none";
+        }
+
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const cardYear = card.getAttribute("data-year") || "";
+            const matchesYear = (currentYear === "ALL" || cardYear === currentYear);
+
+            if (matchesYear) {
+                card.style.display = "";
+                visibleCount++;
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        if (visibleCount === 0) {
+            emptyState.style.display = "block";
+        } else {
+            emptyState.style.display = "none";
+        }
+
+        resultsCount.innerHTML = `Showing <strong>${visibleCount}</strong> activit${visibleCount === 1 ? 'y' : 'ies'}`;
+    }
+
+    function resetAllFilters() {
+        currentYear = "ALL";
+        yearSelectedLabel.textContent = "All Years";
+        yearOptions.forEach(o => o.classList.toggle("is-selected", o.getAttribute("data-value") === "ALL"));
+        closeDropdown();
+        filterActivities();
+        updateURL();
+    }
+
+    if (resetFiltersBtn) {
+        resetFiltersBtn.addEventListener("click", resetAllFilters);
+    }
+    if (emptyResetBtn) {
+        emptyResetBtn.addEventListener("click", resetAllFilters);
+    }
+
+    function updateURL() {
+        const params = new URLSearchParams(window.location.search);
+        if (currentYear !== "ALL") {
+            params.set("year", currentYear);
+        } else {
+            params.delete("year");
+        }
+        const newUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+        window.history.replaceState({}, '', newUrl);
+    }
+
+    // Initial check
+    filterActivities();
+});
+
+// Modal helpers
 window.openActModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (!modal) return;
@@ -208,4 +386,3 @@ document.addEventListener("keydown", (e) => {
 <?php
 require_once __DIR__ . '/includes/footer.php';
 ?>
-
