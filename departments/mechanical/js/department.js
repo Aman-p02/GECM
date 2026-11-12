@@ -514,6 +514,9 @@ function initDepartment() {
             }
             btn.setAttribute('aria-selected', 'false');
         });
+        document.querySelectorAll('.dept-subnav-dropdown').forEach(dd => dd.classList.remove('active'));
+        document.querySelectorAll('.dept-dropdown-toggle').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.dept-subnav-menu-link').forEach(l => l.classList.remove('active'));
 
         tabPanes.forEach(pane => {
             pane.classList.remove('active');
@@ -526,6 +529,15 @@ function initDepartment() {
             btn.setAttribute('aria-selected', 'true');
             if (btn.parentElement) {
                 btn.parentElement.classList.add('active');
+            }
+            const parentDropdown = btn.closest('.dept-subnav-dropdown');
+            if (parentDropdown) {
+                parentDropdown.classList.add('active');
+                const toggle = parentDropdown.querySelector('.dept-dropdown-toggle');
+                if (toggle) {
+                    toggle.classList.add('active');
+                    toggle.setAttribute('aria-selected', 'true');
+                }
             }
             if (subNavList) {
                 try {

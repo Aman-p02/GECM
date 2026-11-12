@@ -1505,9 +1505,9 @@
 .dept-subnav-menu {
     position: fixed;
     z-index: 99999;
-    min-width: 230px;
-    max-width: 290px;
-    max-height: 320px;
+    min-width: 260px;
+    max-width: 330px;
+    max-height: 340px;
     overflow-y: auto;
     background: #ffffff;
     border: 1px solid var(--dept-border);
@@ -1535,7 +1535,8 @@
 }
 
 .dept-subnav-menu-link {
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 9px 12px;
     font-size: 0.84rem;
     font-weight: 500;
@@ -1553,6 +1554,12 @@
     background: #f1f5f9;
     color: var(--dept-accent);
     padding-left: 15px;
+}
+
+.dept-subnav-menu-link.active {
+    background: #eff6ff;
+    color: var(--dept-accent) !important;
+    font-weight: 600;
 }
 
 /* ==========================================================================

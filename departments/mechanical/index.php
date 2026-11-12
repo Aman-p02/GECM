@@ -62,109 +62,40 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <button type="button" class="dept-subnav-link" data-tab="publications" role="tab"
                             aria-selected="false">Publications</button>
                     </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="instruction-material" role="tab"
-                            aria-selected="false">Instruction Material</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="learning-resources" role="tab"
-                            aria-selected="false">Learning Resources</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="instruction-feedback" role="tab"
-                            aria-selected="false">Feedback for Instruction material</button>
+                    <li class="dept-subnav-item dept-subnav-dropdown">
+                        <button type="button" class="dept-subnav-link dept-dropdown-toggle" data-tab="instruction-material"
+                            role="tab" aria-selected="false" aria-haspopup="true" aria-expanded="false">
+                            <span>Instruction Material</span>
+                            <i class="fas fa-chevron-down dept-subnav-arrow"></i>
+                        </button>
+                        <div class="dept-subnav-menu" role="menu">
+                            <a href="#instruction-material" class="dept-subnav-menu-link" data-tab="instruction-material" role="menuitem">
+                                <i class="fas fa-book-reader" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Instruction Material
+                            </a>
+                            <a href="#learning-resources" class="dept-subnav-menu-link" data-tab="learning-resources" role="menuitem">
+                                <i class="fas fa-laptop-code" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Learning Resources
+                            </a>
+                            <a href="#instruction-feedback" class="dept-subnav-menu-link" data-tab="instruction-feedback" role="menuitem">
+                                <i class="fas fa-comment-dots" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Feedback for Instruction Material
+                            </a>
+                        </div>
                     </li>
                     <li class="dept-subnav-item dept-subnav-dropdown">
                         <button type="button" class="dept-subnav-link dept-dropdown-toggle" data-tab="academic-calendar"
                             role="tab" aria-selected="false" aria-haspopup="true" aria-expanded="false">
-                            <span>Department Academic Calender</span>
+                            <span>More</span>
                             <i class="fas fa-chevron-down dept-subnav-arrow"></i>
                         </button>
                         <div class="dept-subnav-menu" role="menu">
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar"
-                                data-row-id="cal-even-2025-26" role="menuitem">EVEN 2025-26</a>
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar"
-                                data-row-id="cal-odd-2025-26" role="menuitem">ODD 2025-26</a>
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar"
-                                data-row-id="cal-even-2024-25" role="menuitem">EVEN 2024-25</a>
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar"
-                                data-row-id="cal-odd-2024-25-rev" role="menuitem">ODD 2024-25 (Revised)</a>
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar"
-                                data-row-id="cal-odd-2024-25" role="menuitem">ODD 2024-25</a>
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar"
-                                data-row-id="cal-even-2023-24-rev" role="menuitem">EVEN 2023-24 (Revised)</a>
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar"
-                                data-row-id="cal-even-2023-24" role="menuitem">EVEN 2023-24</a>
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar"
-                                data-row-id="cal-odd-2023-24" role="menuitem">ODD 2023-24</a>
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar"
-                                data-row-id="cal-even-2022-23" role="menuitem">EVEN 2022-23</a>
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar"
-                                data-row-id="cal-odd-2022-23" role="menuitem">ODD 2022-23</a>
-                        </div>
-                    </li>
-                    <li class="dept-subnav-item dept-subnav-dropdown">
-                        <button type="button" class="dept-subnav-link dept-dropdown-toggle"
-                            data-tab="industry-advisory-board" role="tab" aria-selected="false" aria-haspopup="true"
-                            aria-expanded="false">
-                            <span>Industry Advisory Board</span>
-                            <i class="fas fa-chevron-down dept-subnav-arrow"></i>
-                        </button>
-                        <div class="dept-subnav-menu" role="menu">
-                            <a href="#industry-advisory-board" class="dept-subnav-menu-link"
-                                data-tab="industry-advisory-board" data-row-id="iab-2025-26" role="menuitem">IAB
-                                2025-26</a>
-                            <a href="#industry-advisory-board" class="dept-subnav-menu-link"
-                                data-tab="industry-advisory-board" data-row-id="iab-2024-25" role="menuitem">IAB
-                                2024-25</a>
-                            <a href="#industry-advisory-board" class="dept-subnav-menu-link"
-                                data-tab="industry-advisory-board" data-row-id="iab-2023-24" role="menuitem">IAB
-                                2023-24</a>
-                            <a href="#industry-advisory-board" class="dept-subnav-menu-link"
-                                data-tab="industry-advisory-board" data-row-id="iab-2022-23" role="menuitem">IAB
-                                2022-23</a>
-                            <a href="#industry-advisory-board" class="dept-subnav-menu-link"
-                                data-tab="industry-advisory-board" data-row-id="iab-2021-22" role="menuitem">IAB
-                                2021-22</a>
-                            <a href="#industry-advisory-board" class="dept-subnav-menu-link"
-                                data-tab="industry-advisory-board" data-row-id="iab-2020-21" role="menuitem">IAB
-                                2020-21</a>
-                            <a href="#industry-advisory-board" class="dept-subnav-menu-link"
-                                data-tab="industry-advisory-board" data-row-id="iab-2019-20" role="menuitem">IAB
-                                2019-20</a>
-                            <a href="#industry-advisory-board" class="dept-subnav-menu-link"
-                                data-tab="industry-advisory-board" data-row-id="iab-2018-19" role="menuitem">IAB
-                                2018-19</a>
-                            <a href="#industry-advisory-board" class="dept-subnav-menu-link"
-                                data-tab="industry-advisory-board" data-row-id="iab-2017-18" role="menuitem">IAB
-                                2017-18</a>
-                        </div>
-                    </li>
-                    <li class="dept-subnav-item dept-subnav-dropdown">
-                        <button type="button" class="dept-subnav-link dept-dropdown-toggle" data-tab="newsletters"
-                            role="tab" aria-selected="false" aria-haspopup="true" aria-expanded="false">
-                            <span>News Letters</span>
-                            <i class="fas fa-chevron-down dept-subnav-arrow"></i>
-                        </button>
-                        <div class="dept-subnav-menu" role="menu">
-                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters"
-                                data-row-id="nl-2025" role="menuitem">News Letter 2025</a>
-                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters"
-                                data-row-id="nl-2024" role="menuitem">News Letter 2024</a>
-                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters"
-                                data-row-id="nl-2023" role="menuitem">News Letter 2023</a>
-                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters"
-                                data-row-id="nl-2022" role="menuitem">News Letter 2022</a>
-                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters"
-                                data-row-id="nl-2021" role="menuitem">News Letter 2021</a>
-                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters"
-                                data-row-id="nl-2020" role="menuitem">News Letter 2020</a>
-                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters"
-                                data-row-id="nl-2019" role="menuitem">News Letter 2019</a>
-                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters"
-                                data-row-id="nl-2018" role="menuitem">News Letter 2018</a>
-                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters"
-                                data-row-id="nl-2017" role="menuitem">News Letter 2017</a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" role="menuitem">
+                                <i class="fas fa-calendar-alt" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Department Academic Calendar
+                            </a>
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" role="menuitem">
+                                <i class="fas fa-users" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Industry Advisory Board
+                            </a>
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" role="menuitem">
+                                <i class="fas fa-newspaper" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Newsletters
+                            </a>
                         </div>
                     </li>
                 </ul>
