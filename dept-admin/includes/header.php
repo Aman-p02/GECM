@@ -1,6 +1,6 @@
 <?php
 /**
- * Department Admin Header & Sidebar Layout - Clean, Authentic Institutional Theme
+ * Department Admin Header & Sidebar Layout - Exactly matching Main Admin Structure
  */
 require_once __DIR__ . '/auth.php';
 checkDeptAdminAuth();
@@ -48,210 +48,97 @@ $flash = getDeptFlash();
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../admin/css/admin.css">
     <style>
-        .dept-sidebar-header {
-            padding: 18px 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        /* Exact text left alignment without icons in sidebar */
+        .admin-sidebar .menu-link {
+            justify-content: flex-start !important;
+            text-align: left;
+            padding: 10px 18px;
         }
-        .dept-sidebar-header img {
-            width: 38px;
-            height: 38px;
-            object-fit: contain;
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 4px;
+        .admin-sidebar .menu-link span {
+            display: block;
+            width: 100%;
+            text-align: left;
         }
-        .dept-sidebar-brand {
-            display: flex;
-            flex-direction: column;
-        }
-        .dept-sidebar-brand .brand-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.2;
-        }
-        .dept-sidebar-brand .brand-subtitle {
-            font-size: 11px;
-            color: var(--admin-sidebar-text);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-        }
-        .dept-admin-profile-strip {
-            padding: 14px 20px;
-            background: rgba(0, 0, 0, 0.15);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .dept-admin-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 6px;
-            background: #1e88e5;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 13px;
-            flex-shrink: 0;
-        }
-        .dept-admin-meta {
-            overflow: hidden;
-        }
-        .dept-admin-meta .name {
-            font-size: 13px;
-            font-weight: 600;
-            color: #ffffff;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .dept-admin-meta .dept {
-            font-size: 11.5px;
-            color: var(--admin-sidebar-text);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .scope-pill {
-            background-color: #e3f2fd;
-            color: #1565c0;
-            font-size: 11.5px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 4px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            border: 1px solid #bbdefb;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-        /* Top Navigation Bar inside Department */
-        .dept-module-nav {
-            background: #ffffff;
+        /* Clean minimal stat cards with no colored icon squares */
+        .clean-stat-card {
+            background-color: var(--admin-card-bg);
             border: 1px solid var(--admin-border-color);
             border-radius: 8px;
-            padding: 10px 18px;
-            margin-bottom: 24px;
+            padding: 22px 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .dept-module-nav .nav-tabs-list {
-            display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 6px;
-            flex-wrap: wrap;
         }
-        .dept-module-nav .tab-btn {
-            padding: 7px 14px;
-            font-size: 13px;
+        .clean-stat-card .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a263d;
+            line-height: 1.1;
+        }
+        .clean-stat-card .stat-label {
+            font-size: 13.5px;
             font-weight: 500;
-            color: #495057;
-            border-radius: 4px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.15s ease;
-        }
-        .dept-module-nav .tab-btn:hover {
-            background: #f1f5f9;
-            color: var(--admin-primary);
-        }
-        .dept-module-nav .tab-btn.active {
-            background: var(--admin-primary);
-            color: #ffffff;
-            font-weight: 600;
+            color: var(--admin-text-muted);
         }
     </style>
 </head>
 <body>
     <div class="admin-layout">
-        <!-- Sidebar Navigation -->
-        <aside class="admin-sidebar">
-            <div class="dept-sidebar-header">
-                <img src="../logos/logo.png" alt="GEC Modasa">
-                <div class="dept-sidebar-brand">
-                    <span class="brand-title"><?= htmlspecialchars($deptCode) ?> Department</span>
-                    <span class="brand-subtitle">GEC Modasa</span>
-                </div>
+        <!-- Sidebar Navigation matching Main Admin -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <a href="index.php" class="sidebar-brand">
+                    <?= htmlspecialchars($deptCode) ?> Admin
+                </a>
             </div>
 
-            <!-- Dept Admin Profile Strip -->
-            <div class="dept-admin-profile-strip">
-                <div class="dept-admin-avatar">
-                    <?= htmlspecialchars(substr($deptCode, 0, 2)) ?>
-                </div>
-                <div class="dept-admin-meta">
-                    <div class="name" title="<?= htmlspecialchars($deptAdmin['full_name']) ?>"><?= htmlspecialchars($deptAdmin['full_name']) ?></div>
-                    <div class="dept"><?= htmlspecialchars($deptName) ?></div>
-                </div>
-            </div>
-
-            <!-- Sidebar Menu Links -->
+            <!-- Sidebar Menu Links strictly left-aligned, no icons -->
             <ul class="sidebar-menu">
                 <li class="menu-category">Department Management</li>
                 <li class="menu-item <?= ($activeTab === 'dashboard') ? 'active' : '' ?>">
                     <a href="index.php" class="menu-link">
-                        <i class="fas fa-chart-pie" style="font-size: 14px; width: 20px;"></i>
                         <span>Overview</span>
                     </a>
                 </li>
                 <li class="menu-item <?= ($activeTab === 'faculty') ? 'active' : '' ?>">
                     <a href="faculty.php" class="menu-link">
-                        <i class="fas fa-users" style="font-size: 14px; width: 20px;"></i>
                         <span>Faculty Profiles</span>
                     </a>
                 </li>
                 <li class="menu-item <?= ($activeTab === 'activities') ? 'active' : '' ?>">
                     <a href="activities.php" class="menu-link">
-                        <i class="fas fa-calendar-alt" style="font-size: 14px; width: 20px;"></i>
                         <span>Activities & Events</span>
                     </a>
                 </li>
                 <li class="menu-item <?= ($activeTab === 'publications') ? 'active' : '' ?>">
                     <a href="publications.php" class="menu-link">
-                        <i class="fas fa-newspaper" style="font-size: 14px; width: 20px;"></i>
                         <span>Publications</span>
                     </a>
                 </li>
                 <li class="menu-item <?= ($activeTab === 'board') ? 'active' : '' ?>">
                     <a href="board.php" class="menu-link">
-                        <i class="fas fa-user-tie" style="font-size: 14px; width: 20px;"></i>
                         <span>Advisory Board</span>
                     </a>
                 </li>
                 <li class="menu-item <?= ($activeTab === 'newsletters') ? 'active' : '' ?>">
                     <a href="newsletters.php" class="menu-link">
-                        <i class="fas fa-file-pdf" style="font-size: 14px; width: 20px;"></i>
                         <span>Newsletters</span>
                     </a>
                 </li>
 
-                <li class="menu-category">Links</li>
+                <li class="menu-category">External Links</li>
                 <li class="menu-item">
                     <a href="<?= htmlspecialchars($livePageUrl) ?>" target="_blank" class="menu-link">
-                        <i class="fas fa-external-link-alt" style="font-size: 14px; width: 20px;"></i>
                         <span>Live Department Page</span>
                     </a>
                 </li>
                 <li class="menu-item">
                     <a href="../index.php" target="_blank" class="menu-link">
-                        <i class="fas fa-globe" style="font-size: 14px; width: 20px;"></i>
                         <span>College Website</span>
                     </a>
                 </li>
@@ -263,8 +150,7 @@ $flash = getDeptFlash();
             <!-- Header matching Main Admin -->
             <header class="admin-topbar">
                 <div class="topbar-left">
-                    <h1 class="page-title"><?= htmlspecialchars($pageHeading ?? 'Department Overview') ?></h1>
-                    <span class="scope-pill"><i class="fas fa-shield-alt"></i> <?= htmlspecialchars($deptName) ?></span>
+                    <h1 class="page-title"><?= htmlspecialchars($pageHeading ?? 'Dashboard Overview') ?></h1>
                 </div>
 
                 <div class="topbar-right">

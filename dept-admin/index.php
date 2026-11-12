@@ -41,46 +41,26 @@ if ($pdo) {
 }
 ?>
 
-<!-- Metric Cards Grid matching Main Admin -->
+<!-- Clean Minimal Stat Numbers (No Icon Squares) -->
 <div class="stats-grid" style="margin-bottom: 24px;">
-    <div class="stat-card">
-        <div class="stat-icon icon-blue">
-            <i class="fas fa-users"></i>
-        </div>
-        <div class="stat-info">
-            <div class="stat-number"><?= $facCount ?></div>
-            <div class="stat-label">Faculty Members</div>
-        </div>
+    <div class="clean-stat-card">
+        <div class="stat-number"><?= $facCount ?></div>
+        <div class="stat-label">Faculty Members</div>
     </div>
 
-    <div class="stat-card">
-        <div class="stat-icon icon-amber">
-            <i class="fas fa-calendar-alt"></i>
-        </div>
-        <div class="stat-info">
-            <div class="stat-number"><?= $actCount ?></div>
-            <div class="stat-label">Department Activities</div>
-        </div>
+    <div class="clean-stat-card">
+        <div class="stat-number"><?= $actCount ?></div>
+        <div class="stat-label">Department Activities</div>
     </div>
 
-    <div class="stat-card">
-        <div class="stat-icon icon-green">
-            <i class="fas fa-newspaper"></i>
-        </div>
-        <div class="stat-info">
-            <div class="stat-number"><?= $pubCount ?></div>
-            <div class="stat-label">Research Publications</div>
-        </div>
+    <div class="clean-stat-card">
+        <div class="stat-number"><?= $pubCount ?></div>
+        <div class="stat-label">Research Publications</div>
     </div>
 
-    <div class="stat-card">
-        <div class="stat-icon icon-purple">
-            <i class="fas fa-user-tie"></i>
-        </div>
-        <div class="stat-info">
-            <div class="stat-number"><?= $boardCount ?></div>
-            <div class="stat-label">Advisory Board</div>
-        </div>
+    <div class="clean-stat-card">
+        <div class="stat-number"><?= $boardCount ?></div>
+        <div class="stat-label">Advisory Board</div>
     </div>
 </div>
 
@@ -120,7 +100,7 @@ if ($pdo) {
         </div>
         <div style="padding: 18px 22px; display: flex; flex-direction: column; gap: 10px;">
             <a href="faculty.php" class="btn-add-new" style="justify-content: center; width: 100%; padding: 10px;">
-                <i class="fas fa-user-plus" style="display:inline-block !important;"></i> Add Faculty Member
+                Add Faculty Member
             </a>
             <a href="activities.php" class="btn" style="background:#ffffff; color:#2c3e50; border:1px solid #ced4da; padding:9px; border-radius:4px; font-weight:600; text-align:center; text-decoration:none;">
                 Post New Activity
@@ -132,7 +112,7 @@ if ($pdo) {
                 Upload Newsletter (PDF)
             </a>
             <a href="<?= htmlspecialchars($livePageUrl) ?>" target="_blank" class="btn" style="background:#192742; color:#ffffff; padding:10px; border-radius:4px; font-weight:600; text-align:center; text-decoration:none; margin-top:6px;">
-                <i class="fas fa-external-link-alt"></i> View Public Department Page
+                View Public Department Page
             </a>
         </div>
     </div>
