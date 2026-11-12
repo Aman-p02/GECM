@@ -294,7 +294,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Facility 1: Surveying Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_surveying.jpg" alt="Surveying Laboratory with Total Station and Survey Equipment" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_surveying.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_surveying.jpg') ?>" alt="Surveying Laboratory with Total Station and Survey Equipment" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Main Building</span>
