@@ -66,54 +66,83 @@ $deptLabels = [
 require_once __DIR__ . '/includes/header.php';
 ?>
 
-<!-- Pending Registration Requests -->
-<div class="admin-card" style="margin-bottom: 30px;">
-    <div class="admin-card-header" style="background:#fffbeb; border-bottom:1px solid #fde68a;">
-        <h3 style="color:#92400e; display:flex; align-items:center; gap:8px;">
-            <i class="fas fa-bell"></i>
-            Pending Department Admin Requests (<?= count($pendingRequests) ?>)
-        </h3>
+<!-- Clean Admin Card: Pending Requests -->
+<div class="admin-card" style="margin-bottom: 28px;">
+    <div class="card-top" style="background:#ffffff; border-bottom:1px solid #e5e9f0; padding:16px 24px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px; height:36px; border-radius:8px; background:#fef3c7; color:#d97706; display:flex; align-items:center; justify-content:center; font-size:16px;">
+                <i class="fas fa-user-clock"></i>
+            </div>
+            <div>
+                <h2 style="font-size:17px; font-weight:700; color:#1a263d; margin:0;">Pending Registration Requests</h2>
+                <p style="font-size:12.5px; color:#64748b; margin-top:2px;">Department coordinators waiting for Super Admin approval</p>
+            </div>
+        </div>
+        <div>
+            <?php if (count($pendingRequests) > 0): ?>
+                <span style="background:#ef4444; color:#ffffff; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; letter-spacing:0.3px;">
+                    <?= count($pendingRequests) ?> PENDING
+                </span>
+            <?php else: ?>
+                <span style="background:#ecfdf5; color:#059669; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px;">
+                    All Caught Up
+                </span>
+            <?php endif; ?>
+        </div>
     </div>
 
     <div class="table-responsive">
         <?php if (empty($pendingRequests)): ?>
-            <div style="text-align:center; padding:35px 20px; color:#64748b;">
-                <i class="fas fa-circle-check" style="font-size:36px; color:#10b981; margin-bottom:10px;"></i>
-                <p>No pending department admin requests at this time.</p>
+            <div style="text-align:center; padding:48px 20px; color:#64748b;">
+                <div style="width:54px; height:54px; border-radius:50%; background:#ecfdf5; color:#10b981; display:inline-flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:12px;">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h4 style="font-size:15px; font-weight:600; color:#1a263d;">No Pending Requests</h4>
+                <p style="font-size:13px; color:#94a3b8; margin-top:4px;">All department admin registration requests have been processed.</p>
             </div>
         <?php else: ?>
             <table class="admin-table">
                 <thead>
                     <tr>
-                        <th>Date & Time</th>
-                        <th>Department</th>
-                        <th>Applicant Name</th>
-                        <th>Designation</th>
-                        <th>Email & Username</th>
-                        <th style="width:200px; text-align:right;">Actions</th>
+                        <th style="width: 140px;">Request Date</th>
+                        <th style="width: 160px;">Department</th>
+                        <th>Applicant Details</th>
+                        <th>Email &amp; Username</th>
+                        <th style="width: 180px; text-align: right;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($pendingRequests as $r): ?>
                         <tr>
-                            <td><?= date('d M Y, h:i A', strtotime($r['created_at'])) ?></td>
                             <td>
-                                <strong style="color:#2563eb;"><?= htmlspecialchars($r['dept_code']) ?></strong>
-                                <div style="font-size:11px; color:#64748b;"><?= htmlspecialchars($deptLabels[$r['dept_code']] ?? '') ?></div>
+                                <div style="font-weight:600; color:#1a263d; font-size:13px;"><?= date('d M Y', strtotime($r['created_at'])) ?></div>
+                                <div style="font-size:11.5px; color:#94a3b8;"><?= date('h:i A', strtotime($r['created_at'])) ?></div>
                             </td>
-                            <td><strong><?= htmlspecialchars($r['full_name']) ?></strong></td>
-                            <td><?= htmlspecialchars($r['designation'] ?? '-') ?></td>
                             <td>
-                                <div><i class="fas fa-envelope" style="color:#94a3b8; font-size:11px;"></i> <?= htmlspecialchars($r['email']) ?></div>
-                                <div style="font-size:11.5px; color:#64748b;"><i class="fas fa-user" style="color:#94a3b8; font-size:11px;"></i> @<?= htmlspecialchars($r['username']) ?></div>
+                                <span style="background:#eff6ff; color:#1e40af; border:1px solid #bfdbfe; font-size:12px; font-weight:700; padding:3px 10px; border-radius:6px; display:inline-block;">
+                                    <?= htmlspecialchars($r['dept_code']) ?>
+                                </span>
+                                <div style="font-size:11.5px; color:#64748b; margin-top:3px;"><?= htmlspecialchars($deptLabels[$r['dept_code']] ?? '') ?></div>
                             </td>
-                            <td style="text-align:right;">
-                                <form method="POST" action="dept-approvals.php" style="display:inline-flex; gap:6px;">
+                            <td>
+                                <div style="font-size:14px; font-weight:700; color:#0f172a;"><?= htmlspecialchars($r['full_name']) ?></div>
+                                <div style="font-size:12px; color:#64748b;"><?= htmlspecialchars($r['designation'] ?? 'Department Coordinator') ?></div>
+                            </td>
+                            <td>
+                                <div style="font-size:13px; color:#334155; display:flex; align-items:center; gap:6px;">
+                                    <i class="fas fa-envelope" style="color:#94a3b8; font-size:11px;"></i> <?= htmlspecialchars($r['email']) ?>
+                                </div>
+                                <div style="font-size:12px; color:#64748b; margin-top:2px; display:flex; align-items:center; gap:6px;">
+                                    <i class="fas fa-user" style="color:#94a3b8; font-size:11px;"></i> @<?= htmlspecialchars($r['username']) ?>
+                                </div>
+                            </td>
+                            <td style="text-align: right;">
+                                <form method="POST" action="dept-approvals.php" style="display:inline-flex; gap:8px;">
                                     <input type="hidden" name="id" value="<?= (int)$r['id'] ?>">
-                                    <button type="submit" name="action" value="approve" class="btn btn-sm" style="background:#10b981; color:#fff; border:none; padding:5px 10px; border-radius:6px; cursor:pointer;" onclick="return confirm('Approve this user as Department Admin for <?= htmlspecialchars($r['dept_code']) ?>?');">
+                                    <button type="submit" name="action" value="approve" class="btn" style="background:#10b981; color:#ffffff; font-size:12.5px; font-weight:600; padding:6px 14px; border-radius:6px; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition:background 0.15s ease;" onclick="return confirm('Approve <?= htmlspecialchars($r['full_name']) ?> as Department Admin for <?= htmlspecialchars($r['dept_code']) ?>?');">
                                         <i class="fas fa-check"></i> Approve
                                     </button>
-                                    <button type="submit" name="action" value="reject" class="btn btn-sm" style="background:#ef4444; color:#fff; border:none; padding:5px 10px; border-radius:6px; cursor:pointer;" onclick="return confirm('Reject this registration request?');">
+                                    <button type="submit" name="action" value="reject" class="btn" style="background:#ffffff; color:#dc2626; border:1px solid #fecaca; font-size:12.5px; font-weight:600; padding:6px 12px; border-radius:6px; cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition:all 0.15s ease;" onclick="return confirm('Reject this registration request?');">
                                         <i class="fas fa-times"></i> Reject
                                     </button>
                                 </form>
@@ -126,73 +155,98 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 </div>
 
-<!-- All Department Admins (Approved / Rejected) -->
+<!-- Clean Admin Card: Registered Department Admins -->
 <div class="admin-card">
-    <div class="admin-card-header">
-        <h3><i class="fas fa-users-gear"></i> Department Administrators Directory (<?= count($approvedAdmins) ?>)</h3>
+    <div class="card-top" style="background:#ffffff; border-bottom:1px solid #e5e9f0; padding:16px 24px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:36px; height:36px; border-radius:8px; background:#eff6ff; color:#1e88e5; display:flex; align-items:center; justify-content:center; font-size:16px;">
+                <i class="fas fa-users-gear"></i>
+            </div>
+            <div>
+                <h2 style="font-size:17px; font-weight:700; color:#1a263d; margin:0;">Department Administrators Directory</h2>
+                <p style="font-size:12.5px; color:#64748b; margin-top:2px;">Approved administrators managing respective departmental sections</p>
+            </div>
+        </div>
+        <div>
+            <span style="font-size:13px; font-weight:600; color:#64748b;">
+                Total: <?= count($approvedAdmins) ?> Admins
+            </span>
+        </div>
     </div>
 
     <div class="table-responsive">
         <?php if (empty($approvedAdmins)): ?>
-            <div style="text-align:center; padding:35px 20px; color:#64748b;">
-                <p>No department administrators registered yet.</p>
+            <div style="text-align:center; padding:48px 20px; color:#64748b;">
+                <div style="width:54px; height:54px; border-radius:50%; background:#f1f5f9; color:#94a3b8; display:inline-flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:12px;">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h4 style="font-size:15px; font-weight:600; color:#1a263d;">No Registered Admins Yet</h4>
+                <p style="font-size:13px; color:#94a3b8; margin-top:4px;">When applicants are approved, their records will appear here.</p>
             </div>
         <?php else: ?>
             <table class="admin-table">
                 <thead>
                     <tr>
-                        <th>Department</th>
-                        <th>Admin Name</th>
-                        <th>Email / Username</th>
-                        <th>Status</th>
-                        <th>Approved On</th>
-                        <th style="width:120px; text-align:right;">Toggle</th>
+                        <th style="width: 140px;">Department</th>
+                        <th>Administrator Name</th>
+                        <th>Contact / Username</th>
+                        <th style="width: 120px;">Status</th>
+                        <th style="width: 140px;">Approved On</th>
+                        <th style="width: 130px; text-align: right;">Access Control</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($approvedAdmins as $a): ?>
                         <tr>
                             <td>
-                                <strong style="color:#2563eb;"><?= htmlspecialchars($a['dept_code']) ?></strong>
-                                <div style="font-size:11px; color:#64748b;"><?= htmlspecialchars($deptLabels[$a['dept_code']] ?? '') ?></div>
+                                <span style="background:#eff6ff; color:#1e40af; border:1px solid #bfdbfe; font-size:12px; font-weight:700; padding:3px 10px; border-radius:6px; display:inline-block;">
+                                    <?= htmlspecialchars($a['dept_code']) ?>
+                                </span>
+                                <div style="font-size:11.5px; color:#64748b; margin-top:3px;"><?= htmlspecialchars($deptLabels[$a['dept_code']] ?? '') ?></div>
                             </td>
                             <td>
-                                <strong><?= htmlspecialchars($a['full_name']) ?></strong>
-                                <?php if (!empty($a['designation'])): ?>
-                                    <div style="font-size:11.5px; color:#64748b;"><?= htmlspecialchars($a['designation']) ?></div>
-                                <?php endif; ?>
+                                <div style="font-size:14px; font-weight:700; color:#0f172a;"><?= htmlspecialchars($a['full_name']) ?></div>
+                                <div style="font-size:12px; color:#64748b;"><?= htmlspecialchars($a['designation'] ?? 'Department Admin') ?></div>
                             </td>
                             <td>
-                                <div><?= htmlspecialchars($a['email']) ?></div>
-                                <div style="font-size:11.5px; color:#64748b;">@<?= htmlspecialchars($a['username']) ?></div>
+                                <div style="font-size:13px; color:#334155;"><?= htmlspecialchars($a['email']) ?></div>
+                                <div style="font-size:12px; color:#64748b; margin-top:2px;">@<?= htmlspecialchars($a['username']) ?></div>
                             </td>
                             <td>
                                 <?php if ($a['status'] === 'approved'): ?>
                                     <?php if (!empty($a['is_active'])): ?>
-                                        <span class="badge badge-success" style="background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:600;">
-                                            <i class="fas fa-check"></i> Active
+                                        <span style="background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; padding:3px 10px; border-radius:12px; font-size:11.5px; font-weight:600; display:inline-flex; align-items:center; gap:5px;">
+                                            <i class="fas fa-circle-check"></i> Active
                                         </span>
                                     <?php else: ?>
-                                        <span class="badge badge-danger" style="background:#fef2f2; color:#991b1b; border:1px solid #fecaca; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:600;">
-                                            Deactivated
+                                        <span style="background:#fef2f2; color:#991b1b; border:1px solid #fecaca; padding:3px 10px; border-radius:12px; font-size:11.5px; font-weight:600; display:inline-flex; align-items:center; gap:5px;">
+                                            <i class="fas fa-ban"></i> Suspended
                                         </span>
                                     <?php endif; ?>
                                 <?php else: ?>
-                                    <span class="badge badge-secondary" style="background:#f1f5f9; color:#64748b; border:1px solid #cbd5e1; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:600;">
+                                    <span style="background:#f1f5f9; color:#64748b; border:1px solid #cbd5e1; padding:3px 10px; border-radius:12px; font-size:11.5px; font-weight:600;">
                                         Rejected
                                     </span>
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <?= !empty($a['approved_at']) ? date('d M Y', strtotime($a['approved_at'])) : '-' ?>
+                                <div style="font-size:13px; color:#334155;">
+                                    <?= !empty($a['approved_at']) ? date('d M Y', strtotime($a['approved_at'])) : '-' ?>
+                                </div>
                             </td>
-                            <td style="text-align:right;">
+                            <td style="text-align: right;">
                                 <form method="POST" action="dept-approvals.php">
                                     <input type="hidden" name="id" value="<?= (int)$a['id'] ?>">
                                     <input type="hidden" name="action" value="toggle_active">
-                                    <button type="submit" class="btn btn-sm btn-outline" style="font-size:11px; padding:3px 8px;">
-                                        <?= !empty($a['is_active']) ? 'Deactivate' : 'Activate' ?>
-                                    </button>
+                                    <?php if (!empty($a['is_active'])): ?>
+                                        <button type="submit" class="btn" style="background:#ffffff; color:#dc2626; border:1px solid #fecaca; font-size:11.5px; font-weight:600; padding:5px 12px; border-radius:6px; cursor:pointer;" title="Temporarily revoke login access">
+                                            Suspend
+                                        </button>
+                                    <?php else: ?>
+                                        <button type="submit" class="btn" style="background:#10b981; color:#ffffff; font-size:11.5px; font-weight:600; padding:5px 12px; border-radius:6px; border:none; cursor:pointer;" title="Restore login access">
+                                            Reactivate
+                                        </button>
+                                    <?php endif; ?>
                                 </form>
                             </td>
                         </tr>
