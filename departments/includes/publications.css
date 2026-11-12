@@ -98,13 +98,18 @@
     background: #ffffff !important;
     border: 1px solid var(--dept-border, #e5e7eb) !important;
     border-left: none !important;
+    border-left-color: transparent !important;
     border-radius: 6px !important;
     padding: 14px 18px !important;
-    display: flex !important;
+    display: flex;
     flex-direction: column !important;
     gap: 6px !important;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02) !important;
     transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease !important;
+}
+
+.dept-citation-item.is-filtered-out {
+    display: none !important;
 }
 
 .dept-citation-item:hover {
@@ -118,11 +123,11 @@
 /* Publication Name (Title) */
 .dept-citation-title {
     font-family: var(--dept-font-display, inherit);
-    font-size: 1rem;
-    font-weight: 600;
-    color: #111111;
-    line-height: 1.4;
-    margin: 0;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #111111 !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
 }
 
 .dept-citation-title a {
@@ -132,7 +137,7 @@
 }
 
 .dept-citation-title a:hover {
-    color: var(--dept-accent, #2563eb);
+    color: var(--dept-accent, #009dff) !important;
     text-decoration: underline;
 }
 
@@ -147,22 +152,22 @@
 
 /* Faculty Name(s) */
 .dept-citation-authors {
-    display: inline-flex;
-    align-items: flex-start;
-    gap: 6px;
-    font-size: 0.84rem;
-    font-weight: 500;
-    color: var(--dept-body, #475569);
-    line-height: 1.4;
-    flex: 1 1 auto;
-    min-width: 0;
+    display: inline-flex !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    font-size: 0.84rem !important;
+    font-weight: 500 !important;
+    color: var(--dept-body, #475569) !important;
+    line-height: 1.4 !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
 }
 
 .dept-citation-authors i {
-    color: var(--dept-muted, #94a3b8);
-    font-size: 0.8rem;
-    margin-top: 3px;
-    flex-shrink: 0;
+    color: var(--dept-accent, #009dff) !important;
+    font-size: 0.8rem !important;
+    margin-top: 3px !important;
+    flex-shrink: 0 !important;
 }
 
 /* Year fixed in the bottom-right corner */
@@ -172,8 +177,8 @@
     gap: 5px !important;
     font-size: 0.78rem !important;
     font-weight: 600 !important;
-    color: var(--dept-muted, #64748b) !important;
-    background: var(--dept-bg-subtle, #f8fafc) !important;
+    color: var(--dept-accent, #009dff) !important;
+    background: var(--dept-accent-light, rgba(0, 157, 255, 0.08)) !important;
     border: 1px solid var(--dept-border-subtle, #e2e8f0) !important;
     padding: 2px 8px !important;
     border-radius: 4px !important;
@@ -184,8 +189,8 @@
 }
 
 .dept-citation-date i {
-    color: var(--dept-muted, #94a3b8);
-    font-size: 0.74rem;
+    color: var(--dept-accent, #009dff) !important;
+    font-size: 0.74rem !important;
 }
 
 /* Journal details (small, subtle space) */

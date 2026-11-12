@@ -2,9 +2,9 @@
 
 // Global publication filter function accessible from inline onchange or programmatic calls
 function filterPublicationsByYear(selectedYear) {
-    const yearFilter = document.getElementById('pubYearFilter');
-    const countBadge = document.getElementById('pubCountBadge');
-    const emptyState = document.getElementById('pubEmptyState');
+    const yearFilter = document.getElementById('pubYearFilter') || document.querySelector('.dept-pub-select');
+    const countBadge = document.getElementById('pubCountBadge') || document.querySelector('.dept-pub-badge');
+    const emptyState = document.getElementById('pubEmptyState') || document.querySelector('.dept-pub-empty');
     const pubItems = document.querySelectorAll('.dept-citation-item');
 
     if (!pubItems.length) return;
@@ -13,27 +13,31 @@ function filterPublicationsByYear(selectedYear) {
         yearFilter.value = selectedYear;
     }
 
-    const sel = (selectedYear || 'all').trim();
+    const sel = (selectedYear || 'all').toString().trim();
     let visibleCount = 0;
     const totalCount = pubItems.length;
 
     pubItems.forEach(item => {
         const itemYear = (item.getAttribute('data-year') || '').trim();
         if (sel === 'all' || itemYear === sel) {
-            item.style.display = '';
+            item.style.removeProperty('display');
             item.classList.remove('is-filtered-out');
             visibleCount++;
             // Soft reveal animation
             item.classList.remove('is-revealed');
             setTimeout(() => item.classList.add('is-revealed'), 25);
         } else {
-            item.style.display = 'none';
+            item.style.setProperty('display', 'none', 'important');
             item.classList.add('is-filtered-out');
         }
     });
 
     if (emptyState) {
-        emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
+        if (visibleCount === 0) {
+            emptyState.style.setProperty('display', 'block', 'important');
+        } else {
+            emptyState.style.setProperty('display', 'none', 'important');
+        }
     }
 
     if (countBadge) {
@@ -45,6 +49,7 @@ function filterPublicationsByYear(selectedYear) {
     }
 }
 window.filterPublicationsByYear = filterPublicationsByYear;
+window.filterDeptPubs = function(yr) { filterPublicationsByYear(yr); };
 
 function initDepartment() {
     const tabButtons = document.querySelectorAll('.dept-subnav-link');
@@ -133,7 +138,7 @@ function initDepartment() {
 
     // 2. Publication Filter Controller Setup
     function initPublicationYearFilter() {
-        const yearFilter = document.getElementById('pubYearFilter');
+        const yearFilter = document.getElementById('pubYearFilter') || document.querySelector('.dept-pub-select');
         const pubItems = document.querySelectorAll('.dept-citation-item');
 
         if (!yearFilter || !pubItems.length) return;

@@ -140,31 +140,53 @@ if (isset($pdo) && $pdo) {
 <!-- Filter Script -->
 <script>
 function filterDeptPubs(selectedYear, deptCode) {
-    const list = document.getElementById('pubList_' + deptCode);
+    const sel = (selectedYear || 'all').toString().trim();
+    const list = (deptCode ? document.getElementById('pubList_' + deptCode) : null) 
+                 || document.getElementById('pubList') 
+                 || document.querySelector('.dept-citations-list');
     if (!list) return;
 
     const items = list.querySelectorAll('.dept-citation-item');
-    const emptyState = document.getElementById('pubEmptyState_' + deptCode);
-    const countBadge = document.getElementById('pubCountBadge_' + deptCode);
+    const emptyState = (deptCode ? document.getElementById('pubEmptyState_' + deptCode) : null) 
+                       || document.getElementById('pubEmptyState') 
+                       || list.querySelector('.dept-pub-empty');
+    const countBadge = (deptCode ? document.getElementById('pubCountBadge_' + deptCode) : null) 
+                       || document.getElementById('pubCountBadge') 
+                       || document.querySelector('.dept-pub-badge');
     
     let visible = 0;
+    const total = items.length;
 
     items.forEach(item => {
-        const itemYear = item.getAttribute('data-year');
-        if (selectedYear === 'all' || itemYear === selectedYear) {
-            item.style.display = 'flex';
+        const itemYear = (item.getAttribute('data-year') || '').trim();
+        if (sel === 'all' || itemYear === sel) {
+            item.style.removeProperty('display');
+            item.classList.remove('is-filtered-out');
             visible++;
         } else {
-            item.style.display = 'none';
+            item.style.setProperty('display', 'none', 'important');
+            item.classList.add('is-filtered-out');
         }
     });
 
     if (emptyState) {
-        emptyState.style.display = visible === 0 ? 'block' : 'none';
+        if (visible === 0) {
+            emptyState.style.setProperty('display', 'block', 'important');
+        } else {
+            emptyState.style.setProperty('display', 'none', 'important');
+        }
     }
 
     if (countBadge) {
-        countBadge.innerHTML = `Showing <strong>${visible}</strong> publications`;
+        if (sel === 'all') {
+            countBadge.innerHTML = `Showing <strong>${total}</strong> publications`;
+        } else {
+            countBadge.innerHTML = `Showing <strong>${visible}</strong> of <strong>${total}</strong> publications (${sel})`;
+        }
     }
 }
+window.filterDeptPubs = filterDeptPubs;
+window.filterPublicationsByYear = function(yr) {
+    filterDeptPubs(yr, '<?= htmlspecialchars($deptCode) ?>');
+};
 </script>

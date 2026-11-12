@@ -1033,15 +1033,15 @@
 
 .dept-citation-item {
     background: #ffffff;
-    border: 1px solid var(--dept-border);
+    border: 1px solid var(--dept-border, #e5e7eb);
     border-left: none;
-    border-radius: 8px;
-    padding: 18px 22px;
+    border-radius: 6px;
+    padding: 14px 18px;
     transition: var(--dept-transition);
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+    gap: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .dept-citation-item.is-filtered-out {
@@ -1050,58 +1050,60 @@
 
 .dept-citation-item:hover {
     border-color: #cbd5e1;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
-    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
 }
 
 .dept-citation-title {
     font-family: var(--dept-font-display);
-    font-size: 1.08rem;
-    font-weight: 700;
-    letter-spacing: -0.015em;
+    font-size: 1rem;
+    font-weight: 600;
     color: #111111;
-    line-height: 1.5;
+    line-height: 1.4;
     margin: 0;
 }
 
 .dept-citation-meta {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-    font-size: 0.88rem;
-    color: var(--dept-body);
+    gap: 12px;
+    margin-top: 2px;
 }
 
 .dept-citation-authors {
     display: inline-flex;
     align-items: flex-start;
-    gap: 8px;
-    line-height: 1.5;
-    flex: 1 1 320px;
+    gap: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    line-height: 1.4;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .dept-citation-authors i {
     color: var(--dept-accent);
     margin-top: 3px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     flex-shrink: 0;
 }
 
 .dept-citation-date {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-family: var(--dept-font-display);
-    font-size: 0.82rem;
+    gap: 5px;
+    font-size: 0.78rem;
     font-weight: 600;
-    color: var(--dept-muted);
-    white-space: nowrap;
-    background: var(--dept-bg-subtle);
-    border: 1px solid var(--dept-border);
-    padding: 4px 10px;
+    color: var(--dept-accent);
+    background: var(--dept-accent-light, rgba(0, 157, 255, 0.08));
+    border: 1px solid var(--dept-border-subtle, #e2e8f0);
+    padding: 2px 8px;
     border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
+    align-self: flex-end;
 }
 
 .dept-citation-date i {
