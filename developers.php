@@ -230,7 +230,7 @@ include_once __DIR__ . '/includes/header.php';
         <footer class="dev-footer">
             <p class="dev-footer-text">
                 Crafted with <i class="fa-solid fa-heart heart-anim"></i> for
-                <span class="highlight">GEC Modasa</span> <span style="font-size: 0.85rem;">(August 2026)</span>
+                <span class="highlight">GEC Modasa</span> <span style="font-size: 0.85rem;">(November 2026)</span>
             </p>
         </footer>
 
