@@ -1300,10 +1300,10 @@
     .dept-citation-meta {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
+        align-items: flex-end;
         justify-content: space-between;
         gap: 8px;
-        margin-top: 2px;
+        margin-top: 3px;
     }
 
     .dept-citation-authors {
@@ -1313,7 +1313,8 @@
     }
 
     .dept-citation-date {
-        align-self: flex-start;
+        margin-left: auto;
+        align-self: flex-end;
         flex-shrink: 0;
         font-size: 0.72rem;
         padding: 2px 7px;

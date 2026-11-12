@@ -104,26 +104,26 @@ if (isset($pdo) && $pdo) {
             ?>
                 <!-- Publication Item -->
                 <div class="dept-citation-item" data-year="<?= htmlspecialchars($yrAttr) ?>">
-                    <div class="dept-citation-header">
-                        <h3 class="dept-citation-title">
-                            <?php if (!empty($pub['paper_url'])): ?>
-                                <a href="<?= htmlspecialchars($pub['paper_url']) ?>" target="_blank" rel="noopener noreferrer">
-                                    <?= htmlspecialchars($pub['title']) ?>
-                                </a>
-                            <?php else: ?>
+                    <h3 class="dept-citation-title">
+                        <?php if (!empty($pub['paper_url'])): ?>
+                            <a href="<?= htmlspecialchars($pub['paper_url']) ?>" target="_blank" rel="noopener noreferrer">
                                 <?= htmlspecialchars($pub['title']) ?>
-                            <?php endif; ?>
-                        </h3>
+                            </a>
+                        <?php else: ?>
+                            <?= htmlspecialchars($pub['title']) ?>
+                        <?php endif; ?>
+                    </h3>
 
-                        <span class="dept-citation-date" title="Publication Year: <?= htmlspecialchars($yrAttr) ?>">
+                    <div class="dept-citation-meta">
+                        <span class="dept-citation-authors">
+                            <i class="fas fa-user"></i>
+                            <span><?= htmlspecialchars($pub['authors']) ?></span>
+                        </span>
+
+                        <span class="dept-citation-date" title="Year: <?= htmlspecialchars($yrAttr) ?>">
                             <i class="far fa-calendar-alt"></i>
                             <span><?= htmlspecialchars($pub['pub_date'] ?: ($pub['pub_year'] ?: ' - ')) ?></span>
                         </span>
-                    </div>
-
-                    <div class="dept-citation-authors">
-                        <i class="fas fa-user"></i>
-                        <span><?= htmlspecialchars($pub['authors']) ?></span>
                     </div>
 
                     <?php if (!empty($pub['journal_details'])): ?>
@@ -148,12 +148,11 @@ function filterDeptPubs(selectedYear, deptCode) {
     const countBadge = document.getElementById('pubCountBadge_' + deptCode);
     
     let visible = 0;
-    const total = items.length;
 
-    items.forEach(function(item) {
-        const itemYear = (item.getAttribute('data-year') || '').trim();
+    items.forEach(item => {
+        const itemYear = item.getAttribute('data-year');
         if (selectedYear === 'all' || itemYear === selectedYear) {
-            item.style.display = '';
+            item.style.display = 'flex';
             visible++;
         } else {
             item.style.display = 'none';
@@ -161,16 +160,11 @@ function filterDeptPubs(selectedYear, deptCode) {
     });
 
     if (emptyState) {
-        emptyState.style.display = (visible === 0) ? 'block' : 'none';
+        emptyState.style.display = visible === 0 ? 'block' : 'none';
     }
 
     if (countBadge) {
-        if (selectedYear === 'all') {
-            countBadge.innerHTML = 'Showing <strong>' + total + '</strong> publications';
-        } else {
-            countBadge.innerHTML = 'Showing <strong>' + visible + '</strong> of <strong>' + total + '</strong> in <strong>' + selectedYear + '</strong>';
-        }
+        countBadge.innerHTML = `Showing <strong>${visible}</strong> publications`;
     }
 }
 </script>
-
