@@ -87,52 +87,63 @@ require_once __DIR__ . '/includes/header.php';
         </div>
     </header>
 
-    <!-- Secondary Minimal Action Toolbar (Search, Department Dropdown, Year Dropdown) -->
+    <!-- Minimalist Filter Bar (Department & Year Custom Dropdowns) -->
     <div class="act-toolbar-strip" style="margin-top: 36px;">
-        <div class="act-toolbar-inner">
-            <div class="act-search-pill">
-                <i class="fas fa-search act-search-icon" aria-hidden="true"></i>
-                <input type="text" id="searchInput" class="act-search-field" placeholder="Search by title, workshop, or topic..." aria-label="Search departmental activities">
-                <button type="button" id="searchClearBtn" class="act-search-clear" aria-label="Clear search" style="display: none;">
-                    <i class="fas fa-times"></i>
-                </button>
+        <div class="act-toolbar-inner" style="justify-content: space-between;">
+            <div class="act-toolbar-filters" style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                <!-- Department Custom Dropdown -->
+                <div class="custom-select-wrap" id="deptDropdownWrap">
+                    <button type="button" class="custom-select-trigger" id="deptDropdownTrigger" aria-expanded="false" aria-haspopup="listbox">
+                        <span class="custom-select-prefix"><i class="fas fa-building"></i> Dept:</span>
+                        <span class="custom-select-value" id="deptSelectedLabel"><?= ($selectedDept === 'ALL') ? 'All Departments' : ($deptFilterList[$selectedDept] ?? $selectedDept) ?></span>
+                        <i class="fas fa-chevron-down custom-select-arrow"></i>
+                    </button>
+                    <div class="custom-select-menu" id="deptDropdownMenu" role="listbox" aria-label="Select Department">
+                        <div class="custom-select-option <?= ($selectedDept === 'ALL') ? 'is-selected' : '' ?>" data-value="ALL" role="option">
+                            <span class="option-title">All Departments</span>
+                            <span class="option-badge count"><?= count($activities) ?></span>
+                        </div>
+                        <?php foreach ($deptFilterList as $code => $name): 
+                            $count = $deptCounts[$code] ?? 0;
+                        ?>
+                            <div class="custom-select-option <?= ($selectedDept === $code) ? 'is-selected' : '' ?>" data-value="<?= $code ?>" role="option">
+                                <span class="option-title"><?= htmlspecialchars($name) ?></span>
+                                <span class="option-badge code"><?= $code ?></span>
+                                <?php if ($count > 0): ?>
+                                    <span class="option-badge count"><?= $count ?></span>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <!-- Year Custom Dropdown (Right Beside Department) -->
+                <div class="custom-select-wrap" id="yearDropdownWrap">
+                    <button type="button" class="custom-select-trigger" id="yearDropdownTrigger" aria-expanded="false" aria-haspopup="listbox">
+                        <span class="custom-select-prefix"><i class="far fa-calendar-alt"></i> Year:</span>
+                        <span class="custom-select-value" id="yearSelectedLabel"><?= ($selectedYear === 'ALL') ? 'All Years' : $selectedYear ?></span>
+                        <i class="fas fa-chevron-down custom-select-arrow"></i>
+                    </button>
+                    <div class="custom-select-menu" id="yearDropdownMenu" role="listbox" aria-label="Select Year" style="min-width: 170px;">
+                        <div class="custom-select-option <?= ($selectedYear === 'ALL') ? 'is-selected' : '' ?>" data-value="ALL" role="option">
+                            <span class="option-title">All Years</span>
+                        </div>
+                        <?php foreach ($availableYears as $yr): ?>
+                            <div class="custom-select-option <?= ($selectedYear == $yr) ? 'is-selected' : '' ?>" data-value="<?= $yr ?>" role="option">
+                                <span class="option-title"><?= $yr ?></span>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
 
             <div class="act-toolbar-meta">
-                <!-- Department Dropdown Pill -->
-                <div class="act-year-dropdown-wrap">
-                    <span class="act-year-label">Dept:</span>
-                    <select id="deptSelect" class="act-year-select" aria-label="Filter by Department">
-                        <option value="ALL" <?= ($selectedDept === 'ALL') ? 'selected' : '' ?>>All Departments</option>
-                        <?php foreach ($deptFilterList as $code => $name): ?>
-                            <option value="<?= $code ?>" <?= ($selectedDept === $code) ? 'selected' : '' ?>>
-                                <?= $code ?> - <?= htmlspecialchars($name) ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <i class="fas fa-chevron-down act-year-icon"></i>
-                </div>
-
-                <!-- Year Dropdown Pill (Right Beside Department) -->
-                <div class="act-year-dropdown-wrap">
-                    <span class="act-year-label">Year:</span>
-                    <select id="yearSelect" class="act-year-select" aria-label="Filter by Year">
-                        <option value="ALL" <?= ($selectedYear === 'ALL') ? 'selected' : '' ?>>All Years</option>
-                        <?php foreach ($availableYears as $yr): ?>
-                            <option value="<?= $yr ?>" <?= ($selectedYear == $yr) ? 'selected' : '' ?>>
-                                <?= $yr ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <i class="fas fa-chevron-down act-year-icon"></i>
-                </div>
-
                 <div class="act-count-pill" id="resultsCount">
                     Showing <strong><?= count($activities) ?></strong> activities
                 </div>
 
                 <button type="button" id="resetFiltersBtn" class="act-reset-link" style="display: none;">
-                    Reset filters
+                    <i class="fas fa-undo-alt"></i> Reset filters
                 </button>
             </div>
         </div>
@@ -246,28 +257,106 @@ require_once __DIR__ . '/includes/header.php';
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const deptSelect = document.getElementById("deptSelect");
-    const yearSelect = document.getElementById("yearSelect");
-    const searchInput = document.getElementById("searchInput");
-    const searchClearBtn = document.getElementById("searchClearBtn");
+    // Custom Dropdown Elements
+    const deptDropdownWrap = document.getElementById("deptDropdownWrap");
+    const deptDropdownTrigger = document.getElementById("deptDropdownTrigger");
+    const deptSelectedLabel = document.getElementById("deptSelectedLabel");
+    const deptOptions = Array.from(document.querySelectorAll("#deptDropdownMenu .custom-select-option"));
+
+    const yearDropdownWrap = document.getElementById("yearDropdownWrap");
+    const yearDropdownTrigger = document.getElementById("yearDropdownTrigger");
+    const yearSelectedLabel = document.getElementById("yearSelectedLabel");
+    const yearOptions = Array.from(document.querySelectorAll("#yearDropdownMenu .custom-select-option"));
+
     const resetFiltersBtn = document.getElementById("resetFiltersBtn");
     const emptyResetBtn = document.getElementById("emptyResetBtn");
     const cards = Array.from(document.querySelectorAll("#activitiesGrid .act-card"));
     const emptyState = document.getElementById("emptyState");
     const resultsCount = document.getElementById("resultsCount");
 
-    function filterActivities() {
-        const selectedDept = deptSelect.value.toUpperCase();
-        const selectedYear = yearSelect.value;
-        const searchQuery = searchInput.value.trim().toLowerCase();
+    let currentDept = "<?= htmlspecialchars($selectedDept) ?>";
+    if (!currentDept) currentDept = "ALL";
 
-        // Toggle clear search button
-        if (searchClearBtn) {
-            searchClearBtn.style.display = searchQuery ? "flex" : "none";
+    let currentYear = "<?= htmlspecialchars($selectedYear) ?>";
+    if (!currentYear) currentYear = "ALL";
+
+    // Toggle Dropdowns
+    deptDropdownTrigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = deptDropdownWrap.classList.contains("is-open");
+        closeAllDropdowns();
+        if (!isOpen) {
+            deptDropdownWrap.classList.add("is-open");
+            deptDropdownTrigger.setAttribute("aria-expanded", "true");
         }
+    });
 
-        // Toggle reset filters button if non-default
-        const isFiltered = (selectedDept !== "ALL" || selectedYear !== "ALL" || searchQuery.length > 0);
+    yearDropdownTrigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = yearDropdownWrap.classList.contains("is-open");
+        closeAllDropdowns();
+        if (!isOpen) {
+            yearDropdownWrap.classList.add("is-open");
+            yearDropdownTrigger.setAttribute("aria-expanded", "true");
+        }
+    });
+
+    function closeAllDropdowns() {
+        deptDropdownWrap.classList.remove("is-open");
+        deptDropdownTrigger.setAttribute("aria-expanded", "false");
+        yearDropdownWrap.classList.remove("is-open");
+        yearDropdownTrigger.setAttribute("aria-expanded", "false");
+    }
+
+    // Dismiss dropdowns on outside click or Escape
+    document.addEventListener("click", (e) => {
+        if (!deptDropdownWrap.contains(e.target) && !yearDropdownWrap.contains(e.target)) {
+            closeAllDropdowns();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeAllDropdowns();
+        }
+    });
+
+    // Handle Department Selection
+    deptOptions.forEach(opt => {
+        opt.addEventListener("click", () => {
+            const val = (opt.getAttribute("data-value") || "ALL").toUpperCase();
+            const labelText = opt.querySelector(".option-title")?.textContent || val;
+
+            currentDept = val;
+            deptSelectedLabel.textContent = labelText;
+
+            deptOptions.forEach(o => o.classList.toggle("is-selected", o === opt));
+            closeAllDropdowns();
+
+            filterActivities();
+            updateURL();
+        });
+    });
+
+    // Handle Year Selection
+    yearOptions.forEach(opt => {
+        opt.addEventListener("click", () => {
+            const val = opt.getAttribute("data-value") || "ALL";
+            const labelText = opt.querySelector(".option-title")?.textContent || val;
+
+            currentYear = val;
+            yearSelectedLabel.textContent = labelText;
+
+            yearOptions.forEach(o => o.classList.toggle("is-selected", o === opt));
+            closeAllDropdowns();
+
+            filterActivities();
+            updateURL();
+        });
+    });
+
+    function filterActivities() {
+        const isFiltered = (currentDept !== "ALL" || currentYear !== "ALL");
         if (resetFiltersBtn) {
             resetFiltersBtn.style.display = isFiltered ? "inline-block" : "none";
         }
@@ -277,14 +366,11 @@ document.addEventListener("DOMContentLoaded", () => {
         cards.forEach(card => {
             const cardDept = (card.getAttribute("data-dept") || "").toUpperCase();
             const cardYear = card.getAttribute("data-year") || "";
-            const cardTitle = card.getAttribute("data-title") || "";
-            const cardDesc = card.getAttribute("data-desc") || "";
 
-            const matchesDept = (selectedDept === "ALL" || cardDept === selectedDept);
-            const matchesYear = (selectedYear === "ALL" || cardYear === selectedYear);
-            const matchesSearch = (!searchQuery || cardTitle.includes(searchQuery) || cardDesc.includes(searchQuery));
+            const matchesDept = (currentDept === "ALL" || cardDept === currentDept);
+            const matchesYear = (currentYear === "ALL" || cardYear === currentYear);
 
-            if (matchesDept && matchesYear && matchesSearch) {
+            if (matchesDept && matchesYear) {
                 card.style.display = "";
                 visibleCount++;
             } else {
@@ -301,31 +387,17 @@ document.addEventListener("DOMContentLoaded", () => {
         resultsCount.innerHTML = `Showing <strong>${visibleCount}</strong> activit${visibleCount === 1 ? 'y' : 'ies'}`;
     }
 
-    deptSelect.addEventListener("change", () => {
-        filterActivities();
-        updateURL();
-    });
-
-    yearSelect.addEventListener("change", () => {
-        filterActivities();
-        updateURL();
-    });
-
-    searchInput.addEventListener("input", filterActivities);
-
-    if (searchClearBtn) {
-        searchClearBtn.addEventListener("click", () => {
-            searchInput.value = "";
-            filterActivities();
-            updateURL();
-            searchInput.focus();
-        });
-    }
-
     function resetAllFilters() {
-        deptSelect.value = "ALL";
-        yearSelect.value = "ALL";
-        searchInput.value = "";
+        currentDept = "ALL";
+        currentYear = "ALL";
+
+        deptSelectedLabel.textContent = "All Departments";
+        yearSelectedLabel.textContent = "All Years";
+
+        deptOptions.forEach(o => o.classList.toggle("is-selected", o.getAttribute("data-value") === "ALL"));
+        yearOptions.forEach(o => o.classList.toggle("is-selected", o.getAttribute("data-value") === "ALL"));
+
+        closeAllDropdowns();
         filterActivities();
         updateURL();
     }
@@ -339,13 +411,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateURL() {
         const params = new URLSearchParams(window.location.search);
-        if (deptSelect.value !== "ALL") {
-            params.set("dept", deptSelect.value);
+        if (currentDept !== "ALL") {
+            params.set("dept", currentDept);
         } else {
             params.delete("dept");
         }
-        if (yearSelect.value !== "ALL") {
-            params.set("year", yearSelect.value);
+        if (currentYear !== "ALL") {
+            params.set("year", currentYear);
         } else {
             params.delete("year");
         }
