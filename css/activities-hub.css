@@ -654,3 +654,167 @@
     }
 }
 
+/* --------------------------------------------------------------------------
+   FACULTY ACTIVITIES DATA TABLE
+   -------------------------------------------------------------------------- */
+.fac-table-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+    overflow: hidden;
+    margin-top: 24px;
+}
+
+.fac-table-header-strip {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.fac-table-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fac-table-title i {
+    color: #ff8800;
+    font-size: 1.1rem;
+}
+
+.fac-table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.fac-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.fac-table thead th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 14px 20px;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.fac-table tbody td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.94rem;
+    color: #334155;
+    line-height: 1.65;
+    vertical-align: top;
+}
+
+.fac-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.fac-sr-col {
+    width: 80px;
+    text-align: center;
+}
+
+.fac-sr-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #f1f5f9;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.fac-member-name {
+    font-weight: 700;
+    color: #0f172a;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.fac-dept-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    background: rgba(14, 165, 233, 0.12);
+    color: #0284c7;
+    white-space: nowrap;
+}
+
+.fac-year-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .fac-table-header-strip {
+        padding: 14px 16px;
+    }
+
+    .fac-table thead {
+        display: none;
+    }
+
+    .fac-table, 
+    .fac-table tbody, 
+    .fac-table tr, 
+    .fac-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .fac-table tbody tr {
+        padding: 16px;
+        border-bottom: 1px solid #e2e8f0;
+        position: relative;
+    }
+
+    .fac-table tbody td {
+        padding: 6px 0;
+        border: none;
+    }
+
+    .fac-sr-col {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 6px;
+    }
+}
+
