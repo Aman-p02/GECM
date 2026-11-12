@@ -376,6 +376,7 @@ include_once __DIR__ . '/includes/header.php';
                     $deptUrlMap = [
                         'CE'    => 'departments/computer/',
                         'IT'    => 'departments/information-technology/',
+                        'EE'    => 'departments/electrical/',
                         'ME'    => 'departments/mechanical/',
                         'AE'    => 'departments/automobile/',
                         'CIVIL' => 'departments/civil/',
@@ -386,10 +387,11 @@ include_once __DIR__ . '/includes/header.php';
                         : ($deptUrlMap[$deptCode] ?? (
                             stripos($deptName, 'Information') !== false ? 'departments/information-technology/' :
                             (stripos($deptName, 'Computer') !== false ? 'departments/computer/' :
+                            (stripos($deptName, 'Electrical') !== false ? 'departments/electrical/' :
                             (stripos($deptName, 'Mechanical') !== false ? 'departments/mechanical/' :
                             (stripos($deptName, 'Automobile') !== false ? 'departments/automobile/' :
                             (stripos($deptName, 'Civil') !== false ? 'departments/civil/' :
-                            (stripos($deptName, 'Applied Mechanics') !== false ? 'departments/applied-mechanics/' : '#')))))
+                            (stripos($deptName, 'Applied Mechanics') !== false ? 'departments/applied-mechanics/' : '#'))))))
                         ));
                 ?>
                 <a href="<?= htmlspecialchars($resolvedUrl) ?>" class="dept-card <?= $colorClass ?>" <?= ($resolvedUrl === '#') ? 'tabindex="-1" aria-disabled="true" onclick="return false;"' : '' ?> style="cursor: <?= ($resolvedUrl !== '#') ? 'pointer' : 'default' ?>;">
