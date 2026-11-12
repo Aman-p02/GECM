@@ -196,3 +196,4 @@ if (document.readyState === 'loading') {
 } else {
     initDepartment();
 }
+

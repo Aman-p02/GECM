@@ -23,49 +23,8 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
 <div class="dept-page" id="mainContent" data-active-tab="about">
 
-    <!-- Hero banner header -->
-    <header class="dept-hero-banner" role="banner">
-        <div class="dept-container">
-            <div class="dept-hero-grid">
-                <div class="dept-hero-copy">
-                    <span class="dept-kicker">DEPARTMENT OF</span>
-                    <h1 class="dept-heading">Electronics &amp; Communication Engineering</h1>
-                    <p class="dept-lead">
-                        One of the oldest and premier engineering branches at GEC Modasa, nurturing innovative technocrats in VLSI design, wireless communications, embedded systems, and signal processing.
-                    </p>
-                </div>
-                <div class="dept-hero-media">
-                    <img src="images/labs/lab_vlsi_embedded.jpg" 
-                         alt="Electronics &amp; Communication Department - GEC Modasa" 
-                         class="dept-hero-img"
-                         onerror="this.src='../../images/hero_campus_1.jpg'">
-                </div>
-            </div>
-
-            <!-- Department Quick Stats -->
-            <div class="dept-stats-strip" aria-label="Department Overview Statistics">
-                <div class="dept-stat-item">
-                    <span class="dept-stat-value">1984</span>
-                    <span class="dept-stat-label">Year Established</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-value">30</span>
-                    <span class="dept-stat-label">Approved Intake</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-value">4+</span>
-                    <span class="dept-stat-label">Specialised Labs</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-value">B.E.</span>
-                    <span class="dept-stat-label">4-Year Degree</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Sticky Sub-Navigation Bar -->
-    <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department sections">
+    <!-- Sticky sub-navigation bar -->
+    <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
             <div class="dept-subnav-wrap">
                 <ul class="dept-subnav-list" role="tablist">
@@ -110,104 +69,120 @@ include_once __DIR__ . '/../includes/department-seo.php';
 
             <!-- Tab 1: About Department -->
             <section class="dept-tab-pane active" id="tab-about">
-                <div class="dept-section-header">
-                    <span class="dept-section-kicker">INSTITUTIONAL FOUNDATION</span>
-                    <h2>About Department</h2>
-                    <p>Established in 1984 as one of the pioneer pillars of GEC Modasa, shaping engineering leaders in electronics, communications, and emerging semiconductor technologies.</p>
+                <div class="dept-about-hero" style="margin-bottom: 56px;">
+                    <div class="dept-hero-grid">
+                        <div class="dept-hero-text">
+                            <span class="dept-kicker">DEPARTMENT OF</span>
+                            <h1 class="dept-heading">Electronics &amp; Communication Engineering</h1>
+                            <p class="dept-tagline">
+                                Nurturing innovative technocrats with strong practical foundations in semiconductor devices, VLSI design, wireless communications, embedded systems, and digital signal processing.
+                            </p>
+                        </div>
+                        <div class="dept-hero-media">
+                            <img src="images/department_building.jpg" alt="Government Engineering College Modasa - Electronics &amp; Communication Department Building" class="dept-hero-photo">
+                        </div>
+                    </div>
+
+                    <!-- Key metrics counter strip -->
+                    <div class="dept-stats-strip">
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">1984</span>
+                            <span class="dept-stat-label">YEAR OF ESTABLISHMENT</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">30</span>
+                            <span class="dept-stat-label">ANNUAL APPROVED INTAKE</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">4</span>
+                            <span class="dept-stat-label">MAJOR LABS</span>
+                        </div>
+                        <div class="dept-stat-item">
+                            <span class="dept-stat-num">100%</span>
+                            <span class="dept-stat-label">GTU CURRICULUM ALIGNED</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Callout Quote -->
-                <div class="dept-quote-callout">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
+                    <h2>About Department</h2>
+                    <p>Established in 1984, the Department of Electronics &amp; Communication Engineering is one of the oldest and successfully running engineering branches of GEC Modasa.</p>
+                </div>
+
+                <div class="dept-story-body">
+                    <blockquote class="dept-lead-quote">
+                        "The department was established with the mission to deliver technical programs and services to meet the changing needs of the society and industry, thereby contribute to the overall techno-economical development of the state."
+                    </blockquote>
                     <p>
-                        The department of Electronics &amp; Communication was established in the year 1984 is one of the oldest and successfully running the engineering branch of G.E.C. Modasa. The Department offers a four-year course in electronics and communication with 120 intakes.
+                        The department of Electronics &amp; Communication was established in the year 1984 is one of the oldest and successfully running the engineering branch of G.E.C. Modasa. The Department offers a four-year course in electronics and communication with 120 intakes. The department is persistently committed to enhancing technical knowledge with high ethical values.
                     </p>
-                    <p class="dept-quote-body">
-                        The department was established with the mission to deliver technical programs and services to meet the changing needs of the society and industry, thereby contribute to the overall techno-economical development of the state. The department is persistently committed to enhancing technical knowledge with high ethical values.
-                    </p>
-                    <p class="dept-quote-body">
+                    <p>
                         The department of E.C. is accommodated in building No. 4. It has laboratories in thrust areas of Analog and Digital Electronics, Communications, Antenna, Microwave, VLSI Design, and Signal Processing. Department has a Computer Center with the latest computer facilities. All labs are well equipped with the latest types of equipment to keep the students in tune with the advancement in the field of Electronics &amp; Communication. The department is also equipped with a full-fledged departmental library.
                     </p>
                 </div>
 
-                <!-- About the Programme Editorial -->
-                <div class="dept-section-header" style="margin-top: 48px;">
-                    <span class="dept-section-kicker">ACADEMIC RIGOR</span>
-                    <h2>About the Programme</h2>
-                    <p>Comprehensive curriculum bridging fundamental electromagnetic theory with modern microchip and digital communication architectures.</p>
-                </div>
-
-                <div class="dept-text-columns">
-                    <div class="dept-column">
-                        <h3>Core Engineering Discipline</h3>
-                        <p>
-                            Electronic communications engineering is the utilization of science and math applied to practical problems in the field of communications. Electronic communications engineers engage in research, design, development and testing of the electronic equipment used in various communications systems. It is due to electronic engineers that we enjoy such modern communication devices as cellular telephones, radios and television.
-                        </p>
+                <!-- About the Programme Section -->
+                <div class="dept-programme-section">
+                    <div class="dept-section-header">
+                        <span class="dept-section-kicker">DISCIPLINE &amp; CAREER HORIZONS</span>
+                        <h2>About the Programme</h2>
+                        <p>Electronic communications engineering is the utilization of science and math applied to practical problems in the field of communications.</p>
                     </div>
-                    <div class="dept-column">
-                        <h3>Applications &amp; Industry Scope</h3>
+
+                    <div class="dept-story-body">
                         <p>
-                            Electronics &amp; Communication Engineering deals with the electronic devices, circuits, communication equipments like transmitter, receiver, integrated circuits (IC). It also deals with basic electronics, analog and digital transmission &amp; reception of data, voice and video (Example AM, FM, DTH), microprocessors, satellite communication, microwave engineering, antennae and wave progression.
+                            Electronic communications engineers engage in research, design, development and testing of the electronic equipment used in various communications systems. It is due to electronic engineers that we enjoy such modern communication devices as cellular telephones, radios and television.
                         </p>
                         <p>
-                            It aims to deepen the knowledge and skills of the students on the basic concepts and theories that will equip them in their professional work involving analysis, systems implementation, operation, production, and maintenance of the various applications in the field of Electronics and Communications Engineering.
+                            Electronics &amp; Communication Engineering deals with the electronic devices, circuits, communication equipments like transmitter, receiver, integrated circuits (IC). It also deals with basic electronics, analog and digital transmission &amp; reception of data, voice and video (Example AM, FM, DTH), microprocessors, satellite communication, microwave engineering, antennae and wave progression. It aims to deepen the knowledge and skills of the students on the basic concepts and theories that will equip them in their professional work involving analysis, systems implementation, operation, production, and maintenance of the various applications in the field of Electronics and Communications Engineering.
                         </p>
                     </div>
-                </div>
 
-                <!-- Career Avenues & Thrust Areas -->
-                <div class="dept-section-header" style="margin-top: 36px;">
-                    <span class="dept-section-kicker">SPECIALIZED DOMAINS</span>
-                    <h2>Thrust Areas &amp; Career Avenues</h2>
-                    <p>Dynamic engineering specializations offering vast industry opportunities and higher research pathways.</p>
-                </div>
+                    <div class="dept-avenues-grid">
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-microchip"></i></div>
+                                <h4>VLSI Design &amp; Semiconductor Technology</h4>
+                            </div>
+                            <p>ASIC design, FPGA synthesis, RTL coding, CMOS layout, and verification for high-speed microchips and integrated circuits.</p>
+                        </div>
 
-                <div class="dept-avenues-grid">
-                    <div class="dept-avenue-card">
-                        <div class="dept-avenue-icon"><i class="fas fa-microchip"></i></div>
-                        <h4>VLSI Design &amp; Semiconductors</h4>
-                        <p>ASIC design, FPGA synthesis, RTL coding, CMOS layout, and verification for high-speed integrated circuits and microchips.</p>
-                    </div>
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-satellite-dish"></i></div>
+                                <h4>Wireless &amp; 5G Telecommunications</h4>
+                            </div>
+                            <p>RF engineering, cellular network infrastructure, microwave links, satellite transceivers, and smart antennae design.</p>
+                        </div>
 
-                    <div class="dept-avenue-card">
-                        <div class="dept-avenue-icon"><i class="fas fa-satellite-dish"></i></div>
-                        <h4>5G, Wireless &amp; RF Engineering</h4>
-                        <p>Modern wireless systems, cellular infrastructure, antenna design, satellite transceivers, and microwave communication links.</p>
-                    </div>
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-memory"></i></div>
+                                <h4>Embedded Systems &amp; IoT</h4>
+                            </div>
+                            <p>Microcontroller firmware, ARM architecture, Real-Time Operating Systems (RTOS), and smart connected edge devices.</p>
+                        </div>
 
-                    <div class="dept-avenue-card">
-                        <div class="dept-avenue-icon"><i class="fas fa-memory"></i></div>
-                        <h4>Embedded Systems &amp; IoT</h4>
-                        <p>Microcontroller firmware, ARM architecture, Real-Time Operating Systems (RTOS), and smart connected telemetry devices.</p>
-                    </div>
-
-                    <div class="dept-avenue-card">
-                        <div class="dept-avenue-icon"><i class="fas fa-wave-square"></i></div>
-                        <h4>Digital Signal &amp; Image Processing</h4>
-                        <p>Algorithm development, filtering, speech processing, audio-video codecs, and computer vision applications.</p>
-                    </div>
-
-                    <div class="dept-avenue-card">
-                        <div class="dept-avenue-icon"><i class="fas fa-robot"></i></div>
-                        <h4>Robotics &amp; Automation</h4>
-                        <p>Electronic sensor interfacing, servo control systems, industrial automation, and robotic subsystem integration.</p>
-                    </div>
-
-                    <div class="dept-avenue-card">
-                        <div class="dept-avenue-icon"><i class="fas fa-network-wired"></i></div>
-                        <h4>Optical &amp; Data Networks</h4>
-                        <p>Fiber-optic transmission systems, photonic networks, high-speed routing hardware, and packet communications.</p>
+                        <div class="dept-avenue-card">
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-wave-square"></i></div>
+                                <h4>Signal &amp; Image Processing</h4>
+                            </div>
+                            <p>Algorithm development in MATLAB and DSP processors for speech recognition, audio-video codecs, and computer vision.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Degree Specifications Table -->
-                <div class="dept-section-header" style="margin-top: 48px;">
-                    <span class="dept-section-kicker">ACCREDITED PROGRAMME</span>
-                    <h2>Under Graduate / Post Graduate Courses</h2>
-                    <p>Degree programmes approved by AICTE and affiliated with Gujarat Technological University (GTU).</p>
+                <!-- Under Graduate Courses Table -->
+                <div class="dept-section-header" style="margin-top: 56px;">
+                    <span class="dept-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
+                    <h2>Undergraduate Programme</h2>
+                    <p>Approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated with Gujarat Technological University (GTU), Ahmedabad.</p>
                 </div>
 
-                <div class="dept-table-wrapper">
-                    <table class="dept-data-table">
+                <div class="dept-table-wrap">
+                    <table class="dept-clean-table">
                         <thead>
                             <tr>
                                 <th>Name of Course</th>
@@ -367,11 +342,11 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     </div>
                 </div>
 
-                <!-- Department Supporting Facilities -->
-                <div class="dept-section-header" style="margin-top: 48px;">
+                <!-- Department Key Facilities Grid -->
+                <div class="dept-section-header" style="margin-top: 56px;">
                     <span class="dept-section-kicker">CAMPUS ECOSYSTEM</span>
-                    <h2>Key Facilities &amp; Thrust Infrastructure</h2>
-                    <p>Additional academic centers and research resources supporting undergraduate students and faculty.</p>
+                    <h2>Key Facilities &amp; Thrust Centers</h2>
+                    <p>Advanced departmental facilities and laboratories supporting academic research, project innovation, and practical discovery.</p>
                 </div>
 
                 <div class="dept-facilities-grid">
@@ -379,7 +354,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-facility-icon"><i class="fas fa-satellite-dish"></i></div>
                         <div class="dept-facility-info">
                             <h4>Antenna &amp; Microwave Lab</h4>
-                            <p>Equipped with microwave test benches, klystron power supplies, frequency meters, slotted waveguide sections, and radiation pattern measurement rigs.</p>
+                            <p>Microwave test benches, klystron oscillators, frequency meters, slotted lines, and antenna radiation pattern apparatus.</p>
                         </div>
                     </div>
 
@@ -387,7 +362,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-facility-icon"><i class="fas fa-microchip"></i></div>
                         <div class="dept-facility-info">
                             <h4>Microprocessor &amp; Microcontroller Center</h4>
-                            <p>Features 8085, 8086, 8051, PIC, and ARM development boards with peripheral interface kits for DAC/ADC, stepper motors, and traffic light simulators.</p>
+                            <p>8085/8086 microprocessors, 8051 and ARM Cortex trainer kits with ADC/DAC, motor and keyboard interface modules.</p>
                         </div>
                     </div>
 
@@ -395,7 +370,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
                         <div class="dept-facility-info">
                             <h4>Departmental Computer Center</h4>
-                            <p>Latest networked computer workstations with licensed simulation software including MATLAB, Multisim, Xilinx Vivado, and Keil IDE.</p>
+                            <p>High-performance computing workstations equipped with MATLAB, Multisim, Xilinx Vivado, and Keil microVision software.</p>
                         </div>
                     </div>
 
@@ -403,7 +378,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-facility-icon"><i class="fas fa-book-reader"></i></div>
                         <div class="dept-facility-info">
                             <h4>Departmental Library</h4>
-                            <p>Full-fledged departmental library housing curriculum textbooks, IEEE transactions, project reports, and reference manuals for students and faculty.</p>
+                            <p>Extensive repository of specialized electronics and communication reference texts, research monographs, and IEEE publications.</p>
                         </div>
                     </div>
 
@@ -411,7 +386,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-facility-icon"><i class="fas fa-project-diagram"></i></div>
                         <div class="dept-facility-info">
                             <h4>PCB Design &amp; Prototyping Station</h4>
-                            <p>Provides equipment for schematic capture, PCB layout design, chemical etching, component soldering, and circuit board assembly.</p>
+                            <p>Equipped with schematic tools, PCB layout workstations, chemical etching tanks, drilling machines, and SMD soldering stations.</p>
                         </div>
                     </div>
 
@@ -419,7 +394,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-facility-icon"><i class="fas fa-ethernet"></i></div>
                         <div class="dept-facility-info">
                             <h4>Fiber Optic &amp; Telecommunication Lab</h4>
-                            <p>Laser and LED optical sources, photodetectors, optical power meters, single/multimode fiber links, and bit-error rate analyzers.</p>
+                            <p>Fiber-optic transmission kits, laser sources, photo detectors, power meters, optical splicing, and modulation kits.</p>
                         </div>
                     </div>
                 </div>
