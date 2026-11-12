@@ -1034,13 +1034,14 @@
 .dept-citation-item {
     background: #ffffff;
     border: 1px solid var(--dept-border);
-    border-left: 4px solid var(--dept-accent);
-    border-radius: 6px;
-    padding: 22px 24px;
+    border-left: none;
+    border-radius: 8px;
+    padding: 18px 22px;
     transition: var(--dept-transition);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .dept-citation-item.is-filtered-out {
@@ -1049,9 +1050,8 @@
 
 .dept-citation-item:hover {
     border-color: #cbd5e1;
-    border-left-color: var(--dept-accent);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+    transform: translateY(-2px);
 }
 
 .dept-citation-title {
@@ -1263,19 +1263,22 @@
     }
 
     .dept-citation-item {
-        padding: 16px 18px;
-        gap: 10px;
+        padding: 12px 14px;
+        gap: 6px;
+        border-radius: 6px;
+        border-left: none;
     }
 
     .dept-citation-title {
-        font-size: 1rem;
+        font-size: 0.92rem;
+        line-height: 1.35;
     }
 
     .dept-pub-toolbar {
         flex-direction: column;
         align-items: stretch;
-        padding: 14px;
-        gap: 12px;
+        padding: 10px 12px;
+        gap: 8px;
     }
 
     .dept-pub-filter-wrap {
@@ -1295,17 +1298,24 @@
     }
 
     .dept-citation-meta {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
         align-items: flex-start;
+        justify-content: space-between;
         gap: 8px;
+        margin-top: 2px;
     }
 
     .dept-citation-authors {
-        flex: 1 1 100%;
-        font-size: 0.85rem;
+        flex: 1 1 auto;
+        font-size: 0.78rem;
+        line-height: 1.35;
     }
 
     .dept-citation-date {
         align-self: flex-start;
+        flex-shrink: 0;
+        font-size: 0.72rem;
+        padding: 2px 7px;
     }
 }
