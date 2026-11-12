@@ -92,13 +92,27 @@ include_once __DIR__ . '/../includes/header.php';
         <div class="faculty-card" style="margin-bottom: 32px;">
             <div class="faculty-card-media" style="width: 160px;">
                 <?php 
-                $photoSrc = !empty($faculty['photo_url']) ? '../' . $faculty['photo_url'] : '../images/avatar_placeholder.jpg';
+                $photoRel = !empty($faculty['photo_url']) ? ltrim($faculty['photo_url'], '/') : '';
+                $deptLower = strtolower($faculty['dept_code'] ?? 'ce');
+                $photoSrc = '../images/avatar_placeholder.svg';
+
+                if (!empty($photoRel)) {
+                    if (file_exists(__DIR__ . '/../' . $photoRel)) {
+                        $photoSrc = '../' . $photoRel;
+                    } elseif (file_exists(__DIR__ . '/../uploads/faculty/' . $deptLower . '/' . basename($photoRel))) {
+                        $photoSrc = '../uploads/faculty/' . $deptLower . '/' . basename($photoRel);
+                    } elseif (file_exists(__DIR__ . '/../uploads/faculty/' . basename($photoRel))) {
+                        $photoSrc = '../uploads/faculty/' . basename($photoRel);
+                    } else {
+                        $photoSrc = '../' . $photoRel;
+                    }
+                }
                 ?>
                 <div class="faculty-photo-frame">
                     <img src="<?= htmlspecialchars($photoSrc) ?>" 
                          alt="<?= htmlspecialchars($faculty['name']) ?>" 
                          class="faculty-card-photo" 
-                         onerror="this.src='../images/avatar_placeholder.jpg'">
+                         onerror="this.src='../images/avatar_placeholder.svg'">
                 </div>
             </div>
             <div class="faculty-card-body">

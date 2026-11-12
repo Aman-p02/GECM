@@ -54,14 +54,28 @@ if (isset($pdo) && $pdo) {
                 <div class="faculty-card">
                     <div class="faculty-card-media">
                         <?php 
-                        $photoSrc = !empty($fac['photo_url']) ? $root_path . $fac['photo_url'] : $root_path . 'images/avatar_placeholder.jpg';
+                        $photoRel = !empty($fac['photo_url']) ? ltrim($fac['photo_url'], '/') : '';
+                        $deptLower = strtolower($fac['dept_code'] ?? 'ce');
+                        $photoSrc = $root_path . 'images/avatar_placeholder.svg';
+
+                        if (!empty($photoRel)) {
+                            if (file_exists(__DIR__ . '/../../' . $photoRel)) {
+                                $photoSrc = $root_path . $photoRel;
+                            } elseif (file_exists(__DIR__ . '/../../uploads/faculty/' . $deptLower . '/' . basename($photoRel))) {
+                                $photoSrc = $root_path . 'uploads/faculty/' . $deptLower . '/' . basename($photoRel);
+                            } elseif (file_exists(__DIR__ . '/../../uploads/faculty/' . basename($photoRel))) {
+                                $photoSrc = $root_path . 'uploads/faculty/' . basename($photoRel);
+                            } else {
+                                $photoSrc = $root_path . $photoRel;
+                            }
+                        }
                         ?>
                         <div class="faculty-photo-frame">
                             <img src="<?= htmlspecialchars($photoSrc) ?>" 
                                  alt="<?= htmlspecialchars($fac['name']) ?>" 
                                  class="faculty-card-photo" 
                                  loading="lazy"
-                                 onerror="this.src='<?= $root_path ?>images/avatar_placeholder.jpg'">
+                                 onerror="this.src='<?= $root_path ?>images/avatar_placeholder.svg'">
                         </div>
                     </div>
                     <div class="faculty-card-body">
