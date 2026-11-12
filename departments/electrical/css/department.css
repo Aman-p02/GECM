@@ -2,10 +2,11 @@
 
 :root {
     --dept-primary: #111111;
-    --dept-accent: #ca8a04; /* Electrical Engineering Golden Yellow */
-    --dept-accent-hover: #a16207;
-    --dept-accent-rgb: 202, 138, 4;
-    --dept-kicker: #ca8a04;
+    --dept-accent: #eab308; /* Vibrant Electric Yellow */
+    --dept-accent-hover: #ca8a04;
+    --dept-accent-text: #cca000; /* Vivid Electric Yellow Text */
+    --dept-accent-rgb: 234, 179, 8;
+    --dept-kicker: #cca000;
     --dept-ee-box: #fef08a; /* Electrical Yellow from home */
     --dept-ee-border: #fde047; /* Electrical Yellow border from home */
     --dept-body: #4b5563;
@@ -207,16 +208,17 @@
     bottom: 0;
     left: 50%;
     width: 0;
-    height: 2.5px;
+    height: 3px;
     background: var(--dept-accent);
-    border-radius: 1.5px 1.5px 0 0;
+    box-shadow: 0 0 8px rgba(var(--dept-accent-rgb), 0.5);
+    border-radius: 2px 2px 0 0;
     transform: translateX(-50%);
     transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
 }
 
 .dept-subnav-link:hover {
-    color: var(--dept-accent);
+    color: var(--dept-accent-text, #cca000);
     background: transparent;
 }
 
@@ -230,8 +232,8 @@
 /* Active tab state */
 .dept-subnav-item.active .dept-subnav-link,
 .dept-subnav-link.active {
-    color: var(--dept-accent) !important;
-    font-weight: 600;
+    color: var(--dept-accent-text, #cca000) !important;
+    font-weight: 700;
 }
 
 .dept-subnav-link .ext-arrow {
@@ -414,14 +416,20 @@
     width: 42px;
     height: 42px;
     border-radius: 6px;
-    background: #fafafa;
-    border: 1px solid var(--dept-border);
+    background: var(--dept-ee-box, #fef08a);
+    border: 1px solid var(--dept-ee-border, #fde047);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.15rem;
-    color: var(--dept-accent);
+    color: #854d0e;
     flex-shrink: 0;
+    transition: var(--dept-transition);
+}
+
+.dept-avenue-card:hover .dept-avenue-icon {
+    background: #fde047;
+    color: #713f12;
 }
 
 .dept-avenue-card h4 {
@@ -471,20 +479,20 @@
     width: 44px;
     height: 44px;
     border-radius: 6px;
-    background: rgba(var(--dept-accent-rgb), 0.08);
-    border: 1px solid rgba(var(--dept-accent-rgb), 0.2);
+    background: var(--dept-ee-box, #fef08a);
+    border: 1px solid var(--dept-ee-border, #fde047);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--dept-accent);
+    color: #854d0e;
     font-size: 1.15rem;
     flex-shrink: 0;
     transition: var(--dept-transition);
 }
 
 .dept-facility-item:hover .dept-facility-icon {
-    background: var(--dept-accent);
-    color: #ffffff;
+    background: #fde047;
+    color: #713f12;
 }
 
 .dept-facility-info h4 {
@@ -655,7 +663,7 @@
     font-family: var(--dept-font-display);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--dept-accent);
+    color: var(--dept-accent-text, #cca000);
     line-height: 1;
     flex-shrink: 0;
     width: 26px;
@@ -769,7 +777,7 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--dept-accent);
+    color: var(--dept-accent-text, #cca000);
     margin-bottom: 6px;
     font-family: var(--dept-font-display);
 }
