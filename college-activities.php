@@ -84,10 +84,7 @@ require_once __DIR__ . '/includes/header.php';
     <header class="act-hero">
         <div class="act-hero-inner">
             <span class="act-kicker">CAMPUS LIFE &amp; FLAGSHIP INITIATIVES</span>
-            <h1 class="act-heading">College Activities &amp; Events</h1>
-            <p class="act-lead">
-                Discover institute-level symposia, convocation ceremonies, youth festivals, technical hackathons, cultural meets, NSS social outreach, and sports championships hosted at Government Engineering College, Modasa.
-            </p>
+            <h1 class="act-heading" style="margin-bottom: 0;">College Activities &amp; Events</h1>
         </div>
     </header>
 
