@@ -1,6 +1,6 @@
 /* ==========================================================================
    GEC Modasa - Meet the Developers
-   Typography strictly aligned with GEC Modasa Theme (Plus Jakarta Sans & Inter)
+   Typography strictly aligned with GEC Modasa Department Showcase
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
@@ -12,8 +12,9 @@
     --dev-primary-navy: #0c3b6d;
     --dev-secondary: #334155;
     --dev-accent: #e05638;
+    --dev-kicker: #ff8800;
     --dev-text-light: #64748b;
-    --dev-title-color: #0c3b6d;
+    --dev-heading: #111111;
 }
 
 /* Page Section Wrapper */
@@ -50,7 +51,7 @@
     left: -5%;
     width: 420px;
     height: 420px;
-    background: rgba(224, 86, 56, 0.12);
+    background: rgba(255, 136, 0, 0.12);
     border-radius: 50%;
 }
 
@@ -71,31 +72,43 @@
     z-index: 1;
 }
 
-/* Page Header - Aligned to GECM Theme */
+/* Page Header - Aligned to Department Showcase Style */
 .dev-header {
     text-align: center;
-    padding: 2.5rem 1rem 2rem;
+    padding: 2.5rem 1rem 2.2rem;
     position: relative;
-    max-width: 760px;
+    max-width: 780px;
     margin: 0 auto;
+}
+
+.dev-kicker {
+    font-family: var(--dev-font-display);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dev-kicker);
+    margin-bottom: 14px;
+    display: inline-block;
 }
 
 .dev-header h1 {
     font-family: var(--dev-font-display);
     font-weight: 800;
-    font-size: clamp(2rem, 4.5vw, 2.75rem);
-    color: var(--dev-title-color);
-    margin-bottom: 0.75rem;
+    font-size: clamp(2.5rem, 4.8vw, 3.8rem);
+    color: var(--dev-heading);
+    margin: 0 0 18px;
     letter-spacing: -0.03em;
-    line-height: 1.25;
+    line-height: 1.08;
 }
 
 .dev-header p {
     font-family: var(--dev-font-body);
-    color: var(--dev-text-light);
-    font-size: 1.05rem;
+    color: #4b5563;
+    font-size: 1.1rem;
     line-height: 1.65;
-    margin: 0;
+    max-width: 680px;
+    margin: 0 auto;
     font-weight: 400;
 }
 
@@ -581,6 +594,10 @@
 
     .dev-header {
         padding: 1.5rem 0.5rem 1.25rem;
+    }
+
+    .dev-header h1 {
+        font-size: 2.35rem;
     }
 
     .dev-card {

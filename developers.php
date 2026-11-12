@@ -24,6 +24,7 @@ include_once __DIR__ . '/includes/header.php';
 
         <!-- Header -->
         <header class="dev-header">
+            <span class="dev-kicker">GEC MODASA</span>
             <h1>Meet the Developers</h1>
             <p>The engineering minds behind the architecture and development of the GEC Modasa Placement Portal.</p>
         </header>
