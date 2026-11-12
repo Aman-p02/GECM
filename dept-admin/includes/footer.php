@@ -1,6 +1,5 @@
-            </div><!-- /.content-container -->
-        </div><!-- /.main-content -->
-    </div><!-- /.dashboard-wrapper -->
+            </main><!-- /.admin-content -->
+        </div><!-- /.admin-main -->
+    </div><!-- /.admin-layout -->
 </body>
 </html>
-
