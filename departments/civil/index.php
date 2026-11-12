@@ -306,7 +306,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Facility 2: Environmental Engineering Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_environmental.jpg" alt="Environmental Engineering Laboratory with Water and Air Testing Setups" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_environmental.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_environmental.jpg') ?>" alt="Environmental Engineering Laboratory with Water and Air Testing Setups" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Main Building</span>
