@@ -27,10 +27,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
     <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Department Navigation">
         <div class="dept-container">
             <div class="dept-subnav-wrap" id="deptSubNavWrap">
-                <button type="button" class="dept-subnav-arrow-btn prev" id="deptNavScrollPrev"
-                    aria-label="Scroll left to view previous tabs">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
                 <ul class="dept-subnav-list" id="deptSubNavList" role="tablist">
                     <li class="dept-subnav-item active">
                         <button type="button" class="dept-subnav-link active" data-tab="about" role="tab"
@@ -87,11 +83,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         </div>
                     </li>
                 </ul>
-                <button type="button" class="dept-subnav-arrow-btn next" id="deptNavScrollNext"
-                    aria-label="Scroll right to view more tabs">
-                    <span class="dept-subnav-more-label">More</span>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
             </div>
         </div>
     </nav>
@@ -851,7 +842,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
                 </div>
             </section>
 
-            <!-- Tab 4: Publications -->
             <!-- Tab: Publications (Dynamic from Admin Panel) -->
             <?php include __DIR__ . '/../includes/publications-tab.php'; ?>
 

@@ -1006,70 +1006,9 @@ function initDepartment() {
         }, { passive: true });
     }
 
-    // 5. Horizontal scroll indicator & 'More' navigation hint controller
-    function initSubnavScrollHint() {
-        const wrap = document.getElementById('deptSubNavWrap');
-        const list = document.getElementById('deptSubNavList') || document.querySelector('.dept-subnav-list');
-        const prevBtn = document.getElementById('deptNavScrollPrev');
-        const nextBtn = document.getElementById('deptNavScrollNext');
-        if (!wrap || !list || !nextBtn) return;
-
-        function updateScrollState() {
-            const scrollLeft = Math.ceil(list.scrollLeft);
-            const maxScroll = list.scrollWidth - list.clientWidth;
-            const tolerance = 6;
-
-            // Show/hide prev button & left fade
-            if (scrollLeft > tolerance) {
-                wrap.classList.add('has-overflow-left');
-                if (prevBtn) {
-                    prevBtn.classList.add('is-visible');
-                }
-            } else {
-                wrap.classList.remove('has-overflow-left');
-                if (prevBtn) {
-                    prevBtn.classList.remove('is-visible');
-                }
-            }
-
-            // Show/hide next button & right fade
-            if (maxScroll - scrollLeft > tolerance) {
-                wrap.classList.add('has-overflow-right');
-                nextBtn.classList.add('is-visible');
-            } else {
-                wrap.classList.remove('has-overflow-right');
-                nextBtn.classList.remove('is-visible');
-            }
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                list.scrollBy({ left: -260, behavior: 'smooth' });
-            });
-        }
-
-        nextBtn.addEventListener('click', () => {
-            nextBtn.classList.remove('pulse-hint');
-            list.scrollBy({ left: 260, behavior: 'smooth' });
-        });
-
-        list.addEventListener('scroll', updateScrollState, { passive: true });
-        window.addEventListener('resize', updateScrollState, { passive: true });
-
-        // Initial check and attention pulse
-        setTimeout(() => {
-            updateScrollState();
-            if (nextBtn.classList.contains('is-visible')) {
-                nextBtn.classList.add('pulse-hint');
-                setTimeout(() => nextBtn.classList.remove('pulse-hint'), 5500);
-            }
-        }, 150);
-    }
-
     // Initializations
     initPublicationYearFilter();
     initSubnavDropdowns();
-    initSubnavScrollHint();
     setupMobileDepartmentNav();
     setupRevealElements(document);
     initLabSliders();

@@ -267,7 +267,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
                 </div>
             </section>
 
-            <!-- Tab 6: Publications -->
             <!-- Tab: Publications (Dynamic from Admin Panel) -->
             <?php include __DIR__ . '/../includes/publications-tab.php'; ?>
 
