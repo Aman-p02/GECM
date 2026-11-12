@@ -104,164 +104,174 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     </div>
                 </div>
 
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">ACADEMIC OVERVIEW</span>
+                    <h2>About Department</h2>
+                    <p>Established in 1984, the Department of Electrical Engineering is one of the foundational academic pillars of GEC Modasa.</p>
+                </div>
+
+                <div class="dept-story-body">
+                    <blockquote class="dept-lead-quote">
+                        "Electrical engineering, one of the core courses of engineering discipline deals with the study of design, development, and maintenance of electrical systems and their components, ensuring quality, safety, reliability, and sustainability."
+                    </blockquote>
+                    <p>
+                        It is accommodated in academic building no. 4. This department has various laboratories in the areas of Basic Electrical, Microprocessor, Electrical Machine, Electrical Measurement, Power Electronics, Computer Laboratory, High Voltage and Switchgear &amp; Protection Laboratory. The Department has an excellent Computer Centre.
+                    </p>
+                    <p>
+                        This department has laboratories in the field of Electrical Measurement, Electrical Machine, Power System, Microprocessor, High Voltage Engineering, Electronics and Control. The department also looks after the electrical service and maintenance of the entire institute campus.
+                    </p>
+                </div>
+
                 <!-- About the Programme Section -->
-                <div class="dept-section-block">
+                <div class="dept-programme-section">
                     <div class="dept-section-header">
-                        <span class="dept-section-kicker">OVERVIEW &amp; INFRASTRUCTURE</span>
-                        <h2>About the Department</h2>
-                        <p>Established in 1984, the Department of Electrical Engineering is one of the foundational academic pillars of GEC Modasa.</p>
+                        <span class="dept-section-kicker">DISCIPLINE &amp; CAREER HORIZONS</span>
+                        <h2>About the Programme</h2>
+                        <p>Focusing on the design, analysis, and manufacturing of electrical equipment used across power generation, transmission, industrial automation, and smart electronics.</p>
                     </div>
 
-                    <div class="dept-narrative-prose">
+                    <div class="dept-story-body">
                         <p>
-                            It is accommodated in academic building no. 4. This department has various laboratories in the areas of Basic Electrical, Microprocessor, Electrical Machine, Electrical Measurement, Power Electronics, Computer Laboratory, High Voltage and Switchgear &amp; Protection Laboratory. The Department has an excellent Computer Centre.
+                            Electrical engineering focuses on the manufacturing of electrical equipment used in a number of sectors including construction and building and the production and distribution of power. Students pursuing electrical engineering study about semiconductors and microprocessors. The undergraduate course will award a B.Tech / B.E. degree and the postgraduate course, an M.Tech.
                         </p>
-                        <p>
-                            This department has laboratories in the field of Electrical Measurement, Electrical Machine, Power System, Microprocessor, High Voltage Engineering, Electronics and Control. The department also looks after the electrical service and maintenance of the entire institute campus.
-                        </p>
-
-                        <div class="dept-callout-quote">
-                            <p>
-                                "Electrical engineering, one of the core courses of engineering discipline deals with the study of design, development, and maintenance of electrical systems and their components, ensuring quality, safety, reliability, and sustainability. The course focuses on the manufacturing of electrical equipment used in a number of sectors including construction and building and the production and distribution of power."
-                            </p>
-                        </div>
-
                         <p>
                             An electrical engineer is someone who designs and develops new electrical systems, solves problems and tests equipment. They study and apply the physics and mathematics of electricity, electromagnetism and electronics to both large and small scale systems to process information and transmit energy. They work with all kinds of electronic devices, from the smallest pocket devices to large industrial supercomputers and smart grids.
                         </p>
                     </div>
-                </div>
-
-                <!-- Under Graduate Courses Table -->
-                <div class="dept-section-block">
-                    <div class="dept-section-header">
-                        <span class="dept-section-kicker">ACADEMIC PROGRAMMES</span>
-                        <h2>Under Graduate Courses</h2>
-                        <p>Degree programmes approved by AICTE, New Delhi and affiliated to Gujarat Technological University (GTU).</p>
-                    </div>
-
-                    <div class="dept-table-wrap">
-                        <table class="dept-clean-table">
-                            <thead>
-                                <tr>
-                                    <th>Name of Course</th>
-                                    <th>Type</th>
-                                    <th>Period (Years)</th>
-                                    <th>Intake</th>
-                                    <th>Year of Starting</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Electrical Engineering</strong></td>
-                                    <td>UG</td>
-                                    <td>4</td>
-                                    <td>60</td>
-                                    <td>1984</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Career Avenues -->
-                <div class="dept-section-block">
-                    <div class="dept-section-header">
-                        <span class="dept-section-kicker">CAREER HORIZONS</span>
-                        <h2>Career Opportunities</h2>
-                        <p>Diverse career pathways available to graduates of Electrical Engineering across public and private sectors.</p>
-                    </div>
 
                     <div class="dept-avenues-grid">
                         <div class="dept-avenue-card">
-                            <div class="dept-avenue-icon"><i class="fas fa-bolt"></i></div>
-                            <h3>Power Generation &amp; Distribution</h3>
-                            <p>Roles in state electricity boards (GETCO, GSECL, UGVCL, DGVCL), central PSUs (NTPC, PowerGrid), and private transmission utilities.</p>
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-bolt"></i></div>
+                                <h4>Power Systems &amp; Grid Infrastructure</h4>
+                            </div>
+                            <p>Engineering transmission substations, high-voltage distribution networks, smart grids, and utility operations with state electricity boards and central PSUs.</p>
                         </div>
+
                         <div class="dept-avenue-card">
-                            <div class="dept-avenue-icon"><i class="fas fa-solar-panel"></i></div>
-                            <h3>Renewable &amp; Clean Energy</h3>
-                            <p>Solar farm commissioning, wind turbine integration, energy storage solutions, micro-grid design, and green energy consultancy.</p>
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-solar-panel"></i></div>
+                                <h4>Renewable &amp; Clean Energy Systems</h4>
+                            </div>
+                            <p>Solar farm commissioning, wind turbine power integration, energy storage systems, micro-grid design, and green energy management.</p>
                         </div>
+
                         <div class="dept-avenue-card">
-                            <div class="dept-avenue-icon"><i class="fas fa-charging-station"></i></div>
-                            <h3>Electric Vehicles &amp; Drives</h3>
-                            <p>EV powertrain design, battery management systems (BMS), motor controllers, fast-charging infrastructure, and automotive electricals.</p>
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-charging-station"></i></div>
+                                <h4>Electric Vehicles &amp; Power Electronics</h4>
+                            </div>
+                            <p>EV powertrain design, battery management systems (BMS), motor controllers, fast-charging infrastructure, and power converter drives.</p>
                         </div>
+
                         <div class="dept-avenue-card">
-                            <div class="dept-avenue-icon"><i class="fas fa-industry"></i></div>
-                            <h3>Industrial Automation &amp; PLC</h3>
-                            <p>SCADA programming, PLC automation, industrial robotics, switchgear design, and instrumentation engineering in manufacturing plants.</p>
+                            <div class="dept-avenue-header">
+                                <div class="dept-avenue-icon"><i class="fas fa-industry"></i></div>
+                                <h4>Industrial Automation &amp; Control</h4>
+                            </div>
+                            <p>PLC and SCADA programming, industrial robotics, switchgear protection engineering, and instrumentation in modern manufacturing plants.</p>
                         </div>
                     </div>
+                </div>
+
+                <!-- Under Graduate Courses Table -->
+                <div class="dept-section-header" style="margin-top: 56px;">
+                    <span class="dept-section-kicker">ACADEMIC DEGREE OFFERINGS</span>
+                    <h2>Undergraduate Programmes</h2>
+                    <p>Approved by the All India Council for Technical Education (AICTE), New Delhi and affiliated with Gujarat Technological University (GTU), Ahmedabad.</p>
+                </div>
+
+                <div class="dept-table-wrap">
+                    <table class="dept-clean-table">
+                        <thead>
+                            <tr>
+                                <th>Name of Course</th>
+                                <th>Degree Type</th>
+                                <th>Period (Years)</th>
+                                <th>Approved Intake</th>
+                                <th>Year of Starting</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Electrical Engineering</strong></td>
+                                <td><span class="dept-tag-ug">UG (B.E.)</span></td>
+                                <td>4 Years (8 Semesters)</td>
+                                <td><span class="dept-badge">60 Seats</span></td>
+                                <td>1984</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
             <!-- Tab 2: Vision & Mission -->
             <section class="dept-tab-pane" id="tab-vision-mission">
                 <div class="dept-section-header">
-                    <span class="dept-section-kicker">INSTITUTIONAL PURPOSE</span>
+                    <span class="dept-section-kicker">ACADEMIC CHARTER</span>
                     <h2>Vision &amp; Mission</h2>
-                    <p>Guiding philosophy and strategic goals shaping the Electrical Engineering department.</p>
+                    <p>Guiding principles, strategic commitments, and educational objectives defining our engineering pedagogy.</p>
                 </div>
 
-                <div class="dept-charter-cards">
-                    <div class="dept-charter-card">
-                        <div class="dept-charter-badge">VISION</div>
-                        <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Vision of the Department</h3>
-                        <p style="font-size: 1.05rem; line-height: 1.75; color: var(--dept-body); margin: 0;">
-                            To thrive for excellence in the field of Electrical Engineering by imparting quality education that produces skilled, innovative and ethical engineers to meet the needs of academia, industry and society.
-                        </p>
-                    </div>
+                <!-- Vision Card -->
+                <div class="dept-charter-card dept-vision-hero-card">
+                    <span class="dept-vision-quote-mark">“</span>
+                    <blockquote class="dept-vision-statement">
+                        To thrive for excellence in the field of Electrical Engineering by imparting quality education that produces skilled, innovative and ethical engineers to meet the needs of academia, industry and society.
+                    </blockquote>
+                </div>
 
-                    <div class="dept-charter-card">
-                        <div class="dept-charter-badge">MISSION</div>
-                        <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission of the Department</h3>
-                        <ul class="dept-mission-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px;">
-                            <li style="display: flex; align-items: flex-start; gap: 14px;">
-                                <span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--dept-border-subtle); color: var(--dept-accent); font-weight: 700; font-size: 0.78rem; flex-shrink: 0; margin-top: 2px;">1</span>
-                                <span style="font-size: 0.98rem; line-height: 1.65; color: var(--dept-body);">To provide an effective Teaching -Learning environment to acquire skills and knowledge in the field of Electrical Engineering.</span>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 14px;">
-                                <span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--dept-border-subtle); color: var(--dept-accent); font-weight: 700; font-size: 0.78rem; flex-shrink: 0; margin-top: 2px;">2</span>
-                                <span style="font-size: 0.98rem; line-height: 1.65; color: var(--dept-body);">Strengthen industry institute interaction to enable the students to work on innovative and real time problems.</span>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 14px;">
-                                <span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--dept-border-subtle); color: var(--dept-accent); font-weight: 700; font-size: 0.78rem; flex-shrink: 0; margin-top: 2px;">3</span>
-                                <span style="font-size: 0.98rem; line-height: 1.65; color: var(--dept-body);">To foster a culture of entrepreneurship amongst the students.</span>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 14px;">
-                                <span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--dept-border-subtle); color: var(--dept-accent); font-weight: 700; font-size: 0.78rem; flex-shrink: 0; margin-top: 2px;">4</span>
-                                <span style="font-size: 0.98rem; line-height: 1.65; color: var(--dept-body);">To instill values in students for lifelong learning and service to the society.</span>
-                            </li>
-                        </ul>
-                    </div>
+                <!-- Mission Card -->
+                <div class="dept-charter-card" style="margin-bottom: 48px;">
+                    <h3 style="font-size: 1.15rem; font-weight: 700; color: #111; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">Mission of the Department</h3>
+                    <ul class="dept-mission-steps">
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">I</span>
+                            <div class="dept-mission-text">
+                                To provide an effective Teaching -Learning environment to acquire skills and knowledge in the field of Electrical Engineering.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">II</span>
+                            <div class="dept-mission-text">
+                                Strengthen industry institute interaction to enable the students to work on innovative and real time problems.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">III</span>
+                            <div class="dept-mission-text">
+                                To foster a culture of entrepreneurship amongst the students.
+                            </div>
+                        </li>
+                        <li class="dept-mission-item">
+                            <span class="dept-mission-index">IV</span>
+                            <div class="dept-mission-text">
+                                To instill values in students for lifelong learning and service to the society.
+                            </div>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- Objectives (PEOs and PSOs) -->
-                <div class="dept-section-block" style="margin-top: 56px;">
-                    <div class="dept-section-header">
-                        <span class="dept-section-kicker">EDUCATIONAL OBJECTIVES</span>
-                        <h2>Program Educational Objectives (PEOs)</h2>
-                        <p>Core benchmarks defining the accomplishments expected of our electrical engineering graduates.</p>
+                <div class="dept-objectives-grid">
+                    <div class="dept-obj-card">
+                        <h4>Program Educational Objectives (PEOs)</h4>
+                        <div class="dept-obj-lead">After successful completion of the program, the student will:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PEO 1:</strong> apply fundamental mathematical, scientific, and electrical engineering principles to analyze, design, and solve complex real-world engineering problems.</li>
+                            <li><strong>PEO 2:</strong> exhibit professional excellence, ethical responsibility, effective teamwork, and multidisciplinary problem-solving skills across energy and automation domains.</li>
+                            <li><strong>PEO 3:</strong> pursue lifelong learning, adapt to emerging technologies like smart grids and electric mobility, and contribute constructively as responsible engineering leaders.</li>
+                        </ul>
                     </div>
 
-                    <div class="dept-objectives-grid">
-                        <div class="dept-objective-card">
-                            <div class="dept-objective-tag">PEO 1</div>
-                            <h3>Technical Competence &amp; Problem Solving</h3>
-                            <p>Graduates will apply fundamental mathematical, scientific, and electrical engineering principles to analyze, design, and solve complex real-world engineering problems.</p>
-                        </div>
-                        <div class="dept-objective-card">
-                            <div class="dept-objective-tag">PEO 2</div>
-                            <h3>Professionalism, Ethics &amp; Innovation</h3>
-                            <p>Graduates will exhibit professional excellence, ethical responsibility, effective teamwork, and multidisciplinary problem-solving skills across energy and automation domains.</p>
-                        </div>
-                        <div class="dept-objective-card">
-                            <div class="dept-objective-tag">PEO 3</div>
-                            <h3>Continuous Learning &amp; Leadership</h3>
-                            <p>Graduates will pursue lifelong learning, adapt to emerging technologies like smart grids and electric mobility, and contribute constructively as responsible engineering leaders.</p>
-                        </div>
+                    <div class="dept-obj-card">
+                        <h4>Program Specific Outcomes (PSOs)</h4>
+                        <div class="dept-obj-lead">At the end of the program, the student will be able to:</div>
+                        <ul class="dept-obj-list">
+                            <li><strong>PSO 1:</strong> design, analyze, and test electrical machines, control circuits, power electronics systems, and industrial drives.</li>
+                            <li><strong>PSO 2:</strong> operate, protect, and simulate generation, transmission, and distribution power networks with renewable energy integration.</li>
+                            <li><strong>PSO 3:</strong> implement microcontroller-based automation, instrumentation, and smart monitoring solutions for industrial and societal needs.</li>
+                        </ul>
                     </div>
                 </div>
             </section>
