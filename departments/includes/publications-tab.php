@@ -127,7 +127,7 @@ if (isset($pdo) && $pdo) {
                     </div>
 
                     <?php if (!empty($pub['journal_details'])): ?>
-                        <div style="font-size: 13px; color: #64748b; margin-top: 6px; line-height: 1.5;">
+                        <div class="dept-citation-journal">
                             <?= htmlspecialchars($pub['journal_details']) ?>
                         </div>
                     <?php endif; ?>
