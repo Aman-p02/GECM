@@ -87,39 +87,8 @@ require_once __DIR__ . '/includes/header.php';
         </div>
     </header>
 
-    <!-- Segmented Department Filter Pills (Aesthetic & Responsive) -->
-    <section class="dept-pills-section" aria-label="Department Filter">
-        <div class="dept-pills-inner">
-            <div class="dept-pills-scroll" id="deptPillsContainer" role="tablist">
-                <button type="button" 
-                        role="tab"
-                        aria-selected="<?= ($selectedDept === 'ALL') ? 'true' : 'false' ?>"
-                        class="dept-pill-btn <?= ($selectedDept === 'ALL') ? 'is-active' : '' ?>" 
-                        data-dept="ALL">
-                    <span>All Departments</span>
-                    <span class="dept-pill-count" id="allCountBadge"><?= count($activities) ?></span>
-                </button>
-                <?php foreach ($deptFilterList as $code => $name): 
-                    $count = $deptCounts[$code] ?? 0;
-                ?>
-                    <button type="button" 
-                            role="tab"
-                            aria-selected="<?= ($selectedDept === $code) ? 'true' : 'false' ?>"
-                            class="dept-pill-btn <?= ($selectedDept === $code) ? 'is-active' : '' ?>" 
-                            data-dept="<?= $code ?>">
-                        <span><?= htmlspecialchars($name) ?></span>
-                        <span class="dept-pill-badge"><?= $code ?></span>
-                        <?php if ($count > 0): ?>
-                            <span class="dept-pill-count"><?= $count ?></span>
-                        <?php endif; ?>
-                    </button>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <!-- Secondary Minimal Action Toolbar -->
-    <div class="act-toolbar-strip">
+    <!-- Secondary Minimal Action Toolbar (Search, Department Dropdown, Year Dropdown) -->
+    <div class="act-toolbar-strip" style="margin-top: 36px;">
         <div class="act-toolbar-inner">
             <div class="act-search-pill">
                 <i class="fas fa-search act-search-icon" aria-hidden="true"></i>
@@ -130,6 +99,21 @@ require_once __DIR__ . '/includes/header.php';
             </div>
 
             <div class="act-toolbar-meta">
+                <!-- Department Dropdown Pill -->
+                <div class="act-year-dropdown-wrap">
+                    <span class="act-year-label">Dept:</span>
+                    <select id="deptSelect" class="act-year-select" aria-label="Filter by Department">
+                        <option value="ALL" <?= ($selectedDept === 'ALL') ? 'selected' : '' ?>>All Departments</option>
+                        <?php foreach ($deptFilterList as $code => $name): ?>
+                            <option value="<?= $code ?>" <?= ($selectedDept === $code) ? 'selected' : '' ?>>
+                                <?= $code ?> - <?= htmlspecialchars($name) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <i class="fas fa-chevron-down act-year-icon"></i>
+                </div>
+
+                <!-- Year Dropdown Pill (Right Beside Department) -->
                 <div class="act-year-dropdown-wrap">
                     <span class="act-year-label">Year:</span>
                     <select id="yearSelect" class="act-year-select" aria-label="Filter by Year">
@@ -262,7 +246,7 @@ require_once __DIR__ . '/includes/header.php';
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const pillButtons = Array.from(document.querySelectorAll("#deptPillsContainer .dept-pill-btn"));
+    const deptSelect = document.getElementById("deptSelect");
     const yearSelect = document.getElementById("yearSelect");
     const searchInput = document.getElementById("searchInput");
     const searchClearBtn = document.getElementById("searchClearBtn");
@@ -272,10 +256,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const emptyState = document.getElementById("emptyState");
     const resultsCount = document.getElementById("resultsCount");
 
-    let currentDept = "<?= htmlspecialchars($selectedDept) ?>";
-    if (!currentDept) currentDept = "ALL";
-
     function filterActivities() {
+        const selectedDept = deptSelect.value.toUpperCase();
         const selectedYear = yearSelect.value;
         const searchQuery = searchInput.value.trim().toLowerCase();
 
@@ -285,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Toggle reset filters button if non-default
-        const isFiltered = (currentDept !== "ALL" || selectedYear !== "ALL" || searchQuery.length > 0);
+        const isFiltered = (selectedDept !== "ALL" || selectedYear !== "ALL" || searchQuery.length > 0);
         if (resetFiltersBtn) {
             resetFiltersBtn.style.display = isFiltered ? "inline-block" : "none";
         }
@@ -298,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const cardTitle = card.getAttribute("data-title") || "";
             const cardDesc = card.getAttribute("data-desc") || "";
 
-            const matchesDept = (currentDept === "ALL" || cardDept === currentDept);
+            const matchesDept = (selectedDept === "ALL" || cardDept === selectedDept);
             const matchesYear = (selectedYear === "ALL" || cardYear === selectedYear);
             const matchesSearch = (!searchQuery || cardTitle.includes(searchQuery) || cardDesc.includes(searchQuery));
 
@@ -319,27 +301,9 @@ document.addEventListener("DOMContentLoaded", () => {
         resultsCount.innerHTML = `Showing <strong>${visibleCount}</strong> activit${visibleCount === 1 ? 'y' : 'ies'}`;
     }
 
-    // Pill tab clicks
-    pillButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const dept = (btn.getAttribute("data-dept") || "ALL").toUpperCase();
-            if (currentDept === dept) return;
-
-            pillButtons.forEach(b => {
-                b.classList.remove("is-active");
-                b.setAttribute("aria-selected", "false");
-            });
-
-            btn.classList.add("is-active");
-            btn.setAttribute("aria-selected", "true");
-            currentDept = dept;
-
-            filterActivities();
-            updateURL();
-
-            // Smoothly center the active pill in scroll view
-            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        });
+    deptSelect.addEventListener("change", () => {
+        filterActivities();
+        updateURL();
     });
 
     yearSelect.addEventListener("change", () => {
@@ -359,20 +323,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function resetAllFilters() {
-        currentDept = "ALL";
-        pillButtons.forEach(b => {
-            const isAll = (b.getAttribute("data-dept") === "ALL");
-            b.classList.toggle("is-active", isAll);
-            b.setAttribute("aria-selected", isAll ? "true" : "false");
-        });
+        deptSelect.value = "ALL";
         yearSelect.value = "ALL";
         searchInput.value = "";
         filterActivities();
         updateURL();
-        const allBtn = document.querySelector("#deptPillsContainer .dept-pill-btn[data-dept='ALL']");
-        if (allBtn) {
-            allBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }
     }
 
     if (resetFiltersBtn) {
@@ -384,8 +339,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateURL() {
         const params = new URLSearchParams(window.location.search);
-        if (currentDept !== "ALL") {
-            params.set("dept", currentDept);
+        if (deptSelect.value !== "ALL") {
+            params.set("dept", deptSelect.value);
         } else {
             params.delete("dept");
         }
