@@ -155,10 +155,10 @@ if ($departmentsList === null) {
         ['id' => 3, 'name' => 'Mechanical Engineering', 'code' => 'ME', 'icon_class' => 'fas fa-cogs', 'learn_more_url' => 'departments/mechanical/'],
         ['id' => 4, 'name' => 'Automobile Engineering', 'code' => 'AE', 'icon_class' => 'fas fa-car', 'learn_more_url' => 'departments/automobile/'],
         ['id' => 5, 'name' => 'Civil Engineering', 'code' => 'CIVIL', 'icon_class' => 'fas fa-building', 'learn_more_url' => 'departments/civil/'],
-        ['id' => 6, 'name' => 'Electrical Engineering', 'code' => 'EE', 'icon_class' => 'fas fa-bolt', 'learn_more_url' => '#'],
-        ['id' => 7, 'name' => 'Electronics & Comm.', 'code' => 'EC', 'icon_class' => 'fas fa-microchip', 'learn_more_url' => '#'],
+        ['id' => 6, 'name' => 'Electrical Engineering', 'code' => 'EE', 'icon_class' => 'fas fa-bolt', 'learn_more_url' => 'departments/electrical/'],
+        ['id' => 7, 'name' => 'Electronics & Comm.', 'code' => 'EC', 'icon_class' => 'fas fa-microchip', 'learn_more_url' => 'departments/electronics-and-communication/'],
         ['id' => 8, 'name' => 'Applied Mechanics', 'code' => 'AM', 'icon_class' => 'fas fa-drafting-compass', 'learn_more_url' => 'departments/applied-mechanics/'],
-        ['id' => 9, 'name' => 'Science & Humanities', 'code' => 'SH', 'icon_class' => 'fas fa-atom', 'learn_more_url' => '#'],
+        ['id' => 9, 'name' => 'Science & Humanities', 'code' => 'SH', 'icon_class' => 'fas fa-atom', 'learn_more_url' => 'departments/science-and-humanities/'],
     ];
 }
 
@@ -380,7 +380,9 @@ include_once __DIR__ . '/includes/header.php';
                         'ME'    => 'departments/mechanical/',
                         'AE'    => 'departments/automobile/',
                         'CIVIL' => 'departments/civil/',
-                        'AM'    => 'departments/applied-mechanics/'
+                        'AM'    => 'departments/applied-mechanics/',
+                        'EC'    => 'departments/electronics-and-communication/',
+                        'SH'    => 'departments/science-and-humanities/'
                     ];
                     $resolvedUrl = (!empty($dept['learn_more_url']) && $dept['learn_more_url'] !== '#')
                         ? $dept['learn_more_url']
@@ -391,8 +393,9 @@ include_once __DIR__ . '/includes/header.php';
                             (stripos($deptName, 'Mechanical') !== false ? 'departments/mechanical/' :
                             (stripos($deptName, 'Automobile') !== false ? 'departments/automobile/' :
                             (stripos($deptName, 'Civil') !== false ? 'departments/civil/' :
-                            (stripos($deptName, 'Applied Mechanics') !== false ? 'departments/applied-mechanics/' : '#'))))))
-                        ));
+                            (stripos($deptName, 'Electronics') !== false ? 'departments/electronics-and-communication/' :
+                            (stripos($deptName, 'Applied Mechanics') !== false ? 'departments/applied-mechanics/' :
+                            (stripos($deptName, 'Science') !== false || stripos($deptName, 'Humanities') !== false ? 'departments/science-and-humanities/' : '#'))))))))));
                 ?>
                 <a href="<?= htmlspecialchars($resolvedUrl) ?>" class="dept-card <?= $colorClass ?>" <?= ($resolvedUrl === '#') ? 'tabindex="-1" aria-disabled="true" onclick="return false;"' : '' ?> style="cursor: <?= ($resolvedUrl !== '#') ? 'pointer' : 'default' ?>;">
                     <div class="dept-icon">

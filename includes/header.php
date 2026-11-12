@@ -220,7 +220,7 @@ if (!isset($active_page)) {
                             <li><a href="<?= $root_path ?>departments/electronics-and-communication/" class="hdr-dd-link">Electronics &amp; Communication</a></li>
                             <li><a href="<?= $root_path ?>departments/information-technology/" class="hdr-dd-link">Information Technology</a></li>
                             <li><a href="<?= $root_path ?>departments/mechanical/" class="hdr-dd-link">Mechanical Engineering</a></li>
-                            <li><a href="#" class="hdr-dd-link">Science &amp; Humanities</a></li>
+                            <li><a href="<?= $root_path ?>departments/science-and-humanities/" class="hdr-dd-link">Science &amp; Humanities</a></li>
                         </ul>
                     </div>
                 </li>
