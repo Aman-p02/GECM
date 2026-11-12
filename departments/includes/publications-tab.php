@@ -38,9 +38,13 @@ if (isset($pdo) && $pdo) {
         $totalPubs = count($deptPublications);
 
         foreach ($deptPublications as $p) {
-            $yr = trim($p['pub_year'] ?: '');
-            if (empty($yr) && preg_match('/\b(20\d\d|19\d\d)\b/', $p['pub_date'], $m)) {
-                $yr = $m[1];
+            $yr = '';
+            if (!empty($p['pub_year']) && preg_match('/\b(20\d\d|19\d\d)\b/', $p['pub_year'], $my)) {
+                $yr = $my[1];
+            } elseif (!empty($p['pub_date']) && preg_match('/\b(20\d\d|19\d\d)\b/', $p['pub_date'], $md)) {
+                $yr = $md[1];
+            } elseif (!empty($p['pub_year']) && is_numeric(trim($p['pub_year']))) {
+                $yr = trim($p['pub_year']);
             }
             if (!empty($yr)) {
                 $yearCounts[$yr] = ($yearCounts[$yr] ?? 0) + 1;
@@ -97,9 +101,13 @@ if (isset($pdo) && $pdo) {
             </div>
 
             <?php foreach ($deptPublications as $pub): 
-                $yrAttr = trim($pub['pub_year'] ?: '');
-                if (empty($yrAttr) && preg_match('/\b(20\d\d|19\d\d)\b/', $pub['pub_date'], $m)) {
-                    $yrAttr = $m[1];
+                $yrAttr = '';
+                if (!empty($pub['pub_year']) && preg_match('/\b(20\d\d|19\d\d)\b/', $pub['pub_year'], $my)) {
+                    $yrAttr = $my[1];
+                } elseif (!empty($pub['pub_date']) && preg_match('/\b(20\d\d|19\d\d)\b/', $pub['pub_date'], $md)) {
+                    $yrAttr = $md[1];
+                } elseif (!empty($pub['pub_year']) && is_numeric(trim($pub['pub_year']))) {
+                    $yrAttr = trim($pub['pub_year']);
                 }
             ?>
                 <!-- Publication Item -->
@@ -122,7 +130,7 @@ if (isset($pdo) && $pdo) {
 
                         <span class="dept-citation-date" title="Year: <?= htmlspecialchars($yrAttr) ?>">
                             <i class="far fa-calendar-alt"></i>
-                            <span><?= htmlspecialchars($pub['pub_date'] ?: ($pub['pub_year'] ?: ' - ')) ?></span>
+                            <span><?= htmlspecialchars($yrAttr ?: ($pub['pub_year'] ?: '-')) ?></span>
                         </span>
                     </div>
 
@@ -162,6 +170,7 @@ function filterDeptPubs(selectedYear, deptCode) {
         if (sel === 'all' || itemYear === sel) {
             item.style.removeProperty('display');
             item.classList.remove('is-filtered-out');
+            item.classList.add('is-revealed');
             visible++;
         } else {
             item.style.setProperty('display', 'none', 'important');
