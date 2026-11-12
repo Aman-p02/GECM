@@ -300,6 +300,13 @@ if (!isset($active_page)) {
                     </a>
                 </li>
 
+                <li class="hdr-nav-item">
+                    <a href="<?= $root_path ?>developers.php"
+                       class="hdr-nav-link <?= ($active_page === 'developers') ? 'active' : '' ?>">
+                        Developers Team
+                    </a>
+                </li>
+
             </ul>
         </div>
     </nav>

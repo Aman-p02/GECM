@@ -777,8 +777,8 @@ h4 {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
-    gap: 40px;
+    grid-template-columns: 2fr 1fr 1.3fr 1.3fr 1.4fr;
+    gap: 30px;
     margin-bottom: 40px;
 }
 
@@ -933,6 +933,16 @@ h4 {
     .nav-links li a {
         font-size: 0.95rem;
         padding: 14px 14px;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 993px) {
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 20px;
+    }
+    .footer-col.map-col {
+        grid-column: span 4;
     }
 }
 

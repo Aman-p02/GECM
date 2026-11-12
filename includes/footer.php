@@ -49,6 +49,15 @@
                         </li>
                     </ul>
                 </div>
+                <div class="footer-col dev-col">
+                    <h3>Developers Team</h3>
+                    <p style="font-size: 0.9rem; color: #a0aec0; margin-bottom: 14px; line-height: 1.5;">
+                        Engineered and maintained by the student development team of GEC Modasa.
+                    </p>
+                    <a href="<?= $root_path ?? '' ?>developers.php" class="footer-dev-link" style="display: inline-flex; align-items: center; gap: 8px; background: #ff6500; color: #ffffff !important; padding: 7px 16px; border-radius: 6px; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: background 0.2s ease;">
+                        <i class="fas fa-code"></i> View Developers
+                    </a>
+                </div>
                 <div class="footer-col map-col">
                     <h3>Location</h3>
                     <div class="map-container">
