@@ -4,6 +4,7 @@
     --dept-primary: #111111;
     --dept-accent: #eab308; /* Proper Vibrant Electric Yellow */
     --dept-accent-hover: #ca8a04;
+    --dept-accent-light: rgba(234, 179, 8, 0.12);
     --dept-accent-rgb: 234, 179, 8;
     --dept-kicker: #eab308;
     --dept-ee-box: #fef08a; /* Electrical Yellow from home */
