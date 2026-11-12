@@ -182,6 +182,13 @@ include_once __DIR__ . '/includes/header.php';
     <div class="hero-slider" id="heroSlider">
         <?php foreach ($heroSlides as $i => $slide):
             $imgUrl = $slide['image_url'] ?? '';
+            if (!empty($imgUrl) && !file_exists(__DIR__ . '/' . $imgUrl)) {
+                if (str_ends_with($imgUrl, '.webp') && file_exists(__DIR__ . '/' . preg_replace('/\.webp$/i', '.jpg', $imgUrl))) {
+                    $imgUrl = preg_replace('/\.webp$/i', '.jpg', $imgUrl);
+                } elseif (str_ends_with($imgUrl, '.jpg') && file_exists(__DIR__ . '/' . preg_replace('/\.jpg$/i', '.webp', $imgUrl))) {
+                    $imgUrl = preg_replace('/\.jpg$/i', '.webp', $imgUrl);
+                }
+            }
         ?>
             <div class="hero-slide <?= ($i === 0) ? 'active' : '' ?>" style="background-image: url('<?= htmlspecialchars($imgUrl) ?>');"
                 data-label="<?= htmlspecialchars($slide['label'] ?? '') ?>"></div>

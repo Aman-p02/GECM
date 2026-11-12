@@ -28,6 +28,14 @@ $availableYears = [];
 
 if ($pdo) {
     try {
+        $deptRows = $pdo->query("SELECT code, name FROM departments ORDER BY id ASC")->fetchAll(PDO::FETCH_ASSOC);
+        if (!empty($deptRows)) {
+            $deptFilterList = [];
+            foreach ($deptRows as $row) {
+                $deptFilterList[strtoupper(trim($row['code']))] = trim($row['name']);
+            }
+        }
+
         $stmt = $pdo->query("
             SELECT * FROM department_activities 
             WHERE is_active = 1 
@@ -35,7 +43,7 @@ if ($pdo) {
         ");
         $activities = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Collect available years
+        // Collect available years from real records
         foreach ($activities as $act) {
             if (!empty($act['activity_date'])) {
                 $yr = date('Y', strtotime($act['activity_date']));
@@ -50,71 +58,11 @@ if ($pdo) {
     }
 }
 
-// Fallback sample activities if table is empty
-if (empty($activities)) {
-    $activities = [
-        [
-            'id' => 1,
-            'dept_code' => 'CE',
-            'title' => 'State-level 36-Hour Hackathon: HackModasa',
-            'activity_date' => '2026-10-18',
-            'image_url' => '',
-            'description' => 'Flagship inter-college hackathon hosted by the Computer Engineering Department. Over 40 teams developed AI and IoT solutions for real-world civic challenges.',
-            'external_url' => '#'
-        ],
-        [
-            'id' => 2,
-            'dept_code' => 'IT',
-            'title' => 'Hands-on Workshop: Cloud Infrastructure & DevOps with Docker & K8s',
-            'activity_date' => '2026-08-14',
-            'image_url' => '',
-            'description' => 'Industry-led practical workshop on container orchestration, CI/CD pipeline automation, and Kubernetes cluster configuration for final year engineering students.',
-            'external_url' => '#'
-        ],
-        [
-            'id' => 3,
-            'dept_code' => 'ME',
-            'title' => 'Industrial Visit to Adani Thermal Power Station, Mundra',
-            'activity_date' => '2026-07-20',
-            'image_url' => '',
-            'description' => 'Experiential field study tour for mechanical engineering students to understand super-critical steam turbines, boiler dynamics, and plant monitoring systems.',
-            'external_url' => '#'
-        ],
-        [
-            'id' => 4,
-            'dept_code' => 'CIVIL',
-            'title' => 'Field Surveying & Total Station Technical Training Camp',
-            'activity_date' => '2026-05-15',
-            'image_url' => '',
-            'description' => 'Five-day intensive training camp utilizing digital theodolites, Total Stations, and GIS mapping tools to train students on modern infrastructure surveying.',
-            'external_url' => '#'
-        ],
-        [
-            'id' => 5,
-            'dept_code' => 'EE',
-            'title' => 'Expert Seminar on Grid-Connected Solar PV Systems & EV Charging Stations',
-            'activity_date' => '2026-04-10',
-            'image_url' => '',
-            'description' => 'Technical lecture delivered by GEDA engineers on smart grid integration, inverter topology, and fast DC EV charging protocol design.',
-            'external_url' => '#'
-        ],
-        [
-            'id' => 6,
-            'dept_code' => 'EC',
-            'title' => 'VLSI Chip Design and Embedded IoT Bootcamp',
-            'activity_date' => '2026-03-22',
-            'image_url' => '',
-            'description' => 'Hands-on laboratory sessions utilizing Cadence EDA and ARM Cortex-M microcontrollers for real-time edge computing prototyping.',
-            'external_url' => '#'
-        ]
-    ];
-    $availableYears = ['2026', '2025', '2024'];
+// Ensure current year is in filter options
+$currentYr = date('Y');
+if (!in_array($currentYr, $availableYears)) {
+    array_unshift($availableYears, $currentYr);
 }
-
-if (!in_array('2026', $availableYears)) array_unshift($availableYears, '2026');
-if (!in_array('2025', $availableYears)) $availableYears[] = '2025';
-if (!in_array('2024', $availableYears)) $availableYears[] = '2024';
-$availableYears = array_unique($availableYears);
 rsort($availableYears);
 
 require_once __DIR__ . '/includes/header.php';
@@ -214,12 +162,14 @@ require_once __DIR__ . '/includes/header.php';
                 $photoSrc = !empty($act['image_url']) ? htmlspecialchars($root_path . $act['image_url']) : 'images/hero_campus_1.jpg';
                 $modalId = 'actModal_' . $act['id'];
                 $badgeClass = 'badge-' . strtolower($code);
+                $rawDesc = !empty($act['short_description']) ? $act['short_description'] : (!empty($act['description']) ? $act['description'] : '');
+                $fullDesc = !empty($act['description']) ? $act['description'] : (!empty($act['short_description']) ? $act['short_description'] : 'No detailed description available.');
             ?>
                 <article class="act-card"
                          data-dept="<?= htmlspecialchars($code) ?>"
                          data-year="<?= htmlspecialchars($actYear) ?>"
                          data-title="<?= htmlspecialchars(strtolower($act['title'])) ?>"
-                         data-desc="<?= htmlspecialchars(strtolower($act['description'] ?? '')) ?>">
+                         data-desc="<?= htmlspecialchars(strtolower($rawDesc)) ?>">
                     
                     <div class="act-card-media">
                         <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='images/hero_campus_1.jpg'">
@@ -235,7 +185,7 @@ require_once __DIR__ . '/includes/header.php';
                         <h3 class="act-card-title"><?= htmlspecialchars($act['title']) ?></h3>
 
                         <p class="act-card-desc">
-                            <?= nl2br(htmlspecialchars(mb_strimwidth($act['description'] ?? '', 0, 150, '...'))) ?>
+                            <?= nl2br(htmlspecialchars(mb_strimwidth($rawDesc, 0, 150, '...'))) ?>
                         </p>
 
                         <div class="act-card-footer">
@@ -277,7 +227,7 @@ require_once __DIR__ . '/includes/header.php';
                         </div>
 
                         <div class="act-modal-body">
-                            <?= nl2br(htmlspecialchars($act['description'] ?? 'No detailed description available.')) ?>
+                            <?= nl2br(htmlspecialchars($fullDesc)) ?>
                         </div>
 
                         <div class="act-modal-footer">
@@ -415,3 +365,4 @@ document.addEventListener("keydown", (e) => {
 <?php
 require_once __DIR__ . '/includes/footer.php';
 ?>
+
