@@ -94,24 +94,16 @@ require_once __DIR__ . '/includes/header.php';
                 <!-- Department Custom Dropdown -->
                 <div class="custom-select-wrap" id="deptDropdownWrap">
                     <button type="button" class="custom-select-trigger" id="deptDropdownTrigger" aria-expanded="false" aria-haspopup="listbox">
-                        <span class="custom-select-prefix"><i class="fas fa-building"></i> Dept:</span>
                         <span class="custom-select-value" id="deptSelectedLabel"><?= ($selectedDept === 'ALL') ? 'All Departments' : ($deptFilterList[$selectedDept] ?? $selectedDept) ?></span>
                         <i class="fas fa-chevron-down custom-select-arrow"></i>
                     </button>
                     <div class="custom-select-menu" id="deptDropdownMenu" role="listbox" aria-label="Select Department">
                         <div class="custom-select-option <?= ($selectedDept === 'ALL') ? 'is-selected' : '' ?>" data-value="ALL" role="option">
-                            <span class="option-title">All Departments</span>
-                            <span class="option-badge count"><?= count($activities) ?></span>
+                            All Departments
                         </div>
-                        <?php foreach ($deptFilterList as $code => $name): 
-                            $count = $deptCounts[$code] ?? 0;
-                        ?>
+                        <?php foreach ($deptFilterList as $code => $name): ?>
                             <div class="custom-select-option <?= ($selectedDept === $code) ? 'is-selected' : '' ?>" data-value="<?= $code ?>" role="option">
-                                <span class="option-title"><?= htmlspecialchars($name) ?></span>
-                                <span class="option-badge code"><?= $code ?></span>
-                                <?php if ($count > 0): ?>
-                                    <span class="option-badge count"><?= $count ?></span>
-                                <?php endif; ?>
+                                <?= htmlspecialchars($name) ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -120,17 +112,16 @@ require_once __DIR__ . '/includes/header.php';
                 <!-- Year Custom Dropdown (Right Beside Department) -->
                 <div class="custom-select-wrap" id="yearDropdownWrap">
                     <button type="button" class="custom-select-trigger" id="yearDropdownTrigger" aria-expanded="false" aria-haspopup="listbox">
-                        <span class="custom-select-prefix"><i class="far fa-calendar-alt"></i> Year:</span>
                         <span class="custom-select-value" id="yearSelectedLabel"><?= ($selectedYear === 'ALL') ? 'All Years' : $selectedYear ?></span>
                         <i class="fas fa-chevron-down custom-select-arrow"></i>
                     </button>
-                    <div class="custom-select-menu" id="yearDropdownMenu" role="listbox" aria-label="Select Year" style="min-width: 170px;">
+                    <div class="custom-select-menu" id="yearDropdownMenu" role="listbox" aria-label="Select Year" style="min-width: 140px;">
                         <div class="custom-select-option <?= ($selectedYear === 'ALL') ? 'is-selected' : '' ?>" data-value="ALL" role="option">
-                            <span class="option-title">All Years</span>
+                            All Years
                         </div>
                         <?php foreach ($availableYears as $yr): ?>
                             <div class="custom-select-option <?= ($selectedYear == $yr) ? 'is-selected' : '' ?>" data-value="<?= $yr ?>" role="option">
-                                <span class="option-title"><?= $yr ?></span>
+                                <?= $yr ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -325,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
     deptOptions.forEach(opt => {
         opt.addEventListener("click", () => {
             const val = (opt.getAttribute("data-value") || "ALL").toUpperCase();
-            const labelText = opt.querySelector(".option-title")?.textContent || val;
+            const labelText = opt.textContent.trim();
 
             currentDept = val;
             deptSelectedLabel.textContent = labelText;
@@ -342,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
     yearOptions.forEach(opt => {
         opt.addEventListener("click", () => {
             const val = opt.getAttribute("data-value") || "ALL";
-            const labelText = opt.querySelector(".option-title")?.textContent || val;
+            const labelText = opt.textContent.trim();
 
             currentYear = val;
             yearSelectedLabel.textContent = labelText;
