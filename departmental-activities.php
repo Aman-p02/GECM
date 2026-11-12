@@ -74,10 +74,7 @@ require_once __DIR__ . '/includes/header.php';
     <header class="act-hero">
         <div class="act-hero-inner">
             <span class="act-kicker">INSTITUTIONAL SHOWCASE</span>
-            <h1 class="act-heading">Departmental Activities &amp; Events</h1>
-            <p class="act-lead">
-                Explore technical symposiums, hackathons, expert lectures, industrial visits, and student skill enhancement workshops organized across all engineering departments of Government Engineering College, Modasa.
-            </p>
+            <h1 class="act-heading" style="margin-bottom: 0;">Departmental Activities &amp; Events</h1>
         </div>
     </header>
 

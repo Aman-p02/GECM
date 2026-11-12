@@ -56,10 +56,7 @@ require_once __DIR__ . '/includes/header.php';
     <header class="act-hero">
         <div class="act-hero-inner">
             <span class="act-kicker">RESEARCH &amp; ACADEMIC EXCELLENCE</span>
-            <h1 class="act-heading">Faculty Activities &amp; Development</h1>
-            <p class="act-lead">
-                Faculty Development Programmes (FDPs), national and international research publications, intellectual property patents, STTPs, and pedagogical workshops conducted by the professors of Government Engineering College, Modasa.
-            </p>
+            <h1 class="act-heading" style="margin-bottom: 0;">Faculty Activities &amp; Development</h1>
         </div>
     </header>
 
