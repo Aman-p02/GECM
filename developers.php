@@ -39,8 +39,8 @@ include_once __DIR__ . '/includes/header.php';
                 <div>
                     <!-- Top Row: Avatar + Intro -->
                     <div class="dev-header-flex">
-                        <div class="dev-img-wrapper" onclick="openDevImageModal('developers_pic/Vanit.png')" title="Click to view full photo">
-                            <img src="developers_pic/Vanit.png" alt="DANTANI VANIT NITINBHAI" class="dev-img" loading="eager" onerror="this.src='images/developers/Vanit.png'">
+                        <div class="dev-img-wrapper" onclick="openDevImageModal('developers/developers_pic/Vanit.png')" title="Click to view full photo">
+                            <img src="developers/developers_pic/Vanit.png" alt="DANTANI VANIT NITINBHAI" class="dev-img" loading="eager" onerror="this.src='images/developers/Vanit.png'">
                         </div>
                         <div class="dev-intro">
                             <h2 class="dev-name">DANTANI VANIT NITINBHAI</h2>
@@ -134,8 +134,8 @@ include_once __DIR__ . '/includes/header.php';
                 <div>
                     <!-- Top Row: Avatar + Intro -->
                     <div class="dev-header-flex">
-                        <div class="dev-img-wrapper" onclick="openDevImageModal('developers_pic/Aman5.png')" title="Click to view full photo">
-                            <img src="developers_pic/Aman5.png" alt="Prajapati Aman Jayeshbhai" class="dev-img" loading="eager" onerror="this.src='images/developers/Aman5.png'">
+                        <div class="dev-img-wrapper" onclick="openDevImageModal('developers/developers_pic/Aman5.png')" title="Click to view full photo">
+                            <img src="developers/developers_pic/Aman5.png" alt="Prajapati Aman Jayeshbhai" class="dev-img" loading="eager" onerror="this.src='images/developers/Aman5.png'">
                         </div>
                         <div class="dev-intro">
                             <h2 class="dev-name">PRAJAPATI AMAN JAYESHBHAI</h2>
