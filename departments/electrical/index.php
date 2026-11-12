@@ -309,21 +309,52 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         </div>
                     </div>
 
-                    <!-- Lab 3: Basic Electrical Engineering Lab -->
+                    <!-- Lab 3: High Voltage Lab -->
                     <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_high_voltage.jpg" alt="High Voltage Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        </div>
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">LAB 03 &bull; BUILDING NO. 4</span>
-                            <h3 class="dept-lab-title">Basic Electrical Engineering Lab</h3>
+                            <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
+                            <h3 class="dept-lab-title">High Voltage Lab</h3>
                             <p class="dept-lab-desc">
-                                Hands-on circuit theorem verification benches, R-L-C series and parallel resonance experimentation, single-phase and three-phase power measurement setups, and instrument transformer calibration panels.
+                                Assists the students in the presence of faculty to perform high voltage experiments for reinforcing the learning of theoretical concepts of impulse voltage generation, di-electric testing, solid insulation testing to name a few and evaluation of results. It inculcates a habit in the students to remain safety conscious in a laboratory environment.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Lab 4: Power Electronics & Drives Lab -->
+                    <!-- Lab 4: Basic Electrical Engineering Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_basic_electrical.jpg" alt="Basic Electrical Engineering Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
+                            <h3 class="dept-lab-title">Basic Electrical Engineering Lab</h3>
+                            <p class="dept-lab-desc">
+                                It provides a platform for the First Year students to understand the fundamentals of Electrical engineering, basic electric wiring, measurement and electric safety. It develops skills in the students which they will need subsequent Electrical engineering laboratories.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 5: Embedded Systems Lab -->
+                    <div class="dept-lab-card">
+                        <div class="dept-lab-image-frame">
+                            <img src="images/labs/lab_embedded_systems.jpg" alt="Embedded Systems Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                        </div>
+                        <div class="dept-lab-details">
+                            <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
+                            <h3 class="dept-lab-title">Embedded Systems Lab</h3>
+                            <p class="dept-lab-desc">
+                                It enables the students to program, simulate, test and interface the microprocessors and micro controllers. The students can do programming using various software. It provides a platform to the students to do multi disciplinary projects.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Lab 6: Power Electronics & Drives Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-details">
-                            <span class="dept-lab-room">LAB 04 &bull; BUILDING NO. 4</span>
+                            <span class="dept-lab-room">LAB 06 &bull; BUILDING NO. 4</span>
                             <h3 class="dept-lab-title">Power Electronics &amp; Drives Lab</h3>
                             <p class="dept-lab-desc">
                                 Comprehensive trainer modules for thyristor converters, IGBT/MOSFET inverters, chopper circuits, AC/DC motor speed control drives, and digital storage oscilloscopes for power waveform analysis.
@@ -331,35 +362,13 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         </div>
                     </div>
 
-                    <!-- Lab 5: High Voltage & Switchgear Protection Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">LAB 05 &bull; BUILDING NO. 4</span>
-                            <h3 class="dept-lab-title">High Voltage &amp; Switchgear Protection Lab</h3>
-                            <p class="dept-lab-desc">
-                                Facilities for dielectric breakdown voltage testing of transformer oil, sphere gap high voltage measurements, electromagnetic and numerical overcurrent, earth fault, and differential protection relay testing.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 6: Power System Simulation Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">LAB 06 &bull; BUILDING NO. 4</span>
-                            <h3 class="dept-lab-title">Power System Simulation Lab</h3>
-                            <p class="dept-lab-desc">
-                                High-performance computing workstations running MATLAB/Simulink and power system CAD tools for load flow studies, symmetrical/unsymmetrical fault analysis, transmission line parameter evaluation, and stability simulations.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 7: Microprocessor & Microcontroller Lab -->
+                    <!-- Lab 7: Power System Simulation Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">LAB 07 &bull; BUILDING NO. 4</span>
-                            <h3 class="dept-lab-title">Microprocessor &amp; Microcontroller Lab</h3>
+                            <h3 class="dept-lab-title">Power System Simulation Lab</h3>
                             <p class="dept-lab-desc">
-                                Microprocessor 8085/8086 kits and 8051 microcontroller training boards integrated with stepper motor controllers, traffic light simulation modules, and ADC/DAC interface boards for embedded control practicals.
+                                High-performance computing workstations running MATLAB/Simulink and power system CAD tools for load flow studies, symmetrical/unsymmetrical fault analysis, transmission line parameter evaluation, and stability simulations.
                             </p>
                         </div>
                     </div>
