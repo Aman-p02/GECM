@@ -848,15 +848,37 @@ function initDepartment() {
     function initSubnavDropdowns() {
         const dropdownItems = document.querySelectorAll('.dept-subnav-dropdown');
 
+        dropdownItems.forEach((item, idx) => {
+            const menu = item.querySelector('.dept-subnav-menu');
+            if (menu) {
+                const ownerId = 'dept_menu_' + idx;
+                item.dataset.dropdownOwner = ownerId;
+                menu.dataset.dropdownOwner = ownerId;
+                // Move to document.body so backdrop-filter on .dept-subnav-bar does NOT break fixed coordinates
+                if (menu.parentElement !== document.body) {
+                    document.body.appendChild(menu);
+                }
+            }
+        });
+
+        function getMenu(item) {
+            const ownerId = item.dataset.dropdownOwner;
+            return document.querySelector(`.dept-subnav-menu[data-dropdown-owner="${ownerId}"]`) || item.querySelector('.dept-subnav-menu');
+        }
+
         function positionMenu(item) {
             const btn = item.querySelector('.dept-dropdown-toggle') || item.querySelector('.dept-subnav-link');
-            const menu = item.querySelector('.dept-subnav-menu');
+            const menu = getMenu(item);
             if (!btn || !menu) return;
 
             const rect = btn.getBoundingClientRect();
-            menu.style.top = `${Math.round(rect.bottom + 4)}px`;
-            const menuWidth = menu.offsetWidth || 230;
-            let left = Math.round(rect.left);
+            menu.style.top = `${Math.round(rect.bottom + 2)}px`;
+            const menuWidth = menu.offsetWidth || 260;
+            // Align menu to the right edge of the button
+            let left = Math.round(rect.right - menuWidth);
+            if (left < 12) {
+                left = Math.max(12, Math.round(rect.left));
+            }
             if (left + menuWidth > window.innerWidth - 12) {
                 left = Math.max(12, window.innerWidth - menuWidth - 12);
             }
@@ -867,15 +889,28 @@ function initDepartment() {
             dropdownItems.forEach(item => {
                 item.classList.remove('is-open');
                 const btn = item.querySelector('.dept-dropdown-toggle');
-                const menu = item.querySelector('.dept-subnav-menu');
                 if (btn) btn.setAttribute('aria-expanded', 'false');
-                if (menu) menu.classList.remove('is-open');
             });
+            document.querySelectorAll('.dept-subnav-menu').forEach(menu => {
+                menu.classList.remove('is-open');
+            });
+        }
+
+        function openMenu(item) {
+            closeAllMenus();
+            item.classList.add('is-open');
+            const btn = item.querySelector('.dept-dropdown-toggle') || item.querySelector('.dept-subnav-link');
+            if (btn) btn.setAttribute('aria-expanded', 'true');
+            const menu = getMenu(item);
+            if (menu) {
+                menu.classList.add('is-open');
+                positionMenu(item);
+            }
         }
 
         dropdownItems.forEach(item => {
             const btn = item.querySelector('.dept-dropdown-toggle') || item.querySelector('.dept-subnav-link');
-            const menu = item.querySelector('.dept-subnav-menu');
+            const menu = getMenu(item);
             if (!btn || !menu) return;
 
             btn.addEventListener('click', function (e) {
@@ -888,11 +923,7 @@ function initDepartment() {
                     if (isOpen) {
                         closeAllMenus();
                     } else {
-                        closeAllMenus();
-                        item.classList.add('is-open');
-                        menu.classList.add('is-open');
-                        btn.setAttribute('aria-expanded', 'true');
-                        positionMenu(item);
+                        openMenu(item);
                     }
                 } else {
                     const tabId = btn.getAttribute('data-tab');
@@ -900,11 +931,7 @@ function initDepartment() {
                         activateTab(tabId, true);
                     }
                     if (!isOpen) {
-                        closeAllMenus();
-                        item.classList.add('is-open');
-                        menu.classList.add('is-open');
-                        btn.setAttribute('aria-expanded', 'true');
-                        positionMenu(item);
+                        openMenu(item);
                     } else {
                         closeAllMenus();
                     }
@@ -913,16 +940,26 @@ function initDepartment() {
 
             item.addEventListener('mouseenter', function () {
                 if (window.innerWidth > 992) {
-                    closeAllMenus();
-                    item.classList.add('is-open');
-                    menu.classList.add('is-open');
-                    btn.setAttribute('aria-expanded', 'true');
-                    positionMenu(item);
+                    openMenu(item);
                 }
             });
 
-            item.addEventListener('mouseleave', function () {
+            item.addEventListener('mouseleave', function (e) {
                 if (window.innerWidth > 992) {
+                    const toEl = e.relatedTarget;
+                    if (toEl && (toEl.closest('.dept-subnav-menu') === menu || toEl === menu)) {
+                        return;
+                    }
+                    closeAllMenus();
+                }
+            });
+
+            menu.addEventListener('mouseleave', function (e) {
+                if (window.innerWidth > 992) {
+                    const toEl = e.relatedTarget;
+                    if (toEl && (toEl.closest('.dept-subnav-dropdown') === item || toEl === btn)) {
+                        return;
+                    }
                     closeAllMenus();
                 }
             });

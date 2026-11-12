@@ -83,7 +83,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <li class="dept-subnav-item dept-subnav-dropdown">
                         <button type="button" class="dept-subnav-link dept-dropdown-toggle" data-tab="academic-calendar"
                             role="tab" aria-selected="false" aria-haspopup="true" aria-expanded="false">
-                            <span>More</span>
+                            <span>Calendar &amp; Board</span>
                             <i class="fas fa-chevron-down dept-subnav-arrow"></i>
                         </button>
                         <div class="dept-subnav-menu" role="menu">
