@@ -88,31 +88,6 @@ require_once __DIR__ . '/includes/header.php';
             <p class="act-lead">
                 Discover institute-level symposia, convocation ceremonies, youth festivals, technical hackathons, cultural meets, NSS social outreach, and sports championships hosted at Government Engineering College, Modasa.
             </p>
-
-            <!-- Quick stats bar -->
-            <div class="act-stats-bar">
-                <div class="act-stat-item">
-                    <div class="act-stat-icon"><i class="fas fa-trophy"></i></div>
-                    <div class="act-stat-info">
-                        <span class="act-stat-value">50+</span>
-                        <span class="act-stat-label">Annual Events</span>
-                    </div>
-                </div>
-                <div class="act-stat-item">
-                    <div class="act-stat-icon"><i class="fas fa-users"></i></div>
-                    <div class="act-stat-info">
-                        <span class="act-stat-value">3000+</span>
-                        <span class="act-stat-label">Student Participants</span>
-                    </div>
-                </div>
-                <div class="act-stat-item">
-                    <div class="act-stat-icon"><i class="fas fa-university"></i></div>
-                    <div class="act-stat-info">
-                        <span class="act-stat-value">GECM</span>
-                        <span class="act-stat-label">Campus Vibrancy</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </header>
 

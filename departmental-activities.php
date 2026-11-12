@@ -78,31 +78,6 @@ require_once __DIR__ . '/includes/header.php';
             <p class="act-lead">
                 Explore technical symposiums, hackathons, expert lectures, industrial visits, and student skill enhancement workshops organized across all engineering departments of Government Engineering College, Modasa.
             </p>
-
-            <!-- Quick stats bar -->
-            <div class="act-stats-bar">
-                <div class="act-stat-item">
-                    <div class="act-stat-icon"><i class="fas fa-layer-group"></i></div>
-                    <div class="act-stat-info">
-                        <span class="act-stat-value">9</span>
-                        <span class="act-stat-label">Academic Departments</span>
-                    </div>
-                </div>
-                <div class="act-stat-item">
-                    <div class="act-stat-icon"><i class="fas fa-calendar-check"></i></div>
-                    <div class="act-stat-info">
-                        <span class="act-stat-value" id="statTotalActivities"><?= count($activities) ?></span>
-                        <span class="act-stat-label">Total Activities Published</span>
-                    </div>
-                </div>
-                <div class="act-stat-item">
-                    <div class="act-stat-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="act-stat-info">
-                        <span class="act-stat-value">100%</span>
-                        <span class="act-stat-label">Hands-on Learning</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </header>
 
