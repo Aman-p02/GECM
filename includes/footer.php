@@ -52,7 +52,7 @@
                 <div class="footer-col dev-col">
                     <h3>Developers Team</h3>
                     <ul>
-                        <li><a href="<?= $root_path ?? '' ?>developers.php"><i class="fas fa-angle-right"></i> View Developers</a></li>
+                        <li><a href="<?= $root_path ?? '' ?>developers/"><i class="fas fa-angle-right"></i> View Developers</a></li>
                     </ul>
                 </div>
                 <div class="footer-col map-col">
