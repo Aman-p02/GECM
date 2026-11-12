@@ -2,11 +2,10 @@
 
 :root {
     --dept-primary: #111111;
-    --dept-accent: #eab308; /* Vibrant Electric Yellow */
+    --dept-accent: #eab308; /* Proper Vibrant Electric Yellow */
     --dept-accent-hover: #ca8a04;
-    --dept-accent-text: #cca000; /* Vivid Electric Yellow Text */
     --dept-accent-rgb: 234, 179, 8;
-    --dept-kicker: #cca000;
+    --dept-kicker: #eab308;
     --dept-ee-box: #fef08a; /* Electrical Yellow from home */
     --dept-ee-border: #fde047; /* Electrical Yellow border from home */
     --dept-body: #4b5563;
@@ -208,17 +207,16 @@
     bottom: 0;
     left: 50%;
     width: 0;
-    height: 3px;
+    height: 2.5px;
     background: var(--dept-accent);
-    box-shadow: 0 0 8px rgba(var(--dept-accent-rgb), 0.5);
-    border-radius: 2px 2px 0 0;
+    border-radius: 1.5px 1.5px 0 0;
     transform: translateX(-50%);
     transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
 }
 
 .dept-subnav-link:hover {
-    color: var(--dept-accent-text, #cca000);
+    color: var(--dept-accent);
     background: transparent;
 }
 
@@ -232,8 +230,8 @@
 /* Active tab state */
 .dept-subnav-item.active .dept-subnav-link,
 .dept-subnav-link.active {
-    color: var(--dept-accent-text, #cca000) !important;
-    font-weight: 700;
+    color: var(--dept-accent) !important;
+    font-weight: 600;
 }
 
 .dept-subnav-link .ext-arrow {
@@ -663,7 +661,7 @@
     font-family: var(--dept-font-display);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--dept-accent-text, #cca000);
+    color: var(--dept-accent);
     line-height: 1;
     flex-shrink: 0;
     width: 26px;
@@ -777,7 +775,7 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--dept-accent-text, #cca000);
+    color: var(--dept-accent);
     margin-bottom: 6px;
     font-family: var(--dept-font-display);
 }
