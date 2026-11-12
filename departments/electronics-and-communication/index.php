@@ -294,7 +294,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
                             <h3 class="dept-lab-title">Analog Electronics &amp; Digital Electronics Lab</h3>
                             <p class="dept-lab-desc">
-                                Analog Electronics and Digital Electronics laboratory provides the platform for the students to understand the behavior of the circuit related to Analog Electronics and Digital Electronics. The laboratory is equipped with the different experimental set-ups like Lab Station, digital trainer kits provided to the students to do hands on for observing the response of the circuits and to carry out the testing of the circuits.
+                                Hands-on platform for circuit testing, frequency response analysis, and digital logic verification using advanced trainer kits and lab stations.
                             </p>
                         </div>
                     </div>
@@ -308,7 +308,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
                             <h3 class="dept-lab-title">Signal Processing Laboratory</h3>
                             <p class="dept-lab-desc">
-                                It takes care of the understanding and hands on training of various signal processing techniques and algorithms. It provides ample opportunities for a student to understand various projects of many signal processing techniques such as sampling and quantizing trainer kits. Students are encouraged to develop algorithms and implement both in MATLAB and DSP Processors. This laboratory also facilitates students to carry out minor and major projects in the area of Signal Processing.
+                                Practical training in signal sampling, filter design, and algorithm implementation using MATLAB, Simulink, and hardware DSP processors.
                             </p>
                         </div>
                     </div>
@@ -322,7 +322,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
                             <h3 class="dept-lab-title">VLSI &amp; Embedded Systems Lab</h3>
                             <p class="dept-lab-desc">
-                                It provides the platform for the students to understand the architecture and interfacing of microprocessor, microcontroller, Field Programmable Gate Array (FPGA) and Complex Programmable Logic Device (CPLD). This laboratory is equipped with the different experimental set-ups. Facility is provided to the students to do hands on for testing their programming codes.
+                                Microprocessor, ARM microcontroller, FPGA, and CPLD hardware interfacing and HDL programming verification benches.
                             </p>
                         </div>
                     </div>
@@ -336,7 +336,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
                             <h3 class="dept-lab-title">Digital Communication Lab</h3>
                             <p class="dept-lab-desc">
-                                It deals with the analysis and manipulation of signals. The equipments like Digital Storage Oscilloscope (DSO), Lab Station Amplitude, frequency and phase shift keying Trainer Kits and modulation kits for mobile communication, AM-FM Modulation-Demodulation kits are available in this laboratory.
+                                Signal modulation analysis, AM/FM kits, PSK/FSK digital trainers, and Digital Storage Oscilloscopes (DSO).
                             </p>
                         </div>
                     </div>
@@ -356,7 +356,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-microchip"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Analog &amp; Digital Electronics Lab</h4>
-                                <p>Equipped with lab stations, digital trainer kits, oscilloscopes, and logic design verification setups.</p>
+                                <p>Digital trainer kits, lab stations, and logic verification setups.</p>
                             </div>
                         </div>
 
@@ -365,7 +365,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-broadcast-tower"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Digital Communication Lab</h4>
-                                <p>Digital Storage Oscilloscopes (DSO), ASK/FSK/PSK modulators, multiplexers, and signal analysis kits.</p>
+                                <p>DSO oscilloscopes, modulation trainers, and multiplexer benches.</p>
                             </div>
                         </div>
 
@@ -374,7 +374,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-wave-square"></i></div>
                             <div class="dept-facility-info">
                                 <h4>R.F Laboratory</h4>
-                                <p>Radio frequency signal generators, spectrum analyzers, RF amplifiers, filters, and impedance matching setups.</p>
+                                <p>RF signal generators, spectrum analyzers, and filter testing setups.</p>
                             </div>
                         </div>
 
@@ -383,7 +383,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-plug"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Basic &amp; Advanced Electronics</h4>
-                                <p>Semiconductor diode characteristics, BJT/FET amplifiers, operational amplifiers, and timer IC setups.</p>
+                                <p>Semiconductor diode, amplifier, op-amp, and timer IC experiments.</p>
                             </div>
                         </div>
 
@@ -392,7 +392,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-bolt"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Power Electronics Lab</h4>
-                                <p>Thyristor/SCR trigger circuits, MOSFET/IGBT converters, inverters, choppers, and DC/AC motor controllers.</p>
+                                <p>SCR trigger circuits, MOSFET/IGBT converters, and motor controllers.</p>
                             </div>
                         </div>
 
@@ -401,7 +401,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-memory"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Microprocessor &amp; Microcontroller Lab</h4>
-                                <p>8085/8086 microprocessors, 8051 and ARM Cortex development trainer boards with DAC/ADC peripheral interfaces.</p>
+                                <p>8085/8086, 8051, and ARM development trainer boards.</p>
                             </div>
                         </div>
 
@@ -410,7 +410,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-network-wired"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Telecom and Switching Network Lab</h4>
-                                <p>Electronic exchange simulators, time-division multiplexing (TDM), crossbar switching, and telephony setups.</p>
+                                <p>Electronic exchange simulators and time-division switching setups.</p>
                             </div>
                         </div>
 
@@ -419,7 +419,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-tachometer-alt"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Electronics measurement &amp; Instrument Lab</h4>
-                                <p>Precision digital multimeters, LCR bridges, frequency counters, function generators, and sensor calibration.</p>
+                                <p>Digital multimeters, LCR bridges, and transducer calibration.</p>
                             </div>
                         </div>
 
@@ -428,7 +428,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-ethernet"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Optical Communication Lab</h4>
-                                <p>Laser transmitters, LED optical sources, photodetectors, optical power meters, and fiber-optic splicing apparatus.</p>
+                                <p>Laser sources, photodetectors, power meters, and fiber splicing units.</p>
                             </div>
                         </div>
 
@@ -437,7 +437,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-tools"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Electronics Workshop Lab</h4>
-                                <p>Component identification, soldering/desoldering stations, PCB layout designing, and chassis assembly practice.</p>
+                                <p>Component testing, soldering stations, and PCB prototyping practice.</p>
                             </div>
                         </div>
 
@@ -446,7 +446,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-satellite-dish"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Antenna and Microwave Lab</h4>
-                                <p>Microwave waveguide test benches, reflex klystron, Gunn oscillator, VSWR meter, and antenna radiation pattern rigs.</p>
+                                <p>Microwave waveguide benches, klystrons, and radiation pattern rigs.</p>
                             </div>
                         </div>
 
@@ -455,7 +455,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-laptop-code"></i></div>
                             <div class="dept-facility-info">
                                 <h4>VLSI &amp; Embedded System Lab</h4>
-                                <p>FPGA/CPLD trainer kits, Xilinx Vivado/ModelSim workstations, and hardware description language (VHDL/Verilog) testing.</p>
+                                <p>FPGA/CPLD trainer kits and Xilinx/Vivado synthesis workstations.</p>
                             </div>
                         </div>
 
@@ -464,7 +464,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-mobile-alt"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Mobile &amp; Wireless Communication Lab</h4>
-                                <p>Cellular GSM/CDMA trainer kits, base-station simulation modules, mobile antenna propagation, and modulation analyzers.</p>
+                                <p>GSM/CDMA trainers, mobile antenna links, and propagation testers.</p>
                             </div>
                         </div>
 
@@ -473,7 +473,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-sliders-h"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Digital Signal Processing Lab</h4>
-                                <p>TI TMS320C67xx DSP processor kits, MATLAB/Simulink algorithm development, and audio-biomedical filter design.</p>
+                                <p>TI TMS320 DSP kits, MATLAB simulation, and digital filter design.</p>
                             </div>
                         </div>
 
@@ -482,7 +482,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-radio"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Analog Communication Lab</h4>
-                                <p>AM, FM, DSB/SSB modulation and demodulation kits, superheterodyne receiver setups, and mixer circuits.</p>
+                                <p>AM/FM modulation-demodulation kits and superheterodyne receivers.</p>
                             </div>
                         </div>
 
@@ -491,7 +491,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-lightbulb"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Electronic Project &amp; Innovation Lab</h4>
-                                <p>Dedicated workspace for final year design projects, microcontroller prototyping, IoT sensor nodes, and innovation development.</p>
+                                <p>Dedicated workspace for student design projects and IoT prototypes.</p>
                             </div>
                         </div>
                     </div>

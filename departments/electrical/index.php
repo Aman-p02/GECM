@@ -300,7 +300,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
                             <h3 class="dept-lab-title">Electrical Machine Lab</h3>
                             <p class="dept-lab-desc">
-                                It provides the students with a chance to put theory into practice, to get familiar with DC machines, Transformers, Synchronous machines and Induction motors, understand their basic principles of operation and offers an opportunity to explore their experimental skills to calculate various parameters and characteristics of the Electrical machines.
+                                Operational testing of DC machines, single &amp; 3-phase transformers, synchronous alternators, and induction motors.
                             </p>
                         </div>
                     </div>
@@ -314,7 +314,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
                             <h3 class="dept-lab-title">Measurement &amp; Instrumentation Lab</h3>
                             <p class="dept-lab-desc">
-                                It provides a medium to the students to study the construction, working principle and calibration of various electrical measuring instruments and transducers.
+                                Working principle, precision calibration, and measurement analysis of electrical measuring instruments and transducers.
                             </p>
                         </div>
                     </div>
@@ -328,7 +328,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
                             <h3 class="dept-lab-title">High Voltage Lab</h3>
                             <p class="dept-lab-desc">
-                                Assists the students in the presence of faculty to perform high voltage experiments for reinforcing the learning of theoretical concepts of impulse voltage generation, di-electric testing, solid insulation testing to name a few and evaluation of results. It inculcates a habit in the students to remain safety conscious in a laboratory environment.
+                                Practical impulse voltage generation, solid insulation evaluation, and transformer oil dielectric breakdown testing.
                             </p>
                         </div>
                     </div>
@@ -342,7 +342,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
                             <h3 class="dept-lab-title">Basic Electrical Engineering Lab</h3>
                             <p class="dept-lab-desc">
-                                It provides a platform for the First Year students to understand the fundamentals of Electrical engineering, basic electric wiring, measurement and electric safety. It develops skills in the students which they will need subsequent Electrical engineering laboratories.
+                                First-year platform for AC/DC circuit analysis, domestic wiring fundamentals, and laboratory electrical safety.
                             </p>
                         </div>
                     </div>
@@ -356,7 +356,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
                             <h3 class="dept-lab-title">Embedded Systems Lab</h3>
                             <p class="dept-lab-desc">
-                                It enables the students to program, simulate, test and interface the microprocessors and micro controllers. The students can do programming using various software. It provides a platform to the students to do multi disciplinary projects.
+                                Programming, simulation, and hardware interfacing of microprocessors, microcontrollers, and automation modules.
                             </p>
                         </div>
                     </div>
@@ -375,7 +375,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-bolt"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Basic Electrical Lab</h4>
-                                <p>Foundational circuit theory benches, electrical wiring setups, and AC/DC network verification panels.</p>
+                                <p>Circuit theory benches, wiring setups, and AC/DC network verification panels.</p>
                             </div>
                         </div>
 
@@ -383,7 +383,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-memory"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Microprocessor Lab</h4>
-                                <p>8085 / 8086 microprocessor trainer boards, ADC/DAC peripherals, stepper motor, and traffic light interface kits.</p>
+                                <p>8085/8086 trainer kits with ADC/DAC and peripheral interface modules.</p>
                             </div>
                         </div>
 
@@ -391,7 +391,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-cogs"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Electrical Machine Lab</h4>
-                                <p>Operational testing benches for DC motors, generators, single &amp; 3-phase transformers, and induction machines.</p>
+                                <p>DC machines, alternators, transformers, and induction motor benches.</p>
                             </div>
                         </div>
 
@@ -399,7 +399,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-shield-alt"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Switchgear and Protection Lab</h4>
-                                <p>Electromagnetic and numerical overcurrent, earth fault, differential relays, and circuit breaker testing.</p>
+                                <p>Electromagnetic and numerical relays, CT/PTs, and breaker testing.</p>
                             </div>
                         </div>
 
@@ -407,7 +407,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-tachometer-alt"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Electrical Measurement Lab</h4>
-                                <p>Precision calibration of electrical measuring instruments, energy meters, wattmeters, and bridge circuits.</p>
+                                <p>Calibration of energy meters, wattmeters, and precision bridge circuits.</p>
                             </div>
                         </div>
 
@@ -415,7 +415,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-plug"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Basic/Analog Electronics</h4>
-                                <p>Diode characteristics, BJT / FET amplifier circuits, operational amplifiers, and regulated power supply experiments.</p>
+                                <p>Diode, transistor amplifiers, op-amps, and regulated power supply testing.</p>
                             </div>
                         </div>
 
@@ -423,7 +423,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-microchip"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Instrumentation Lab</h4>
-                                <p>Modern transducers, sensors, LVDT, thermocouple, RTD setups, and signal conditioning equipment.</p>
+                                <p>Transducers, LVDT, thermocouple, RTD setups, and signal conditioning.</p>
                             </div>
                         </div>
 
@@ -431,7 +431,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Power Computation Lab</h4>
-                                <p>MATLAB/Simulink computing workstations for load flow analysis, symmetrical fault studies, and stability simulations.</p>
+                                <p>MATLAB/Simulink workstations for load flow and power system simulations.</p>
                             </div>
                         </div>
 
@@ -439,7 +439,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-wave-square"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Digital Electronics Lab</h4>
-                                <p>Logic gates, sequential &amp; combinational digital circuits, multiplexers, and flip-flop trainer kits.</p>
+                                <p>Logic gates, flip-flops, multiplexers, and digital circuit trainers.</p>
                             </div>
                         </div>
 
@@ -447,7 +447,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-charging-station"></i></div>
                             <div class="dept-facility-info">
                                 <h4>High Voltage Lab</h4>
-                                <p>Impulse voltage generation, dielectric breakdown testing of transformer oil, and sphere gap high voltage measurements.</p>
+                                <p>Impulse voltage generator, sphere gaps, and oil breakdown testing sets.</p>
                             </div>
                         </div>
 
@@ -455,7 +455,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-network-wired"></i></div>
                             <div class="dept-facility-info">
                                 <h4>PLS and DSP Lab</h4>
-                                <p>Programmable logic controller (PLC) automation stations, ladder logic consoles, and DSP processor benches.</p>
+                                <p>PLC automation consoles, ladder logic trainers, and DSP processor benches.</p>
                             </div>
                         </div>
 
@@ -463,7 +463,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <div class="dept-facility-icon"><i class="fas fa-sliders-h"></i></div>
                             <div class="dept-facility-info">
                                 <h4>Control Lab</h4>
-                                <p>Feedback control systems, DC/AC servomotors, synchro transmitter-receiver pairs, and PID controller setups.</p>
+                                <p>Feedback systems, servomotors, synchros, and PID controller setups.</p>
                             </div>
                         </div>
                     </div>

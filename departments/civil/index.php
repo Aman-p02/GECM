@@ -299,7 +299,9 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Main Building</span>
                             <h3 class="dept-lab-title">Surveying Lab</h3>
-                            <p class="dept-lab-desc">Surveying Laboratory contains measuring instruments for distance, vertical and horizontal angles, and elevation. It is also used for performing leveling surveys and traverse surveys, and for applying corrections to geodetic observations. Major equipment includes: Total Station, Optical Theodolite, Dumpy Level, Chains/Tapes, Plane Table &amp; accessories, Plumb Bob, Ranging Rods, and Spirit Level.</p>
+                            <p class="dept-lab-desc">
+                                Field distance, elevation, and angular measurement using Total Stations, optical theodolites, auto-levels, and plane tables.
+                            </p>
                         </div>
                     </div>
 
@@ -311,7 +313,9 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Main Building</span>
                             <h3 class="dept-lab-title">Environmental Engineering Lab</h3>
-                            <p class="dept-lab-desc">The primary objective of the Environmental Engineering lab is to assess the pollutants of water and air, assess noise levels, and monitor concentrations of environmental pollutants. Continuously upgraded with modern apparatus, allowing students to conduct experiments on water, noise, and air by calculating pollution load, BOD, COD, etc. Equipped with BOD Testing Machine, Multi-parameter Testing Machine, and Turbidimeter.</p>
+                            <p class="dept-lab-desc">
+                                Water and wastewater pollution testing, air and noise level assessment, and BOD/COD incubator monitoring.
+                            </p>
                         </div>
                     </div>
 
@@ -323,7 +327,9 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Main Building</span>
                             <h3 class="dept-lab-title">Transportation Engineering Lab</h3>
-                            <p class="dept-lab-desc">Transportation Engineering Laboratory is well-equipped for highway material testing and pavement evaluation. Key apparatus and experiments include: Aggregate Crushing Value Apparatus, Los Angeles Abrasion Testing Machine, Aggregate Impact Value Apparatus, Universal Penetrometer, Ductility Testing Machine, Flash &amp; Fire Point Apparatus, Ring &amp; Ball Softening Point Apparatus, and Stripping Value Test setups.</p>
+                            <p class="dept-lab-desc">
+                                Highway aggregate testing, bitumen penetration, ductility, softening point, and pavement material evaluation.
+                            </p>
                         </div>
                     </div>
 
@@ -335,7 +341,9 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Main Building</span>
                             <h3 class="dept-lab-title">Fluid Mechanics Lab</h3>
-                            <p class="dept-lab-desc">Deals with practical knowledge and application of principles in the collection, storage, control, transport, regulation, measurement, and use of water by engaging with flow-measuring setups such as venturi meters, orifice plates, pitot tubes, and rotameters, enabling students to directly visualize and verify fluid mechanics theory.</p>
+                            <p class="dept-lab-desc">
+                                Fluid flow measurement and verification using venturi meters, orifice plates, hydraulic flumes, and pipe friction rigs.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -352,70 +360,70 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <div class="dept-facility-icon"><i class="fas fa-drafting-compass"></i></div>
                         <div class="dept-facility-info">
                             <h4>Drawing hall</h4>
-                            <p>Spacious drawing hall dedicated to engineering graphics, structural drawing, and manual blueprint preparation.</p>
+                            <p>Engineering graphics, structural drafting, and manual blueprint preparation.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-map-marked-alt"></i></div>
                         <div class="dept-facility-info">
                             <h4>Surveying Lab</h4>
-                            <p>Equipped with total stations, optical theodolites, auto-levels, and measurement chains for comprehensive field surveying.</p>
+                            <p>Total stations, optical theodolites, and auto-levels for field surveying.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-water"></i></div>
                         <div class="dept-facility-info">
                             <h4>Fluid Mechanics Lab</h4>
-                            <p>Flow measurement benches, hydraulic flumes, pipe friction apparatus, and fluid dynamics experimental setups.</p>
+                            <p>Flow measurement benches, hydraulic flumes, and pipe friction setups.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-leaf"></i></div>
                         <div class="dept-facility-info">
                             <h4>Environmental Engineering Lab</h4>
-                            <p>Water and wastewater testing equipment, pH meters, turbidity meters, BOD/COD incubators, and air quality analysis.</p>
+                            <p>Water testing equipment, BOD/COD incubators, and air quality analysis.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-road"></i></div>
                         <div class="dept-facility-info">
                             <h4>Transportation Engineering Lab</h4>
-                            <p>Pavement material testing apparatus including bitumen penetration, ductility, softening point, and aggregate impact tests.</p>
+                            <p>Bitumen penetration, ductility, and aggregate impact testing apparatus.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-globe-asia"></i></div>
                         <div class="dept-facility-info">
                             <h4>Geoinformatic / Geology Lab</h4>
-                            <p>Geological mineral specimen collections, petrological study microscopes, rock classification, and GIS mapping tools.</p>
+                            <p>Geological mineral specimens, petrological microscopes, and GIS tools.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-tint"></i></div>
                         <div class="dept-facility-info">
                             <h4>Water Resources Lab</h4>
-                            <p>Hydrological measurement instruments, rainfall simulation benches, and groundwater seepage demonstration models.</p>
+                            <p>Hydrological measurement setups and groundwater seepage models.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-cubes"></i></div>
                         <div class="dept-facility-info">
                             <h4>Concrete Laboratory</h4>
-                            <p>Compressive testing machine, sieve shaker, workability slump test apparatus, and concrete mix design facilities.</p>
+                            <p>Compressive testing machine, sieve shakers, and slump test apparatus.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-archway"></i></div>
                         <div class="dept-facility-info">
                             <h4>Structure &amp; Heavy Structures Laboratory</h4>
-                            <p>Heavy loading frames for structural deflection, column buckling, beam bending moments, and frame analysis.</p>
+                            <p>Loading frames for structural deflection, column buckling, and beam bending.</p>
                         </div>
                     </div>
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-mountain"></i></div>
                         <div class="dept-facility-info">
                             <h4>Soil &amp; Material Testing Laboratory</h4>
-                            <p>Tri-axial shear apparatus, direct shear machines, unconfined compression, and soil consolidation testing equipment.</p>
+                            <p>Tri-axial shear apparatus, direct shear, and soil consolidation testing.</p>
                         </div>
                     </div>
                 </div>
