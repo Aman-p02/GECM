@@ -69,15 +69,9 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <i class="fas fa-chevron-down dept-subnav-arrow"></i>
                         </button>
                         <div class="dept-subnav-menu" role="menu">
-                            <a href="#instruction-material" class="dept-subnav-menu-link" data-tab="instruction-material" role="menuitem">
-                                <i class="fas fa-book-reader" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Instruction Material
-                            </a>
-                            <a href="#learning-resources" class="dept-subnav-menu-link" data-tab="learning-resources" role="menuitem">
-                                <i class="fas fa-laptop-code" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Learning Resources
-                            </a>
-                            <a href="#instruction-feedback" class="dept-subnav-menu-link" data-tab="instruction-feedback" role="menuitem">
-                                <i class="fas fa-comment-dots" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Feedback for Instruction Material
-                            </a>
+                            <a href="#instruction-material" class="dept-subnav-menu-link" data-tab="instruction-material" role="menuitem">Instruction Material</a>
+                            <a href="#learning-resources" class="dept-subnav-menu-link" data-tab="learning-resources" role="menuitem">Learning Resources</a>
+                            <a href="#instruction-feedback" class="dept-subnav-menu-link" data-tab="instruction-feedback" role="menuitem">Feedback for Instruction Material</a>
                         </div>
                     </li>
                     <li class="dept-subnav-item dept-subnav-dropdown">
@@ -87,15 +81,9 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <i class="fas fa-chevron-down dept-subnav-arrow"></i>
                         </button>
                         <div class="dept-subnav-menu" role="menu">
-                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" role="menuitem">
-                                <i class="fas fa-calendar-alt" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Department Academic Calendar
-                            </a>
-                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" role="menuitem">
-                                <i class="fas fa-users" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Industry Advisory Board
-                            </a>
-                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" role="menuitem">
-                                <i class="fas fa-newspaper" style="width: 16px; margin-right: 6px; opacity: 0.7;"></i> Newsletters
-                            </a>
+                            <a href="#academic-calendar" class="dept-subnav-menu-link" data-tab="academic-calendar" role="menuitem">Department Academic Calendar</a>
+                            <a href="#industry-advisory-board" class="dept-subnav-menu-link" data-tab="industry-advisory-board" role="menuitem">Industry Advisory Board</a>
+                            <a href="#newsletters" class="dept-subnav-menu-link" data-tab="newsletters" role="menuitem">Newsletters</a>
                         </div>
                     </li>
                 </ul>
