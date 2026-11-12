@@ -181,14 +181,7 @@ include_once __DIR__ . '/includes/header.php';
     <!-- Hero Slides -->
     <div class="hero-slider" id="heroSlider">
         <?php foreach ($heroSlides as $i => $slide):
-            $imgUrl = $slide['image_url'];
-            if (!empty($imgUrl) && !file_exists(__DIR__ . '/' . $imgUrl)) {
-                if (str_ends_with($imgUrl, '.webp') && file_exists(__DIR__ . '/' . preg_replace('/\.webp$/i', '.jpg', $imgUrl))) {
-                    $imgUrl = preg_replace('/\.webp$/i', '.jpg', $imgUrl);
-                } elseif (str_ends_with($imgUrl, '.jpg') && file_exists(__DIR__ . '/' . preg_replace('/\.jpg$/i', '.webp', $imgUrl))) {
-                    $imgUrl = preg_replace('/\.jpg$/i', '.webp', $imgUrl);
-                }
-            }
+            $imgUrl = $slide['image_url'] ?? '';
         ?>
             <div class="hero-slide <?= ($i === 0) ? 'active' : '' ?>" style="background-image: url('<?= htmlspecialchars($imgUrl) ?>');"
                 data-label="<?= htmlspecialchars($slide['label'] ?? '') ?>"></div>
@@ -199,7 +192,7 @@ include_once __DIR__ . '/includes/header.php';
 
     <div class="hero-content">
         <h1 class="hero-title fade-in-up delay-1"><?= $heroSlides[0]['title'] ?? 'Welcome to <br> Government Engineering College, Modasa' ?></h1>
-        <p class="hero-subtitle fade-in-up delay-2"><?= htmlspecialchars(str_replace(['???', 'ÔÇó', 'â€¢', 'Â•'], '•', $heroSlides[0]['subtitle'] ?? 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi')) ?></p>
+        <p class="hero-subtitle fade-in-up delay-2"><?= htmlspecialchars($heroSlides[0]['subtitle'] ?? 'Affiliated to Gujarat Technological University (GTU) • Approved by AICTE, New Delhi') ?></p>
 
         <div class="hero-buttons fade-in-up delay-3">
             <a href="<?= htmlspecialchars($heroSlides[0]['virtual_tour_url'] ?? '#') ?>" class="btn btn-primary"><i class="fas fa-street-view"></i> Virtual Tour</a>
@@ -350,52 +343,37 @@ include_once __DIR__ . '/includes/header.php';
             <button class="scroll-btn dept-btn left-btn" id="deptLeftBtn" aria-label="Previous Department"><i
                     class="fas fa-chevron-left"></i></button>
             <div class="dept-grid" id="deptGrid">
-                <?php foreach ($departmentsList as $dept):
+                <?php
+                $deptUrlMap = [
+                    'CE'    => 'departments/computer/',
+                    'IT'    => 'departments/information-technology/',
+                    'EE'    => 'departments/electrical/',
+                    'ME'    => 'departments/mechanical/',
+                    'AE'    => 'departments/automobile/',
+                    'CIVIL' => 'departments/civil/',
+                    'AM'    => 'departments/applied-mechanics/',
+                    'EC'    => 'departments/electronics-and-communication/',
+                    'SH'    => 'departments/science-and-humanities/'
+                ];
+                $deptColorMap = [
+                    'IT'    => 'dept-it',
+                    'CE'    => 'dept-ce',
+                    'EE'    => 'dept-ee',
+                    'EC'    => 'dept-ec',
+                    'AE'    => 'dept-ae',
+                    'CIVIL' => 'dept-civil',
+                    'ME'    => 'dept-me',
+                    'AM'    => 'dept-am',
+                    'SH'    => 'dept-sh'
+                ];
+
+                foreach ($departmentsList as $dept):
                     $deptCode = strtoupper(trim($dept['code'] ?? ''));
                     $deptName = trim($dept['name'] ?? '');
-                    $colorClass = 'dept-default';
-                    if ($deptCode === 'IT' || stripos($deptName, 'Information') !== false) {
-                        $colorClass = 'dept-it';
-                    } elseif ($deptCode === 'CE' || stripos($deptName, 'Computer') !== false) {
-                        $colorClass = 'dept-ce';
-                    } elseif ($deptCode === 'EE' || stripos($deptName, 'Electrical') !== false) {
-                        $colorClass = 'dept-ee';
-                    } elseif ($deptCode === 'EC' || stripos($deptName, 'Electronics') !== false) {
-                        $colorClass = 'dept-ec';
-                    } elseif ($deptCode === 'AE' || stripos($deptName, 'Automobile') !== false) {
-                        $colorClass = 'dept-ae';
-                    } elseif ($deptCode === 'CIVIL' || stripos($deptName, 'Civil') !== false) {
-                        $colorClass = 'dept-civil';
-                    } elseif ($deptCode === 'ME' || stripos($deptName, 'Mechanical') !== false) {
-                        $colorClass = 'dept-me';
-                    } elseif ($deptCode === 'AM' || stripos($deptName, 'Applied Mechanics') !== false) {
-                        $colorClass = 'dept-am';
-                    } elseif ($deptCode === 'SH' || stripos($deptName, 'Science') !== false || stripos($deptName, 'Humanities') !== false) {
-                        $colorClass = 'dept-sh';
-                    }
-                    $deptUrlMap = [
-                        'CE'    => 'departments/computer/',
-                        'IT'    => 'departments/information-technology/',
-                        'EE'    => 'departments/electrical/',
-                        'ME'    => 'departments/mechanical/',
-                        'AE'    => 'departments/automobile/',
-                        'CIVIL' => 'departments/civil/',
-                        'AM'    => 'departments/applied-mechanics/',
-                        'EC'    => 'departments/electronics-and-communication/',
-                        'SH'    => 'departments/science-and-humanities/'
-                    ];
+                    $colorClass = $deptColorMap[$deptCode] ?? 'dept-default';
                     $resolvedUrl = (!empty($dept['learn_more_url']) && $dept['learn_more_url'] !== '#')
                         ? $dept['learn_more_url']
-                        : ($deptUrlMap[$deptCode] ?? (
-                            stripos($deptName, 'Information') !== false ? 'departments/information-technology/' :
-                            (stripos($deptName, 'Computer') !== false ? 'departments/computer/' :
-                            (stripos($deptName, 'Electrical') !== false ? 'departments/electrical/' :
-                            (stripos($deptName, 'Mechanical') !== false ? 'departments/mechanical/' :
-                            (stripos($deptName, 'Automobile') !== false ? 'departments/automobile/' :
-                            (stripos($deptName, 'Civil') !== false ? 'departments/civil/' :
-                            (stripos($deptName, 'Electronics') !== false ? 'departments/electronics-and-communication/' :
-                            (stripos($deptName, 'Applied Mechanics') !== false ? 'departments/applied-mechanics/' :
-                            (stripos($deptName, 'Science') !== false || stripos($deptName, 'Humanities') !== false ? 'departments/science-and-humanities/' : '#'))))))))));
+                        : ($deptUrlMap[$deptCode] ?? '#');
                 ?>
                 <a href="<?= htmlspecialchars($resolvedUrl) ?>" class="dept-card <?= $colorClass ?>" <?= ($resolvedUrl === '#') ? 'tabindex="-1" aria-disabled="true" onclick="return false;"' : '' ?> style="cursor: <?= ($resolvedUrl !== '#') ? 'pointer' : 'default' ?>;">
                     <div class="dept-icon">
