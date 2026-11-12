@@ -163,9 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentPath = window.location.pathname.replace(/\/$/, "");
     const currentHash = window.location.hash;
 
-    // Reset any active states first
-    allNavLinks.forEach(item => item.classList.remove("is-active", "active"));
-
     // Check for exact match on page load
     allNavLinks.forEach(link => {
         const href = link.getAttribute("href");
@@ -179,26 +176,52 @@ document.addEventListener("DOMContentLoaded", () => {
             if (currentHash && linkUrl.hash) {
                 if (linkUrl.hash === currentHash && (linkPath === currentPath || !linkUrl.pathname)) {
                     link.classList.add("is-active");
+                    const parentNavItem = link.closest(".hdr-nav-item.has-dropdown");
+                    if (parentNavItem) {
+                        const parentNavLink = parentNavItem.querySelector(":scope > .hdr-nav-link");
+                        if (parentNavLink) parentNavLink.classList.add("is-active", "active");
+                    }
                 }
             }
-            // 2. If it's a dedicated subpage (e.g. /departments/computer/)
+            // 2. If it's a dedicated subpage (e.g. /college-activities.php, /departmental-activities.php, /departments/computer/)
             else if (!linkUrl.hash && linkPath) {
                 const isHomePath = (linkPath === "" || linkPath === "/GECM-main" || linkPath.endsWith("/index.php") || linkPath.endsWith("/index.html"));
-                if (!isHomePath && linkPath === currentPath) {
+                if (!isHomePath && (linkPath === currentPath || currentPath.endsWith(linkPath) || linkPath.endsWith(currentPath))) {
                     link.classList.add("is-active");
+                    const parentNavItem = link.closest(".hdr-nav-item.has-dropdown");
+                    if (parentNavItem) {
+                        const parentNavLink = parentNavItem.querySelector(":scope > .hdr-nav-link");
+                        if (parentNavLink) parentNavLink.classList.add("is-active", "active");
+                    }
                 }
             }
         } catch (err) {}
     });
 
+    // Ensure parent main navbar dropdown link stays active if any of its sub-options is active
+    document.querySelectorAll(".hdr-nav-item.has-dropdown").forEach(dropdownItem => {
+        const activeChild = dropdownItem.querySelector(".hdr-dd-link.is-active, .hdr-dd-link.active");
+        if (activeChild) {
+            const parentTrigger = dropdownItem.querySelector(":scope > .hdr-nav-link");
+            if (parentTrigger) {
+                parentTrigger.classList.add("is-active", "active");
+            }
+        }
+    });
+
     allNavLinks.forEach(link => {
         link.addEventListener("click", function () {
-            // Dropdown menu toggle links (e.g. Academic, Departments, Activities) should not get active underline on click
+            // Dropdown menu toggle links should not reset active state
             if (this.closest(".has-dropdown") && this.classList.contains("hdr-nav-link")) {
                 return;
             }
             allNavLinks.forEach(item => item.classList.remove("is-active", "active"));
             this.classList.add("is-active");
+            const parentNavItem = this.closest(".hdr-nav-item.has-dropdown");
+            if (parentNavItem) {
+                const parentNavLink = parentNavItem.querySelector(":scope > .hdr-nav-link");
+                if (parentNavLink) parentNavLink.classList.add("is-active", "active");
+            }
         });
     });
 

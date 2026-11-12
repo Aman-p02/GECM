@@ -190,13 +190,13 @@ if (!isset($active_page)) {
 
                 <!-- Academic Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="javascript:void(0);" class="hdr-nav-link">
+                    <a href="javascript:void(0);" class="hdr-nav-link <?= in_array($active_page, ['academics', 'courses', 'admission']) ? 'active is-active' : '' ?>">
                         Academic <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
-                            <li><a href="<?= $root_path ?>courses.php" class="hdr-dd-link">Courses</a></li>
-                            <li><a href="<?= $root_path ?>admission.php" class="hdr-dd-link">Admission</a></li>
+                            <li><a href="<?= $root_path ?>courses.php" class="hdr-dd-link <?= ($active_page === 'courses' || $active_page === 'academics') ? 'is-active active' : '' ?>">Courses</a></li>
+                            <li><a href="<?= $root_path ?>admission.php" class="hdr-dd-link <?= ($active_page === 'admission') ? 'is-active active' : '' ?>">Admission</a></li>
                             <li><a href="#" class="hdr-dd-link">Academic Calendar</a></li>
                             <li><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="hdr-dd-link">Syllabus</a></li>
                             <li><a href="#" class="hdr-dd-link">Central Library</a></li>
@@ -207,7 +207,7 @@ if (!isset($active_page)) {
                 <!-- Departments Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . 'index.php#departments'; ?>"
-                       class="hdr-nav-link">
+                       class="hdr-nav-link <?= (isset($deptCode) || in_array($active_page, ['departments', 'department'])) ? 'active is-active' : '' ?>">
                         Departments <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
@@ -228,7 +228,7 @@ if (!isset($active_page)) {
                 <!-- Activities Dropdown (Categorized Mega Dropdown) -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="<?= $root_path ?>college-activities.php"
-                       class="hdr-nav-link <?= in_array($active_page, ['activities', 'college_activities', 'dept_activities', 'faculty_activities']) ? 'active' : '' ?>">
+                       class="hdr-nav-link <?= in_array($active_page, ['activities', 'college_activities', 'dept_activities', 'faculty_activities']) ? 'active is-active' : '' ?>">
                         Activities <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown hdr-dropdown-mega">

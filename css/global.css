@@ -415,13 +415,26 @@ h4 {
 
 .hdr-nav-link:hover::after,
 .hdr-nav-link:active::after,
-.hdr-nav-link.is-active::after {
-    width: calc(100% - 36px);
+.hdr-nav-link.is-active::after,
+.hdr-nav-link.active::after,
+.hdr-nav-item.has-dropdown:has(.hdr-dd-link.is-active) > .hdr-nav-link::after,
+.hdr-nav-item.has-dropdown:has(.hdr-dd-link.active) > .hdr-nav-link::after {
+    width: calc(100% - 36px) !important;
 }
 
-.hdr-nav-link.is-active {
-    color: #009dff;
+.hdr-nav-link.is-active,
+.hdr-nav-link.active,
+.hdr-nav-item.has-dropdown:has(.hdr-dd-link.is-active) > .hdr-nav-link,
+.hdr-nav-item.has-dropdown:has(.hdr-dd-link.active) > .hdr-nav-link {
+    color: #009dff !important;
     font-weight: 600;
+}
+
+.hdr-nav-link.is-active .hdr-arrow,
+.hdr-nav-link.active .hdr-arrow,
+.hdr-nav-item.has-dropdown:has(.hdr-dd-link.is-active) > .hdr-nav-link .hdr-arrow,
+.hdr-nav-item.has-dropdown:has(.hdr-dd-link.active) > .hdr-nav-link .hdr-arrow {
+    color: #009dff !important;
 }
 
 /* Desktop dropdown navigation */
