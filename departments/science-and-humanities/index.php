@@ -30,7 +30,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
             <div class="dept-subnav-wrapper">
                 <ul class="dept-subnav-list" role="tablist">
                     <li class="dept-subnav-item active">
-                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About Department</button>
+                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About</button>
                     </li>
                     <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="faculty" role="tab" aria-selected="false">Faculty</button>
@@ -39,16 +39,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <button type="button" class="dept-subnav-link" data-tab="activities" role="tab" aria-selected="false">Activities</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities</button>
-                    </li>
-                    <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="advisory-board" role="tab" aria-selected="false">Advisory Board</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="newsletters" role="tab" aria-selected="false">Newsletters</button>
                     </li>
                 </ul>
             </div>
@@ -159,23 +150,15 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Tab: Faculty Directory (Dynamic from Admin Panel) -->
-            <?php include __DIR__ . '/../includes/faculty-tab.php'; ?>
-
-            <!-- Tab: Activities & Events (Dynamic from Admin Panel) -->
-            <?php include __DIR__ . '/../includes/activities-tab.php'; ?>
-
-            <!-- Tab 2: Laboratory facilities -->
-            <section class="dept-tab-pane" id="tab-facilities">
-                <div class="dept-section-header">
+                <!-- Laboratory Facilities (Language & Physics) -->
+                <div class="dept-section-header" style="margin-top: 56px;">
                     <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
                     <h2>Laboratories &amp; Facilities</h2>
                     <p>Located in the main building, well equipped with standard experimental setups and multimedia learning resources.</p>
                 </div>
 
-                <!-- Laboratory Photo Showcase (Concise 1-line descriptions) -->
+                <!-- Laboratory Photo Showcase -->
                 <div class="dept-labs-showcase">
                     <!-- Lab 1: Language Lab -->
                     <div class="dept-lab-card">
@@ -206,14 +189,8 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     </div>
                 </div>
 
-                <!-- Key Department Facilities (Crisp 1-liners) -->
-                <div class="dept-section-header" style="margin-top: 56px;">
-                    <span class="dept-section-kicker">KEY ASSETS</span>
-                    <h2>Department Facilities</h2>
-                    <p>Modern experimental equipment, audio-visual classrooms, and academic resources.</p>
-                </div>
-
-                <div class="dept-facilities-grid">
+                <!-- Key Department Facilities -->
+                <div class="dept-facilities-grid" style="margin-top: 32px;">
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-language"></i></div>
                         <div class="dept-facility-info">
@@ -232,14 +209,14 @@ include_once __DIR__ . '/../includes/department-seo.php';
                 </div>
             </section>
 
+            <!-- Tab: Faculty Directory (Dynamic from Admin Panel) -->
+            <?php include __DIR__ . '/../includes/faculty-tab.php'; ?>
+
+            <!-- Tab: Activities & Events (Dynamic from Admin Panel) -->
+            <?php include __DIR__ . '/../includes/activities-tab.php'; ?>
+
             <!-- Tab: Publications (Dynamic from Admin Panel) -->
             <?php include __DIR__ . '/../includes/publications-tab.php'; ?>
-
-            <!-- Tab: Advisory Board (Dynamic from Admin Panel) -->
-            <?php include __DIR__ . '/../includes/advisory-board-tab.php'; ?>
-
-            <!-- Tab: Newsletters (Dynamic from Admin Panel) -->
-            <?php include __DIR__ . '/../includes/newsletters-tab.php'; ?>
 
         </div>
     </main>

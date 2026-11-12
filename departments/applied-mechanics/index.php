@@ -30,7 +30,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
             <div class="dept-subnav-wrapper">
                 <ul class="dept-subnav-list" role="tablist">
                     <li class="dept-subnav-item active">
-                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About Department</button>
+                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About</button>
                     </li>
                     <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="faculty" role="tab" aria-selected="false">Faculty</button>
