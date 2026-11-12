@@ -181,11 +181,6 @@ require_once __DIR__ . '/includes/header.php';
                                 <span>View Details</span>
                                 <i class="fas fa-arrow-right"></i>
                             </button>
-                            <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
-                                <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-link-ext">
-                                    <i class="fas fa-external-link-alt"></i> Report
-                                </a>
-                            <?php endif; ?>
                         </div>
                     </div>
                 </article>
