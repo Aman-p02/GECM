@@ -149,46 +149,14 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     </div>
                 </div>
 
-                <!-- Laboratory Facilities (Language & Physics) -->
+                <!-- Department Facilities -->
                 <div class="dept-section-header" style="margin-top: 56px;">
-                    <span class="dept-section-kicker">EXPERIMENTAL INFRASTRUCTURE</span>
-                    <h2>Laboratories &amp; Facilities</h2>
-                    <p>Located in the main building, well equipped with standard experimental setups and multimedia learning resources.</p>
+                    <span class="dept-section-kicker">KEY INFRASTRUCTURE</span>
+                    <h2>Department Facilities</h2>
+                    <p>Core laboratory facilities supporting foundational learning and experimental practice.</p>
                 </div>
 
-                <!-- Laboratory Photo Showcase -->
-                <div class="dept-labs-showcase">
-                    <!-- Lab 1: Language Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_language.jpg" alt="Language Laboratory" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Main Building</span>
-                            <h3 class="dept-lab-title">Language Laboratory</h3>
-                            <p class="dept-lab-desc">
-                                Computerized audio-visual speech booths and multimedia English language learning software.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 2: Physics Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_physics.jpg" alt="Physics Laboratory" loading="lazy" onerror="this.src='../../images/slider/default.jpg'">
-                        </div>
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">Main Building</span>
-                            <h3 class="dept-lab-title">Physics Laboratory</h3>
-                            <p class="dept-lab-desc">
-                                Hall effect setups, four-probe resistivity meters, ultrasonic velocity kits, and B-H curve tracers.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Key Department Facilities -->
-                <div class="dept-facilities-grid" style="margin-top: 32px;">
+                <div class="dept-facilities-grid" style="margin-top: 24px;">
                     <div class="dept-facility-item">
                         <div class="dept-facility-icon"><i class="fas fa-language"></i></div>
                         <div class="dept-facility-info">

@@ -11,7 +11,6 @@ function initDepartment() {
         '.dept-section-header',
         '.dept-stat-item',
         '.dept-quote-callout',
-        '.dept-lab-card',
         '.dept-avenue-card',
         '.dept-facility-item',
         '.dept-citation-item'
@@ -37,7 +36,6 @@ function initDepartment() {
         if (!container) return;
 
         const gridSelectors = [
-            '.dept-labs-showcase',
             '.dept-avenues-grid',
             '.dept-facilities-grid',
             '.dept-citations-list',
