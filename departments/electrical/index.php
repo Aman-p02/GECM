@@ -94,8 +94,8 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             <span class="dept-stat-label">ANNUAL APPROVED INTAKE</span>
                         </div>
                         <div class="dept-stat-item">
-                            <span class="dept-stat-num">8</span>
-                            <span class="dept-stat-label">SPECIALIZED LABS</span>
+                            <span class="dept-stat-num">5</span>
+                            <span class="dept-stat-label">MAJOR LABS</span>
                         </div>
                         <div class="dept-stat-item">
                             <span class="dept-stat-num">100%</span>
@@ -287,7 +287,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">INFRASTRUCTURE &amp; PRACTICAL RIGOR</span>
                     <h2>Department Laboratories</h2>
-                    <p>8 well-equipped laboratories offering hands-on experimental facilities across electrical machines, power systems, high voltage testing, and instrumentation.</p>
+                    <p>5 well-equipped major laboratories offering hands-on experimental facilities across electrical machines, measurement, high voltage testing, basic electrical, and embedded systems.</p>
                 </div>
 
                 <div class="dept-labs-showcase">
@@ -360,79 +360,110 @@ include_once __DIR__ . '/../includes/department-seo.php';
                             </p>
                         </div>
                     </div>
-
-                    <!-- Lab 6: Power Electronics & Drives Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">LAB 06 &bull; BUILDING NO. 4</span>
-                            <h3 class="dept-lab-title">Power Electronics &amp; Drives Lab</h3>
-                            <p class="dept-lab-desc">
-                                Comprehensive trainer modules for thyristor converters, IGBT/MOSFET inverters, chopper circuits, AC/DC motor speed control drives, and digital storage oscilloscopes for power waveform analysis.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 7: Power System Simulation Lab -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">LAB 07 &bull; BUILDING NO. 4</span>
-                            <h3 class="dept-lab-title">Power System Simulation Lab</h3>
-                            <p class="dept-lab-desc">
-                                High-performance computing workstations running MATLAB/Simulink and power system CAD tools for load flow studies, symmetrical/unsymmetrical fault analysis, transmission line parameter evaluation, and stability simulations.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Lab 8: Department Computer Centre -->
-                    <div class="dept-lab-card">
-                        <div class="dept-lab-details">
-                            <span class="dept-lab-room">CENTRE 08 &bull; BUILDING NO. 4</span>
-                            <h3 class="dept-lab-title">Department Computer Centre</h3>
-                            <p class="dept-lab-desc">
-                                Centralised computing lab equipped with high-speed internet connectivity, online GTU e-learning resources, technical paper writing tools, and programming environments for student academic project work.
-                            </p>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Key Department Facilities (Below Laboratory Showcase) -->
+                <!-- Department Facilities (All 12 Facilities from Portal) -->
                 <div class="dept-section-block" style="margin-top: 56px;">
                     <div class="dept-section-header">
                         <span class="dept-section-kicker">CENTRAL RESOURCES &amp; INFRASTRUCTURE</span>
-                        <h2>Key Department Facilities</h2>
-                        <p>Specialized institutional facilities supporting comprehensive academic, project, and campus electrical operations.</p>
+                        <h2>Department Facilities</h2>
+                        <p>Specialized institutional facilities and departmental laboratories supporting comprehensive academic and research operations.</p>
                     </div>
 
                     <div class="dept-facilities-grid">
                         <div class="dept-facility-item">
-                            <div class="dept-facility-icon"><i class="fas fa-charging-station"></i></div>
+                            <div class="dept-facility-icon"><i class="fas fa-bolt"></i></div>
                             <div class="dept-facility-info">
-                                <h4>Campus Electrical Service &amp; Maintenance Cell</h4>
-                                <p>Dedicated maintenance wing responsible for the distribution, operation, and maintenance of the institute's power infrastructure.</p>
+                                <h4>Basic Electrical Lab</h4>
+                                <p>Foundational circuit theory benches, electrical wiring setups, and AC/DC network verification panels.</p>
                             </div>
                         </div>
 
                         <div class="dept-facility-item">
-                            <div class="dept-facility-icon"><i class="fas fa-solar-panel"></i></div>
+                            <div class="dept-facility-icon"><i class="fas fa-memory"></i></div>
                             <div class="dept-facility-info">
-                                <h4>Rooftop Grid-Connected Solar Plant</h4>
-                                <p>Operational grid-tied rooftop solar power generation facility on campus, serving as both clean energy and live experimental demonstration.</p>
+                                <h4>Microprocessor Lab</h4>
+                                <p>8085 / 8086 microprocessor trainer boards, ADC/DAC peripherals, stepper motor, and traffic light interface kits.</p>
                             </div>
                         </div>
 
                         <div class="dept-facility-item">
-                            <div class="dept-facility-icon"><i class="fas fa-book-reader"></i></div>
+                            <div class="dept-facility-icon"><i class="fas fa-cogs"></i></div>
                             <div class="dept-facility-info">
-                                <h4>Department Library &amp; Reading Room</h4>
-                                <p>Curated collection of standard textbooks, reference handbooks in power systems, electrical machines, and GTU syllabus guides.</p>
+                                <h4>Electrical Machine Lab</h4>
+                                <p>Operational testing benches for DC motors, generators, single &amp; 3-phase transformers, and induction machines.</p>
+                            </div>
+                        </div>
+
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Switchgear and Protection Lab</h4>
+                                <p>Electromagnetic and numerical overcurrent, earth fault, differential relays, and circuit breaker testing.</p>
+                            </div>
+                        </div>
+
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Electrical Measurement Lab</h4>
+                                <p>Precision calibration of electrical measuring instruments, energy meters, wattmeters, and bridge circuits.</p>
+                            </div>
+                        </div>
+
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-plug"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Basic/Analog Electronics</h4>
+                                <p>Diode characteristics, BJT / FET amplifier circuits, operational amplifiers, and regulated power supply experiments.</p>
+                            </div>
+                        </div>
+
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-microchip"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Instrumentation Lab</h4>
+                                <p>Modern transducers, sensors, LVDT, thermocouple, RTD setups, and signal conditioning equipment.</p>
                             </div>
                         </div>
 
                         <div class="dept-facility-item">
                             <div class="dept-facility-icon"><i class="fas fa-desktop"></i></div>
                             <div class="dept-facility-info">
-                                <h4>Smart Seminar &amp; Interactive Classroom</h4>
-                                <p>Multimedia LCD projector equipped smart hall for technical symposiums, expert webinars, and student project presentations.</p>
+                                <h4>Power Computation Lab</h4>
+                                <p>MATLAB/Simulink computing workstations for load flow analysis, symmetrical fault studies, and stability simulations.</p>
+                            </div>
+                        </div>
+
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-wave-square"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Digital Electronics Lab</h4>
+                                <p>Logic gates, sequential &amp; combinational digital circuits, multiplexers, and flip-flop trainer kits.</p>
+                            </div>
+                        </div>
+
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-charging-station"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>High Voltage Lab</h4>
+                                <p>Impulse voltage generation, dielectric breakdown testing of transformer oil, and sphere gap high voltage measurements.</p>
+                            </div>
+                        </div>
+
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-network-wired"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>PLS and DSP Lab</h4>
+                                <p>Programmable logic controller (PLC) automation stations, ladder logic consoles, and DSP processor benches.</p>
+                            </div>
+                        </div>
+
+                        <div class="dept-facility-item">
+                            <div class="dept-facility-icon"><i class="fas fa-sliders-h"></i></div>
+                            <div class="dept-facility-info">
+                                <h4>Control Lab</h4>
+                                <p>Feedback control systems, DC/AC servomotors, synchro transmitter-receiver pairs, and PID controller setups.</p>
                             </div>
                         </div>
                     </div>
