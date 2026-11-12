@@ -46,7 +46,7 @@ $deptName = $deptLabels[$faculty['dept_code']] ?? $faculty['dept_code'];
         <!-- Sidebar Navigation -->
         <aside class="sidebar" id="facultySidebar">
             <div class="sidebar-header">
-                <img src="../assets/images/logo.png" alt="GEC Modasa">
+                <img src="../logos/logo.png" alt="GEC Modasa">
                 <div class="title-group">
                     <h2>GEC Modasa</h2>
                     <span>Faculty Portal</span>

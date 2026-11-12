@@ -1,6 +1,6 @@
 <?php
 /**
- * Faculty Login Portal
+ * Faculty Login Portal - Matches Main Admin Login Theme
  */
 session_start();
 require_once __DIR__ . '/../includes/db.php';
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (!$faculty) {
                     $error = 'No faculty found with this Username or Email.';
                 } elseif (empty($faculty['is_registered']) || empty($faculty['password_hash'])) {
-                    $error = 'Your profile is not registered yet. Please click on Register first.';
+                    $error = 'Your profile is not registered yet. Please click on Register below first.';
                 } elseif (empty($faculty['is_active'])) {
                     $error = 'Your faculty account is currently marked inactive. Please contact the administrator.';
                 } elseif (!password_verify($password, $faculty['password_hash'])) {
@@ -66,57 +66,68 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faculty Login : GEC Modasa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/fac-admin.css">
 </head>
-<body class="auth-wrapper">
+<body class="fac-auth-body">
 
-    <div class="auth-card">
-        <div class="auth-header">
-            <img src="../assets/images/logo.png" alt="GEC Modasa Logo">
-            <h1>Faculty Login Portal</h1>
-            <p>Log in to manage your public academic portfolio</p>
-        </div>
-
-        <?php if (!empty($flash)): ?>
-            <div class="alert alert-<?= htmlspecialchars($flash['type']) ?>">
-                <i class="fa-solid fa-circle-info"></i>
-                <span><?= htmlspecialchars($flash['message']) ?></span>
-            </div>
-        <?php endif; ?>
-
-        <?php if (!empty($error)): ?>
-            <div class="alert alert-danger">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span><?= htmlspecialchars($error) ?></span>
-            </div>
-        <?php endif; ?>
-
-        <form method="POST" action="login.php">
-            <div class="form-group">
-                <label class="form-label" for="identifier">
-                    Username or Registered Email <span class="required">*</span>
-                </label>
-                <input type="text" name="identifier" id="identifier" class="form-control" placeholder="Enter username or email address" value="<?= htmlspecialchars($_POST['identifier'] ?? '') ?>" required autofocus autocomplete="username">
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="brand-logo-frame">
+                    <img src="../logos/logo.png" alt="GEC Modasa">
+                </div>
+                <h1 class="login-title">Faculty Portal</h1>
+                <p class="login-subtitle">Government Engineering College Modasa</p>
             </div>
 
-            <div class="form-group">
-                <label class="form-label" for="password">
-                    Password <span class="required">*</span>
-                </label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
-            </div>
+            <?php if (!empty($flash)): ?>
+                <div class="login-alert login-alert-success">
+                    <i class="fas fa-check-circle"></i>
+                    <span><?= htmlspecialchars($flash['message']) ?></span>
+                </div>
+            <?php endif; ?>
 
-            <button type="submit" class="btn btn-navy btn-block" style="margin-top: 24px;">
-                <i class="fa-solid fa-right-to-bracket"></i> Sign In to Faculty Portal
-            </button>
-        </form>
+            <?php if (!empty($error)): ?>
+                <div class="login-alert">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span><?= htmlspecialchars($error) ?></span>
+                </div>
+            <?php endif; ?>
 
-        <div class="auth-footer">
-            New here or first time setting up? <a href="register.php">Register your account</a>
-            <div style="margin-top: 12px;">
-                <a href="../index.php" style="color: var(--text-muted); font-weight: normal; font-size: 12px;">
-                    <i class="fa-solid fa-arrow-left"></i> Back to GEC Modasa Website
+            <form method="POST" action="login.php" autocomplete="off">
+                <div class="form-field">
+                    <label class="form-label" for="identifier">Username or Official Email</label>
+                    <div class="input-group">
+                        <i class="fas fa-user field-icon"></i>
+                        <input type="text" id="identifier" name="identifier" class="form-input" placeholder="Enter username or email"
+                            value="<?= htmlspecialchars($_POST['identifier'] ?? '') ?>" required autofocus>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label class="form-label" for="password">Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock field-icon"></i>
+                        <input type="password" id="password" name="password" class="form-input"
+                            placeholder="Enter password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-sign-in-alt"></i> Sign In to Faculty Portal
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <div>
+                    New faculty member? <a href="register.php">Register your account</a>
+                </div>
+                <a href="../index.php" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to GEC Modasa Website
                 </a>
             </div>
         </div>
@@ -124,4 +135,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 </html>
-

@@ -1,6 +1,6 @@
 <?php
 /**
- * Faculty Registration Portal
+ * Faculty Registration Portal - Matches Main Admin Theme
  */
 session_start();
 require_once __DIR__ . '/../includes/db.php';
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($faculty_id <= 0) {
         $error = 'Please select your faculty profile from the list.';
     } elseif (empty($username) || strlen($username) < 4) {
-        $error = 'Username must be at least 4 characters long and contain only letters, numbers, or underscores.';
+        $error = 'Username must be at least 4 characters long.';
     } elseif (!preg_match('/^[a-zA-Z0-9_.-]+$/', $username)) {
         $error = 'Username can only contain alphanumeric characters, dots, underscores or dashes.';
     } elseif (strlen($password) < 6) {
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (!$faculty) {
                     $error = 'Selected faculty profile does not exist in this department.';
                 } elseif (!empty($faculty['is_registered'])) {
-                    $error = 'This profile is already registered. Please go to Login or contact the site administrator if you forgot credentials.';
+                    $error = 'This profile is already registered. Please go to Login or contact the site administrator.';
                 } else {
                     // Check if username is already taken by anyone
                     $userCheck = $pdo->prepare("SELECT id FROM faculties WHERE username = ? AND id != ?");
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if ($userCheck->fetch()) {
                         $error = 'This username is already taken. Please choose another username.';
                     } else {
-                        // All good: Hash password and update record
+                        // Hash password and update record
                         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
                         $updateStmt = $pdo->prepare("UPDATE faculties SET username = ?, password_hash = ?, is_registered = 1, updated_at = NOW() WHERE id = ?");
                         $updateStmt->execute([$username, $passwordHash, $faculty_id]);
@@ -97,91 +97,108 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Portal Registration : GEC Modasa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Faculty Registration : GEC Modasa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/fac-admin.css">
 </head>
-<body class="auth-wrapper">
+<body class="fac-auth-body">
 
-    <div class="auth-card">
-        <div class="auth-header">
-            <img src="../assets/images/logo.png" alt="GEC Modasa Logo">
-            <h1>Faculty Self-Service Portal</h1>
-            <p>Register your faculty account to manage your profile</p>
-        </div>
-
-        <?php if (!empty($error)): ?>
-            <div class="alert alert-danger">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span><?= htmlspecialchars($error) ?></span>
-            </div>
-        <?php endif; ?>
-
-        <?php if (!empty($success)): ?>
-            <div class="alert alert-success">
-                <i class="fa-solid fa-circle-check"></i>
-                <span><?= htmlspecialchars($success) ?></span>
-            </div>
-        <?php endif; ?>
-
-        <form method="POST" action="register.php" id="registrationForm">
-            <div class="form-group">
-                <label class="form-label" for="dept_code">
-                    1. Select Your Department <span class="required">*</span>
-                </label>
-                <select name="dept_code" id="dept_code" class="form-control" required>
-                    <option value="">-- Choose Department --</option>
-                    <?php foreach ($departments as $code => $title): ?>
-                        <option value="<?= htmlspecialchars($code) ?>" <?= (isset($_POST['dept_code']) && $_POST['dept_code'] === $code) ? 'selected' : '' ?>>
-                            <?= htmlspecialchars($title) ?> (<?= htmlspecialchars($code) ?>)
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+    <div class="login-wrapper wide-form">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="brand-logo-frame">
+                    <img src="../logos/logo.png" alt="GEC Modasa">
+                </div>
+                <h1 class="login-title">Faculty Registration</h1>
+                <p class="login-subtitle">Create account to manage your academic profile</p>
             </div>
 
-            <div class="form-group">
-                <label class="form-label" for="faculty_id">
-                    2. Select Your Name (Faculty Profile) <span class="required">*</span>
-                </label>
-                <select name="faculty_id" id="faculty_id" class="form-control" required disabled>
-                    <option value="">-- First choose a department above --</option>
-                </select>
-                <small id="fac_loading_text" style="display:none; color: var(--accent-orange); font-size:12px; margin-top:4px;">
-                    <i class="fa-solid fa-spinner fa-spin"></i> Loading faculties for department...
-                </small>
-            </div>
+            <?php if (!empty($error)): ?>
+                <div class="login-alert">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span><?= htmlspecialchars($error) ?></span>
+                </div>
+            <?php endif; ?>
 
-            <div class="form-group">
-                <label class="form-label" for="username">
-                    3. Choose a Username <span class="required">*</span>
-                </label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="e.g. mb_chavda or chavda_gec" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" required autocomplete="off">
-            </div>
+            <form method="POST" action="register.php" id="registrationForm" autocomplete="off">
+                <div class="form-field">
+                    <label class="form-label" for="dept_code">
+                        1. Select Department <span class="required">*</span>
+                    </label>
+                    <div class="input-group">
+                        <i class="fas fa-building-columns field-icon"></i>
+                        <select name="dept_code" id="dept_code" class="form-input" required>
+                            <option value="">-- Choose Department --</option>
+                            <?php foreach ($departments as $code => $title): ?>
+                                <option value="<?= htmlspecialchars($code) ?>" <?= (isset($_POST['dept_code']) && $_POST['dept_code'] === $code) ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($title) ?> (<?= htmlspecialchars($code) ?>)
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
 
-            <div class="form-group">
-                <label class="form-label" for="password">
-                    4. Set Password <span class="required">*</span>
-                </label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Minimum 6 characters" required>
-            </div>
+                <div class="form-field">
+                    <label class="form-label" for="faculty_id">
+                        2. Select Faculty Profile <span class="required">*</span>
+                    </label>
+                    <div class="input-group">
+                        <i class="fas fa-user-tie field-icon"></i>
+                        <select name="faculty_id" id="faculty_id" class="form-input" required disabled>
+                            <option value="">-- First choose a department above --</option>
+                        </select>
+                    </div>
+                    <small id="fac_loading_text" style="display:none; color: #1e88e5; font-size:12px; margin-top:4px;">
+                        <i class="fas fa-spinner fa-spin"></i> Loading faculties for selected department...
+                    </small>
+                </div>
 
-            <div class="form-group">
-                <label class="form-label" for="confirm_password">
-                    5. Confirm Password <span class="required">*</span>
-                </label>
-                <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Retype password" required>
-            </div>
+                <div class="form-field">
+                    <label class="form-label" for="username">
+                        3. Choose Username <span class="required">*</span>
+                    </label>
+                    <div class="input-group">
+                        <i class="fas fa-at field-icon"></i>
+                        <input type="text" name="username" id="username" class="form-input" placeholder="e.g. mb_chavda or chavda_gec" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" required>
+                    </div>
+                </div>
 
-            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 24px;">
-                <i class="fa-solid fa-user-plus"></i> Complete Registration & Log In
-            </button>
-        </form>
+                <div class="grid-2">
+                    <div class="form-field">
+                        <label class="form-label" for="password">
+                            4. Set Password <span class="required">*</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-lock field-icon"></i>
+                            <input type="password" name="password" id="password" class="form-input" placeholder="Min 6 characters" required>
+                        </div>
+                    </div>
 
-        <div class="auth-footer">
-            Already registered? <a href="login.php">Click here to Login</a>
-            <div style="margin-top: 10px;">
-                <a href="../index.php" style="color: var(--text-muted); font-weight: normal; font-size: 12px;">
-                    <i class="fa-solid fa-arrow-left"></i> Back to GEC Modasa Website
+                    <div class="form-field">
+                        <label class="form-label" for="confirm_password">
+                            5. Confirm Password <span class="required">*</span>
+                        </label>
+                        <div class="input-group">
+                            <i class="fas fa-shield-halved field-icon"></i>
+                            <input type="password" name="confirm_password" id="confirm_password" class="form-input" placeholder="Retype password" required>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-user-plus"></i> Complete Registration & Enter
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <div>
+                    Already registered? <a href="login.php">Sign In to your account</a>
+                </div>
+                <a href="../index.php" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to GEC Modasa Website
                 </a>
             </div>
         </div>
@@ -237,7 +254,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             loadFaculties(this.value, null);
         });
 
-        // Trigger on load if dept is preselected (e.g. after POST validation error)
         if (deptSelect.value) {
             loadFaculties(deptSelect.value, prevSelectedFacId);
         }
@@ -245,4 +261,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
 </body>
 </html>
-
