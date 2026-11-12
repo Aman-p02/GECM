@@ -165,6 +165,24 @@ $page_title = $page_title ?? 'Dashboard Overview';
                         <span>Admin Users</span>
                     </a>
                 </li>
+<?php
+// Check for pending dept admin registration requests
+$pendingDeptCount = 0;
+$headerPdo = getDBConnection();
+if ($headerPdo) {
+    try {
+        $pendingDeptCount = (int)$headerPdo->query("SELECT COUNT(*) FROM dept_admins WHERE status = 'pending'")->fetchColumn();
+    } catch (Exception $e) {}
+}
+?>
+                <li class="menu-item <?= ($current_page === 'dept-approvals') ? 'active' : '' ?>">
+                    <a href="dept-approvals.php" class="menu-link" style="display:flex; justify-content:space-between; align-items:center;">
+                        <span>Dept Admin Requests</span>
+                        <?php if ($pendingDeptCount > 0): ?>
+                            <span style="background:#ef4444; color:#fff; font-size:11px; font-weight:700; padding:2px 7px; border-radius:10px;"><?= $pendingDeptCount ?></span>
+                        <?php endif; ?>
+                    </a>
+                </li>
                 <li class="menu-item">
                     <a href="../index.php" target="_blank" class="menu-link">
                         <span>View Website</span>
@@ -185,9 +203,14 @@ $page_title = $page_title ?? 'Dashboard Overview';
                 </div>
 
                 <div class="topbar-right">
-                    <div class="topbar-bell" title="Notifications">
+                    <a href="dept-approvals.php" class="topbar-bell" title="<?= ($pendingDeptCount > 0) ? $pendingDeptCount . ' Pending Dept Admin Requests' : 'Notifications' ?>" style="text-decoration:none; position:relative; display:inline-flex; align-items:center; justify-content:center;">
                         <i class="fas fa-bell"></i>
-                    </div>
+                        <?php if ($pendingDeptCount > 0): ?>
+                            <span style="position:absolute; top:-4px; right:-4px; background:#ef4444; color:#fff; font-size:10px; font-weight:700; width:17px; height:17px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:2px solid #fff;">
+                                <?= $pendingDeptCount ?>
+                            </span>
+                        <?php endif; ?>
+                    </a>
                     <div class="topbar-user">
                         Hi, <?= htmlspecialchars($admin['username']) ?>
                     </div>
