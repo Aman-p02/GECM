@@ -10,3 +10,4 @@ unset($_SESSION['dept_admin_dept']);
 
 header('Location: login.php');
 exit;
+

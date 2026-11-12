@@ -177,3 +177,4 @@ $flash = getDeptFlash();
                         <span><?= htmlspecialchars($flash['message']) ?></span>
                     </div>
                 <?php endif; ?>
+

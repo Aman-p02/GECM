@@ -7,7 +7,7 @@ $pageHeading = 'Activities & Events';
 $activeTab = 'activities';
 
 require_once __DIR__ . '/includes/header.php';
-require_once __DIR__ . '/../../admin/includes/upload_helper.php';
+require_once __DIR__ . '/../admin/includes/upload_helper.php';
 
 $pdo = getDBConnection();
 $error = '';
@@ -202,3 +202,4 @@ $activities = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
+

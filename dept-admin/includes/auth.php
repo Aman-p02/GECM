@@ -46,3 +46,4 @@ function getDeptFlash() {
     }
     return null;
 }
+
