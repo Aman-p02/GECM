@@ -39,16 +39,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         <button type="button" class="dept-subnav-link" data-tab="activities" role="tab" aria-selected="false">Activities</button>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="facilities" role="tab" aria-selected="false">Facilities</button>
-                    </li>
-                    <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="publications" role="tab" aria-selected="false">Publications</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="advisory-board" role="tab" aria-selected="false">Advisory Board</button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="newsletters" role="tab" aria-selected="false">Newsletters</button>
                     </li>
                 </ul>
             </div>
