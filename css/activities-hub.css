@@ -4,7 +4,7 @@
    -------------------------------------------------------------------------- */
 
 .act-hub-page {
-    background-color: #f8fafc;
+    background-color: #ffffff;
     color: #1e293b;
     min-height: 80vh;
     padding-bottom: 90px;
@@ -12,9 +12,9 @@
 
 /* Hero Section */
 .act-hero {
-    background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
-    border-bottom: 1px solid #e2e8f0;
-    padding: 56px 0 46px;
+    background: #ffffff;
+    border-bottom: none;
+    padding: 56px 0 18px;
     position: relative;
 }
 
