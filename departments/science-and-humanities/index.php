@@ -148,31 +148,6 @@ include_once __DIR__ . '/../includes/department-seo.php';
                         </div>
                     </div>
                 </div>
-
-                <!-- Department Facilities -->
-                <div class="dept-section-header" style="margin-top: 56px;">
-                    <span class="dept-section-kicker">KEY INFRASTRUCTURE</span>
-                    <h2>Department Facilities</h2>
-                    <p>Core laboratory facilities supporting foundational learning and experimental practice.</p>
-                </div>
-
-                <div class="dept-facilities-grid" style="margin-top: 24px;">
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-language"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Language Laboratory</h4>
-                            <p>Audio-visual speech booths, interactive English software, and communication training modules.</p>
-                        </div>
-                    </div>
-
-                    <div class="dept-facility-item">
-                        <div class="dept-facility-icon"><i class="fas fa-atom"></i></div>
-                        <div class="dept-facility-info">
-                            <h4>Physics Laboratory</h4>
-                            <p>Hall effect apparatus, four-probe resistivity meters, ultrasonic velocity kits, and B-H curve tracers.</p>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <!-- Tab: Faculty Directory (Dynamic from Admin Panel) -->

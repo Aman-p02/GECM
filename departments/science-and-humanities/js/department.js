@@ -12,7 +12,6 @@ function initDepartment() {
         '.dept-stat-item',
         '.dept-quote-callout',
         '.dept-avenue-card',
-        '.dept-facility-item',
         '.dept-citation-item'
     ];
 
@@ -37,7 +36,6 @@ function initDepartment() {
 
         const gridSelectors = [
             '.dept-avenues-grid',
-            '.dept-facilities-grid',
             '.dept-citations-list',
             '.dept-stats-strip'
         ];
