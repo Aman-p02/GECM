@@ -1,6 +1,6 @@
 <?php
 /**
- * Department Admin - Newsletters Management (Strictly scoped to dept_code)
+ * Department Admin - Newsletters Management (Clean Main Admin UI with Modal)
  */
 $pageTitle = 'Department Newsletters';
 $pageHeading = 'Newsletters & Magazines';
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $deptSubdir = 'dept_newsletters/' . strtolower($deptCode);
         $upload = handlePdfUpload('pdf_file', $deptSubdir, null, $_POST['current_pdf'] ?? null);
         $pdf_file = $upload['success'] ? $upload['path'] : ($_POST['current_pdf'] ?? null);
-        $file_size = $upload['success'] ? ($upload['size'] ?? null) : ($_POST['current_size'] ?? null);
+        $file_size = $upload['success'] ? ($upload['file_size'] ?? null) : ($_POST['current_size'] ?? null);
 
         try {
             if ($submitId > 0) {
@@ -87,90 +87,39 @@ $newsletters = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <?php if (!empty($error)): ?>
-    <div class="alert alert-danger">
-        <i class="fas fa-exclamation-triangle"></i>
+    <div class="admin-alert admin-alert-danger">
         <span><?= htmlspecialchars($error) ?></span>
     </div>
 <?php endif; ?>
 
-<!-- Form Card -->
+<!-- Main Admin Card with Top Action Bar -->
 <div class="admin-card">
-    <div class="admin-card-header">
-        <h3>
-            <i class="fas fa-<?= $editRecord ? 'pen-to-square' : 'file-circle-plus' ?>"></i>
-            <?= $editRecord ? 'Edit Newsletter' : 'Publish Department Newsletter for ' . htmlspecialchars($deptName) ?>
-        </h3>
-        <?php if ($editRecord): ?>
-            <a href="newsletters.php" class="btn btn-outline btn-sm">Cancel Edit</a>
-        <?php endif; ?>
+    <div class="card-top">
+        <div>
+            <h2 class="card-title">Department Newsletters (<?= count($newsletters) ?>)</h2>
+        </div>
+        <div>
+            <button type="button" class="btn-add-new" onclick="openNewsletterModal()">
+                Add Newsletter
+            </button>
+        </div>
     </div>
 
-    <div class="admin-card-body">
-        <form method="POST" action="newsletters.php" enctype="multipart/form-data">
-            <input type="hidden" name="record_id" value="<?= htmlspecialchars($editRecord['id'] ?? 0) ?>">
-            <input type="hidden" name="current_pdf" value="<?= htmlspecialchars($editRecord['pdf_file'] ?? '') ?>">
-            <input type="hidden" name="current_size" value="<?= htmlspecialchars($editRecord['file_size'] ?? '') ?>">
-
-            <div class="grid-3">
-                <div class="form-group">
-                    <label class="form-label" for="title">Title <span class="required">*</span></label>
-                    <input type="text" name="title" id="title" class="form-control" placeholder="e.g. BytePulse" value="<?= htmlspecialchars($editRecord['title'] ?? '') ?>" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="volume_issue">Volume & Issue</label>
-                    <input type="text" name="volume_issue" id="volume_issue" class="form-control" placeholder="e.g. Vol 4, Issue 2" value="<?= htmlspecialchars($editRecord['volume_issue'] ?? '') ?>">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="issue_period">Issue Period</label>
-                    <input type="text" name="issue_period" id="issue_period" class="form-control" placeholder="e.g. Jan - Jun 2026" value="<?= htmlspecialchars($editRecord['issue_period'] ?? '') ?>">
-                </div>
-            </div>
-
-            <div class="grid-2">
-                <div class="form-group">
-                    <label class="form-label" for="pdf_file">Newsletter Document (PDF)</label>
-                    <input type="file" name="pdf_file" id="pdf_file" class="form-control" accept="application/pdf">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="display_order">Display Sort Order</label>
-                    <input type="number" name="display_order" id="display_order" class="form-control" value="<?= htmlspecialchars($editRecord['display_order'] ?? 0) ?>">
-                </div>
-            </div>
-
-            <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:15px;">
-                <button type="submit" class="btn btn-navy">
-                    <i class="fas fa-save"></i> <?= $editRecord ? 'Update Newsletter' : 'Publish Newsletter' ?>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- List Card -->
-<div class="admin-card">
-    <div class="admin-card-header">
-        <h3><i class="fas fa-list-check"></i> Published Newsletters (<?= count($newsletters) ?>)</h3>
-    </div>
-
-    <div class="data-table-wrapper">
+    <div class="table-responsive">
         <?php if (empty($newsletters)): ?>
-            <div class="empty-state">
-                <i class="fas fa-file-pdf"></i>
+            <div style="text-align: center; padding: 48px 20px; color: var(--admin-text-muted);">
                 <p>No newsletters published yet for this department.</p>
             </div>
         <?php else: ?>
-            <table class="data-table">
+            <table class="admin-table">
                 <thead>
                     <tr>
                         <th style="width: 50px;">#</th>
-                        <th>Title</th>
-                        <th>Volume / Issue</th>
-                        <th>Period</th>
-                        <th>PDF</th>
-                        <th style="width: 130px; text-align: right;">Actions</th>
+                        <th>Newsletter Title</th>
+                        <th style="width: 140px;">Volume / Issue</th>
+                        <th style="width: 140px;">Period</th>
+                        <th style="width: 120px;">PDF</th>
+                        <th style="width: 120px; text-align: right;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -182,20 +131,22 @@ $newsletters = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?= htmlspecialchars($nl['issue_period'] ?? '-') ?></td>
                             <td>
                                 <?php if (!empty($nl['pdf_file'])): ?>
-                                    <a href="../<?= htmlspecialchars(ltrim($nl['pdf_file'], '/')) ?>" target="_blank" style="color:#2563eb; text-decoration:none;">
-                                        <i class="fas fa-file-pdf"></i> View PDF
+                                    <a href="../<?= htmlspecialchars(ltrim($nl['pdf_file'], '/')) ?>" target="_blank" style="color:var(--admin-primary); font-weight:600;">
+                                        View PDF <?= !empty($nl['file_size']) ? '(' . htmlspecialchars($nl['file_size']) . ')' : '' ?>
                                     </a>
                                 <?php else: ?>
                                     -
                                 <?php endif; ?>
                             </td>
                             <td style="text-align: right;">
-                                <a href="newsletters.php?action=edit&edit_id=<?= (int)$nl['id'] ?>" class="btn btn-outline btn-sm" title="Edit">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="newsletters.php?action=delete&id=<?= (int)$nl['id'] ?>" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Delete this newsletter?');">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+                                <div class="table-actions" style="justify-content: flex-end;">
+                                    <a href="javascript:void(0);" onclick='editNewsletter(<?= json_encode($nl) ?>)' class="btn-table-action btn-edit" title="Edit">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <a href="newsletters.php?action=delete&id=<?= (int)$nl['id'] ?>" class="btn-table-action btn-delete" title="Delete" onclick="return confirm('Delete this newsletter?');">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -205,5 +156,95 @@ $newsletters = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<!-- ============================================================== -->
+<!-- MODAL: ADD / EDIT NEWSLETTER                                   -->
+<!-- ============================================================== -->
+<div class="modal-overlay" id="newsletterModal">
+    <div class="modal-dialog" style="max-width: 600px;">
+        <div class="modal-header">
+            <h3 class="modal-title" id="newsletterModalTitle">Publish Newsletter</h3>
+            <button type="button" class="btn-close-modal" onclick="closeNewsletterModal()">&times;</button>
+        </div>
+        <form action="newsletters.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="record_id" id="nl_record_id" value="0">
+            <input type="hidden" name="current_pdf" id="nl_current_pdf" value="">
+            <input type="hidden" name="current_size" id="nl_current_size" value="">
 
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="nl_title">Newsletter Title <span class="required">*</span></label>
+                    <input type="text" name="title" id="nl_title" class="form-control" placeholder="e.g. Nirman - Civil Engineering Newsletter" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="nl_volume">Volume & Issue</label>
+                        <input type="text" name="volume_issue" id="nl_volume" class="form-control" placeholder="e.g. Vol 3, Issue 1">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="nl_period">Period</label>
+                        <input type="text" name="issue_period" id="nl_period" class="form-control" placeholder="e.g. Jan - Jun 2026">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="nl_pdf">Newsletter Document (PDF) <span class="required">*</span></label>
+                    <input type="file" name="pdf_file" id="nl_pdf" class="form-control" accept="application/pdf">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-check">
+                        <input type="checkbox" name="is_active" id="nl_active" value="1" checked>
+                        <span>Display on public department website (Active)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeNewsletterModal()">Cancel</button>
+                <button type="submit" class="btn-add-new" id="nlSubmitBtn">Save Newsletter</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function openNewsletterModal() {
+    document.getElementById('newsletterModalTitle').textContent = 'Publish Newsletter';
+    document.getElementById('nlSubmitBtn').textContent = 'Save Newsletter';
+    document.getElementById('nl_record_id').value = '0';
+    document.getElementById('nl_current_pdf').value = '';
+    document.getElementById('nl_current_size').value = '';
+    document.getElementById('nl_title').value = '';
+    document.getElementById('nl_volume').value = '';
+    document.getElementById('nl_period').value = '';
+    document.getElementById('nl_pdf').value = '';
+    document.getElementById('nl_active').checked = true;
+    document.getElementById('newsletterModal').classList.add('active');
+}
+
+function editNewsletter(data) {
+    document.getElementById('newsletterModalTitle').textContent = 'Edit Newsletter';
+    document.getElementById('nlSubmitBtn').textContent = 'Update Newsletter';
+    document.getElementById('nl_record_id').value = data.id || '0';
+    document.getElementById('nl_current_pdf').value = data.pdf_file || '';
+    document.getElementById('nl_current_size').value = data.file_size || '';
+    document.getElementById('nl_title').value = data.title || '';
+    document.getElementById('nl_volume').value = data.volume_issue || '';
+    document.getElementById('nl_period').value = data.issue_period || '';
+    document.getElementById('nl_active').checked = (data.is_active == 1);
+    document.getElementById('newsletterModal').classList.add('active');
+}
+
+function closeNewsletterModal() {
+    document.getElementById('newsletterModal').classList.remove('active');
+}
+
+<?php if ($editRecord): ?>
+document.addEventListener('DOMContentLoaded', function() {
+    editNewsletter(<?= json_encode($editRecord) ?>);
+});
+<?php endif; ?>
+</script>
+
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

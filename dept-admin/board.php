@@ -1,9 +1,9 @@
 <?php
 /**
- * Department Admin - Advisory Board Management (Strictly scoped to dept_code)
+ * Department Admin - Advisory Board Management (Clean Main Admin UI with Modal)
  */
 $pageTitle = 'Industry Advisory Board';
-$pageHeading = 'Industry Advisory Board';
+$pageHeading = 'Advisory Board';
 $activeTab = 'board';
 
 require_once __DIR__ . '/includes/header.php';
@@ -20,7 +20,7 @@ if ($action === 'delete' && !empty($_GET['id'])) {
     try {
         $delStmt = $pdo->prepare("DELETE FROM department_advisory_board WHERE id = ? AND dept_code = ?");
         $delStmt->execute([$delId, $deptCode]);
-        setDeptFlash('success', 'Board member deleted successfully.');
+        setDeptFlash('success', 'Board entry deleted successfully.');
         header('Location: board.php');
         exit;
     } catch (Exception $e) {
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $is_active = isset($_POST['is_active']) ? 1 : 0;
 
     if (empty($title)) {
-        $error = 'Member Name / Title is required.';
+        $error = 'Title or Member Name is required.';
     } else {
         $deptSubdir = 'dept_board/' . strtolower($deptCode);
         $upload = handlePdfUpload('pdf_file', $deptSubdir, null, $_POST['current_pdf'] ?? null);
@@ -85,88 +85,39 @@ $boardEntries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <?php if (!empty($error)): ?>
-    <div class="alert alert-danger">
-        <i class="fas fa-exclamation-triangle"></i>
+    <div class="admin-alert admin-alert-danger">
         <span><?= htmlspecialchars($error) ?></span>
     </div>
 <?php endif; ?>
 
-<!-- Form Card -->
+<!-- Main Admin Card with Top Action Bar -->
 <div class="admin-card">
-    <div class="admin-card-header">
-        <h3>
-            <i class="fas fa-<?= $editRecord ? 'pen-to-square' : 'user-plus' ?>"></i>
-            <?= $editRecord ? 'Edit Advisory Board Entry' : 'Add Advisory Board Member / Document for ' . htmlspecialchars($deptName) ?>
-        </h3>
-        <?php if ($editRecord): ?>
-            <a href="board.php" class="btn btn-outline btn-sm">Cancel Edit</a>
-        <?php endif; ?>
+    <div class="card-top">
+        <div>
+            <h2 class="card-title">Industry Advisory Board (<?= count($boardEntries) ?>)</h2>
+        </div>
+        <div>
+            <button type="button" class="btn-add-new" onclick="openBoardModal()">
+                Add Board Entry
+            </button>
+        </div>
     </div>
 
-    <div class="admin-card-body">
-        <form method="POST" action="board.php" enctype="multipart/form-data">
-            <input type="hidden" name="record_id" value="<?= htmlspecialchars($editRecord['id'] ?? 0) ?>">
-            <input type="hidden" name="current_pdf" value="<?= htmlspecialchars($editRecord['pdf_file'] ?? '') ?>">
-
-            <div class="grid-2">
-                <div class="form-group">
-                    <label class="form-label" for="title">Title / Name of Member <span class="required">*</span></label>
-                    <input type="text" name="title" id="title" class="form-control" placeholder="e.g. Department Industry Advisory Board or Mr. Rajesh Shah" value="<?= htmlspecialchars($editRecord['title'] ?? '') ?>" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="academic_year">Academic Year / Term</label>
-                    <input type="text" name="academic_year" id="academic_year" class="form-control" placeholder="e.g. 2024-2025" value="<?= htmlspecialchars($editRecord['academic_year'] ?? '') ?>">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label" for="description">Role / Organization / Designation</label>
-                <textarea name="description" id="description" class="form-control" placeholder="e.g. Vice President, TCS Gandhinagar / Senior Research Scientist, ISRO"><?= htmlspecialchars($editRecord['description'] ?? '') ?></textarea>
-            </div>
-
-            <div class="grid-2">
-                <div class="form-group">
-                    <label class="form-label" for="pdf_file">Upload Minutes / Circular (PDF)</label>
-                    <input type="file" name="pdf_file" id="pdf_file" class="form-control" accept="application/pdf">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="display_order">Display Sort Order</label>
-                    <input type="number" name="display_order" id="display_order" class="form-control" value="<?= htmlspecialchars($editRecord['display_order'] ?? 0) ?>">
-                </div>
-            </div>
-
-            <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:15px;">
-                <button type="submit" class="btn btn-navy">
-                    <i class="fas fa-save"></i> <?= $editRecord ? 'Update Entry' : 'Save Entry' ?>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- List Card -->
-<div class="admin-card">
-    <div class="admin-card-header">
-        <h3><i class="fas fa-list-check"></i> Advisory Board Members / Documents (<?= count($boardEntries) ?>)</h3>
-    </div>
-
-    <div class="data-table-wrapper">
+    <div class="table-responsive">
         <?php if (empty($boardEntries)): ?>
-            <div class="empty-state">
-                <i class="fas fa-user-group"></i>
+            <div style="text-align: center; padding: 48px 20px; color: var(--admin-text-muted);">
                 <p>No advisory board entries added yet for this department.</p>
             </div>
         <?php else: ?>
-            <table class="data-table">
+            <table class="admin-table">
                 <thead>
                     <tr>
                         <th style="width: 50px;">#</th>
-                        <th>Name / Document Title</th>
-                        <th>Academic Year</th>
+                        <th>Member / Document Title</th>
+                        <th style="width: 140px;">Academic Year</th>
                         <th>Role / Organization</th>
-                        <th style="width: 130px; text-align: right;">Actions</th>
+                        <th style="width: 100px;">Minutes PDF</th>
+                        <th style="width: 120px; text-align: right;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -175,14 +126,25 @@ $boardEntries = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?= $idx + 1 ?></td>
                             <td><strong><?= htmlspecialchars($b['title']) ?></strong></td>
                             <td><?= htmlspecialchars($b['academic_year'] ?? '-') ?></td>
-                            <td style="color:#64748b;"><?= htmlspecialchars($b['description'] ?? '-') ?></td>
+                            <td><?= htmlspecialchars($b['description'] ?? '-') ?></td>
+                            <td>
+                                <?php if (!empty($b['pdf_file'])): ?>
+                                    <a href="../<?= htmlspecialchars(ltrim($b['pdf_file'], '/')) ?>" target="_blank" style="color:var(--admin-primary); font-weight:600;">
+                                        View PDF
+                                    </a>
+                                <?php else: ?>
+                                    -
+                                <?php endif; ?>
+                            </td>
                             <td style="text-align: right;">
-                                <a href="board.php?action=edit&edit_id=<?= (int)$b['id'] ?>" class="btn btn-outline btn-sm" title="Edit">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="board.php?action=delete&id=<?= (int)$b['id'] ?>" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Delete this entry?');">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+                                <div class="table-actions" style="justify-content: flex-end;">
+                                    <a href="javascript:void(0);" onclick='editBoard(<?= json_encode($b) ?>)' class="btn-table-action btn-edit" title="Edit">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <a href="board.php?action=delete&id=<?= (int)$b['id'] ?>" class="btn-table-action btn-delete" title="Delete" onclick="return confirm('Delete this entry?');">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -192,5 +154,92 @@ $boardEntries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<!-- ============================================================== -->
+<!-- MODAL: ADD / EDIT BOARD                                        -->
+<!-- ============================================================== -->
+<div class="modal-overlay" id="boardModal">
+    <div class="modal-dialog" style="max-width: 600px;">
+        <div class="modal-header">
+            <h3 class="modal-title" id="boardModalTitle">Add Advisory Board Entry</h3>
+            <button type="button" class="btn-close-modal" onclick="closeBoardModal()">&times;</button>
+        </div>
+        <form action="board.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="record_id" id="board_record_id" value="0">
+            <input type="hidden" name="current_pdf" id="board_current_pdf" value="">
 
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group" style="flex: 2;">
+                        <label class="form-label" for="board_title">Member Name or Document Title <span class="required">*</span></label>
+                        <input type="text" name="title" id="board_title" class="form-control" placeholder="e.g. Mr. Rajesh Shah / IAB Minutes" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label class="form-label" for="board_year">Academic Year</label>
+                        <input type="text" name="academic_year" id="board_year" class="form-control" placeholder="e.g. 2024-25">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="board_desc">Role / Organization / Designation</label>
+                    <textarea name="description" id="board_desc" class="form-control" rows="2" placeholder="e.g. Executive Engineer, R&B Division / Senior VP, L&T"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="board_pdf">Minutes / Circular (PDF Document)</label>
+                    <input type="file" name="pdf_file" id="board_pdf" class="form-control" accept="application/pdf">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-check">
+                        <input type="checkbox" name="is_active" id="board_active" value="1" checked>
+                        <span>Display on public department website (Active)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeBoardModal()">Cancel</button>
+                <button type="submit" class="btn-add-new" id="boardSubmitBtn">Save Entry</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function openBoardModal() {
+    document.getElementById('boardModalTitle').textContent = 'Add Advisory Board Entry';
+    document.getElementById('boardSubmitBtn').textContent = 'Save Entry';
+    document.getElementById('board_record_id').value = '0';
+    document.getElementById('board_current_pdf').value = '';
+    document.getElementById('board_title').value = '';
+    document.getElementById('board_year').value = '';
+    document.getElementById('board_desc').value = '';
+    document.getElementById('board_pdf').value = '';
+    document.getElementById('board_active').checked = true;
+    document.getElementById('boardModal').classList.add('active');
+}
+
+function editBoard(data) {
+    document.getElementById('boardModalTitle').textContent = 'Edit Board Entry';
+    document.getElementById('boardSubmitBtn').textContent = 'Update Entry';
+    document.getElementById('board_record_id').value = data.id || '0';
+    document.getElementById('board_current_pdf').value = data.pdf_file || '';
+    document.getElementById('board_title').value = data.title || '';
+    document.getElementById('board_year').value = data.academic_year || '';
+    document.getElementById('board_desc').value = data.description || '';
+    document.getElementById('board_active').checked = (data.is_active == 1);
+    document.getElementById('boardModal').classList.add('active');
+}
+
+function closeBoardModal() {
+    document.getElementById('boardModal').classList.remove('active');
+}
+
+<?php if ($editRecord): ?>
+document.addEventListener('DOMContentLoaded', function() {
+    editBoard(<?= json_encode($editRecord) ?>);
+});
+<?php endif; ?>
+</script>
+
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

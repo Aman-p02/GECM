@@ -1,6 +1,6 @@
 <?php
 /**
- * Department Admin - Activities & Events Management (Strictly scoped to dept_code)
+ * Department Admin - Activities & Events Management (Clean Main Admin UI with Modal)
  */
 $pageTitle = 'Department Activities';
 $pageHeading = 'Activities & Events';
@@ -89,93 +89,38 @@ $activities = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <?php if (!empty($error)): ?>
-    <div class="alert alert-danger">
-        <i class="fas fa-exclamation-triangle"></i>
+    <div class="admin-alert admin-alert-danger">
         <span><?= htmlspecialchars($error) ?></span>
     </div>
 <?php endif; ?>
 
-<!-- Form Card -->
+<!-- Main Admin Card with Top Action Bar -->
 <div class="admin-card">
-    <div class="admin-card-header">
-        <h3>
-            <i class="fas fa-<?= $editRecord ? 'pen-to-square' : 'calendar-plus' ?>"></i>
-            <?= $editRecord ? 'Edit Department Activity' : 'Post New Activity / Event to ' . htmlspecialchars($deptName) ?>
-        </h3>
-        <?php if ($editRecord): ?>
-            <a href="activities.php" class="btn btn-outline btn-sm">Cancel Edit</a>
-        <?php endif; ?>
+    <div class="card-top">
+        <div>
+            <h2 class="card-title">Department Activities (<?= count($activities) ?>)</h2>
+        </div>
+        <div>
+            <button type="button" class="btn-add-new" onclick="openActivityModal()">
+                Add Activity
+            </button>
+        </div>
     </div>
 
-    <div class="admin-card-body">
-        <form method="POST" action="activities.php" enctype="multipart/form-data">
-            <input type="hidden" name="record_id" value="<?= htmlspecialchars($editRecord['id'] ?? 0) ?>">
-            <input type="hidden" name="current_image" value="<?= htmlspecialchars($editRecord['image_url'] ?? '') ?>">
-
-            <div class="grid-2">
-                <div class="form-group">
-                    <label class="form-label" for="title">Activity / Event Title <span class="required">*</span></label>
-                    <input type="text" name="title" id="title" class="form-control" placeholder="e.g. National Level Hackathon 2026" value="<?= htmlspecialchars($editRecord['title'] ?? '') ?>" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="activity_date">Date of Event</label>
-                    <input type="date" name="activity_date" id="activity_date" class="form-control" value="<?= htmlspecialchars($editRecord['activity_date'] ?? '') ?>">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label" for="short_description">Short Summary</label>
-                <input type="text" name="short_description" id="short_description" class="form-control" placeholder="Brief 1-2 sentence overview for cards" value="<?= htmlspecialchars($editRecord['short_description'] ?? '') ?>">
-            </div>
-
-            <div class="form-group">
-                <label class="form-label" for="description">Full Details / Event Report</label>
-                <textarea name="description" id="description" class="form-control" placeholder="Detailed report, guest speakers, winners, etc."><?= htmlspecialchars($editRecord['description'] ?? '') ?></textarea>
-            </div>
-
-            <div class="grid-2">
-                <div class="form-group">
-                    <label class="form-label" for="image_file">Event Banner / Photograph</label>
-                    <input type="file" name="image_file" id="image_file" class="form-control" accept="image/*">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="external_url">External Link / Registration URL</label>
-                    <input type="url" name="external_url" id="external_url" class="form-control" placeholder="https://..." value="<?= htmlspecialchars($editRecord['external_url'] ?? '') ?>">
-                </div>
-            </div>
-
-            <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:15px;">
-                <button type="submit" class="btn btn-navy">
-                    <i class="fas fa-save"></i> <?= $editRecord ? 'Update Activity' : 'Publish Activity' ?>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- List Card -->
-<div class="admin-card">
-    <div class="admin-card-header">
-        <h3><i class="fas fa-list-check"></i> Published Activities (<?= count($activities) ?>)</h3>
-    </div>
-
-    <div class="data-table-wrapper">
+    <div class="table-responsive">
         <?php if (empty($activities)): ?>
-            <div class="empty-state">
-                <i class="fas fa-calendar-xmark"></i>
+            <div style="text-align: center; padding: 48px 20px; color: var(--admin-text-muted);">
                 <p>No activities published yet for this department.</p>
             </div>
         <?php else: ?>
-            <table class="data-table">
+            <table class="admin-table">
                 <thead>
                     <tr>
                         <th style="width: 50px;">#</th>
-                        <th>Title</th>
-                        <th>Date</th>
-                        <th>Short Description</th>
-                        <th style="width: 130px; text-align: right;">Actions</th>
+                        <th>Activity Title</th>
+                        <th style="width: 140px;">Event Date</th>
+                        <th>Summary</th>
+                        <th style="width: 120px; text-align: right;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -184,14 +129,16 @@ $activities = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?= $idx + 1 ?></td>
                             <td><strong><?= htmlspecialchars($act['title']) ?></strong></td>
                             <td><?= !empty($act['activity_date']) ? date('d M Y', strtotime($act['activity_date'])) : '-' ?></td>
-                            <td style="color:#64748b;"><?= htmlspecialchars($act['short_description'] ?? '-') ?></td>
+                            <td><?= htmlspecialchars($act['short_description'] ?? '-') ?></td>
                             <td style="text-align: right;">
-                                <a href="activities.php?action=edit&edit_id=<?= (int)$act['id'] ?>" class="btn btn-outline btn-sm" title="Edit">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="activities.php?action=delete&id=<?= (int)$act['id'] ?>" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Delete this activity?');">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+                                <div class="table-actions" style="justify-content: flex-end;">
+                                    <a href="javascript:void(0);" onclick='editActivity(<?= json_encode($act) ?>)' class="btn-table-action btn-edit" title="Edit">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <a href="activities.php?action=delete&id=<?= (int)$act['id'] ?>" class="btn-table-action btn-delete" title="Delete" onclick="return confirm('Delete this activity?');">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -201,5 +148,107 @@ $activities = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<!-- ============================================================== -->
+<!-- MODAL: ADD / EDIT ACTIVITY                                     -->
+<!-- ============================================================== -->
+<div class="modal-overlay" id="activityModal">
+    <div class="modal-dialog" style="max-width: 650px;">
+        <div class="modal-header">
+            <h3 class="modal-title" id="activityModalTitle">Post New Activity</h3>
+            <button type="button" class="btn-close-modal" onclick="closeActivityModal()">&times;</button>
+        </div>
+        <form action="activities.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="record_id" id="act_record_id" value="0">
+            <input type="hidden" name="current_image" id="act_current_image" value="">
 
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group" style="flex: 2;">
+                        <label class="form-label" for="act_title">Activity Title <span class="required">*</span></label>
+                        <input type="text" name="title" id="act_title" class="form-control" placeholder="e.g. National Seminar on AI" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label class="form-label" for="act_date">Date</label>
+                        <input type="date" name="activity_date" id="act_date" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="act_short">Short Summary</label>
+                    <input type="text" name="short_description" id="act_short" class="form-control" placeholder="1-2 sentences for summary card">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="act_desc">Detailed Report</label>
+                    <textarea name="description" id="act_desc" class="form-control" rows="3" placeholder="Key highlights, speakers, participating students..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="act_img">Event Photograph</label>
+                        <input type="file" name="image_file" id="act_img" class="form-control" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="act_url">Registration / Details URL</label>
+                        <input type="url" name="external_url" id="act_url" class="form-control" placeholder="https://...">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-check">
+                        <input type="checkbox" name="is_active" id="act_active" value="1" checked>
+                        <span>Display on public department website (Active)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeActivityModal()">Cancel</button>
+                <button type="submit" class="btn-add-new" id="actSubmitBtn">Publish Activity</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function openActivityModal() {
+    document.getElementById('activityModalTitle').textContent = 'Post New Activity';
+    document.getElementById('actSubmitBtn').textContent = 'Publish Activity';
+    document.getElementById('act_record_id').value = '0';
+    document.getElementById('act_current_image').value = '';
+    document.getElementById('act_title').value = '';
+    document.getElementById('act_date').value = '';
+    document.getElementById('act_short').value = '';
+    document.getElementById('act_desc').value = '';
+    document.getElementById('act_img').value = '';
+    document.getElementById('act_url').value = '';
+    document.getElementById('act_active').checked = true;
+    document.getElementById('activityModal').classList.add('active');
+}
+
+function editActivity(data) {
+    document.getElementById('activityModalTitle').textContent = 'Edit Activity';
+    document.getElementById('actSubmitBtn').textContent = 'Update Activity';
+    document.getElementById('act_record_id').value = data.id || '0';
+    document.getElementById('act_current_image').value = data.image_url || '';
+    document.getElementById('act_title').value = data.title || '';
+    document.getElementById('act_date').value = data.activity_date || '';
+    document.getElementById('act_short').value = data.short_description || '';
+    document.getElementById('act_desc').value = data.description || '';
+    document.getElementById('act_url').value = data.external_url || '';
+    document.getElementById('act_active').checked = (data.is_active == 1);
+    document.getElementById('activityModal').classList.add('active');
+}
+
+function closeActivityModal() {
+    document.getElementById('activityModal').classList.remove('active');
+}
+
+<?php if ($editRecord): ?>
+document.addEventListener('DOMContentLoaded', function() {
+    editActivity(<?= json_encode($editRecord) ?>);
+});
+<?php endif; ?>
+</script>
+
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
