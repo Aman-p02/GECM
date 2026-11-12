@@ -472,10 +472,10 @@
     position: absolute;
     top: 14px;
     left: 14px;
-    background: rgba(15, 23, 42, 0.82);
+    background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     color: #ffffff;
     font-size: 0.70rem;
     font-weight: 700;
@@ -487,15 +487,17 @@
     z-index: 2;
 }
 
-.act-dept-badge.badge-ce { background: rgba(12, 59, 109, 0.90); border-color: rgba(147, 197, 253, 0.35); }
-.act-dept-badge.badge-it { background: rgba(5, 150, 105, 0.90); border-color: rgba(110, 231, 183, 0.35); }
-.act-dept-badge.badge-me { background: rgba(2, 132, 199, 0.90); border-color: rgba(125, 211, 252, 0.35); }
-.act-dept-badge.badge-civil { background: rgba(217, 119, 6, 0.90); border-color: rgba(253, 230, 138, 0.35); }
-.act-dept-badge.badge-ee { background: rgba(202, 138, 4, 0.90); border-color: rgba(254, 240, 138, 0.35); }
-.act-dept-badge.badge-ec { background: rgba(124, 58, 237, 0.90); border-color: rgba(216, 180, 254, 0.35); }
-.act-dept-badge.badge-ae { background: rgba(225, 29, 72, 0.90); border-color: rgba(253, 164, 175, 0.35); }
-.act-dept-badge.badge-am { background: rgba(13, 148, 136, 0.90); border-color: rgba(153, 246, 228, 0.35); }
-.act-dept-badge.badge-college { background: rgba(255, 136, 0, 0.92); border-color: rgba(254, 215, 170, 0.45); }
+/* Exact Official Department Accent Colors */
+.act-dept-badge.badge-ce { background: #ff8800; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+.act-dept-badge.badge-it { background: #15803d; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+.act-dept-badge.badge-me { background: #2563eb; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+.act-dept-badge.badge-civil { background: #ca8a04; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+.act-dept-badge.badge-ee { background: #d97706; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+.act-dept-badge.badge-ec { background: #7c3aed; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+.act-dept-badge.badge-ae { background: #dc2626; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+.act-dept-badge.badge-am { background: #0f766e; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+.act-dept-badge.badge-sh { background: #4f46e5; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+.act-dept-badge.badge-college { background: #009dff; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
 
 .act-card-body {
     padding: 22px 24px;
@@ -878,10 +880,18 @@
     letter-spacing: 0.04em;
     padding: 3px 8px;
     border-radius: 9999px;
-    background: rgba(14, 165, 233, 0.12);
-    color: #0284c7;
     white-space: nowrap;
 }
+
+.fac-dept-tag.tag-ce { background: rgba(255, 136, 0, 0.12); color: #ff8800; border: 1px solid rgba(255, 136, 0, 0.25); }
+.fac-dept-tag.tag-it { background: rgba(21, 128, 61, 0.12); color: #15803d; border: 1px solid rgba(21, 128, 61, 0.25); }
+.fac-dept-tag.tag-me { background: rgba(37, 99, 235, 0.12); color: #2563eb; border: 1px solid rgba(37, 99, 235, 0.25); }
+.fac-dept-tag.tag-civil { background: rgba(202, 138, 4, 0.12); color: #ca8a04; border: 1px solid rgba(202, 138, 4, 0.25); }
+.fac-dept-tag.tag-ee { background: rgba(217, 119, 6, 0.12); color: #d97706; border: 1px solid rgba(217, 119, 6, 0.25); }
+.fac-dept-tag.tag-ec { background: rgba(124, 58, 237, 0.12); color: #7c3aed; border: 1px solid rgba(124, 58, 237, 0.25); }
+.fac-dept-tag.tag-ae { background: rgba(220, 38, 38, 0.12); color: #dc2626; border: 1px solid rgba(220, 38, 38, 0.25); }
+.fac-dept-tag.tag-am { background: rgba(15, 118, 110, 0.12); color: #0f766e; border: 1px solid rgba(15, 118, 110, 0.25); }
+.fac-dept-tag.tag-sh { background: rgba(79, 70, 229, 0.12); color: #4f46e5; border: 1px solid rgba(79, 70, 229, 0.25); }
 
 .fac-year-tag {
     display: inline-flex;

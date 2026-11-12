@@ -229,7 +229,7 @@ require_once __DIR__ . '/includes/header.php';
                                     <div class="fac-row-desc"><?= nl2br(htmlspecialchars($act['description'] ?? '')) ?></div>
                                 </td>
                                 <td>
-                                    <span class="fac-dept-tag"><?= htmlspecialchars($dept) ?></span>
+                                    <span class="fac-dept-tag tag-<?= strtolower($dept) ?>"><?= htmlspecialchars($dept) ?></span>
                                 </td>
                                 <td>
                                     <span class="fac-year-tag"><?= htmlspecialchars($yr) ?></span>
