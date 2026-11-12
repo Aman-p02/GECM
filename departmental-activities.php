@@ -58,6 +58,15 @@ if ($pdo) {
     }
 }
 
+// Compute counts per department for quick pill counters
+$deptCounts = [];
+foreach ($activities as $act) {
+    $c = strtoupper(trim($act['dept_code'] ?? ''));
+    if (!empty($c)) {
+        $deptCounts[$c] = ($deptCounts[$c] ?? 0) + 1;
+    }
+}
+
 // Ensure current year is in filter options
 $currentYr = date('Y');
 if (!in_array($currentYr, $availableYears)) {
@@ -78,28 +87,52 @@ require_once __DIR__ . '/includes/header.php';
         </div>
     </header>
 
-    <!-- Filters Bar -->
-    <section class="act-filter-wrapper" aria-label="Activities Filters">
-        <div class="act-filter-inner">
-            <div class="act-filter-group">
-                <!-- Department Filter -->
-                <div class="act-filter-label"><i class="fas fa-building"></i> Department:</div>
-                <div class="act-select-wrap">
-                    <select id="deptSelect" class="act-select" aria-label="Filter by Department">
-                        <option value="ALL" <?= ($selectedDept === 'ALL') ? 'selected' : '' ?>>All Departments (All)</option>
-                        <?php foreach ($deptFilterList as $code => $name): ?>
-                            <option value="<?= $code ?>" <?= ($selectedDept === $code) ? 'selected' : '' ?>>
-                                <?= htmlspecialchars($name) ?> (<?= $code ?>)
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                    <i class="fas fa-chevron-down act-select-icon"></i>
-                </div>
+    <!-- Segmented Department Filter Pills (Aesthetic & Responsive) -->
+    <section class="dept-pills-section" aria-label="Department Filter">
+        <div class="dept-pills-inner">
+            <div class="dept-pills-scroll" id="deptPillsContainer" role="tablist">
+                <button type="button" 
+                        role="tab"
+                        aria-selected="<?= ($selectedDept === 'ALL') ? 'true' : 'false' ?>"
+                        class="dept-pill-btn <?= ($selectedDept === 'ALL') ? 'is-active' : '' ?>" 
+                        data-dept="ALL">
+                    <span>All Departments</span>
+                    <span class="dept-pill-count" id="allCountBadge"><?= count($activities) ?></span>
+                </button>
+                <?php foreach ($deptFilterList as $code => $name): 
+                    $count = $deptCounts[$code] ?? 0;
+                ?>
+                    <button type="button" 
+                            role="tab"
+                            aria-selected="<?= ($selectedDept === $code) ? 'true' : 'false' ?>"
+                            class="dept-pill-btn <?= ($selectedDept === $code) ? 'is-active' : '' ?>" 
+                            data-dept="<?= $code ?>">
+                        <span><?= htmlspecialchars($name) ?></span>
+                        <span class="dept-pill-badge"><?= $code ?></span>
+                        <?php if ($count > 0): ?>
+                            <span class="dept-pill-count"><?= $count ?></span>
+                        <?php endif; ?>
+                    </button>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
 
-                <!-- Year Filter -->
-                <div class="act-filter-label"><i class="fas fa-calendar-alt"></i> Year:</div>
-                <div class="act-select-wrap" style="min-width: 150px;">
-                    <select id="yearSelect" class="act-select" aria-label="Filter by Year">
+    <!-- Secondary Minimal Action Toolbar -->
+    <div class="act-toolbar-strip">
+        <div class="act-toolbar-inner">
+            <div class="act-search-pill">
+                <i class="fas fa-search act-search-icon" aria-hidden="true"></i>
+                <input type="text" id="searchInput" class="act-search-field" placeholder="Search by title, workshop, or topic..." aria-label="Search departmental activities">
+                <button type="button" id="searchClearBtn" class="act-search-clear" aria-label="Clear search" style="display: none;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="act-toolbar-meta">
+                <div class="act-year-dropdown-wrap">
+                    <span class="act-year-label">Year:</span>
+                    <select id="yearSelect" class="act-year-select" aria-label="Filter by Year">
                         <option value="ALL" <?= ($selectedYear === 'ALL') ? 'selected' : '' ?>>All Years</option>
                         <?php foreach ($availableYears as $yr): ?>
                             <option value="<?= $yr ?>" <?= ($selectedYear == $yr) ? 'selected' : '' ?>>
@@ -107,21 +140,19 @@ require_once __DIR__ . '/includes/header.php';
                             </option>
                         <?php endforeach; ?>
                     </select>
-                    <i class="fas fa-chevron-down act-select-icon"></i>
+                    <i class="fas fa-chevron-down act-year-icon"></i>
                 </div>
 
-                <!-- Search Input -->
-                <div class="act-search-box">
-                    <i class="fas fa-search act-search-icon"></i>
-                    <input type="text" id="searchInput" class="act-search-input" placeholder="Search by title or topic..." aria-label="Search activities">
+                <div class="act-count-pill" id="resultsCount">
+                    Showing <strong><?= count($activities) ?></strong> activities
                 </div>
-            </div>
 
-            <div class="act-results-badge" id="resultsCount">
-                Showing <?= count($activities) ?> Activities
+                <button type="button" id="resetFiltersBtn" class="act-reset-link" style="display: none;">
+                    Reset filters
+                </button>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Activities Grid Container -->
     <main class="act-container">
@@ -220,7 +251,10 @@ require_once __DIR__ . '/includes/header.php';
             <div class="act-empty-state" id="emptyState" style="display: none;">
                 <i class="fas fa-calendar-times act-empty-icon"></i>
                 <h4 class="act-empty-title">No Activities Found</h4>
-                <p class="act-empty-desc">No departmental activities match your selected department, year, or search criteria. Please adjust your filters above.</p>
+                <p class="act-empty-desc">No departmental activities match your selected department, year, or search criteria. Please adjust your filters or reset to view all.</p>
+                <button type="button" class="btn btn-primary" id="emptyResetBtn" style="margin-top: 16px; padding: 8px 22px; font-size: 0.86rem; border-radius: 9999px;">
+                    <i class="fas fa-undo"></i> Show All Activities
+                </button>
             </div>
         </div>
     </main>
@@ -228,17 +262,33 @@ require_once __DIR__ . '/includes/header.php';
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const deptSelect = document.getElementById("deptSelect");
+    const pillButtons = Array.from(document.querySelectorAll("#deptPillsContainer .dept-pill-btn"));
     const yearSelect = document.getElementById("yearSelect");
     const searchInput = document.getElementById("searchInput");
+    const searchClearBtn = document.getElementById("searchClearBtn");
+    const resetFiltersBtn = document.getElementById("resetFiltersBtn");
+    const emptyResetBtn = document.getElementById("emptyResetBtn");
     const cards = Array.from(document.querySelectorAll("#activitiesGrid .act-card"));
     const emptyState = document.getElementById("emptyState");
     const resultsCount = document.getElementById("resultsCount");
 
+    let currentDept = "<?= htmlspecialchars($selectedDept) ?>";
+    if (!currentDept) currentDept = "ALL";
+
     function filterActivities() {
-        const selectedDept = deptSelect.value.toUpperCase();
         const selectedYear = yearSelect.value;
         const searchQuery = searchInput.value.trim().toLowerCase();
+
+        // Toggle clear search button
+        if (searchClearBtn) {
+            searchClearBtn.style.display = searchQuery ? "flex" : "none";
+        }
+
+        // Toggle reset filters button if non-default
+        const isFiltered = (currentDept !== "ALL" || selectedYear !== "ALL" || searchQuery.length > 0);
+        if (resetFiltersBtn) {
+            resetFiltersBtn.style.display = isFiltered ? "inline-block" : "none";
+        }
 
         let visibleCount = 0;
 
@@ -248,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const cardTitle = card.getAttribute("data-title") || "";
             const cardDesc = card.getAttribute("data-desc") || "";
 
-            const matchesDept = (selectedDept === "ALL" || cardDept === selectedDept);
+            const matchesDept = (currentDept === "ALL" || cardDept === currentDept);
             const matchesYear = (selectedYear === "ALL" || cardYear === selectedYear);
             const matchesSearch = (!searchQuery || cardTitle.includes(searchQuery) || cardDesc.includes(searchQuery));
 
@@ -266,12 +316,30 @@ document.addEventListener("DOMContentLoaded", () => {
             emptyState.style.display = "none";
         }
 
-        resultsCount.textContent = `Showing ${visibleCount} Activit${visibleCount === 1 ? 'y' : 'ies'}`;
+        resultsCount.innerHTML = `Showing <strong>${visibleCount}</strong> activit${visibleCount === 1 ? 'y' : 'ies'}`;
     }
 
-    deptSelect.addEventListener("change", () => {
-        filterActivities();
-        updateURL();
+    // Pill tab clicks
+    pillButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const dept = (btn.getAttribute("data-dept") || "ALL").toUpperCase();
+            if (currentDept === dept) return;
+
+            pillButtons.forEach(b => {
+                b.classList.remove("is-active");
+                b.setAttribute("aria-selected", "false");
+            });
+
+            btn.classList.add("is-active");
+            btn.setAttribute("aria-selected", "true");
+            currentDept = dept;
+
+            filterActivities();
+            updateURL();
+
+            // Smoothly center the active pill in scroll view
+            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        });
     });
 
     yearSelect.addEventListener("change", () => {
@@ -281,10 +349,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     searchInput.addEventListener("input", filterActivities);
 
+    if (searchClearBtn) {
+        searchClearBtn.addEventListener("click", () => {
+            searchInput.value = "";
+            filterActivities();
+            updateURL();
+            searchInput.focus();
+        });
+    }
+
+    function resetAllFilters() {
+        currentDept = "ALL";
+        pillButtons.forEach(b => {
+            const isAll = (b.getAttribute("data-dept") === "ALL");
+            b.classList.toggle("is-active", isAll);
+            b.setAttribute("aria-selected", isAll ? "true" : "false");
+        });
+        yearSelect.value = "ALL";
+        searchInput.value = "";
+        filterActivities();
+        updateURL();
+        const allBtn = document.querySelector("#deptPillsContainer .dept-pill-btn[data-dept='ALL']");
+        if (allBtn) {
+            allBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+    }
+
+    if (resetFiltersBtn) {
+        resetFiltersBtn.addEventListener("click", resetAllFilters);
+    }
+    if (emptyResetBtn) {
+        emptyResetBtn.addEventListener("click", resetAllFilters);
+    }
+
     function updateURL() {
         const params = new URLSearchParams(window.location.search);
-        if (deptSelect.value !== "ALL") {
-            params.set("dept", deptSelect.value);
+        if (currentDept !== "ALL") {
+            params.set("dept", currentDept);
         } else {
             params.delete("dept");
         }
