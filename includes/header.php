@@ -225,44 +225,19 @@ if (!isset($active_page)) {
                     </div>
                 </li>
 
-                <!-- Activities Dropdown (Categorized) -->
+                <!-- Activities Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="<?php echo ($active_page === 'home') ? '#events' : $root_path . 'index.php#events'; ?>"
-                       class="hdr-nav-link">
+                    <a href="<?= $root_path ?>college-activities.php"
+                       class="hdr-nav-link <?= in_array($active_page, ['activities', 'college_activities', 'dept_activities', 'faculty_activities']) ? 'active' : '' ?>">
                         Activities <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
-                    <div class="hdr-dropdown hdr-dropdown-mega">
-                        <div class="hdr-mega-grid">
-                            <div class="hdr-mega-col">
-                                <div class="hdr-dd-heading">CAMPUS ACTIVITIES</div>
-                                <ul class="hdr-dd-list">
-                                    <li><a href="#" class="hdr-dd-link">College Activities</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Departmental Activities</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Faculty Activities</a></li>
-                                </ul>
-                            </div>
-                            <div class="hdr-mega-col">
-                                <div class="hdr-dd-heading">CELLS &amp; INITIATIVES</div>
-                                <ul class="hdr-dd-list">
-                                    <li><a href="#" class="hdr-dd-link">SSIP &amp; DIC</a></li>
-                                    <li><a href="#" class="hdr-dd-link">RUSA</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Gymkhana</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Finishing School</a></li>
-                                    <li><a href="#" class="hdr-dd-link">WDC &amp; UBA</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Anchor Nodal</a></li>
-                                </ul>
-                            </div>
-                            <div class="hdr-mega-col">
-                                <div class="hdr-dd-heading">ACHIEVEMENTS &amp; CLUBS</div>
-                                <ul class="hdr-dd-list">
-                                    <li><a href="#" class="hdr-dd-link">Student Achievements</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Faculty Achievements</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Institute Achievements</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Patents</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Technopreneur Club</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="hdr-dropdown">
+                        <div class="hdr-dd-heading">ACTIVITIES</div>
+                        <ul class="hdr-dd-list">
+                            <li><a href="<?= $root_path ?>college-activities.php" class="hdr-dd-link <?= ($active_page === 'college_activities') ? 'is-active' : '' ?>">College Activities</a></li>
+                            <li><a href="<?= $root_path ?>departmental-activities.php" class="hdr-dd-link <?= ($active_page === 'dept_activities') ? 'is-active' : '' ?>">Departmental Activities</a></li>
+                            <li><a href="<?= $root_path ?>faculty-activities.php" class="hdr-dd-link <?= ($active_page === 'faculty_activities') ? 'is-active' : '' ?>">Faculty Activities</a></li>
+                        </ul>
                     </div>
                 </li>
 
