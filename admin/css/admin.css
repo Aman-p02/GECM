@@ -1079,10 +1079,11 @@ textarea.form-control {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: #0284c7;
+    background: #ea580c;
     color: #ffffff;
     border: none;
-    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35), 0 2px 6px rgba(0, 0, 0, 0.12);
+    box-shadow: none !important;
+    outline: none !important;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1091,7 +1092,7 @@ textarea.form-control {
     opacity: 0;
     visibility: hidden;
     transform: translateY(14px) scale(0.92);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, background 0.2s ease, box-shadow 0.2s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, background 0.2s ease;
 }
 
 .back-to-top-btn i {
@@ -1106,9 +1107,9 @@ textarea.form-control {
 }
 
 .back-to-top-btn:hover {
-    background: #009dff;
-    box-shadow: 0 6px 18px rgba(0, 157, 255, 0.45);
-    transform: translateY(-3px) scale(1.05);
+    background: #009dff !important;
+    box-shadow: none !important;
+    transform: translateY(-2px) scale(1.04);
 }
 
 .back-to-top-btn:hover i {
@@ -1117,4 +1118,5 @@ textarea.form-control {
 
 .back-to-top-btn:active {
     transform: translateY(0) scale(0.95);
+    box-shadow: none !important;
 }
