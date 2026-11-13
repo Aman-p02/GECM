@@ -147,16 +147,6 @@ require_once __DIR__ . '/includes/header.php';
                                     <div class="fac-desc-text">
                                         <?= nl2br(htmlspecialchars($item['description'])) ?>
                                     </div>
-                                    <?php if (!empty($item['year']) || !empty($item['event_date'])): ?>
-                                        <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 4px;">
-                                            <?php if (!empty($item['event_date'])): ?>
-                                                <span><i class="far fa-calendar-alt"></i> <?= date('d M Y', strtotime($item['event_date'])) ?></span>
-                                            <?php endif; ?>
-                                            <?php if (!empty($item['year'])): ?>
-                                                <span style="margin-left: 8px;"><i class="far fa-clock"></i> Year: <?= htmlspecialchars($item['year']) ?></span>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endif; ?>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -214,16 +204,6 @@ require_once __DIR__ . '/includes/header.php';
                                     <div class="fac-desc-text">
                                         <?= nl2br(htmlspecialchars($item['description'])) ?>
                                     </div>
-                                    <?php if (!empty($item['year']) || !empty($item['event_date'])): ?>
-                                        <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 4px;">
-                                            <?php if (!empty($item['event_date'])): ?>
-                                                <span><i class="far fa-calendar-alt"></i> <?= date('d M Y', strtotime($item['event_date'])) ?></span>
-                                            <?php endif; ?>
-                                            <?php if (!empty($item['year'])): ?>
-                                                <span style="margin-left: 8px;"><i class="far fa-clock"></i> Year: <?= htmlspecialchars($item['year']) ?></span>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endif; ?>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -270,16 +250,6 @@ require_once __DIR__ . '/includes/header.php';
                                     <div class="fac-desc-text">
                                         <?= nl2br(htmlspecialchars($item['description'])) ?>
                                     </div>
-                                    <?php if (!empty($item['year']) || !empty($item['event_date'])): ?>
-                                        <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 4px;">
-                                            <?php if (!empty($item['event_date'])): ?>
-                                                <span><i class="far fa-calendar-alt"></i> <?= date('d M Y', strtotime($item['event_date'])) ?></span>
-                                            <?php endif; ?>
-                                            <?php if (!empty($item['year'])): ?>
-                                                <span style="margin-left: 8px;"><i class="far fa-clock"></i> Year: <?= htmlspecialchars($item['year']) ?></span>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endif; ?>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
