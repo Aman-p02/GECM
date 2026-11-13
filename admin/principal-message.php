@@ -312,7 +312,7 @@ require_once __DIR__ . '/includes/header.php';
                                         </div>
                                     <?php endif; ?>
                                 </td>
-                                <td style="padding: 12px 18px; vertical-align: middle; font-weight: 700; color: #0c3b6d; font-family: monospace; font-size: 13.5px;">
+                                <td style="padding: 12px 18px; vertical-align: middle; font-weight: 600; color: #0c3b6d; font-size: 13.5px;">
                                     <?= htmlspecialchars($dateFmt) ?>
                                 </td>
                                 <td style="padding: 12px 18px; vertical-align: middle;">

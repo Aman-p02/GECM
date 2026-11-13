@@ -21,7 +21,7 @@ $phone = $accountData['contact_phone'] ?? '02774-242633';
 $services = $accountData['services_offered'] ?? "• Student Tuition Fee & Term Fee Collection\n• Government & Non-Government Scholarships Processing (Digital Gujarat, NSP, MYSY)\n• Staff Salary & Remuneration Processing\n• Purchase & Procurement Billing\n• Statutory Audits & Financial Reporting";
 ?>
 
-<div style="background-color: #f8fafc; min-height: calc(100vh - 280px); padding: 30px 0 60px 0;">
+<div style="background-color: #f8fafc; min-height: calc(100vh - 280px); padding: 30px 0 60px 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
     <div style="max-width: 1140px; margin: 0 auto; padding: 0 20px;">
         
         <!-- Breadcrumbs -->
@@ -97,3 +97,4 @@ $services = $accountData['services_offered'] ?? "• Student Tuition Fee & Term 
 </div>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
+

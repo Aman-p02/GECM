@@ -328,7 +328,7 @@ require_once __DIR__ . '/includes/header.php';
                     <label class="form-label">Current Event Cover</label>
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                         <img src="<?= htmlspecialchars(getAdminImageSrc($editItem['image_url'])) ?>" alt="Current Cover" style="width: 80px; height: 50px; border-radius: 4px; object-fit: cover; border: 1px solid #ddd;">
-                        <span style="font-size: 12px; color: #666; font-family: monospace;"><?= htmlspecialchars($editItem['image_url']) ?></span>
+                        <span style="font-size: 12px; color: #64748b;"><?= htmlspecialchars($editItem['image_url']) ?></span>
                     </div>
                     <label class="form-label" for="edit_event_image">Upload New Image from PC (optional)</label>
                     <input type="file" name="event_image" id="edit_event_image" class="form-control" accept="image/*">

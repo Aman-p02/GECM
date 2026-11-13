@@ -309,7 +309,7 @@ require_once __DIR__ . '/includes/header.php';
                     <label class="form-label">Current Photo</label>
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                         <img src="<?= htmlspecialchars(getAdminImageSrc($editItem['photo_url'])) ?>" alt="Current" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd;">
-                        <span style="font-size: 12px; color: #666; font-family: monospace;"><?= htmlspecialchars($editItem['photo_url']) ?></span>
+                        <span style="font-size: 12px; color: #64748b;"><?= htmlspecialchars($editItem['photo_url']) ?></span>
                     </div>
                     <label class="form-label" for="edit_photo_file">Upload New Photo from PC (optional)</label>
                     <input type="file" name="photo_file" id="edit_photo_file" class="form-control" accept="image/*">

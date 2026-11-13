@@ -165,7 +165,7 @@ require_once __DIR__ . '/includes/header.php';
                     <td style="font-weight: 600; color: #1a263d;">
                         <?= htmlspecialchars($row['label']) ?>
                     </td>
-                    <td style="font-family: monospace; font-size: 12.5px; color: #666;">
+                    <td style="font-size: 12.5px; color: #64748b;">
                         <?= htmlspecialchars($row['image_url']) ?>
                     </td>
                     <td>
@@ -277,7 +277,7 @@ require_once __DIR__ . '/includes/header.php';
                     <label class="form-label">Current Slide Image</label>
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                         <img src="<?= htmlspecialchars(getAdminImageSrc($editItem['image_url'])) ?>" alt="Current" style="width: 80px; height: 48px; border-radius: 4px; object-fit: cover; border: 1px solid #ddd;">
-                        <span style="font-size: 12px; color: #666; font-family: monospace;"><?= htmlspecialchars($editItem['image_url']) ?></span>
+                        <span style="font-size: 12px; color: #64748b;"><?= htmlspecialchars($editItem['image_url']) ?></span>
                     </div>
                     <label class="form-label" for="edit_slide_file">Upload New Image from PC (optional)</label>
                     <input type="file" name="slide_file" id="edit_slide_file" class="form-control" accept="image/*">
