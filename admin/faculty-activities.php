@@ -97,7 +97,10 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
     } elseif ($action === 'delete') {
         $id = (int)($_POST['id'] ?? 0);
-        $cat = trim($_POST['cat'] ?? 'all');
+        $cat = trim($_POST['cat'] ?? 'trainings');
+        if (!in_array($cat, ['trainings', 'expert_lectures', 'conferences'])) {
+            $cat = 'trainings';
+        }
         if ($id > 0) {
             try {
                 $stmt = $pdo->prepare("DELETE FROM faculty_activities WHERE id = ?");
@@ -108,7 +111,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
                 setFlashMessage('danger', 'Could not delete activity: ' . $e->getMessage());
             }
         }
-        header('Location: faculty-activities.php' . ($cat !== 'all' ? '?cat=' . urlencode($cat) : ''));
+        header('Location: faculty-activities.php?cat=' . urlencode($cat));
         exit;
     }
 }
@@ -121,13 +124,16 @@ if (isset($_GET['toggle'])) {
         exit;
     }
     $id = (int)$_GET['toggle'];
-    $cat = $_GET['cat'] ?? 'all';
+    $cat = $_GET['cat'] ?? 'trainings';
+    if (!in_array($cat, ['trainings', 'expert_lectures', 'conferences'])) {
+        $cat = 'trainings';
+    }
     if ($id > 0) {
         $stmt = $pdo->prepare("UPDATE faculty_activities SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
         setFlashMessage('info', 'Activity status updated!');
     }
-    header('Location: faculty-activities.php' . ($cat !== 'all' ? '?cat=' . urlencode($cat) : ''));
+    header('Location: faculty-activities.php?cat=' . urlencode($cat));
     exit;
 }
 
@@ -139,7 +145,10 @@ if (isset($_GET['delete'])) {
         exit;
     }
     $id = (int)$_GET['delete'];
-    $cat = $_GET['cat'] ?? 'all';
+    $cat = $_GET['cat'] ?? 'trainings';
+    if (!in_array($cat, ['trainings', 'expert_lectures', 'conferences'])) {
+        $cat = 'trainings';
+    }
     if ($id > 0) {
         try {
             $stmt = $pdo->prepare("DELETE FROM faculty_activities WHERE id = ?");
@@ -150,19 +159,19 @@ if (isset($_GET['delete'])) {
             setFlashMessage('danger', 'Could not delete activity: ' . $e->getMessage());
         }
     }
-    header('Location: faculty-activities.php' . ($cat !== 'all' ? '?cat=' . urlencode($cat) : ''));
+    header('Location: faculty-activities.php?cat=' . urlencode($cat));
     exit;
 }
 
 // Category filter
-$selectedCat = $_GET['cat'] ?? 'all';
+$selectedCat = $_GET['cat'] ?? 'trainings';
 $validCats = ['trainings', 'expert_lectures', 'conferences'];
 if (!in_array($selectedCat, $validCats)) {
-    $selectedCat = 'all';
+    $selectedCat = 'trainings';
 }
 
 $activities = [];
-$counts = ['all' => 0, 'trainings' => 0, 'expert_lectures' => 0, 'conferences' => 0];
+$counts = ['trainings' => 0, 'expert_lectures' => 0, 'conferences' => 0];
 
 if ($pdo) {
     // Count per category
@@ -171,14 +180,11 @@ if ($pdo) {
         if (isset($counts[$row['category']])) {
             $counts[$row['category']] = (int)$row['cnt'];
         }
-        $counts['all'] += (int)$row['cnt'];
     }
 
     // Query activities
     if ($selectedCat === 'conferences') {
         $stmt = $pdo->query("SELECT * FROM faculty_activities WHERE category = 'conferences' ORDER BY id DESC");
-    } elseif ($selectedCat === 'all') {
-        $stmt = $pdo->query("SELECT * FROM faculty_activities ORDER BY CASE WHEN category = 'conferences' THEN 0 ELSE 1 END, id ASC");
     } else {
         $stmt = $pdo->prepare("SELECT * FROM faculty_activities WHERE category = ? ORDER BY id ASC");
         $stmt->execute([$selectedCat]);
@@ -205,7 +211,7 @@ require_once __DIR__ . '/includes/header.php';
             <a href="../faculty-activities.php" target="_blank" class="btn-secondary" style="padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #cbd5e1; background: #ffffff; color: #334155;">
                 <i class="fas fa-external-link-alt" style="color: #0284c7;"></i> View Public Page
             </a>
-            <button type="button" class="btn-add-new" onclick="openAddModalFor('<?= $selectedCat === 'all' ? 'conferences' : $selectedCat ?>')" style="padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 600;">
+            <button type="button" class="btn-add-new" onclick="openAddModalFor('<?= htmlspecialchars($selectedCat) ?>')" style="padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 600;">
                 <i class="fas fa-plus"></i> Add New Activity
             </button>
         </div>
@@ -215,17 +221,6 @@ require_once __DIR__ . '/includes/header.php';
     <div class="card-actions-row" style="margin-top: 18px; padding-top: 16px; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
         <!-- Filter Tabs -->
         <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-            <a href="faculty-activities.php?cat=all" 
-               style="padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: all 0.15s ease; <?= ($selectedCat === 'all') ? 'background: #0284c7; color: #ffffff;' : 'background: #f1f5f9; color: #475569;' ?>">
-                <span>All</span>
-                <span style="padding: 1px 7px; border-radius: 10px; font-size: 11px; font-weight: 700; <?= ($selectedCat === 'all') ? 'background: rgba(255,255,255,0.25); color: #fff;' : 'background: #e2e8f0; color: #334155;' ?>"><?= $counts['all'] ?></span>
-            </a>
-            <a href="faculty-activities.php?cat=conferences" 
-               style="padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: all 0.15s ease; <?= ($selectedCat === 'conferences') ? 'background: #0284c7; color: #ffffff;' : 'background: #f1f5f9; color: #475569;' ?>">
-                <i class="fas fa-users" style="font-size: 12px;"></i>
-                <span>Conferences</span>
-                <span style="padding: 1px 7px; border-radius: 10px; font-size: 11px; font-weight: 700; <?= ($selectedCat === 'conferences') ? 'background: rgba(255,255,255,0.25); color: #fff;' : 'background: #e2e8f0; color: #334155;' ?>"><?= $counts['conferences'] ?></span>
-            </a>
             <a href="faculty-activities.php?cat=trainings" 
                style="padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: all 0.15s ease; <?= ($selectedCat === 'trainings') ? 'background: #0284c7; color: #ffffff;' : 'background: #f1f5f9; color: #475569;' ?>">
                 <i class="fas fa-user-graduate" style="font-size: 12px;"></i>
@@ -237,6 +232,12 @@ require_once __DIR__ . '/includes/header.php';
                 <i class="fas fa-microphone-alt" style="font-size: 12px;"></i>
                 <span>Expert Lectures</span>
                 <span style="padding: 1px 7px; border-radius: 10px; font-size: 11px; font-weight: 700; <?= ($selectedCat === 'expert_lectures') ? 'background: rgba(255,255,255,0.25); color: #fff;' : 'background: #e2e8f0; color: #334155;' ?>"><?= $counts['expert_lectures'] ?></span>
+            </a>
+            <a href="faculty-activities.php?cat=conferences" 
+               style="padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: all 0.15s ease; <?= ($selectedCat === 'conferences') ? 'background: #0284c7; color: #ffffff;' : 'background: #f1f5f9; color: #475569;' ?>">
+                <i class="fas fa-users" style="font-size: 12px;"></i>
+                <span>Conferences</span>
+                <span style="padding: 1px 7px; border-radius: 10px; font-size: 11px; font-weight: 700; <?= ($selectedCat === 'conferences') ? 'background: rgba(255,255,255,0.25); color: #fff;' : 'background: #e2e8f0; color: #334155;' ?>"><?= $counts['conferences'] ?></span>
             </a>
         </div>
 
