@@ -694,133 +694,114 @@
 }
 
 /* --------------------------------------------------------------------------
-   FACULTY ACTIVITIES & TABS STYLES (MATCHES USER SPEC & GECM THEME)
+   FACULTY ACTIVITIES SUB-NAVBAR (MATCHES DEPARTMENT SUB-NAVBAR STYLE)
    -------------------------------------------------------------------------- */
-/* Tab Bar */
-.fac-tabs-wrapper {
+.fac-subnav-bar {
+    position: sticky;
+    top: var(--site-main-nav-height, 52px);
+    z-index: 900;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+
+.fac-subnav-container {
     max-width: 1320px;
-    margin: 24px auto 0;
+    margin: 0 auto;
     padding: 0 24px;
 }
 
-.fac-tabs-nav {
+.fac-subnav-wrap {
+    position: relative;
+    width: 100%;
+}
+
+.fac-subnav-list {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 8px;
-    border-bottom: 2px solid #0284c7;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.fac-tabs-nav::-webkit-scrollbar {
-    display: none;
+.fac-subnav-item {
+    flex: 0 0 auto;
 }
 
-.fac-tab-btn {
-    appearance: none;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-family: var(--act-font-display, 'Plus Jakarta Sans', sans-serif);
-    font-size: 0.96rem;
-    font-weight: 600;
-    color: #475569;
-    padding: 11px 22px;
-    border-radius: 6px 6px 0 0;
-    cursor: pointer;
-    transition: all 0.18s ease;
+.fac-subnav-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    white-space: nowrap;
+    padding: 16px 20px;
+    font-size: 0.94rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #475569;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
     position: relative;
-    user-select: none;
+    font-family: var(--act-font-display, 'Plus Jakarta Sans', sans-serif);
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
 }
 
-.fac-tab-btn:hover {
-    background: #f1f5f9;
-    color: #0f172a;
+.fac-subnav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2.5px;
+    background: #009dff;
+    border-radius: 1.5px 1.5px 0 0;
+    transform: translateX(-50%);
+    transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
 }
 
-.fac-tab-btn.is-active {
-    background: #0284c7;
-    color: #ffffff;
+.fac-subnav-link:hover {
+    color: #009dff;
+}
+
+.fac-subnav-link:hover::after {
+    width: calc(100% - 20px);
+}
+
+.fac-subnav-link.is-active {
+    color: #009dff;
     font-weight: 700;
-    box-shadow: 0 -2px 8px rgba(2, 132, 199, 0.15);
+}
+
+.fac-subnav-link.is-active::after {
+    width: calc(100% - 20px);
 }
 
 .fac-tab-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 2px 7px;
+    padding: 2px 7.5px;
     font-size: 0.72rem;
     font-weight: 700;
     border-radius: 9999px;
-    background: #e2e8f0;
-    color: #334155;
+    background: #f1f5f9;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
     transition: all 0.15s ease;
 }
 
-.fac-tab-btn.is-active .fac-tab-badge {
-    background: rgba(255, 255, 255, 0.25);
-    color: #ffffff;
-}
-
-/* Filter / Search within Tab */
-.fac-tab-toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin: 20px 0 16px;
-    flex-wrap: wrap;
-}
-
-.fac-search-box {
-    position: relative;
-    min-width: 280px;
-    max-width: 400px;
-    flex: 1;
-}
-
-.fac-search-box input {
-    width: 100%;
-    padding: 9px 14px 9px 36px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 0.90rem;
-    font-family: var(--act-font-body);
-    background: #ffffff;
-    color: #1e293b;
-    outline: none;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-}
-
-.fac-search-box input:focus {
-    border-color: #0284c7;
-    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
-}
-
-.fac-search-box i {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94a3b8;
-    font-size: 0.85rem;
-    pointer-events: none;
-}
-
-.fac-tab-meta {
-    font-size: 0.88rem;
-    color: #64748b;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+.fac-subnav-link.is-active .fac-tab-badge {
+    background: #e0f2fe;
+    color: #0284c7;
+    border-color: #bae6fd;
 }
 
 /* Table Card & Elements */
@@ -923,25 +904,56 @@
 
 /* Mobile responsive refinements */
 @media (max-width: 768px) {
-    .fac-tabs-wrapper {
-        padding: 0 16px;
-        margin-top: 16px;
+    .fac-subnav-bar {
+        margin-top: 14px;
+        margin-bottom: 20px;
+        padding: 6px 0;
+        top: 0;
     }
 
-    .fac-tab-btn {
-        padding: 9px 15px;
-        font-size: 0.88rem;
+    .fac-subnav-container {
+        padding: 0 12px;
     }
 
-    .fac-tab-toolbar {
-        margin: 14px 0 12px;
-        flex-direction: column;
-        align-items: stretch;
+    .fac-subnav-list {
+        display: flex;
+        width: 100%;
+        gap: 6px;
+        justify-content: space-between;
     }
 
-    .fac-search-box {
-        min-width: 100%;
-        max-width: 100%;
+    .fac-subnav-item {
+        flex: 1;
+        text-align: center;
+    }
+
+    .fac-subnav-link {
+        width: 100%;
+        justify-content: center;
+        padding: 9px 4px;
+        font-size: 0.80rem;
+        border-radius: 6px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        gap: 5px;
+        white-space: nowrap;
+    }
+
+    .fac-subnav-link::after {
+        display: none;
+    }
+
+    .fac-subnav-link.is-active {
+        background: #0284c7;
+        color: #ffffff;
+        border-color: #0284c7;
+        box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);
+    }
+
+    .fac-subnav-link.is-active .fac-tab-badge {
+        background: rgba(255, 255, 255, 0.25);
+        color: #ffffff;
+        border-color: transparent;
     }
 
     .fac-table thead th,
