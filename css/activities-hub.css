@@ -398,11 +398,15 @@
     border: 1px solid #e2e8f0;
     padding: 6px 14px;
     border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .act-count-pill strong {
     color: #0f172a;
     font-weight: 700;
+    margin: 0 4px;
 }
 
 .act-reset-link {

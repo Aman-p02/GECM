@@ -127,12 +127,8 @@ require_once __DIR__ . '/includes/header.php';
 
             <div class="act-toolbar-meta">
                 <div class="act-count-pill" id="resultsCount">
-                    Showing <strong><?= count($collegeEvents) ?></strong> activities
+                    Showing&nbsp;<strong><?= count($collegeEvents) ?></strong>&nbsp;activities
                 </div>
-
-                <button type="button" id="resetFiltersBtn" class="act-reset-link" style="display: none;">
-                    <i class="fas fa-undo-alt"></i> Reset filters
-                </button>
             </div>
         </div>
     </div>
@@ -239,7 +235,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const yearSelectedLabel = document.getElementById("yearSelectedLabel");
     const yearOptions = Array.from(document.querySelectorAll("#yearDropdownMenu .custom-select-option"));
 
-    const resetFiltersBtn = document.getElementById("resetFiltersBtn");
     const emptyResetBtn = document.getElementById("emptyResetBtn");
     const cards = Array.from(document.querySelectorAll("#collegeActivitiesGrid .act-card"));
     const emptyState = document.getElementById("emptyState");
@@ -291,11 +286,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function filterActivities() {
-        const isFiltered = (currentYear !== "ALL");
-        if (resetFiltersBtn) {
-            resetFiltersBtn.style.display = isFiltered ? "inline-block" : "none";
-        }
-
         let visibleCount = 0;
 
         cards.forEach(card => {
@@ -316,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
             emptyState.style.display = "none";
         }
 
-        resultsCount.innerHTML = `Showing <strong>${visibleCount}</strong> activit${visibleCount === 1 ? 'y' : 'ies'}`;
+        resultsCount.innerHTML = `Showing&nbsp;<strong>${visibleCount}</strong>&nbsp;activit${visibleCount === 1 ? 'y' : 'ies'}`;
     }
 
     function resetAllFilters() {
@@ -328,9 +318,6 @@ document.addEventListener("DOMContentLoaded", () => {
         updateURL();
     }
 
-    if (resetFiltersBtn) {
-        resetFiltersBtn.addEventListener("click", resetAllFilters);
-    }
     if (emptyResetBtn) {
         emptyResetBtn.addEventListener("click", resetAllFilters);
     }
