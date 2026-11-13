@@ -788,25 +788,18 @@
     .act-toolbar-inner {
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         gap: 10px;
-        padding: 8px 14px;
+        padding: 10px 14px;
         min-height: 52px;
         position: relative;
         box-sizing: border-box;
     }
 
-    .act-toolbar-inner:has(#deptDropdownWrap) {
-        flex-wrap: wrap;
-    }
-
     .act-toolbar-filters {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-shrink: 0;
+        display: contents;
     }
 
     #deptDropdownWrap {

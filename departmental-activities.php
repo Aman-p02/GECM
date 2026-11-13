@@ -88,9 +88,9 @@ require_once __DIR__ . '/includes/header.php';
     </header>
 
     <!-- Minimalist Filter Bar (Department & Year Custom Dropdowns) -->
-    <div class="act-toolbar-strip" style="margin-top: 14px;">
-        <div class="act-toolbar-inner" style="justify-content: space-between;">
-            <div class="act-toolbar-filters" style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+    <div class="act-toolbar-strip">
+        <div class="act-toolbar-inner">
+            <div class="act-toolbar-filters">
                 <!-- Department Custom Dropdown -->
                 <div class="custom-select-wrap" id="deptDropdownWrap">
                     <button type="button" class="custom-select-trigger" id="deptDropdownTrigger" aria-expanded="false" aria-haspopup="listbox">
