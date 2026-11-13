@@ -48,10 +48,6 @@ require_once __DIR__ . '/includes/header.php';
             <section class="about-overview-card" aria-label="Campus Environment and Recognition">
                 <div class="about-overview-media">
                     <img src="images/hero_campus_1.jpg" alt="Government Engineering College Modasa Campus Building" loading="lazy" onerror="this.src='images/slider/default.jpg'">
-                    <div class="about-overview-badge">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Modasa-Shamlaji State Highway, Aravalli</span>
-                    </div>
                 </div>
                 <div class="about-overview-body">
                     <span class="about-section-kicker">CAMPUS &amp; ECOSYSTEM</span>
