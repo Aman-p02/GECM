@@ -21,11 +21,11 @@ if ($pdo) {
         ");
         $conferences = $cStmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Trainings: id ASC
+        // Trainings: latest added first (id DESC)
         $tStmt = $pdo->query("
             SELECT * FROM faculty_activities 
             WHERE is_active = 1 AND category = 'trainings' 
-            ORDER BY id ASC
+            ORDER BY id DESC
         ");
         $trainings = $tStmt->fetchAll(PDO::FETCH_ASSOC);
 

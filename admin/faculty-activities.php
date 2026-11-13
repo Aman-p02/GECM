@@ -182,9 +182,10 @@ if ($pdo) {
         }
     }
 
-    // Query activities
-    if ($selectedCat === 'conferences') {
-        $stmt = $pdo->query("SELECT * FROM faculty_activities WHERE category = 'conferences' ORDER BY id DESC");
+    // Query activities (Conferences and Trainings sort latest first)
+    if ($selectedCat === 'conferences' || $selectedCat === 'trainings') {
+        $stmt = $pdo->prepare("SELECT * FROM faculty_activities WHERE category = ? ORDER BY id DESC");
+        $stmt->execute([$selectedCat]);
     } else {
         $stmt = $pdo->prepare("SELECT * FROM faculty_activities WHERE category = ? ORDER BY id ASC");
         $stmt->execute([$selectedCat]);
