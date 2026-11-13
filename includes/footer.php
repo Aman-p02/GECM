@@ -72,6 +72,11 @@
         </div>
     </footer>
 
+    <!-- Back to Top Floating Button -->
+    <button type="button" id="backToTopBtn" class="back-to-top-btn" aria-label="Back to Top" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Scripts -->
     <script src="<?= $root_path ?? '' ?>js/global.js?v=<?= file_exists(__DIR__ . '/../js/global.js') ? filemtime(__DIR__ . '/../js/global.js') : time() ?>"></script>
 <?php if (isset($extra_js)): ?>

@@ -972,3 +972,51 @@ textarea.form-control {
         display: none;
     }
 }
+
+/* Back to Top Floating Button */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35), 0 2px 6px rgba(0, 0, 0, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px) scale(0.92);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-to-top-btn i {
+    font-size: 15px;
+    transition: transform 0.2s ease;
+}
+
+.back-to-top-btn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.back-to-top-btn:hover {
+    background: #009dff;
+    box-shadow: 0 6px 18px rgba(0, 157, 255, 0.45);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.back-to-top-btn:hover i {
+    transform: translateY(-2px);
+}
+
+.back-to-top-btn:active {
+    transform: translateY(0) scale(0.95);
+}

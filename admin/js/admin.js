@@ -143,6 +143,27 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 400);
         }, 5000);
     });
+
+    // Back to Top Button
+    const adminBackToTopBtn = document.getElementById('adminBackToTopBtn');
+    if (adminBackToTopBtn) {
+        const toggleBtn = function () {
+            if (window.pageYOffset > 320) {
+                adminBackToTopBtn.classList.add('is-visible');
+            } else {
+                adminBackToTopBtn.classList.remove('is-visible');
+            }
+        };
+        window.addEventListener('scroll', toggleBtn, { passive: true });
+        toggleBtn();
+
+        adminBackToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
 
 // Modal Helpers

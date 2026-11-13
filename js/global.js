@@ -436,4 +436,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     initGlobalDepartmentNav();
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById("backToTopBtn");
+    if (backToTopBtn) {
+        const toggleBackToTop = () => {
+            if (window.pageYOffset > 320) {
+                backToTopBtn.classList.add("is-visible");
+            } else {
+                backToTopBtn.classList.remove("is-visible");
+            }
+        };
+        window.addEventListener("scroll", toggleBackToTop, { passive: true });
+        toggleBackToTop();
+
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
 });
