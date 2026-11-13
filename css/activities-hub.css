@@ -834,7 +834,7 @@
 }
 
 .fac-table tbody tr:hover td {
-    background-color: #f0f9ff;
+    background-color: #f8fafc;
 }
 
 .fac-col-sr {
@@ -882,23 +882,34 @@
     margin-bottom: 12px;
 }
 
-/* Mobile responsive refinements */
+/* Mobile responsive refinements: Premium Card-Based Layout */
 @media (max-width: 768px) {
     .fac-subnav-bar {
-        margin-top: 14px;
+        margin-top: 10px;
         margin-bottom: 20px;
-        padding: 6px 0;
+        padding: 8px 0;
         top: 0;
+        border-top: none;
+        border-bottom: 1px solid #eef2f6;
+        background: #ffffff;
     }
 
     .fac-subnav-container {
-        padding: 0 12px;
+        padding: 0 14px;
+    }
+
+    /* Segmented pill control on mobile */
+    .fac-subnav-wrap {
+        background: #f1f5f9;
+        border-radius: 10px;
+        padding: 4px;
+        box-sizing: border-box;
     }
 
     .fac-subnav-list {
         display: flex;
         width: 100%;
-        gap: 6px;
+        gap: 4px;
         justify-content: space-between;
     }
 
@@ -910,34 +921,140 @@
     .fac-subnav-link {
         width: 100%;
         justify-content: center;
-        padding: 9px 4px;
-        font-size: 0.80rem;
-        border-radius: 6px;
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        gap: 5px;
+        padding: 8px 4px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        border-radius: 8px;
+        background: transparent;
+        border: none;
+        color: #64748b;
         white-space: nowrap;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .fac-subnav-link::after {
-        display: none;
+        display: none !important;
     }
 
     .fac-subnav-link.is-active {
-        background: #0284c7;
-        color: #ffffff;
-        border-color: #0284c7;
-        box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);
+        background: #ffffff;
+        color: #0f172a;
+        font-weight: 700;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
     }
 
-    .fac-table thead th,
+    /* Mobile Container Spacing */
+    .act-container {
+        padding: 0 14px !important;
+    }
+
+    /* Mobile Table-to-Card Transformation (No horizontal slide/scroll!) */
+    .fac-table-card {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+    }
+
+    .fac-table-responsive {
+        overflow-x: visible !important;
+    }
+
+    .fac-table {
+        display: block;
+        width: 100%;
+    }
+
+    .fac-table thead {
+        display: none !important;
+    }
+
+    .fac-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        width: 100%;
+    }
+
+    .fac-table tbody tr {
+        display: block;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 16px;
+        box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.05);
+        position: relative;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
     .fac-table tbody td {
-        padding: 10px 12px;
-        font-size: 0.86rem;
+        display: block;
+        padding: 0;
+        border: none !important;
+        background: transparent !important;
     }
 
+    .fac-table tbody tr:nth-child(even) td {
+        background-color: transparent !important;
+    }
+
+    /* Card Header: Sr. No Pill Badge */
+    .fac-col-sr {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: auto !important;
+        min-width: auto !important;
+        padding: 2px 8px;
+        border-radius: 6px;
+        background: #f1f5f9;
+        color: #64748b;
+        font-size: 0.72rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        letter-spacing: 0.03em;
+    }
+
+    .fac-col-sr::before {
+        content: '#';
+        font-weight: 600;
+        margin-right: 1px;
+    }
+
+    /* Faculty Name in Card */
     .fac-col-faculty {
-        min-width: 160px;
+        width: 100% !important;
+        min-width: 100% !important;
+        margin-bottom: 10px;
+        padding-bottom: 8px !important;
+        border-bottom: 1px dashed #e2e8f0 !important;
+    }
+
+    .fac-faculty-name {
+        font-size: 1.02rem;
+        font-weight: 700;
+        color: #0f172a;
+        line-height: 1.35;
+    }
+
+    .fac-faculty-sub {
+        font-size: 0.82rem;
+        color: #64748b;
+        margin-top: 3px;
+    }
+
+    /* Details text */
+    .fac-desc-text {
+        font-size: 0.90rem;
+        line-height: 1.62;
+        color: #334155;
+    }
+
+    .fac-empty-state {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 36px 16px;
     }
 }
 
