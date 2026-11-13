@@ -335,6 +335,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initial check
     filterActivities();
+
+    // Auto-open event modal if redirected from Homepage (?event=ID) or hash
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetEventId = urlParams.get("event");
+    if (targetEventId) {
+        const targetModalId = "eventModal_" + targetEventId;
+        const targetModal = document.getElementById(targetModalId);
+        if (targetModal) {
+            const cardBtn = document.querySelector(`button[onclick*="${targetModalId}"]`);
+            if (cardBtn) {
+                cardBtn.closest(".act-card")?.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+            setTimeout(() => {
+                window.openActModal(targetModalId);
+            }, 100);
+        }
+    } else if (window.location.hash && window.location.hash.startsWith("#eventModal_")) {
+        const hashModalId = window.location.hash.substring(1);
+        const targetModal = document.getElementById(hashModalId);
+        if (targetModal) {
+            window.openActModal(hashModalId);
+        }
+    }
 });
 
 // Modal helpers
@@ -350,6 +373,13 @@ window.closeActModal = function(modalId) {
     if (!modal) return;
     modal.classList.remove("is-active");
     document.body.style.overflow = "";
+
+    // Clean URL query param if present
+    const url = new URL(window.location.href);
+    if (url.searchParams.has("event")) {
+        url.searchParams.delete("event");
+        window.history.replaceState({}, '', url.pathname + (url.search ? url.search : ''));
+    }
 };
 
 document.addEventListener("click", (e) => {

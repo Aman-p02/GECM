@@ -65,28 +65,32 @@ if ($noticesList === null) {
 if ($recentEvents === null) {
     $recentEvents = [
         [
+            'id' => 1,
             'image_url' => 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             'title' => 'State Level Hackathon: Innovation Sprint',
             'description' => 'A premier 36-hour non-stop innovation hackathon held at GEC Modasa campus.',
-            'view_url' => 'college-activities.php'
+            'view_url' => '#'
         ],
         [
+            'id' => 2,
             'image_url' => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             'title' => 'Annual Technical Symposium: TechFest',
             'description' => 'Flagship inter-college technical symposium featuring 50+ competitions.',
-            'view_url' => 'college-activities.php'
+            'view_url' => '#'
         ],
         [
+            'id' => 3,
             'image_url' => 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             'title' => 'Annual Convocation Ceremony',
             'description' => 'Graduation ceremony celebrating the passing out batch of engineers.',
-            'view_url' => 'college-activities.php'
+            'view_url' => '#'
         ],
         [
+            'id' => 4,
             'image_url' => 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
             'title' => 'Prarambh: Annual Cultural Festival',
             'description' => 'Vibrant multi-cultural celebration showcasing theater, music, and dance.',
-            'view_url' => 'college-activities.php'
+            'view_url' => '#'
         ]
     ];
 }
@@ -301,7 +305,8 @@ include_once __DIR__ . '/includes/header.php';
             <?php if (!empty($recentEvents)): ?>
             <div class="events-slider" id="eventsSlider">
                 <?php foreach ($recentEvents as $ev): 
-                    $evLink = (!empty($ev['view_url']) && $ev['view_url'] !== '#') ? $ev['view_url'] : 'college-activities.php';
+                    $evId = !empty($ev['id']) ? $ev['id'] : '';
+                    $evLink = $evId ? 'college-activities.php?event=' . urlencode($evId) : 'college-activities.php';
                 ?>
                 <div class="event-slide">
                     <img src="<?= htmlspecialchars($ev['image_url']) ?>" alt="<?= htmlspecialchars($ev['title']) ?>" onerror="this.src='images/hero_campus_1.jpg'">
