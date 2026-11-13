@@ -22,7 +22,7 @@ if ($pdo) {
         $heroSlides = $pdo->query("SELECT * FROM hero_slides WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
         $newsTickers = $pdo->query("SELECT * FROM news_ticker WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
         $noticesList = $pdo->query("SELECT * FROM notices WHERE is_active = 1 ORDER BY publish_date DESC, id DESC")->fetchAll();
-        $recentEvents = $pdo->query("SELECT * FROM events WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
+        $recentEvents = $pdo->query("SELECT * FROM events WHERE is_active = 1 ORDER BY display_order ASC, event_date DESC, id DESC LIMIT 4")->fetchAll();
         $latestShots = $pdo->query("SELECT * FROM latest_shots WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
         $departmentsList = $pdo->query("SELECT * FROM departments WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
         $alumniList = $pdo->query("SELECT * FROM alumni WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
@@ -61,26 +61,32 @@ if ($noticesList === null) {
     ];
 }
 
-// Fallback events
+// Fallback events (latest 4 for homepage showcase)
 if ($recentEvents === null) {
     $recentEvents = [
         [
+            'image_url' => 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'title' => 'State Level Hackathon: Innovation Sprint',
+            'description' => 'A premier 36-hour non-stop innovation hackathon held at GEC Modasa campus.',
+            'view_url' => 'college-activities.php'
+        ],
+        [
             'image_url' => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-            'title' => 'TechFest 2024',
-            'description' => 'Annual Technical Symposium with 50+ inter-college events.',
-            'view_url' => '#'
+            'title' => 'Annual Technical Symposium: TechFest',
+            'description' => 'Flagship inter-college technical symposium featuring 50+ competitions.',
+            'view_url' => 'college-activities.php'
         ],
         [
             'image_url' => 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-            'title' => 'Convocation Ceremony',
-            'description' => 'Batch of 2020-2024 engineering graduation day.',
-            'view_url' => '#'
+            'title' => 'Annual Convocation Ceremony',
+            'description' => 'Graduation ceremony celebrating the passing out batch of engineers.',
+            'view_url' => 'college-activities.php'
         ],
         [
-            'image_url' => 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-            'title' => 'State Level Hackathon',
-            'description' => '24-hour innovation sprint held at GEC Modasa campus.',
-            'view_url' => '#'
+            'image_url' => 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+            'title' => 'Prarambh: Annual Cultural Festival',
+            'description' => 'Vibrant multi-cultural celebration showcasing theater, music, and dance.',
+            'view_url' => 'college-activities.php'
         ]
     ];
 }
@@ -289,18 +295,20 @@ include_once __DIR__ . '/includes/header.php';
     <div class="recent-events-card">
         <div class="section-header">
             <h4>Recent Events</h4>
-            <a href="#" class="view-all">All Events</a>
+            <a href="college-activities.php" class="view-all">All Events</a>
         </div>
         <div class="events-slider-container">
             <?php if (!empty($recentEvents)): ?>
             <div class="events-slider" id="eventsSlider">
-                <?php foreach ($recentEvents as $ev): ?>
+                <?php foreach ($recentEvents as $ev): 
+                    $evLink = (!empty($ev['view_url']) && $ev['view_url'] !== '#') ? $ev['view_url'] : 'college-activities.php';
+                ?>
                 <div class="event-slide">
-                    <img src="<?= htmlspecialchars($ev['image_url']) ?>" alt="<?= htmlspecialchars($ev['title']) ?>">
+                    <img src="<?= htmlspecialchars($ev['image_url']) ?>" alt="<?= htmlspecialchars($ev['title']) ?>" onerror="this.src='images/hero_campus_1.jpg'">
                     <div class="slide-content">
                         <h4><?= htmlspecialchars($ev['title']) ?></h4>
                         <p><?= htmlspecialchars($ev['description']) ?></p>
-                        <a href="<?= htmlspecialchars($ev['view_url'] ?? '#') ?>" class="view-full-btn">View Full <i class="fas fa-arrow-right"></i></a>
+                        <a href="<?= htmlspecialchars($evLink) ?>" class="view-full-btn">View Full <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <?php endforeach; ?>
