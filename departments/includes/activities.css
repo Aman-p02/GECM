@@ -285,3 +285,53 @@
         gap: 20px;
     }
 }
+
+/* Minimal Color-Coordinated Report / Document Link */
+.act-card-link-mini,
+.act-modal-link-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.80rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    line-height: 1.2;
+}
+
+.act-card-link-mini {
+    padding: 5px 11px;
+    font-size: 0.76rem;
+    border-radius: 5px;
+}
+
+/* Department Color Coordination */
+.dept-link-ce { color: #ea580c; background: #fff7ed; border-color: #fed7aa; }
+.dept-link-ce:hover { background: #ea580c; color: #ffffff; border-color: #ea580c; }
+
+.dept-link-it { color: #15803d; background: #f0fdf4; border-color: #bbf7d0; }
+.dept-link-it:hover { background: #15803d; color: #ffffff; border-color: #15803d; }
+
+.dept-link-me { color: #2563eb; background: #eff6ff; border-color: #bfdbfe; }
+.dept-link-me:hover { background: #2563eb; color: #ffffff; border-color: #2563eb; }
+
+.dept-link-civil { color: #ca8a04; background: #fefce8; border-color: #fef08a; }
+.dept-link-civil:hover { background: #ca8a04; color: #ffffff; border-color: #ca8a04; }
+
+.dept-link-ee { color: #d97706; background: #fffbeb; border-color: #fde68a; }
+.dept-link-ee:hover { background: #d97706; color: #ffffff; border-color: #d97706; }
+
+.dept-link-ec { color: #7c3aed; background: #f5f3ff; border-color: #ddd6fe; }
+.dept-link-ec:hover { background: #7c3aed; color: #ffffff; border-color: #7c3aed; }
+
+.dept-link-ae { color: #dc2626; background: #fef2f2; border-color: #fecaca; }
+.dept-link-ae:hover { background: #dc2626; color: #ffffff; border-color: #dc2626; }
+
+.dept-link-am { color: #0f766e; background: #f0fdfa; border-color: #99f6e4; }
+.dept-link-am:hover { background: #0f766e; color: #ffffff; border-color: #0f766e; }
+
+.dept-link-sh { color: #4f46e5; background: #eef2ff; border-color: #c7d2fe; }
+.dept-link-sh:hover { background: #4f46e5; color: #ffffff; border-color: #4f46e5; }

@@ -28,7 +28,7 @@ if (isset($pdo) && $pdo) {
         $stmt = $pdo->prepare("
             SELECT * FROM department_activities 
             WHERE dept_code = ? AND is_active = 1 
-            ORDER BY activity_date DESC, id DESC
+            ORDER BY id DESC
         ");
         $stmt->execute([$deptCode]);
         $deptActivities = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -85,6 +85,11 @@ if (isset($pdo) && $pdo) {
                                     <span>View Details</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
+                                <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
+                                    <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-card-link-mini dept-link-<?= strtolower($deptCode) ?>" title="View Document / Report">
+                                        <i class="fas fa-external-link-alt"></i> <span>Report</span>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </article>
@@ -112,6 +117,14 @@ if (isset($pdo) && $pdo) {
                                 <div class="activity-modal-text">
                                     <?= htmlspecialchars($act['description']) ?>
                                 </div>
+
+                                <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
+                                    <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--dept-border, #e5e7eb); display: flex; justify-content: flex-start;">
+                                        <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-modal-link-mini dept-link-<?= strtolower($deptCode) ?>">
+                                            <i class="fas fa-external-link-alt"></i> <span>View Report / Document</span>
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

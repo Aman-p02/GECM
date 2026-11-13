@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $activity_date = !empty($_POST['activity_date']) ? $_POST['activity_date'] : null;
         $description = trim($_POST['description'] ?? '');
         $external_url = trim($_POST['external_url'] ?? '');
-        $display_order = (int)($_POST['display_order'] ?? 0);
+        $display_order = 0;
         $is_active = isset($_POST['is_active']) ? 1 : 0;
 
         if (empty($title)) {
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $activity_date = !empty($_POST['activity_date']) ? $_POST['activity_date'] : null;
         $description = trim($_POST['description'] ?? '');
         $external_url = trim($_POST['external_url'] ?? '');
-        $display_order = (int)($_POST['display_order'] ?? 0);
+        $display_order = 0;
         $is_active = isset($_POST['is_active']) ? 1 : 0;
         $existing_photo = trim($_POST['existing_photo'] ?? '');
 
@@ -209,7 +209,7 @@ if ($pdo) {
         $stmt = $pdo->prepare("
             SELECT * FROM department_activities 
             WHERE dept_code = ? 
-            ORDER BY display_order ASC, activity_date DESC, id DESC
+            ORDER BY id DESC
         ");
         $stmt->execute([$deptCode]);
         $activitiesList = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -284,7 +284,7 @@ require_once __DIR__ . '/includes/header.php';
         <table class="admin-table" id="activitiesTable">
             <thead>
                 <tr>
-                    <th style="width: 60px;">Order</th>
+                    <th style="width: 60px;">Sr.</th>
                     <th style="width: 100px;">Photo</th>
                     <th>Activity Title &amp; Date</th>
                     <th>Description</th>
@@ -301,11 +301,11 @@ require_once __DIR__ . '/includes/header.php';
                         </td>
                     </tr>
                 <?php else: ?>
-                    <?php foreach ($activitiesList as $act): ?>
+                    <?php $sr = 1; foreach ($activitiesList as $act): ?>
                         <tr>
                             <td>
-                                <span class="badge" style="background: #e0f2fe; color: #0284c7; font-weight: 700;">
-                                    #<?= htmlspecialchars($act['display_order']) ?>
+                                <span class="badge" style="background: #f1f5f9; color: #475569; font-weight: 700;">
+                                    #<?= $sr++ ?>
                                 </span>
                             </td>
                             <td>
@@ -382,16 +382,10 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group" style="flex: 2;">
-                        <label class="form-label" for="add_image">Activity Photo / Banner</label>
-                        <input type="file" name="image_file" id="add_image" class="form-control" accept="image/*">
-                        <small style="color: #64748b; font-size: 11px;">Recommended size: 800x500px JPG/PNG/WebP</small>
-                    </div>
-                    <div class="form-group" style="flex: 1;">
-                        <label class="form-label" for="add_order">Display Order</label>
-                        <input type="number" name="display_order" id="add_order" class="form-control" value="0">
-                    </div>
+                <div class="form-group">
+                    <label class="form-label" for="add_image">Activity Photo / Banner</label>
+                    <input type="file" name="image_file" id="add_image" class="form-control" accept="image/*">
+                    <small style="color: #64748b; font-size: 11px;">Recommended size: 800x500px JPG/PNG/WebP</small>
                 </div>
 
                 <div class="form-group">
@@ -446,19 +440,13 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group" style="flex: 2;">
-                        <label class="form-label">Activity Photo / Banner</label>
-                        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 8px;">
-                            <?php if (!empty($editItem['image_url'])): ?>
-                                <img src="../<?= htmlspecialchars($editItem['image_url']) ?>" style="width: 60px; height: 45px; object-fit: cover; border-radius: 4px; border: 1px solid #cbd5e1;" onerror="this.src='../images/slider/default.jpg'">
-                            <?php endif; ?>
-                            <input type="file" name="image_file" class="form-control" accept="image/*" style="flex: 1;">
-                        </div>
-                    </div>
-                    <div class="form-group" style="flex: 1;">
-                        <label class="form-label" for="edit_order">Display Order</label>
-                        <input type="number" name="display_order" id="edit_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order']) ?>">
+                <div class="form-group">
+                    <label class="form-label">Activity Photo / Banner</label>
+                    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 8px;">
+                        <?php if (!empty($editItem['image_url'])): ?>
+                            <img src="../<?= htmlspecialchars($editItem['image_url']) ?>" style="width: 60px; height: 45px; object-fit: cover; border-radius: 4px; border: 1px solid #cbd5e1;" onerror="this.src='../images/slider/default.jpg'">
+                        <?php endif; ?>
+                        <input type="file" name="image_file" class="form-control" accept="image/*" style="flex: 1;">
                     </div>
                 </div>
 

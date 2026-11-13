@@ -39,7 +39,7 @@ if ($pdo) {
         $stmt = $pdo->query("
             SELECT * FROM department_activities 
             WHERE is_active = 1 
-            ORDER BY activity_date DESC, display_order ASC, id DESC
+            ORDER BY id DESC
         ");
         $activities = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -166,6 +166,11 @@ require_once __DIR__ . '/includes/header.php';
                                 <span>View Details</span>
                                 <i class="fas fa-arrow-right"></i>
                             </button>
+                            <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
+                                <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-card-link-mini dept-link-<?= strtolower($code) ?>" title="View Document / Report">
+                                    <i class="fas fa-external-link-alt"></i> <span>Report</span>
+                                </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </article>
@@ -195,8 +200,15 @@ require_once __DIR__ . '/includes/header.php';
                             <?= nl2br(htmlspecialchars($fullDesc)) ?>
                         </div>
 
-                        <div class="act-modal-footer">
-                            <button type="button" class="btn btn-secondary" onclick="closeActModal('<?= $modalId ?>')" style="padding:8px 18px; font-size:0.88rem;">
+                        <div class="act-modal-footer" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
+                                <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-modal-link-mini dept-link-<?= strtolower($code) ?>">
+                                    <i class="fas fa-external-link-alt"></i> <span>View Report / Document</span>
+                                </a>
+                            <?php else: ?>
+                                <span></span>
+                            <?php endif; ?>
+                            <button type="button" class="btn btn-secondary" onclick="closeActModal('<?= $modalId ?>')" style="padding: 7px 18px; font-size: 0.86rem; border-radius: 6px;">
                                 Close
                             </button>
                         </div>
