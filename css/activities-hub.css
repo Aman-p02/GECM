@@ -696,42 +696,6 @@
 /* --------------------------------------------------------------------------
    FACULTY ACTIVITIES & TABS STYLES (MATCHES USER SPEC & GECM THEME)
    -------------------------------------------------------------------------- */
-.fac-breadcrumb-bar {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 12px 24px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    color: #64748b;
-}
-
-.fac-breadcrumb-list {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.fac-breadcrumb-list a {
-    color: #0284c7;
-    text-decoration: none;
-    transition: color 0.15s ease;
-}
-
-.fac-breadcrumb-list a:hover {
-    color: #0369a1;
-    text-decoration: underline;
-}
-
-.fac-breadcrumb-sep {
-    color: #cbd5e1;
-    font-size: 0.75rem;
-}
-
 /* Tab Bar */
 .fac-tabs-wrapper {
     max-width: 1320px;
@@ -959,11 +923,6 @@
 
 /* Mobile responsive refinements */
 @media (max-width: 768px) {
-    .fac-breadcrumb-bar {
-        padding: 8px 16px 0;
-        font-size: 0.80rem;
-    }
-
     .fac-tabs-wrapper {
         padding: 0 16px;
         margin-top: 16px;

@@ -44,19 +44,8 @@ require_once __DIR__ . '/includes/header.php';
 
 <div class="act-hub-page" id="mainContent">
 
-    <!-- Top Breadcrumb Bar matching official layout -->
-    <div class="fac-breadcrumb-bar">
-        <ul class="fac-breadcrumb-list">
-            <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-            <li class="fac-breadcrumb-sep"><i class="fas fa-chevron-right"></i></li>
-            <li><a href="college-activities.php">Activities</a></li>
-            <li class="fac-breadcrumb-sep"><i class="fas fa-chevron-right"></i></li>
-            <li style="color: #1e293b; font-weight: 600;">Faculty Activities</li>
-        </ul>
-    </div>
-
     <!-- Page Hero Banner -->
-    <header class="act-hero" style="padding-top: 32px; padding-bottom: 12px;">
+    <header class="act-hero">
         <div class="act-hero-inner">
             <span class="act-kicker">ACADEMIC &amp; RESEARCH LEADERSHIP</span>
             <h1 class="act-heading" style="margin-bottom: 0;">Faculty Activities</h1>
