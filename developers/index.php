@@ -212,7 +212,7 @@ include_once __DIR__ . '/../includes/header.php';
                 <div>
                     <div class="connect-heading">Let's Connect</div>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/aman-prajapati-855a8a37b/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn" aria-label="Aman's LinkedIn">
+                        <a href="https://www.linkedin.com/in/amanprajapati2" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn" aria-label="Aman's LinkedIn">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                         <a href="https://github.com/Aman-p02" target="_blank" rel="noopener noreferrer" class="social-btn github" title="GitHub" aria-label="Aman's GitHub">

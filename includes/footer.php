@@ -22,7 +22,7 @@
                 <div class="footer-col links-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="<?= ($root_path ?? '') . 'index.php#about' ?>"><i class="fas fa-angle-right"></i> About GECM</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>overview.php"><i class="fas fa-angle-right"></i> About GECM</a></li>
                         <li><a href="<?= $root_path ?? '' ?>admission.php"><i class="fas fa-angle-right"></i> Admissions</a></li>
                         <li><a href="<?= $root_path ?? '' ?>courses.php"><i class="fas fa-angle-right"></i> Courses &amp; Intake</a></li>
                         <li><a href="<?= $root_path ?? '' ?>contact.php"><i class="fas fa-angle-right"></i> Contact Us</a></li>

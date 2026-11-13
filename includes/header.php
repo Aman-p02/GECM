@@ -151,18 +151,19 @@ if (!isset($active_page)) {
 
                 <!-- About Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . 'index.php#about'; ?>"
-                       class="hdr-nav-link">
+                    <a href="<?= $root_path ?>overview.php"
+                       class="hdr-nav-link <?= in_array($active_page, ['about', 'overview']) ? 'active is-active' : '' ?>">
                         About <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <div class="hdr-dd-heading">THE INSTITUTE</div>
                         <ul class="hdr-dd-list">
-                            <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . 'index.php#about'; ?>" class="hdr-dd-link">Overview</a></li>
-                            <li><a href="<?php echo ($active_page === 'home') ? '#about' : $root_path . 'index.php#about'; ?>" class="hdr-dd-link">Vision &amp; Mission</a></li>
+                            <li><a href="<?= $root_path ?>overview.php" class="hdr-dd-link <?= ($active_page === 'overview') ? 'is-active active' : '' ?>">Overview</a></li>
+                            <li><a href="<?= $root_path ?>overview.php#vision-mission" class="hdr-dd-link">Vision &amp; Mission</a></li>
+                            <li><a href="<?= $root_path ?>overview.php#affiliation" class="hdr-dd-link">Affiliation Letters</a></li>
                             <li><a href="#" class="hdr-dd-link">Principal's Message</a></li>
                             <li><a href="#" class="hdr-dd-link">IDP</a></li>
-                            <li><a href="<?php echo ($active_page === 'home') ? '#facilities' : $root_path . 'index.php#facilities'; ?>" class="hdr-dd-link">Facilities</a></li>
+                            <li><a href="<?= $root_path ?>overview.php#facilities" class="hdr-dd-link">Facilities</a></li>
                             <li><a href="#" class="hdr-dd-link">E-Newsletter</a></li>
                             <li><a href="#" class="hdr-dd-link">Information Brochure</a></li>
                             <li><a href="#" class="hdr-dd-link">Mandatory Disclosure</a></li>

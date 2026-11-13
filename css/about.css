@@ -1,0 +1,302 @@
+/* ==========================================================================
+   About GECM Stylesheet (Clean Official Layout)
+   Theme: Deep Navy (#0c3b6d), Institutional Orange (#ff8800), Inter Font
+   ========================================================================== */
+
+.about-page {
+    background-color: #ffffff;
+    color: var(--text-dark, #333333);
+    padding: 0 0 80px 0;
+    min-height: 70vh;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.about-hero {
+    padding: 54px 0 40px;
+    border-bottom: 1px solid #eef2f6;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+}
+
+.about-kicker {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 12px;
+}
+
+.about-heading {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: clamp(2rem, 3.4vw, 2.75rem);
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    margin: 0 0 16px;
+}
+
+.about-lead {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.75;
+    max-width: 900px;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Main Content Layout
+   ========================================================================== */
+.about-content {
+    padding-top: 40px;
+}
+
+.about-intro-prose {
+    margin-bottom: 44px;
+}
+
+.about-intro-prose p {
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.about-intro-prose p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Affiliation Section (Side by Side: AICTE & GTU)
+   ========================================================================== */
+.about-affiliation-section {
+    margin-bottom: 52px;
+    padding-top: 12px;
+}
+
+.about-block-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 24px;
+    position: relative;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.about-block-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 48px;
+    height: 2px;
+    background-color: #ff8800;
+}
+
+.about-affil-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.about-affil-column {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px 28px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.about-affil-col-title {
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #0c3b6d;
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.about-affil-col-title i {
+    color: #ff8800;
+    font-size: 1.1rem;
+}
+
+.about-affil-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about-affil-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #2b394e;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.about-affil-link:hover {
+    color: #0c3b6d;
+    background-color: #f1f5f9;
+    padding-left: 12px;
+}
+
+.about-affil-link i.bullet-icon {
+    font-size: 0.45rem;
+    color: #ff8800;
+    flex-shrink: 0;
+}
+
+.about-affil-link i.pdf-icon {
+    font-size: 0.95rem;
+    color: #ef4444;
+    flex-shrink: 0;
+}
+
+.about-affil-link span {
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   Courses Tables (UG & PG)
+   ========================================================================== */
+.about-courses-section {
+    margin-bottom: 48px;
+}
+
+.about-table-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 16px;
+}
+
+.about-table-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    margin-bottom: 36px;
+}
+
+.about-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.about-courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.about-courses-table thead tr {
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.about-courses-table th {
+    padding: 14px 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #334155;
+    white-space: nowrap;
+}
+
+.about-courses-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.94rem;
+    color: #1e293b;
+    vertical-align: middle;
+}
+
+.about-courses-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.about-courses-table tbody tr:hover {
+    background-color: #fbfcfd;
+}
+
+.about-program-name {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.about-program-accred {
+    display: inline-block;
+    color: #0c3b6d;
+    font-weight: 700;
+    font-size: 0.82rem;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+.about-intake-badge {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #0f172a;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.about-code-pill {
+    display: inline-block;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #0c3b6d;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-family: monospace;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+    .about-affil-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 40px 0 28px;
+    }
+
+    .about-affil-column {
+        padding: 20px;
+    }
+
+    .about-courses-table th,
+    .about-courses-table td {
+        padding: 12px 14px;
+    }
+}
