@@ -286,7 +286,7 @@
     }
 }
 
-/* Minimal Color-Coordinated Report / Document Link */
+/* Minimal Color-Coordinated View Link */
 .act-card-link-mini,
 .act-modal-link-mini {
     display: inline-flex;
@@ -296,16 +296,26 @@
     font-weight: 600;
     padding: 6px 14px;
     border-radius: 6px;
-    border: 1px solid transparent;
+    border: 1px solid var(--dept-border, #e5e7eb);
+    color: var(--dept-accent, #2563eb);
+    background: var(--dept-bg-subtle, #f8fafc);
     text-decoration: none;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     line-height: 1.2;
 }
 
 .act-card-link-mini {
-    padding: 5px 11px;
-    font-size: 0.76rem;
-    border-radius: 5px;
+    padding: 6px 13px;
+    font-size: 0.78rem;
+    border-radius: 6px;
+}
+
+.act-card-link-mini:hover,
+.act-modal-link-mini:hover {
+    background: var(--dept-accent, #2563eb);
+    color: #ffffff;
+    border-color: var(--dept-accent, #2563eb);
+    transform: translateY(-1px);
 }
 
 /* Department Color Coordination */

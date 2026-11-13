@@ -142,7 +142,7 @@ require_once __DIR__ . '/includes/header.php';
                 $photoSrc = !empty($event['image_url']) ? htmlspecialchars($event['image_url']) : 'images/hero_campus_1.jpg';
                 $modalId = 'eventModal_' . $event['id'];
             ?>
-                <article class="act-card" data-year="<?= htmlspecialchars($evYear) ?>">
+                <article class="act-card dept-card-college" data-year="<?= htmlspecialchars($evYear) ?>">
                     <div class="act-card-media">
                         <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($event['title']) ?>" loading="lazy" onerror="this.src='images/hero_campus_1.jpg'">
                     </div>
@@ -174,7 +174,7 @@ require_once __DIR__ . '/includes/header.php';
                 </article>
 
                 <!-- Full Detail Modal -->
-                <div class="act-modal-backdrop" id="<?= $modalId ?>" role="dialog" aria-modal="true" aria-labelledby="<?= $modalId ?>_title">
+                <div class="act-modal-backdrop dept-modal-college" id="<?= $modalId ?>" role="dialog" aria-modal="true" aria-labelledby="<?= $modalId ?>_title">
                     <div class="act-modal-dialog">
                         <?php if (!empty($event['image_url'])): ?>
                             <div class="act-modal-media">

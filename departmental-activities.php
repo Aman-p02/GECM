@@ -141,7 +141,7 @@ require_once __DIR__ . '/includes/header.php';
                 $rawDesc = !empty($act['short_description']) ? $act['short_description'] : (!empty($act['description']) ? $act['description'] : '');
                 $fullDesc = !empty($act['description']) ? $act['description'] : (!empty($act['short_description']) ? $act['short_description'] : 'No detailed description available.');
             ?>
-                <article class="act-card"
+                <article class="act-card dept-card-<?= strtolower($code) ?>"
                          data-dept="<?= htmlspecialchars($code) ?>"
                          data-year="<?= htmlspecialchars($actYear) ?>">
                     
@@ -167,8 +167,8 @@ require_once __DIR__ . '/includes/header.php';
                                 <i class="fas fa-arrow-right"></i>
                             </button>
                             <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
-                                <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-card-link-mini dept-link-<?= strtolower($code) ?>" title="View Document / Report">
-                                    <i class="fas fa-external-link-alt"></i> <span>Report</span>
+                                <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-card-link-mini dept-link-<?= strtolower($code) ?>" title="View Document">
+                                    <i class="fas fa-external-link-alt"></i> <span>View</span>
                                 </a>
                             <?php endif; ?>
                         </div>
@@ -176,7 +176,7 @@ require_once __DIR__ . '/includes/header.php';
                 </article>
 
                 <!-- Full Detail Modal -->
-                <div class="act-modal-backdrop" id="<?= $modalId ?>" role="dialog" aria-modal="true" aria-labelledby="<?= $modalId ?>_title">
+                <div class="act-modal-backdrop dept-modal-<?= strtolower($code) ?>" id="<?= $modalId ?>" role="dialog" aria-modal="true" aria-labelledby="<?= $modalId ?>_title">
                     <div class="act-modal-dialog">
                         <?php if (!empty($act['image_url'])): ?>
                             <div class="act-modal-media">
@@ -202,8 +202,8 @@ require_once __DIR__ . '/includes/header.php';
 
                         <div class="act-modal-footer" style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
                             <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
-                                <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-modal-link-mini dept-link-<?= strtolower($code) ?>">
-                                    <i class="fas fa-external-link-alt"></i> <span>View Report / Document</span>
+                                <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-modal-link-mini dept-link-<?= strtolower($code) ?>" title="View Document">
+                                    <i class="fas fa-external-link-alt"></i> <span>View</span>
                                 </a>
                             <?php else: ?>
                                 <span></span>

@@ -86,8 +86,8 @@ if (isset($pdo) && $pdo) {
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
                                 <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
-                                    <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-card-link-mini dept-link-<?= strtolower($deptCode) ?>" title="View Document / Report">
-                                        <i class="fas fa-external-link-alt"></i> <span>Report</span>
+                                    <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-card-link-mini dept-link-<?= strtolower($deptCode) ?>" title="View Document">
+                                        <i class="fas fa-external-link-alt"></i> <span>View</span>
                                     </a>
                                 <?php endif; ?>
                             </div>
@@ -120,8 +120,8 @@ if (isset($pdo) && $pdo) {
 
                                 <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
                                     <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--dept-border, #e5e7eb); display: flex; justify-content: flex-start;">
-                                        <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-modal-link-mini dept-link-<?= strtolower($deptCode) ?>">
-                                            <i class="fas fa-external-link-alt"></i> <span>View Report / Document</span>
+                                        <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-modal-link-mini dept-link-<?= strtolower($deptCode) ?>" title="View Document">
+                                            <i class="fas fa-external-link-alt"></i> <span>View</span>
                                         </a>
                                     </div>
                                 <?php endif; ?>

@@ -324,6 +324,87 @@
 .act-dept-badge.badge-sh { background: #4f46e5; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
 .act-dept-badge.badge-college { background: #009dff; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
 
+/* Department Dynamic Card Color Variables */
+.act-card.dept-card-ce,
+.act-modal-backdrop.dept-modal-ce {
+    --card-dept-color: #ff8800;
+    --card-dept-hover: #ea580c;
+    --card-dept-subtle: #fff7ed;
+    --card-dept-border: #fed7aa;
+}
+
+.act-card.dept-card-it,
+.act-modal-backdrop.dept-modal-it {
+    --card-dept-color: #15803d;
+    --card-dept-hover: #166534;
+    --card-dept-subtle: #f0fdf4;
+    --card-dept-border: #bbf7d0;
+}
+
+.act-card.dept-card-me,
+.act-modal-backdrop.dept-modal-me {
+    --card-dept-color: #2563eb;
+    --card-dept-hover: #1d4ed8;
+    --card-dept-subtle: #eff6ff;
+    --card-dept-border: #bfdbfe;
+}
+
+.act-card.dept-card-civil,
+.act-modal-backdrop.dept-modal-civil {
+    --card-dept-color: #ca8a04;
+    --card-dept-hover: #a16207;
+    --card-dept-subtle: #fefce8;
+    --card-dept-border: #fef08a;
+}
+
+.act-card.dept-card-ee,
+.act-modal-backdrop.dept-modal-ee {
+    --card-dept-color: #d97706;
+    --card-dept-hover: #b45309;
+    --card-dept-subtle: #fffbeb;
+    --card-dept-border: #fde68a;
+}
+
+.act-card.dept-card-ec,
+.act-modal-backdrop.dept-modal-ec {
+    --card-dept-color: #7c3aed;
+    --card-dept-hover: #6d28d9;
+    --card-dept-subtle: #f5f3ff;
+    --card-dept-border: #ddd6fe;
+}
+
+.act-card.dept-card-ae,
+.act-modal-backdrop.dept-modal-ae {
+    --card-dept-color: #dc2626;
+    --card-dept-hover: #b91c1c;
+    --card-dept-subtle: #fef2f2;
+    --card-dept-border: #fecaca;
+}
+
+.act-card.dept-card-am,
+.act-modal-backdrop.dept-modal-am {
+    --card-dept-color: #0f766e;
+    --card-dept-hover: #115e59;
+    --card-dept-subtle: #f0fdfa;
+    --card-dept-border: #99f6e4;
+}
+
+.act-card.dept-card-sh,
+.act-modal-backdrop.dept-modal-sh {
+    --card-dept-color: #4f46e5;
+    --card-dept-hover: #4338ca;
+    --card-dept-subtle: #eef2ff;
+    --card-dept-border: #c7d2fe;
+}
+
+.act-card.dept-card-college,
+.act-modal-backdrop.dept-modal-college {
+    --card-dept-color: #009dff;
+    --card-dept-hover: #0080d0;
+    --card-dept-subtle: #f0f9ff;
+    --card-dept-border: #bae6fd;
+}
+
 .act-card-body {
     padding: 22px 24px;
     display: flex;
@@ -337,7 +418,7 @@
     gap: 6px;
     font-size: 0.80rem;
     font-weight: 700;
-    color: #ff8800;
+    color: var(--card-dept-color, #ff8800);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 10px;
@@ -373,7 +454,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #ff8800;
+    background: var(--card-dept-color, #ff8800);
     color: #ffffff;
     font-size: 0.82rem;
     font-weight: 600;
@@ -387,7 +468,7 @@
 }
 
 .act-btn-view:hover {
-    background: #009dff;
+    background: var(--card-dept-hover, #ea580c);
     color: #ffffff;
     box-shadow: none !important;
     transform: translateY(-1px);
@@ -405,17 +486,17 @@
     gap: 6px;
     font-size: 0.82rem;
     font-weight: 600;
-    color: #009dff;
+    color: var(--card-dept-color, #009dff);
     text-decoration: none;
     transition: color 0.15s ease;
 }
 
 .act-link-ext:hover {
-    color: #ff8800;
+    color: var(--card-dept-hover, #0080d0);
     text-decoration: underline;
 }
 
-/* Minimal Color-Coordinated Report / Document Link */
+/* Minimal Color-Coordinated View Link */
 .act-card-link-mini,
 .act-modal-link-mini {
     display: inline-flex;
@@ -425,16 +506,26 @@
     font-weight: 600;
     padding: 6px 14px;
     border-radius: 6px;
-    border: 1px solid transparent;
+    border: 1px solid var(--card-dept-border, #e2e8f0);
+    color: var(--card-dept-color, #ff8800);
+    background: var(--card-dept-subtle, #fff7ed);
     text-decoration: none;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     line-height: 1.2;
 }
 
 .act-card-link-mini {
-    padding: 5px 11px;
-    font-size: 0.76rem;
-    border-radius: 5px;
+    padding: 6px 13px;
+    font-size: 0.78rem;
+    border-radius: 6px;
+}
+
+.act-card-link-mini:hover,
+.act-modal-link-mini:hover {
+    background: var(--card-dept-color, #ff8800);
+    color: #ffffff;
+    border-color: var(--card-dept-color, #ff8800);
+    transform: translateY(-1px);
 }
 
 /* Department Color Coordination */
