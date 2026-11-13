@@ -66,7 +66,6 @@ require_once __DIR__ . '/includes/header.php';
                                 aria-selected="<?= ($activeTab === 'trainings') ? 'true' : 'false' ?>" 
                                 aria-controls="tabTrainings">
                             <span>Trainings</span>
-                            <span class="fac-tab-badge" id="badgeTrainings"><?= count($trainings) ?></span>
                         </button>
                     </li>
                     <li class="fac-subnav-item">
@@ -78,7 +77,6 @@ require_once __DIR__ . '/includes/header.php';
                                 aria-selected="<?= ($activeTab === 'expert_lectures') ? 'true' : 'false' ?>" 
                                 aria-controls="tabLectures">
                             <span>Expert Lectures</span>
-                            <span class="fac-tab-badge" id="badgeLectures"><?= count($expertLectures) ?></span>
                         </button>
                     </li>
                     <li class="fac-subnav-item">
@@ -90,7 +88,6 @@ require_once __DIR__ . '/includes/header.php';
                                 aria-selected="<?= ($activeTab === 'conferences') ? 'true' : 'false' ?>" 
                                 aria-controls="tabConferences">
                             <span>Conferences</span>
-                            <span class="fac-tab-badge" id="badgeConferences"><?= count($conferences) ?></span>
                         </button>
                     </li>
                 </ul>
