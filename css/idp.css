@@ -1,0 +1,116 @@
+/**
+ * Institutional Development Plan (IDP) Stylesheet
+ */
+
+.idp-hero {
+    background: linear-gradient(135deg, #0c2d48 0%, #145da0 100%);
+    color: #ffffff;
+    padding: 48px 0 36px 0;
+    margin-bottom: 32px;
+}
+
+.idp-hero-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+
+.idp-hero-subtitle {
+    font-size: 15px;
+    color: #cbd5e1;
+    margin: 0;
+    max-width: 750px;
+    line-height: 1.6;
+}
+
+.idp-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 28px;
+}
+
+.idp-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.idp-download-box {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.idp-download-info h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #166534;
+    margin: 0 0 6px 0;
+}
+
+.idp-download-info p {
+    font-size: 13.5px;
+    color: #15803d;
+    margin: 0;
+}
+
+.btn-idp-download {
+    background: #16a34a;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-idp-download:hover {
+    background: #15803d;
+    color: #ffffff;
+}
+
+.idp-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.idp-pillar-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.idp-pillar-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0369a1;
+    margin: 0 0 8px 0;
+}
+
+.idp-pillar-card p {
+    font-size: 13px;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+}
+

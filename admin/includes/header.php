@@ -48,6 +48,9 @@ $page_title = $page_title ?? 'Dashboard Overview';
                 <li class="menu-category">Content Management</li>
                 
                 <?php 
+                $aboutPageItems = ['principal-message', 'idp', 'facilities', 'e-newsletters', 'brochure', 'mandatory-disclosure', 'rankings', 'mou'];
+                $isAboutActive = in_array($current_page, $aboutPageItems);
+
                 $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni', 'faculty-activities'];
                 $isMainPageActive = in_array($current_page, $mainPageItems);
 
@@ -55,6 +58,57 @@ $page_title = $page_title ?? 'Dashboard Overview';
                 $isDeptActive = in_array($current_page, $deptPageItems);
                 $activeDeptCode = $_GET['dept'] ?? ($dept_code ?? 'CE');
                 ?>
+                <!-- About Accordion Dropdown -->
+                <li class="menu-item menu-item-has-submenu <?= $isAboutActive ? 'active open' : '' ?>">
+                    <a href="javascript:void(0);" class="menu-link submenu-toggle" id="aboutMenuToggle">
+                        <span>About</span>
+                        <i class="fas fa-chevron-down submenu-arrow"></i>
+                    </a>
+                    <ul class="submenu-list">
+                        <li class="submenu-item <?= ($current_page === 'principal-message') ? 'active' : '' ?>">
+                            <a href="principal-message.php" class="submenu-link">
+                                <span>Principal's Message</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'idp') ? 'active' : '' ?>">
+                            <a href="idp.php" class="submenu-link">
+                                <span>IDP</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'facilities') ? 'active' : '' ?>">
+                            <a href="facilities.php" class="submenu-link">
+                                <span>Facilities</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'e-newsletters') ? 'active' : '' ?>">
+                            <a href="e-newsletters.php" class="submenu-link">
+                                <span>E-Newsletters</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'brochure') ? 'active' : '' ?>">
+                            <a href="brochure.php" class="submenu-link">
+                                <span>Information Brochure</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'mandatory-disclosure') ? 'active' : '' ?>">
+                            <a href="mandatory-disclosure.php" class="submenu-link">
+                                <span>Mandatory Disclosure</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'rankings') ? 'active' : '' ?>">
+                            <a href="rankings.php" class="submenu-link">
+                                <span>Rankings</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'mou') ? 'active' : '' ?>">
+                            <a href="mou.php" class="submenu-link">
+                                <span>MoU</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Main Page Accordion Dropdown -->
                 <li class="menu-item menu-item-has-submenu <?= $isMainPageActive ? 'active open' : '' ?>">
                     <a href="javascript:void(0);" class="menu-link submenu-toggle" id="mainPageMenuToggle">
                         <span>Main Page</span>
@@ -99,11 +153,6 @@ $page_title = $page_title ?? 'Dashboard Overview';
                         <li class="submenu-item <?= ($current_page === 'faculty-activities') ? 'active' : '' ?>">
                             <a href="faculty-activities.php" class="submenu-link">
                                 <span>Faculty Activities</span>
-                            </a>
-                        </li>
-                        <li class="submenu-item <?= ($current_page === 'principal-message') ? 'active' : '' ?>">
-                            <a href="principal-message.php" class="submenu-link">
-                                <span>Principal's Message</span>
                             </a>
                         </li>
                     </ul>

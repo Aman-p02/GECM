@@ -150,13 +150,10 @@ if ($pdo) {
 require_once __DIR__ . '/includes/header.php';
 ?>
 
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #eef2f6; flex-wrap: wrap; gap: 12px;">
+    <p style="color: #64748b; font-size: 13.5px; margin: 0;">Add and manage the current message from the Principal and archive past institutional messages.</p>
     <div>
-        <h1 style="font-size: 22px; font-weight: 700; color: #1a263d; margin: 0 0 4px;">Principal's Message Management</h1>
-        <p style="color: #64748b; font-size: 13.5px; margin: 0;">Add and manage the current message from the Principal and archive past institutional messages.</p>
-    </div>
-    <div>
-        <a href="../principal-message.php" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 9px 18px; border-radius: 4px; font-weight: 600;">
+        <a href="../principal-message.php" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; padding: 6px 14px; font-size: 12.5px;">
             <i class="fas fa-external-link-alt"></i> View Public Page
         </a>
     </div>
