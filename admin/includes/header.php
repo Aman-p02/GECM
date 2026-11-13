@@ -48,7 +48,7 @@ $page_title = $page_title ?? 'Dashboard Overview';
                 <li class="menu-category">Content Management</li>
                 
                 <?php 
-                $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni'];
+                $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni', 'faculty-activities'];
                 $isMainPageActive = in_array($current_page, $mainPageItems);
 
                 $deptPageItems = ['dept-faculty', 'dept-activities', 'dept-publications', 'dept-board', 'dept-newsletters'];
@@ -94,6 +94,11 @@ $page_title = $page_title ?? 'Dashboard Overview';
                         <li class="submenu-item <?= ($current_page === 'alumni') ? 'active' : '' ?>">
                             <a href="alumni.php" class="submenu-link">
                                 <span>Manage Alumni</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'faculty-activities') ? 'active' : '' ?>">
+                            <a href="faculty-activities.php" class="submenu-link">
+                                <span>Faculty Activities</span>
                             </a>
                         </li>
                     </ul>

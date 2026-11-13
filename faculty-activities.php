@@ -4,42 +4,417 @@ $active_page = "faculty_activities";
 $root_path = "";
 $extra_css = "css/activities-hub.css";
 
+require_once __DIR__ . '/includes/db.php';
+$pdo = getDBConnection();
+
+$trainings = [];
+$expertLectures = [];
+$conferences = [];
+
+if ($pdo) {
+    try {
+        $stmt = $pdo->query("
+            SELECT * FROM faculty_activities 
+            WHERE is_active = 1 
+            ORDER BY display_order ASC, id ASC
+        ");
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            if ($row['category'] === 'trainings') {
+                $trainings[] = $row;
+            } elseif ($row['category'] === 'expert_lectures') {
+                $expertLectures[] = $row;
+            } elseif ($row['category'] === 'conferences') {
+                $conferences[] = $row;
+            }
+        }
+    } catch (Exception $e) {
+        error_log("Faculty Activities Error: " . $e->getMessage());
+    }
+}
+
+// Current active tab from URL (defaults to 'trainings')
+$activeTab = $_GET['tab'] ?? 'trainings';
+$validTabs = ['trainings', 'expert_lectures', 'conferences'];
+if (!in_array($activeTab, $validTabs)) {
+    $activeTab = 'trainings';
+}
+
 require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="act-hub-page" id="mainContent">
 
+    <!-- Top Breadcrumb Bar matching official layout -->
+    <div class="fac-breadcrumb-bar">
+        <ul class="fac-breadcrumb-list">
+            <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
+            <li class="fac-breadcrumb-sep"><i class="fas fa-chevron-right"></i></li>
+            <li><a href="college-activities.php">Activities</a></li>
+            <li class="fac-breadcrumb-sep"><i class="fas fa-chevron-right"></i></li>
+            <li style="color: #1e293b; font-weight: 600;">Faculty Activities</li>
+        </ul>
+    </div>
+
     <!-- Page Hero Banner -->
-    <header class="act-hero">
+    <header class="act-hero" style="padding-top: 32px; padding-bottom: 12px;">
         <div class="act-hero-inner">
             <span class="act-kicker">ACADEMIC &amp; RESEARCH LEADERSHIP</span>
-            <h1 class="act-heading" style="margin-bottom: 0;">Faculty Activities &amp; Development</h1>
+            <h1 class="act-heading" style="margin-bottom: 0;">Faculty Activities</h1>
         </div>
     </header>
 
-    <!-- Clean Placeholder / Under Development State -->
-    <main class="act-container" style="margin-top: 36px; margin-bottom: 60px;">
-        <div style="background: #ffffff; border: 1px solid #eef2f6; border-radius: 16px; padding: 72px 24px; text-align: center; box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.03); max-width: 820px; margin: 0 auto;">
-            <div style="width: 72px; height: 72px; border-radius: 50%; background: #fff7ed; color: #ff8800; display: inline-flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 20px; border: 1px solid rgba(255, 136, 0, 0.2);">
-                <i class="fas fa-user-graduate"></i>
+    <!-- 3 Navbar Tabs (Trainings, Expert Lectures, Conferences) -->
+    <div class="fac-tabs-wrapper">
+        <nav class="fac-tabs-nav" role="tablist" aria-label="Faculty Activities Categories">
+            <button type="button" 
+                    class="fac-tab-btn <?= ($activeTab === 'trainings') ? 'is-active' : '' ?>" 
+                    id="tabBtnTrainings" 
+                    data-tab-target="tabTrainings" 
+                    role="tab" 
+                    aria-selected="<?= ($activeTab === 'trainings') ? 'true' : 'false' ?>" 
+                    aria-controls="tabTrainings">
+                <span>Trainings</span>
+                <span class="fac-tab-badge" id="badgeTrainings"><?= count($trainings) ?></span>
+            </button>
+
+            <button type="button" 
+                    class="fac-tab-btn <?= ($activeTab === 'expert_lectures') ? 'is-active' : '' ?>" 
+                    id="tabBtnLectures" 
+                    data-tab-target="tabLectures" 
+                    role="tab" 
+                    aria-selected="<?= ($activeTab === 'expert_lectures') ? 'true' : 'false' ?>" 
+                    aria-controls="tabLectures">
+                <span>Expert Lectures</span>
+                <span class="fac-tab-badge" id="badgeLectures"><?= count($expertLectures) ?></span>
+            </button>
+
+            <button type="button" 
+                    class="fac-tab-btn <?= ($activeTab === 'conferences') ? 'is-active' : '' ?>" 
+                    id="tabBtnConferences" 
+                    data-tab-target="tabConferences" 
+                    role="tab" 
+                    aria-selected="<?= ($activeTab === 'conferences') ? 'true' : 'false' ?>" 
+                    aria-controls="tabConferences">
+                <span>Conferences</span>
+                <span class="fac-tab-badge" id="badgeConferences"><?= count($conferences) ?></span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Tab Contents Container -->
+    <main class="act-container" style="max-width: 1320px; margin: 0 auto; padding: 0 24px;">
+
+        <!-- 1. TRAININGS TAB -->
+        <section class="fac-tab-pane <?= ($activeTab === 'trainings') ? 'is-active' : '' ?>" 
+                 id="tabTrainings" 
+                 role="tabpanel" 
+                 aria-labelledby="tabBtnTrainings" 
+                 style="<?= ($activeTab === 'trainings') ? '' : 'display: none;' ?>">
+            
+            <div class="fac-tab-toolbar">
+                <div class="fac-search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="fac-table-search-input" placeholder="Search by faculty name or training details..." data-target-table="tableTrainings">
+                </div>
+                <div class="fac-tab-meta">
+                    <i class="fas fa-info-circle" style="color: #0284c7;"></i>
+                    <span>Showing <strong class="fac-showing-count"><?= count($trainings) ?></strong> training records</span>
+                </div>
             </div>
-            <h2 style="font-family: var(--act-font-display, 'Plus Jakarta Sans', sans-serif); font-size: 1.85rem; font-weight: 800; color: #111111; margin: 0 0 12px; letter-spacing: -0.02em;">
-                Section Under Development
-            </h2>
-            <p style="color: #64748b; font-size: 1.02rem; line-height: 1.6; max-width: 540px; margin: 0 auto 28px;">
-                The Faculty Activities portal is currently being updated with verified academic records, research publications, STTPs, and conference details across all departments.
-            </p>
-            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                <a href="college-activities.php" class="btn" style="background: #111111; color: #ffffff; padding: 10px 22px; border-radius: 9999px; font-weight: 600; font-size: 0.90rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-                    <i class="fas fa-calendar-alt"></i> College Activities
-                </a>
-                <a href="departmental-activities.php" class="btn" style="background: #f1f5f9; color: #1e293b; padding: 10px 22px; border-radius: 9999px; font-weight: 600; font-size: 0.90rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 1px solid #e2e8f0;">
-                    <i class="fas fa-layer-group"></i> Departmental Activities
-                </a>
+
+            <div class="fac-table-card">
+                <div class="fac-table-responsive">
+                    <table class="fac-table" id="tableTrainings">
+                        <thead>
+                            <tr>
+                                <th class="fac-col-sr">Sr.<br>No.</th>
+                                <th class="fac-col-faculty">Faculty Name</th>
+                                <th>Trainings Attended by Faculty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $sr = 1; foreach ($trainings as $item): ?>
+                            <tr>
+                                <td class="fac-col-sr"><?= $sr++ ?></td>
+                                <td class="fac-col-faculty">
+                                    <div class="fac-faculty-name"><?= htmlspecialchars($item['faculty_name']) ?></div>
+                                    <?php if (!empty($item['designation']) || !empty($item['dept_code'])): ?>
+                                        <div class="fac-faculty-sub">
+                                            <?= htmlspecialchars($item['designation'] ?? '') ?>
+                                            <?= (!empty($item['designation']) && !empty($item['dept_code'])) ? '·' : '' ?>
+                                            <?= htmlspecialchars($item['dept_code'] ?? '') ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php if (!empty($item['title'])): ?>
+                                        <div style="font-weight: 600; color: #0f172a; margin-bottom: 2px;">
+                                            <?= htmlspecialchars($item['title']) ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="fac-desc-text">
+                                        <?= nl2br(htmlspecialchars($item['description'])) ?>
+                                    </div>
+                                    <?php if (!empty($item['year']) || !empty($item['event_date'])): ?>
+                                        <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 4px;">
+                                            <?php if (!empty($item['event_date'])): ?>
+                                                <span><i class="far fa-calendar-alt"></i> <?= date('d M Y', strtotime($item['event_date'])) ?></span>
+                                            <?php endif; ?>
+                                            <?php if (!empty($item['year'])): ?>
+                                                <span style="margin-left: 8px;"><i class="far fa-clock"></i> Year: <?= htmlspecialchars($item['year']) ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($trainings)): ?>
+                            <tr class="fac-no-records">
+                                <td colspan="3" class="fac-empty-state">
+                                    <i class="fas fa-user-graduate"></i>
+                                    <p style="margin: 0; font-weight: 600;">No training records found.</p>
+                                </td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- 2. EXPERT LECTURES TAB -->
+        <section class="fac-tab-pane <?= ($activeTab === 'expert_lectures') ? 'is-active' : '' ?>" 
+                 id="tabLectures" 
+                 role="tabpanel" 
+                 aria-labelledby="tabBtnLectures" 
+                 style="<?= ($activeTab === 'expert_lectures') ? '' : 'display: none;' ?>">
+            
+            <div class="fac-tab-toolbar">
+                <div class="fac-search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="fac-table-search-input" placeholder="Search by faculty name or lecture topics..." data-target-table="tableLectures">
+                </div>
+                <div class="fac-tab-meta">
+                    <i class="fas fa-info-circle" style="color: #0284c7;"></i>
+                    <span>Showing <strong class="fac-showing-count"><?= count($expertLectures) ?></strong> expert lectures</span>
+                </div>
+            </div>
+
+            <div class="fac-table-card">
+                <div class="fac-table-responsive">
+                    <table class="fac-table" id="tableLectures">
+                        <thead>
+                            <tr>
+                                <th class="fac-col-sr">Sr.<br>No.</th>
+                                <th class="fac-col-faculty">Faculty Name</th>
+                                <th>Expert Lectures Delivered by Faculty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $sr = 1; foreach ($expertLectures as $item): ?>
+                            <tr>
+                                <td class="fac-col-sr"><?= $sr++ ?></td>
+                                <td class="fac-col-faculty">
+                                    <div class="fac-faculty-name"><?= htmlspecialchars($item['faculty_name']) ?></div>
+                                    <?php if (!empty($item['designation']) || !empty($item['dept_code'])): ?>
+                                        <div class="fac-faculty-sub">
+                                            <?= htmlspecialchars($item['designation'] ?? '') ?>
+                                            <?= (!empty($item['designation']) && !empty($item['dept_code'])) ? '·' : '' ?>
+                                            <?= htmlspecialchars($item['dept_code'] ?? '') ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php if (!empty($item['title'])): ?>
+                                        <div style="font-weight: 600; color: #0f172a; margin-bottom: 2px;">
+                                            <?= htmlspecialchars($item['title']) ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="fac-desc-text">
+                                        <?= nl2br(htmlspecialchars($item['description'])) ?>
+                                    </div>
+                                    <?php if (!empty($item['year']) || !empty($item['event_date'])): ?>
+                                        <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 4px;">
+                                            <?php if (!empty($item['event_date'])): ?>
+                                                <span><i class="far fa-calendar-alt"></i> <?= date('d M Y', strtotime($item['event_date'])) ?></span>
+                                            <?php endif; ?>
+                                            <?php if (!empty($item['year'])): ?>
+                                                <span style="margin-left: 8px;"><i class="far fa-clock"></i> Year: <?= htmlspecialchars($item['year']) ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($expertLectures)): ?>
+                            <tr class="fac-no-records">
+                                <td colspan="3" class="fac-empty-state">
+                                    <i class="fas fa-microphone-alt"></i>
+                                    <p style="margin: 0; font-weight: 600;">No expert lectures found.</p>
+                                </td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CONFERENCES TAB -->
+        <section class="fac-tab-pane <?= ($activeTab === 'conferences') ? 'is-active' : '' ?>" 
+                 id="tabConferences" 
+                 role="tabpanel" 
+                 aria-labelledby="tabBtnConferences" 
+                 style="<?= ($activeTab === 'conferences') ? '' : 'display: none;' ?>">
+            
+            <div class="fac-tab-toolbar">
+                <div class="fac-search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="fac-table-search-input" placeholder="Search conference details or chair sessions..." data-target-table="tableConferences">
+                </div>
+                <div class="fac-tab-meta">
+                    <i class="fas fa-info-circle" style="color: #0284c7;"></i>
+                    <span>Showing <strong class="fac-showing-count"><?= count($conferences) ?></strong> conference entries</span>
+                </div>
+            </div>
+
+            <div class="fac-table-card">
+                <div class="fac-table-responsive">
+                    <table class="fac-table" id="tableConferences">
+                        <thead>
+                            <tr>
+                                <th class="fac-col-sr">Sr.<br>No.</th>
+                                <th>Conferences Attended/Chaired by Faculty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $sr = 1; foreach ($conferences as $item): ?>
+                            <tr>
+                                <td class="fac-col-sr"><?= $sr++ ?></td>
+                                <td>
+                                    <?php if (!empty($item['title'])): ?>
+                                        <div style="font-weight: 600; color: #0f172a; margin-bottom: 2px;">
+                                            <?= htmlspecialchars($item['title']) ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="fac-desc-text">
+                                        <?= nl2br(htmlspecialchars($item['description'])) ?>
+                                    </div>
+                                    <?php if (!empty($item['year']) || !empty($item['event_date'])): ?>
+                                        <div style="font-size: 0.78rem; color: #94a3b8; margin-top: 4px;">
+                                            <?php if (!empty($item['event_date'])): ?>
+                                                <span><i class="far fa-calendar-alt"></i> <?= date('d M Y', strtotime($item['event_date'])) ?></span>
+                                            <?php endif; ?>
+                                            <?php if (!empty($item['year'])): ?>
+                                                <span style="margin-left: 8px;"><i class="far fa-clock"></i> Year: <?= htmlspecialchars($item['year']) ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                            <?php if (empty($conferences)): ?>
+                            <tr class="fac-no-records">
+                                <td colspan="2" class="fac-empty-state">
+                                    <i class="fas fa-users"></i>
+                                    <p style="margin: 0; font-weight: 600;">No conference records found.</p>
+                                </td>
+                            </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
     </main>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // 1. Tab Switching Functionality
+    const tabButtons = document.querySelectorAll('.fac-tab-btn');
+    const tabPanes = document.querySelectorAll('.fac-tab-pane');
+
+    const tabParamMap = {
+        'tabTrainings': 'trainings',
+        'tabLectures': 'expert_lectures',
+        'tabConferences': 'conferences'
+    };
+
+    tabButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            const targetPaneId = this.getAttribute('data-tab-target');
+
+            // Deactivate all buttons
+            tabButtons.forEach(function (btn) {
+                btn.classList.remove('is-active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+
+            // Hide all tab panes
+            tabPanes.forEach(function (pane) {
+                pane.classList.remove('is-active');
+                pane.style.display = 'none';
+            });
+
+            // Activate clicked button
+            this.classList.add('is-active');
+            this.setAttribute('aria-selected', 'true');
+
+            // Show target pane
+            const activePane = document.getElementById(targetPaneId);
+            if (activePane) {
+                activePane.classList.add('is-active');
+                activePane.style.display = '';
+            }
+
+            // Sync URL with push/replaceState for bookmarking/navigation
+            if (tabParamMap[targetPaneId] && window.history.replaceState) {
+                const url = new URL(window.location);
+                url.searchParams.set('tab', tabParamMap[targetPaneId]);
+                window.history.replaceState({}, '', url);
+            }
+        });
+    });
+
+    // 2. Real-time Live Search Filter within Active Table
+    const searchInputs = document.querySelectorAll('.fac-table-search-input');
+    searchInputs.forEach(function (input) {
+        input.addEventListener('keyup', function () {
+            const query = this.value.toLowerCase().trim();
+            const tableId = this.getAttribute('data-target-table');
+            const table = document.getElementById(tableId);
+            if (!table) return;
+
+            const tbody = table.querySelector('tbody');
+            if (!tbody) return;
+
+            const rows = tbody.querySelectorAll('tr:not(.fac-no-records)');
+            let visibleCount = 0;
+
+            rows.forEach(function (row) {
+                const text = row.textContent.toLowerCase();
+                if (text.indexOf(query) > -1) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            // Update showing count in toolbar
+            const pane = table.closest('.fac-tab-pane');
+            if (pane) {
+                const countBadge = pane.querySelector('.fac-showing-count');
+                if (countBadge) {
+                    countBadge.textContent = visibleCount;
+                }
+            }
+        });
+    });
+});
+</script>
 
 <?php
 require_once __DIR__ . '/includes/footer.php';

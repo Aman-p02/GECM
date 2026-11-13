@@ -693,3 +693,306 @@
     }
 }
 
+/* --------------------------------------------------------------------------
+   FACULTY ACTIVITIES & TABS STYLES (MATCHES USER SPEC & GECM THEME)
+   -------------------------------------------------------------------------- */
+.fac-breadcrumb-bar {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 12px 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.fac-breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.fac-breadcrumb-list a {
+    color: #0284c7;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.fac-breadcrumb-list a:hover {
+    color: #0369a1;
+    text-decoration: underline;
+}
+
+.fac-breadcrumb-sep {
+    color: #cbd5e1;
+    font-size: 0.75rem;
+}
+
+/* Tab Bar */
+.fac-tabs-wrapper {
+    max-width: 1320px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+}
+
+.fac-tabs-nav {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    border-bottom: 2px solid #0284c7;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0;
+}
+
+.fac-tabs-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.fac-tab-btn {
+    appearance: none;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: var(--act-font-display, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: #475569;
+    padding: 11px 22px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    position: relative;
+    user-select: none;
+}
+
+.fac-tab-btn:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.fac-tab-btn.is-active {
+    background: #0284c7;
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 -2px 8px rgba(2, 132, 199, 0.15);
+}
+
+.fac-tab-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 7px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    background: #e2e8f0;
+    color: #334155;
+    transition: all 0.15s ease;
+}
+
+.fac-tab-btn.is-active .fac-tab-badge {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+/* Filter / Search within Tab */
+.fac-tab-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 20px 0 16px;
+    flex-wrap: wrap;
+}
+
+.fac-search-box {
+    position: relative;
+    min-width: 280px;
+    max-width: 400px;
+    flex: 1;
+}
+
+.fac-search-box input {
+    width: 100%;
+    padding: 9px 14px 9px 36px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.90rem;
+    font-family: var(--act-font-body);
+    background: #ffffff;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.fac-search-box input:focus {
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+}
+
+.fac-search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+
+.fac-tab-meta {
+    font-size: 0.88rem;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Table Card & Elements */
+.fac-table-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.04);
+}
+
+.fac-table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.fac-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--act-font-body);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.fac-table thead th {
+    background: #f8fafc;
+    color: #334155;
+    font-family: var(--act-font-display, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 14px 18px;
+    border-bottom: 2px solid #e2e8f0;
+    border-top: none;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+.fac-table tbody td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+    color: #1e293b;
+    transition: background 0.12s ease;
+}
+
+.fac-table tbody tr:nth-child(even) td {
+    background-color: #fafbfc;
+}
+
+.fac-table tbody tr:hover td {
+    background-color: #f0f9ff;
+}
+
+.fac-col-sr {
+    width: 65px;
+    min-width: 65px;
+    text-align: center;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.fac-col-faculty {
+    width: 250px;
+    min-width: 200px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.fac-faculty-name {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 0.94rem;
+}
+
+.fac-faculty-sub {
+    font-size: 0.80rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.fac-desc-text {
+    color: #334155;
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.fac-empty-state {
+    padding: 48px 20px;
+    text-align: center;
+    color: #64748b;
+}
+
+.fac-empty-state i {
+    font-size: 2.2rem;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+}
+
+/* Mobile responsive refinements */
+@media (max-width: 768px) {
+    .fac-breadcrumb-bar {
+        padding: 8px 16px 0;
+        font-size: 0.80rem;
+    }
+
+    .fac-tabs-wrapper {
+        padding: 0 16px;
+        margin-top: 16px;
+    }
+
+    .fac-tab-btn {
+        padding: 9px 15px;
+        font-size: 0.88rem;
+    }
+
+    .fac-tab-toolbar {
+        margin: 14px 0 12px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .fac-search-box {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .fac-table thead th,
+    .fac-table tbody td {
+        padding: 10px 12px;
+        font-size: 0.86rem;
+    }
+
+    .fac-col-faculty {
+        min-width: 160px;
+    }
+}
+
