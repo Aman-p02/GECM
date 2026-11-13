@@ -127,7 +127,7 @@ require_once __DIR__ . '/includes/header.php';
                         <tbody>
                             <?php $sr = 1; foreach ($trainings as $item): ?>
                             <tr>
-                                <td class="fac-col-sr"><?= sprintf('%02d', $sr++) ?></td>
+                                <td class="fac-col-sr"><?= $sr++ ?></td>
                                 <td class="fac-col-faculty">
                                     <div class="fac-faculty-name"><?= htmlspecialchars($item['faculty_name']) ?></div>
                                     <?php if (!empty($item['designation']) || !empty($item['dept_code'])): ?>
@@ -184,7 +184,7 @@ require_once __DIR__ . '/includes/header.php';
                         <tbody>
                             <?php $sr = 1; foreach ($expertLectures as $item): ?>
                             <tr>
-                                <td class="fac-col-sr"><?= sprintf('%02d', $sr++) ?></td>
+                                <td class="fac-col-sr"><?= $sr++ ?></td>
                                 <td class="fac-col-faculty">
                                     <div class="fac-faculty-name"><?= htmlspecialchars($item['faculty_name']) ?></div>
                                     <?php if (!empty($item['designation']) || !empty($item['dept_code'])): ?>
@@ -240,7 +240,7 @@ require_once __DIR__ . '/includes/header.php';
                         <tbody>
                             <?php $sr = 1; foreach ($conferences as $item): ?>
                             <tr>
-                                <td class="fac-col-sr"><?= sprintf('%02d', $sr++) ?></td>
+                                <td class="fac-col-sr"><?= $sr++ ?></td>
                                 <td>
                                     <?php if (!empty($item['title'])): ?>
                                         <div style="font-weight: 600; color: #0f172a; margin-bottom: 2px;">
