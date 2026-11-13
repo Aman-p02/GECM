@@ -1122,9 +1122,9 @@ body.act-modal-open {
         display: block;
         background: #ffffff;
         border: 1px solid #e2e8f0;
+        border-left: 3.5px solid #009dff;
         border-radius: 12px;
         padding: 16px;
-        padding-right: 68px;
         box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.05);
         position: relative;
     }
@@ -1140,38 +1140,36 @@ body.act-modal-open {
         background-color: transparent !important;
     }
 
-    /* Card Header: Aesthetic Serial Number Badge */
+    /* Card Header: Aesthetic Left-Aligned Index Badge */
     .fac-col-sr {
-        position: absolute !important;
-        top: 14px !important;
-        right: 14px !important;
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
-        gap: 3px !important;
-        width: auto !important;
-        min-width: 26px !important;
+        width: fit-content !important;
+        min-width: unset !important;
         height: 24px !important;
-        padding: 0 8px !important;
+        padding: 0 10px 0 8px !important;
         border-radius: 9999px !important;
-        background: #f8fafc !important;
-        border: 1px solid #e2e8f0 !important;
-        color: #0f172a !important;
-        font-size: 0.72rem !important;
-        font-weight: 700 !important;
-        font-family: var(--act-font-display, inherit) !important;
+        background: #f0f9ff !important;
+        border: 1px solid #bae6fd !important;
+        color: #0284c7 !important;
+        font-size: 0.74rem !important;
+        font-weight: 800 !important;
+        font-family: var(--act-font-display, 'Plus Jakarta Sans', sans-serif) !important;
+        letter-spacing: 0.05em !important;
+        margin-bottom: 12px !important;
         line-height: 1 !important;
-        margin: 0 !important;
-        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
-        letter-spacing: 0.02em !important;
+        box-shadow: 0 1px 2px rgba(2, 132, 199, 0.06) !important;
     }
 
     .fac-col-sr::before {
-        content: 'Sr. ' !important;
-        font-size: 0.68rem !important;
-        font-weight: 600 !important;
-        color: #64748b !important;
-        text-transform: uppercase !important;
+        content: '' !important;
+        display: inline-block !important;
+        width: 6px !important;
+        height: 6px !important;
+        border-radius: 50% !important;
+        background: #009dff !important;
+        margin-right: 6px !important;
     }
 
     /* Faculty Name in Card */
