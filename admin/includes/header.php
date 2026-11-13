@@ -51,6 +51,9 @@ $page_title = $page_title ?? 'Dashboard Overview';
                 $aboutPageItems = ['principal-message', 'idp', 'facilities', 'e-newsletters', 'brochure', 'mandatory-disclosure', 'rankings', 'mou'];
                 $isAboutActive = in_array($current_page, $aboutPageItems);
 
+                $administrationPageItems = ['principal-profile', 'council-of-heads', 'account-section', 'hostel-mess', 'administration-committees'];
+                $isAdministrationActive = in_array($current_page, $administrationPageItems);
+
                 $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni', 'faculty-activities'];
                 $isMainPageActive = in_array($current_page, $mainPageItems);
 
@@ -103,6 +106,41 @@ $page_title = $page_title ?? 'Dashboard Overview';
                         <li class="submenu-item <?= ($current_page === 'mou') ? 'active' : '' ?>">
                             <a href="mou.php" class="submenu-link">
                                 <span>MoU</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Administration Accordion Dropdown -->
+                <li class="menu-item menu-item-has-submenu <?= $isAdministrationActive ? 'active open' : '' ?>">
+                    <a href="javascript:void(0);" class="menu-link submenu-toggle" id="administrationMenuToggle">
+                        <span>Administration</span>
+                        <i class="fas fa-chevron-down submenu-arrow"></i>
+                    </a>
+                    <ul class="submenu-list">
+                        <li class="submenu-item <?= ($current_page === 'principal-profile') ? 'active' : '' ?>">
+                            <a href="principal-profile.php" class="submenu-link">
+                                <span>Principal</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'council-of-heads') ? 'active' : '' ?>">
+                            <a href="council-of-heads.php" class="submenu-link">
+                                <span>Council of Heads</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'account-section') ? 'active' : '' ?>">
+                            <a href="account-section.php" class="submenu-link">
+                                <span>Account Section</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'hostel-mess') ? 'active' : '' ?>">
+                            <a href="hostel-mess.php" class="submenu-link">
+                                <span>Hostel &amp; Mess</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'administration-committees') ? 'active' : '' ?>">
+                            <a href="administration-committees.php" class="submenu-link">
+                                <span>Committees</span>
                             </a>
                         </li>
                     </ul>

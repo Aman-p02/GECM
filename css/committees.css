@@ -1,0 +1,240 @@
+/* Institutional Committees Page Styles */
+.comm-wrapper {
+    background-color: #f8fafc;
+    min-height: calc(100vh - 280px);
+    padding: 30px 0 60px 0;
+}
+
+.comm-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.comm-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* Sidebar Navigation */
+.comm-sidebar {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.comm-sidebar-header {
+    background-color: #f1f5f9;
+    padding: 12px 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0284c7;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comm-sidebar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.comm-sidebar-item {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.comm-sidebar-item:last-child {
+    border-bottom: none;
+}
+
+.comm-sidebar-link {
+    display: block;
+    padding: 12px 18px;
+    font-size: 14px;
+    color: #475569;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.comm-sidebar-link:hover {
+    background-color: #f8fafc;
+    color: #0284c7;
+    border-left-color: #0284c7;
+    padding-left: 22px;
+}
+
+.comm-sidebar-link.active {
+    background-color: #f0f9ff;
+    color: #0284c7;
+    font-weight: 600;
+    border-left-color: #0284c7;
+}
+
+.comm-sidebar-accordion-header {
+    background-color: #475569;
+    color: #ffffff;
+    padding: 12px 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Content Area */
+.comm-content-area {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 30px 35px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.comm-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.comm-page-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.comm-breadcrumbs {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.comm-breadcrumbs a {
+    color: #0284c7;
+    text-decoration: none;
+}
+
+.comm-breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.comm-intro-text {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: #334155;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.comm-objectives-box {
+    background: #f8fafc;
+    border-left: 3px solid #0284c7;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    border-radius: 0 6px 6px 0;
+}
+
+.comm-objectives-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.comm-objectives-list {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #334155;
+}
+
+.comm-subheading {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 25px 0 15px 0;
+}
+
+/* Institutional Table */
+.comm-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.comm-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+.comm-table th {
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-weight: 700;
+    padding: 12px 16px;
+    border-bottom: 2px solid #cbd5e1;
+    border-right: 1px solid #e2e8f0;
+}
+
+.comm-table th:last-child {
+    border-right: none;
+}
+
+.comm-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.comm-table td:last-child {
+    border-right: none;
+}
+
+.comm-table tr:nth-child(even) td {
+    background-color: #fafbfc;
+}
+
+.comm-table tr:hover td {
+    background-color: #f0f7ff;
+}
+
+.comm-faculty-name {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+@media (max-width: 900px) {
+    .comm-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .comm-content-area {
+        padding: 20px;
+    }
+
+    .comm-page-title {
+        font-size: 18px;
+    }
+}

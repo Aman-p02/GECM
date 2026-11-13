@@ -1,0 +1,216 @@
+/* Council of Heads Institutional Page Styles */
+.coh-wrapper {
+    background-color: #f8fafc;
+    min-height: calc(100vh - 280px);
+    padding: 30px 0 60px 0;
+}
+
+.coh-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.coh-breadcrumbs {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.coh-breadcrumbs a {
+    color: #0284c7;
+    text-decoration: none;
+}
+
+.coh-breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.coh-nav-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.coh-tab-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.coh-tab-btn:hover {
+    color: #0284c7;
+    background: #f1f5f9;
+}
+
+.coh-tab-btn.active {
+    color: #ffffff;
+    background: #0284c7;
+}
+
+.coh-section-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.coh-principal-banner {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    background: #ffffff;
+    margin-bottom: 25px;
+}
+
+.coh-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    text-align: center;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #0284c7;
+    display: inline-block;
+}
+
+.coh-title-wrap {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.coh-description-text {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #334155;
+    margin-bottom: 24px;
+    text-align: justify;
+}
+
+/* Institutional Table Style */
+.coh-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.coh-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    text-align: left;
+    background: #ffffff;
+}
+
+.coh-table th {
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-weight: 700;
+    padding: 14px 18px;
+    border-bottom: 2px solid #cbd5e1;
+    border-right: 1px solid #e2e8f0;
+}
+
+.coh-table th:last-child {
+    border-right: none;
+}
+
+.coh-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.coh-table td:last-child {
+    border-right: none;
+}
+
+.coh-table tr:nth-child(even) td {
+    background-color: #fafbfc;
+}
+
+.coh-table tr:hover td {
+    background-color: #f0f7ff;
+}
+
+.coh-highlight-name {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.coh-badge-convener {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border-radius: 4px;
+}
+
+.coh-badge-chairman {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    background-color: #fef3c7;
+    color: #92400e;
+    border-radius: 4px;
+}
+
+.coh-contact-link {
+    color: #0284c7;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.coh-contact-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .coh-section-card {
+        padding: 18px;
+    }
+    
+    .coh-principal-banner {
+        font-size: 15px;
+        padding: 10px 14px;
+    }
+
+    .coh-section-title {
+        font-size: 18px;
+    }
+
+    .coh-table th, .coh-table td {
+        padding: 10px 12px;
+        font-size: 13.5px;
+    }
+}
