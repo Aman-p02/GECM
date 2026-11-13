@@ -1,0 +1,182 @@
+/* ==========================================================================
+   Vision & Mission Stylesheet (Compact, Clean & Institutional)
+   Theme: Deep Navy (#0c3b6d), Institutional Orange (#ff8800), Inter Font
+   ========================================================================== */
+
+.vm-page {
+    background-color: #ffffff;
+    color: var(--text-dark, #333333);
+    padding: 0 0 60px 0;
+    min-height: 70vh;
+}
+
+/* ==========================================================================
+   Hero Section (Compact)
+   ========================================================================== */
+.vm-hero {
+    padding: 32px 0 24px;
+    border-bottom: 1px solid #eef2f6;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+}
+
+.vm-kicker {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 6px;
+}
+
+.vm-heading {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: clamp(1.85rem, 2.6vw, 2.25rem);
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Main Content Layout
+   ========================================================================== */
+.vm-content {
+    padding-top: 32px;
+}
+
+.vm-wrapper {
+    max-width: 920px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.vm-section {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.vm-section:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.vm-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0c3b6d;
+    margin: 0 0 12px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.vm-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 2px;
+    background-color: #ff8800;
+}
+
+.vm-text {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #334155;
+    margin: 0 0 12px;
+}
+
+.vm-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Ordered List (Mission) */
+.vm-ordered-list {
+    list-style: none;
+    counter-reset: vm-counter;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vm-ordered-list li {
+    counter-increment: vm-counter;
+    position: relative;
+    padding-left: 28px;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: #334155;
+}
+
+.vm-ordered-list li::before {
+    content: counter(vm-counter) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 700;
+    color: #0c3b6d;
+    font-size: 0.95rem;
+}
+
+/* Bullet List (Core Values) */
+.vm-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vm-bullet-list li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: #334155;
+}
+
+.vm-bullet-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    background-color: #ff8800;
+    border-radius: 50%;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+    .vm-hero {
+        padding: 24px 0 18px;
+    }
+
+    .vm-wrapper {
+        padding: 20px;
+    }
+
+    .vm-title {
+        font-size: 1.15rem;
+    }
+
+    .vm-text,
+    .vm-ordered-list li,
+    .vm-bullet-list li {
+        font-size: 0.92rem;
+    }
+}

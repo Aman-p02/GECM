@@ -101,6 +101,11 @@ $page_title = $page_title ?? 'Dashboard Overview';
                                 <span>Faculty Activities</span>
                             </a>
                         </li>
+                        <li class="submenu-item <?= ($current_page === 'principal-message') ? 'active' : '' ?>">
+                            <a href="principal-message.php" class="submenu-link">
+                                <span>Principal's Message</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

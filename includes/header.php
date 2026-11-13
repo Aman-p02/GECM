@@ -152,16 +152,15 @@ if (!isset($active_page)) {
                 <!-- About Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="<?= $root_path ?>overview.php"
-                       class="hdr-nav-link <?= in_array($active_page, ['about', 'overview']) ? 'active is-active' : '' ?>">
+                       class="hdr-nav-link <?= in_array($active_page, ['about', 'overview', 'vision-mission', 'principal-message']) ? 'active is-active' : '' ?>">
                         About <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <div class="hdr-dd-heading">THE INSTITUTE</div>
                         <ul class="hdr-dd-list">
                             <li><a href="<?= $root_path ?>overview.php" class="hdr-dd-link <?= ($active_page === 'overview') ? 'is-active active' : '' ?>">Overview</a></li>
-                            <li><a href="<?= $root_path ?>overview.php#vision-mission" class="hdr-dd-link">Vision &amp; Mission</a></li>
-                            <li><a href="<?= $root_path ?>overview.php#affiliation" class="hdr-dd-link">Affiliation Letters</a></li>
-                            <li><a href="#" class="hdr-dd-link">Principal's Message</a></li>
+                            <li><a href="<?= $root_path ?>vision-mission.php" class="hdr-dd-link <?= ($active_page === 'vision-mission') ? 'is-active active' : '' ?>">Vision &amp; Mission</a></li>
+                            <li><a href="<?= $root_path ?>principal-message.php" class="hdr-dd-link <?= ($active_page === 'principal-message') ? 'is-active active' : '' ?>">Principal's Message</a></li>
                             <li><a href="#" class="hdr-dd-link">IDP</a></li>
                             <li><a href="<?= $root_path ?>overview.php#facilities" class="hdr-dd-link">Facilities</a></li>
                             <li><a href="#" class="hdr-dd-link">E-Newsletter</a></li>

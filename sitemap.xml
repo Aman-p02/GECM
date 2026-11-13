@@ -20,6 +20,18 @@
         <priority>0.90</priority>
     </url>
     <url>
+        <loc>https://gecmodasa.ac.in/vision-mission.php</loc>
+        <lastmod><?= date('Y-m-d') ?></lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/principal-message.php</loc>
+        <lastmod><?= date('Y-m-d') ?></lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
         <loc>https://gecmodasa.ac.in/contact.php</loc>
         <lastmod>2026-11-12</lastmod>
         <changefreq>monthly</changefreq>

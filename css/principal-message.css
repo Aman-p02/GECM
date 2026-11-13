@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Principal's Message Stylesheet (Natural Institutional Layout)
+   Theme: Deep Navy (#0c3b6d), Institutional Orange (#ff8800), Inter Font
+   Full width natural reading layout without boxed gutters
+   ========================================================================== */
+
+.pm-page {
+    background-color: #ffffff;
+    color: var(--text-dark, #333333);
+    padding: 0 0 80px 0;
+    min-height: 70vh;
+}
+
+/* Hero Section */
+.pm-hero {
+    padding: 40px 0 28px;
+    border-bottom: 1px solid #eef2f6;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+}
+
+.pm-kicker {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 8px;
+}
+
+.pm-heading {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* Content Area */
+.pm-content {
+    padding-top: 36px;
+}
+
+/* Photo (Floats Left so text starts right beside it) */
+.pm-photo-wrap {
+    float: left;
+    margin: 4px 34px 18px 0;
+    width: 320px;
+    max-width: 100%;
+}
+
+.pm-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    display: block;
+}
+
+/* Salutation & Greeting */
+.pm-salutation {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 6px;
+    line-height: 1.35;
+}
+
+.pm-greeting {
+    font-size: 0.98rem;
+    color: #475569;
+    margin: 0 0 18px;
+    font-style: italic;
+}
+
+/* Message Paragraphs */
+.pm-body {
+    margin-bottom: 24px;
+}
+
+.pm-paragraph {
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.8;
+    margin: 0 0 18px;
+    text-align: justify;
+}
+
+.pm-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+/* Sign-off Block (Clears floated photo) */
+.pm-signoff {
+    clear: both;
+    padding-top: 18px;
+    border-top: 1px solid #f1f5f9;
+    margin-top: 24px;
+    margin-bottom: 36px;
+}
+
+.pm-closing-text {
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.6;
+    margin: 0 0 16px;
+}
+
+.pm-date {
+    font-size: 0.95rem;
+    color: #1e293b;
+    margin-bottom: 14px;
+}
+
+.pm-signature {
+    margin-top: 6px;
+}
+
+.pm-signer-name {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 2px;
+}
+
+.pm-signer-title {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+/* Previous Messages Section (Matching Image 3) */
+.pm-archive-section {
+    padding-top: 28px;
+    border-top: 1px solid #eef2f6;
+}
+
+.pm-archive-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 16px;
+}
+
+.pm-archive-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px 18px;
+}
+
+.pm-archive-link {
+    display: inline-block;
+    color: #0077cc;
+    font-weight: 600;
+    font-size: 0.98rem;
+    text-decoration: none;
+    transition: color 0.2s ease, padding 0.2s ease;
+}
+
+.pm-archive-link:hover {
+    color: #ff8800;
+    text-decoration: underline;
+}
+
+.pm-archive-link.is-active {
+    color: #0c3b6d;
+    font-weight: 800;
+    border-left: 3px solid #009dff;
+    padding-left: 6px;
+}
+
+/* Empty State */
+.pm-empty-state {
+    padding: 60px 20px;
+    text-align: center;
+    color: #64748b;
+    font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .pm-archive-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pm-hero {
+        padding: 30px 0 20px;
+    }
+
+    .pm-photo-wrap {
+        float: none;
+        margin: 0 auto 20px;
+        max-width: 280px;
+    }
+
+    .pm-photo {
+        max-width: 100%;
+    }
+
+    .pm-paragraph {
+        font-size: 0.96rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 560px) {
+    .pm-archive-list {
+        grid-template-columns: 1fr;
+    }
+}

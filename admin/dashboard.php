@@ -29,17 +29,59 @@ if ($pdo) {
 
         $stmtRecent = $pdo->query("SELECT * FROM notices ORDER BY publish_date DESC, id DESC LIMIT 5");
         $recentNotices = $stmtRecent->fetchAll();
+
+        $stmtPrin = $pdo->query("SELECT * FROM principal_messages WHERE is_active = 1 LIMIT 1");
+        $activePrincipal = $stmtPrin ? $stmtPrin->fetch() : null;
     } catch (Exception $e) {
         error_log($e->getMessage());
     }
 }
 ?>
 
-<div class="admin-card" style="text-align: center; padding: 80px 30px;">
-    <h2 style="font-size: 28px; font-weight: 700; color: #1a263d; margin-bottom: 14px;">GECM Administration Portal</h2>
-    <p style="color: #556277; font-size: 16.5px; max-width: 580px; margin: 0 auto; line-height: 1.65;">
-        Welcome to the administration panel. Please select any module from the navigation sidebar to manage website content, notices, events, and campus updates.
+<div class="admin-card" style="text-align: center; padding: 40px 30px; margin-bottom: 24px;">
+    <h2 style="font-size: 26px; font-weight: 700; color: #1a263d; margin-bottom: 10px;">GECM Administration Portal</h2>
+    <p style="color: #556277; font-size: 15px; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+        Welcome to the administration panel. Please select any module from the navigation sidebar or quick modules below to manage website content, notices, events, and campus updates.
     </p>
+</div>
+
+<!-- Principal Message Quick Card on Dashboard -->
+<div class="admin-card" style="padding: 24px; margin-bottom: 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eef2f6; padding-bottom: 16px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; background: #eff6ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #009dff; font-size: 18px;">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div>
+                <h3 style="font-size: 17px; font-weight: 700; color: #1a263d; margin: 0 0 4px;">Principal's Message Module</h3>
+                <p style="font-size: 13px; color: #64748b; margin: 0;">Manage current message and historical archive.</p>
+            </div>
+        </div>
+        <a href="principal-message.php" class="btn btn-primary" style="font-size: 13.5px; padding: 8px 16px;">
+            <i class="fas fa-edit"></i> Manage Messages
+        </a>
+    </div>
+
+    <?php if ($activePrincipal): ?>
+        <div style="display: flex; gap: 20px; align-items: flex-start; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px;">
+            <?php if (!empty($activePrincipal['image_url'])): ?>
+                <img src="../<?= htmlspecialchars($activePrincipal['image_url']) ?>" alt="Principal Photo" style="width: 72px; height: 72px; object-fit: cover; border-radius: 6px; border: 1px solid #cbd5e1; flex-shrink: 0;">
+            <?php endif; ?>
+            <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+                    <span style="font-size: 15px; font-weight: 700; color: #0c3b6d;"><?= htmlspecialchars($activePrincipal['principal_name']) ?></span>
+                    <span style="background: #dcfce7; color: #166534; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px;">Current Active</span>
+                    <span style="color: #64748b; font-size: 12px; margin-left: auto; font-family: monospace;">Date: <?= date('d/m/Y', strtotime($activePrincipal['message_date'])) ?></span>
+                </div>
+                <div style="font-size: 12.5px; color: #475569; margin-bottom: 8px; font-weight: 600;"><?= htmlspecialchars($activePrincipal['designation']) ?></div>
+                <p style="font-size: 13px; color: #334155; line-height: 1.5; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                    <?= htmlspecialchars(mb_substr($activePrincipal['message_body'], 0, 200)) ?>...
+                </p>
+            </div>
+        </div>
+    <?php else: ?>
+        <p style="color: #64748b; font-size: 14px; margin: 0;">No active principal message set. Click "Manage Messages" to create one.</p>
+    <?php endif; ?>
 </div>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
