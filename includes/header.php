@@ -145,7 +145,7 @@ if (!isset($active_page)) {
                 <!-- Navigation Links -->
                 <li class="hdr-nav-item">
                     <a href="<?= $root_path ?>index.php" class="hdr-nav-link <?= ($active_page === 'home') ? 'active' : '' ?>">
-                        Home
+                        <span class="hdr-nav-text">Home</span>
                     </a>
                 </li>
 
@@ -153,7 +153,7 @@ if (!isset($active_page)) {
                 <li class="hdr-nav-item has-dropdown">
                     <a href="<?= $root_path ?>overview.php"
                        class="hdr-nav-link <?= in_array($active_page, ['about', 'overview', 'vision-mission', 'principal-message', 'idp', 'facilities', 'mandatory-disclosure', 'newsletters', 'brochure', 'rankings', 'mou']) ? 'active is-active' : '' ?>">
-                        About <i class="fas fa-chevron-down hdr-arrow"></i>
+                        <span class="hdr-nav-text">About</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <div class="hdr-dd-heading">THE INSTITUTE</div>
@@ -175,7 +175,7 @@ if (!isset($active_page)) {
                 <!-- Administration Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="javascript:void(0);" class="hdr-nav-link <?= in_array($active_page, ['principal', 'council-of-heads', 'account-section', 'hostel-mess', 'committees']) ? 'active is-active' : '' ?>">
-                        Administration <i class="fas fa-chevron-down hdr-arrow"></i>
+                        <span class="hdr-nav-text">Administration</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
@@ -191,7 +191,7 @@ if (!isset($active_page)) {
                 <!-- Academic Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="javascript:void(0);" class="hdr-nav-link <?= in_array($active_page, ['academics', 'courses', 'admission']) ? 'active is-active' : '' ?>">
-                        Academic <i class="fas fa-chevron-down hdr-arrow"></i>
+                        <span class="hdr-nav-text">Academic</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
@@ -208,7 +208,7 @@ if (!isset($active_page)) {
                 <li class="hdr-nav-item has-dropdown">
                     <a href="<?php echo ($active_page === 'home') ? '#departments' : $root_path . 'index.php#departments'; ?>"
                        class="hdr-nav-link <?= (isset($deptCode) || in_array($active_page, ['departments', 'department'])) ? 'active is-active' : '' ?>">
-                        Departments <i class="fas fa-chevron-down hdr-arrow"></i>
+                        <span class="hdr-nav-text">Departments</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
@@ -229,7 +229,7 @@ if (!isset($active_page)) {
                 <li class="hdr-nav-item has-dropdown">
                     <a href="<?= $root_path ?>college-activities.php"
                        class="hdr-nav-link <?= in_array($active_page, ['activities', 'college_activities', 'dept_activities', 'faculty_activities']) ? 'active is-active' : '' ?>">
-                        Activities <i class="fas fa-chevron-down hdr-arrow"></i>
+                        <span class="hdr-nav-text">Activities</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown hdr-dropdown-mega">
                         <div class="hdr-mega-grid">
@@ -269,7 +269,7 @@ if (!isset($active_page)) {
                 <!-- Student Corner Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="javascript:void(0);" class="hdr-nav-link">
-                        Student Corner <i class="fas fa-chevron-down hdr-arrow"></i>
+                        <span class="hdr-nav-text">Student Corner</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
@@ -289,21 +289,21 @@ if (!isset($active_page)) {
                 <li class="hdr-nav-item">
                     <a href="<?php echo ($active_page === 'home') ? '#alumni' : $root_path . 'index.php#alumni'; ?>"
                        class="hdr-nav-link">
-                        Placement
+                        <span class="hdr-nav-text">Placement</span>
                     </a>
                 </li>
 
                 <li class="hdr-nav-item">
                     <a href="<?= $root_path ?>contact.php"
                        class="hdr-nav-link <?= ($active_page === 'contact') ? 'active' : '' ?>">
-                        Contact Us
+                        <span class="hdr-nav-text">Contact Us</span>
                     </a>
                 </li>
 
                 <li class="hdr-nav-item">
                     <a href="<?= $root_path ?>developers.php"
                        class="hdr-nav-link <?= ($active_page === 'developers') ? 'active' : '' ?>">
-                        Developers Team
+                        <span class="hdr-nav-text">Developers Team</span>
                     </a>
                 </li>
 
