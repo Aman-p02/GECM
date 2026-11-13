@@ -13,20 +13,29 @@ $conferences = [];
 
 if ($pdo) {
     try {
-        $stmt = $pdo->query("
+        // Conferences: latest added first (id DESC)
+        $cStmt = $pdo->query("
             SELECT * FROM faculty_activities 
-            WHERE is_active = 1 
+            WHERE is_active = 1 AND category = 'conferences' 
+            ORDER BY id DESC
+        ");
+        $conferences = $cStmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Trainings: display_order ASC, id ASC
+        $tStmt = $pdo->query("
+            SELECT * FROM faculty_activities 
+            WHERE is_active = 1 AND category = 'trainings' 
             ORDER BY display_order ASC, id ASC
         ");
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            if ($row['category'] === 'trainings') {
-                $trainings[] = $row;
-            } elseif ($row['category'] === 'expert_lectures') {
-                $expertLectures[] = $row;
-            } elseif ($row['category'] === 'conferences') {
-                $conferences[] = $row;
-            }
-        }
+        $trainings = $tStmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Expert Lectures: display_order ASC, id ASC
+        $lStmt = $pdo->query("
+            SELECT * FROM faculty_activities 
+            WHERE is_active = 1 AND category = 'expert_lectures' 
+            ORDER BY display_order ASC, id ASC
+        ");
+        $expertLectures = $lStmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
         error_log("Faculty Activities Error: " . $e->getMessage());
     }

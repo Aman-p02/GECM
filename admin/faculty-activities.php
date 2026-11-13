@@ -175,8 +175,10 @@ if ($pdo) {
     }
 
     // Query activities
-    if ($selectedCat === 'all') {
-        $stmt = $pdo->query("SELECT * FROM faculty_activities ORDER BY category ASC, display_order ASC, id ASC");
+    if ($selectedCat === 'conferences') {
+        $stmt = $pdo->query("SELECT * FROM faculty_activities WHERE category = 'conferences' ORDER BY id DESC");
+    } elseif ($selectedCat === 'all') {
+        $stmt = $pdo->query("SELECT * FROM faculty_activities ORDER BY CASE WHEN category = 'conferences' THEN 0 ELSE 1 END, display_order ASC, id DESC");
     } else {
         $stmt = $pdo->prepare("SELECT * FROM faculty_activities WHERE category = ? ORDER BY display_order ASC, id ASC");
         $stmt->execute([$selectedCat]);
@@ -363,7 +365,7 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: center;">
-                    <div class="form-group" style="margin-bottom: 0;">
+                    <div class="form-group" id="add_display_order_group" style="margin-bottom: 0;">
                         <label class="form-label" for="add_display_order">Display Order</label>
                         <input type="number" name="display_order" id="add_display_order" class="form-control" value="0">
                     </div>
@@ -417,7 +419,7 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: center;">
-                    <div class="form-group" style="margin-bottom: 0;">
+                    <div class="form-group" id="edit_display_order_group" style="margin-bottom: 0;">
                         <label class="form-label" for="edit_display_order">Display Order</label>
                         <input type="number" name="display_order" id="edit_display_order" class="form-control">
                     </div>
@@ -445,21 +447,25 @@ function syncAddModalFields() {
     const nameInput = document.getElementById('add_faculty_name');
     const descLabel = document.getElementById('add_description_label');
     const descText = document.getElementById('add_description');
+    const orderGroup = document.getElementById('add_display_order_group');
 
     if (cat === 'conferences') {
         nameGroup.style.display = 'none';
         nameInput.required = false;
         nameInput.value = '';
+        if (orderGroup) orderGroup.style.display = 'none';
         descLabel.innerHTML = 'Conferences Attended/Chaired by Faculty <span class="required">*</span>';
         descText.placeholder = 'Enter full conference detail (e.g. Dr. B. J. Shah, Professor in Applied Mechanics, attended the International conclave...)';
     } else if (cat === 'trainings') {
         nameGroup.style.display = 'block';
         nameInput.required = true;
+        if (orderGroup) orderGroup.style.display = 'block';
         descLabel.innerHTML = 'Trainings Attended by Faculty <span class="required">*</span>';
         descText.placeholder = 'Enter training topic, dates, or program details (e.g. Effective Classroom Communication)';
     } else if (cat === 'expert_lectures') {
         nameGroup.style.display = 'block';
         nameInput.required = true;
+        if (orderGroup) orderGroup.style.display = 'block';
         descLabel.innerHTML = 'Expert Lectures Delivered by Faculty <span class="required">*</span>';
         descText.placeholder = 'Enter lecture topic and details (e.g. Hydroxygen as additive in two wheeler)';
     }
@@ -470,18 +476,22 @@ function syncEditModalFields() {
     const nameGroup = document.getElementById('edit_faculty_name_group');
     const nameInput = document.getElementById('edit_faculty_name');
     const descLabel = document.getElementById('edit_description_label');
+    const orderGroup = document.getElementById('edit_display_order_group');
 
     if (cat === 'conferences') {
         nameGroup.style.display = 'none';
         nameInput.required = false;
+        if (orderGroup) orderGroup.style.display = 'none';
         descLabel.innerHTML = 'Conferences Attended/Chaired by Faculty <span class="required">*</span>';
     } else if (cat === 'trainings') {
         nameGroup.style.display = 'block';
         nameInput.required = true;
+        if (orderGroup) orderGroup.style.display = 'block';
         descLabel.innerHTML = 'Trainings Attended by Faculty <span class="required">*</span>';
     } else if (cat === 'expert_lectures') {
         nameGroup.style.display = 'block';
         nameInput.required = true;
+        if (orderGroup) orderGroup.style.display = 'block';
         descLabel.innerHTML = 'Expert Lectures Delivered by Faculty <span class="required">*</span>';
     }
 }
