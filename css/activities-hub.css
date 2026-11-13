@@ -446,7 +446,14 @@
     margin: 0 auto;
 }
 
-/* Modal Popup */
+/* Modal Lock & Popup */
+html.act-modal-open,
+body.act-modal-open {
+    overflow: hidden !important;
+    height: 100% !important;
+    overscroll-behavior: none !important;
+}
+
 .act-modal-backdrop {
     position: fixed;
     top: 0;
@@ -463,6 +470,8 @@
     padding: 20px;
     opacity: 0;
     transition: opacity 0.25s ease;
+    overscroll-behavior: contain;
+    touch-action: none;
 }
 
 .act-modal-backdrop.is-active {
@@ -481,6 +490,8 @@
     display: flex;
     flex-direction: column;
     animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    overscroll-behavior: contain;
+    touch-action: auto;
 }
 
 @keyframes modalPop {

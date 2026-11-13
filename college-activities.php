@@ -357,19 +357,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Modal helpers
+// Modal helpers with complete background scroll lock
+function lockScroll() {
+    document.documentElement.classList.add("act-modal-open");
+    document.body.classList.add("act-modal-open");
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+}
+
+function unlockScroll() {
+    document.documentElement.classList.remove("act-modal-open");
+    document.body.classList.remove("act-modal-open");
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+}
+
 window.openActModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (!modal) return;
     modal.classList.add("is-active");
-    document.body.style.overflow = "hidden";
+    lockScroll();
 };
 
 window.closeActModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (!modal) return;
     modal.classList.remove("is-active");
-    document.body.style.overflow = "";
+    unlockScroll();
 
     // Clean URL query param if present
     const url = new URL(window.location.href);
@@ -382,7 +396,7 @@ window.closeActModal = function(modalId) {
 document.addEventListener("click", (e) => {
     if (e.target.classList.contains("act-modal-backdrop")) {
         e.target.classList.remove("is-active");
-        document.body.style.overflow = "";
+        unlockScroll();
     }
 });
 
@@ -391,9 +405,18 @@ document.addEventListener("keydown", (e) => {
         document.querySelectorAll(".act-modal-backdrop.is-active").forEach(m => {
             m.classList.remove("is-active");
         });
-        document.body.style.overflow = "";
+        unlockScroll();
     }
 });
+
+// Prevent background touch scrolling on mobile when backdrop is touched
+document.addEventListener("touchmove", (e) => {
+    if (document.body.classList.contains("act-modal-open")) {
+        if (!e.target.closest(".act-modal-dialog")) {
+            e.preventDefault();
+        }
+    }
+}, { passive: false });
 </script>
 
 <?php

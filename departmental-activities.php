@@ -183,9 +183,6 @@ require_once __DIR__ . '/includes/header.php';
                             <button type="button" class="act-modal-close" onclick="closeActModal('<?= $modalId ?>')" aria-label="Close modal">
                                 <i class="fas fa-times"></i>
                             </button>
-                            <span class="act-dept-badge <?= $badgeClass ?>" style="position:static; margin-bottom:8px; display:inline-block;">
-                                <?= htmlspecialchars($code) ?> &bull; <?= htmlspecialchars($deptTitle) ?>
-                            </span>
                             <div class="act-card-date" style="display:block; margin:6px 0;">
                                 <i class="far fa-calendar-alt"></i> <?= $actDateFormatted ?>
                             </div>
@@ -390,26 +387,40 @@ document.addEventListener("DOMContentLoaded", () => {
     filterActivities();
 });
 
-// Modal helpers
+// Modal helpers with complete background scroll lock
+function lockScroll() {
+    document.documentElement.classList.add("act-modal-open");
+    document.body.classList.add("act-modal-open");
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+}
+
+function unlockScroll() {
+    document.documentElement.classList.remove("act-modal-open");
+    document.body.classList.remove("act-modal-open");
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+}
+
 window.openActModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (!modal) return;
     modal.classList.add("is-active");
-    document.body.style.overflow = "hidden";
+    lockScroll();
 };
 
 window.closeActModal = function(modalId) {
     const modal = document.getElementById(modalId);
     if (!modal) return;
     modal.classList.remove("is-active");
-    document.body.style.overflow = "";
+    unlockScroll();
 };
 
 // Dismiss modal on backdrop click or Escape
 document.addEventListener("click", (e) => {
     if (e.target.classList.contains("act-modal-backdrop")) {
         e.target.classList.remove("is-active");
-        document.body.style.overflow = "";
+        unlockScroll();
     }
 });
 
@@ -418,9 +429,18 @@ document.addEventListener("keydown", (e) => {
         document.querySelectorAll(".act-modal-backdrop.is-active").forEach(m => {
             m.classList.remove("is-active");
         });
-        document.body.style.overflow = "";
+        unlockScroll();
     }
 });
+
+// Prevent background touch scrolling on mobile when backdrop is touched
+document.addEventListener("touchmove", (e) => {
+    if (document.body.classList.contains("act-modal-open")) {
+        if (!e.target.closest(".act-modal-dialog")) {
+            e.preventDefault();
+        }
+    }
+}, { passive: false });
 </script>
 
 <?php
