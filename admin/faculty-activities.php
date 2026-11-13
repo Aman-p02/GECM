@@ -22,7 +22,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
         $faculty_name = trim($_POST['faculty_name'] ?? '');
         $description = trim($_POST['description'] ?? '');
-        $display_order = (int)($_POST['display_order'] ?? 0);
+        $display_order = 0;
         $is_active = isset($_POST['is_active']) ? 1 : 0;
 
         if ($category !== 'conferences' && empty($faculty_name)) {
@@ -64,7 +64,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
         $faculty_name = trim($_POST['faculty_name'] ?? '');
         $description = trim($_POST['description'] ?? '');
-        $display_order = (int)($_POST['display_order'] ?? 0);
+        $display_order = 0;
         $is_active = isset($_POST['is_active']) ? 1 : 0;
 
         if ($category !== 'conferences' && empty($faculty_name)) {
@@ -178,9 +178,9 @@ if ($pdo) {
     if ($selectedCat === 'conferences') {
         $stmt = $pdo->query("SELECT * FROM faculty_activities WHERE category = 'conferences' ORDER BY id DESC");
     } elseif ($selectedCat === 'all') {
-        $stmt = $pdo->query("SELECT * FROM faculty_activities ORDER BY CASE WHEN category = 'conferences' THEN 0 ELSE 1 END, display_order ASC, id DESC");
+        $stmt = $pdo->query("SELECT * FROM faculty_activities ORDER BY CASE WHEN category = 'conferences' THEN 0 ELSE 1 END, id ASC");
     } else {
-        $stmt = $pdo->prepare("SELECT * FROM faculty_activities WHERE category = ? ORDER BY display_order ASC, id ASC");
+        $stmt = $pdo->prepare("SELECT * FROM faculty_activities WHERE category = ? ORDER BY id ASC");
         $stmt->execute([$selectedCat]);
     }
     $activities = $stmt->fetchAll();
@@ -364,18 +364,11 @@ require_once __DIR__ . '/includes/header.php';
                     <textarea name="description" id="add_description" class="form-control" rows="5" placeholder="Enter complete conference details (e.g. Dr. B. J. Shah, Professor in Applied Mechanics, attended the International conclave...)" required></textarea>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: center;">
-                    <div class="form-group" id="add_display_order_group" style="margin-bottom: 0;">
-                        <label class="form-label" for="add_display_order">Display Order</label>
-                        <input type="number" name="display_order" id="add_display_order" class="form-control" value="0">
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 0; padding-top: 24px;">
-                        <label class="form-check">
-                            <input type="checkbox" name="is_active" value="1" checked>
-                            <span>Active / Display on Website</span>
-                        </label>
-                    </div>
+                <div class="form-group" style="margin-bottom: 0; padding-top: 6px;">
+                    <label class="form-check" style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13.5px; font-weight: 600; color: #334155;">
+                        <input type="checkbox" name="is_active" value="1" checked style="width: 17px; height: 17px; cursor: pointer; accent-color: #0284c7;">
+                        <span>Active / Display on Website</span>
+                    </label>
                 </div>
             </div>
             <div class="modal-footer">
@@ -418,18 +411,11 @@ require_once __DIR__ . '/includes/header.php';
                     <textarea name="description" id="edit_description" class="form-control" rows="5" required></textarea>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: center;">
-                    <div class="form-group" id="edit_display_order_group" style="margin-bottom: 0;">
-                        <label class="form-label" for="edit_display_order">Display Order</label>
-                        <input type="number" name="display_order" id="edit_display_order" class="form-control">
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 0; padding-top: 24px;">
-                        <label class="form-check">
-                            <input type="checkbox" name="is_active" id="edit_is_active" value="1">
-                            <span>Active / Display on Website</span>
-                        </label>
-                    </div>
+                <div class="form-group" style="margin-bottom: 0; padding-top: 6px;">
+                    <label class="form-check" style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13.5px; font-weight: 600; color: #334155;">
+                        <input type="checkbox" name="is_active" id="edit_is_active" value="1" style="width: 17px; height: 17px; cursor: pointer; accent-color: #0284c7;">
+                        <span>Active / Display on Website</span>
+                    </label>
                 </div>
             </div>
             <div class="modal-footer">
@@ -447,25 +433,21 @@ function syncAddModalFields() {
     const nameInput = document.getElementById('add_faculty_name');
     const descLabel = document.getElementById('add_description_label');
     const descText = document.getElementById('add_description');
-    const orderGroup = document.getElementById('add_display_order_group');
 
     if (cat === 'conferences') {
         nameGroup.style.display = 'none';
         nameInput.required = false;
         nameInput.value = '';
-        if (orderGroup) orderGroup.style.display = 'none';
         descLabel.innerHTML = 'Conferences Attended/Chaired by Faculty <span class="required">*</span>';
         descText.placeholder = 'Enter full conference detail (e.g. Dr. B. J. Shah, Professor in Applied Mechanics, attended the International conclave...)';
     } else if (cat === 'trainings') {
         nameGroup.style.display = 'block';
         nameInput.required = true;
-        if (orderGroup) orderGroup.style.display = 'block';
         descLabel.innerHTML = 'Trainings Attended by Faculty <span class="required">*</span>';
         descText.placeholder = 'Enter training topic, dates, or program details (e.g. Effective Classroom Communication)';
     } else if (cat === 'expert_lectures') {
         nameGroup.style.display = 'block';
         nameInput.required = true;
-        if (orderGroup) orderGroup.style.display = 'block';
         descLabel.innerHTML = 'Expert Lectures Delivered by Faculty <span class="required">*</span>';
         descText.placeholder = 'Enter lecture topic and details (e.g. Hydroxygen as additive in two wheeler)';
     }
@@ -476,22 +458,18 @@ function syncEditModalFields() {
     const nameGroup = document.getElementById('edit_faculty_name_group');
     const nameInput = document.getElementById('edit_faculty_name');
     const descLabel = document.getElementById('edit_description_label');
-    const orderGroup = document.getElementById('edit_display_order_group');
 
     if (cat === 'conferences') {
         nameGroup.style.display = 'none';
         nameInput.required = false;
-        if (orderGroup) orderGroup.style.display = 'none';
         descLabel.innerHTML = 'Conferences Attended/Chaired by Faculty <span class="required">*</span>';
     } else if (cat === 'trainings') {
         nameGroup.style.display = 'block';
         nameInput.required = true;
-        if (orderGroup) orderGroup.style.display = 'block';
         descLabel.innerHTML = 'Trainings Attended by Faculty <span class="required">*</span>';
     } else if (cat === 'expert_lectures') {
         nameGroup.style.display = 'block';
         nameInput.required = true;
-        if (orderGroup) orderGroup.style.display = 'block';
         descLabel.innerHTML = 'Expert Lectures Delivered by Faculty <span class="required">*</span>';
     }
 }
@@ -509,7 +487,6 @@ function openEditActivityModal(data) {
     document.getElementById('edit_category').value = data.category || 'conferences';
     document.getElementById('edit_faculty_name').value = data.faculty_name || '';
     document.getElementById('edit_description').value = data.description || '';
-    document.getElementById('edit_display_order').value = data.display_order || '0';
     document.getElementById('edit_is_active').checked = (parseInt(data.is_active) === 1);
     
     syncEditModalFields();

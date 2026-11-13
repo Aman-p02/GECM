@@ -21,19 +21,19 @@ if ($pdo) {
         ");
         $conferences = $cStmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Trainings: display_order ASC, id ASC
+        // Trainings: id ASC
         $tStmt = $pdo->query("
             SELECT * FROM faculty_activities 
             WHERE is_active = 1 AND category = 'trainings' 
-            ORDER BY display_order ASC, id ASC
+            ORDER BY id ASC
         ");
         $trainings = $tStmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Expert Lectures: display_order ASC, id ASC
+        // Expert Lectures: id ASC
         $lStmt = $pdo->query("
             SELECT * FROM faculty_activities 
             WHERE is_active = 1 AND category = 'expert_lectures' 
-            ORDER BY display_order ASC, id ASC
+            ORDER BY id ASC
         ");
         $expertLectures = $lStmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
