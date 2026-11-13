@@ -186,9 +186,6 @@ require_once __DIR__ . '/includes/header.php';
                             <button type="button" class="act-modal-close" onclick="closeActModal('<?= $modalId ?>')" aria-label="Close modal">
                                 <i class="fas fa-times"></i>
                             </button>
-                            <span class="act-dept-badge badge-college" style="position:static; margin-bottom:8px; display:inline-block;">
-                                GEC Modasa &bull; Flagship Campus Event
-                            </span>
                             <div class="act-card-date" style="display:block; margin:6px 0;">
                                 <i class="far fa-calendar-alt"></i> <?= $eventDate ?>
                             </div>
