@@ -196,11 +196,6 @@ require_once __DIR__ . '/includes/header.php';
                         </div>
 
                         <div class="act-modal-footer">
-                            <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
-                                <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:8px 18px; font-size:0.88rem;">
-                                    <i class="fas fa-external-link-alt"></i> View Official Report / Document
-                                </a>
-                            <?php endif; ?>
                             <button type="button" class="btn btn-secondary" onclick="closeActModal('<?= $modalId ?>')" style="padding:8px 18px; font-size:0.88rem;">
                                 Close
                             </button>

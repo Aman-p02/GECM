@@ -85,11 +85,6 @@ if (isset($pdo) && $pdo) {
                                     <span>View Details</span>
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
-                                <?php if (!empty($act['external_url'])): ?>
-                                    <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="activity-link-ext">
-                                        <i class="fas fa-external-link-alt"></i> Report
-                                    </a>
-                                <?php endif; ?>
                             </div>
                         </div>
                     </article>
@@ -117,15 +112,6 @@ if (isset($pdo) && $pdo) {
                                 <div class="activity-modal-text">
                                     <?= htmlspecialchars($act['description']) ?>
                                 </div>
-
-                                <?php if (!empty($act['external_url'])): ?>
-                                    <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--dept-border, #e5e7eb);">
-                                        <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="activity-modal-cta">
-                                            <span>Open External Link / Report</span>
-                                            <i class="fas fa-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
