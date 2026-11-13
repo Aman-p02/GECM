@@ -58,15 +58,6 @@ if ($pdo) {
     }
 }
 
-// Compute counts per department for quick pill counters
-$deptCounts = [];
-foreach ($activities as $act) {
-    $c = strtoupper(trim($act['dept_code'] ?? ''));
-    if (!empty($c)) {
-        $deptCounts[$c] = ($deptCounts[$c] ?? 0) + 1;
-    }
-}
-
 // Ensure current year is in filter options
 $currentYr = date('Y');
 if (!in_array($currentYr, $availableYears)) {
@@ -115,7 +106,7 @@ require_once __DIR__ . '/includes/header.php';
                         <span class="custom-select-value" id="yearSelectedLabel"><?= ($selectedYear === 'ALL') ? 'All Years' : $selectedYear ?></span>
                         <i class="fas fa-chevron-down custom-select-arrow"></i>
                     </button>
-                    <div class="custom-select-menu" id="yearDropdownMenu" role="listbox" aria-label="Select Year" style="min-width: 140px;">
+                    <div class="custom-select-menu" id="yearDropdownMenu" role="listbox" aria-label="Select Year">
                         <div class="custom-select-option <?= ($selectedYear === 'ALL') ? 'is-selected' : '' ?>" data-value="ALL" role="option">
                             All Years
                         </div>
@@ -152,9 +143,7 @@ require_once __DIR__ . '/includes/header.php';
             ?>
                 <article class="act-card"
                          data-dept="<?= htmlspecialchars($code) ?>"
-                         data-year="<?= htmlspecialchars($actYear) ?>"
-                         data-title="<?= htmlspecialchars(strtolower($act['title'])) ?>"
-                         data-desc="<?= htmlspecialchars(strtolower($rawDesc)) ?>">
+                         data-year="<?= htmlspecialchars($actYear) ?>">
                     
                     <div class="act-card-media">
                         <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='images/hero_campus_1.jpg'">
@@ -227,7 +216,7 @@ require_once __DIR__ . '/includes/header.php';
             <div class="act-empty-state" id="emptyState" style="display: none;">
                 <i class="fas fa-calendar-times act-empty-icon"></i>
                 <h4 class="act-empty-title">No Activities Found</h4>
-                <p class="act-empty-desc">No departmental activities match your selected department, year, or search criteria. Please adjust your filters or reset to view all.</p>
+                <p class="act-empty-desc">No departmental activities match your selected department or year filters. Please adjust your selection or reset to view all.</p>
                 <button type="button" class="btn btn-primary" id="emptyResetBtn" style="margin-top: 16px; padding: 8px 22px; font-size: 0.86rem; border-radius: 9999px;">
                     <i class="fas fa-undo"></i> Show All Activities
                 </button>

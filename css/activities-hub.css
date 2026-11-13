@@ -826,6 +826,13 @@
         display: contents;
     }
 
+    .custom-select-trigger {
+        padding: 6px 12px;
+        font-size: 0.84rem;
+        min-height: 36px;
+        box-sizing: border-box;
+    }
+
     #deptDropdownWrap {
         flex: 1 1 100%;
         width: 100%;
@@ -852,11 +859,7 @@
 
     #yearDropdownWrap .custom-select-trigger {
         min-width: 110px;
-        padding: 6px 12px;
-        font-size: 0.84rem;
-        min-height: 36px;
         height: 36px;
-        box-sizing: border-box;
     }
 
     #yearDropdownWrap .custom-select-menu {
@@ -867,25 +870,12 @@
         right: auto;
     }
 
-    .act-search-pill {
-        max-width: 100%;
-        min-width: 100%;
-        width: 100%;
-    }
-
     .act-toolbar-meta {
         display: flex;
         align-items: center;
         gap: 8px;
         flex-shrink: 0;
         margin-left: auto;
-    }
-
-    .custom-select-trigger {
-        padding: 6px 12px;
-        font-size: 0.84rem;
-        min-height: 36px;
-        box-sizing: border-box;
     }
 
     .act-count-pill {

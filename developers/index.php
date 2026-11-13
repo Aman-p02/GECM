@@ -29,11 +29,11 @@ include_once __DIR__ . '/../includes/header.php';
             <p>The engineering minds behind the architecture and development of the<br>GEC Modasa Website.</p>
         </header>
 
-        <!-- 2 Developers Grid: Vanit First, Aman Second -->
+        <!-- 2 Developers Grid -->
         <div class="dev-grid">
 
             <!-- ==============================================
-                 Developer 1: Vanit Dantani (Placed First)
+                 Developer 1: Vanit Dantani
                  ============================================== -->
             <article class="dev-card">
                 <div>
@@ -128,7 +128,7 @@ include_once __DIR__ . '/../includes/header.php';
             </article>
 
             <!-- ==============================================
-                 Developer 2: Aman Prajapati (Placed Second)
+                 Developer 2: Aman Prajapati
                  ============================================== -->
             <article class="dev-card">
                 <div>
@@ -237,7 +237,7 @@ include_once __DIR__ . '/../includes/header.php';
 
     </div>
 
-    <!-- Self-Contained Instagram Style Image Modal -->
+  
     <div class="dev-modal-overlay" id="devImageModal" onclick="closeDevImageModal(event)">
         <div class="dev-modal-content">
             <button type="button" class="dev-modal-close" onclick="closeDevImageModal(event)" aria-label="Close photo">&times;</button>

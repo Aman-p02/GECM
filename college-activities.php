@@ -112,7 +112,7 @@ require_once __DIR__ . '/includes/header.php';
                         <span class="custom-select-value" id="yearSelectedLabel"><?= ($selectedYear === 'ALL') ? 'All Years' : $selectedYear ?></span>
                         <i class="fas fa-chevron-down custom-select-arrow"></i>
                     </button>
-                    <div class="custom-select-menu" id="yearDropdownMenu" role="listbox" aria-label="Select Year" style="min-width: 140px;">
+                    <div class="custom-select-menu" id="yearDropdownMenu" role="listbox" aria-label="Select Year">
                         <div class="custom-select-option <?= ($selectedYear === 'ALL') ? 'is-selected' : '' ?>" data-value="ALL" role="option">
                             All Years
                         </div>
