@@ -919,11 +919,7 @@ body.act-modal-open {
 }
 
 .fac-subnav-link:hover {
-    color: #009dff;
-}
-
-.fac-subnav-link:hover::after {
-    width: calc(100% - 20px);
+    color: #0f172a;
 }
 
 .fac-subnav-link.is-active {
@@ -977,15 +973,10 @@ body.act-modal-open {
     border-bottom: 1px solid #f1f5f9;
     vertical-align: top;
     color: #1e293b;
-    transition: background 0.12s ease;
 }
 
 .fac-table tbody tr:nth-child(even) td {
     background-color: #fafbfc;
-}
-
-.fac-table tbody tr:hover td {
-    background-color: #f8fafc;
 }
 
 .fac-col-sr {
@@ -1135,7 +1126,6 @@ body.act-modal-open {
         padding: 16px;
         box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.05);
         position: relative;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .fac-table tbody td {
