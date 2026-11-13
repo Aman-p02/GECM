@@ -28,7 +28,7 @@ if (isset($pdo) && $pdo) {
         $stmt = $pdo->prepare("
             SELECT * FROM department_activities 
             WHERE dept_code = ? AND is_active = 1 
-            ORDER BY display_order ASC, activity_date DESC, id DESC
+            ORDER BY activity_date DESC, id DESC
         ");
         $stmt->execute([$deptCode]);
         $deptActivities = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -57,13 +57,13 @@ if (isset($pdo) && $pdo) {
             <!-- Editorial Activities Grid -->
             <div class="dept-activities-grid">
                 <?php foreach ($deptActivities as $act):
-                    $photoSrc = !empty($act['image_url']) ? $root_path . $act['image_url'] : $root_path . 'images/slider/default.jpg';
+                    $photoSrc = !empty($act['image_url']) ? $root_path . $act['image_url'] : $root_path . 'images/hero_campus_1.jpg';
                     $modalId = 'actModal_' . $act['id'];
                 ?>
                     <article class="activity-card">
                         <?php if (!empty($act['image_url'])): ?>
                             <div class="activity-card-media">
-                                <img src="<?= htmlspecialchars($photoSrc) ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='<?= $root_path ?>images/slider/default.jpg'">
+                                <img src="<?= htmlspecialchars($photoSrc) ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
                             </div>
                         <?php endif; ?>
 
