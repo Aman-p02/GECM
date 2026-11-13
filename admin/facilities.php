@@ -133,7 +133,7 @@ require_once __DIR__ . '/includes/header.php';
     <!-- Top Action Bar (No Duplicate Title) -->
     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eef2f6; padding-bottom: 14px; margin-bottom: 22px; flex-wrap: wrap; gap: 12px;">
         <p style="font-size: 13.5px; color: #64748b; margin: 0;">Add and manage campus facilities (Library, Hostels, Labs, Sports Complex, etc.).</p>
-        <a href="../overview.php#facilities" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; font-size: 12.5px;">
+        <a href="../facilities.php" target="_blank" class="btn btn-outline-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; font-size: 12.5px;">
             <i class="fas fa-external-link-alt"></i> View on Website
         </a>
     </div>

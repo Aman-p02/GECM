@@ -23,13 +23,14 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="<?= ($root_path ?? '') ?>overview.php"><i class="fas fa-angle-right"></i> About GECM</a></li>
-                        <li><a href="<?= $root_path ?? '' ?>admission.php"><i class="fas fa-angle-right"></i> Admissions</a></li>
-                        <li><a href="<?= $root_path ?? '' ?>courses.php"><i class="fas fa-angle-right"></i> Courses &amp; Intake</a></li>
-                        <li><a href="<?= $root_path ?? '' ?>contact.php"><i class="fas fa-angle-right"></i> Contact Us</a></li>
-                        <li><a href="<?= ($root_path ?? '') . 'index.php#departments' ?>"><i class="fas fa-angle-right"></i> Academics</a></li>
-                        <li><a href="#"><i class="fas fa-angle-right"></i> Placements</a></li>
-                        <li><a href="#"><i class="fas fa-angle-right"></i> Anti-Ragging Cell</a></li>
-                        <li><a href="#"><i class="fas fa-angle-right"></i> Grievance Redressal</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>principal.php"><i class="fas fa-angle-right"></i> Principal Profile</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>council-of-heads.php"><i class="fas fa-angle-right"></i> Council of Heads</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>facilities.php"><i class="fas fa-angle-right"></i> Facilities</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>mandatory-disclosure.php"><i class="fas fa-angle-right"></i> Mandatory Disclosures</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>committees.php?c=anti-ragging"><i class="fas fa-angle-right"></i> Anti-Ragging Committee</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>admission.php"><i class="fas fa-angle-right"></i> Admissions</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>courses.php"><i class="fas fa-angle-right"></i> Courses &amp; Intake</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>contact.php"><i class="fas fa-angle-right"></i> Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-col contact-col">
