@@ -23,22 +23,18 @@ require_once __DIR__ . '/includes/header.php';
                 <div class="about-metric-card">
                     <span class="about-metric-num highlight">1984</span>
                     <span class="about-metric-label">Established Year</span>
-                    <span class="about-metric-sub">Over 4 Decades of Excellence</span>
                 </div>
                 <div class="about-metric-card">
-                    <span class="about-metric-num">112</span>
-                    <span class="about-metric-label">Campus Acreage</span>
-                    <span class="about-metric-sub">Lush Green Campus</span>
+                    <span class="about-metric-num">112 Acres</span>
+                    <span class="about-metric-label">Campus Area</span>
                 </div>
                 <div class="about-metric-card">
                     <span class="about-metric-num" style="font-size: 1.45rem;">AICTE &amp; GTU</span>
                     <span class="about-metric-label">Affiliation Status</span>
-                    <span class="about-metric-sub">Recognized &amp; Affiliated</span>
                 </div>
                 <div class="about-metric-card">
-                    <span class="about-metric-num" style="font-size: 1.45rem; color: #0284c7;">NBA Accredited</span>
-                    <span class="about-metric-label">Quality Assurance</span>
-                    <span class="about-metric-sub">Select UG Programs</span>
+                    <span class="about-metric-num" style="color: #0284c7;">09</span>
+                    <span class="about-metric-label">UG &amp; PG Programs</span>
                 </div>
             </div>
         </div>
@@ -342,10 +338,7 @@ require_once __DIR__ . '/includes/header.php';
                                     <td style="text-align: center;"><span class="about-code-pill">11</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="about-program-name">
-                                        Mechanical Engineering 
-                                        <span class="about-program-accred"><i class="fas fa-check-circle"></i> NBA Accredited</span>
-                                    </td>
+                                    <td class="about-program-name">Mechanical Engineering</td>
                                     <td style="text-align: center; color: #64748b; font-weight: 600;">1989</td>
                                     <td style="text-align: center;"><span class="about-intake-badge">60</span></td>
                                     <td style="text-align: center;"><span class="about-code-pill">19</span></td>
