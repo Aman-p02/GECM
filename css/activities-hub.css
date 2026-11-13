@@ -156,6 +156,8 @@
 .custom-select-wrap {
     position: relative;
     user-select: none;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .custom-select-trigger {
@@ -171,7 +173,7 @@
     font-weight: 500;
     color: #111827;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: border-color 0.15s ease, color 0.15s ease;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     outline: none;
     min-height: 38px;
@@ -184,7 +186,7 @@
 
 .custom-select-wrap.is-open .custom-select-trigger {
     border-color: #009dff;
-    box-shadow: 0 0 0 2px rgba(0, 157, 255, 0.15);
+    box-shadow: none;
 }
 
 .custom-select-prefix {
@@ -206,9 +208,14 @@
 }
 
 .custom-select-arrow {
+    display: inline-block;
+    width: 12px;
+    text-align: center;
     font-size: 0.70rem;
     color: #6b7280;
     margin-left: 2px;
+    line-height: 1;
+    vertical-align: middle;
     transition: transform 0.2s ease, color 0.15s ease;
 }
 
@@ -770,29 +777,38 @@
     .act-toolbar-strip {
         padding: 0 16px;
         margin-top: 12px;
+        position: relative;
+        z-index: 100;
     }
 
     .act-toolbar-inner {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         align-items: center;
         justify-content: space-between;
         gap: 10px;
-        padding: 8px 12px;
+        padding: 8px 14px;
+        min-height: 52px;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .act-toolbar-inner:has(#deptDropdownWrap) {
+        flex-wrap: wrap;
     }
 
     .act-toolbar-filters {
         display: flex;
         align-items: center;
         gap: 8px;
-        flex-wrap: wrap;
-        flex: 1 1 auto;
+        flex-shrink: 0;
     }
 
     #deptDropdownWrap {
         flex: 1 1 100%;
         width: 100%;
+        position: relative;
     }
 
     #deptDropdownWrap .custom-select-trigger {
@@ -801,7 +817,25 @@
     }
 
     #yearDropdownWrap {
-        flex: 0 0 auto;
+        flex-shrink: 0;
+        position: relative;
+    }
+
+    #yearDropdownWrap .custom-select-trigger {
+        min-width: 110px;
+        padding: 6px 12px;
+        font-size: 0.84rem;
+        min-height: 36px;
+        height: 36px;
+        box-sizing: border-box;
+    }
+
+    #yearDropdownWrap .custom-select-menu {
+        min-width: 120px !important;
+        width: 100% !important;
+        max-width: 140px !important;
+        left: 0;
+        right: auto;
     }
 
     .act-search-pill {
@@ -814,6 +848,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        flex-shrink: 0;
         margin-left: auto;
     }
 
@@ -821,14 +856,18 @@
         padding: 6px 12px;
         font-size: 0.84rem;
         min-height: 36px;
+        box-sizing: border-box;
     }
 
     .act-count-pill {
         font-size: 0.80rem;
         padding: 6px 12px;
         min-height: 36px;
+        height: 36px;
+        box-sizing: border-box;
         display: inline-flex;
         align-items: center;
+        white-space: nowrap;
     }
 
     .act-grid {
