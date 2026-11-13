@@ -2,11 +2,15 @@
 /**
  * Department Admin - Activities & Events Management (Clean Main Admin UI with Modal)
  */
-$pageTitle = 'Department Activities';
-$pageHeading = 'Activities & Events';
-$activeTab = 'activities';
+require_once __DIR__ . '/includes/auth.php';
+checkDeptAdminAuth();
 
-require_once __DIR__ . '/includes/header.php';
+$deptAdmin = getLoggedInDeptAdmin();
+if (!$deptAdmin) {
+    header('Location: logout.php');
+    exit;
+}
+$deptCode = $deptAdmin['dept_code'];
 require_once __DIR__ . '/../admin/includes/upload_helper.php';
 
 $pdo = getDBConnection();
@@ -18,8 +22,20 @@ $editId = (int)($_GET['edit_id'] ?? 0);
 if ($action === 'delete' && !empty($_GET['id'])) {
     $delId = (int)$_GET['id'];
     try {
+        $imgStmt = $pdo->prepare("SELECT image_url FROM department_activities WHERE id = ? AND dept_code = ?");
+        $imgStmt->execute([$delId, $deptCode]);
+        $imgPath = $imgStmt->fetchColumn();
+
         $delStmt = $pdo->prepare("DELETE FROM department_activities WHERE id = ? AND dept_code = ?");
         $delStmt->execute([$delId, $deptCode]);
+
+        if ($imgPath && strpos($imgPath, 'uploads/') === 0) {
+            $phys = __DIR__ . '/../' . $imgPath;
+            if (file_exists($phys)) {
+                @unlink($phys);
+            }
+        }
+
         setDeptFlash('success', 'Activity deleted successfully.');
         header('Location: activities.php');
         exit;
@@ -86,6 +102,12 @@ if ($action === 'edit' && $editId > 0) {
 $stmt = $pdo->prepare("SELECT * FROM department_activities WHERE dept_code = ? ORDER BY activity_date DESC, id DESC");
 $stmt->execute([$deptCode]);
 $activities = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Page View metadata and Header layout
+$pageTitle = 'Department Activities';
+$pageHeading = 'Activities & Events';
+$activeTab = 'activities';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <?php if (!empty($error)): ?>

@@ -145,9 +145,26 @@ if (isset($_GET['delete'])) {
     $id = (int)$_GET['delete'];
     if ($id > 0) {
         try {
-            $stmt = $pdo->prepare("DELETE FROM department_activities WHERE id = ? AND dept_code = ?");
-            $stmt->execute([$id, $deptCode]);
-            setFlashMessage('success', 'Activity deleted successfully.');
+            $imgStmt = $pdo->prepare("SELECT image_url, dept_code FROM department_activities WHERE id = ?");
+            $imgStmt->execute([$id]);
+            $row = $imgStmt->fetch(PDO::FETCH_ASSOC);
+            if ($row) {
+                $targetDept = $row['dept_code'] ?: $deptCode;
+                $stmt = $pdo->prepare("DELETE FROM department_activities WHERE id = ?");
+                $stmt->execute([$id]);
+
+                if (!empty($row['image_url']) && strpos($row['image_url'], 'uploads/') === 0) {
+                    $phys = __DIR__ . '/../' . $row['image_url'];
+                    if (file_exists($phys)) {
+                        @unlink($phys);
+                    }
+                }
+                setFlashMessage('success', 'Activity deleted successfully.');
+                header('Location: dept-activities.php?dept=' . urlencode($targetDept));
+                exit;
+            } else {
+                setFlashMessage('warning', 'Activity not found or already deleted.');
+            }
         } catch (Exception $e) {
             setFlashMessage('danger', 'Delete error: ' . $e->getMessage());
         }
