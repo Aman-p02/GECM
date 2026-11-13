@@ -160,7 +160,7 @@ if (isset($_GET['edit']) && $pdo) {
 
 $events = [];
 if ($pdo) {
-    $stmt = $pdo->query("SELECT * FROM events ORDER BY display_order ASC, id ASC");
+    $stmt = $pdo->query("SELECT * FROM events ORDER BY event_date DESC, id DESC");
     $events = $stmt->fetchAll();
 }
 
@@ -194,7 +194,7 @@ require_once __DIR__ . '/includes/header.php';
         <table class="admin-table" id="eventsTable">
             <thead>
                 <tr>
-                    <th style="width: 60px;">Order</th>
+                    <th style="width: 120px;">Event Date</th>
                     <th style="width: 90px;">Cover</th>
                     <th>Event Title</th>
                     <th>Description</th>
@@ -205,7 +205,9 @@ require_once __DIR__ . '/includes/header.php';
             <tbody>
                 <?php foreach ($events as $row): ?>
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
-                    <td style="font-weight: 700; color: #1e88e5; text-align: center;">#<?= $row['display_order'] ?></td>
+                    <td style="font-weight: 600; color: #1e88e5; font-size: 13px; white-space: nowrap;">
+                        <i class="far fa-calendar-alt" style="margin-right: 4px;"></i><?= !empty($row['event_date']) ? date('d M Y', strtotime($row['event_date'])) : '—' ?>
+                    </td>
                     <td>
                         <img src="<?= htmlspecialchars(getAdminImageSrc($row['image_url'])) ?>" alt="Event Cover" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Event';">
                     </td>
@@ -275,16 +277,13 @@ require_once __DIR__ . '/includes/header.php';
                     <input type="text" name="image_url" id="image_url" class="form-control" placeholder="Or enter image URL (optional fallback)" style="margin-top: 6px;">
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" for="event_date">Event Date</label>
-                        <input type="date" name="event_date" id="event_date" class="form-control" value="<?= date('Y-m-d') ?>">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="display_order">Display Order</label>
-                        <input type="number" name="display_order" id="display_order" class="form-control" value="<?= count($events) + 1 ?>" min="1">
-                    </div>
+                <input type="hidden" name="display_order" value="0">
+                <div class="form-group">
+                    <label class="form-label" for="event_date">Event Date <span class="required">*</span></label>
+                    <input type="date" name="event_date" id="event_date" class="form-control" value="<?= date('Y-m-d') ?>" required>
+                    <small style="color: #64748b; font-size: 12px; display: block; margin-top: 4px;">
+                        <i class="fas fa-info-circle"></i> Events will be organized by date automatically (newest event on top).
+                    </small>
                 </div>
 
                 <div class="form-group">
@@ -336,16 +335,13 @@ require_once __DIR__ . '/includes/header.php';
                     <input type="text" name="image_url" id="edit_image_url" class="form-control" value="<?= htmlspecialchars($editItem['image_url']) ?>" placeholder="Or image URL" style="margin-top: 6px;">
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" for="edit_event_date">Event Date</label>
-                        <input type="date" name="event_date" id="edit_event_date" class="form-control" value="<?= htmlspecialchars($editItem['event_date'] ?? '') ?>">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="edit_display_order">Display Order</label>
-                        <input type="number" name="display_order" id="edit_display_order" class="form-control" value="<?= $editItem['display_order'] ?>" min="1">
-                    </div>
+                <input type="hidden" name="display_order" value="<?= (int)($editItem['display_order'] ?? 0) ?>">
+                <div class="form-group">
+                    <label class="form-label" for="edit_event_date">Event Date <span class="required">*</span></label>
+                    <input type="date" name="event_date" id="edit_event_date" class="form-control" value="<?= htmlspecialchars($editItem['event_date'] ?? date('Y-m-d')) ?>" required>
+                    <small style="color: #64748b; font-size: 12px; display: block; margin-top: 4px;">
+                        <i class="fas fa-info-circle"></i> Events will be organized by date automatically (newest event on top).
+                    </small>
                 </div>
 
                 <div class="form-group">

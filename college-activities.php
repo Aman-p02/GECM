@@ -15,7 +15,7 @@ if ($pdo) {
         $stmt = $pdo->query("
             SELECT * FROM events 
             WHERE is_active = 1 
-            ORDER BY display_order ASC, event_date DESC, id DESC
+            ORDER BY event_date DESC, id DESC
         ");
         $collegeEvents = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {

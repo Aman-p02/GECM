@@ -22,7 +22,7 @@ if ($pdo) {
         $heroSlides = $pdo->query("SELECT * FROM hero_slides WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
         $newsTickers = $pdo->query("SELECT * FROM news_ticker WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
         $noticesList = $pdo->query("SELECT * FROM notices WHERE is_active = 1 ORDER BY publish_date DESC, id DESC")->fetchAll();
-        $recentEvents = $pdo->query("SELECT * FROM events WHERE is_active = 1 ORDER BY display_order ASC, event_date DESC, id DESC LIMIT 4")->fetchAll();
+        $recentEvents = $pdo->query("SELECT * FROM events WHERE is_active = 1 ORDER BY event_date DESC, id DESC LIMIT 4")->fetchAll();
         $latestShots = $pdo->query("SELECT * FROM latest_shots WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
         $departmentsList = $pdo->query("SELECT * FROM departments WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
         $alumniList = $pdo->query("SELECT * FROM alumni WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
