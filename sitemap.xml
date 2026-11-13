@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-    <!-- Homepage -->
+    <!-- 1. Homepage -->
     <url>
         <loc>https://gecmodasa.ac.in/</loc>
         <lastmod>2026-11-13</lastmod>
@@ -12,7 +12,7 @@
         <priority>1.00</priority>
     </url>
 
-    <!-- About Section Pages -->
+    <!-- 2. About Section -->
     <url>
         <loc>https://gecmodasa.ac.in/overview.php</loc>
         <lastmod>2026-11-13</lastmod>
@@ -74,7 +74,7 @@
         <priority>0.85</priority>
     </url>
 
-    <!-- Administration Section Pages -->
+    <!-- 3. Administration Section -->
     <url>
         <loc>https://gecmodasa.ac.in/principal.php</loc>
         <lastmod>2026-11-13</lastmod>
@@ -97,7 +97,7 @@
         <loc>https://gecmodasa.ac.in/hostel-mess.php</loc>
         <lastmod>2026-11-13</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.80</priority>
+        <priority>0.85</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/committees.php</loc>
@@ -106,19 +106,41 @@
         <priority>0.85</priority>
     </url>
 
-    <!-- Academic & Admissions -->
+    <!-- 4. Academic & Admissions -->
     <url>
         <loc>https://gecmodasa.ac.in/courses.php</loc>
         <lastmod>2026-11-13</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.85</priority>
+        <priority>0.90</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/admission.php</loc>
         <lastmod>2026-11-13</lastmod>
         <changefreq>monthly</changefreq>
+        <priority>0.90</priority>
+    </url>
+
+    <!-- 5. Campus & Faculty Activities -->
+    <url>
+        <loc>https://gecmodasa.ac.in/college-activities.php</loc>
+        <lastmod>2026-11-13</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/departmental-activities.php</loc>
+        <lastmod>2026-11-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/faculty-activities.php</loc>
+        <lastmod>2026-11-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- 6. Institutional Information & Developers -->
     <url>
         <loc>https://gecmodasa.ac.in/contact.php</loc>
         <lastmod>2026-11-13</lastmod>
@@ -132,27 +154,9 @@
         <priority>0.70</priority>
     </url>
 
-    <!-- Academic Departments -->
+    <!-- 7. Academic Departments -->
     <url>
-        <loc>https://gecmodasa.ac.in/departments/computer/</loc>
-        <lastmod>2026-11-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.90</priority>
-    </url>
-    <url>
-        <loc>https://gecmodasa.ac.in/departments/information-technology/</loc>
-        <lastmod>2026-11-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.90</priority>
-    </url>
-    <url>
-        <loc>https://gecmodasa.ac.in/departments/civil/</loc>
-        <lastmod>2026-11-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.90</priority>
-    </url>
-    <url>
-        <loc>https://gecmodasa.ac.in/departments/mechanical/</loc>
+        <loc>https://gecmodasa.ac.in/departments/applied-mechanics/</loc>
         <lastmod>2026-11-13</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
@@ -164,7 +168,43 @@
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/departments/applied-mechanics/</loc>
+        <loc>https://gecmodasa.ac.in/departments/civil/</loc>
+        <lastmod>2026-11-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/departments/computer/</loc>
+        <lastmod>2026-11-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/departments/electrical/</loc>
+        <lastmod>2026-11-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/departments/electronics-and-communication/</loc>
+        <lastmod>2026-11-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/departments/information-technology/</loc>
+        <lastmod>2026-11-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/departments/mechanical/</loc>
+        <lastmod>2026-11-13</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/departments/science-and-humanities/</loc>
         <lastmod>2026-11-13</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
