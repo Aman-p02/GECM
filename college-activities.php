@@ -103,8 +103,8 @@ require_once __DIR__ . '/includes/header.php';
     </header>
 
     <!-- Minimalist Filter Bar (Year Custom Dropdown) -->
-    <div class="act-toolbar-strip" style="margin-top: 14px;">
-        <div class="act-toolbar-inner" style="justify-content: space-between;">
+    <div class="act-toolbar-strip">
+        <div class="act-toolbar-inner">
             <div class="act-toolbar-filters">
                 <!-- Year Custom Dropdown (Navbar-style) -->
                 <div class="custom-select-wrap" id="yearDropdownWrap">
@@ -138,7 +138,7 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 
     <!-- Activities Grid Container -->
-    <main class="act-container" style="margin-top: 36px;">
+    <main class="act-container">
         <div class="act-grid" id="collegeActivitiesGrid">
             <?php foreach ($collegeEvents as $event):
                 $evYear = !empty($event['event_date']) ? date('Y', strtotime($event['event_date'])) : '2026';
