@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Student General Rules & Regulations Stylesheet
+   Matches website design tokens:
+   - Primary: #0c3b6d (Deep Navy)
+   - Accent: #009dff (Electric Blue)
+   - Secondary: #ff8800 (Institutional Orange)
+   - Fonts: Inter, sans-serif
+   ========================================================================== */
+
+.rules-page {
+    background-color: #fbfcfd;
+    color: #1f2937;
+    padding: 0 0 70px 0;
+    min-height: 80vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   Page Hero Banner (1440px full-width)
+   ========================================================================== */
+.rules-hero {
+    padding: 34px 0 24px;
+    border-bottom: 1px solid #eef2f6;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+}
+
+.rules-hero-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 36px;
+}
+
+.rules-kicker {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 6px;
+}
+
+.rules-heading {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.85rem, 2.6vw, 2.35rem);
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin: 0 0 8px 0;
+}
+
+.rules-lead {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #64748b;
+    max-width: 880px;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Main Content Container
+   ========================================================================== */
+.rules-main-content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 34px 36px 0 36px;
+}
+
+.rules-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.rules-section-header {
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.rules-section-kicker {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 4px;
+}
+
+.rules-section-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    letter-spacing: -0.015em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rules-section-title i {
+    color: #ff8800;
+    font-size: 1.2rem;
+}
+
+/* Bullet Items */
+.rules-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.rules-bullet-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color: #334155;
+}
+
+.rules-bullet-icon {
+    color: #ff8800;
+    font-size: 14px;
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+/* Warning & Info Callouts */
+.rules-callout {
+    background-color: #f8fafc;
+    border-left: 4px solid #ff8800;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 18px 0;
+}
+
+.rules-callout.alert {
+    background-color: #fef2f2;
+    border-left-color: #ef4444;
+}
+
+.rules-callout.info {
+    background-color: #f0f9ff;
+    border-left-color: #009dff;
+}
+
+.rules-callout-title {
+    font-weight: 700;
+    font-size: 0.93rem;
+    color: #b45309;
+    margin: 0 0 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rules-callout.alert .rules-callout-title {
+    color: #b91c1c;
+}
+
+.rules-callout.info .rules-callout-title {
+    color: #0369a1;
+}
+
+.rules-callout-text {
+    font-size: 0.91rem;
+    line-height: 1.6;
+    color: #334155;
+    margin: 0;
+}
+
+/* Institutional Tables */
+.rules-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin: 20px 0 26px 0;
+}
+
+.rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.91rem;
+    text-align: center;
+}
+
+.rules-table th {
+    background: #f8fafc;
+    color: #0f172a;
+    font-weight: 600;
+    padding: 12px 14px;
+    border-bottom: 1px solid #cbd5e1;
+    border-right: 1px solid #e2e8f0;
+}
+
+.rules-table th:last-child {
+    border-right: none;
+}
+
+.rules-table td {
+    padding: 12px 14px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+    border-right: 1px solid #f1f5f9;
+}
+
+.rules-table td:last-child {
+    border-right: none;
+}
+
+.rules-table tbody tr:hover {
+    background: #fafbfc;
+}
+
+.rules-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Example Calculation Box */
+.example-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 16px 0;
+}
+
+.example-box-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.example-box-title i {
+    color: #ff8800;
+}
+
+.example-box-text {
+    font-size: 0.91rem;
+    line-height: 1.65;
+    color: #334155;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .rules-hero-inner,
+    .rules-main-content {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (max-width: 991px) {
+    .rules-card {
+        padding: 28px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rules-hero-inner,
+    .rules-main-content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .rules-hero {
+        padding: 24px 0 18px;
+    }
+
+    .rules-heading {
+        font-size: 1.65rem;
+    }
+
+    .rules-card {
+        padding: 22px 16px;
+    }
+}

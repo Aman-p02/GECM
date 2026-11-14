@@ -275,7 +275,7 @@ if (!isset($active_page)) {
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
                             <li><a href="<?= $root_path ?>student-section.php" class="hdr-dd-link <?= ($active_page === 'student-section') ? 'is-active active' : '' ?>">Student Section</a></li>
-                            <li><a href="<?= $root_path ?>student-section.php#rules" class="hdr-dd-link">General Rules &amp; Regulations</a></li>
+                            <li><a href="<?= $root_path ?>student-rules.php" class="hdr-dd-link <?= ($active_page === 'student-rules') ? 'is-active active' : '' ?>">General Rules &amp; Regulations</a></li>
                             <li><a href="<?= $root_path ?>college-activities.php" class="hdr-dd-link">Student Chapters &amp; Clubs</a></li>
                             <li><a href="<?= $root_path ?>student-section.php#registration" class="hdr-dd-link">Enrollment Details</a></li>
                             <li><a href="<?= $root_path ?>student-section.php#about" class="hdr-dd-link">Scholarships</a></li>
