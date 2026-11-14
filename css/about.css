@@ -301,8 +301,8 @@
 }
 
 .about-affil-icon-box.aicte {
-    background: #fff7ed;
-    color: #ea580c;
+    background: #fffffe;
+    color: #ff8800;
     border: 1px solid #ffedd5;
 }
 
@@ -316,13 +316,13 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 1.15rem;
     font-weight: 800;
-    color: #0f172a;
+    color: #000000;
     margin: 0;
 }
 
 .about-affil-card-subtitle {
     font-size: 0.8rem;
-    color: #64748b;
+    color: #617085;
     margin-top: 2px;
 }
 
@@ -374,8 +374,8 @@
     font-size: 0.76rem;
     font-weight: 700;
     color: #ff8800;
-    background: #fff7ed;
-    border: 1px solid #fed7aa;
+    background: #fdf9f3;
+    border: 1px solid #ffdcb4;
     padding: 3px 8px;
     border-radius: 6px;
     flex-shrink: 0;
@@ -384,8 +384,8 @@
 
 .about-affil-year-tag.gtu {
     color: #009dff;
-    background: #f0f9ff;
-    border-color: #b9e6fe;
+    background: #ffffff;
+    border-color: #cdedff;
 }
 
 .about-affil-item-title-group {
@@ -613,11 +613,11 @@
     .about-metrics-strip {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .about-overview-card {
         grid-template-columns: 1fr;
     }
-    
+
     .about-overview-media {
         min-height: 260px;
     }
