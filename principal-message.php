@@ -67,17 +67,17 @@ require_once __DIR__ . '/includes/header.php';
 
             <?php if ($currentMsg): ?>
 
-                <!-- Principal Photo (Top Left with Dignified Institutional Caption) -->
+                <!-- Principal Photo & Details (Directly from Admin Panel) -->
                 <?php if (!empty($currentMsg['image_url'])): ?>
                     <div class="pm-photo-wrap">
-                        <div class="pm-photo-card">
-                            <img src="<?= $root_path . htmlspecialchars($currentMsg['image_url']) ?>"
-                                 alt="<?= htmlspecialchars($currentMsg['principal_name']) ?>"
-                                 class="pm-photo">
-                            <div class="pm-photo-meta">
-                                <div class="pm-photo-name"><?= htmlspecialchars($currentMsg['principal_name']) ?></div>
-                                <div class="pm-photo-title">Principal, GEC Modasa</div>
-                            </div>
+                        <img src="<?= $root_path . htmlspecialchars($currentMsg['image_url']) ?>"
+                             alt="<?= htmlspecialchars($currentMsg['principal_name']) ?>"
+                             class="pm-photo">
+                        <div class="pm-photo-meta">
+                            <div class="pm-photo-name"><?= htmlspecialchars($currentMsg['principal_name']) ?></div>
+                            <?php if (!empty($currentMsg['designation'])): ?>
+                                <div class="pm-photo-title"><?= htmlspecialchars($currentMsg['designation']) ?></div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endif; ?>

@@ -56,20 +56,12 @@
     padding-top: 32px;
 }
 
-/* Principal Photo & Caption Card */
+/* Principal Photo & Details (Separated with clean spacing) */
 .pm-photo-wrap {
     float: left;
     margin: 4px 38px 24px 0;
     width: 310px;
     max-width: 100%;
-}
-
-.pm-photo-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: none;
 }
 
 .pm-photo {
@@ -78,29 +70,33 @@
     display: block;
     aspect-ratio: 4 / 4.6;
     object-fit: cover;
-    border-bottom: 1px solid #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: none;
 }
 
 .pm-photo-meta {
-    padding: 12px 14px;
-    background: #f8fafc;
+    margin-top: 14px;
+    padding: 0;
+    background: transparent;
     text-align: center;
 }
 
 .pm-photo-name {
     font-family: var(--pm-font-display);
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #000000;
     line-height: 1.35;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
-.pm-photo-role {
+.pm-photo-title {
     font-family: var(--pm-font-body);
-    font-size: 0.8rem;
-    color: #64748b;
+    font-size: 0.88rem;
+    color: #475569;
     font-weight: 500;
+    line-height: 1.4;
 }
 
 /* ==========================================================================
