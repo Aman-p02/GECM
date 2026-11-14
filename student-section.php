@@ -5,7 +5,8 @@ $extra_css = 'css/student-section.css';
 require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/db.php';
 
-$tabs = [
+// Primary visible tabs
+$primaryTabs = [
     ['key' => 'about', 'name' => 'About'],
     ['key' => 'registration', 'name' => 'Registration Process'],
     ['key' => 'fees-structure', 'name' => 'Fees Structure'],
@@ -14,7 +15,11 @@ $tabs = [
     ['key' => 'admission-cancellation', 'name' => 'Admission Cancellation'],
     ['key' => 'institute-transfer', 'name' => 'Institute Transfer'],
     ['key' => 'student-icard', 'name' => 'Student I-Card'],
-    ['key' => 'gtu-certificates', 'name' => 'GTU Certificates'],
+    ['key' => 'gtu-certificates', 'name' => 'GTU Certificates']
+];
+
+// Tabs placed under the "More" dropdown
+$moreTabs = [
     ['key' => 'bonafide-certificate', 'name' => 'Bonafide / Character Certificate'],
     ['key' => 'name-correction', 'name' => 'Name Correction'],
     ['key' => 'transcript', 'name' => 'Transcript'],
@@ -36,22 +41,49 @@ $tabs = [
         </div>
     </header>
 
-    <!-- Sub-Navigation Bar (Exact Match to Department Navigation) -->
+    <!-- Sub-Navigation Bar (Full width, No horizontal scroll, with More Dropdown) -->
     <nav class="student-subnav-bar" id="studentSubNav" aria-label="Student Section Navigation">
         <div class="student-subnav-container">
-            <div class="student-subnav-wrap" id="subnavWrap">
-                <ul class="student-subnav-list" id="subnavList" role="tablist">
-                    <?php foreach ($tabs as $index => $tab): ?>
+            <div class="student-subnav-wrap">
+                <ul class="student-subnav-list" role="tablist">
+                    
+                    <!-- Primary Tabs -->
+                    <?php foreach ($primaryTabs as $index => $tab): ?>
                         <li class="student-subnav-item <?= ($index === 0) ? 'active' : '' ?>">
                             <button type="button" 
                                     class="student-subnav-link <?= ($index === 0) ? 'active' : '' ?>" 
                                     data-tab="<?= $tab['key'] ?>" 
+                                    data-name="<?= htmlspecialchars($tab['name']) ?>"
                                     role="tab" 
                                     aria-selected="<?= ($index === 0) ? 'true' : 'false' ?>">
                                 <?= htmlspecialchars($tab['name']) ?>
                             </button>
                         </li>
                     <?php endforeach; ?>
+
+                    <!-- More Dropdown for remaining tabs -->
+                    <li class="student-subnav-item student-more-item" id="moreDropdownItem">
+                        <button type="button" 
+                                class="student-subnav-link student-more-btn" 
+                                id="moreDropdownBtn" 
+                                aria-expanded="false" 
+                                aria-haspopup="true">
+                            <span id="moreBtnLabel">More</span>
+                            <i class="fas fa-chevron-down more-chevron"></i>
+                        </button>
+                        <div class="student-more-dropdown" id="moreDropdownMenu" role="menu">
+                            <?php foreach ($moreTabs as $tab): ?>
+                                <button type="button" 
+                                        class="student-dropdown-link" 
+                                        data-tab="<?= $tab['key'] ?>"
+                                        data-name="<?= htmlspecialchars($tab['name']) ?>"
+                                        role="menuitem">
+                                    <?= htmlspecialchars($tab['name']) ?>
+                                </button>
+                            <?php endforeach; ?>
+                        </div>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -661,47 +693,39 @@ $tabs = [
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const subnavLinks = document.querySelectorAll('.student-subnav-link');
+    const primaryLinks = document.querySelectorAll('.student-subnav-link:not(.student-more-btn)');
+    const dropdownLinks = document.querySelectorAll('.student-dropdown-link');
     const tabPanes = document.querySelectorAll('.student-tab-pane');
-    const subnavWrap = document.getElementById('subnavWrap');
-    const subnavList = document.getElementById('subnavList');
+    const moreItem = document.getElementById('moreDropdownItem');
+    const moreBtn = document.getElementById('moreDropdownBtn');
+    const moreBtnLabel = document.getElementById('moreBtnLabel');
 
-    // Update scroll indicator shadows at edges
-    function updateScrollIndicators() {
-        if (!subnavList || !subnavWrap) return;
-        const scrollLeft = subnavList.scrollLeft;
-        const maxScroll = subnavList.scrollWidth - subnavList.clientWidth;
+    // Toggle More dropdown on click
+    if (moreBtn && moreItem) {
+        moreBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isOpen = moreItem.classList.toggle('open');
+            moreBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
 
-        if (scrollLeft > 6) {
-            subnavWrap.classList.add('can-scroll-left');
-        } else {
-            subnavWrap.classList.remove('can-scroll-left');
-        }
-
-        if (maxScroll - scrollLeft > 6) {
-            subnavWrap.classList.add('can-scroll-right');
-        } else {
-            subnavWrap.classList.remove('can-scroll-right');
-        }
+        document.addEventListener('click', function (e) {
+            if (!moreItem.contains(e.target)) {
+                moreItem.classList.remove('open');
+                moreBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
     }
 
-    if (subnavList) {
-        subnavList.addEventListener('scroll', updateScrollIndicators);
-        window.addEventListener('resize', updateScrollIndicators);
-        updateScrollIndicators();
-    }
-
-    // Activate a tab
-    function activateTab(tabKey) {
-        let activeLink = null;
-        subnavLinks.forEach(link => {
+    // Function to activate any tab
+    function activateTab(tabKey, isFromDropdown, tabName) {
+        // Handle Primary Links
+        primaryLinks.forEach(link => {
             const isMatch = (link.getAttribute('data-tab') === tabKey);
             const parentItem = link.closest('.student-subnav-item');
             if (isMatch) {
                 link.classList.add('active');
                 link.setAttribute('aria-selected', 'true');
                 if (parentItem) parentItem.classList.add('active');
-                activeLink = link;
             } else {
                 link.classList.remove('active');
                 link.setAttribute('aria-selected', 'false');
@@ -709,6 +733,37 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
+        // Handle Dropdown Links
+        dropdownLinks.forEach(link => {
+            const isMatch = (link.getAttribute('data-tab') === tabKey);
+            if (isMatch) {
+                link.classList.add('active');
+                if (!tabName) tabName = link.getAttribute('data-name');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+
+        // Handle More Dropdown active state
+        if (moreItem && moreBtn) {
+            if (isFromDropdown) {
+                moreItem.classList.add('active');
+                moreBtn.classList.add('active');
+                if (moreBtnLabel && tabName) {
+                    moreBtnLabel.textContent = 'More: ' + tabName;
+                }
+            } else {
+                moreItem.classList.remove('active');
+                moreBtn.classList.remove('active');
+                if (moreBtnLabel) {
+                    moreBtnLabel.textContent = 'More';
+                }
+            }
+            moreItem.classList.remove('open');
+            moreBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        // Switch Panes
         const targetPaneId = 'tab-' + tabKey;
         tabPanes.forEach(pane => {
             if (pane.getAttribute('id') === targetPaneId) {
@@ -717,17 +772,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 pane.classList.remove('active');
             }
         });
-
-        if (activeLink) {
-            activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }
     }
 
-    // Tab button click
-    subnavLinks.forEach(link => {
+    // Click on primary links
+    primaryLinks.forEach(link => {
         link.addEventListener('click', function () {
             const tabKey = this.getAttribute('data-tab');
-            activateTab(tabKey);
+            activateTab(tabKey, false);
+
+            if (history.pushState) {
+                history.pushState(null, null, '#' + tabKey);
+            } else {
+                window.location.hash = tabKey;
+            }
+        });
+    });
+
+    // Click on dropdown links
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            const tabKey = this.getAttribute('data-tab');
+            const tabName = this.getAttribute('data-name');
+            activateTab(tabKey, true, tabName);
 
             if (history.pushState) {
                 history.pushState(null, null, '#' + tabKey);
@@ -740,9 +806,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle initial hash on page load
     const currentHash = window.location.hash.replace('#', '').toLowerCase();
     if (currentHash) {
-        const matchingLink = document.querySelector('.student-subnav-link[data-tab="' + currentHash + '"]');
-        if (matchingLink) {
-            activateTab(currentHash);
+        // Check if primary
+        const primaryMatch = document.querySelector('.student-subnav-link[data-tab="' + currentHash + '"]');
+        if (primaryMatch) {
+            activateTab(currentHash, false);
+            return;
+        }
+
+        // Check if dropdown
+        const dropMatch = document.querySelector('.student-dropdown-link[data-tab="' + currentHash + '"]');
+        if (dropMatch) {
+            activateTab(currentHash, true, dropMatch.getAttribute('data-name'));
         }
     }
 });
