@@ -161,7 +161,7 @@ if (!isset($active_page)) {
                             <li><a href="<?= $root_path ?>overview.php" class="hdr-dd-link <?= ($active_page === 'overview') ? 'is-active active' : '' ?>">Overview</a></li>
                             <li><a href="<?= $root_path ?>vision-mission.php" class="hdr-dd-link <?= ($active_page === 'vision-mission') ? 'is-active active' : '' ?>">Vision &amp; Mission</a></li>
                             <li><a href="<?= $root_path ?>principal-message.php" class="hdr-dd-link <?= ($active_page === 'principal-message') ? 'is-active active' : '' ?>">Principal's Message</a></li>
-                            <li><a href="<?= $root_path ?>idp.php" class="hdr-dd-link <?= ($active_page === 'idp') ? 'is-active active' : '' ?>">IDP</a></li>
+                            <li><a href="<?= $root_path ?>idp.php" target="_blank" class="hdr-dd-link <?= ($active_page === 'idp') ? 'is-active active' : '' ?>">IDP</a></li>
                             <li><a href="<?= $root_path ?>facilities.php" class="hdr-dd-link <?= ($active_page === 'facilities') ? 'is-active active' : '' ?>">Facilities</a></li>
                             <li><a href="<?= $root_path ?>e-newsletters.php" class="hdr-dd-link <?= ($active_page === 'newsletters') ? 'is-active active' : '' ?>">E-Newsletter</a></li>
                             <li><a href="<?= $root_path ?>brochure.php" class="hdr-dd-link <?= ($active_page === 'brochure') ? 'is-active active' : '' ?>">Information Brochure</a></li>

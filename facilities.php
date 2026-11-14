@@ -1,67 +1,99 @@
 <?php
-$page_title = "Campus Facilities :: Government Engineering College, Modasa";
-$active_page = 'facilities';
-require_once __DIR__ . '/includes/header.php';
-require_once __DIR__ . '/includes/db.php';
+$page_title = "Campus Facilities | Government Engineering College, Modasa";
+$active_page = "facilities";
+$extra_css = "css/facilities.css";
 
-$facilities = [];
-if ($pdo) {
-    $stmt = $pdo->query("SELECT * FROM campus_facilities WHERE is_active = 1 ORDER BY display_order ASC, id DESC");
-    $facilities = $stmt ? $stmt->fetchAll() : [];
-}
+require_once __DIR__ . '/includes/header.php';
+
+$facilities = [
+    [
+        'title'    => 'Siemens Center of Excellence (CoE)',
+        'category' => 'Industry Partnered',
+        'icon'     => 'fas fa-cogs',
+        'desc'     => 'State-of-the-art specialized laboratories established in partnership with Siemens Industry Software, providing hands-on training in product design, digital manufacturing, automation, and industrial robotics.'
+    ],
+    [
+        'title'    => 'Central Digital Library &amp; LRC',
+        'category' => 'Academic Resource',
+        'icon'     => 'fas fa-book-reader',
+        'desc'     => 'Comprehensive repository of over 30,000+ technical volumes, national and international engineering journals, IEEE and ScienceDirect e-subscriptions, with an air-conditioned digital learning and research hall.'
+    ],
+    [
+        'title'    => 'Central Computing Facility (CCF)',
+        'category' => 'IT Infrastructure',
+        'icon'     => 'fas fa-network-wired',
+        'desc'     => 'Modern campus-wide computing infrastructure powered by 1 Gbps National Knowledge Network (NKN) leased lines, high-end workstations, campus-wide Wi-Fi, and licensed engineering design tools.'
+    ],
+    [
+        'title'    => 'On-Campus Student Hostels',
+        'category' => 'Residential',
+        'icon'     => 'fas fa-building',
+        'desc'     => 'Safe and secure on-campus residential accommodation for boys and girls, featuring RO purified drinking water, 24/7 security surveillance, recreation rooms, and hygienic student dining mess facilities.'
+    ],
+    [
+        'title'    => 'Central Engineering Workshop',
+        'category' => 'Practical Training',
+        'icon'     => 'fas fa-tools',
+        'desc'     => 'Spacious practical shop floors including Machine Shop, Welding, Carpentry, Fitting, Smithy, and Foundry equipped with modern machines to foster foundational hands-on manufacturing skills.'
+    ],
+    [
+        'title'    => 'Sports Complex &amp; Gymkhana',
+        'category' => 'Recreation &amp; Fitness',
+        'icon'     => 'fas fa-running',
+        'desc'     => 'Extensive athletic grounds for cricket, football, volleyball, and badminton, complemented by an indoor gymkhana for table tennis, chess, and dedicated student physical fitness development.'
+    ],
+    [
+        'title'    => 'Auditorium &amp; Seminar Halls',
+        'category' => 'Events &amp; Symposia',
+        'icon'     => 'fas fa-microphone-alt',
+        'desc'     => 'Acoustically treated, air-conditioned seminar halls and open-air performance spaces equipped with high-definition audio-visual projection systems for national conferences, expert lectures, and cultural events.'
+    ],
+    [
+        'title'    => 'SSIP &amp; DIC Innovation Hub',
+        'category' => 'Start-up &amp; Research',
+        'icon'     => 'fas fa-lightbulb',
+        'desc'     => 'Dedicated innovation and pre-incubation workspace under the Student Start-up and Innovation Policy (SSIP) and Design Innovation Centre (DIC), offering seed funding, mentoring, and patent filing support.'
+    ],
+    [
+        'title'    => 'Student Cafeteria &amp; Amenities',
+        'category' => 'Campus Amenities',
+        'icon'     => 'fas fa-utensils',
+        'desc'     => 'Clean and hygienic campus canteen serving wholesome meals, snacks, and beverages, supported by an on-campus student store, post office, banking facilities, and medical first-aid center.'
+    ]
+];
 ?>
 
-<div style="background-color: #f8fafc; min-height: calc(100vh - 280px); padding: 30px 0 60px 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-    <div style="max-width: 1180px; margin: 0 auto; padding: 0 20px;">
-        
-        <!-- Breadcrumbs -->
-        <div style="font-size: 13px; color: #64748b; margin-bottom: 24px;">
-            <a href="index.php" style="color: #0284c7; text-decoration: none;"><i class="fas fa-home"></i></a>
-            <span style="color: #cbd5e1; margin: 0 6px;">/</span>
-            <span>About</span>
-            <span style="color: #cbd5e1; margin: 0 6px;">/</span>
-            <span style="color: #1e293b; font-weight: 500;">Campus Facilities</span>
-        </div>
+<div class="fac-page" id="mainContent">
 
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 35px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); margin-bottom: 30px;">
-            <div style="border-bottom: 2px solid #0284c7; padding-bottom: 12px; margin-bottom: 20px;">
-                <h1 style="font-size: 24px; font-weight: 700; color: #1e293b; margin: 0;">Campus Facilities &amp; Infrastructure</h1>
-            </div>
-            <p style="font-size: 15px; line-height: 1.75; color: #475569; margin: 0; text-align: justify;">
-                Government Engineering College, Modasa is spread over a sprawling green campus equipped with contemporary academic, research, recreational, and residential infrastructure to foster high academic standards and student well-being.
+    <!-- Page Hero Banner -->
+    <header class="fac-hero">
+        <div class="container">
+            <span class="fac-kicker">THE INSTITUTE</span>
+            <h1 class="fac-heading">Campus Facilities</h1>
+            <p class="fac-lead">
+                Sprawling academic, research, and residential infrastructure designed to support high educational standards, practical engineering competence, and holistic student life.
             </p>
         </div>
+    </header>
 
-        <!-- Facilities Cards Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 26px;">
-            <?php if (empty($facilities)): ?>
-                <div style="grid-column: 1 / -1; text-align: center; padding: 40px; background: #ffffff; border-radius: 8px; color: #64748b;">
-                    No campus facilities listed at this time.
-                </div>
-            <?php else: ?>
-                <?php foreach ($facilities as $fac): ?>
-                    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease;">
-                        <?php if (!empty($fac['image_path'])): ?>
-                            <div style="height: 200px; background: #e2e8f0; overflow: hidden;">
-                                <img src="<?= htmlspecialchars($fac['image_path']) ?>" alt="<?= htmlspecialchars($fac['title']) ?>" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.parentElement.style.display='none';">
-                            </div>
-                        <?php endif; ?>
-                        
-                        <div style="padding: 22px; flex: 1; display: flex; flex-direction: column;">
-                            <h2 style="font-size: 17px; font-weight: 700; color: #1e293b; margin: 0 0 10px 0; line-height: 1.4;">
-                                <?= htmlspecialchars($fac['title']) ?>
-                            </h2>
-                            <p style="font-size: 14px; line-height: 1.7; color: #475569; margin: 0; flex: 1; text-align: justify;">
-                                <?= nl2br(htmlspecialchars($fac['short_desc'])) ?>
-                            </p>
+    <!-- Main Content Area -->
+    <main class="container">
+        <div class="fac-grid">
+            <?php foreach ($facilities as $item): ?>
+                <div class="fac-card">
+                    <div class="fac-card-header">
+                        <div class="fac-icon-box">
+                            <i class="<?= htmlspecialchars($item['icon']) ?>"></i>
                         </div>
+                        <span class="fac-badge"><?= htmlspecialchars($item['category']) ?></span>
                     </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
+                    <h2 class="fac-title"><?= $item['title'] ?></h2>
+                    <p class="fac-desc"><?= $item['desc'] ?></p>
+                </div>
+            <?php endforeach; ?>
         </div>
+    </main>
 
-    </div>
 </div>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
-
