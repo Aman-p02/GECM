@@ -373,9 +373,9 @@
     display: inline-block;
     font-size: 0.76rem;
     font-weight: 700;
-    color: #c2410c;
+    color: #ff8800;
     background: #fff7ed;
-    border: 1px solid #ffedd5;
+    border: 1px solid #fed7aa;
     padding: 3px 8px;
     border-radius: 6px;
     flex-shrink: 0;
@@ -383,9 +383,9 @@
 }
 
 .about-affil-year-tag.gtu {
-    color: #0369a1;
+    color: #009dff;
     background: #f0f9ff;
-    border-color: #e0f2fe;
+    border-color: #b9e6fe;
 }
 
 .about-affil-item-title-group {
@@ -432,7 +432,7 @@
     background: #009dff;
     border-color: #009dff;
     color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 157, 255, 0.25);
+    box-shadow: none;
 }
 
 .about-affil-empty {
