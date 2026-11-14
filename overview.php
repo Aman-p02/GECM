@@ -5,6 +5,23 @@ $root_path = "";
 $extra_css = "css/about.css";
 
 require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/db.php';
+
+// Fetch active approvals from database
+$aicteApprovals = [];
+$gtuAffiliations = [];
+if (isset($pdo) && $pdo) {
+    try {
+        $stmtA = $pdo->query("SELECT * FROM institute_approvals WHERE category = 'AICTE' AND is_active = 1 ORDER BY display_order ASC, academic_year DESC, id DESC");
+        $aicteApprovals = $stmtA->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmtG = $pdo->query("SELECT * FROM institute_approvals WHERE category = 'GTU' AND is_active = 1 ORDER BY display_order ASC, academic_year DESC, id DESC");
+        $gtuAffiliations = $stmtG->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        $aicteApprovals = [];
+        $gtuAffiliations = [];
+    }
+}
 ?>
 
 <div class="about-page" id="mainContent">
@@ -72,10 +89,9 @@ require_once __DIR__ . '/includes/header.php';
             <section class="about-affiliation-section" id="affiliation" aria-labelledby="affiliationTitle">
                 <div class="about-section-header">
                     <div>
-                        <h2 class="about-block-title" id="affiliationTitle">
-                            <i class="fas fa-award" style="color: #ff8800;"></i> Affiliation &amp; Regulatory Approvals
-                        </h2>
-                        <p class="about-block-sub">Official Extensions of Approval (EoA) and University Affiliation Orders</p>
+                        <span class="about-section-kicker">STATUTORY RECOGNITION</span>
+                        <h2 class="about-block-title" id="affiliationTitle">Affiliation &amp; Regulatory Approvals</h2>
+                        <p class="about-block-sub">Official Extensions of Approval (EoA) from AICTE, New Delhi and University Affiliation Orders from GTU, Ahmedabad.</p>
                     </div>
                 </div>
 
@@ -92,91 +108,40 @@ require_once __DIR__ . '/includes/header.php';
                                     <span class="about-affil-card-subtitle">All India Council for Technical Education, New Delhi</span>
                                 </div>
                             </div>
-                            <span class="about-affil-status-pill">Recognized</span>
+                            <span class="about-affil-count-badge"><?= count($aicteApprovals) ?> Available</span>
                         </div>
 
                         <div class="about-affil-list-wrap">
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>AICTE Approval 2026-27</span>
+                            <?php if (!empty($aicteApprovals)): ?>
+                                <?php foreach ($aicteApprovals as $item): ?>
+                                    <div class="about-affil-item">
+                                        <div class="about-affil-item-main">
+                                            <?php if (!empty($item['academic_year'])): ?>
+                                                <span class="about-affil-year-tag"><?= htmlspecialchars($item['academic_year']) ?></span>
+                                            <?php endif; ?>
+                                            <div class="about-affil-item-title-group">
+                                                <span class="about-affil-doc-title"><?= htmlspecialchars($item['title']) ?></span>
+                                                <?php if (!empty($item['file_size'])): ?>
+                                                    <span class="about-affil-meta">PDF &bull; <?= htmlspecialchars($item['file_size']) ?></span>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <a href="<?= htmlspecialchars($item['file_path']) ?>" target="_blank" class="about-affil-action-link" title="Open PDF">
+                                            <span>View</span>
+                                            <i class="fas fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <div class="about-affil-empty">
+                                    <i class="fas fa-file-shield"></i>
+                                    <span>No AICTE approval documents published currently.</span>
                                 </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>AICTE Approval 2025-26</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>AICTE Approval 2024-25</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>AICTE Approval 2023-24</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>AICTE Approval 2022-23</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>AICTE Approval 2021-22</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>AICTE Approval 2020-21</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>AICTE Approval 2019-20</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>AICTE Approval 2018-19</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>AICTE Approval 2017-18</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>Previous EoA(s) Since Inception</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
+                            <?php endif; ?>
                         </div>
                     </div>
 
-                    <!-- Column 2: GTU Approvals -->
+                    <!-- Column 2: GTU Affiliations -->
                     <div class="about-affil-card">
                         <div class="about-affil-card-top">
                             <div class="about-affil-head-info">
@@ -188,87 +153,36 @@ require_once __DIR__ . '/includes/header.php';
                                     <span class="about-affil-card-subtitle">Gujarat Technological University, Ahmedabad</span>
                                 </div>
                             </div>
-                            <span class="about-affil-status-pill">Affiliated</span>
+                            <span class="about-affil-count-badge"><?= count($gtuAffiliations) ?> Available</span>
                         </div>
 
                         <div class="about-affil-list-wrap">
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2026-27</span>
+                            <?php if (!empty($gtuAffiliations)): ?>
+                                <?php foreach ($gtuAffiliations as $item): ?>
+                                    <div class="about-affil-item">
+                                        <div class="about-affil-item-main">
+                                            <?php if (!empty($item['academic_year'])): ?>
+                                                <span class="about-affil-year-tag gtu"><?= htmlspecialchars($item['academic_year']) ?></span>
+                                            <?php endif; ?>
+                                            <div class="about-affil-item-title-group">
+                                                <span class="about-affil-doc-title"><?= htmlspecialchars($item['title']) ?></span>
+                                                <?php if (!empty($item['file_size'])): ?>
+                                                    <span class="about-affil-meta">PDF &bull; <?= htmlspecialchars($item['file_size']) ?></span>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <a href="<?= htmlspecialchars($item['file_path']) ?>" target="_blank" class="about-affil-action-link" title="Open PDF">
+                                            <span>View</span>
+                                            <i class="fas fa-arrow-up-right-from-square"></i>
+                                        </a>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <div class="about-affil-empty">
+                                    <i class="fas fa-file-shield"></i>
+                                    <span>No GTU affiliation orders published currently.</span>
                                 </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2025-26</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2024-25</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2023-24</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2022-23</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2021-22</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2020-21</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2019-20</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2018-19</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2017-18</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
-                            <a href="javascript:void(0);" class="about-affil-item">
-                                <div class="about-affil-item-title">
-                                    <i class="fas fa-file-pdf pdf-icon"></i>
-                                    <span>GTU Approval 2016-17</span>
-                                </div>
-                                <span class="about-affil-item-btn"><i class="fas fa-download"></i> PDF</span>
-                            </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

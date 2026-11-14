@@ -48,7 +48,7 @@ $page_title = $page_title ?? 'Dashboard Overview';
                 <li class="menu-category">Content Management</li>
                 
                 <?php 
-                $aboutPageItems = ['principal-message', 'idp', 'facilities', 'e-newsletters', 'brochure', 'mandatory-disclosure', 'rankings', 'mou'];
+                $aboutPageItems = ['principal-message', 'idp', 'facilities', 'e-newsletters', 'brochure', 'mandatory-disclosure', 'rankings', 'mou', 'approvals'];
                 $isAboutActive = in_array($current_page, $aboutPageItems);
 
                 $administrationPageItems = ['principal-profile', 'council-of-heads', 'account-section', 'hostel-mess', 'administration-committees'];
@@ -106,6 +106,11 @@ $page_title = $page_title ?? 'Dashboard Overview';
                         <li class="submenu-item <?= ($current_page === 'mou') ? 'active' : '' ?>">
                             <a href="mou.php" class="submenu-link">
                                 <span>MoU</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'approvals') ? 'active' : '' ?>">
+                            <a href="approvals.php" class="submenu-link">
+                                <span>AICTE &amp; GTU Approvals</span>
                             </a>
                         </li>
                     </ul>

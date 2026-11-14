@@ -29,12 +29,8 @@ include_once __DIR__ . '/../includes/header.php';
             <p>The engineering minds behind the architecture and development of the<br>GEC Modasa Website.</p>
         </header>
 
-        <!-- 2 Developers Grid -->
         <div class="dev-grid">
 
-            <!-- ==============================================
-                 Developer 1: Vanit Dantani
-                 ============================================== -->
             <article class="dev-card">
                 <div>
                     <!-- Top Row: Avatar + Intro -->
@@ -127,9 +123,6 @@ include_once __DIR__ . '/../includes/header.php';
                 </div>
             </article>
 
-            <!-- ==============================================
-                 Developer 2: Aman Prajapati
-                 ============================================== -->
             <article class="dev-card">
                 <div>
                     <!-- Top Row: Avatar + Intro -->
