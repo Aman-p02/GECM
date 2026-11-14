@@ -108,7 +108,6 @@ if (isset($pdo) && $pdo) {
                                     <span class="about-affil-card-subtitle">All India Council for Technical Education, New Delhi</span>
                                 </div>
                             </div>
-                            <span class="about-affil-count-badge"><?= count($aicteApprovals) ?> Available</span>
                         </div>
 
                         <div class="about-affil-list-wrap">
@@ -153,7 +152,6 @@ if (isset($pdo) && $pdo) {
                                     <span class="about-affil-card-subtitle">Gujarat Technological University, Ahmedabad</span>
                                 </div>
                             </div>
-                            <span class="about-affil-count-badge"><?= count($gtuAffiliations) ?> Available</span>
                         </div>
 
                         <div class="about-affil-list-wrap">
