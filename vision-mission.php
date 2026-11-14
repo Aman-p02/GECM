@@ -28,9 +28,7 @@ require_once __DIR__ . '/includes/header.php';
                 <!-- Vision Card (Matching Department Charter Architecture) -->
                 <section class="vm-charter-card vm-vision-hero-card" aria-labelledby="visionHeading">
                     <div class="vm-charter-badge-wrap">
-                        <span class="vm-charter-kicker" id="visionHeading">
-                            <i class="fas fa-compass" style="margin-right: 6px;"></i> Vision of the Institute
-                        </span>
+                        <span class="vm-charter-kicker" id="visionHeading">Vision of the Institute</span>
                     </div>
                     <span class="vm-vision-quote-mark">“</span>
                     <blockquote class="vm-vision-statement">
@@ -41,9 +39,7 @@ require_once __DIR__ . '/includes/header.php';
                 <!-- Mission Card (Roman Numerals & Step Items) -->
                 <section class="vm-charter-card vm-mission-card" aria-labelledby="missionHeading">
                     <div class="vm-charter-badge-wrap">
-                        <span class="vm-charter-kicker" id="missionHeading">
-                            <i class="fas fa-bullseye" style="margin-right: 6px;"></i> Strategic Mission
-                        </span>
+                        <span class="vm-charter-kicker" id="missionHeading">Strategic Mission</span>
                     </div>
                     <h2 class="vm-charter-title">Mission of the Institute</h2>
 
@@ -84,9 +80,7 @@ require_once __DIR__ . '/includes/header.php';
                 <!-- Core Values Section -->
                 <section class="vm-charter-card" aria-labelledby="valuesHeading">
                     <div class="vm-charter-badge-wrap">
-                        <span class="vm-charter-kicker" id="valuesHeading" style="color: #64748b;">
-                            <i class="fas fa-shield-alt" style="margin-right: 6px;"></i> Foundational Principles
-                        </span>
+                        <span class="vm-charter-kicker" id="valuesHeading" style="color: #64748b;">Foundational Principles</span>
                     </div>
                     <h2 class="vm-charter-title">Core Institutional Values</h2>
                     <p class="vm-values-lead">

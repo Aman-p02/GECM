@@ -56,10 +56,7 @@ require_once __DIR__ . '/includes/header.php';
     <!-- Page Hero Banner -->
     <header class="pm-hero">
         <div class="container">
-            <span class="pm-kicker">
-                <i class="fas fa-university" style="color: #ff8800; margin-right: 6px;"></i>
-                THE INSTITUTE &bull; FROM THE PRINCIPAL'S DESK
-            </span>
+            <span class="pm-kicker">THE INSTITUTE</span>
             <h1 class="pm-heading">Principal's Message</h1>
         </div>
     </header>
