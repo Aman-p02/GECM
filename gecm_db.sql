@@ -227,3 +227,46 @@ CREATE TABLE IF NOT EXISTS `admins` (
 -- Default Admin user: username: admin / password: admin123
 INSERT IGNORE INTO `admins` (`username`, `email`, `password_hash`, `role`, `is_active`) VALUES
 ('admin', 'admin@gecmodasa.ac.in', '$2y$10$XJEQB4BoIwqVzgXa5f.NVeN3MuCiwTHGl8jmofq2tS/FTIsztgJl2', 'super_admin', 1);
+
+
+-- --------------------------------------------------------------
+-- 10. PRINCIPAL MESSAGES TABLE
+-- --------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `principal_messages` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `principal_name` VARCHAR(150) NOT NULL,
+    `designation` VARCHAR(255) NOT NULL DEFAULT 'Principal, Government Engineering College, Modasa',
+    `image_url` VARCHAR(255) DEFAULT NULL,
+    `message_date` DATE NOT NULL,
+    `salutation` VARCHAR(255) DEFAULT 'Dear Students, Faculty Members, and all Stakeholders,',
+    `greeting` VARCHAR(255) DEFAULT 'Warm greetings to all.',
+    `message_body` MEDIUMTEXT NOT NULL,
+    `closing` TEXT DEFAULT NULL,
+    `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX `idx_pm_status` (`is_active`, `message_date` DESC)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Initial Principal Message Data
+INSERT INTO `principal_messages` (`id`, `principal_name`, `designation`, `image_url`, `message_date`, `salutation`, `greeting`, `message_body`, `closing`, `is_active`) VALUES
+(1, 'Dr. JEETENDRAKUMAR VADHER', 'Principal, Government Engineering College, Modasa', 'images/principal.jpg', '2026-08-15', 'Dear Students, Faculty Members, and all Stakeholders,', 'Warm greetings to all.', 'Welcome to Government Engineering College, Modasa (GECM). Our institute has been relentlessly striving towards providing high-standard technical education, nurturing innovative minds, and developing professionally competent technocrats since its inception.', 'Best wishes for a bright future ahead.\nSincerely, and with Best Regards,', 1)
+ON DUPLICATE KEY UPDATE `is_active` = VALUES(`is_active`);
+
+
+-- --------------------------------------------------------------
+-- 11. INSTITUTE REGULATORY & AFFILIATION APPROVALS TABLE
+-- --------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `institute_approvals` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `category` ENUM('aicte', 'gtu') NOT NULL,
+    `title` VARCHAR(255) NOT NULL,
+    `academic_year` VARCHAR(50) DEFAULT NULL,
+    `file_path` VARCHAR(255) NOT NULL,
+    `file_size` VARCHAR(50) DEFAULT NULL,
+    `display_order` INT NOT NULL DEFAULT 0,
+    `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX `idx_approvals_cat_order` (`category`, `is_active`, `display_order`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
