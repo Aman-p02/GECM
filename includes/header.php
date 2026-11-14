@@ -152,11 +152,10 @@ if (!isset($active_page)) {
                 <!-- About Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="<?= $root_path ?>overview.php"
-                       class="hdr-nav-link <?= in_array($active_page, ['about', 'overview', 'vision-mission', 'principal-message', 'idp', 'facilities', 'mandatory-disclosure', 'newsletters', 'brochure', 'rankings', 'mou']) ? 'active is-active' : '' ?>">
+                       class="hdr-nav-link <?= in_array($active_page, ['about', 'overview', 'vision-mission', 'principal-message', 'idp', 'facilities', 'newsletters', 'brochure', 'mandatory-disclosure', 'rankings', 'mou']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">About</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
-                        <div class="hdr-dd-heading">THE INSTITUTE</div>
                         <ul class="hdr-dd-list">
                             <li><a href="<?= $root_path ?>overview.php" class="hdr-dd-link <?= ($active_page === 'overview') ? 'is-active active' : '' ?>">Overview</a></li>
                             <li><a href="<?= $root_path ?>vision-mission.php" class="hdr-dd-link <?= ($active_page === 'vision-mission') ? 'is-active active' : '' ?>">Vision &amp; Mission</a></li>
@@ -183,7 +182,7 @@ if (!isset($active_page)) {
                             <li><a href="<?= $root_path ?>council-of-heads.php" class="hdr-dd-link <?= ($active_page === 'council-of-heads') ? 'is-active active' : '' ?>">Council of Heads</a></li>
                             <li><a href="<?= $root_path ?>account-section.php" class="hdr-dd-link <?= ($active_page === 'account-section') ? 'is-active active' : '' ?>">Account Section</a></li>
                             <li><a href="<?= $root_path ?>hostel-mess.php" class="hdr-dd-link <?= ($active_page === 'hostel-mess') ? 'is-active active' : '' ?>">Hostel &amp; Mess</a></li>
-                            <li><a href="<?= $root_path ?>committees.php" class="hdr-dd-link <?= ($active_page === 'committees') ? 'is-active active' : '' ?>">Committees</a></li>
+                            <li><a href="<?= $root_path ?>mandatory-disclosure.php" class="hdr-dd-link <?= ($active_page === 'mandatory-disclosure') ? 'is-active active' : '' ?>">Committees &amp; Disclosures</a></li>
                         </ul>
                     </div>
                 </li>

@@ -403,9 +403,9 @@ h4 {
 .hdr-nav-link {
     display: inline-flex;
     align-items: center;
-    padding: 15px 18px;
+    padding: 15px 12px;
     font-family: var(--font-main);
-    font-size: 1.02rem;
+    font-size: 0.94rem;
     font-weight: 600;
     color: #000000;
     text-decoration: none;

@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Information Brochures & Reports Stylesheet - GEC Modasa
+   Theme: Plus Jakarta Sans / Inter Typography
+   Colors: Institutional Orange (#ff8800), Accent Blue (#009dff), Slate (#0f172a)
+   Modern institutional publications archive, zero shadows, responsive
+   ========================================================================== */
+
+.br-page {
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding: 0 0 80px 0;
+    min-height: 80vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Hero Section */
+.br-hero {
+    padding: 40px 0 28px;
+}
+
+.br-kicker {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 8px;
+}
+
+.br-heading {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 12px 0;
+}
+
+.br-lead {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.65;
+    max-width: 820px;
+    margin: 0;
+}
+
+/* Publications Card Wrapper */
+.br-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* Card Header */
+.br-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.br-card-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.br-count-badge {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Publications List */
+.br-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Publication Item Row */
+.br-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.15s ease;
+    gap: 16px;
+}
+
+.br-row:last-child {
+    border-bottom: none;
+}
+
+.br-row:hover {
+    background-color: #f8fafc;
+}
+
+/* Left Content Area */
+.br-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+    flex: 1;
+}
+
+/* PDF Document Icon */
+.br-icon {
+    width: 44px;
+    height: 44px;
+    background: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fee2e2;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.br-row.is-latest .br-icon {
+    background: #eff6ff;
+    color: #009dff;
+    border-color: #bfdbfe;
+}
+
+/* Title & Meta */
+.br-details {
+    min-width: 0;
+}
+
+.br-title-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.br-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.br-badge-latest {
+    background: #eff6ff;
+    color: #0284c7;
+    border: 1px solid #bfdbfe;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.br-meta {
+    font-size: 0.82rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.br-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Right Action: Dedicated View Button */
+.br-right {
+    flex-shrink: 0;
+}
+
+.br-view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ff8800;
+    color: #ffffff;
+    border: 1px solid #ff8800;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.br-view-btn:hover {
+    background: #009dff;
+    border-color: #009dff;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.br-view-btn:focus-visible {
+    outline: 2px solid #ff8800;
+    outline-offset: 2px;
+}
+
+/* Empty State */
+.br-empty {
+    text-align: center;
+    padding: 56px 24px;
+    color: #64748b;
+}
+
+.br-empty i {
+    font-size: 2.8rem;
+    color: #cbd5e1;
+    margin-bottom: 14px;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .br-hero {
+        padding: 28px 0 18px;
+    }
+
+    .br-card-header {
+        padding: 14px 18px;
+    }
+
+    .br-row {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 18px;
+        gap: 12px;
+    }
+
+    .br-left {
+        width: 100%;
+    }
+
+    .br-right {
+        width: 100%;
+    }
+
+    .br-view-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 16px;
+    }
+}

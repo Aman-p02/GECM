@@ -12,13 +12,18 @@ $selectedCommittee = $_GET['committee'] ?? 'anti-ragging';
 
 // Categories list
 $disclosureCategories = [
-    'RTI Pro-Active Disclosure' => 'RTI Pro-Active Disclosure',
-    'AICTE Mandatory Disclosure' => 'AICTE Mandatory Disclosure',
-    'Financial Statements' => 'Financial Statements',
-    'Accreditation' => 'Accreditation',
+    // Campus Committees
+    'Anti-Ragging Committee'             => 'Anti-Ragging Committee',
+    'Sexual Harassment Committee'        => 'Sexual Harassment Committee',
+    'Women development Cell'             => 'Women development Cell',
+    // Mandatory Disclosures
+    'RTI Pro-Active Disclosure'          => 'RTI Pro-Active Disclosure',
+    'AICTE Mandatory Disclosure'         => 'AICTE Mandatory Disclosure',
+    'Financial Statements'               => 'Financial Statements',
+    'Accreditation'                      => 'Accreditation',
     'Institute Establishment Resolution' => 'Institute Establishment Resolution',
-    'RTI Booklet (2005)' => 'RTI Booklet (2005)',
-    'Other Statutory Disclosures' => 'Other Statutory Disclosures'
+    'RTI Booklet (2005)'                 => 'RTI Booklet (2005)',
+    'Other Statutory Disclosures'        => 'Other Statutory Disclosures'
 ];
 
 $committeesList = [
@@ -53,17 +58,76 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        $upload = handlePdfUpload('pdf_file', 'disclosures');
-        if (!$upload['success']) {
-            setFlashMessage('danger', $upload['error']);
+        if (!isset($_FILES['pdf_file']) || $_FILES['pdf_file']['error'] !== UPLOAD_ERR_OK) {
+            setFlashMessage('danger', 'Please select a valid PDF file to upload.');
             header('Location: mandatory-disclosure.php?tab=disclosures');
             exit;
         }
 
-        $stmt = $pdo->prepare("INSERT INTO mandatory_disclosures (category, title, academic_year, file_path, file_size, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$category, $title, $academic_year, $upload['path'], $upload['file_size'] ?? null, $display_order, $is_active]);
+        $file = $_FILES['pdf_file'];
+        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
-        setFlashMessage('success', 'Mandatory disclosure PDF uploaded successfully!');
+        if ($ext !== 'pdf') {
+            setFlashMessage('danger', 'Only PDF files (.pdf) are allowed.');
+            header('Location: mandatory-disclosure.php?tab=disclosures');
+            exit;
+        }
+
+        if ($file['size'] > 25 * 1024 * 1024) {
+            setFlashMessage('danger', 'PDF file size exceeds maximum limit of 25MB.');
+            header('Location: mandatory-disclosure.php?tab=disclosures');
+            exit;
+        }
+
+        $rawBase = pathinfo($file['name'], PATHINFO_FILENAME);
+        $cleanBase = preg_replace('/[^a-zA-Z0-9_\-\.\(\)\s]/', '_', $rawBase);
+        $cleanBase = trim($cleanBase) ?: ('doc_' . time());
+
+        $targetDir = realpath(__DIR__ . '/../uploads/disclosures');
+        if (!$targetDir) {
+            $targetDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'disclosures';
+        }
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0777, true);
+        }
+
+        $cleanFilename = $cleanBase . '.pdf';
+        $targetFile = $targetDir . DIRECTORY_SEPARATOR . $cleanFilename;
+
+        if (file_exists($targetFile)) {
+            $cleanFilename = $cleanBase . '_' . time() . '.pdf';
+            $targetFile = $targetDir . DIRECTORY_SEPARATOR . $cleanFilename;
+        }
+
+        if (move_uploaded_file($file['tmp_name'], $targetFile)) {
+            // Remove dummy titles like '(anonymous)' injected by iLovePDF / compressors
+            $pdfRaw = @file_get_contents($targetFile);
+            if ($pdfRaw) {
+                $dummyTitles = ['/Title (\(anonymous\))', '/Title (anonymous)', '/Title (unspecified)', '/Title (untitled)', '/Title (Untitled)'];
+                $cleanNeeded = false;
+                foreach ($dummyTitles as $dt) {
+                    if (strpos($pdfRaw, $dt) !== false) {
+                        $pdfRaw = str_replace($dt, str_pad('/Title ()', strlen($dt), ' ', STR_PAD_RIGHT), $pdfRaw);
+                        $cleanNeeded = true;
+                    }
+                }
+                if ($cleanNeeded) {
+                    @file_put_contents($targetFile, $pdfRaw);
+                }
+            }
+
+            $bytes = $file['size'];
+            $fileSizeStr = ($bytes >= 1048576) ? (number_format($bytes / 1048576, 1) . ' MB') : (number_format($bytes / 1024, 0) . ' KB');
+            $relativePath = 'uploads/disclosures/' . $cleanFilename;
+
+            $stmt = $pdo->prepare("INSERT INTO mandatory_disclosures (category, title, academic_year, file_path, file_size, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->execute([$category, $title, $academic_year, $relativePath, $fileSizeStr, $display_order, $is_active]);
+
+            setFlashMessage('success', 'Document uploaded successfully! It will open directly when visitors click.');
+        } else {
+            setFlashMessage('danger', 'Failed to save the PDF file.');
+        }
+
         header('Location: mandatory-disclosure.php?tab=disclosures');
         exit;
 
@@ -86,14 +150,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $file_size = null;
 
         if (isset($_FILES['pdf_file']) && $_FILES['pdf_file']['error'] === UPLOAD_ERR_OK) {
-            $upload = handlePdfUpload('pdf_file', 'disclosures', $existing_file);
-            if ($upload['success']) {
-                $file_path = $upload['path'];
-                $file_size = $upload['file_size'] ?? null;
-            } else {
-                setFlashMessage('danger', $upload['error']);
+            $file = $_FILES['pdf_file'];
+            $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+
+            if ($ext !== 'pdf') {
+                setFlashMessage('danger', 'Only PDF files (.pdf) are allowed.');
                 header('Location: mandatory-disclosure.php?tab=disclosures&edit_doc=' . $id);
                 exit;
+            }
+
+            if ($file['size'] > 25 * 1024 * 1024) {
+                setFlashMessage('danger', 'PDF file size exceeds maximum limit of 25MB.');
+                header('Location: mandatory-disclosure.php?tab=disclosures&edit_doc=' . $id);
+                exit;
+            }
+
+            $rawBase = pathinfo($file['name'], PATHINFO_FILENAME);
+            $cleanBase = preg_replace('/[^a-zA-Z0-9_\-\.\(\)\s]/', '_', $rawBase);
+            $cleanBase = trim($cleanBase) ?: ('doc_' . time());
+
+            $targetDir = realpath(__DIR__ . '/../uploads/disclosures');
+            if (!$targetDir) {
+                $targetDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'disclosures';
+            }
+            if (!is_dir($targetDir)) {
+                mkdir($targetDir, 0777, true);
+            }
+
+            $cleanFilename = $cleanBase . '.pdf';
+            $targetFile = $targetDir . DIRECTORY_SEPARATOR . $cleanFilename;
+
+            if (file_exists($targetFile)) {
+                $cleanFilename = $cleanBase . '_' . time() . '.pdf';
+                $targetFile = $targetDir . DIRECTORY_SEPARATOR . $cleanFilename;
+            }
+
+            if (move_uploaded_file($file['tmp_name'], $targetFile)) {
+                $pdfRaw = @file_get_contents($targetFile);
+                if ($pdfRaw) {
+                    $dummyTitles = ['/Title (\(anonymous\))', '/Title (anonymous)', '/Title (unspecified)', '/Title (untitled)', '/Title (Untitled)'];
+                    $cleanNeeded = false;
+                    foreach ($dummyTitles as $dt) {
+                        if (strpos($pdfRaw, $dt) !== false) {
+                            $pdfRaw = str_replace($dt, str_pad('/Title ()', strlen($dt), ' ', STR_PAD_RIGHT), $pdfRaw);
+                            $cleanNeeded = true;
+                        }
+                    }
+                    if ($cleanNeeded) {
+                        @file_put_contents($targetFile, $pdfRaw);
+                    }
+                }
+
+                if (!empty($existing_file)) {
+                    $oldReal = realpath(__DIR__ . '/../' . $existing_file);
+                    if ($oldReal && file_exists($oldReal)) {
+                        @unlink($oldReal);
+                    }
+                }
+
+                $bytes = $file['size'];
+                $file_size = ($bytes >= 1048576) ? (number_format($bytes / 1048576, 1) . ' MB') : (number_format($bytes / 1024, 0) . ' KB');
+                $file_path = 'uploads/disclosures/' . $cleanFilename;
             }
         }
 
@@ -105,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([$category, $title, $academic_year, $file_path, $display_order, $is_active, $id]);
         }
 
-        setFlashMessage('success', 'Mandatory disclosure document updated successfully!');
+        setFlashMessage('success', 'Document updated successfully!');
         header('Location: mandatory-disclosure.php?tab=disclosures');
         exit;
 

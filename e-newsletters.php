@@ -15,19 +15,6 @@ if ($pdo) {
 ?>
 
 <div class="nl-page">
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-wrapper">
-        <div class="container">
-            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-                <a href="index.php"><i class="fas fa-home" aria-hidden="true"></i> Home</a>
-                <span class="breadcrumb-separator"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
-                <a href="overview.php">About</a>
-                <span class="breadcrumb-separator"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
-                <span class="breadcrumb-current" aria-current="page">E-Newsletters</span>
-            </nav>
-        </div>
-    </div>
-
     <!-- Main Content Area -->
     <main id="main-content" class="container">
         <!-- Hero / Header -->

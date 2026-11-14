@@ -58,9 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $title = str_replace(['_', '-'], ' ', $cleanBase);
         }
 
-        $targetDir = realpath(__DIR__ . '/../../uploads/newsletters');
+        $targetDir = realpath(__DIR__ . '/../uploads/newsletters');
         if (!$targetDir) {
-            $targetDir = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'newsletters';
+            $targetDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'newsletters';
         }
         if (!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
@@ -76,6 +76,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if (move_uploaded_file($file['tmp_name'], $targetFile)) {
+            // Remove dummy titles like '(anonymous)' injected by iLovePDF / online PDF compressors so browser tab displays the actual filename
+            $pdfRaw = @file_get_contents($targetFile);
+            if ($pdfRaw) {
+                $dummyTitles = ['/Title (\(anonymous\))', '/Title (anonymous)', '/Title (unspecified)', '/Title (untitled)', '/Title (Untitled)'];
+                $cleanNeeded = false;
+                foreach ($dummyTitles as $dt) {
+                    if (strpos($pdfRaw, $dt) !== false) {
+                        $pdfRaw = str_replace($dt, str_pad('/Title ()', strlen($dt), ' ', STR_PAD_RIGHT), $pdfRaw);
+                        $cleanNeeded = true;
+                    }
+                }
+                if ($cleanNeeded) {
+                    @file_put_contents($targetFile, $pdfRaw);
+                }
+            }
+
             $bytes = $file['size'];
             if ($bytes >= 1048576) {
                 $fileSizeStr = number_format($bytes / 1048576, 1) . ' MB';
@@ -137,9 +153,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $cleanBase = preg_replace('/[^a-zA-Z0-9_\-\.\(\)\s]/', '_', $rawBase);
             $cleanBase = trim($cleanBase) ?: ('newsletter_' . time());
 
-            $targetDir = realpath(__DIR__ . '/../../uploads/newsletters');
+            $targetDir = realpath(__DIR__ . '/../uploads/newsletters');
             if (!$targetDir) {
-                $targetDir = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'newsletters';
+                $targetDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'newsletters';
             }
             if (!is_dir($targetDir)) {
                 mkdir($targetDir, 0777, true);
@@ -154,6 +170,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             if (move_uploaded_file($file['tmp_name'], $targetFile)) {
+                // Remove dummy titles like '(anonymous)' injected by iLovePDF / compressors
+                $pdfRaw = @file_get_contents($targetFile);
+                if ($pdfRaw) {
+                    $dummyTitles = ['/Title (\(anonymous\))', '/Title (anonymous)', '/Title (unspecified)', '/Title (untitled)', '/Title (Untitled)'];
+                    $cleanNeeded = false;
+                    foreach ($dummyTitles as $dt) {
+                        if (strpos($pdfRaw, $dt) !== false) {
+                            $pdfRaw = str_replace($dt, str_pad('/Title ()', strlen($dt), ' ', STR_PAD_RIGHT), $pdfRaw);
+                            $cleanNeeded = true;
+                        }
+                    }
+                    if ($cleanNeeded) {
+                        @file_put_contents($targetFile, $pdfRaw);
+                    }
+                }
+
                 // Delete previous file if different
                 if (!empty($existing_file)) {
                     $oldReal = realpath(__DIR__ . '/../' . $existing_file);
