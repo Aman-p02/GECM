@@ -2,21 +2,20 @@
    E-Newsletters Stylesheet - GEC Modasa
    Theme: Plus Jakarta Sans / Inter Typography
    Colors: Institutional Orange (#ff8800), Accent Blue (#009dff), Slate (#0f172a)
-   Clean institutional links list, zero shadows, fully responsive
+   Modern institutional publications archive, zero shadows, responsive
    ========================================================================== */
 
 .nl-page {
-    background-color: #ffffff;
+    background-color: #f8fafc;
     color: #1e293b;
     padding: 0 0 80px 0;
-    min-height: 75vh;
+    min-height: 80vh;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Hero Section */
 .nl-hero {
-    padding: 40px 0 24px;
-    background: #ffffff;
+    padding: 40px 0 28px;
 }
 
 .nl-kicker {
@@ -31,7 +30,7 @@
 
 .nl-heading {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: clamp(2.2rem, 3.8vw, 3rem);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
     font-weight: 800;
     color: #000000;
     line-height: 1.15;
@@ -47,81 +46,230 @@
     margin: 0;
 }
 
-/* Archive Card Container */
-.nl-archive-card {
+/* Publications Card Wrapper */
+.nl-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 36px 40px;
-    margin-top: 24px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
 }
 
-/* Direct Links List */
-.nl-links-list {
-    list-style-type: disc;
-    padding-left: 24px;
+/* Card Header */
+.nl-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nl-card-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
     margin: 0;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.nl-count-badge {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Publications List */
+.nl-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Publication Item Row */
+.nl-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.15s ease;
     gap: 16px;
 }
 
-.nl-item {
-    font-size: 1.05rem;
-    line-height: 1.5;
-    color: #475569;
+.nl-row:last-child {
+    border-bottom: none;
 }
 
-.nl-item::marker {
-    color: #475569;
-    font-size: 1.1em;
+.nl-row:hover {
+    background-color: #f8fafc;
 }
 
-/* Latest Newsletter item highlighted in theme blue as per design */
-.nl-item.is-latest .nl-link {
+/* Left Content Area */
+.nl-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+    flex: 1;
+}
+
+/* PDF Document Icon */
+.nl-icon {
+    width: 44px;
+    height: 44px;
+    background: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fee2e2;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.nl-row.is-latest .nl-icon {
+    background: #eff6ff;
     color: #009dff;
+    border-color: #bfdbfe;
+}
+
+/* Title & Meta */
+.nl-details {
+    min-width: 0;
+}
+
+.nl-title-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.nl-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.nl-badge-latest {
+    background: #eff6ff;
+    color: #0284c7;
+    border: 1px solid #bfdbfe;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.nl-meta {
+    font-size: 0.82rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.nl-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Right Action: Dedicated View Button */
+.nl-right {
+    flex-shrink: 0;
+}
+
+.nl-view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #009dff;
+    color: #ffffff;
+    border: 1px solid #009dff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 0.88rem;
     font-weight: 600;
-}
-
-.nl-link {
-    color: #334155;
     text-decoration: none;
-    transition: color 0.15s ease, text-decoration 0.15s ease;
-    word-break: break-word;
-    display: inline;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
-.nl-link:hover {
-    color: #ff8800;
-    text-decoration: underline;
+.nl-view-btn:hover {
+    background: #ff8800;
+    border-color: #ff8800;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nl-view-btn:focus-visible {
+    outline: 2px solid #009dff;
+    outline-offset: 2px;
 }
 
 /* Empty State */
 .nl-empty {
     text-align: center;
-    padding: 48px 24px;
+    padding: 56px 24px;
     color: #64748b;
-    font-size: 1rem;
 }
 
 .nl-empty i {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: #cbd5e1;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     display: block;
 }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 640px) {
     .nl-hero {
-        padding: 28px 0 16px;
+        padding: 28px 0 18px;
     }
 
-    .nl-archive-card {
-        padding: 24px 20px;
+    .nl-card-header {
+        padding: 14px 18px;
     }
 
-    .nl-item {
-        font-size: 0.98rem;
+    .nl-row {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 18px;
+        gap: 12px;
+    }
+
+    .nl-left {
+        width: 100%;
+    }
+
+    .nl-right {
+        width: 100%;
+    }
+
+    .nl-view-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 16px;
     }
 }

@@ -39,25 +39,59 @@ if ($pdo) {
             </p>
         </section>
 
-        <!-- Newsletter Links Container -->
-        <section class="nl-archive-card" aria-label="E-Newsletter Publications">
+        <!-- Publications Card Container -->
+        <section class="nl-card" aria-label="E-Newsletter Publications">
+            <div class="nl-card-header">
+                <h2 class="nl-card-title">
+                    <i class="fas fa-newspaper" style="color: #009dff;" aria-hidden="true"></i>
+                    <span>Published Issues</span>
+                </h2>
+                <span class="nl-count-badge"><?= count($newsletters) ?> Publications</span>
+            </div>
+
             <?php if (empty($newsletters)): ?>
                 <div class="nl-empty">
                     <i class="fas fa-newspaper" aria-hidden="true"></i>
-                    <p style="margin: 0; font-weight: 500; color: #334155;">No e-newsletters uploaded yet.</p>
-                    <p style="margin: 6px 0 0; font-size: 0.9rem; color: #64748b;">Periodic newsletters will be listed here soon.</p>
+                    <p style="margin: 0; font-weight: 600; color: #334155; font-size: 1.05rem;">No e-newsletters uploaded yet.</p>
+                    <p style="margin: 6px 0 0; font-size: 0.9rem; color: #64748b;">Periodic newsletters will be published here soon.</p>
                 </div>
             <?php else: ?>
-                <ul class="nl-links-list">
+                <ul class="nl-list">
                     <?php foreach ($newsletters as $index => $nl): ?>
-                        <li class="nl-item <?= ($index === 0) ? 'is-latest' : '' ?>">
-                            <a href="<?= htmlspecialchars($nl['file_path']) ?>" 
-                               target="_blank" 
-                               rel="noopener noreferrer" 
-                               class="nl-link"
-                               title="Open <?= htmlspecialchars($nl['title']) ?> (PDF)">
-                                <?= htmlspecialchars($nl['title']) ?>
-                            </a>
+                        <li class="nl-row <?= ($index === 0) ? 'is-latest' : '' ?>">
+                            <div class="nl-left">
+                                <div class="nl-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="nl-details">
+                                    <div class="nl-title-line">
+                                        <h3 class="nl-title"><?= htmlspecialchars($nl['title']) ?></h3>
+                                        <?php if ($index === 0): ?>
+                                            <span class="nl-badge-latest">Latest</span>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="nl-meta">
+                                        <span class="nl-meta-item">
+                                            <i class="fas fa-paperclip" aria-hidden="true"></i>
+                                            <?= htmlspecialchars($nl['file_size'] ?? 'PDF') ?>
+                                        </span>
+                                        <span class="nl-meta-item">
+                                            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                                            <?= !empty($nl['created_at']) ? date('M Y', strtotime($nl['created_at'])) : 'Official Issue' ?>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nl-right">
+                                <a href="<?= htmlspecialchars($nl['file_path']) ?>" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   class="nl-view-btn"
+                                   title="Open <?= htmlspecialchars($nl['title']) ?> in new tab">
+                                    <i class="fas fa-eye" aria-hidden="true"></i>
+                                    <span>View PDF</span>
+                                </a>
+                            </div>
                         </li>
                     <?php endforeach; ?>
                 </ul>
