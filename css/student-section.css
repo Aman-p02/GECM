@@ -1,135 +1,181 @@
 /* ==========================================================================
-   Student Section Stylesheet
-   Government Engineering College, Modasa
-   Matches official institutional reference & GECM design tokens
+   Student Section Stylesheet (Modern GECM Institutional Theme)
+   Matches website design tokens:
+   - Primary: #0c3b6d (Deep Navy)
+   - Accent: #009dff (Electric Blue)
+   - Secondary: #ff8800 (Institutional Orange)
+   - Fonts: Inter, sans-serif
    ========================================================================== */
 
-.student-wrapper {
-    background-color: #f8fafc;
-    min-height: calc(100vh - 280px);
-    padding: 30px 0 60px 0;
+.student-page {
+    background-color: #fbfcfd;
+    color: var(--text-dark, #1f2937);
+    padding: 0 0 70px 0;
+    min-height: 75vh;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.student-container {
-    max-width: 1240px;
+/* ==========================================================================
+   Hero Section (Matching Vision & Mission, About, Activities Hero)
+   ========================================================================== */
+.student-hero {
+    padding: 38px 0 28px;
+    border-bottom: 1px solid #eef2f6;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+}
+
+.student-hero-inner {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Header bar with title on left and breadcrumb on right (matching Image 2) */
-.student-header-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-}
-
-.student-page-title {
-    font-size: 24px;
+.student-kicker {
+    display: inline-block;
+    font-size: 0.74rem;
     font-weight: 700;
-    color: #1e293b;
-    margin: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 8px;
 }
 
-.student-breadcrumbs {
-    font-size: 13.5px;
+.student-heading {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.85rem, 2.6vw, 2.35rem);
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px 0;
+}
+
+.student-lead {
+    font-size: 1.02rem;
+    line-height: 1.6;
     color: #64748b;
+    max-width: 820px;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Modern Sticky Sub-Navigation (Tabs Bar)
+   ========================================================================== */
+.student-nav-bar {
+    position: sticky;
+    top: var(--site-main-nav-height, 52px);
+    z-index: 900;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.student-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.student-tabs-track {
     display: flex;
     align-items: center;
     gap: 6px;
-}
-
-.student-breadcrumbs a {
-    color: #0284c7;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.student-breadcrumbs a:hover {
-    color: #0369a1;
-    text-decoration: underline;
-}
-
-.student-breadcrumbs .crumb-sep {
-    color: #cbd5e1;
-    font-size: 12px;
-}
-
-.student-breadcrumbs .crumb-current {
-    color: #0284c7;
-    font-weight: 500;
-}
-
-/* Institutional Tab Navigation matching Image 2 */
-.student-tabs-nav {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    gap: 2px 4px;
-    border-bottom: 2px solid #0284c7;
-    margin-bottom: 28px;
-    padding-bottom: 0;
-}
-
-.student-tab-btn {
-    padding: 9px 18px;
-    font-size: 14.5px;
-    font-weight: 500;
-    color: #475569;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.18s ease;
-    border-radius: 4px 4px 0 0;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    overflow-x: auto;
     white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+    -webkit-overflow-scrolling: touch;
+}
+
+.student-tabs-track::-webkit-scrollbar {
+    height: 4px;
+}
+
+.student-tabs-track::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+}
+
+.student-tab-item {
+    flex: 0 0 auto;
+}
+
+.student-tab-pill {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    margin-bottom: -1px;
+    padding: 8px 16px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #475569;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    user-select: none;
 }
 
-.student-tab-btn:hover {
-    color: #0284c7;
-    background-color: #f1f5f9;
+.student-tab-pill:hover {
+    color: #009dff;
+    background: #f0f9ff;
+    border-color: #bae6fd;
 }
 
-.student-tab-btn.active {
-    background-color: #0284c7;
+.student-tab-pill.active {
+    background: #009dff;
     color: #ffffff;
     font-weight: 600;
-    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05);
+    border-color: #009dff;
+    box-shadow: 0 2px 6px rgba(0, 157, 255, 0.25);
 }
 
-.student-tab-btn i {
-    font-size: 13px;
-    opacity: 0.9;
+.student-tab-pill i {
+    font-size: 12px;
+    opacity: 0.85;
 }
 
-/* Tab Content Panes */
-.student-tab-pane {
-    display: none;
+.student-tab-pill.active i {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   Main Content Container & Cards
+   ========================================================================== */
+.student-main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 34px 20px 0 20px;
+}
+
+.student-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 34px 36px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-    animation: fadeIn 0.22s ease-in-out;
+    border-radius: 10px;
+    padding: 36px 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.student-tab-pane {
+    display: none;
+    animation: studentFadeIn 0.2s ease-in-out;
 }
 
 .student-tab-pane.active {
     display: block;
 }
 
-@keyframes fadeIn {
+@keyframes studentFadeIn {
     from {
         opacity: 0;
-        transform: translateY(4px);
+        transform: translateY(3px);
     }
     to {
         opacity: 1;
@@ -137,293 +183,290 @@
     }
 }
 
-/* Section Title within Tab */
-.pane-header {
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 18px;
+/* Pane Header */
+.pane-title-wrap {
     margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
 }
 
-.pane-title {
-    font-size: 20px;
+.pane-kicker {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 4px;
+}
+
+.pane-heading {
+    font-size: 1.45rem;
     font-weight: 700;
     color: #0f172a;
     margin: 0 0 6px 0;
+    letter-spacing: -0.015em;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.pane-title i {
-    color: #0284c7;
-    font-size: 20px;
+.pane-heading i {
+    color: #009dff;
+    font-size: 1.25rem;
 }
 
-.pane-subtitle {
-    font-size: 14.5px;
+.pane-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: #64748b;
     margin: 0;
 }
 
-/* Bullet list with Chevron icon */
-.student-bullet-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 24px 0;
-}
-
-.student-bullet-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 14px;
-    font-size: 14.5px;
-    line-height: 1.65;
+/* Narrative text */
+.student-body-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
     color: #334155;
+    margin-bottom: 22px;
 }
 
-.student-bullet-icon {
-    color: #0284c7;
-    font-size: 15px;
-    margin-top: 4px;
-    flex-shrink: 0;
-}
-
-/* Institutional Tables */
-.student-table-wrap {
-    overflow-x: auto;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    margin: 20px 0 28px 0;
-}
-
-.student-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14.5px;
-    text-align: left;
-}
-
-.student-table th {
-    background-color: #f8fafc;
-    color: #1e293b;
-    font-weight: 600;
-    padding: 13px 18px;
-    border-bottom: 1px solid #cbd5e1;
-    border-right: 1px solid #e2e8f0;
-}
-
-.student-table th:last-child {
-    border-right: none;
-}
-
-.student-table td {
-    padding: 13px 18px;
-    color: #334155;
-    border-bottom: 1px solid #f1f5f9;
-    border-right: 1px solid #f1f5f9;
-}
-
-.student-table td:last-child {
-    border-right: none;
-}
-
-.student-table tbody tr:nth-child(even) {
-    background-color: #fafbfc;
-}
-
-.student-table tbody tr:hover {
-    background-color: #f1f5f9;
-}
-
-/* Callout Info Boxes */
-.student-callout {
-    background-color: #f0f9ff;
-    border-left: 4px solid #0284c7;
-    border-radius: 0 6px 6px 0;
-    padding: 18px 20px;
-    margin: 22px 0;
-}
-
-.student-callout.warning {
-    background-color: #fffbeb;
-    border-left-color: #f59e0b;
-}
-
-.student-callout-title {
+.student-subheading {
+    font-size: 1.05rem;
     font-weight: 700;
-    font-size: 15px;
-    color: #0369a1;
-    margin: 0 0 6px 0;
+    color: #0f172a;
+    margin: 28px 0 14px 0;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.student-callout.warning .student-callout-title {
-    color: #b45309;
+/* Bullet list with subtle circle check/chevron */
+.student-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
 }
 
-.student-callout-text {
-    font-size: 14px;
-    line-height: 1.6;
+.student-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.94rem;
+    line-height: 1.65;
     color: #334155;
-    margin: 0;
 }
 
-/* Step Badges */
-.step-list {
+.student-list-icon {
+    color: #009dff;
+    font-size: 14px;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+/* Process step cards */
+.step-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin: 20px 0;
+    gap: 12px;
+    margin: 20px 0 28px 0;
 }
 
-.step-card {
+.modern-step-card {
     display: flex;
-    gap: 16px;
     align-items: flex-start;
+    gap: 16px;
     background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
+    border: 1px solid #eef2f6;
+    border-radius: 8px;
     padding: 16px 20px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
 }
 
-.step-card:hover {
-    border-color: #94a3b8;
+.modern-step-card:hover {
     background: #ffffff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
-.step-number {
-    width: 32px;
-    height: 32px;
+.modern-step-badge {
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    background: #0284c7;
-    color: #ffffff;
+    background: #e0f2fe;
+    color: #0284c7;
+    font-size: 0.85rem;
     font-weight: 700;
-    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
 }
 
-.step-body {
-    flex: 1;
+.modern-step-card:hover .modern-step-badge {
+    background: #009dff;
+    color: #ffffff;
 }
 
-.step-text {
-    font-size: 14.5px;
-    color: #334155;
+.modern-step-content {
+    font-size: 0.93rem;
     line-height: 1.6;
+    color: #334155;
     margin: 0;
 }
 
-/* Primary Action Buttons */
-.student-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #0284c7;
-    color: #ffffff;
-    font-size: 14.5px;
-    font-weight: 600;
-    padding: 11px 22px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 1px 2px rgba(2, 132, 199, 0.25);
+/* Institutional callout box */
+.theme-callout {
+    background-color: #f0f9ff;
+    border-left: 4px solid #009dff;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 22px 0;
 }
 
-.student-btn:hover {
-    background-color: #0369a1;
-    color: #ffffff;
-    transform: translateY(-1px);
-    box-shadow: 0 3px 6px rgba(2, 132, 199, 0.35);
+.theme-callout.warning {
+    background-color: #fffbeb;
+    border-left-color: #ff8800;
 }
 
-.student-btn.outline {
-    background: transparent;
-    color: #0284c7;
-    border: 1.5px solid #0284c7;
-    box-shadow: none;
-}
-
-.student-btn.outline:hover {
-    background: #f0f9ff;
-    color: #0369a1;
-}
-
-/* Info Grid / Contact Card */
-.office-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
-    margin-top: 20px;
-}
-
-.office-card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 18px 20px;
-}
-
-.office-card-title {
-    font-size: 14px;
+.theme-callout-title {
     font-weight: 700;
-    color: #1e293b;
-    margin: 0 0 8px 0;
+    font-size: 0.95rem;
+    color: #0369a1;
+    margin: 0 0 6px 0;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.office-card-title i {
-    color: #0284c7;
+.theme-callout.warning .theme-callout-title {
+    color: #b45309;
 }
 
-.office-card-val {
-    font-size: 14px;
-    color: #475569;
+.theme-callout-body {
+    font-size: 0.91rem;
+    line-height: 1.6;
+    color: #334155;
     margin: 0;
+}
+
+/* Modern tables */
+.theme-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin: 18px 0 24px 0;
+}
+
+.theme-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    text-align: left;
+}
+
+.theme-table th {
+    background: #f8fafc;
+    color: #0f172a;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.theme-table td {
+    padding: 12px 18px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.theme-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.theme-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Action button */
+.theme-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #009dff;
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 157, 255, 0.25);
+    border: none;
+    cursor: pointer;
+}
+
+.theme-action-btn:hover {
+    background: #0086dc;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 157, 255, 0.35);
+}
+
+/* Contact / Desk Info Grid */
+.desk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.desk-card {
+    background: #f8fafc;
+    border: 1px solid #eef2f6;
+    border-radius: 8px;
+    padding: 16px 18px;
+}
+
+.desk-card-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.desk-card-title i {
+    color: #009dff;
+}
+
+.desk-card-val {
+    font-size: 0.89rem;
+    color: #475569;
     line-height: 1.5;
+    margin: 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 991px) {
-    .student-tab-btn {
-        padding: 8px 14px;
-        font-size: 13.5px;
-    }
-    
-    .student-tab-pane {
-        padding: 24px 20px;
+    .student-card {
+        padding: 26px 22px;
     }
 }
 
 @media (max-width: 768px) {
-    .student-header-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+    .student-hero {
+        padding: 28px 0 20px;
     }
 
-    .student-tabs-nav {
-        gap: 4px;
+    .student-heading {
+        font-size: 1.75rem;
     }
 
-    .student-tab-btn {
-        padding: 8px 12px;
-        font-size: 13px;
-        border-radius: 4px;
-    }
-
-    .student-page-title {
-        font-size: 21px;
+    .student-tab-pill {
+        padding: 7px 13px;
+        font-size: 0.84rem;
     }
 }
