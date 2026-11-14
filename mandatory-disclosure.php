@@ -97,7 +97,7 @@ if ($pdo) {
 
     <!-- Hero Section -->
     <section class="md-hero">
-        <div class="container" style="max-width: 1440px; margin: 0 auto; padding: 0 20px;">
+        <div class="container md-container">
             <span class="md-kicker">INSTITUTIONAL COMPLIANCE &amp; STATUTORY BODIES</span>
             <h1 class="md-heading">Mandatory Disclosures &amp; Committees</h1>
             <p class="md-lead">
@@ -150,7 +150,7 @@ if ($pdo) {
     </nav>
 
     <!-- Main Content Container -->
-    <div class="container" style="max-width: 1440px; margin: 0 auto; padding: 0 20px;">
+    <div class="container md-container">
 
         <!-- Section 1: Campus Statutory Committees -->
         <div class="md-card">
@@ -310,32 +310,55 @@ if ($pdo) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const dropdownItems = document.querySelectorAll('.md-subnav-item.has-dropdown');
+
+    function closeAllDropdowns() {
+        dropdownItems.forEach(function(item) {
+            item.classList.remove('is-open');
+            const toggle = item.querySelector('.md-subnav-toggle');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+    }
+
     dropdownItems.forEach(function(item) {
         const toggle = item.querySelector('.md-subnav-toggle');
         if (toggle) {
             toggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const isOpen = item.classList.contains('is-open');
-                dropdownItems.forEach(function(i) {
-                    i.classList.remove('is-open');
-                    const t = i.querySelector('.md-subnav-toggle');
-                    if (t) t.setAttribute('aria-expanded', 'false');
-                });
-                if (!isOpen) {
-                    item.classList.add('is-open');
-                    toggle.setAttribute('aria-expanded', 'true');
+                // Mobile tap toggle (< 769px)
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const isAlreadyOpen = item.classList.contains('is-open');
+                    closeAllDropdowns();
+
+                    if (!isAlreadyOpen) {
+                        item.classList.add('is-open');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
                 }
             });
         }
+
+        // Close dropdown when a link inside is clicked
+        const links = item.querySelectorAll('.md-subnav-dd-link');
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeAllDropdowns();
+            });
+        });
     });
 
+    // Close on outside click (mobile)
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.md-subnav-item.has-dropdown')) {
-            dropdownItems.forEach(function(i) {
-                i.classList.remove('is-open');
-                const t = i.querySelector('.md-subnav-toggle');
-                if (t) t.setAttribute('aria-expanded', 'false');
-            });
+            closeAllDropdowns();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAllDropdowns();
         }
     });
 });

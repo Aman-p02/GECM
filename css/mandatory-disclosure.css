@@ -13,6 +13,13 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Container */
+.md-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* Hero Section */
 .md-hero {
     padding: 40px 0 24px;
@@ -116,14 +123,12 @@
 }
 
 .md-subnav-toggle:hover,
-.md-subnav-item.is-open .md-subnav-toggle,
-.md-subnav-item:hover .md-subnav-toggle {
+.md-subnav-item.is-open .md-subnav-toggle {
     color: #009dff;
 }
 
 .md-subnav-toggle:hover::after,
-.md-subnav-item.is-open .md-subnav-toggle::after,
-.md-subnav-item:hover .md-subnav-toggle::after {
+.md-subnav-item.is-open .md-subnav-toggle::after {
     width: calc(100% - 16px);
 }
 
@@ -134,9 +139,11 @@
 }
 
 .md-subnav-toggle:hover .subnav-chevron,
-.md-subnav-item.is-open .subnav-chevron,
-.md-subnav-item:hover .subnav-chevron {
+.md-subnav-item.is-open .subnav-chevron {
     color: #009dff;
+}
+
+.md-subnav-item.is-open .subnav-chevron {
     transform: rotate(180deg);
 }
 
@@ -150,7 +157,7 @@
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     padding: 6px 0;
-    margin-top: 2px;
+    margin-top: 4px;
     list-style: none;
     opacity: 0;
     visibility: hidden;
@@ -160,17 +167,60 @@
     pointer-events: none;
 }
 
+/* Invisible bridge so mouse moving to dropdown never loses hover */
+.md-subnav-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: transparent;
+}
+
 .md-subnav-item:last-child .md-subnav-dropdown {
     left: auto;
     right: 0;
 }
 
-.md-subnav-item:hover .md-subnav-dropdown,
+/* Desktop Hover: cursor aate hi automatically dropdown open, jate hi turant band */
+@media (min-width: 769px) {
+    .md-subnav-item:hover .md-subnav-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .md-subnav-item:hover .subnav-chevron {
+        transform: rotate(180deg);
+        color: #009dff;
+    }
+
+    .md-subnav-item:hover .md-subnav-toggle {
+        color: #009dff;
+    }
+
+    .md-subnav-item:hover .md-subnav-toggle::after {
+        width: calc(100% - 16px);
+    }
+}
+
+/* Mobile Active State via .is-open */
 .md-subnav-item.is-open .md-subnav-dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+.md-subnav-item.is-open .subnav-chevron {
+    transform: rotate(180deg);
+    color: #009dff;
+}
+
+.md-subnav-item.is-open .md-subnav-toggle {
+    color: #009dff;
 }
 
 .md-subnav-dd-link {
@@ -377,19 +427,170 @@
 }
 
 @media (max-width: 768px) {
+    .md-container {
+        padding: 0 12px;
+    }
+
     .md-hero {
-        padding: 28px 0 16px;
+        padding: 24px 0 16px;
+    }
+
+    .md-kicker {
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        margin-bottom: 6px;
+    }
+
+    .md-heading {
+        font-size: 1.55rem;
+        line-height: 1.22;
+        margin-bottom: 8px;
+    }
+
+    .md-lead {
+        font-size: 0.88rem;
+        line-height: 1.55;
+    }
+
+    /* Sub-Navbar Mobile */
+    .md-subnav-bar {
+        margin-bottom: 20px;
+        top: var(--site-main-nav-height, 50px);
+    }
+
+    .md-subnav-wrap {
+        padding: 0 12px;
+        position: relative;
+    }
+
+    .md-subnav-list {
+        display: flex;
+        width: 100%;
+        gap: 8px;
+        padding: 6px 0;
+    }
+
+    .md-subnav-item {
+        flex: 1 1 50%;
+        position: static; /* Allows full-width dropdown */
+    }
+
+    .md-subnav-toggle {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 6px;
+        font-size: 0.84rem;
+        font-weight: 600;
+        gap: 6px;
+        border-radius: 6px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        box-sizing: border-box;
+    }
+
+    .md-subnav-toggle::after {
+        display: none;
+    }
+
+    .md-subnav-toggle:hover,
+    .md-subnav-item.is-open .md-subnav-toggle {
+        background: #eff6ff;
+        border-color: #bfdbfe;
+        color: #009dff;
+    }
+
+    .md-subnav-dropdown {
+        left: 12px !important;
+        right: 12px !important;
+        width: calc(100% - 24px) !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        margin-top: 6px;
+        box-sizing: border-box;
+    }
+
+    .md-subnav-dd-link {
+        padding: 11px 16px;
+        font-size: 0.88rem;
+        border-bottom: 1px solid #f1f5f9;
+        white-space: normal;
+        line-height: 1.35;
+    }
+
+    .md-subnav-dd-link:last-child {
+        border-bottom: none;
+    }
+
+    /* Cards Mobile */
+    .md-card {
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .md-card-header {
+        padding: 12px 14px;
+    }
+
+    .md-card-title {
+        font-size: 0.95rem;
+        gap: 8px;
+    }
+
+    .md-badge-count {
+        font-size: 0.72rem;
+        padding: 2px 8px;
     }
 
     .md-row {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 16px 18px;
+        align-items: stretch;
+        padding: 14px 14px;
         gap: 12px;
     }
 
     .md-left {
         width: 100%;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .md-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+        margin-top: 2px;
+        border-radius: 6px;
+        flex-shrink: 0;
+    }
+
+    .md-details {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .md-title-line {
+        margin-bottom: 3px;
+        gap: 6px;
+    }
+
+    .md-title {
+        font-size: 0.94rem;
+        line-height: 1.35;
+    }
+
+    .md-type-badge {
+        font-size: 0.65rem;
+        padding: 1px 6px;
+    }
+
+    .md-meta {
+        font-size: 0.78rem;
+        line-height: 1.45;
+        gap: 6px;
     }
 
     .md-right {
@@ -399,6 +600,8 @@
     .md-view-btn {
         width: 100%;
         justify-content: center;
-        padding: 10px 16px;
+        padding: 10px 14px;
+        font-size: 0.86rem;
+        box-sizing: border-box;
     }
 }
