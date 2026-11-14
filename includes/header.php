@@ -268,20 +268,21 @@ if (!isset($active_page)) {
 
                 <!-- Student Corner Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="javascript:void(0);" class="hdr-nav-link">
+                    <a href="javascript:void(0);"
+                       class="hdr-nav-link <?= in_array($active_page, ['student-section', 'student_section', 'student-rules', 'student-clubs', 'enrollment-details', 'scholarships']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">Student Corner</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
-                            <li><a href="#" class="hdr-dd-link">Student Section</a></li>
-                            <li><a href="#" class="hdr-dd-link">General Rules &amp; Regulations</a></li>
-                            <li><a href="#" class="hdr-dd-link">Student Chapters &amp; Clubs</a></li>
-                            <li><a href="#" class="hdr-dd-link">Enrollment Details</a></li>
-                            <li><a href="#" class="hdr-dd-link">Scholarships</a></li>
-                            <li><a href="#" class="hdr-dd-link">Grade History Card</a></li>
-                            <li><a href="#" class="hdr-dd-link">Online Fees Payment</a></li>
-                            <li><a href="#" class="hdr-dd-link">Education Verification</a></li>
-                            <li><a href="#" class="hdr-dd-link">Grievance Portal</a></li>
+                            <li><a href="<?= $root_path ?>student-section.php" class="hdr-dd-link <?= ($active_page === 'student-section') ? 'is-active active' : '' ?>">Student Section</a></li>
+                            <li><a href="<?= $root_path ?>student-section.php#rules" class="hdr-dd-link">General Rules &amp; Regulations</a></li>
+                            <li><a href="<?= $root_path ?>college-activities.php" class="hdr-dd-link">Student Chapters &amp; Clubs</a></li>
+                            <li><a href="<?= $root_path ?>student-section.php#registration" class="hdr-dd-link">Enrollment Details</a></li>
+                            <li><a href="<?= $root_path ?>student-section.php#about" class="hdr-dd-link">Scholarships</a></li>
+                            <li><a href="https://www.student.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="hdr-dd-link">Grade History Card</a></li>
+                            <li><a href="<?= $root_path ?>student-section.php#fees-payment" class="hdr-dd-link">Online Fees Payment</a></li>
+                            <li><a href="<?= $root_path ?>student-section.php#education-verification" class="hdr-dd-link">Education Verification</a></li>
+                            <li><a href="<?= $root_path ?>committees.php?c=grievance" class="hdr-dd-link">Grievance Portal</a></li>
                         </ul>
                     </div>
                 </li>
