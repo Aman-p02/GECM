@@ -114,7 +114,6 @@ if ($pdo) {
                 <!-- Campus Committee Dropdown (3 options) -->
                 <li class="md-subnav-item has-dropdown">
                     <button type="button" class="md-subnav-toggle" aria-expanded="false" aria-haspopup="true">
-                        <i class="fas fa-users-cog" style="color: #009dff; font-size: 13px;"></i>
                         <span>Campus Committee</span>
                         <i class="fas fa-chevron-down subnav-chevron"></i>
                     </button>
@@ -132,7 +131,6 @@ if ($pdo) {
                 <!-- Mandatory Disclosures Dropdown (Remaining options) -->
                 <li class="md-subnav-item has-dropdown">
                     <button type="button" class="md-subnav-toggle" aria-expanded="false" aria-haspopup="true">
-                        <i class="fas fa-file-contract" style="color: #ff8800; font-size: 13px;"></i>
                         <span>Mandatory Disclosures</span>
                         <i class="fas fa-chevron-down subnav-chevron"></i>
                     </button>
