@@ -5,28 +5,27 @@ $extra_css = 'css/student-section.css';
 require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/db.php';
 
-// Define the 14 tabs
-$allTabs = [
-    ['id' => 'tab-about', 'name' => 'About', 'icon' => 'fas fa-university'],
-    ['id' => 'tab-registration', 'name' => 'Registration Process', 'icon' => 'fas fa-user-plus'],
-    ['id' => 'tab-fees-structure', 'name' => 'Fees Structure', 'icon' => 'fas fa-file-invoice-dollar'],
-    ['id' => 'tab-fees-payment', 'name' => 'Fees Payment', 'icon' => 'fas fa-credit-card'],
-    ['id' => 'tab-bus-concession', 'name' => 'Bus concession', 'icon' => 'fas fa-bus'],
-    ['id' => 'tab-admission-cancellation', 'name' => 'Admission Cancellation', 'icon' => 'fas fa-user-times'],
-    ['id' => 'tab-institute-transfer', 'name' => 'Institute Transfer', 'icon' => 'fas fa-exchange-alt'],
-    ['id' => 'tab-student-icard', 'name' => 'Student I-Card', 'icon' => 'fas fa-id-card'],
-    ['id' => 'tab-gtu-certificates', 'name' => 'GTU Certificates', 'icon' => 'fas fa-certificate'],
-    ['id' => 'tab-bonafide-certificate', 'name' => 'Bonafide / Character Certificate', 'icon' => 'fas fa-file-signature'],
-    ['id' => 'tab-name-correction', 'name' => 'Name Correction', 'icon' => 'fas fa-edit'],
-    ['id' => 'tab-transcript', 'name' => 'Transcript', 'icon' => 'fas fa-scroll'],
-    ['id' => 'tab-no-due-certificate', 'name' => 'No Due Certificate', 'icon' => 'fas fa-check-double'],
-    ['id' => 'tab-education-verification', 'name' => 'Student Education Verification', 'icon' => 'fas fa-user-check']
+$tabs = [
+    ['key' => 'about', 'name' => 'About'],
+    ['key' => 'registration', 'name' => 'Registration Process'],
+    ['key' => 'fees-structure', 'name' => 'Fees Structure'],
+    ['key' => 'fees-payment', 'name' => 'Fees Payment'],
+    ['key' => 'bus-concession', 'name' => 'Bus concession'],
+    ['key' => 'admission-cancellation', 'name' => 'Admission Cancellation'],
+    ['key' => 'institute-transfer', 'name' => 'Institute Transfer'],
+    ['key' => 'student-icard', 'name' => 'Student I-Card'],
+    ['key' => 'gtu-certificates', 'name' => 'GTU Certificates'],
+    ['key' => 'bonafide-certificate', 'name' => 'Bonafide / Character Certificate'],
+    ['key' => 'name-correction', 'name' => 'Name Correction'],
+    ['key' => 'transcript', 'name' => 'Transcript'],
+    ['key' => 'no-due-certificate', 'name' => 'No Due Certificate'],
+    ['key' => 'education-verification', 'name' => 'Student Education Verification']
 ];
 ?>
 
 <div class="student-page" id="mainContent">
 
-    <!-- Page Hero Banner (Consistent with Vision & Mission, About & Activities Hub) -->
+    <!-- Page Hero Banner -->
     <header class="student-hero">
         <div class="student-hero-inner">
             <span class="student-kicker">STUDENT CORNER</span>
@@ -37,57 +36,24 @@ $allTabs = [
         </div>
     </header>
 
-    <!-- Sub-Navigation Bar -->
-    <nav class="student-nav-bar" id="studentNav" aria-label="Student Section Navigation">
-        <div class="student-nav-inner">
-
-            <!-- Desktop View: All 14 Options Fully Visible at Once (Flex Wrap, No Scroll) -->
-            <ul class="student-tabs-grid" role="tablist">
-                <?php foreach ($allTabs as $index => $tab): ?>
-                    <li class="student-tab-item">
-                        <button type="button" 
-                                class="student-tab-pill <?= ($index === 0) ? 'active' : '' ?>" 
-                                data-target="<?= $tab['id'] ?>" 
-                                data-name="<?= htmlspecialchars($tab['name']) ?>"
-                                data-icon="<?= $tab['icon'] ?>"
-                                role="tab" 
-                                aria-selected="<?= ($index === 0) ? 'true' : 'false' ?>">
-                            <i class="<?= $tab['icon'] ?>"></i> <?= htmlspecialchars($tab['name']) ?>
-                        </button>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-
-            <!-- Mobile View: Clean Hamburger / Dropdown Toggle -->
-            <div class="student-mobile-nav" id="mobileNavWrapper">
-                <button type="button" class="student-mobile-toggle" id="mobileTabToggle" aria-expanded="false" aria-controls="mobileTabsDropdown">
-                    <div class="mobile-toggle-current">
-                        <span class="mobile-toggle-badge" id="mobileCurrentIcon"><i class="fas fa-university"></i></span>
-                        <span class="mobile-toggle-text" id="mobileCurrentText">About</span>
-                    </div>
-                    <div class="mobile-toggle-action">
-                        <span class="mobile-action-label">Menu</span>
-                        <i class="fas fa-bars mobile-bars-icon" id="mobileToggleIcon"></i>
-                    </div>
-                </button>
-                <div class="student-mobile-dropdown" id="mobileTabsDropdown">
-                    <ul class="student-mobile-list" role="tablist">
-                        <?php foreach ($allTabs as $index => $tab): ?>
-                            <li class="student-mobile-item">
-                                <button type="button" 
-                                        class="student-mobile-btn <?= ($index === 0) ? 'active' : '' ?>" 
-                                        data-target="<?= $tab['id'] ?>"
-                                        data-name="<?= htmlspecialchars($tab['name']) ?>"
-                                        data-icon="<?= $tab['icon'] ?>"
-                                        role="tab">
-                                    <i class="<?= $tab['icon'] ?>"></i> <?= htmlspecialchars($tab['name']) ?>
-                                </button>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+    <!-- Sub-Navigation Bar (Exact Match to Department Navigation) -->
+    <nav class="student-subnav-bar" id="studentSubNav" aria-label="Student Section Navigation">
+        <div class="student-subnav-container">
+            <div class="student-subnav-wrap" id="subnavWrap">
+                <ul class="student-subnav-list" id="subnavList" role="tablist">
+                    <?php foreach ($tabs as $index => $tab): ?>
+                        <li class="student-subnav-item <?= ($index === 0) ? 'active' : '' ?>">
+                            <button type="button" 
+                                    class="student-subnav-link <?= ($index === 0) ? 'active' : '' ?>" 
+                                    data-tab="<?= $tab['key'] ?>" 
+                                    role="tab" 
+                                    aria-selected="<?= ($index === 0) ? 'true' : 'false' ?>">
+                                <?= htmlspecialchars($tab['name']) ?>
+                            </button>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
-
         </div>
     </nav>
 
@@ -101,7 +67,7 @@ $allTabs = [
             <div class="student-tab-pane active" id="tab-about">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">ADMINISTRATIVE OVERVIEW</span>
-                    <h2 class="pane-heading"><i class="fas fa-university"></i> About Student Section</h2>
+                    <h2 class="pane-heading"><i class="fas fa-university" style="color: #ff8800;"></i> About Student Section</h2>
                     <p class="pane-desc">Central Academic Administration &amp; Student Affairs Desk</p>
                 </div>
                 
@@ -109,7 +75,7 @@ $allTabs = [
                     The Student Section at Government Engineering College, Modasa serves as the central administrative hub connecting students with the college administration, Gujarat Technological University (GTU), and the Directorate of Technical Education (DTE), Government of Gujarat. The section is dedicated to delivering transparent, efficient, and student-focused academic administration throughout a student's degree journey.
                 </p>
 
-                <h3 class="student-subheading"><i class="fas fa-tasks" style="color: #009dff;"></i> Key Responsibilities &amp; Student Services</h3>
+                <h3 class="student-subheading"><i class="fas fa-tasks" style="color: #ff8800;"></i> Key Responsibilities &amp; Student Services</h3>
                 <ul class="student-list">
                     <li class="student-list-item">
                         <i class="fas fa-chevron-circle-right student-list-icon"></i>
@@ -137,7 +103,7 @@ $allTabs = [
                     </li>
                 </ul>
 
-                <h3 class="student-subheading"><i class="fas fa-headset" style="color: #009dff;"></i> Helpdesk &amp; Office Information</h3>
+                <h3 class="student-subheading"><i class="fas fa-headset" style="color: #ff8800;"></i> Helpdesk &amp; Office Information</h3>
                 <div class="desk-grid">
                     <div class="desk-card">
                         <div class="desk-card-title"><i class="fas fa-map-marker-alt"></i> Office Location</div>
@@ -164,7 +130,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-registration">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">ADMISSION REPORTING</span>
-                    <h2 class="pane-heading"><i class="fas fa-user-plus"></i> Registration Process</h2>
+                    <h2 class="pane-heading"><i class="fas fa-user-plus" style="color: #ff8800;"></i> Registration Process</h2>
                     <p class="pane-desc">Mandatory Guidelines for ACPC Admitted Candidates &amp; GTU Enrollment</p>
                 </div>
 
@@ -195,7 +161,7 @@ $allTabs = [
                     </div>
                 </div>
 
-                <h3 class="student-subheading"><i class="fas fa-clipboard-check" style="color: #009dff;"></i> Mandatory Documents Checklist</h3>
+                <h3 class="student-subheading"><i class="fas fa-clipboard-check" style="color: #ff8800;"></i> Mandatory Documents Checklist</h3>
                 <ul class="student-list">
                     <li class="student-list-item"><i class="fas fa-check-circle student-list-icon"></i><span>ACPC Admission Allotment Letter and Token Fee Payment Receipt.</span></li>
                     <li class="student-list-item"><i class="fas fa-check-circle student-list-icon"></i><span>10th (SSC) Board Marksheet and Passing Certificate.</span></li>
@@ -214,7 +180,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-fees-structure">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">GOVERNMENT NORMS</span>
-                    <h2 class="pane-heading"><i class="fas fa-file-invoice-dollar"></i> Fees Structure</h2>
+                    <h2 class="pane-heading"><i class="fas fa-file-invoice-dollar" style="color: #ff8800;"></i> Fees Structure</h2>
                     <p class="pane-desc">Government Approved Tuition &amp; Term Fees for B.E. &amp; M.E. Programs</p>
                 </div>
 
@@ -225,7 +191,7 @@ $allTabs = [
                     </p>
                 </div>
 
-                <h3 class="student-subheading"><i class="fas fa-table" style="color: #009dff;"></i> Institutional Term Fees Breakdown</h3>
+                <h3 class="student-subheading"><i class="fas fa-table" style="color: #ff8800;"></i> Institutional Term Fees Breakdown</h3>
                 <div class="theme-table-wrap">
                     <table class="theme-table">
                         <thead>
@@ -282,7 +248,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-fees-payment">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">DIGITAL PAYMENTS</span>
-                    <h2 class="pane-heading"><i class="fas fa-credit-card"></i> Fees Payment</h2>
+                    <h2 class="pane-heading"><i class="fas fa-credit-card" style="color: #ff8800;"></i> Fees Payment</h2>
                     <p class="pane-desc">Online Institutional Fee Collection Guidelines</p>
                 </div>
 
@@ -330,7 +296,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-bus-concession">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">COMMUTER SERVICES</span>
-                    <h2 class="pane-heading"><i class="fas fa-bus"></i> Bus concession</h2>
+                    <h2 class="pane-heading"><i class="fas fa-bus" style="color: #ff8800;"></i> Bus concession</h2>
                     <p class="pane-desc">GSRTC Student Bus Pass &amp; Commuter Concession Procedure</p>
                 </div>
 
@@ -338,7 +304,7 @@ $allTabs = [
                     Students commuting daily to Government Engineering College, Modasa from towns and rural regions of Aravalli, Sabarkantha, Gandhinagar, and surrounding districts are eligible for subsidized bus travel concession passes provided by the Gujarat State Road Transport Corporation (GSRTC).
                 </p>
 
-                <h3 class="student-subheading"><i class="fas fa-route" style="color: #009dff;"></i> Procedure for Availing GSRTC Bus Concession</h3>
+                <h3 class="student-subheading"><i class="fas fa-route" style="color: #ff8800;"></i> Procedure for Availing GSRTC Bus Concession</h3>
                 <ul class="student-list">
                     <li class="student-list-item">
                         <i class="fas fa-chevron-circle-right student-list-icon"></i>
@@ -369,7 +335,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-admission-cancellation">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">ADMISSION CLEARANCE</span>
-                    <h2 class="pane-heading"><i class="fas fa-user-times"></i> Admission Cancellation</h2>
+                    <h2 class="pane-heading"><i class="fas fa-user-times" style="color: #ff8800;"></i> Admission Cancellation</h2>
                     <p class="pane-desc">Formal Withdrawal &amp; Fee Refund Guidelines</p>
                 </div>
 
@@ -410,7 +376,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-institute-transfer">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">INTER-COLLEGE MIGRATION</span>
-                    <h2 class="pane-heading"><i class="fas fa-exchange-alt"></i> Institute Transfer</h2>
+                    <h2 class="pane-heading"><i class="fas fa-exchange-alt" style="color: #ff8800;"></i> Institute Transfer</h2>
                     <p class="pane-desc">Gujarat Technological University (GTU) Inter-College Transfer Regulations</p>
                 </div>
 
@@ -444,7 +410,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-student-icard">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">CAMPUS IDENTITY</span>
-                    <h2 class="pane-heading"><i class="fas fa-id-card"></i> Student I-Card</h2>
+                    <h2 class="pane-heading"><i class="fas fa-id-card" style="color: #ff8800;"></i> Student I-Card</h2>
                     <p class="pane-desc">College Identity Card Issuance &amp; Replacement Rules</p>
                 </div>
 
@@ -452,13 +418,13 @@ $allTabs = [
                     The College Identity Card is an essential official credential that confirms a student's active enrollment at Government Engineering College, Modasa. It is required for campus entry, library book issue, laboratory access, and university examinations.
                 </p>
 
-                <h3 class="student-subheading"><i class="fas fa-id-badge" style="color: #009dff;"></i> Issuance of New ID Card</h3>
+                <h3 class="student-subheading"><i class="fas fa-id-badge" style="color: #ff8800;"></i> Issuance of New ID Card</h3>
                 <ul class="student-list">
                     <li class="student-list-item"><i class="fas fa-check-circle student-list-icon"></i><span>Issued free of cost to newly admitted 1st year and D2D students upon completion of the college registration process.</span></li>
                     <li class="student-list-item"><i class="fas fa-check-circle student-list-icon"></i><span>Students must carry their ID card at all times inside the college premises and present it upon request by faculty or security personnel.</span></li>
                 </ul>
 
-                <h3 class="student-subheading"><i class="fas fa-clone" style="color: #009dff;"></i> Duplicate ID Card Process (In Case of Loss / Damage)</h3>
+                <h3 class="student-subheading"><i class="fas fa-clone" style="color: #ff8800;"></i> Duplicate ID Card Process (In Case of Loss / Damage)</h3>
                 <div class="step-container">
                     <div class="modern-step-card">
                         <div class="modern-step-badge">1</div>
@@ -481,7 +447,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-gtu-certificates">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">UNIVERSITY CREDENTIALS</span>
-                    <h2 class="pane-heading"><i class="fas fa-certificate"></i> GTU Certificates</h2>
+                    <h2 class="pane-heading"><i class="fas fa-certificate" style="color: #ff8800;"></i> GTU Certificates</h2>
                     <p class="pane-desc">University Credentials, Endorsements &amp; Academic Records</p>
                 </div>
 
@@ -525,7 +491,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-bonafide-certificate">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">INSTITUTIONAL CERTIFICATES</span>
-                    <h2 class="pane-heading"><i class="fas fa-file-signature"></i> Bonafide / Character Certificate</h2>
+                    <h2 class="pane-heading"><i class="fas fa-file-signature" style="color: #ff8800;"></i> Bonafide / Character Certificate</h2>
                     <p class="pane-desc">Application Procedure for Institutional Verification Certificates</p>
                 </div>
 
@@ -533,7 +499,7 @@ $allTabs = [
                     Bonafide and Character certificates are issued by the institute to bonafide enrolled students for legitimate personal, academic, and financial purposes.
                 </p>
 
-                <h3 class="student-subheading"><i class="fas fa-layer-group" style="color: #009dff;"></i> Certificate Categories</h3>
+                <h3 class="student-subheading"><i class="fas fa-layer-group" style="color: #ff8800;"></i> Certificate Categories</h3>
                 <div class="desk-grid" style="margin-bottom: 24px;">
                     <div class="desk-card">
                         <div class="desk-card-title"><i class="fas fa-id-badge"></i> Bonafide Certificate</div>
@@ -545,7 +511,7 @@ $allTabs = [
                     </div>
                 </div>
 
-                <h3 class="student-subheading"><i class="fas fa-stream" style="color: #009dff;"></i> Application Steps</h3>
+                <h3 class="student-subheading"><i class="fas fa-stream" style="color: #ff8800;"></i> Application Steps</h3>
                 <ul class="student-list">
                     <li class="student-list-item"><i class="fas fa-chevron-circle-right student-list-icon"></i><span>Collect the Bonafide Application Slip from the student section or write a formal request specifying the purpose.</span></li>
                     <li class="student-list-item"><i class="fas fa-chevron-circle-right student-list-icon"></i><span>Attach a photocopy of your valid College ID Card and current term fee receipt.</span></li>
@@ -560,7 +526,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-name-correction">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">RECORD RECTIFICATION</span>
-                    <h2 class="pane-heading"><i class="fas fa-edit"></i> Name Correction</h2>
+                    <h2 class="pane-heading"><i class="fas fa-edit" style="color: #ff8800;"></i> Name Correction</h2>
                     <p class="pane-desc">Procedure for Correction of Student Name, Father's Name, or Surname</p>
                 </div>
 
@@ -590,7 +556,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-transcript">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">HIGHER EDUCATION</span>
-                    <h2 class="pane-heading"><i class="fas fa-scroll"></i> Transcript</h2>
+                    <h2 class="pane-heading"><i class="fas fa-scroll" style="color: #ff8800;"></i> Transcript</h2>
                     <p class="pane-desc">Official Academic Transcripts for Higher Education Abroad &amp; Credential Evaluation</p>
                 </div>
 
@@ -624,7 +590,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-no-due-certificate">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">CLEARANCE PROTOCOL</span>
-                    <h2 class="pane-heading"><i class="fas fa-check-double"></i> No Due Certificate</h2>
+                    <h2 class="pane-heading"><i class="fas fa-check-double" style="color: #ff8800;"></i> No Due Certificate</h2>
                     <p class="pane-desc">Clearance Procedure for Final Year Passouts &amp; Withdrawing Students</p>
                 </div>
 
@@ -632,7 +598,7 @@ $allTabs = [
                     A No Due Certificate (Clearance Certificate) is mandatory for final semester graduating students prior to obtaining caution money refunds, original certificates, transfer certificates, or official transcripts:
                 </p>
 
-                <h3 class="student-subheading"><i class="fas fa-clipboard-list" style="color: #009dff;"></i> Clearance Checklist &amp; Countersignatures</h3>
+                <h3 class="student-subheading"><i class="fas fa-clipboard-list" style="color: #ff8800;"></i> Clearance Checklist &amp; Countersignatures</h3>
                 <ul class="student-list">
                     <li class="student-list-item"><i class="fas fa-check-circle student-list-icon"></i><span><strong>Parent Engineering Department:</strong> Clearance of lab equipment, departmental library books, and project reports from respective HoD.</span></li>
                     <li class="student-list-item"><i class="fas fa-check-circle student-list-icon"></i><span><strong>Central Library:</strong> Return of all borrowed reference books, cancellation of borrower tickets, and clearance of any pending library dues.</span></li>
@@ -648,7 +614,7 @@ $allTabs = [
             <div class="student-tab-pane" id="tab-education-verification">
                 <div class="pane-title-wrap">
                     <span class="pane-kicker">CREDENTIAL VERIFICATION</span>
-                    <h2 class="pane-heading"><i class="fas fa-user-check"></i> Student Education Verification</h2>
+                    <h2 class="pane-heading"><i class="fas fa-user-check" style="color: #ff8800;"></i> Student Education Verification</h2>
                     <p class="pane-desc">Credential Verification Service for Employers, Screening Agencies &amp; Embassies</p>
                 </div>
 
@@ -656,7 +622,7 @@ $allTabs = [
                     Government Engineering College, Modasa provides education credential verification services for prospective employers, corporate background verification (BGV) partners, embassies, and academic bodies verifying the genuineness of degrees and grade sheets issued to its alumni.
                 </p>
 
-                <h3 class="student-subheading"><i class="fas fa-shield-alt" style="color: #009dff;"></i> Official Verification Submission Protocol</h3>
+                <h3 class="student-subheading"><i class="fas fa-shield-alt" style="color: #ff8800;"></i> Official Verification Submission Protocol</h3>
                 <ul class="student-list">
                     <li class="student-list-item">
                         <i class="fas fa-chevron-circle-right student-list-icon"></i>
@@ -695,139 +661,78 @@ $allTabs = [
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const desktopPills = document.querySelectorAll('.student-tab-pill');
-    const mobileBtns = document.querySelectorAll('.student-mobile-btn');
+    const subnavLinks = document.querySelectorAll('.student-subnav-link');
     const tabPanes = document.querySelectorAll('.student-tab-pane');
-    const mobileNavWrapper = document.getElementById('mobileNavWrapper');
-    const mobileTabToggle = document.getElementById('mobileTabToggle');
-    const mobileCurrentIcon = document.getElementById('mobileCurrentIcon');
-    const mobileCurrentText = document.getElementById('mobileCurrentText');
-    const mobileToggleIcon = document.getElementById('mobileToggleIcon');
+    const subnavWrap = document.getElementById('subnavWrap');
+    const subnavList = document.getElementById('subnavList');
 
-    // Mobile Hamburger Menu Toggle
-    if (mobileTabToggle) {
-        mobileTabToggle.addEventListener('click', function (e) {
-            e.stopPropagation();
-            const isOpen = mobileNavWrapper.classList.toggle('is-open');
-            mobileTabToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            if (mobileToggleIcon) {
-                if (isOpen) {
-                    mobileToggleIcon.classList.remove('fa-bars');
-                    mobileToggleIcon.classList.add('fa-times');
-                } else {
-                    mobileToggleIcon.classList.remove('fa-times');
-                    mobileToggleIcon.classList.add('fa-bars');
-                }
-            }
-        });
+    // Update scroll indicator shadows at edges
+    function updateScrollIndicators() {
+        if (!subnavList || !subnavWrap) return;
+        const scrollLeft = subnavList.scrollLeft;
+        const maxScroll = subnavList.scrollWidth - subnavList.clientWidth;
 
-        // Close mobile dropdown when clicking outside
-        document.addEventListener('click', function (e) {
-            if (!mobileNavWrapper.contains(e.target)) {
-                mobileNavWrapper.classList.remove('is-open');
-                mobileTabToggle.setAttribute('aria-expanded', 'false');
-                if (mobileToggleIcon) {
-                    mobileToggleIcon.classList.remove('fa-times');
-                    mobileToggleIcon.classList.add('fa-bars');
-                }
-            }
-        });
+        if (scrollLeft > 6) {
+            subnavWrap.classList.add('can-scroll-left');
+        } else {
+            subnavWrap.classList.remove('can-scroll-left');
+        }
+
+        if (maxScroll - scrollLeft > 6) {
+            subnavWrap.classList.add('can-scroll-right');
+        } else {
+            subnavWrap.classList.remove('can-scroll-right');
+        }
     }
 
-    // Activate Tab by ID
-    function activateTab(targetId, tabName, tabIcon) {
-        // Desktop pills
-        desktopPills.forEach(pill => {
-            const isMatch = (pill.getAttribute('data-target') === targetId);
+    if (subnavList) {
+        subnavList.addEventListener('scroll', updateScrollIndicators);
+        window.addEventListener('resize', updateScrollIndicators);
+        updateScrollIndicators();
+    }
+
+    // Activate a tab
+    function activateTab(tabKey) {
+        let activeLink = null;
+        subnavLinks.forEach(link => {
+            const isMatch = (link.getAttribute('data-tab') === tabKey);
+            const parentItem = link.closest('.student-subnav-item');
             if (isMatch) {
-                pill.classList.add('active');
-                pill.setAttribute('aria-selected', 'true');
-                if (!tabName) tabName = pill.getAttribute('data-name');
-                if (!tabIcon) tabIcon = pill.getAttribute('data-icon');
+                link.classList.add('active');
+                link.setAttribute('aria-selected', 'true');
+                if (parentItem) parentItem.classList.add('active');
+                activeLink = link;
             } else {
-                pill.classList.remove('active');
-                pill.setAttribute('aria-selected', 'false');
+                link.classList.remove('active');
+                link.setAttribute('aria-selected', 'false');
+                if (parentItem) parentItem.classList.remove('active');
             }
         });
 
-        // Mobile buttons
-        mobileBtns.forEach(btn => {
-            const isMatch = (btn.getAttribute('data-target') === targetId);
-            if (isMatch) {
-                btn.classList.add('active');
-                if (!tabName) tabName = btn.getAttribute('data-name');
-                if (!tabIcon) tabIcon = btn.getAttribute('data-icon');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-
-        // Tab Content Panes
+        const targetPaneId = 'tab-' + tabKey;
         tabPanes.forEach(pane => {
-            if (pane.getAttribute('id') === targetId) {
+            if (pane.getAttribute('id') === targetPaneId) {
                 pane.classList.add('active');
             } else {
                 pane.classList.remove('active');
             }
         });
 
-        // Update Mobile Current Label & Icon
-        if (mobileCurrentText && tabName) {
-            mobileCurrentText.textContent = tabName;
-        }
-        if (mobileCurrentIcon && tabIcon) {
-            mobileCurrentIcon.innerHTML = '<i class="' + tabIcon + '"></i>';
-        }
-
-        // Close mobile menu if open
-        if (mobileNavWrapper) {
-            mobileNavWrapper.classList.remove('is-open');
-            if (mobileTabToggle) mobileTabToggle.setAttribute('aria-expanded', 'false');
-            if (mobileToggleIcon) {
-                mobileToggleIcon.classList.remove('fa-times');
-                mobileToggleIcon.classList.add('fa-bars');
-            }
+        if (activeLink) {
+            activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
     }
 
-    // Click on desktop pills
-    desktopPills.forEach(pill => {
-        pill.addEventListener('click', function () {
-            const targetId = this.getAttribute('data-target');
-            const tabName = this.getAttribute('data-name');
-            const tabIcon = this.getAttribute('data-icon');
-            activateTab(targetId, tabName, tabIcon);
-            
-            const hashKey = targetId.replace('tab-', '');
+    // Tab button click
+    subnavLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            const tabKey = this.getAttribute('data-tab');
+            activateTab(tabKey);
+
             if (history.pushState) {
-                history.pushState(null, null, '#' + hashKey);
+                history.pushState(null, null, '#' + tabKey);
             } else {
-                window.location.hash = hashKey;
-            }
-        });
-    });
-
-    // Click on mobile dropdown items
-    mobileBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-            const targetId = this.getAttribute('data-target');
-            const tabName = this.getAttribute('data-name');
-            const tabIcon = this.getAttribute('data-icon');
-            activateTab(targetId, tabName, tabIcon);
-
-            const hashKey = targetId.replace('tab-', '');
-            if (history.pushState) {
-                history.pushState(null, null, '#' + hashKey);
-            } else {
-                window.location.hash = hashKey;
-            }
-
-            // Smooth scroll to card
-            const mainContent = document.querySelector('.student-main-content');
-            if (mainContent) {
-                const navHeight = document.getElementById('studentNav')?.offsetHeight || 60;
-                const topPos = mainContent.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
-                window.scrollTo({ top: topPos, behavior: 'smooth' });
+                window.location.hash = tabKey;
             }
         });
     });
@@ -835,10 +740,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle initial hash on page load
     const currentHash = window.location.hash.replace('#', '').toLowerCase();
     if (currentHash) {
-        const potentialTargetId = 'tab-' + currentHash;
-        const matchingPill = document.querySelector('.student-tab-pill[data-target="' + potentialTargetId + '"]');
-        if (matchingPill) {
-            activateTab(potentialTargetId, matchingPill.getAttribute('data-name'), matchingPill.getAttribute('data-icon'));
+        const matchingLink = document.querySelector('.student-subnav-link[data-tab="' + currentHash + '"]');
+        if (matchingLink) {
+            activateTab(currentHash);
         }
     }
 });
