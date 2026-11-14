@@ -143,15 +143,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Fetch documents for both categories
+// Fetch documents for both categories (latest added first)
 $aicteDocs = [];
 $gtuDocs = [];
 if ($pdo) {
     try {
-        $stmtAicte = $pdo->query("SELECT * FROM institute_approvals WHERE category = 'AICTE' ORDER BY display_order ASC, academic_year DESC, id DESC");
+        $stmtAicte = $pdo->query("SELECT * FROM institute_approvals WHERE category = 'AICTE' ORDER BY id DESC");
         $aicteDocs = $stmtAicte->fetchAll(PDO::FETCH_ASSOC);
 
-        $stmtGtu = $pdo->query("SELECT * FROM institute_approvals WHERE category = 'GTU' ORDER BY display_order ASC, academic_year DESC, id DESC");
+        $stmtGtu = $pdo->query("SELECT * FROM institute_approvals WHERE category = 'GTU' ORDER BY id DESC");
         $gtuDocs = $stmtGtu->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
         $aicteDocs = [];
@@ -207,23 +207,16 @@ include_once __DIR__ . '/includes/header.php';
 
     <form method="POST" action="approvals.php" enctype="multipart/form-data">
         <input type="hidden" name="action" value="<?= $editDoc ? 'edit_document' : 'add_document' ?>">
+        <input type="hidden" name="category" value="<?= htmlspecialchars($editDoc ? $editDoc['category'] : $activeTab) ?>">
         <?php if ($editDoc): ?>
             <input type="hidden" name="id" value="<?= $editDoc['id'] ?>">
             <input type="hidden" name="existing_file" value="<?= htmlspecialchars($editDoc['file_path']) ?>">
         <?php endif; ?>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 16px;">
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px;">
             <div class="form-group">
-                <label style="display: block; font-weight: 600; font-size: 13px; color: #334155; margin-bottom: 6px;">Category <span style="color: #ef4444;">*</span></label>
-                <select name="category" class="form-control" required style="width: 100%;">
-                    <option value="AICTE" <?= (($editDoc['category'] ?? $activeTab) === 'AICTE') ? 'selected' : '' ?>>AICTE (All India Council for Technical Education)</option>
-                    <option value="GTU" <?= (($editDoc['category'] ?? $activeTab) === 'GTU') ? 'selected' : '' ?>>GTU (Gujarat Technological University)</option>
-                </select>
-            </div>
-
-            <div class="form-group" style="grid-column: span 2;">
                 <label style="display: block; font-weight: 600; font-size: 13px; color: #334155; margin-bottom: 6px;">Document Title <span style="color: #ef4444;">*</span></label>
-                <input type="text" name="title" class="form-control" required placeholder="e.g. AICTE Extension of Approval (EoA) 2024-25" value="<?= htmlspecialchars($editDoc['title'] ?? '') ?>" style="width: 100%;">
+                <input type="text" name="title" class="form-control" required placeholder="<?= ($activeTab === 'GTU') ? 'e.g. GTU Annual Affiliation Order 2024-25' : 'e.g. AICTE Extension of Approval (EoA) 2024-25' ?>" value="<?= htmlspecialchars($editDoc['title'] ?? '') ?>" style="width: 100%;">
             </div>
 
             <div class="form-group">
@@ -232,7 +225,7 @@ include_once __DIR__ . '/includes/header.php';
             </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 20px;">
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 20px;">
             <div class="form-group">
                 <label style="display: block; font-weight: 600; font-size: 13px; color: #334155; margin-bottom: 6px;">
                     Upload PDF Document <?= $editDoc ? '(Leave empty to keep existing)' : '<span style="color: #ef4444;">*</span>' ?>
@@ -245,12 +238,7 @@ include_once __DIR__ . '/includes/header.php';
                 <?php endif; ?>
             </div>
 
-            <div class="form-group">
-                <label style="display: block; font-weight: 600; font-size: 13px; color: #334155; margin-bottom: 6px;">Display Order</label>
-                <input type="number" name="display_order" class="form-control" placeholder="0" value="<?= (int)($editDoc['display_order'] ?? 0) ?>" style="width: 100%;">
-            </div>
-
-            <div class="form-group" style="display: flex; align-items: flex-end; padding-bottom: 8px;">
+            <div class="form-group" style="display: flex; align-items: flex-end; padding-bottom: 10px;">
                 <label style="display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13.5px; font-weight: 600; color: #334155;">
                     <input type="checkbox" name="is_active" value="1" <?= (!$editDoc || $editDoc['is_active'] == 1) ? 'checked' : '' ?> style="width: 18px; height: 18px;">
                     <span>Active &amp; Published on Website</span>

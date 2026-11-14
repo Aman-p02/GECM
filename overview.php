@@ -7,15 +7,15 @@ $extra_css = "css/about.css";
 require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/db.php';
 
-// Fetch active approvals from database
+// Fetch active approvals from database (latest added first)
 $aicteApprovals = [];
 $gtuAffiliations = [];
 if (isset($pdo) && $pdo) {
     try {
-        $stmtA = $pdo->query("SELECT * FROM institute_approvals WHERE category = 'AICTE' AND is_active = 1 ORDER BY display_order ASC, academic_year DESC, id DESC");
+        $stmtA = $pdo->query("SELECT * FROM institute_approvals WHERE category = 'AICTE' AND is_active = 1 ORDER BY id DESC");
         $aicteApprovals = $stmtA->fetchAll(PDO::FETCH_ASSOC);
 
-        $stmtG = $pdo->query("SELECT * FROM institute_approvals WHERE category = 'GTU' AND is_active = 1 ORDER BY display_order ASC, academic_year DESC, id DESC");
+        $stmtG = $pdo->query("SELECT * FROM institute_approvals WHERE category = 'GTU' AND is_active = 1 ORDER BY id DESC");
         $gtuAffiliations = $stmtG->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
         $aicteApprovals = [];
