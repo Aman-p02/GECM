@@ -1,34 +1,38 @@
 /* ==========================================================================
-   Principal's Message Stylesheet (Natural Institutional Layout)
-   Theme: Plus Jakarta Sans / Inter Typography (Matching Department Theme)
-   Colors: Deep Slate (#0f172a), Institutional Orange (#ff8800), Accent Blue (#009dff)
-   Full width natural reading layout without boxed gutters
+   Principal's Message Stylesheet (Institutional Address & Letterhead Layout)
+   Theme: Lora / Merriweather Editorial Serif + Plus Jakarta Sans + Inter
+   Colors: Deep Navy (#0c3b6d), Slate Ink (#1e293b), Institutional Orange (#ff8800), Accent Blue (#009dff)
+   Dignified editorial address from the head of the institution
    ========================================================================== */
 
 :root {
+    --pm-font-serif: 'Lora', 'Merriweather', Georgia, 'Times New Roman', serif;
     --pm-font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --pm-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .pm-page {
     background-color: #ffffff;
-    color: var(--text-dark, #333333);
-    padding: 0 0 80px 0;
-    min-height: 70vh;
+    color: #1e293b;
+    padding: 0 0 90px 0;
+    min-height: 75vh;
     font-family: var(--pm-font-body);
 }
 
-/* Hero Section */
+/* ==========================================================================
+   Hero Banner (Line removed, text black)
+   ========================================================================== */
 .pm-hero {
-    padding: 48px 0 24px;
-    border-bottom: 1px solid #eef2f6;
+    padding: 40px 0 16px;
+    border-bottom: none; /* No bottom line per user request */
     background: #ffffff;
 }
 
 .pm-kicker {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     font-family: var(--pm-font-body);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -38,96 +42,167 @@
 
 .pm-heading {
     font-family: var(--pm-font-display);
-    font-size: clamp(2rem, 3.4vw, 2.75rem);
+    font-size: clamp(2.2rem, 3.8vw, 3rem);
     font-weight: 800;
-    color: #0f172a;
-    line-height: 1.18;
+    color: #000000; /* Pure black per user request */
+    line-height: 1.15;
     letter-spacing: -0.025em;
     margin: 0;
 }
 
-/* Content Area */
+/* ==========================================================================
+   Content Area
+   ========================================================================== */
 .pm-content {
-    padding-top: 36px;
+    padding-top: 32px;
 }
 
-/* Photo (Floats Left so text starts right beside it) */
+/* Principal Photo & Caption Card */
 .pm-photo-wrap {
     float: left;
-    margin: 4px 34px 18px 0;
-    width: 320px;
+    margin: 4px 38px 24px 0;
+    width: 310px;
     max-width: 100%;
+}
+
+.pm-photo-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: none;
 }
 
 .pm-photo {
     width: 100%;
     height: auto;
-    border-radius: 6px;
-    border: 1px solid #cbd5e1;
-    box-shadow: none;
     display: block;
+    aspect-ratio: 4 / 4.6;
+    object-fit: cover;
+    border-bottom: 1px solid #f1f5f9;
 }
 
-/* Salutation & Greeting */
-.pm-salutation {
+.pm-photo-meta {
+    padding: 12px 14px;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.pm-photo-name {
     font-family: var(--pm-font-display);
-    font-size: 1.25rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    color: #0f172a;
-    letter-spacing: -0.015em;
-    margin: 0 0 8px;
+    color: #000000;
+    line-height: 1.35;
+    margin-bottom: 2px;
+}
+
+.pm-photo-role {
+    font-family: var(--pm-font-body);
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Salutation & Greeting (Words Black per user request)
+   ========================================================================== */
+.pm-salutation {
+    font-family: var(--pm-font-serif);
+    font-size: clamp(1.35rem, 2.3vw, 1.65rem);
+    font-weight: 600;
+    color: #000000; /* Pure black per user request */
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
     line-height: 1.35;
 }
 
 .pm-greeting {
-    font-family: var(--pm-font-body);
-    font-size: 0.98rem;
+    font-family: var(--pm-font-serif);
+    font-size: 1.1rem;
     color: #475569;
-    margin: 0 0 20px;
+    margin: 0 0 26px;
     font-style: italic;
+    font-weight: 400;
     line-height: 1.5;
 }
 
-/* Message Paragraphs */
+/* ==========================================================================
+   Message Body Paragraphs (Refined Letter Typography)
+   ========================================================================== */
 .pm-body {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
 }
 
 .pm-paragraph {
-    font-family: var(--pm-font-body);
-    font-size: 1.02rem;
-    color: #334155;
-    line-height: 1.8;
-    margin: 0 0 18px;
+    font-family: var(--pm-font-serif);
+    font-size: 1.07rem;
+    font-weight: 400;
+    color: #273746;
+    line-height: 1.95;
+    margin: 0 0 22px;
     text-align: justify;
+    letter-spacing: 0.005em;
+}
+
+/* Lead Paragraph with Elegant Institutional Drop-Cap */
+.pm-paragraph:first-of-type {
+    font-size: 1.14rem;
+    line-height: 2;
+    color: #0f172a;
+}
+
+.pm-paragraph:first-of-type::first-letter {
+    font-family: var(--pm-font-display);
+    font-size: 3.6rem;
+    float: left;
+    line-height: 0.8;
+    margin: 6px 12px 0 0;
+    color: #ff8800; /* Theme Orange #ff8800 */
+    font-weight: 800;
 }
 
 .pm-paragraph:last-child {
     margin-bottom: 0;
 }
 
-/* Sign-off Block (Clears floated photo) */
+/* ==========================================================================
+   Sign-off & Official Signature Block (Date normal, words black)
+   ========================================================================== */
 .pm-signoff {
     clear: both;
-    padding-top: 20px;
-    border-top: 1px solid #f1f5f9;
-    margin-top: 28px;
-    margin-bottom: 36px;
+    padding-top: 16px;
+    border-top: none; /* Divider line removed per user request */
+    margin-top: 24px;
+    margin-bottom: 44px;
 }
 
 .pm-closing-text {
-    font-family: var(--pm-font-body);
-    font-size: 1rem;
-    color: #334155;
-    line-height: 1.6;
-    margin: 0 0 16px;
+    font-family: var(--pm-font-serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: #1e293b;
+    line-height: 1.7;
+    margin: 0 0 18px;
 }
 
+/* Normal unboxed date text per user request */
 .pm-date {
     font-family: var(--pm-font-body);
-    font-size: 0.95rem;
-    color: #1e293b;
-    margin-bottom: 14px;
+    font-size: 0.96rem;
+    color: #475569;
+    margin-bottom: 12px;
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.pm-date strong {
+    color: #000000;
+    font-weight: 600;
 }
 
 .pm-signature {
@@ -136,64 +211,149 @@
 
 .pm-signer-name {
     font-family: var(--pm-font-display);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #0f172a;
-    letter-spacing: -0.01em;
-    margin-bottom: 3px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #000000; /* Pure black per user request */
+    letter-spacing: -0.015em;
+    margin-bottom: 4px;
 }
 
 .pm-signer-title {
     font-family: var(--pm-font-body);
-    font-size: 0.95rem;
-    color: #475569;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #000000; /* Black per user request */
     line-height: 1.5;
 }
 
-/* Previous Messages Section (Matching Institutional Theme) */
+/* ==========================================================================
+   Previous Messages Section (Clean Institutional Archive Cards)
+   ========================================================================== */
 .pm-archive-section {
-    padding-top: 28px;
-    border-top: 1px solid #eef2f6;
+    padding-top: 36px;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 20px;
+}
+
+.pm-archive-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
 }
 
 .pm-archive-title {
     font-family: var(--pm-font-display);
-    font-size: 1.18rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: #0f172a;
+    color: #000000;
     letter-spacing: -0.01em;
-    margin: 0 0 16px;
-}
-
-.pm-archive-list {
-    list-style: none;
-    padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px 18px;
 }
 
-.pm-archive-link {
+.pm-archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.pm-archive-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: none;
+}
+
+.pm-archive-card:hover {
+    border-color: #009dff;
+    background: #f8fafc;
+}
+
+.pm-archive-card.is-current {
+    background: #ffffff;
+    border: 1.5px solid #ff8800;
+}
+
+.pm-archive-card-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.pm-archive-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #009dff;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.pm-archive-card.is-current .pm-archive-icon-box {
+    background: #fff7ed;
+    border-color: #fed7aa;
+    color: #ff8800;
+}
+
+.pm-archive-card-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.pm-archive-date {
+    font-family: var(--pm-font-display);
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #000000;
+    line-height: 1.3;
+}
+
+.pm-archive-author {
+    font-family: var(--pm-font-body);
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.pm-archive-card-right {
+    flex-shrink: 0;
+}
+
+.pm-archive-badge-active {
     display: inline-block;
     font-family: var(--pm-font-body);
-    color: #009dff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ff8800;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.pm-archive-btn-view {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--pm-font-body);
+    font-size: 0.82rem;
     font-weight: 600;
-    font-size: 0.98rem;
-    text-decoration: none;
-    transition: color 0.2s ease, padding 0.2s ease;
+    color: #009dff;
+    transition: color 0.15s ease;
 }
 
-.pm-archive-link:hover {
+.pm-archive-card:hover .pm-archive-btn-view {
     color: #ff8800;
-    text-decoration: underline;
-}
-
-.pm-archive-link.is-active {
-    color: #ff8800;
-    font-weight: 800;
-    border-left: 3px solid #009dff;
-    padding-left: 6px;
 }
 
 /* Empty State */
@@ -205,36 +365,36 @@
     font-family: var(--pm-font-body);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .pm-archive-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 @media (max-width: 768px) {
     .pm-hero {
-        padding: 32px 0 20px;
+        padding: 28px 0 16px;
     }
 
     .pm-photo-wrap {
         float: none;
-        margin: 0 auto 20px;
-        max-width: 280px;
-    }
-
-    .pm-photo {
-        max-width: 100%;
+        margin: 0 auto 24px;
+        max-width: 290px;
     }
 
     .pm-paragraph {
-        font-size: 0.98rem;
+        font-size: 1.02rem;
+        line-height: 1.85;
         text-align: left;
     }
-}
 
-@media (max-width: 560px) {
-    .pm-archive-list {
+    .pm-paragraph:first-of-type {
+        font-size: 1.08rem;
+    }
+
+    .pm-paragraph:first-of-type::first-letter {
+        font-size: 3rem;
+        margin-right: 8px;
+    }
+
+    .pm-archive-grid {
         grid-template-columns: 1fr;
     }
 }

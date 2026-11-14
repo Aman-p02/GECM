@@ -46,12 +46,20 @@ if (!empty($currentMsg['message_body'])) {
 require_once __DIR__ . '/includes/header.php';
 ?>
 
+<!-- Editorial Letter Fonts for Principal's Desk -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
 <div class="pm-page" id="mainContent">
 
     <!-- Page Hero Banner -->
     <header class="pm-hero">
         <div class="container">
-            <span class="pm-kicker">THE INSTITUTE</span>
+            <span class="pm-kicker">
+                <i class="fas fa-university" style="color: #ff8800; margin-right: 6px;"></i>
+                THE INSTITUTE &bull; FROM THE PRINCIPAL'S DESK
+            </span>
             <h1 class="pm-heading">Principal's Message</h1>
         </div>
     </header>
@@ -62,12 +70,18 @@ require_once __DIR__ . '/includes/header.php';
 
             <?php if ($currentMsg): ?>
 
-                <!-- Principal Photo (Top Left) -->
+                <!-- Principal Photo (Top Left with Dignified Institutional Caption) -->
                 <?php if (!empty($currentMsg['image_url'])): ?>
                     <div class="pm-photo-wrap">
-                        <img src="<?= $root_path . htmlspecialchars($currentMsg['image_url']) ?>"
-                             alt="<?= htmlspecialchars($currentMsg['principal_name']) ?>"
-                             class="pm-photo">
+                        <div class="pm-photo-card">
+                            <img src="<?= $root_path . htmlspecialchars($currentMsg['image_url']) ?>"
+                                 alt="<?= htmlspecialchars($currentMsg['principal_name']) ?>"
+                                 class="pm-photo">
+                            <div class="pm-photo-meta">
+                                <div class="pm-photo-name"><?= htmlspecialchars($currentMsg['principal_name']) ?></div>
+                                <div class="pm-photo-title">Principal, GEC Modasa</div>
+                            </div>
+                        </div>
                     </div>
                 <?php endif; ?>
 
@@ -107,23 +121,41 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
                 </div>
 
-                <!-- Previous Messages Section (Matching Image 3) -->
+                <!-- Previous Messages Archive Section -->
                 <?php if (!empty($allMessages) && count($allMessages) > 1): ?>
-                    <div class="pm-archive-section">
-                        <h3 class="pm-archive-title">Previous Messages</h3>
-                        <ul class="pm-archive-list">
+                    <section class="pm-archive-section">
+                        <div class="pm-archive-header">
+                            <h3 class="pm-archive-title">Previous Messages</h3>
+                        </div>
+                        <div class="pm-archive-grid">
                             <?php foreach ($allMessages as $msg): 
-                                $dateFormatted = date('d/m/Y', strtotime($msg['message_date']));
+                                $dateFormatted = date('d F Y', strtotime($msg['message_date']));
+                                $shortDate = date('d/m/Y', strtotime($msg['message_date']));
                                 $isCurrent = ($currentMsg && $currentMsg['id'] == $msg['id']);
                             ?>
-                                <li>
-                                    <a href="principal-message.php?id=<?= (int)$msg['id'] ?>" class="pm-archive-link <?= $isCurrent ? 'is-active' : '' ?>">
-                                        <?= htmlspecialchars($dateFormatted) ?>
-                                    </a>
-                                </li>
+                                <a href="principal-message.php?id=<?= (int)$msg['id'] ?>" class="pm-archive-card <?= $isCurrent ? 'is-current' : '' ?>">
+                                    <div class="pm-archive-card-left">
+                                        <div class="pm-archive-icon-box">
+                                            <i class="far fa-calendar-alt"></i>
+                                        </div>
+                                        <div class="pm-archive-card-text">
+                                            <span class="pm-archive-date"><?= htmlspecialchars($dateFormatted) ?></span>
+                                            <span class="pm-archive-author"><?= htmlspecialchars($msg['principal_name'] ?? 'Principal') ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="pm-archive-card-right">
+                                        <?php if ($isCurrent): ?>
+                                            <span class="pm-archive-badge-active">Currently Viewing</span>
+                                        <?php else: ?>
+                                            <span class="pm-archive-btn-view">
+                                                View <i class="fas fa-chevron-right" style="font-size: 11px; margin-left: 4px;"></i>
+                                            </span>
+                                        <?php endif; ?>
+                                    </div>
+                                </a>
                             <?php endforeach; ?>
-                        </ul>
-                    </div>
+                        </div>
+                    </section>
                 <?php endif; ?>
 
             <?php else: ?>
