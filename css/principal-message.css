@@ -1,40 +1,48 @@
 /* ==========================================================================
    Principal's Message Stylesheet (Natural Institutional Layout)
-   Theme: Deep Navy (#0c3b6d), Institutional Orange (#ff8800), Inter Font
+   Theme: Plus Jakarta Sans / Inter Typography (Matching Department Theme)
+   Colors: Deep Slate (#0f172a), Institutional Orange (#ff8800), Accent Blue (#009dff)
    Full width natural reading layout without boxed gutters
    ========================================================================== */
+
+:root {
+    --pm-font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --pm-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
 
 .pm-page {
     background-color: #ffffff;
     color: var(--text-dark, #333333);
     padding: 0 0 80px 0;
     min-height: 70vh;
+    font-family: var(--pm-font-body);
 }
 
 /* Hero Section */
 .pm-hero {
-    padding: 40px 0 28px;
+    padding: 48px 0 24px;
     border-bottom: 1px solid #eef2f6;
-    background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+    background: #ffffff;
 }
 
 .pm-kicker {
     display: inline-block;
-    font-size: 0.74rem;
+    font-family: var(--pm-font-body);
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: #ff8800;
     margin-bottom: 8px;
 }
 
 .pm-heading {
-    font-family: var(--font-main, 'Inter', sans-serif);
-    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-family: var(--pm-font-display);
+    font-size: clamp(2rem, 3.4vw, 2.75rem);
     font-weight: 800;
-    color: #000000;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+    color: #0f172a;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
     margin: 0;
 }
 
@@ -56,24 +64,28 @@
     height: auto;
     border-radius: 6px;
     border: 1px solid #cbd5e1;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: none;
     display: block;
 }
 
 /* Salutation & Greeting */
 .pm-salutation {
-    font-size: 1.18rem;
+    font-family: var(--pm-font-display);
+    font-size: 1.25rem;
     font-weight: 700;
     color: #0f172a;
-    margin: 0 0 6px;
+    letter-spacing: -0.015em;
+    margin: 0 0 8px;
     line-height: 1.35;
 }
 
 .pm-greeting {
+    font-family: var(--pm-font-body);
     font-size: 0.98rem;
     color: #475569;
-    margin: 0 0 18px;
+    margin: 0 0 20px;
     font-style: italic;
+    line-height: 1.5;
 }
 
 /* Message Paragraphs */
@@ -82,7 +94,8 @@
 }
 
 .pm-paragraph {
-    font-size: 1rem;
+    font-family: var(--pm-font-body);
+    font-size: 1.02rem;
     color: #334155;
     line-height: 1.8;
     margin: 0 0 18px;
@@ -96,13 +109,14 @@
 /* Sign-off Block (Clears floated photo) */
 .pm-signoff {
     clear: both;
-    padding-top: 18px;
+    padding-top: 20px;
     border-top: 1px solid #f1f5f9;
-    margin-top: 24px;
+    margin-top: 28px;
     margin-bottom: 36px;
 }
 
 .pm-closing-text {
+    font-family: var(--pm-font-body);
     font-size: 1rem;
     color: #334155;
     line-height: 1.6;
@@ -110,6 +124,7 @@
 }
 
 .pm-date {
+    font-family: var(--pm-font-body);
     font-size: 0.95rem;
     color: #1e293b;
     margin-bottom: 14px;
@@ -120,28 +135,33 @@
 }
 
 .pm-signer-name {
-    font-size: 1.08rem;
+    font-family: var(--pm-font-display);
+    font-size: 1.15rem;
     font-weight: 700;
     color: #0f172a;
-    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+    margin-bottom: 3px;
 }
 
 .pm-signer-title {
+    font-family: var(--pm-font-body);
     font-size: 0.95rem;
     color: #475569;
     line-height: 1.5;
 }
 
-/* Previous Messages Section (Matching Image 3) */
+/* Previous Messages Section (Matching Institutional Theme) */
 .pm-archive-section {
     padding-top: 28px;
     border-top: 1px solid #eef2f6;
 }
 
 .pm-archive-title {
-    font-size: 1.15rem;
+    font-family: var(--pm-font-display);
+    font-size: 1.18rem;
     font-weight: 700;
     color: #0f172a;
+    letter-spacing: -0.01em;
     margin: 0 0 16px;
 }
 
@@ -156,7 +176,8 @@
 
 .pm-archive-link {
     display: inline-block;
-    color: #0077cc;
+    font-family: var(--pm-font-body);
+    color: #009dff;
     font-weight: 600;
     font-size: 0.98rem;
     text-decoration: none;
@@ -169,7 +190,7 @@
 }
 
 .pm-archive-link.is-active {
-    color: #0c3b6d;
+    color: #ff8800;
     font-weight: 800;
     border-left: 3px solid #009dff;
     padding-left: 6px;
@@ -181,6 +202,7 @@
     text-align: center;
     color: #64748b;
     font-size: 1.05rem;
+    font-family: var(--pm-font-body);
 }
 
 /* Responsive */
@@ -192,7 +214,7 @@
 
 @media (max-width: 768px) {
     .pm-hero {
-        padding: 30px 0 20px;
+        padding: 32px 0 20px;
     }
 
     .pm-photo-wrap {
@@ -206,7 +228,7 @@
     }
 
     .pm-paragraph {
-        font-size: 0.96rem;
+        font-size: 0.98rem;
         text-align: left;
     }
 }
