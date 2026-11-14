@@ -4,6 +4,24 @@ $active_page = 'student-section';
 $extra_css = 'css/student-section.css';
 require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/db.php';
+
+// Define the 14 tabs
+$allTabs = [
+    ['id' => 'tab-about', 'name' => 'About', 'icon' => 'fas fa-university'],
+    ['id' => 'tab-registration', 'name' => 'Registration Process', 'icon' => 'fas fa-user-plus'],
+    ['id' => 'tab-fees-structure', 'name' => 'Fees Structure', 'icon' => 'fas fa-file-invoice-dollar'],
+    ['id' => 'tab-fees-payment', 'name' => 'Fees Payment', 'icon' => 'fas fa-credit-card'],
+    ['id' => 'tab-bus-concession', 'name' => 'Bus concession', 'icon' => 'fas fa-bus'],
+    ['id' => 'tab-admission-cancellation', 'name' => 'Admission Cancellation', 'icon' => 'fas fa-user-times'],
+    ['id' => 'tab-institute-transfer', 'name' => 'Institute Transfer', 'icon' => 'fas fa-exchange-alt'],
+    ['id' => 'tab-student-icard', 'name' => 'Student I-Card', 'icon' => 'fas fa-id-card'],
+    ['id' => 'tab-gtu-certificates', 'name' => 'GTU Certificates', 'icon' => 'fas fa-certificate'],
+    ['id' => 'tab-bonafide-certificate', 'name' => 'Bonafide / Character Certificate', 'icon' => 'fas fa-file-signature'],
+    ['id' => 'tab-name-correction', 'name' => 'Name Correction', 'icon' => 'fas fa-edit'],
+    ['id' => 'tab-transcript', 'name' => 'Transcript', 'icon' => 'fas fa-scroll'],
+    ['id' => 'tab-no-due-certificate', 'name' => 'No Due Certificate', 'icon' => 'fas fa-check-double'],
+    ['id' => 'tab-education-verification', 'name' => 'Student Education Verification', 'icon' => 'fas fa-user-check']
+];
 ?>
 
 <div class="student-page" id="mainContent">
@@ -19,81 +37,57 @@ require_once __DIR__ . '/includes/db.php';
         </div>
     </header>
 
-    <!-- Modern Sub-Navigation / Tab Pills Bar -->
+    <!-- Sub-Navigation Bar -->
     <nav class="student-nav-bar" id="studentNav" aria-label="Student Section Navigation">
         <div class="student-nav-inner">
-            <ul class="student-tabs-track" role="tablist">
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill active" data-target="tab-about" role="tab" aria-selected="true">
-                        <i class="fas fa-university"></i> About
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-registration" role="tab" aria-selected="false">
-                        <i class="fas fa-user-plus"></i> Registration Process
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-fees-structure" role="tab" aria-selected="false">
-                        <i class="fas fa-file-invoice-dollar"></i> Fees Structure
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-fees-payment" role="tab" aria-selected="false">
-                        <i class="fas fa-credit-card"></i> Fees Payment
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-bus-concession" role="tab" aria-selected="false">
-                        <i class="fas fa-bus"></i> Bus concession
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-admission-cancellation" role="tab" aria-selected="false">
-                        <i class="fas fa-user-times"></i> Admission Cancellation
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-institute-transfer" role="tab" aria-selected="false">
-                        <i class="fas fa-exchange-alt"></i> Institute Transfer
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-student-icard" role="tab" aria-selected="false">
-                        <i class="fas fa-id-card"></i> Student I-Card
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-gtu-certificates" role="tab" aria-selected="false">
-                        <i class="fas fa-certificate"></i> GTU Certificates
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-bonafide-certificate" role="tab" aria-selected="false">
-                        <i class="fas fa-file-signature"></i> Bonafide / Character Certificate
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-name-correction" role="tab" aria-selected="false">
-                        <i class="fas fa-edit"></i> Name Correction
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-transcript" role="tab" aria-selected="false">
-                        <i class="fas fa-scroll"></i> Transcript
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-no-due-certificate" role="tab" aria-selected="false">
-                        <i class="fas fa-check-double"></i> No Due Certificate
-                    </button>
-                </li>
-                <li class="student-tab-item">
-                    <button type="button" class="student-tab-pill" data-target="tab-education-verification" role="tab" aria-selected="false">
-                        <i class="fas fa-user-check"></i> Student Education Verification
-                    </button>
-                </li>
+
+            <!-- Desktop View: All 14 Options Fully Visible at Once (Flex Wrap, No Scroll) -->
+            <ul class="student-tabs-grid" role="tablist">
+                <?php foreach ($allTabs as $index => $tab): ?>
+                    <li class="student-tab-item">
+                        <button type="button" 
+                                class="student-tab-pill <?= ($index === 0) ? 'active' : '' ?>" 
+                                data-target="<?= $tab['id'] ?>" 
+                                data-name="<?= htmlspecialchars($tab['name']) ?>"
+                                data-icon="<?= $tab['icon'] ?>"
+                                role="tab" 
+                                aria-selected="<?= ($index === 0) ? 'true' : 'false' ?>">
+                            <i class="<?= $tab['icon'] ?>"></i> <?= htmlspecialchars($tab['name']) ?>
+                        </button>
+                    </li>
+                <?php endforeach; ?>
             </ul>
+
+            <!-- Mobile View: Clean Hamburger / Dropdown Toggle -->
+            <div class="student-mobile-nav" id="mobileNavWrapper">
+                <button type="button" class="student-mobile-toggle" id="mobileTabToggle" aria-expanded="false" aria-controls="mobileTabsDropdown">
+                    <div class="mobile-toggle-current">
+                        <span class="mobile-toggle-badge" id="mobileCurrentIcon"><i class="fas fa-university"></i></span>
+                        <span class="mobile-toggle-text" id="mobileCurrentText">About</span>
+                    </div>
+                    <div class="mobile-toggle-action">
+                        <span class="mobile-action-label">Menu</span>
+                        <i class="fas fa-bars mobile-bars-icon" id="mobileToggleIcon"></i>
+                    </div>
+                </button>
+                <div class="student-mobile-dropdown" id="mobileTabsDropdown">
+                    <ul class="student-mobile-list" role="tablist">
+                        <?php foreach ($allTabs as $index => $tab): ?>
+                            <li class="student-mobile-item">
+                                <button type="button" 
+                                        class="student-mobile-btn <?= ($index === 0) ? 'active' : '' ?>" 
+                                        data-target="<?= $tab['id'] ?>"
+                                        data-name="<?= htmlspecialchars($tab['name']) ?>"
+                                        data-icon="<?= $tab['icon'] ?>"
+                                        role="tab">
+                                    <i class="<?= $tab['icon'] ?>"></i> <?= htmlspecialchars($tab['name']) ?>
+                                </button>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </nav>
 
@@ -701,25 +695,74 @@ require_once __DIR__ . '/includes/db.php';
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const tabPills = document.querySelectorAll('.student-tab-pill');
+    const desktopPills = document.querySelectorAll('.student-tab-pill');
+    const mobileBtns = document.querySelectorAll('.student-mobile-btn');
     const tabPanes = document.querySelectorAll('.student-tab-pane');
+    const mobileNavWrapper = document.getElementById('mobileNavWrapper');
+    const mobileTabToggle = document.getElementById('mobileTabToggle');
+    const mobileCurrentIcon = document.getElementById('mobileCurrentIcon');
+    const mobileCurrentText = document.getElementById('mobileCurrentText');
+    const mobileToggleIcon = document.getElementById('mobileToggleIcon');
 
-    function activateTab(targetId) {
-        let activeFound = false;
-        tabPills.forEach(pill => {
+    // Mobile Hamburger Menu Toggle
+    if (mobileTabToggle) {
+        mobileTabToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const isOpen = mobileNavWrapper.classList.toggle('is-open');
+            mobileTabToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (mobileToggleIcon) {
+                if (isOpen) {
+                    mobileToggleIcon.classList.remove('fa-bars');
+                    mobileToggleIcon.classList.add('fa-times');
+                } else {
+                    mobileToggleIcon.classList.remove('fa-times');
+                    mobileToggleIcon.classList.add('fa-bars');
+                }
+            }
+        });
+
+        // Close mobile dropdown when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!mobileNavWrapper.contains(e.target)) {
+                mobileNavWrapper.classList.remove('is-open');
+                mobileTabToggle.setAttribute('aria-expanded', 'false');
+                if (mobileToggleIcon) {
+                    mobileToggleIcon.classList.remove('fa-times');
+                    mobileToggleIcon.classList.add('fa-bars');
+                }
+            }
+        });
+    }
+
+    // Activate Tab by ID
+    function activateTab(targetId, tabName, tabIcon) {
+        // Desktop pills
+        desktopPills.forEach(pill => {
             const isMatch = (pill.getAttribute('data-target') === targetId);
             if (isMatch) {
                 pill.classList.add('active');
                 pill.setAttribute('aria-selected', 'true');
-                activeFound = true;
-                // Scroll pill into view smoothly if overflowed
-                pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                if (!tabName) tabName = pill.getAttribute('data-name');
+                if (!tabIcon) tabIcon = pill.getAttribute('data-icon');
             } else {
                 pill.classList.remove('active');
                 pill.setAttribute('aria-selected', 'false');
             }
         });
 
+        // Mobile buttons
+        mobileBtns.forEach(btn => {
+            const isMatch = (btn.getAttribute('data-target') === targetId);
+            if (isMatch) {
+                btn.classList.add('active');
+                if (!tabName) tabName = btn.getAttribute('data-name');
+                if (!tabIcon) tabIcon = btn.getAttribute('data-icon');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Tab Content Panes
         tabPanes.forEach(pane => {
             if (pane.getAttribute('id') === targetId) {
                 pane.classList.add('active');
@@ -728,13 +771,33 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        return activeFound;
+        // Update Mobile Current Label & Icon
+        if (mobileCurrentText && tabName) {
+            mobileCurrentText.textContent = tabName;
+        }
+        if (mobileCurrentIcon && tabIcon) {
+            mobileCurrentIcon.innerHTML = '<i class="' + tabIcon + '"></i>';
+        }
+
+        // Close mobile menu if open
+        if (mobileNavWrapper) {
+            mobileNavWrapper.classList.remove('is-open');
+            if (mobileTabToggle) mobileTabToggle.setAttribute('aria-expanded', 'false');
+            if (mobileToggleIcon) {
+                mobileToggleIcon.classList.remove('fa-times');
+                mobileToggleIcon.classList.add('fa-bars');
+            }
+        }
     }
 
-    tabPills.forEach(pill => {
+    // Click on desktop pills
+    desktopPills.forEach(pill => {
         pill.addEventListener('click', function () {
             const targetId = this.getAttribute('data-target');
-            activateTab(targetId);
+            const tabName = this.getAttribute('data-name');
+            const tabIcon = this.getAttribute('data-icon');
+            activateTab(targetId, tabName, tabIcon);
+            
             const hashKey = targetId.replace('tab-', '');
             if (history.pushState) {
                 history.pushState(null, null, '#' + hashKey);
@@ -744,11 +807,39 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Handle URL hash on initial load
+    // Click on mobile dropdown items
+    mobileBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-target');
+            const tabName = this.getAttribute('data-name');
+            const tabIcon = this.getAttribute('data-icon');
+            activateTab(targetId, tabName, tabIcon);
+
+            const hashKey = targetId.replace('tab-', '');
+            if (history.pushState) {
+                history.pushState(null, null, '#' + hashKey);
+            } else {
+                window.location.hash = hashKey;
+            }
+
+            // Smooth scroll to card
+            const mainContent = document.querySelector('.student-main-content');
+            if (mainContent) {
+                const navHeight = document.getElementById('studentNav')?.offsetHeight || 60;
+                const topPos = mainContent.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+                window.scrollTo({ top: topPos, behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Handle initial hash on page load
     const currentHash = window.location.hash.replace('#', '').toLowerCase();
     if (currentHash) {
         const potentialTargetId = 'tab-' + currentHash;
-        activateTab(potentialTargetId);
+        const matchingPill = document.querySelector('.student-tab-pill[data-target="' + potentialTargetId + '"]');
+        if (matchingPill) {
+            activateTab(potentialTargetId, matchingPill.getAttribute('data-name'), matchingPill.getAttribute('data-icon'));
+        }
     }
 });
 </script>
