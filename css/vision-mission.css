@@ -84,7 +84,6 @@
 
 .vm-vision-hero-card {
     position: relative;
-    border-left: 4px solid #ff8800;
     padding: 40px 48px;
 }
 
@@ -125,10 +124,6 @@
 /* ==========================================================================
    Mission Section (Roman Numerals & Step Items)
    ========================================================================== */
-.vm-mission-card {
-    border-left: 4px solid #009dff;
-}
-
 .vm-mission-card .vm-charter-kicker {
     color: #009dff;
 }
