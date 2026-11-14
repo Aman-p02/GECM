@@ -412,13 +412,14 @@
     align-items: center;
     gap: 6px;
     font-size: 0.78rem;
-    font-weight: 600;
-    color: #0284c7;
+    font-weight: 700;
+    color: #ff8800;
     text-decoration: none;
     padding: 5px 12px;
     border-radius: 6px;
-    background: #f0f9ff;
-    transition: all 0.15s ease;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    transition: all 0.2s ease;
     flex-shrink: 0;
     margin-left: 12px;
 }
@@ -428,8 +429,10 @@
 }
 
 .about-affil-action-link:hover {
-    background: #0284c7;
+    background: #009dff;
+    border-color: #009dff;
     color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 157, 255, 0.25);
 }
 
 .about-affil-empty {
