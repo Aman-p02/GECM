@@ -50,7 +50,7 @@ if (isset($pdo) && $pdo) {
                     <span class="about-metric-label">Affiliation Status</span>
                 </div>
                 <div class="about-metric-card">
-                    <span class="about-metric-num" style="color: #0284c7;">09</span>
+                    <span class="about-metric-num" style="color: #009dff;">09</span>
                     <span class="about-metric-label">UG &amp; PG Programs</span>
                 </div>
             </div>
@@ -193,7 +193,7 @@ if (isset($pdo) && $pdo) {
                 <div class="about-section-header">
                     <div>
                         <h2 class="about-block-title" id="ugCoursesTitle">
-                            <i class="fas fa-graduation-cap" style="color: #ff8800;"></i> Under Graduate Programs (B.E. / B.Tech)
+                            <i class="fas fa-graduation-cap" style="color: #ff8800;"></i> Under Graduate Programs
                         </h2>
                         <p class="about-block-sub">Approved 4-year degree engineering programs offered under GTU</p>
                     </div>
@@ -264,7 +264,7 @@ if (isset($pdo) && $pdo) {
                 <div class="about-section-header">
                     <div>
                         <h2 class="about-block-title" id="pgCoursesTitle">
-                            <i class="fas fa-user-graduate" style="color: #ff8800;"></i> Post Graduate Programs (M.E. / M.Tech)
+                            <i class="fas fa-user-graduate" style="color: #ff8800;"></i> Post Graduate Programs
                         </h2>
                         <p class="about-block-sub">Advanced 2-year postgraduate specializations in core engineering disciplines</p>
                     </div>

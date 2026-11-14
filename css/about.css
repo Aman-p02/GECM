@@ -307,9 +307,9 @@
 }
 
 .about-affil-icon-box.gtu {
-    background: #eff6ff;
-    color: #0284c7;
-    border: 1px solid #dbeafe;
+    background: #f0f9ff;
+    color: #009dff;
+    border: 1px solid #b9e6fe;
 }
 
 .about-affil-card-title {
@@ -536,9 +536,9 @@
 
 .about-intake-badge {
     display: inline-block;
-    background: #eff6ff;
-    color: #0284c7;
-    border: 1px solid #bfdbfe;
+    background: #f0f9ff;
+    color: #009dff;
+    border: 1px solid #b9e6fe;
     font-weight: 800;
     padding: 4px 12px;
     border-radius: 6px;
