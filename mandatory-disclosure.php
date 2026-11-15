@@ -1,5 +1,5 @@
 <?php
-$currentDoc = $_GET['doc'] ?? $_GET['c'] ?? 'rti-proactive';
+$currentDoc = $_GET['doc'] ?? $_GET['c'] ?? '';
 if ($currentDoc === 'anti-ragging') {
     $page_title = "Anti-Ragging Committee | GEC Modasa";
 } elseif ($currentDoc === 'sexual-harassment') {
@@ -7,8 +7,8 @@ if ($currentDoc === 'anti-ragging') {
 } elseif ($currentDoc === 'women-development-cell') {
     $page_title = "Women Development Cell (WDC) | GEC Modasa";
 } else {
-    $currentDoc = 'rti-proactive';
-    $page_title = "Right to Information (RTI) Act | GEC Modasa";
+    $currentDoc = 'overview';
+    $page_title = "Right to Information (RTI) Act & Mandatory Disclosure | GEC Modasa";
 }
 
 $active_page = 'mandatory-disclosure';
@@ -66,7 +66,7 @@ $disclosureItems = [
     <section class="md-hero">
         <div class="container md-container">
             <span class="md-kicker">INSTITUTIONAL STATUTORY BODIES</span>
-            <h1 class="md-heading">Mandatory Disclosures &amp; Committees</h1>
+            <h1 class="md-heading"><a href="mandatory-disclosure.php" style="color: inherit; text-decoration: none;">Mandatory Disclosures &amp; Committees</a></h1>
         </div>
     </section>
 
@@ -106,24 +106,19 @@ $disclosureItems = [
                     </ul>
                 </li>
 
-                <!-- Mandatory Disclosures Dropdown -->
+                <!-- Mandatory Disclosures Dropdown (Direct Official PDF Documents) -->
                 <li class="md-subnav-item has-dropdown">
-                    <button type="button" class="md-subnav-toggle <?= ($currentDoc === 'rti-proactive') ? 'is-current' : '' ?>" aria-expanded="false" aria-haspopup="true">
+                    <button type="button" class="md-subnav-toggle" aria-expanded="false" aria-haspopup="true">
                         <span>Mandatory Disclosures</span>
                         <i class="fas fa-chevron-down subnav-chevron"></i>
                     </button>
                     <ul class="md-subnav-dropdown" role="menu">
                         <?php foreach ($disclosureItems as $dItem): ?>
                             <li role="none">
-                                <?php if ($dItem['slug'] === 'rti-proactive'): ?>
-                                    <a href="mandatory-disclosure.php?doc=rti-proactive" class="md-subnav-dd-link <?= ($currentDoc === 'rti-proactive') ? 'active' : '' ?>" role="menuitem">
-                                        <span><?= htmlspecialchars($dItem['title']) ?></span>
-                                    </a>
-                                <?php else: ?>
-                                    <a href="disclosure-pdf.php?doc=<?= urlencode($dItem['slug']) ?>" target="_blank" rel="noopener noreferrer" class="md-subnav-dd-link" role="menuitem">
-                                        <span><?= htmlspecialchars($dItem['title']) ?></span>
-                                    </a>
-                                <?php endif; ?>
+                                <a href="disclosure-pdf.php?doc=<?= urlencode($dItem['slug']) ?>" target="_blank" rel="noopener noreferrer" class="md-subnav-dd-link" role="menuitem">
+                                    <span><?= htmlspecialchars($dItem['title']) ?></span>
+                                    <i class="fas fa-file-pdf" style="font-size: 0.78rem; color: #e11d48; margin-left: auto;" aria-hidden="true"></i>
+                                </a>
                             </li>
                         <?php endforeach; ?>
                     </ul>
@@ -139,6 +134,10 @@ $disclosureItems = [
         <?php if ($currentDoc === 'anti-ragging'): ?>
             <!-- Anti-Ragging Committee Institutional Card -->
             <article class="rti-content-card" id="anti-ragging">
+
+                <a href="mandatory-disclosure.php" class="md-back-home-link">
+                    <i class="fas fa-arrow-left"></i> Back to Mandatory Disclosure Overview
+                </a>
 
                 <!-- Card Header -->
                 <header class="rti-header-block">
@@ -210,6 +209,10 @@ $disclosureItems = [
         <?php elseif ($currentDoc === 'sexual-harassment'): ?>
             <!-- Sexual Harassment Prevention Committee Institutional Card -->
             <article class="rti-content-card" id="sexual-harassment">
+
+                <a href="mandatory-disclosure.php" class="md-back-home-link">
+                    <i class="fas fa-arrow-left"></i> Back to Mandatory Disclosure Overview
+                </a>
 
                 <!-- Card Header -->
                 <header class="rti-header-block">
@@ -300,6 +303,10 @@ $disclosureItems = [
         <?php elseif ($currentDoc === 'women-development-cell'): ?>
             <!-- Women Development Cell Institutional Card -->
             <article class="rti-content-card" id="women-development-cell">
+
+                <a href="mandatory-disclosure.php" class="md-back-home-link">
+                    <i class="fas fa-arrow-left"></i> Back to Mandatory Disclosure Overview
+                </a>
 
                 <!-- Card Header -->
                 <header class="rti-header-block">
