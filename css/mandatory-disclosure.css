@@ -1,28 +1,31 @@
 /* ==========================================================================
    Mandatory Disclosures & Campus Committees Stylesheet - GEC Modasa
    Theme: Plus Jakarta Sans / Inter Typography
-   Colors: Institutional Orange (#ff8800), Accent Blue (#009dff), Slate (#0f172a)
-   Horizontal Department-style Subnav + Modern Publications Grid
+   Colors: Institutional Orange (#ff8800), Accent Blue (#009dff), Slate (#0f172a / #334155)
+   Design System: Clean Institutional Surfaces, Zero Box-Shadow Glows, Fully Responsive
    ========================================================================== */
 
 .md-page-wrapper {
     background-color: #f8fafc;
     color: #1e293b;
-    padding: 0 0 80px 0;
+    padding: 0 0 90px 0;
     min-height: 80vh;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Container */
 .md-container {
-    max-width: 1440px;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
+    box-sizing: border-box;
 }
 
-/* Hero Section */
+/* ==========================================================================
+   Page Hero Section
+   ========================================================================== */
 .md-hero {
-    padding: 40px 0 24px;
+    padding: 44px 0 20px;
 }
 
 .md-kicker {
@@ -37,25 +40,25 @@
 
 .md-heading {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
     font-weight: 800;
-    color: #000000;
-    line-height: 1.15;
+    color: #0f172a;
+    line-height: 1.18;
     letter-spacing: -0.025em;
     margin: 0 0 12px 0;
 }
 
 .md-lead {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     color: #475569;
-    line-height: 1.65;
-    max-width: 860px;
+    line-height: 1.7;
+    max-width: 900px;
     margin: 0;
 }
 
-/* -------------------------------------------------------------
-   HORIZONTAL SUB-NAVBAR WITH DROPDOWNS (Matching Department subnav style)
-------------------------------------------------------------- */
+/* ==========================================================================
+   HORIZONTAL SUB-NAVBAR WITH AUTO-HOVER DROPDOWNS
+   ========================================================================== */
 .md-subnav-bar {
     position: sticky;
     top: var(--site-main-nav-height, 52px);
@@ -65,20 +68,22 @@
     -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid #e2e8f0;
     border-bottom: 1px solid #e2e8f0;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
 }
 
 .md-subnav-wrap {
-    max-width: 1440px;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .md-subnav-list {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -104,7 +109,7 @@
     cursor: pointer;
     text-decoration: none;
     position: relative;
-    transition: color 0.2s ease;
+    transition: color 0.18s ease;
     white-space: nowrap;
 }
 
@@ -165,9 +170,10 @@
     transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
     z-index: 1000;
     pointer-events: none;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
 }
 
-/* Invisible bridge so mouse moving to dropdown never loses hover */
+/* Invisible bridge to prevent mouse leaving hover area */
 .md-subnav-dropdown::before {
     content: '';
     position: absolute;
@@ -214,21 +220,12 @@
     pointer-events: auto;
 }
 
-.md-subnav-item.is-open .subnav-chevron {
-    transform: rotate(180deg);
-    color: #009dff;
-}
-
-.md-subnav-item.is-open .md-subnav-toggle {
-    color: #009dff;
-}
-
 .md-subnav-dd-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding: 10px 18px;
+    padding: 11px 18px;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
@@ -244,195 +241,347 @@
     text-decoration: none;
 }
 
-.md-subnav-dd-link .dd-icon {
-    font-size: 11px;
-    color: #94a3b8;
-    transition: color 0.15s ease;
-}
-
-.md-subnav-dd-link:hover .dd-icon {
-    color: #009dff;
-}
-
-/* -------------------------------------------------------------
-   PUBLICATIONS & COMMITTEES CARD LIST
-------------------------------------------------------------- */
-.md-card {
+/* ==========================================================================
+   ANTI-RAGGING COMMITTEE INSTITUTIONAL CONTENT CARD
+   ========================================================================== */
+.arc-content-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-
-.md-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 24px;
-    background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.md-card-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.md-badge-count {
-    background: #f1f5f9;
-    color: #475569;
-    font-size: 0.78rem;
-    font-weight: 700;
-    padding: 3px 10px;
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    padding: 40px 48px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    margin-bottom: 40px;
 }
 
-.md-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.md-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 24px;
-    border-bottom: 1px solid #f1f5f9;
-    transition: background-color 0.15s ease;
-    gap: 16px;
-}
-
-.md-row:last-child {
-    border-bottom: none;
-}
-
-.md-row:hover {
-    background-color: #f8fafc;
-}
-
-.md-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    min-width: 0;
-    flex: 1;
-}
-
-.md-icon {
-    width: 44px;
-    height: 44px;
-    background: #fef2f2;
-    color: #ef4444;
-    border: 1px solid #fee2e2;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    flex-shrink: 0;
-}
-
-.md-icon.comm-icon {
-    background: #eff6ff;
-    color: #009dff;
-    border-color: #bfdbfe;
-}
-
-.md-details {
-    min-width: 0;
-}
-
-.md-title-line {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 4px;
-}
-
-.md-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.02rem;
-    font-weight: 700;
-    color: #0f172a;
-    line-height: 1.4;
-    margin: 0;
-}
-
-.md-type-badge {
-    background: #f1f5f9;
-    color: #475569;
-    border: 1px solid #e2e8f0;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 2px 7px;
-    border-radius: 4px;
-    display: inline-block;
-}
-
-.md-meta {
-    font-size: 0.82rem;
+/* Breadcrumb Navigation */
+.arc-breadcrumb {
+    font-size: 0.84rem;
+    font-weight: 500;
     color: #64748b;
+    margin-bottom: 22px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
-.md-meta-item {
+.arc-breadcrumb a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.15s ease;
     display: inline-flex;
     align-items: center;
     gap: 5px;
 }
 
-.md-right {
-    flex-shrink: 0;
+.arc-breadcrumb a:hover {
+    color: #009dff;
+    text-decoration: underline;
 }
 
-.md-view-btn {
+.arc-breadcrumb .sep {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+}
+
+.arc-breadcrumb .current {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+/* Header Area inside Card */
+.arc-header-block {
+    margin-bottom: 26px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 20px;
+}
+
+.arc-kicker {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 6px;
+}
+
+.arc-main-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.85rem, 2.8vw, 2.35rem);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin: 0;
+}
+
+/* Zero Tolerance Highlight Callout Box */
+.arc-callout-box {
+    background: #fffbf5;
+    border: 1px solid #fed7aa;
+    border-left: 4px solid #ff8800;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+}
+
+.arc-callout-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #c2410c;
+    background: #ffedd5;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.arc-callout-text {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #334155;
+    margin: 0;
+}
+
+.arc-callout-text strong {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* Prose Narrative */
+.arc-prose {
+    font-size: 0.98rem;
+    line-height: 1.82;
+    color: #334155;
+    margin-bottom: 32px;
+}
+
+.arc-prose p {
+    margin: 0 0 18px 0;
+}
+
+.arc-prose p:last-child {
+    margin-bottom: 0;
+}
+
+.arc-prose strong {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+/* Table Section Header & Action */
+.arc-table-section {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 32px;
+    margin-top: 16px;
+}
+
+.arc-table-header-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.arc-table-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.28rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.015em;
+}
+
+.arc-table-sub {
+    font-size: 0.88rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.arc-download-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     background: #ff8800;
     color: #ffffff;
     border: 1px solid #ff8800;
-    padding: 8px 18px;
+    padding: 9px 20px;
     border-radius: 6px;
     font-size: 0.88rem;
     font-weight: 600;
     text-decoration: none;
-    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
-    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
     white-space: nowrap;
 }
 
-.md-view-btn:hover {
+.arc-download-btn:hover {
     background: #009dff;
     border-color: #009dff;
     color: #ffffff;
     text-decoration: none;
 }
 
+/* Institutional Clean Table */
+.arc-table-container {
+    overflow-x: auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.arc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.94rem;
+    text-align: left;
+}
+
+.arc-table th {
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 14px 20px;
+    border-bottom: 2px solid #cbd5e1;
+    border-right: 1px solid #e2e8f0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    white-space: nowrap;
+}
+
+.arc-table th:last-child {
+    border-right: none;
+}
+
+.arc-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    border-right: 1px solid #e2e8f0;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.arc-table td:last-child {
+    border-right: none;
+}
+
+.arc-table tr:last-child td {
+    border-bottom: none;
+}
+
+.arc-table tr:nth-child(even) td {
+    background-color: #fafbfc;
+}
+
+.arc-table tr:hover td {
+    background-color: #f0f7ff;
+}
+
+.arc-sr-cell {
+    width: 80px;
+    text-align: center;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.arc-faculty-name {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.arc-role-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.arc-role-badge.coordinator {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1px solid #fed7aa;
+}
+
+.arc-role-badge.cocoordinator {
+    background: #eff6ff;
+    color: #0284c7;
+    border: 1px solid #bfdbfe;
+}
+
+.arc-role-badge.member {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+/* Helpline & Assistance Strip */
+.arc-helpline-strip {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.arc-helpline-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.arc-helpline-info i {
+    font-size: 1.25rem;
+    color: #009dff;
+}
+
+.arc-helpline-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.arc-helpline-sub {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.arc-helpline-number {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #ff8800;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOBILE & TABLET)
+   ========================================================================== */
 @media (max-width: 768px) {
     .md-container {
-        padding: 0 12px;
+        padding: 0 14px;
     }
 
     .md-hero {
-        padding: 24px 0 16px;
+        padding: 24px 0 14px;
     }
 
     .md-kicker {
@@ -472,7 +621,7 @@
 
     .md-subnav-item {
         flex: 1 1 50%;
-        position: static; /* Allows full-width dropdown */
+        position: static;
     }
 
     .md-subnav-toggle {
@@ -524,84 +673,49 @@
         border-bottom: none;
     }
 
-    /* Cards Mobile */
-    .md-card {
-        margin-bottom: 20px;
-        border-radius: 8px;
+    /* Content Card Mobile */
+    .arc-content-card {
+        padding: 24px 18px;
+        margin-bottom: 24px;
+        border-radius: 10px;
     }
 
-    .md-card-header {
-        padding: 12px 14px;
+    .arc-callout-box {
+        padding: 16px 18px;
     }
 
-    .md-card-title {
-        font-size: 0.95rem;
-        gap: 8px;
+    .arc-callout-text {
+        font-size: 0.92rem;
     }
 
-    .md-badge-count {
-        font-size: 0.72rem;
-        padding: 2px 8px;
+    .arc-prose {
+        font-size: 0.92rem;
+        line-height: 1.7;
+        margin-bottom: 24px;
     }
 
-    .md-row {
+    .arc-table-header-block {
         flex-direction: column;
-        align-items: stretch;
-        padding: 14px 14px;
-        gap: 12px;
-    }
-
-    .md-left {
-        width: 100%;
-        display: flex;
         align-items: flex-start;
         gap: 12px;
     }
 
-    .md-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 1.1rem;
-        margin-top: 2px;
-        border-radius: 6px;
-        flex-shrink: 0;
-    }
-
-    .md-details {
-        flex: 1;
-        min-width: 0;
-    }
-
-    .md-title-line {
-        margin-bottom: 3px;
-        gap: 6px;
-    }
-
-    .md-title {
-        font-size: 0.94rem;
-        line-height: 1.35;
-    }
-
-    .md-type-badge {
-        font-size: 0.65rem;
-        padding: 1px 6px;
-    }
-
-    .md-meta {
-        font-size: 0.78rem;
-        line-height: 1.45;
-        gap: 6px;
-    }
-
-    .md-right {
-        width: 100%;
-    }
-
-    .md-view-btn {
+    .arc-download-btn {
         width: 100%;
         justify-content: center;
-        padding: 10px 14px;
-        font-size: 0.86rem;
         box-sizing: border-box;
+    }
+
+    .arc-table th, 
+    .arc-table td {
+        padding: 11px 12px;
+        font-size: 0.86rem;
+    }
+
+    .arc-helpline-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 18px;
     }
 }
