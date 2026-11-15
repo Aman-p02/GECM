@@ -14,9 +14,17 @@ $disclosureCategories = [
     'Financial Statements'               => 'Financial Statements',
     'Accreditation'                      => 'Accreditation',
     'Institute Establishment Resolution' => 'Institute Establishment Resolution',
-    'RTI Booklet (2005)'                 => 'RTI Booklet (2005)',
-    'Other Statutory Disclosures'        => 'Other Statutory Disclosures'
+    'RTI Booklet (2005)'                 => 'RTI Booklet (2005)'
 ];
+
+// Clean up any legacy 'Other Statutory Disclosures' records from database
+if ($pdo) {
+    try {
+        $pdo->exec("DELETE FROM mandatory_disclosures WHERE category = 'Other Statutory Disclosures'");
+    } catch (Exception $e) {
+        // Table or record exception handled safely
+    }
+}
 
 // Handle Form Submissions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -35,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $category = trim($_POST['category'] ?? '');
         $is_active = isset($_POST['is_active']) ? 1 : 0;
 
-        if (empty($category)) {
-            setFlashMessage('danger', 'Please select a statutory category.');
+        if (empty($category) || !isset($disclosureCategories[$category])) {
+            setFlashMessage('danger', 'Please select a valid statutory category.');
             header('Location: mandatory-disclosure.php');
             exit;
         }
@@ -109,8 +117,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $fileSizeStr = ($bytes >= 1048576) ? (number_format($bytes / 1048576, 1) . ' MB') : (number_format($bytes / 1024, 0) . ' KB');
             $relativePath = 'uploads/disclosures/' . $cleanFilename;
 
-            $stmt = $pdo->prepare("INSERT INTO mandatory_disclosures (category, title, academic_year, file_path, file_size, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->execute([$category, $title, null, $relativePath, $fileSizeStr, 0, $is_active]);
+            $stmt = $pdo->prepare("INSERT INTO mandatory_disclosures (category, title, file_path, file_size, is_active) VALUES (?, ?, ?, ?, ?)");
+            $stmt->execute([$category, $title, $relativePath, $fileSizeStr, $is_active]);
 
             setFlashMessage('success', 'Document uploaded successfully as "' . htmlspecialchars($title) . '"!');
         } else {
@@ -127,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $is_active = isset($_POST['is_active']) ? 1 : 0;
         $existing_file = trim($_POST['existing_file'] ?? '');
 
-        if (empty($category) || $id <= 0) {
+        if (empty($category) || !isset($disclosureCategories[$category]) || $id <= 0) {
             setFlashMessage('danger', 'Valid ID and category are required.');
             header('Location: mandatory-disclosure.php');
             exit;

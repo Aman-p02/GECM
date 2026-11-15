@@ -14,7 +14,6 @@ if ($currentDoc === 'anti-ragging') {
 $active_page = 'mandatory-disclosure';
 $extra_css = 'css/mandatory-disclosure.css';
 require_once __DIR__ . '/includes/header.php';
-require_once __DIR__ . '/includes/db.php';
 
 // Committee & Disclosure Categories for Subnav Dropdowns
 $committeeItems = [
@@ -66,41 +65,27 @@ $disclosureItems = [
     <section class="md-hero">
         <div class="container md-container">
             <span class="md-kicker">INSTITUTIONAL STATUTORY BODIES</span>
-            <h1 class="md-heading"><a href="mandatory-disclosure.php" style="color: inherit; text-decoration: none;">Mandatory Disclosures &amp; Committees</a></h1>
+            <h1 class="md-heading"><a href="mandatory-disclosure.php" style="color: inherit; text-decoration: none;">Mandatory Disclosures &amp; Administration</a></h1>
         </div>
     </section>
 
     <!-- Top Horizontal Sub-Navbar with Dropdowns -->
-    <nav class="md-subnav-bar" aria-label="Committees and Disclosures Navigation">
+    <nav class="md-subnav-bar" aria-label="Administration and Disclosures Navigation">
         <div class="md-subnav-wrap">
             <ul class="md-subnav-list" role="navigation">
                 
-                <!-- Campus Committee Dropdown -->
+                <!-- Administration Dropdown -->
                 <li class="md-subnav-item has-dropdown">
                     <button type="button" class="md-subnav-toggle <?= in_array($currentDoc, ['anti-ragging', 'sexual-harassment', 'women-development-cell']) ? 'is-current' : '' ?>" aria-expanded="false" aria-haspopup="true">
-                        <span>Campus Committee</span>
+                        <span>Administration</span>
                         <i class="fas fa-chevron-down subnav-chevron"></i>
                     </button>
                     <ul class="md-subnav-dropdown" role="menu">
                         <?php foreach ($committeeItems as $cItem): ?>
                             <li role="none">
-                                <?php if ($cItem['slug'] === 'anti-ragging'): ?>
-                                    <a href="mandatory-disclosure.php?doc=anti-ragging" class="md-subnav-dd-link <?= ($currentDoc === 'anti-ragging') ? 'active' : '' ?>" role="menuitem">
-                                        <span><?= htmlspecialchars($cItem['title']) ?></span>
-                                    </a>
-                                <?php elseif ($cItem['slug'] === 'sexual-harassment'): ?>
-                                    <a href="mandatory-disclosure.php?doc=sexual-harassment" class="md-subnav-dd-link <?= ($currentDoc === 'sexual-harassment') ? 'active' : '' ?>" role="menuitem">
-                                        <span><?= htmlspecialchars($cItem['title']) ?></span>
-                                    </a>
-                                <?php elseif ($cItem['slug'] === 'women-development-cell'): ?>
-                                    <a href="mandatory-disclosure.php?doc=women-development-cell" class="md-subnav-dd-link <?= ($currentDoc === 'women-development-cell') ? 'active' : '' ?>" role="menuitem">
-                                        <span><?= htmlspecialchars($cItem['title']) ?></span>
-                                    </a>
-                                <?php else: ?>
-                                    <a href="disclosure-pdf.php?doc=<?= urlencode($cItem['slug']) ?>" target="_blank" rel="noopener noreferrer" class="md-subnav-dd-link" role="menuitem">
-                                        <span><?= htmlspecialchars($cItem['title']) ?></span>
-                                    </a>
-                                <?php endif; ?>
+                                <a href="mandatory-disclosure.php?doc=<?= urlencode($cItem['slug']) ?>" class="md-subnav-dd-link <?= ($currentDoc === $cItem['slug']) ? 'active' : '' ?>" role="menuitem">
+                                    <span><?= htmlspecialchars($cItem['title']) ?></span>
+                                </a>
                             </li>
                         <?php endforeach; ?>
                     </ul>

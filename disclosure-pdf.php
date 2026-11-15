@@ -7,12 +7,6 @@
 require_once __DIR__ . '/includes/db.php';
 
 $slugMap = [
-    // Campus Committees
-    'anti-ragging'            => 'Anti-Ragging Committee',
-    'sexual-harassment'       => 'Sexual Harassment Committee',
-    'women-development-cell'  => 'Women development Cell',
-
-    // Mandatory Disclosures
     'rti-proactive'           => 'RTI Pro-Active Disclosure',
     'aicte'                   => 'AICTE Mandatory Disclosure',
     'financial-statements'    => 'Financial Statements',
