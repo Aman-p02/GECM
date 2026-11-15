@@ -1,5 +1,5 @@
 <?php
-$page_title = "Right to Information (RTI) Act & Mandatory Disclosures | GEC Modasa";
+$page_title = "Committees & Mandatory Disclosures | GEC Modasa";
 $active_page = 'mandatory-disclosure';
 $extra_css = 'css/mandatory-disclosure.css';
 require_once __DIR__ . '/includes/header.php';
@@ -76,9 +76,15 @@ $disclosureItems = [
                     <ul class="md-subnav-dropdown" role="menu">
                         <?php foreach ($committeeItems as $cItem): ?>
                             <li role="none">
-                                <a href="disclosure-pdf.php?doc=<?= urlencode($cItem['slug']) ?>" target="_blank" rel="noopener noreferrer" class="md-subnav-dd-link" role="menuitem">
-                                    <span><?= htmlspecialchars($cItem['title']) ?></span>
-                                </a>
+                                <?php if ($cItem['slug'] === 'anti-ragging'): ?>
+                                    <a href="#anti-ragging" class="md-subnav-dd-link" role="menuitem">
+                                        <span><?= htmlspecialchars($cItem['title']) ?></span>
+                                    </a>
+                                <?php else: ?>
+                                    <a href="disclosure-pdf.php?doc=<?= urlencode($cItem['slug']) ?>" target="_blank" rel="noopener noreferrer" class="md-subnav-dd-link" role="menuitem">
+                                        <span><?= htmlspecialchars($cItem['title']) ?></span>
+                                    </a>
+                                <?php endif; ?>
                             </li>
                         <?php endforeach; ?>
                     </ul>
@@ -93,9 +99,15 @@ $disclosureItems = [
                     <ul class="md-subnav-dropdown" role="menu">
                         <?php foreach ($disclosureItems as $dItem): ?>
                             <li role="none">
-                                <a href="disclosure-pdf.php?doc=<?= urlencode($dItem['slug']) ?>" target="_blank" rel="noopener noreferrer" class="md-subnav-dd-link" role="menuitem">
-                                    <span><?= htmlspecialchars($dItem['title']) ?></span>
-                                </a>
+                                <?php if ($dItem['slug'] === 'rti-proactive'): ?>
+                                    <a href="#rti-act" class="md-subnav-dd-link" role="menuitem">
+                                        <span><?= htmlspecialchars($dItem['title']) ?></span>
+                                    </a>
+                                <?php else: ?>
+                                    <a href="disclosure-pdf.php?doc=<?= urlencode($dItem['slug']) ?>" target="_blank" rel="noopener noreferrer" class="md-subnav-dd-link" role="menuitem">
+                                        <span><?= htmlspecialchars($dItem['title']) ?></span>
+                                    </a>
+                                <?php endif; ?>
                             </li>
                         <?php endforeach; ?>
                     </ul>
@@ -109,25 +121,10 @@ $disclosureItems = [
     <div class="container md-container">
 
         <!-- RTI Act Institutional Card -->
-        <article class="rti-content-card">
-            
-            <!-- Breadcrumbs -->
-            <div class="rti-breadcrumb-wrap">
-                <nav class="rti-breadcrumb" aria-label="Breadcrumb">
-                    <a href="index.php"><i class="fas fa-home"></i> Home</a>
-                    <span class="sep">/</span>
-                    <a href="overview.php">About</a>
-                    <span class="sep">/</span>
-                    <span class="current">RTI Act</span>
-                </nav>
-                <div class="rti-tag-statutory">
-                    <span class="rti-kicker" style="margin-bottom:0;">GOVERNMENT OF INDIA &amp; GUJARAT</span>
-                </div>
-            </div>
+        <article class="rti-content-card" id="rti-act">
 
             <!-- Card Header -->
             <header class="rti-header-block">
-                <span class="rti-kicker">STATUTORY GOVERNANCE &amp; CITIZEN CHARTER</span>
                 <h2 class="rti-main-title">Right to Information (RTI) Act, 2005</h2>
             </header>
 
@@ -177,49 +174,104 @@ $disclosureItems = [
                 </div>
             </section>
 
-            <!-- Committee Members / Officers Section -->
-            <section class="rti-officers-section" aria-label="Designated RTI Committee Officers">
-                <div class="rti-officers-head">
-                    <div>
-                        <h3 class="rti-officers-title">Committee Members</h3>
-                        <p class="rti-officers-sub">Designated statutory officers for the Right to Information Cell at GEC Modasa.</p>
-                    </div>
-                </div>
+            <!-- Committee Members Section -->
+            <section class="rti-officers-section" aria-label="RTI Committee Members">
+                <h3 class="rti-officers-title">Committee Members</h3>
 
                 <div class="rti-officers-grid">
                     <!-- Coordinator Card -->
                     <div class="rti-officer-card">
-                        <span class="rti-officer-badge coord">Coordinator</span>
-                        <h4 class="rti-officer-name">Prof. D. A. Sagar</h4>
-                        <p class="rti-officer-dept">
-                            <i class="fas fa-university"></i> Assistant Professor &ndash; Applied Mechanics Dept.
-                        </p>
+                        <div class="rti-officer-avatar" aria-hidden="true">
+                            <span>DS</span>
+                        </div>
+                        <div class="rti-officer-info">
+                            <span class="rti-officer-role">Coordinator</span>
+                            <h4 class="rti-officer-name">Prof. D. A. Sagar</h4>
+                            <p class="rti-officer-dept">Assistant Professor &ndash; Applied Mechanics Dept.</p>
+                        </div>
                     </div>
 
                     <!-- Co-Coordinator Card -->
                     <div class="rti-officer-card">
-                        <span class="rti-officer-badge cocoord">Co-Coordinator</span>
-                        <h4 class="rti-officer-name">Prof. R. P. Khatri</h4>
-                        <p class="rti-officer-dept">
-                            <i class="fas fa-university"></i> Assistant Professor &ndash; General Dept.
-                        </p>
+                        <div class="rti-officer-avatar" aria-hidden="true">
+                            <span>RK</span>
+                        </div>
+                        <div class="rti-officer-info">
+                            <span class="rti-officer-role">Co-Coordinator</span>
+                            <h4 class="rti-officer-name">Prof. R. P. Khatri</h4>
+                            <p class="rti-officer-dept">Assistant Professor &ndash; General Dept.</p>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Direct PDF Access Strip -->
-                <div class="rti-doc-strip">
-                    <div class="rti-doc-info">
-                        <div class="rti-doc-icon">
-                            <i class="fas fa-file-pdf"></i>
+        </article>
+
+        <!-- Anti-Ragging Committee Institutional Card -->
+        <article class="rti-content-card" id="anti-ragging">
+
+            <!-- Card Header -->
+            <header class="rti-header-block">
+                <h2 class="rti-main-title">Anti-Ragging Committee</h2>
+            </header>
+
+            <!-- Key Highlight Callout Box -->
+            <div class="rti-lead-box">
+                <p class="rti-lead-text">
+                    <strong>Zero Tolerance Mandate:</strong> Ragging is a serious offence that compromises student dignity and well-being. In strict compliance with the <strong>UGC Regulation on Curbing the Menace of Ragging in Higher Educational Institutions (2009)</strong>, Government Engineering College, Modasa maintains stringent preventive safeguards across academic departments and campus hostels. Both students and parents must submit statutory compliance undertakings at the time of admission.
+                </p>
+            </div>
+
+            <!-- Body Narrative -->
+            <div class="rti-prose">
+                <p>
+                    The Institute has established an Anti-Ragging Committee to ensure an entirely ragging-free campus. The committee is empowered to prohibit and strictly penalize any conduct—verbal, written, or physical—that involves teasing, discourtesy, rowdy or undisciplined behavior, or psychological harassment of freshers or any other students.
+                </p>
+                <p>
+                    Faculty squads conduct frequent monitoring across department buildings, laboratories, common gathering spaces, and student hostel facilities to provide immediate assistance, prevent any untoward incidents, and enforce statutory disciplinary actions.
+                </p>
+            </div>
+
+            <!-- Committee Members Section -->
+            <section class="rti-officers-section" aria-label="Anti-Ragging Committee Members">
+                <h3 class="rti-officers-title">Committee Members</h3>
+
+                <div class="rti-officers-grid">
+                    <!-- Coordinator Card -->
+                    <div class="rti-officer-card">
+                        <div class="rti-officer-avatar" aria-hidden="true">
+                            <span>US</span>
                         </div>
-                        <div>
-                            <p class="rti-doc-title">RTI Pro-Active Disclosure &amp; Statutory Booklet</p>
-                            <p class="rti-doc-sub">Official institutional document under Section 4(1)(b) of the Right to Information Act, 2005.</p>
+                        <div class="rti-officer-info">
+                            <span class="rti-officer-role">Coordinator</span>
+                            <h4 class="rti-officer-name">Prof. (Dr.) U. V. Shah</h4>
+                            <p class="rti-officer-dept">Prof. &amp; Head &ndash; Mech Engg. Dept.</p>
                         </div>
                     </div>
-                    <a href="disclosure-pdf.php?doc=rti-proactive" target="_blank" rel="noopener noreferrer" class="rti-doc-action-btn">
-                        <i class="fas fa-file-pdf"></i> View Official Disclosure (PDF)
-                    </a>
+
+                    <!-- Co-Coordinator Card -->
+                    <div class="rti-officer-card">
+                        <div class="rti-officer-avatar" aria-hidden="true">
+                            <span>PG</span>
+                        </div>
+                        <div class="rti-officer-info">
+                            <span class="rti-officer-role">Co-Coordinator</span>
+                            <h4 class="rti-officer-name">Prof. P. R. Gamit</h4>
+                            <p class="rti-officer-dept">Assistant Prof. &ndash; Computer Engg. Dept.</p>
+                        </div>
+                    </div>
+
+                    <!-- Members Card -->
+                    <div class="rti-officer-card">
+                        <div class="rti-officer-avatar" aria-hidden="true">
+                            <span>HT</span>
+                        </div>
+                        <div class="rti-officer-info">
+                            <span class="rti-officer-role">Members</span>
+                            <h4 class="rti-officer-name">All HoDs &amp; Hostel Team</h4>
+                            <p class="rti-officer-dept">Department Heads &amp; Hostel Wardens</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
