@@ -6,7 +6,7 @@
    ========================================================================== */
 
 .md-page-wrapper {
-    background-color: #f8fafc;
+    background-color: #ffffff;
     color: #1e293b;
     padding: 0 0 90px 0;
     min-height: 80vh;
@@ -283,18 +283,14 @@
     margin: 0;
 }
 
-/* Lead highlight box */
+/* Lead text */
 .rti-lead-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 22px 26px;
-    margin-bottom: 28px;
+    margin: 20px 0 24px 0;
 }
 
 .rti-lead-text {
-    font-size: 1.02rem;
-    line-height: 1.78;
+    font-size: 1.05rem;
+    line-height: 1.82;
     color: #1e293b;
     margin: 0;
 }
@@ -363,8 +359,8 @@
     align-items: flex-start;
     gap: 14px;
     padding: 13px 18px;
-    background: #f8fafc;
-    border: 1px solid #f1f5f9;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
 }
 
@@ -469,6 +465,64 @@
     color: #64748b;
     line-height: 1.4;
     margin: 0;
+}
+
+/* Vision & Mission Block in WDC */
+.wdc-vision-mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.wdc-vm-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 22px;
+}
+
+.wdc-vm-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 8px;
+}
+
+.wdc-vm-badge.mission {
+    color: #009dff;
+}
+
+.wdc-vm-text {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: #334155;
+    margin: 0;
+}
+
+/* WDC 2x2 Balanced Committee Grid */
+.wdc-officers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.wdc-email-link {
+    color: #009dff;
+    text-decoration: none;
+    font-size: 0.84rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.wdc-email-link:hover {
+    text-decoration: underline;
+    color: #0077cc;
 }
 
 /* ==========================================================================
@@ -958,8 +1012,7 @@
     }
 
     .rti-lead-box {
-        padding: 16px 18px;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
     }
 
     .rti-lead-text {
@@ -987,12 +1040,19 @@
         font-size: 0.88rem;
     }
 
-    .rti-officers-grid {
+    .rti-officers-grid,
+    .wdc-officers-grid {
         grid-template-columns: 1fr;
         gap: 14px;
     }
 
     .rti-officer-card {
         padding: 14px 16px;
+    }
+
+    .wdc-vision-mission-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 24px;
     }
 }

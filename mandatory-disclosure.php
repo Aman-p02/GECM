@@ -4,6 +4,8 @@ if ($currentDoc === 'anti-ragging') {
     $page_title = "Anti-Ragging Committee | GEC Modasa";
 } elseif ($currentDoc === 'sexual-harassment') {
     $page_title = "Sexual Harassment Prevention Committee | GEC Modasa";
+} elseif ($currentDoc === 'women-development-cell') {
+    $page_title = "Women Development Cell (WDC) | GEC Modasa";
 } else {
     $currentDoc = 'rti-proactive';
     $page_title = "Right to Information (RTI) Act | GEC Modasa";
@@ -75,7 +77,7 @@ $disclosureItems = [
                 
                 <!-- Campus Committee Dropdown -->
                 <li class="md-subnav-item has-dropdown">
-                    <button type="button" class="md-subnav-toggle <?= in_array($currentDoc, ['anti-ragging', 'sexual-harassment']) ? 'is-current' : '' ?>" aria-expanded="false" aria-haspopup="true">
+                    <button type="button" class="md-subnav-toggle <?= in_array($currentDoc, ['anti-ragging', 'sexual-harassment', 'women-development-cell']) ? 'is-current' : '' ?>" aria-expanded="false" aria-haspopup="true">
                         <span>Campus Committee</span>
                         <i class="fas fa-chevron-down subnav-chevron"></i>
                     </button>
@@ -88,6 +90,10 @@ $disclosureItems = [
                                     </a>
                                 <?php elseif ($cItem['slug'] === 'sexual-harassment'): ?>
                                     <a href="mandatory-disclosure.php?doc=sexual-harassment" class="md-subnav-dd-link <?= ($currentDoc === 'sexual-harassment') ? 'active' : '' ?>" role="menuitem">
+                                        <span><?= htmlspecialchars($cItem['title']) ?></span>
+                                    </a>
+                                <?php elseif ($cItem['slug'] === 'women-development-cell'): ?>
+                                    <a href="mandatory-disclosure.php?doc=women-development-cell" class="md-subnav-dd-link <?= ($currentDoc === 'women-development-cell') ? 'active' : '' ?>" role="menuitem">
                                         <span><?= htmlspecialchars($cItem['title']) ?></span>
                                     </a>
                                 <?php else: ?>
@@ -284,6 +290,128 @@ $disclosureItems = [
                                 <span class="rti-officer-role">Members</span>
                                 <h4 class="rti-officer-name">All HoDs</h4>
                                 <p class="rti-officer-dept">Heads of Academic Departments</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </article>
+
+        <?php elseif ($currentDoc === 'women-development-cell'): ?>
+            <!-- Women Development Cell Institutional Card -->
+            <article class="rti-content-card" id="women-development-cell">
+
+                <!-- Card Header -->
+                <header class="rti-header-block">
+                    <h2 class="rti-main-title">Women Development Cell (WDC)</h2>
+                </header>
+
+                <!-- Lead Text -->
+                <div class="rti-lead-box">
+                    <p class="rti-lead-text">
+                        In congruence with the directives of the <strong>University Grants Commission (UGC)</strong> and <strong>Gujarat Technological University (GTU)</strong>, Government Engineering College, Modasa has established an active <strong>Women Development Cell (WDC)</strong>. The cell is dedicated to empowering women and maintaining a dignified, congenial academic and work environment where girl students, female faculty, and staff members can study, innovate, and realize their full potential.
+                    </p>
+                </div>
+
+                <!-- Vision & Mission Block -->
+                <div class="wdc-vision-mission-grid">
+                    <div class="wdc-vm-card">
+                        <span class="wdc-vm-badge vision">Vision</span>
+                        <p class="wdc-vm-text">Strengthen the status of women and facilitate a congenial, dignified working and learning environment.</p>
+                    </div>
+                    <div class="wdc-vm-card">
+                        <span class="wdc-vm-badge mission">Mission</span>
+                        <p class="wdc-vm-text">To create an effective framework and sustainable practices ensuring equal rights and opportunities for women in the family, community, workplace, and in governance.</p>
+                    </div>
+                </div>
+
+                <!-- Key Objectives Section -->
+                <section class="rti-objectives-card" aria-label="Objectives of Women Development Cell">
+                    <h3 class="rti-section-heading">
+                        <i class="fas fa-bullseye"></i> Statutory Objectives
+                    </h3>
+                    <div class="rti-objectives-grid">
+                        <div class="rti-objective-item">
+                            <span class="rti-obj-num">1</span>
+                            <p class="rti-obj-text">Organize seminars and expert lectures for female students and faculties on health, safety, and essential life skills.</p>
+                        </div>
+                        <div class="rti-objective-item">
+                            <span class="rti-obj-num">2</span>
+                            <p class="rti-obj-text">Create proactive social awareness among female staff members and students regarding rights, gender equity, and campus safety.</p>
+                        </div>
+                        <div class="rti-objective-item">
+                            <span class="rti-obj-num">3</span>
+                            <p class="rti-obj-text">Inspire and motivate female students toward innovation, entrepreneurship, and startups aligned with the "Aatma Nirbhar Bharat" initiative.</p>
+                        </div>
+                        <div class="rti-objective-item">
+                            <span class="rti-obj-num">4</span>
+                            <p class="rti-obj-text">Provide opportunities and programs enabling girls and female staff to be financially, mentally, and emotionally empowered to foster individual growth.</p>
+                        </div>
+                        <div class="rti-objective-item">
+                            <span class="rti-obj-num">5</span>
+                            <p class="rti-obj-text">Provide personal, confidential counseling for both resident hostelites and day-scholar female students.</p>
+                        </div>
+                        <div class="rti-objective-item">
+                            <span class="rti-obj-num">6</span>
+                            <p class="rti-obj-text">Maintain an active forum for discussion, leadership guidance, and interactive mentoring with eminent women achievers.</p>
+                        </div>
+                        <div class="rti-objective-item">
+                            <span class="rti-obj-num">7</span>
+                            <p class="rti-obj-text">Encourage proactive participation in collegiate and community development activities designed for women's holistic advancement.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Committee Members Section -->
+                <section class="rti-officers-section" aria-label="Women Development Cell Committee Members">
+                    <h3 class="rti-officers-title">Committee Members</h3>
+
+                    <div class="rti-officers-grid wdc-officers-grid">
+                        <!-- Member 1 -->
+                        <div class="rti-officer-card">
+                            <div class="rti-officer-avatar" aria-hidden="true">
+                                <span>SR</span>
+                            </div>
+                            <div class="rti-officer-info">
+                                <span class="rti-officer-role">EC Dept.</span>
+                                <h4 class="rti-officer-name">Prof. S. K. Rana</h4>
+                                <p class="rti-officer-dept">Assistant Professor &bull; <a href="mailto:shilprana@gmail.com" class="wdc-email-link"><i class="far fa-envelope" aria-hidden="true"></i> shilprana@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Member 2 -->
+                        <div class="rti-officer-card">
+                            <div class="rti-officer-avatar" aria-hidden="true">
+                                <span>TS</span>
+                            </div>
+                            <div class="rti-officer-info">
+                                <span class="rti-officer-role">Electrical Dept.</span>
+                                <h4 class="rti-officer-name">Prof. Trushna P. Shah</h4>
+                                <p class="rti-officer-dept">Assistant Professor &bull; <a href="mailto:trushnaelect@gmail.com" class="wdc-email-link"><i class="far fa-envelope" aria-hidden="true"></i> trushnaelect@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Member 3 -->
+                        <div class="rti-officer-card">
+                            <div class="rti-officer-avatar" aria-hidden="true">
+                                <span>RP</span>
+                            </div>
+                            <div class="rti-officer-info">
+                                <span class="rti-officer-role">Computer Dept.</span>
+                                <h4 class="rti-officer-name">Prof. Rinkal Prajapati</h4>
+                                <p class="rti-officer-dept">Assistant Professor &bull; <a href="mailto:rinkal10feb@gmail.com" class="wdc-email-link"><i class="far fa-envelope" aria-hidden="true"></i> rinkal10feb@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Member 4 -->
+                        <div class="rti-officer-card">
+                            <div class="rti-officer-avatar" aria-hidden="true">
+                                <span>HT</span>
+                            </div>
+                            <div class="rti-officer-info">
+                                <span class="rti-officer-role">Civil Dept.</span>
+                                <h4 class="rti-officer-name">Prof. Hinal Thakar</h4>
+                                <p class="rti-officer-dept">Assistant Professor &bull; <a href="mailto:hinal_thakar@rediffmail.com" class="wdc-email-link"><i class="far fa-envelope" aria-hidden="true"></i> hinal_thakar@rediffmail.com</a></p>
                             </div>
                         </div>
                     </div>
