@@ -25,7 +25,7 @@
    Page Hero Section
    ========================================================================== */
 .md-hero {
-    padding: 44px 0 20px;
+    padding: 40px 0 24px;
 }
 
 .md-kicker {
@@ -45,7 +45,7 @@
     color: #0f172a;
     line-height: 1.18;
     letter-spacing: -0.025em;
-    margin: 0 0 12px 0;
+    margin: 0;
 }
 
 .md-lead {
@@ -128,12 +128,14 @@
 }
 
 .md-subnav-toggle:hover,
-.md-subnav-item.is-open .md-subnav-toggle {
+.md-subnav-item.is-open .md-subnav-toggle,
+.md-subnav-toggle.is-current {
     color: #009dff;
 }
 
 .md-subnav-toggle:hover::after,
-.md-subnav-item.is-open .md-subnav-toggle::after {
+.md-subnav-item.is-open .md-subnav-toggle::after,
+.md-subnav-toggle.is-current::after {
     width: calc(100% - 16px);
 }
 
@@ -234,11 +236,13 @@
     transition: background-color 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
 }
 
-.md-subnav-dd-link:hover {
-    background-color: #f8fafc;
+.md-subnav-dd-link:hover,
+.md-subnav-dd-link.active {
+    background-color: #f0f9ff;
     color: #009dff;
     padding-left: 22px;
     text-decoration: none;
+    font-weight: 600;
 }
 
 /* ==========================================================================
@@ -868,7 +872,8 @@
     }
 
     .md-subnav-toggle:hover,
-    .md-subnav-item.is-open .md-subnav-toggle {
+    .md-subnav-item.is-open .md-subnav-toggle,
+    .md-subnav-toggle.is-current {
         background: #eff6ff;
         border-color: #bfdbfe;
         color: #009dff;
