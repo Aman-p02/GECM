@@ -1,5 +1,5 @@
 <?php
-$page_title = "Anti-Ragging Committee & Mandatory Disclosures | GEC Modasa";
+$page_title = "Right to Information (RTI) Act & Mandatory Disclosures | GEC Modasa";
 $active_page = 'mandatory-disclosure';
 $extra_css = 'css/mandatory-disclosure.css';
 require_once __DIR__ . '/includes/header.php';
@@ -108,101 +108,118 @@ $disclosureItems = [
     <!-- Main Content Container -->
     <div class="container md-container">
 
-        <!-- Anti-Ragging Committee Institutional Card -->
-        <article class="arc-content-card">
+        <!-- RTI Act Institutional Card -->
+        <article class="rti-content-card">
             
             <!-- Breadcrumbs -->
-            <nav class="arc-breadcrumb" aria-label="Breadcrumb">
-                <a href="index.php"><i class="fas fa-home"></i> Home</a>
-                <span class="sep">/</span>
-                <a href="overview.php">About</a>
-                <span class="sep">/</span>
-                <span class="current">Anti-Ragging Committee</span>
-            </nav>
+            <div class="rti-breadcrumb-wrap">
+                <nav class="rti-breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.php"><i class="fas fa-home"></i> Home</a>
+                    <span class="sep">/</span>
+                    <a href="overview.php">About</a>
+                    <span class="sep">/</span>
+                    <span class="current">RTI Act</span>
+                </nav>
+                <div class="rti-tag-statutory">
+                    <span class="rti-kicker" style="margin-bottom:0;">GOVERNMENT OF INDIA &amp; GUJARAT</span>
+                </div>
+            </div>
 
             <!-- Card Header -->
-            <header class="arc-header-block">
-                <span class="arc-kicker">CAMPUS STATUTORY BODY</span>
-                <h2 class="arc-main-title">Anti-Ragging Committee</h2>
+            <header class="rti-header-block">
+                <span class="rti-kicker">STATUTORY GOVERNANCE &amp; CITIZEN CHARTER</span>
+                <h2 class="rti-main-title">Right to Information (RTI) Act, 2005</h2>
             </header>
 
-            <!-- Institutional Zero Tolerance Notice Box -->
-            <div class="arc-callout-box">
-                <div class="arc-callout-badge">
-                    <i class="fas fa-shield-alt"></i> ZERO TOLERANCE POLICY
-                </div>
-                <p class="arc-callout-text">
-                    Government Engineering College, Modasa adheres strictly to regulatory norms to ensure an entirely ragging-free campus. Any conduct that compromises student dignity or safety is met with immediate disciplinary and statutory action.
+            <!-- Key Highlight Callout Box -->
+            <div class="rti-lead-box">
+                <p class="rti-lead-text">
+                    The <strong>Right to Information Act 2005</strong> mandates timely responses to citizen requests for government information. An initiative by the <strong>Department of Personnel and Training (DoPT)</strong>, Ministry of Personnel, Public Grievances and Pensions, it provides an official RTI Portal Gateway enabling citizens to quickly access details of First Appellate Authorities, Public Information Officers (PIOs), and statutory proactive disclosures across the Government of India and the Government of Gujarat.
                 </p>
             </div>
 
             <!-- Body Narrative -->
-            <div class="arc-prose">
+            <div class="rti-prose">
                 <p>
-                    Ragging undermines individual dignity and disrupts the academic and emotional well-being of students. In adherence to national educational regulations established to curb this menace, Government Engineering College, Modasa maintains stringent preventive safeguards across all institutional blocks and student hostel facilities. Both students and their parents are required to submit formal compliance undertakings at the time of admission.
+                    The fundamental object of the <strong>Right to Information Act</strong> is to empower citizens, promote transparency and accountability in the working of the Government, contain corruption, and make our democracy work for the people in real sense. An informed citizen is better equipped to keep necessary vigil on the instruments of governance and make the government more accountable to the governed.
                 </p>
                 <p>
-                    The Institute Anti-Ragging Committee is empowered to supervise campus activities, investigate complaints impartially, and take prompt punitive steps against any form of harassment, verbal misconduct, physical rudeness, or intimidating behaviour. Faculty squads conduct frequent monitoring across hostel zones and common areas to safeguard a welcoming and dignified learning environment for all newcomers.
+                    In accordance with statutory mandates, Government Engineering College, Modasa adheres strictly to Section 4(1)(b) proactive disclosures, ensuring organized dissemination of official records, administrative decisions, academic circulars, and committee proceedings.
                 </p>
             </div>
 
-            <!-- Committee Members Table Section -->
-            <section class="arc-table-section" aria-label="Anti-Ragging Committee Members">
-                <div class="arc-table-header-block">
-                    <div>
-                        <h3 class="arc-table-title">Anti Ragging Committee Members</h3>
-                        <p class="arc-table-sub">Authorized institutional faculty members and supervisory authorities.</p>
+            <!-- Key Objectives Section -->
+            <section class="rti-objectives-card" aria-label="Key Objectives of RTI Act">
+                <h3 class="rti-section-heading">
+                    <i class="fas fa-bullseye"></i> Objectives of the RTI Act
+                </h3>
+                <div class="rti-objectives-grid">
+                    <div class="rti-objective-item">
+                        <span class="rti-obj-num">1</span>
+                        <p class="rti-obj-text">To promote transparency and accountability in the functioning of the government.</p>
                     </div>
-                    <a href="disclosure-pdf.php?doc=anti-ragging" target="_blank" rel="noopener noreferrer" class="arc-download-btn">
-                        <i class="fas fa-file-pdf"></i> View Official Notification (PDF)
-                    </a>
+                    <div class="rti-objective-item">
+                        <span class="rti-obj-num">2</span>
+                        <p class="rti-obj-text">To set up a practical regime for giving citizens access to information that is under the control of public authorities.</p>
+                    </div>
+                    <div class="rti-objective-item">
+                        <span class="rti-obj-num">3</span>
+                        <p class="rti-obj-text">To empower the citizens as the law will promote the participation of the citizens in official decisions that directly affect their lives.</p>
+                    </div>
+                    <div class="rti-objective-item">
+                        <span class="rti-obj-num">4</span>
+                        <p class="rti-obj-text">The effective implementation of RTI Act will build public trust in the government functioning.</p>
+                    </div>
+                    <div class="rti-objective-item">
+                        <span class="rti-obj-num">5</span>
+                        <p class="rti-obj-text">It will lead to effective and efficient records management techniques needed to facilitate the provision of information in response to public interest.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Committee Members / Officers Section -->
+            <section class="rti-officers-section" aria-label="Designated RTI Committee Officers">
+                <div class="rti-officers-head">
+                    <div>
+                        <h3 class="rti-officers-title">Committee Members</h3>
+                        <p class="rti-officers-sub">Designated statutory officers for the Right to Information Cell at GEC Modasa.</p>
+                    </div>
                 </div>
 
-                <div class="arc-table-container">
-                    <table class="arc-table">
-                        <thead>
-                            <tr>
-                                <th class="arc-sr-cell">Sr. No.</th>
-                                <th>Name of Faculty</th>
-                                <th>Designation</th>
-                                <th style="width: 170px;">Role</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="arc-sr-cell">1</td>
-                                <td class="arc-faculty-name">Prof. (Dr.) U. V. Shah</td>
-                                <td>Prof. &amp; Head, Mech Engg. Dept.</td>
-                                <td><span class="arc-role-badge coordinator">Coordinator</span></td>
-                            </tr>
-                            <tr>
-                                <td class="arc-sr-cell">2</td>
-                                <td class="arc-faculty-name">Prof. P. R. Gamit</td>
-                                <td>Assistant Prof., Computer Engg. Dept.</td>
-                                <td><span class="arc-role-badge cocoordinator">Co-coordinator</span></td>
-                            </tr>
-                            <tr>
-                                <td class="arc-sr-cell">3</td>
-                                <td class="arc-faculty-name">All Hods &amp; Hostel team</td>
-                                <td>Department Heads &amp; Hostel Wardens</td>
-                                <td><span class="arc-role-badge member">Members</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="rti-officers-grid">
+                    <!-- Coordinator Card -->
+                    <div class="rti-officer-card">
+                        <span class="rti-officer-badge coord">Coordinator</span>
+                        <h4 class="rti-officer-name">Prof. D. A. Sagar</h4>
+                        <p class="rti-officer-dept">
+                            <i class="fas fa-university"></i> Assistant Professor &ndash; Applied Mechanics Dept.
+                        </p>
+                    </div>
+
+                    <!-- Co-Coordinator Card -->
+                    <div class="rti-officer-card">
+                        <span class="rti-officer-badge cocoord">Co-Coordinator</span>
+                        <h4 class="rti-officer-name">Prof. R. P. Khatri</h4>
+                        <p class="rti-officer-dept">
+                            <i class="fas fa-university"></i> Assistant Professor &ndash; General Dept.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Assistance Helpline Strip -->
-                <div class="arc-helpline-strip">
-                    <div class="arc-helpline-info">
-                        <i class="fas fa-headset"></i>
+                <!-- Direct PDF Access Strip -->
+                <div class="rti-doc-strip">
+                    <div class="rti-doc-info">
+                        <div class="rti-doc-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
                         <div>
-                            <p class="arc-helpline-title">National Anti-Ragging Helpline (Toll-Free 24x7)</p>
-                            <p class="arc-helpline-sub">Free assistance, counseling, and grievance reporting</p>
+                            <p class="rti-doc-title">RTI Pro-Active Disclosure &amp; Statutory Booklet</p>
+                            <p class="rti-doc-sub">Official institutional document under Section 4(1)(b) of the Right to Information Act, 2005.</p>
                         </div>
                     </div>
-                    <div class="arc-helpline-number">
-                        1800-180-5522
-                    </div>
+                    <a href="disclosure-pdf.php?doc=rti-proactive" target="_blank" rel="noopener noreferrer" class="rti-doc-action-btn">
+                        <i class="fas fa-file-pdf"></i> View Official Disclosure (PDF)
+                    </a>
                 </div>
             </section>
 
