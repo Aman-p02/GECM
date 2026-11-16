@@ -30,7 +30,6 @@ if ($pdo) {
                     <i class="fas fa-newspaper" style="color: #009dff;" aria-hidden="true"></i>
                     <span>Published Issues</span>
                 </h2>
-                <span class="nl-count-badge"><?= count($newsletters) ?> Publications</span>
             </div>
 
             <?php if (empty($newsletters)): ?>

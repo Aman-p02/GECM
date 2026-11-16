@@ -579,8 +579,14 @@
 
     /* Sub-Navbar Mobile */
     .md-subnav-bar {
+        position: sticky;
+        top: 0 !important;
+        z-index: 999;
+        background: #ffffff !important;
         margin-bottom: 20px;
-        top: var(--site-main-nav-height, 50px);
+        border-top: none;
+        border-bottom: 1px solid #e2e8f0;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
     }
 
     .md-subnav-wrap {
