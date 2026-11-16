@@ -1,163 +1,414 @@
-/**
- * GEC Modasa - Rankings & Accreditations Stylesheet
- */
+/* ==========================================================================
+   Institutional Rankings & Surveys Stylesheet - GEC Modasa
+   Theme: Plus Jakarta Sans / Inter Typography
+   Colors: Institutional Orange (#ff8800), Accent Blue (#009dff), Slate (#0f172a / #1e293b)
+   Zero hover jitter, clean white surfaces, fully responsive
+   ========================================================================== */
 
 .rankings-page-wrapper {
-    background: #f8fafc;
-    padding: 36px 0 60px 0;
+    background-color: #ffffff;
+    color: #1e293b;
+    padding: 0 0 90px 0;
     min-height: 80vh;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.rankings-container {
-    max-width: 1140px;
+/* Container */
+.rnk-container {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
+    box-sizing: border-box;
 }
 
-.rankings-header {
+/* ==========================================================================
+   Page Hero Section
+   ========================================================================== */
+.rnk-hero {
+    padding: 40px 0 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.rnk-kicker {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 8px;
+}
+
+.rnk-title {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    margin: 0 0 8px 0;
+}
+
+.rnk-lead {
+    font-size: 1.02rem;
+    color: #475569;
+    line-height: 1.65;
+    max-width: 880px;
+    margin: 0;
+}
+
+/* Breadcrumbs */
+.rnk-breadcrumbs {
+    font-size: 0.84rem;
+    color: #64748b;
+    margin-top: 18px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.rnk-breadcrumbs a {
+    color: #009dff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.15s ease;
+}
+
+.rnk-breadcrumbs a:hover {
+    color: #0077c2;
+    text-decoration: underline;
+}
+
+.rnk-breadcrumbs .sep {
+    color: #cbd5e1;
+    font-size: 0.74rem;
+}
+
+.rnk-breadcrumbs .current {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Year Sticky Navigation Pills Bar
+   ========================================================================== */
+.rnk-year-nav {
+    position: sticky;
+    top: var(--site-main-nav-height, 52px);
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid #e2e8f0;
     border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 16px;
-    margin-bottom: 28px;
+    padding: 12px 0;
+    margin-bottom: 36px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+.rnk-year-pills {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding-bottom: 2px;
+}
+
+.rnk-pill {
+    flex: 0 0 auto;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    color: #334155;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    white-space: nowrap;
+}
+
+.rnk-pill:hover,
+.rnk-pill.is-active {
+    background: #009dff;
+    color: #ffffff;
+    border-color: #009dff;
+}
+
+/* ==========================================================================
+   Year-wise Block & Report Cards
+   ========================================================================== */
+.rnk-year-block {
+    margin-bottom: 44px;
+    scroll-margin-top: 120px;
+}
+
+.rnk-year-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #0f172a;
+    margin-bottom: 20px;
     flex-wrap: wrap;
     gap: 12px;
 }
 
-.rankings-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #1e293b;
-    margin: 0 0 6px 0;
-}
-
-.rankings-subtitle {
-    font-size: 14px;
-    color: #64748b;
+.rnk-year-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin: 0;
+    letter-spacing: -0.01em;
 }
 
-.rankings-breadcrumbs {
-    font-size: 12.5px;
+.rnk-year-title i {
+    color: #ff8800;
+    font-size: 1.25rem;
+}
+
+.rnk-year-count {
+    font-size: 0.82rem;
+    font-weight: 600;
     color: #64748b;
+    background: #f1f5f9;
+    padding: 4px 12px;
+    border-radius: 12px;
 }
 
-.rankings-breadcrumbs a {
-    color: #0284c7;
-    text-decoration: none;
+.rnk-reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.rankings-breadcrumbs a:hover {
-    text-decoration: underline;
-}
-
-.rankings-breadcrumbs .sep {
-    color: #cbd5e1;
-    margin: 0 6px;
-}
-
-.rankings-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 22px;
-    margin-top: 24px;
-}
-
-.ranking-card {
+.rnk-report-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
-    padding: 24px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 18px 22px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    gap: 18px;
+    transition: border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
 }
 
-.ranking-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.rnk-report-card:hover {
+    border-color: #009dff;
+    background-color: #f8fbff;
+    box-shadow: 0 2px 8px rgba(0, 157, 255, 0.08);
 }
 
-.ranking-card-top {
+.rnk-report-left {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 12px;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
 }
 
-.ranking-icon-box {
+.rnk-report-icon {
     width: 44px;
     height: 44px;
-    background: #fef3c7;
-    color: #d97706;
     border-radius: 8px;
+    background: #fee2e2;
+    color: #dc2626;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
+    flex-shrink: 0;
 }
 
-.ranking-badge {
-    background: #e0f2fe;
-    color: #0369a1;
-    font-size: 11.5px;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 12px;
+.rnk-report-info {
+    min-width: 0;
+    flex: 1;
 }
 
-.ranking-doc-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: #1e293b;
-    margin: 0 0 8px 0;
-    line-height: 1.4;
-}
-
-.ranking-doc-meta {
-    font-size: 13px;
-    color: #64748b;
-    margin-bottom: 20px;
-}
-
-.ranking-download-btn {
+.rnk-report-meta {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
-    background: #0284c7;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.rnk-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.rnk-badge-nirf {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.rnk-badge-year {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.rnk-report-size {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-left: 4px;
+}
+
+.rnk-report-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.45;
+    word-break: break-word;
+}
+
+.rnk-report-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.rnk-report-title a:hover {
+    color: #009dff;
+}
+
+.rnk-report-action {
+    flex-shrink: 0;
+}
+
+.rnk-btn-view {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    background: #009dff;
     color: #ffffff;
-    padding: 10px 18px;
     border-radius: 6px;
-    font-size: 13px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
-    transition: background 0.2s ease;
+    white-space: nowrap;
+    transition: background-color 0.18s ease;
 }
 
-.ranking-download-btn:hover {
-    background: #0369a1;
+.rnk-btn-view:hover {
+    background: #0084d6;
     color: #ffffff;
 }
 
-.rankings-empty-state {
-    background: #ffffff;
+.rnk-btn-pending {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: #f8fafc;
     border: 1px dashed #cbd5e1;
-    border-radius: 8px;
-    padding: 48px 24px;
-    text-align: center;
     color: #64748b;
-    margin: 30px 0;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
-.rankings-empty-state i {
-    font-size: 40px;
-    color: #94a3b8;
-    margin-bottom: 14px;
+/* ==========================================================================
+   Empty State
+   ========================================================================== */
+.rnk-empty-state {
+    background: #ffffff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    padding: 56px 24px;
+    text-align: center;
+    color: #64748b;
+    margin: 40px 0;
+}
+
+.rnk-empty-state i {
+    font-size: 42px;
+    color: #ff8800;
+    margin-bottom: 16px;
     display: block;
 }
 
+.rnk-empty-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+}
+
+.rnk-empty-text {
+    font-size: 0.95rem;
+    color: #64748b;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+    .rnk-container {
+        padding: 0 16px;
+    }
+
+    .rnk-hero {
+        padding: 24px 0 18px;
+    }
+
+    .rnk-title {
+        font-size: 1.65rem;
+    }
+
+    .rnk-lead {
+        font-size: 0.92rem;
+    }
+
+    .rnk-year-nav {
+        margin-bottom: 24px;
+    }
+
+    .rnk-report-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .rnk-report-action {
+        width: 100%;
+    }
+
+    .rnk-btn-view {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .rnk-btn-pending {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
