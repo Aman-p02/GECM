@@ -17,15 +17,6 @@ $disclosureCategories = [
     'RTI Booklet (2005)'                 => 'RTI Booklet (2005)'
 ];
 
-// Clean up any legacy 'Other Statutory Disclosures' records from database
-if ($pdo) {
-    try {
-        $pdo->exec("DELETE FROM mandatory_disclosures WHERE category = 'Other Statutory Disclosures'");
-    } catch (Exception $e) {
-        // Table or record exception handled safely
-    }
-}
-
 // Handle Form Submissions
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$pdo) {

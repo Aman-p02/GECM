@@ -1,4 +1,7 @@
 <?php
+if (ob_get_level() === 0) {
+    ob_start();
+}
 // Asset root path
 if (!isset($root_path)) {
     $root_path = '';

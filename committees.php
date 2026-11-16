@@ -12,27 +12,44 @@ $activeComm = null;
 $members = [];
 
 if ($pdo) {
-    $cStmt = $pdo->query("SELECT * FROM campus_committees ORDER BY display_order ASC, id ASC");
-    $allCommittees = $cStmt ? $cStmt->fetchAll() : [];
+    try {
+        $cStmt = $pdo->query("SELECT * FROM campus_committees ORDER BY id ASC");
+        $allCommittees = $cStmt ? $cStmt->fetchAll() : [];
 
-    // Find active committee by slug
-    foreach ($allCommittees as $c) {
-        if ($c['committee_slug'] === $currentSlug) {
-            $activeComm = $c;
-            break;
+        // Find active committee by slug
+        foreach ($allCommittees as $c) {
+            if ($c['committee_slug'] === $currentSlug) {
+                $activeComm = $c;
+                break;
+            }
         }
-    }
 
-    // Fallback to first if slug not matched
-    if (!$activeComm && !empty($allCommittees)) {
-        $activeComm = $allCommittees[0];
-        $currentSlug = $activeComm['committee_slug'];
-    }
+        // Fallback to first if slug not matched
+        if (!$activeComm && !empty($allCommittees)) {
+            $activeComm = $allCommittees[0];
+            $currentSlug = $activeComm['committee_slug'];
+        }
 
-    if ($activeComm) {
-        $mStmt = $pdo->prepare("SELECT * FROM committee_members WHERE committee_id = ? ORDER BY display_order ASC, sr_no ASC, id ASC");
-        $mStmt->execute([$activeComm['id']]);
-        $members = $mStmt->fetchAll();
+        if ($activeComm) {
+            // Self-heal committee_members table if missing
+            $pdo->exec("CREATE TABLE IF NOT EXISTS `committee_members` (
+                `id` INT AUTO_INCREMENT PRIMARY KEY,
+                `committee_id` INT NOT NULL,
+                `sr_no` INT DEFAULT 1,
+                `faculty_name` VARCHAR(255) NOT NULL,
+                `designation` VARCHAR(255) DEFAULT '',
+                `role` VARCHAR(150) DEFAULT 'Member',
+                `display_order` INT DEFAULT 0,
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                INDEX `idx_comm_id` (`committee_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
+            $mStmt = $pdo->prepare("SELECT * FROM committee_members WHERE committee_id = ? ORDER BY sr_no ASC, id ASC");
+            $mStmt->execute([$activeComm['id']]);
+            $members = $mStmt->fetchAll();
+        }
+    } catch (Exception $e) {
+        error_log("Error in committees.php: " . $e->getMessage());
     }
 }
 

@@ -24,28 +24,6 @@ if ($pdo) {
             INDEX `idx_rankings_year` (`academic_year`),
             INDEX `idx_rankings_order` (`display_order`, `id`)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
-
-        // Seed initial NIRF structure if table is completely empty
-        $count = $pdo->query("SELECT COUNT(*) FROM institute_rankings")->fetchColumn();
-        if ($count == 0) {
-            $defaultItems = [
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-ENGINEERING', 'academic_year' => '2025', 'ranking_body' => 'NIRF', 'display_order' => 1],
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-OVERALL', 'academic_year' => '2025', 'ranking_body' => 'NIRF', 'display_order' => 2],
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-ENGINEERING', 'academic_year' => '2024', 'ranking_body' => 'NIRF', 'display_order' => 1],
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-ENGINEERING', 'academic_year' => '2023', 'ranking_body' => 'NIRF', 'display_order' => 1],
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-OVERALL', 'academic_year' => '2023', 'ranking_body' => 'NIRF', 'display_order' => 2],
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-ENGINEERING', 'academic_year' => '2022', 'ranking_body' => 'NIRF', 'display_order' => 1],
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-OVERALL', 'academic_year' => '2022', 'ranking_body' => 'NIRF', 'display_order' => 2],
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-ENGINEERING', 'academic_year' => '2021', 'ranking_body' => 'NIRF', 'display_order' => 1],
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-OVERALL', 'academic_year' => '2021', 'ranking_body' => 'NIRF', 'display_order' => 2],
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-ENGINEERING', 'academic_year' => '2020', 'ranking_body' => 'NIRF', 'display_order' => 1],
-                ['title' => 'All Report-MHRD, National Institutional Ranking Framework (NIRF)-OVERALL', 'academic_year' => '2020', 'ranking_body' => 'NIRF', 'display_order' => 2],
-            ];
-            $seedStmt = $pdo->prepare("INSERT INTO institute_rankings (title, ranking_body, academic_year, file_path, file_size, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            foreach ($defaultItems as $item) {
-                $seedStmt->execute([$item['title'], $item['ranking_body'], $item['academic_year'], '#', 'PDF', $item['display_order'], 1]);
-            }
-        }
     } catch (Exception $e) {
         error_log("Error in institute_rankings setup: " . $e->getMessage());
     }
@@ -65,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'add') {
         $academic_year = trim($_POST['academic_year'] ?? '');
         $title = trim($_POST['title'] ?? '');
-        $ranking_body = trim($_POST['ranking_body'] ?? 'NIRF');
-        $display_order = (int)($_POST['display_order'] ?? 0);
+        $ranking_body = 'NIRF';
+        $display_order = 0;
         $is_active = isset($_POST['is_active']) ? 1 : 0;
 
         if (empty($academic_year)) {
@@ -106,8 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = (int)($_POST['id'] ?? 0);
         $academic_year = trim($_POST['academic_year'] ?? '');
         $title = trim($_POST['title'] ?? '');
-        $ranking_body = trim($_POST['ranking_body'] ?? 'NIRF');
-        $display_order = (int)($_POST['display_order'] ?? 0);
+        $ranking_body = 'NIRF';
+        $display_order = 0;
         $is_active = isset($_POST['is_active']) ? 1 : 0;
         $existing_file = trim($_POST['existing_file'] ?? '');
 
@@ -238,59 +216,21 @@ require_once __DIR__ . '/includes/header.php';
                 <input type="hidden" name="existing_file" value="<?= htmlspecialchars($editItem['file_path']) ?>">
             <?php endif; ?>
 
-            <!-- Row 1: Year, Agency & Quick Suggestions -->
-            <div style="display: grid; grid-template-columns: 1.2fr 1.5fr 2fr; gap: 16px; margin-bottom: 14px;">
+            <!-- Row 1: Year & Document Title -->
+            <div style="display: grid; grid-template-columns: 1.2fr 2.8fr; gap: 16px; margin-bottom: 14px;">
                 <div class="form-group" style="margin-bottom: 0;">
                     <label class="form-label" style="font-weight: 600;">Ranking Year <span style="color: #ef4444;">*</span></label>
-                    <input type="text" list="yearList" name="academic_year" id="academic_year" class="form-control" placeholder="e.g. 2025" required value="<?= htmlspecialchars($editItem['academic_year'] ?? '2025') ?>">
-                    <datalist id="yearList">
-                        <option value="2026">
-                        <option value="2025">
-                        <option value="2024">
-                        <option value="2023">
-                        <option value="2022">
-                        <option value="2021">
-                        <option value="2020">
-                    </datalist>
-                    <div style="display: flex; gap: 5px; margin-top: 6px; flex-wrap: wrap;">
-                        <?php foreach (['2026', '2025', '2024', '2023', '2022', '2021', '2020'] as $yrOption): ?>
-                            <button type="button" class="btn btn-sm btn-light" style="padding: 1px 7px; font-size: 11px; font-weight: 600;" onclick="document.getElementById('academic_year').value='<?= $yrOption ?>';">
-                                <?= $yrOption ?>
-                            </button>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label class="form-label" style="font-weight: 600;">Agency / Body</label>
-                    <input type="text" list="agencyList" name="ranking_body" class="form-control" placeholder="e.g. NIRF" value="<?= htmlspecialchars($editItem['ranking_body'] ?? 'NIRF') ?>">
-                    <datalist id="agencyList">
-                        <option value="NIRF">
-                        <option value="GSIRF">
-                        <option value="NBA">
-                        <option value="AICTE">
-                    </datalist>
+                    <input type="text" name="academic_year" id="academic_year" class="form-control" placeholder="e.g. 2025" required value="<?= htmlspecialchars($editItem['academic_year'] ?? '2025') ?>">
                 </div>
 
                 <div class="form-group" style="margin-bottom: 0;">
                     <label class="form-label" style="font-weight: 600;">Document Title</label>
                     <input type="text" name="title" id="ranking_title" class="form-control" placeholder="e.g. All Report-MHRD, NIRF-ENGINEERING" value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
-                    <div style="display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap;">
-                        <button type="button" class="btn btn-sm btn-light" style="padding: 1px 7px; font-size: 11px;" onclick="document.getElementById('ranking_title').value='All Report-MHRD, National Institutional Ranking Framework (NIRF)-ENGINEERING';">
-                            + NIRF Engineering
-                        </button>
-                        <button type="button" class="btn btn-sm btn-light" style="padding: 1px 7px; font-size: 11px;" onclick="document.getElementById('ranking_title').value='All Report-MHRD, National Institutional Ranking Framework (NIRF)-OVERALL';">
-                            + NIRF Overall
-                        </button>
-                        <button type="button" class="btn btn-sm btn-light" style="padding: 1px 7px; font-size: 11px;" onclick="document.getElementById('ranking_title').value='Gujarat State Institutional Rating Framework (GSIRF) Report';">
-                            + GSIRF
-                        </button>
-                    </div>
                 </div>
             </div>
 
-            <!-- Row 2: File Upload, Order, Status -->
-            <div style="display: grid; grid-template-columns: 2fr 1fr auto; gap: 16px; margin-bottom: 20px; align-items: flex-start;">
+            <!-- Row 2: File Upload, Status -->
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 20px; align-items: flex-start;">
                 <div class="form-group" style="margin-bottom: 0;">
                     <label class="form-label" style="font-weight: 600;">Ranking Report PDF <?= ($editItem && !empty($editItem['file_path']) && $editItem['file_path'] !== '#') ? '' : '<span style="color: #ef4444;">*</span>' ?></label>
                     <input type="file" name="pdf_file" id="pdf_file" class="form-control" accept=".pdf" <?= ($editItem && !empty($editItem['file_path']) && $editItem['file_path'] !== '#') ? '' : 'required' ?> style="padding: 5px 8px; font-size: 13px;">
@@ -310,11 +250,6 @@ require_once __DIR__ . '/includes/header.php';
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
-                </div>
-
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label class="form-label" style="font-weight: 600;">Priority Order</label>
-                    <input type="number" name="display_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order'] ?? '0') ?>">
                 </div>
 
                 <div class="form-group" style="margin-bottom: 0; padding-top: 30px;">
@@ -350,7 +285,7 @@ require_once __DIR__ . '/includes/header.php';
                 <?php endforeach; ?>
             </select>
             <div style="width: 240px;">
-                <input type="text" class="form-control" placeholder="Search by title or agency..." data-table-search="rankingsTable" style="height: 36px; font-size: 13px;">
+                <input type="text" class="form-control" placeholder="Search by title..." data-table-search="rankingsTable" style="height: 36px; font-size: 13px;">
             </div>
         </div>
     </div>
@@ -362,7 +297,6 @@ require_once __DIR__ . '/includes/header.php';
                     <th style="width: 50px;">#</th>
                     <th style="width: 90px;">Year</th>
                     <th>Document Title</th>
-                    <th style="width: 110px;">Agency</th>
                     <th style="width: 140px;">File Status</th>
                     <th style="width: 90px;">Status</th>
                     <th style="width: 130px; text-align: right;">Actions</th>
@@ -371,7 +305,7 @@ require_once __DIR__ . '/includes/header.php';
             <tbody>
                 <?php if (empty($rankings)): ?>
                     <tr class="no-records-row">
-                        <td colspan="7" style="text-align: center; padding: 36px; color: #64748b;">
+                        <td colspan="6" style="text-align: center; padding: 36px; color: #64748b;">
                             <i class="fas fa-award" style="font-size: 32px; color: #cbd5e1; margin-bottom: 8px; display: block;"></i>
                             No ranking documents uploaded yet. Use the form above to add one.
                         </td>
@@ -387,11 +321,6 @@ require_once __DIR__ . '/includes/header.php';
                             </td>
                             <td style="font-weight: 600; color: #1e293b;">
                                 <?= htmlspecialchars($r['title']) ?>
-                            </td>
-                            <td>
-                                <span style="background: #f1f5f9; color: #475569; padding: 2px 7px; border-radius: 4px; font-size: 11.5px; font-weight: 600;">
-                                    <?= htmlspecialchars($r['ranking_body'] ?? 'NIRF') ?>
-                                </span>
                             </td>
                             <td>
                                 <?php if (!empty($r['file_path']) && $r['file_path'] !== '#'): ?>

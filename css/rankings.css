@@ -26,7 +26,8 @@
    ========================================================================== */
 .rnk-hero {
     padding: 40px 0 24px;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 36px;
 }
 
 .rnk-kicker {
@@ -46,116 +47,22 @@
     color: #0f172a;
     line-height: 1.18;
     letter-spacing: -0.025em;
-    margin: 0 0 8px 0;
-}
-
-.rnk-lead {
-    font-size: 1.02rem;
-    color: #475569;
-    line-height: 1.65;
-    max-width: 880px;
     margin: 0;
-}
-
-/* Breadcrumbs */
-.rnk-breadcrumbs {
-    font-size: 0.84rem;
-    color: #64748b;
-    margin-top: 18px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.rnk-breadcrumbs a {
-    color: #009dff;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    transition: color 0.15s ease;
-}
-
-.rnk-breadcrumbs a:hover {
-    color: #0077c2;
-    text-decoration: underline;
-}
-
-.rnk-breadcrumbs .sep {
-    color: #cbd5e1;
-    font-size: 0.74rem;
-}
-
-.rnk-breadcrumbs .current {
-    color: #0f172a;
-    font-weight: 600;
-}
-
-/* ==========================================================================
-   Year Sticky Navigation Pills Bar
-   ========================================================================== */
-.rnk-year-nav {
-    position: sticky;
-    top: var(--site-main-nav-height, 52px);
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 12px 0;
-    margin-bottom: 36px;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
-}
-
-.rnk-year-pills {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    overflow-x: auto;
-    scrollbar-width: thin;
-    padding-bottom: 2px;
-}
-
-.rnk-pill {
-    flex: 0 0 auto;
-    padding: 7px 16px;
-    border-radius: 20px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 600;
-    border: 1px solid #e2e8f0;
-    background: #ffffff;
-    color: #334155;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-    white-space: nowrap;
-}
-
-.rnk-pill:hover,
-.rnk-pill.is-active {
-    background: #009dff;
-    color: #ffffff;
-    border-color: #009dff;
 }
 
 /* ==========================================================================
    Year-wise Block & Report Cards
    ========================================================================== */
 .rnk-year-block {
-    margin-bottom: 44px;
-    scroll-margin-top: 120px;
+    margin-bottom: 40px;
 }
 
 .rnk-year-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #0f172a;
-    margin-bottom: 20px;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
     flex-wrap: wrap;
     gap: 12px;
 }
@@ -167,14 +74,8 @@
     color: #0f172a;
     display: flex;
     align-items: center;
-    gap: 10px;
     margin: 0;
     letter-spacing: -0.01em;
-}
-
-.rnk-year-title i {
-    color: #ff8800;
-    font-size: 1.25rem;
 }
 
 .rnk-year-count {
@@ -201,13 +102,13 @@
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-    transition: border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+    transition: none;
 }
 
 .rnk-report-card:hover {
-    border-color: #009dff;
-    background-color: #f8fbff;
-    box-shadow: 0 2px 8px rgba(0, 157, 255, 0.08);
+    border-color: #e2e8f0;
+    background-color: #ffffff;
+    box-shadow: none;
 }
 
 .rnk-report-left {
@@ -259,11 +160,6 @@
     color: #0369a1;
 }
 
-.rnk-badge-year {
-    background: #f1f5f9;
-    color: #475569;
-}
-
 .rnk-report-size {
     font-size: 0.78rem;
     color: #64748b;
@@ -299,7 +195,7 @@
     align-items: center;
     gap: 8px;
     padding: 9px 18px;
-    background: #009dff;
+    background: #ff8800;
     color: #ffffff;
     border-radius: 6px;
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -307,11 +203,11 @@
     font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
-    transition: background-color 0.18s ease;
+    transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
 .rnk-btn-view:hover {
-    background: #0084d6;
+    background: #009dff;
     color: #ffffff;
 }
 
@@ -375,18 +271,11 @@
 
     .rnk-hero {
         padding: 24px 0 18px;
+        margin-bottom: 24px;
     }
 
     .rnk-title {
         font-size: 1.65rem;
-    }
-
-    .rnk-lead {
-        font-size: 0.92rem;
-    }
-
-    .rnk-year-nav {
-        margin-bottom: 24px;
     }
 
     .rnk-report-card {
