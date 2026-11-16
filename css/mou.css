@@ -25,8 +25,8 @@
    Page Hero Section (Zero divider line)
    ========================================================================== */
 .mou-hero {
-    padding: 36px 0 16px;
-    margin-bottom: 24px;
+    padding: 38px 0 20px;
+    margin-bottom: 44px;
 }
 
 .mou-kicker {
@@ -107,7 +107,7 @@
     align-items: center;
     gap: 8px;
     flex-wrap: wrap;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .mou-badge {
