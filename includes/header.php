@@ -185,7 +185,7 @@ if (!isset($active_page)) {
                             <li><a href="<?= $root_path ?>council-of-heads.php" class="hdr-dd-link <?= ($active_page === 'council-of-heads') ? 'is-active active' : '' ?>">Council of Heads</a></li>
                             <li><a href="<?= $root_path ?>account-section.php" class="hdr-dd-link <?= ($active_page === 'account-section') ? 'is-active active' : '' ?>">Account Section</a></li>
                             <li><a href="<?= $root_path ?>hostel-mess.php" class="hdr-dd-link <?= ($active_page === 'hostel-mess') ? 'is-active active' : '' ?>">Hostel &amp; Mess</a></li>
-                            <li><a href="<?= $root_path ?>mandatory-disclosure.php?doc=anti-ragging" class="hdr-dd-link <?= ($active_page === 'mandatory-disclosure' && in_array($_GET['doc'] ?? '', ['anti-ragging', 'sexual-harassment', 'women-development-cell'])) ? 'is-active active' : '' ?>">Campus Committees</a></li>
+                            <li><a href="<?= $root_path ?>committees.php" class="hdr-dd-link <?= ($active_page === 'committees') ? 'is-active active' : '' ?>">Committees</a></li>
                         </ul>
                     </div>
                 </li>

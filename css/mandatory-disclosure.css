@@ -249,11 +249,11 @@
    RTI ACT & INSTITUTIONAL CONTENT CARD DESIGN SYSTEM
    ========================================================================== */
 .rti-content-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 40px 48px;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 10px 0 40px 0;
+    box-shadow: none;
     margin-bottom: 40px;
     scroll-margin-top: 110px;
 }
@@ -658,9 +658,11 @@
 
     /* RTI Content Card Mobile */
     .rti-content-card {
-        padding: 24px 18px;
+        padding: 0 0 24px 0;
         margin-bottom: 24px;
-        border-radius: 10px;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
     }
 
     .rti-lead-box {

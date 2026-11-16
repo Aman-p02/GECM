@@ -23,15 +23,8 @@ if ($pdo) {
             <h1 id="brHeading" class="br-heading">Information Brochures &amp; Reports</h1>
         </section>
 
-        <!-- Publications Card Container -->
+        <!-- Publications Container -->
         <section class="br-card" aria-label="Information Brochures and Reports">
-            <div class="br-card-header">
-                <h2 class="br-card-title">
-                    <i class="fas fa-book-open" style="color: #009dff;" aria-hidden="true"></i>
-                    <span>Published Brochures &amp; Reports</span>
-                </h2>
-            </div>
-
             <?php if (empty($brochures)): ?>
                 <div class="br-empty">
                     <i class="fas fa-book-open" aria-hidden="true"></i>

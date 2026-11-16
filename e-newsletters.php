@@ -23,15 +23,8 @@ if ($pdo) {
             <h1 id="nlHeading" class="nl-heading">E-Newsletters</h1>
         </section>
 
-        <!-- Publications Card Container -->
+        <!-- Publications Container -->
         <section class="nl-card" aria-label="E-Newsletter Publications">
-            <div class="nl-card-header">
-                <h2 class="nl-card-title">
-                    <i class="fas fa-newspaper" style="color: #009dff;" aria-hidden="true"></i>
-                    <span>Published Issues</span>
-                </h2>
-            </div>
-
             <?php if (empty($newsletters)): ?>
                 <div class="nl-empty">
                     <i class="fas fa-newspaper" aria-hidden="true"></i>
