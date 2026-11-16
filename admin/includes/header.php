@@ -54,6 +54,9 @@ $page_title = $page_title ?? 'Dashboard Overview';
                 $administrationPageItems = ['principal-profile', 'council-of-heads', 'account-section', 'hostel-mess', 'administration-committees'];
                 $isAdministrationActive = in_array($current_page, $administrationPageItems);
 
+                $studentCornerPageItems = ['student-chapters'];
+                $isStudentCornerActive = in_array($current_page, $studentCornerPageItems);
+
                 $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni', 'faculty-activities'];
                 $isMainPageActive = in_array($current_page, $mainPageItems);
 
@@ -146,6 +149,21 @@ $page_title = $page_title ?? 'Dashboard Overview';
                         <li class="submenu-item <?= ($current_page === 'administration-committees') ? 'active' : '' ?>">
                             <a href="administration-committees.php" class="submenu-link">
                                 <span>Committees</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Student Corner Accordion Dropdown -->
+                <li class="menu-item menu-item-has-submenu <?= $isStudentCornerActive ? 'active open' : '' ?>">
+                    <a href="javascript:void(0);" class="menu-link submenu-toggle" id="studentCornerMenuToggle">
+                        <span>Student Corner</span>
+                        <i class="fas fa-chevron-down submenu-arrow"></i>
+                    </a>
+                    <ul class="submenu-list">
+                        <li class="submenu-item <?= ($current_page === 'student-chapters') ? 'active' : '' ?>">
+                            <a href="student-chapters.php" class="submenu-link">
+                                <span>Student Chapters</span>
                             </a>
                         </li>
                     </ul>
