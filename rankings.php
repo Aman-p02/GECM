@@ -44,7 +44,6 @@ require_once __DIR__ . '/includes/header.php';
                             <h2 class="rnk-year-title">
                                 <span><?= htmlspecialchars($year) ?></span>
                             </h2>
-                            <span class="rnk-year-count"><?= count($reports) ?> <?= count($reports) === 1 ? 'Report' : 'Reports' ?></span>
                         </div>
 
                         <div class="rnk-reports-list">

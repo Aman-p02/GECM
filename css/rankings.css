@@ -25,9 +25,8 @@
    Page Hero Section
    ========================================================================== */
 .rnk-hero {
-    padding: 40px 0 24px;
-    border-bottom: 1px solid #e2e8f0;
-    margin-bottom: 36px;
+    padding: 36px 0 16px;
+    margin-bottom: 24px;
 }
 
 .rnk-kicker {

@@ -1,150 +1,256 @@
-/**
- * GEC Modasa - Memorandums of Understanding (MoU) Stylesheet
- */
+/* ==========================================================================
+   Institutional Memorandums of Understanding (MoU) Stylesheet - GEC Modasa
+   Theme: Plus Jakarta Sans / Inter Typography
+   Colors: Institutional Orange (#ff8800), Accent Blue (#009dff), Slate (#0f172a / #1e293b)
+   Zero hover jitter, clean white surfaces, fully responsive
+   ========================================================================== */
 
 .mou-page-wrapper {
-    background: #f8fafc;
-    padding: 36px 0 60px 0;
+    background-color: #ffffff;
+    color: #1e293b;
+    padding: 0 0 90px 0;
     min-height: 80vh;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Container */
 .mou-container {
-    max-width: 1140px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
+    box-sizing: border-box;
 }
 
-.mou-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 16px;
-    margin-bottom: 28px;
-    flex-wrap: wrap;
-    gap: 12px;
+/* ==========================================================================
+   Page Hero Section (Zero divider line)
+   ========================================================================== */
+.mou-hero {
+    padding: 36px 0 16px;
+    margin-bottom: 24px;
+}
+
+.mou-kicker {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 8px;
 }
 
 .mou-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #1e293b;
-    margin: 0 0 6px 0;
-}
-
-.mou-subtitle {
-    font-size: 14px;
-    color: #64748b;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
     margin: 0;
 }
 
-.mou-breadcrumbs {
-    font-size: 12.5px;
-    color: #64748b;
+/* ==========================================================================
+   MoU Report Cards & List
+   ========================================================================== */
+.mou-reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.mou-breadcrumbs a {
-    color: #0284c7;
-    text-decoration: none;
-}
-
-.mou-breadcrumbs a:hover {
-    text-decoration: underline;
-}
-
-.mou-breadcrumbs .sep {
-    color: #cbd5e1;
-    margin: 0 6px;
-}
-
-.mou-table-card {
+.mou-report-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    margin-top: 24px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    transition: none;
 }
 
-.mou-table-wrap {
-    width: 100%;
-    overflow-x: auto;
+.mou-report-card:hover {
+    border-color: #e2e8f0;
+    background-color: #ffffff;
+    box-shadow: none;
 }
 
-.mou-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13.5px;
+.mou-report-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
 }
 
-.mou-table th {
-    background-color: #f8fafc;
-    color: #334155;
-    font-weight: 700;
-    text-align: left;
-    padding: 14px 18px;
-    border-bottom: 1px solid #cbd5e1;
+.mou-report-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: #fee2e2;
+    color: #dc2626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
 }
 
-.mou-table td {
-    padding: 14px 18px;
-    border-bottom: 1px solid #f1f5f9;
-    color: #475569;
-    vertical-align: middle;
+.mou-report-info {
+    min-width: 0;
+    flex: 1;
 }
 
-.mou-table tr:last-child td {
-    border-bottom: none;
+.mou-report-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
 }
 
-.mou-table tr:hover td {
-    background-color: #fbfcfe;
-}
-
-.mou-category-badge {
-    background: #f0fdf4;
-    color: #166534;
-    font-size: 11.5px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 4px;
+.mou-badge {
     display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: #e0f2fe;
+    color: #0369a1;
 }
 
-.mou-download-btn {
+.mou-report-size {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-left: 4px;
+}
+
+.mou-report-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.45;
+    word-break: break-word;
+}
+
+.mou-report-action {
+    flex-shrink: 0;
+}
+
+/* Button starts Orange, turns Blue on hover */
+.mou-btn-view {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    background: #ff8800;
+    color: #ffffff;
+    border-radius: 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.mou-btn-view:hover {
+    background: #009dff;
+    color: #ffffff;
+}
+
+.mou-btn-pending {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: #0284c7;
-    color: #ffffff;
     padding: 7px 14px;
-    border-radius: 4px;
-    font-size: 12.5px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    color: #64748b;
+    border-radius: 6px;
+    font-size: 0.8rem;
     font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s ease;
+    white-space: nowrap;
 }
 
-.mou-download-btn:hover {
-    background: #0369a1;
-    color: #ffffff;
-}
-
+/* ==========================================================================
+   Empty State
+   ========================================================================== */
 .mou-empty-state {
     background: #ffffff;
     border: 1px dashed #cbd5e1;
-    border-radius: 8px;
-    padding: 48px 24px;
+    border-radius: 10px;
+    padding: 56px 24px;
     text-align: center;
     color: #64748b;
     margin: 30px 0;
 }
 
 .mou-empty-state i {
-    font-size: 40px;
-    color: #94a3b8;
+    font-size: 42px;
+    color: #cbd5e1;
     margin-bottom: 14px;
     display: block;
 }
 
+.mou-empty-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+}
+
+.mou-empty-text {
+    font-size: 0.92rem;
+    color: #64748b;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+    .mou-container {
+        padding: 0 16px;
+    }
+
+    .mou-hero {
+        padding: 24px 0 16px;
+        margin-bottom: 20px;
+    }
+
+    .mou-title {
+        font-size: 1.65rem;
+    }
+
+    .mou-report-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .mou-report-action {
+        width: 100%;
+    }
+
+    .mou-btn-view {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .mou-btn-pending {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
