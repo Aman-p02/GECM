@@ -21,9 +21,6 @@ if ($pdo) {
         <section class="br-hero" aria-labelledby="brHeading">
             <span class="br-kicker">INSTITUTIONAL PUBLICATIONS &amp; PROSPECTUS</span>
             <h1 id="brHeading" class="br-heading">Information Brochures &amp; Reports</h1>
-            <p class="br-lead">
-                Official information booklets, admission prospectus, annual institutional activity reports, student induction records, and college publications of Government Engineering College, Modasa.
-            </p>
         </section>
 
         <!-- Publications Card Container -->
@@ -33,7 +30,6 @@ if ($pdo) {
                     <i class="fas fa-book-open" style="color: #009dff;" aria-hidden="true"></i>
                     <span>Published Brochures &amp; Reports</span>
                 </h2>
-                <span class="br-count-badge"><?= count($brochures) ?> Publications</span>
             </div>
 
             <?php if (empty($brochures)): ?>
@@ -56,22 +52,6 @@ if ($pdo) {
                                         <?php if ($index === 0): ?>
                                             <span class="br-badge-latest">Latest</span>
                                         <?php endif; ?>
-                                    </div>
-                                    <div class="br-meta">
-                                        <?php if (!empty($b['academic_year'])): ?>
-                                            <span class="br-meta-item">
-                                                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-                                                <?= htmlspecialchars($b['academic_year']) ?>
-                                            </span>
-                                        <?php endif; ?>
-                                        <span class="br-meta-item">
-                                            <i class="fas fa-paperclip" aria-hidden="true"></i>
-                                            <?= htmlspecialchars($b['file_size'] ?? 'PDF') ?>
-                                        </span>
-                                        <span class="br-meta-item">
-                                            <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                                            <?= !empty($b['created_at']) ? date('M Y', strtotime($b['created_at'])) : 'Official Issue' ?>
-                                        </span>
                                     </div>
                                 </div>
                             </div>

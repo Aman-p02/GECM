@@ -1,8 +1,4 @@
 <?php
-$page_title = "Principal :: Government Engineering College, Modasa";
-$active_page = 'principal';
-$extra_css = 'css/principal.css';
-require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/db.php';
 
 // Fetch Principal Profile
@@ -11,16 +7,20 @@ $qualifications = [];
 $tabItems = [];
 
 if ($pdo) {
-    $stmt = $pdo->query("SELECT * FROM principal_profile LIMIT 1");
-    $profile = $stmt ? $stmt->fetch() : null;
+    try {
+        $stmt = $pdo->query("SELECT * FROM principal_profile LIMIT 1");
+        $profile = $stmt ? $stmt->fetch() : null;
 
-    $stmtQ = $pdo->query("SELECT * FROM principal_qualifications ORDER BY display_order ASC, id ASC");
-    $qualifications = $stmtQ ? $stmtQ->fetchAll() : [];
+        $stmtQ = $pdo->query("SELECT * FROM principal_qualifications ORDER BY display_order ASC, id ASC");
+        $qualifications = $stmtQ ? $stmtQ->fetchAll() : [];
 
-    $stmtT = $pdo->query("SELECT * FROM principal_tab_items ORDER BY display_order ASC, id DESC");
-    $allTabs = $stmtT ? $stmtT->fetchAll() : [];
-    foreach ($allTabs as $t) {
-        $tabItems[$t['tab_name']][] = $t;
+        $stmtT = $pdo->query("SELECT * FROM principal_tab_items ORDER BY display_order ASC, id DESC");
+        $allTabs = $stmtT ? $stmtT->fetchAll() : [];
+        foreach ($allTabs as $t) {
+            $tabItems[$t['tab_name']][] = $t;
+        }
+    } catch (Throwable $e) {
+        error_log("Principal profile load error: " . $e->getMessage());
     }
 }
 
@@ -34,6 +34,11 @@ $area_of_interest = $profile['area_of_interest'] ?? 'Production, Manufacturing, 
 $email = $profile['email'] ?? 'jeetendra.vadher@gecmodasa.ac.in';
 $website = $profile['website'] ?? 'http://www.gecmodasa.ac.in/';
 $photo_url = !empty($profile['photo_url']) ? $profile['photo_url'] : 'images/avatar_placeholder.svg';
+
+$page_title = "Principal :: Government Engineering College, Modasa";
+$active_page = 'principal';
+$extra_css = 'css/principal.css';
+require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="principal-profile-wrapper">

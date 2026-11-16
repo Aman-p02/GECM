@@ -21,9 +21,6 @@ if ($pdo) {
         <section class="nl-hero" aria-labelledby="nlHeading">
             <span class="nl-kicker">PUBLICATIONS &amp; ARCHIVES</span>
             <h1 id="nlHeading" class="nl-heading">E-Newsletters</h1>
-            <p class="nl-lead">
-                Official periodic institutional e-newsletters capturing academic milestones, departmental innovations, faculty research achievements, student campus life, and outreach initiatives.
-            </p>
         </section>
 
         <!-- Publications Card Container -->
