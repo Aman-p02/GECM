@@ -441,6 +441,37 @@ if ($pdo) {
 // Fetch Qualifications
 $qualifications = [];
 if ($pdo) {
+    $qChk = $pdo->query("SELECT COUNT(*) FROM principal_qualifications")->fetchColumn();
+    if ($qChk == 0) {
+        $defaultQuals = [
+            [
+                'qualification' => 'Ph.D.',
+                'university_board' => 'Hemchandracharya North Gujarat University (HNGU), Patan',
+                'year_of_passing' => '2014',
+                'percentage' => 'First Class',
+                'display_order' => 1
+            ],
+            [
+                'qualification' => 'M. Tech. (Mech – Manufacturing Engg.)',
+                'university_board' => 'Indian Institute of Technology (IIT), Madras',
+                'year_of_passing' => '2004',
+                'percentage' => '8.44 CGPA',
+                'display_order' => 2
+            ],
+            [
+                'qualification' => 'B.E. (Mechanical Engineering)',
+                'university_board' => 'Bhavnagar University, Gujarat',
+                'year_of_passing' => '1995',
+                'percentage' => 'First Class with Distinction',
+                'display_order' => 3
+            ]
+        ];
+        $insQ = $pdo->prepare("INSERT INTO principal_qualifications (qualification, university_board, year_of_passing, percentage, display_order) VALUES (?, ?, ?, ?, ?)");
+        foreach ($defaultQuals as $dq) {
+            $insQ->execute([$dq['qualification'], $dq['university_board'], $dq['year_of_passing'], $dq['percentage'], $dq['display_order']]);
+        }
+    }
+
     $stmt = $pdo->query("SELECT * FROM principal_qualifications ORDER BY display_order ASC, id ASC");
     $qualifications = $stmt ? $stmt->fetchAll() : [];
 }
@@ -546,6 +577,224 @@ if ($pdo) {
         $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('experience', ?, ?, ?, ?)");
         foreach ($initialExperience as $ie) {
             $insStmt->execute([$ie['title'], $ie['description'], $ie['extra_info'], $ie['display_order']]);
+        }
+    }
+
+    // Auto-seed achievements if not present
+    $achChk = $pdo->query("SELECT COUNT(*) FROM principal_tab_items WHERE tab_name = 'achievements'")->fetchColumn();
+    if ($achChk == 0) {
+        $initialAchievements = [
+            [
+                'title' => 'Patent for "Universal Centrifugal Casting Machine"',
+                'extra_info' => 'Granted',
+                'description' => 'Patent for "Universal Centrifugal Casting Machine" is Published in the Official Journal of The Patent Office. Publication Date: 17-12-2021, and Granted on 18/03/2024, Patent No: 528730, ID: 202121056480.',
+                'display_order' => 1
+            ],
+            [
+                'title' => 'Associate Dean, GTU',
+                'extra_info' => 'GTU',
+                'description' => 'Associate Dean, GTU from 25 May 2021 to 24 May 2024.',
+                'display_order' => 2
+            ],
+            [
+                'title' => 'Innovative Research Technologist & Dedicated Teaching Professional Awards',
+                'extra_info' => 'ISME, Chennai',
+                'description' => 'Received Innovative Research Technologist and Dedicated Teaching Professional Awards, ISME, Chennai Year-2021',
+                'display_order' => 3
+            ],
+            [
+                'title' => 'Global Faculty Award 2020',
+                'extra_info' => 'AKS Education, New Delhi',
+                'description' => 'Global Faculty Award 2020, AKS Education, New Delhi Year-2020',
+                'display_order' => 4
+            ],
+            [
+                'title' => 'Bharat Shiksharatan Award',
+                'extra_info' => 'Delhi',
+                'description' => 'Awarded Bharat Shiksharatan Award from Global Society for Health and Education Growth, Delhi, Year-2003.',
+                'display_order' => 5
+            ],
+            [
+                'title' => 'Nominated for Meritorious Educational Excellence Award',
+                'extra_info' => 'Delhi',
+                'description' => 'Nominated for the Meritorious Educational Excellence Award from Global Society for Health and Education Growth, Delhi, Year 2002-2003.',
+                'display_order' => 6
+            ],
+            [
+                'title' => 'Hari Ohm Ashram Prerit Bhaikaka Inter-University Smarak Trust Award',
+                'extra_info' => '1998',
+                'description' => 'Received Prestigious Hariohm Ashram PreritBhaikaka Inter-University Smarak Trust Award for the Best Publication of Petri nets Application to Project Management, Year-1998',
+                'display_order' => 7
+            ]
+        ];
+        $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('achievements', ?, ?, ?, ?)");
+        foreach ($initialAchievements as $ia) {
+            $insStmt->execute([$ia['title'], $ia['description'], $ia['extra_info'], $ia['display_order']]);
+        }
+    }
+
+    // Auto-seed dissertation if not present
+    $dissChk = $pdo->query("SELECT COUNT(*) FROM principal_tab_items WHERE tab_name = 'dissertation'")->fetchColumn();
+    if ($dissChk == 0) {
+        $initialDissertation = [
+            [
+                'title' => 'Mechanical Engineering',
+                'extra_info' => 'B M Trivedi',
+                'description' => "Year: 2017\nStudent: B M Trivedi\nDetails: Rai Uni Ahemedabad",
+                'display_order' => 1
+            ],
+            [
+                'title' => 'Laser Beam Cladding',
+                'extra_info' => 'Srushti Bhatt',
+                'description' => "Year: 2024\nStudent: Srushti Bhatt\nDetails: Pursuing (Admission 2024)",
+                'display_order' => 2
+            ],
+            [
+                'title' => 'SME Industry Energy',
+                'extra_info' => 'Meeta Chauhan',
+                'description' => "Year: 2025\nStudent: Meeta Chauhan\nDetails: Submitted",
+                'display_order' => 3
+            ],
+            [
+                'title' => 'Engineer to Order',
+                'extra_info' => 'Nimesh Soni',
+                'description' => "Year: 2024\nStudent: Nimesh Soni\nDetails: GTU Ahmedabad 2024",
+                'display_order' => 4
+            ],
+            [
+                'title' => 'Sheet Metal Working',
+                'extra_info' => 'Nimesh Patel',
+                'description' => "Year: 2023\nStudent: Nimesh Patel\nDetails: GTU Ahmedabad 2023",
+                'display_order' => 5
+            ],
+            [
+                'title' => 'Centrifugal Casting',
+                'extra_info' => 'Anand Patel',
+                'description' => "Year: 2023\nStudent: Anand Patel\nDetails: GTU Ahmedabad 2023",
+                'display_order' => 6
+            ],
+            [
+                'title' => 'Metal Matrix Composite',
+                'extra_info' => 'Mehul Mehta',
+                'description' => "Year: 2023\nStudent: Mehul Mehta\nDetails: GTU Ahmedabad 2023",
+                'display_order' => 7
+            ],
+            [
+                'title' => 'Nylone Gear teeth Analysis',
+                'extra_info' => 'Anand Kalani',
+                'description' => "Year: 2023\nStudent: Anand Kalani\nDetails: GTU Ahmedabad 2023",
+                'display_order' => 8
+            ],
+            [
+                'title' => 'Machining Vibration and Condition Monitoring',
+                'extra_info' => 'Narendra Patel',
+                'description' => "Year: 2021\nStudent: Narendra Patel\nDetails: GTU Ahmedabad 2021",
+                'display_order' => 9
+            ],
+            [
+                'title' => 'Analysis of heat transfer in conical shell and circular tube heat exchanger',
+                'extra_info' => 'Chirag Maradiya',
+                'description' => "Year: 2020\nStudent: Chirag Maradiya\nDetails: GTU Chandkheda -Ahmedabad (Completed 2020)",
+                'display_order' => 10
+            ],
+            [
+                'title' => 'Sustainability in Manufacturing Process in Steel Re-rolling Mills',
+                'extra_info' => 'Rita Jani',
+                'description' => "Year: 2020\nStudent: Rita Jani\nDetails: GTU Chandkheda- Ahmedabad (Completed 2020)",
+                'display_order' => 11
+            ],
+            [
+                'title' => 'Minimization of sand casting defects by predicting and analyzing the process parameters',
+                'extra_info' => 'Priyank Parekh',
+                'description' => "Year: 2019\nStudent: Priyank Parekh\nDetails: RK University Rajkot, (Completed 2019)",
+                'display_order' => 12
+            ],
+            [
+                'title' => 'Evaluate furan no-bake binder system for quality casting and environmental aspects Year of notification',
+                'extra_info' => 'Shailee Acharya',
+                'description' => "Year: 2017\nStudent: Shailee Acharya\nDetails: RK University Rajkot (Completed 2017)",
+                'display_order' => 13
+            ]
+        ];
+        $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('dissertation', ?, ?, ?, ?)");
+        foreach ($initialDissertation as $idiss) {
+            $insStmt->execute([$idiss['title'], $idiss['description'], $idiss['extra_info'], $idiss['display_order']]);
+        }
+    }
+
+    // Auto-seed membership if not present
+    $memChk = $pdo->query("SELECT COUNT(*) FROM principal_tab_items WHERE tab_name = 'membership'")->fetchColumn();
+    if ($memChk == 0) {
+        $initialMembership = [
+            [
+                'title' => 'Professional Member - ASME',
+                'extra_info' => 'ASME',
+                'description' => 'Professional Member - ASME, New York, ID 103778216., 05 May 2023',
+                'display_order' => 1
+            ],
+            [
+                'title' => 'Sr Member : SMISME',
+                'extra_info' => 'SMISME',
+                'description' => 'Sr Member : SMISME, SMISME20200207, 15 Feb 2020.',
+                'display_order' => 2
+            ],
+            [
+                'title' => 'Fellow : FSISRP',
+                'extra_info' => 'FSISRP',
+                'description' => 'Fellow : FSISRP, LM171899318, 15 Feb 2020',
+                'display_order' => 3
+            ],
+            [
+                'title' => 'Life Member : IA ENG',
+                'extra_info' => 'IA ENG',
+                'description' => 'Life Member : IA ENG, International Association of Engineers, Hong Kong,( M-245200)',
+                'display_order' => 4
+            ],
+            [
+                'title' => 'Member : ISTE',
+                'extra_info' => 'ISTE',
+                'description' => 'Member : ISTE, New Delhi (M-62770)',
+                'display_order' => 5
+            ],
+            [
+                'title' => 'Life Member : Institute of Engineers',
+                'extra_info' => 'IEI',
+                'description' => 'Life Member : Institute of Engineers, Kolkata(LM 146505-2)',
+                'display_order' => 6
+            ],
+            [
+                'title' => 'Life Member : Indian Institute of Industrial Engineering',
+                'extra_info' => 'IIIE',
+                'description' => 'Life Member : Indian Institute of Industrial Engineering, Mumbai (LM 9467)',
+                'display_order' => 7
+            ],
+            [
+                'title' => 'Life Fellow : Indian Institute of Production Engineers',
+                'extra_info' => 'IIPE',
+                'description' => 'Life Fellow : Indian Institute of Production Engineers, Bengaluru (W/LF/1364)',
+                'display_order' => 8
+            ]
+        ];
+        $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('membership', ?, ?, ?, ?)");
+        foreach ($initialMembership as $im) {
+            $insStmt->execute([$im['title'], $im['description'], $im['extra_info'], $im['display_order']]);
+        }
+    }
+
+    // Auto-seed patents if not present
+    $patChk = $pdo->query("SELECT COUNT(*) FROM principal_tab_items WHERE tab_name = 'patents'")->fetchColumn();
+    if ($patChk == 0) {
+        $initialPatents = [
+            [
+                'title' => 'Patent for Universal Centrifugal Casting Machine',
+                'extra_info' => 'Patent No: 528730',
+                'description' => 'Patent for "Universal Centrifugal Casting Machine" is Published in the Official Journal of The Patent Office. Publication Date: 17-12-2021, and Granted on 18/03/2024, Patent No: 528730, ID: 202121056480.',
+                'display_order' => 1
+            ]
+        ];
+        $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('patents', ?, ?, ?, ?)");
+        foreach ($initialPatents as $ip) {
+            $insStmt->execute([$ip['title'], $ip['description'], $ip['extra_info'], $ip['display_order']]);
         }
     }
 

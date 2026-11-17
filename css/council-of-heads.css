@@ -326,31 +326,105 @@
     }
 
     .coh-hero-banner {
-        padding: 24px 0 36px;
+        padding: 24px 0 28px;
+        margin-bottom: 32px;
+    }
+
+    .coh-heading {
+        font-size: 2.2rem;
+    }
+
+    .coh-tagline {
+        font-size: 1rem;
+    }
+
+    .coh-lead-intro {
+        font-size: 0.95rem;
+        padding-left: 14px;
         margin-bottom: 36px;
     }
 
-    .coh-stats-strip {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-
-    .coh-stat-num {
-        font-size: 2rem;
-    }
-
     .coh-exec-card {
-        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 20px;
+        gap: 16px;
+    }
+
+    .coh-exec-link {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .coh-section-block {
+        margin-bottom: 48px;
     }
 
     .coh-section-header h2 {
         font-size: 1.6rem;
     }
 
+    .coh-section-header p {
+        font-size: 0.92rem;
+    }
+
+    .coh-table-wrap {
+        border-radius: 6px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+    }
+
+    .coh-clean-table {
+        min-width: 580px; /* Preserve columnar readability on small touch screens */
+    }
+
     .coh-clean-table th,
     .coh-clean-table td {
         padding: 12px 14px;
-        font-size: 0.88rem;
+        font-size: 0.86rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .coh-container {
+        padding: 0 16px;
+    }
+
+    .coh-hero-banner {
+        padding: 20px 0 24px;
+        margin-bottom: 24px;
+    }
+
+    .coh-heading {
+        font-size: 1.85rem;
+    }
+
+    .coh-tagline {
+        font-size: 0.92rem;
+    }
+
+    .coh-exec-card {
+        padding: 16px;
+    }
+
+    .coh-exec-name {
+        font-size: 1.25rem;
+    }
+
+    .coh-section-header h2 {
+        font-size: 1.35rem;
+    }
+
+    .coh-clean-table th,
+    .coh-clean-table td {
+        padding: 10px 12px;
+        font-size: 0.82rem;
+    }
+
+    .coh-phone-link {
+        font-size: 0.86rem;
     }
 }
 
