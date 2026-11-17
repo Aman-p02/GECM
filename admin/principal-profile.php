@@ -150,6 +150,48 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $desc = implode("\n", $descLines);
             $extra_info = $bPublisher;
             $title = $bTitle;
+        } elseif ($tab_name === 'editorial') {
+            $edText = trim($_POST['editorial_text'] ?? $_POST['title'] ?? '');
+            $extra_info = trim($_POST['extra_info'] ?? '');
+            $order = (int)($_POST['display_order'] ?? 0);
+
+            if (empty($edText)) {
+                setFlashMessage('error', 'Editorial details cannot be empty!');
+                header('Location: principal-profile.php?tab=tab_items&subtab=editorial');
+                exit;
+            }
+
+            if ($order === 0) {
+                $maxStmt = $pdo->query("SELECT COALESCE(MAX(display_order), 0) + 1 FROM principal_tab_items WHERE tab_name = 'editorial'");
+                $order = (int)$maxStmt->fetchColumn();
+            }
+
+            $title = mb_substr($edText, 0, 250);
+            $desc = $edText;
+        } elseif ($tab_name === 'expert_talks') {
+            $title = trim($_POST['title'] ?? '');
+            $talkPlace = trim($_POST['talk_place'] ?? $_POST['extra_info'] ?? '');
+            $talkYear = trim($_POST['talk_year'] ?? '');
+            $talkDetails = trim($_POST['talk_details'] ?? '');
+            $order = (int)($_POST['display_order'] ?? 0);
+
+            if (empty($title)) {
+                setFlashMessage('error', 'Subject / Lecture Title is mandatory!');
+                header('Location: principal-profile.php?tab=tab_items&subtab=expert_talks');
+                exit;
+            }
+
+            if ($order === 0) {
+                $maxStmt = $pdo->query("SELECT COALESCE(MAX(display_order), 0) + 1 FROM principal_tab_items WHERE tab_name = 'expert_talks'");
+                $order = (int)$maxStmt->fetchColumn();
+            }
+
+            $descLines = [];
+            if (!empty($talkYear) && $talkYear !== '--' && $talkYear !== '-') $descLines[] = "Year: " . $talkYear;
+            if (!empty($talkPlace) && $talkPlace !== '--' && $talkPlace !== '-') $descLines[] = "Place: " . $talkPlace;
+            if (!empty($talkDetails) && $talkDetails !== '--' && $talkDetails !== '-') $descLines[] = "Details: " . $talkDetails;
+            $desc = implode("\n", $descLines);
+            $extra_info = $talkPlace;
         }
 
         if (!empty($title)) {
@@ -199,6 +241,43 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $desc = implode("\n", $descLines);
             $extra_info = $bPublisher;
             $title = $bTitle;
+        } elseif ($tab_name === 'editorial') {
+            $edText = trim($_POST['editorial_text'] ?? $_POST['title'] ?? '');
+            $extra_info = trim($_POST['extra_info'] ?? '');
+            $order = (int)($_POST['display_order'] ?? 0);
+
+            if (empty($edText)) {
+                setFlashMessage('error', 'Editorial details cannot be empty!');
+                header('Location: principal-profile.php?tab=tab_items&subtab=editorial&edit_item=' . $id);
+                exit;
+            }
+
+            $title = mb_substr($edText, 0, 250);
+            $desc = $edText;
+        } elseif ($tab_name === 'expert_talks') {
+            $title = trim($_POST['title'] ?? '');
+            $talkPlace = trim($_POST['talk_place'] ?? $_POST['extra_info'] ?? '');
+            $talkYear = trim($_POST['talk_year'] ?? '');
+            $talkDetails = trim($_POST['talk_details'] ?? '');
+            $order = (int)($_POST['display_order'] ?? 0);
+
+            if (empty($title)) {
+                setFlashMessage('error', 'Subject / Lecture Title is mandatory!');
+                header('Location: principal-profile.php?tab=tab_items&subtab=expert_talks');
+                exit;
+            }
+
+            if ($order === 0) {
+                $maxStmt = $pdo->query("SELECT COALESCE(MAX(display_order), 0) + 1 FROM principal_tab_items WHERE tab_name = 'expert_talks'");
+                $order = (int)$maxStmt->fetchColumn();
+            }
+
+            $descLines = [];
+            if (!empty($talkYear) && $talkYear !== '--' && $talkYear !== '-') $descLines[] = "Year: " . $talkYear;
+            if (!empty($talkPlace) && $talkPlace !== '--' && $talkPlace !== '-') $descLines[] = "Place: " . $talkPlace;
+            if (!empty($talkDetails) && $talkDetails !== '--' && $talkDetails !== '-') $descLines[] = "Details: " . $talkDetails;
+            $desc = implode("\n", $descLines);
+            $extra_info = $talkPlace;
         }
 
         if ($id > 0 && !empty($title)) {
@@ -712,6 +791,33 @@ require_once __DIR__ . '/includes/header.php';
                         </div>
                     </div>
 
+                <?php elseif ($subtab === 'editorial'): ?>
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label class="form-label" style="font-weight: 600;">
+                            Editorial Role, Journal / Committee &amp; Details <span style="color: #ef4444; font-weight: bold;">*</span>
+                        </label>
+                        <textarea name="editorial_text" class="form-control" rows="3" placeholder="e.g. Editorial Board Member Educational Coordinator, The Technology World, Kuala Lumpur, Malaysia ISSN: 2180-1614, 20 June 2020." required><?= htmlspecialchars($editItem['description'] ?? $editItem['title'] ?? '') ?></textarea>
+                        <small style="font-size: 11.5px; color: #64748b;">Mandatory: Full editorial board title, journal/conference name, ISSN, location, or date.</small>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Organization / Location / Tag <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="extra_info" class="form-control" placeholder="e.g. Kuala Lumpur, Malaysia or GTU" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Short tag, location, or institution</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Sr. No. / Display Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Controls sorting order (leave blank to auto-append)</small>
+                        </div>
+                    </div>
+
                 <?php else: ?>
                     <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
@@ -748,9 +854,9 @@ require_once __DIR__ . '/includes/header.php';
                 <thead>
                     <tr>
                         <th style="width: 50px;">#</th>
-                        <th><?= ($subtab === 'books') ? 'Book Title / Monograph' : 'Title / Citation' ?></th>
-                        <th><?= ($subtab === 'books') ? 'Publisher' : 'Journal / Publisher / Date' ?></th>
-                        <th><?= ($subtab === 'books') ? 'University, Edition & Details' : 'Description' ?></th>
+                        <th><?= ($subtab === 'books') ? 'Book Title / Monograph' : (($subtab === 'editorial') ? 'Editorial Role & Details' : 'Title / Citation') ?></th>
+                        <th><?= ($subtab === 'books') ? 'Publisher' : (($subtab === 'editorial') ? 'Organization / Location' : 'Journal / Publisher / Date') ?></th>
+                        <th><?= ($subtab === 'books') ? 'University, Edition & Details' : (($subtab === 'editorial') ? 'Editorial Summary' : 'Description') ?></th>
                         <th style="width: 100px; text-align: right;">Action</th>
                     </tr>
                 </thead>
@@ -764,8 +870,14 @@ require_once __DIR__ . '/includes/header.php';
                     <?php else: ?>
                         <?php foreach ($tabItems as $idx => $item): ?>
                             <tr style="<?= ($editItem && $editItem['id'] == $item['id']) ? 'background: #fffbeb;' : '' ?>">
-                                <td><?= $idx + 1 ?></td>
-                                <td style="font-weight: 600; color: #1e293b;"><?= htmlspecialchars($item['title']) ?></td>
+                                <td><?= !empty($item['display_order']) ? (int)$item['display_order'] : ($idx + 1) ?></td>
+                                <td style="font-weight: 600; color: #1e293b;">
+                                    <?php if ($subtab === 'editorial'): ?>
+                                        <?= htmlspecialchars(mb_strimwidth(!empty($item['description']) ? $item['description'] : $item['title'], 0, 85, '...')) ?>
+                                    <?php else: ?>
+                                        <?= htmlspecialchars($item['title']) ?>
+                                    <?php endif; ?>
+                                </td>
                                 <td>
                                     <?php if (!empty($item['extra_info'])): ?>
                                         <span style="font-weight: 600; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 4px; font-size: 12px; border: 1px solid #bfdbfe;">
@@ -776,7 +888,7 @@ require_once __DIR__ . '/includes/header.php';
                                     <?php endif; ?>
                                 </td>
                                 <td style="font-size: 13px; color: #475569; max-width: 340px;">
-                                    <?= htmlspecialchars(str_replace("\n", " • ", mb_strimwidth($item['description'] ?? '', 0, 100, '...'))) ?>
+                                    <?= htmlspecialchars(str_replace("\n", " • ", mb_strimwidth(!empty($item['description']) ? $item['description'] : ($item['title'] ?? ''), 0, 110, '...'))) ?>
                                 </td>
                                 <td style="text-align: right; white-space: nowrap;">
                                     <a href="principal-profile.php?tab=tab_items&subtab=<?= urlencode($subtab) ?>&edit_item=<?= $item['id'] ?>#item-form" class="btn btn-sm btn-info" style="padding: 3px 8px; margin-right: 4px;" title="Modify / Edit this entry">

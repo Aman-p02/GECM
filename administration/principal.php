@@ -206,10 +206,16 @@ require_once __DIR__ . '/../includes/header.php';
                 <button type="button" class="pr-tab-btn" data-tab="tab-editorial" role="tab" aria-selected="false" aria-controls="tab-editorial">
                     <i class="fas fa-feather-alt" aria-hidden="true"></i>
                     <span>Editorial</span>
+                    <?php if (!empty($tabItems['editorial'])): ?>
+                        <span class="pr-tab-count"><?= count($tabItems['editorial']) ?></span>
+                    <?php endif; ?>
                 </button>
                 <button type="button" class="pr-tab-btn" data-tab="tab-talks" role="tab" aria-selected="false" aria-controls="tab-talks">
                     <i class="fas fa-microphone-alt" aria-hidden="true"></i>
                     <span>Expert Talks</span>
+                    <?php if (!empty($tabItems['expert_talks'])): ?>
+                        <span class="pr-tab-count"><?= count($tabItems['expert_talks']) ?></span>
+                    <?php endif; ?>
                 </button>
                 <button type="button" class="pr-tab-btn" data-tab="tab-workshops" role="tab" aria-selected="false" aria-controls="tab-workshops">
                     <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
@@ -521,11 +527,149 @@ require_once __DIR__ . '/../includes/header.php';
                 <?php endif; ?>
             </div>
 
+            <!-- 4. Editorial & Advisory Board Roles Pane -->
+            <div id="tab-editorial" class="pr-tab-pane" role="tabpanel">
+                <?php 
+                $editorialList = $tabItems['editorial'] ?? [];
+                if (empty($editorialList)): 
+                ?>
+                    <div class="pr-empty-box">
+                        <i class="fas fa-feather-alt" aria-hidden="true"></i>
+                        <h4 class="pr-empty-title">Editorial &amp; Review Board Roles</h4>
+                        <p class="pr-empty-sub">Academic journal memberships and editorial responsibilities are updated periodically through the Principal's Office.</p>
+                    </div>
+                <?php else: ?>
+                    <div class="pr-pub-papers-wrap">
+                        <div class="pr-pub-papers-header">
+                            <h4 class="pr-pub-papers-title">
+                                <i class="fas fa-feather-alt" aria-hidden="true"></i>
+                                <span>Editorial &amp; Advisory Board Memberships</span>
+                            </h4>
+                            <span class="pr-pub-count-label">Showing <?= count($editorialList) ?> Editorial Records</span>
+                        </div>
+
+                        <div class="pr-pub-summary-card" style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0; border-radius: 10px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);">
+                            <div class="table-responsive">
+                                <table class="pr-pub-summary-table" style="margin-bottom: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 80px; text-align: center; font-weight: 700;">Sr. No.</th>
+                                            <th style="font-weight: 700;">Editorials</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($editorialList as $eIdx => $ed): 
+                                            $edText = !empty($ed['description']) ? $ed['description'] : $ed['title'];
+                                            $edHtml = preg_replace(
+                                                '~(https?://[^\s,]+)~i',
+                                                '<a href="$1" target="_blank" rel="noopener noreferrer" style="color: #1e90ff; word-break: break-all; text-decoration: underline;">$1</a>',
+                                                htmlspecialchars($edText)
+                                            );
+                                        ?>
+                                            <tr>
+                                                <td style="text-align: center; font-weight: 700; color: #64748b; vertical-align: top; padding: 16px 14px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($ed['display_order']) ? (int)$ed['display_order'] : ($eIdx + 1) ?>
+                                                </td>
+                                                <td style="color: #334155; font-size: 0.935rem; line-height: 1.6; vertical-align: middle; padding: 16px 20px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= $edHtml ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <!-- 5. Expert Talks & Keynotes Pane -->
+            <div id="tab-talks" class="pr-tab-pane" role="tabpanel">
+                <?php 
+                $talksList = $tabItems['expert_talks'] ?? [];
+                if (empty($talksList)): 
+                ?>
+                    <div class="pr-empty-box">
+                        <i class="fas fa-microphone-alt" aria-hidden="true"></i>
+                        <h4 class="pr-empty-title">Expert Lectures &amp; Keynotes</h4>
+                        <p class="pr-empty-sub">Invited keynotes, expert sessions, and technical lectures delivered across universities and institutions are updated periodically.</p>
+                    </div>
+                <?php else: ?>
+                    <div class="pr-pub-papers-wrap">
+                        <div class="pr-pub-papers-header">
+                            <h4 class="pr-pub-papers-title">
+                                <i class="fas fa-microphone-alt" aria-hidden="true"></i>
+                                <span>Invited Expert Lectures &amp; Keynotes</span>
+                            </h4>
+                            <span class="pr-pub-count-label">Showing <?= count($talksList) ?> Expert Talks</span>
+                        </div>
+
+                        <div class="pr-pub-summary-card" style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0; border-radius: 10px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);">
+                            <div class="table-responsive">
+                                <table class="pr-pub-summary-table" style="margin-bottom: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center; font-weight: 700;">Sr. No.</th>
+                                            <th style="width: 90px; text-align: center; font-weight: 700;">Year</th>
+                                            <th style="font-weight: 700;">Subject</th>
+                                            <th style="font-weight: 700;">Place</th>
+                                            <th style="font-weight: 700;">Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($talksList as $tIdx => $talk): 
+                                            $tDesc = trim($talk['description'] ?? '');
+                                            $tYear = '';
+                                            $tPlace = trim($talk['extra_info'] ?? '');
+                                            $tDetails = '';
+
+                                            $lines = explode("\n", $tDesc);
+                                            foreach ($lines as $ln) {
+                                                $ln = trim($ln);
+                                                if (preg_match('/^Year:\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $tYear = $val;
+                                                } elseif (preg_match('/^Place:\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $tPlace = $val;
+                                                } elseif (preg_match('/^Details:\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $tDetails = $val;
+                                                }
+                                            }
+                                            if (empty($tDetails) && empty($tYear) && !empty($tDesc) && strpos($tDesc, 'Year:') === false) {
+                                                $tDetails = $tDesc;
+                                            }
+                                        ?>
+                                            <tr>
+                                                <td style="text-align: center; font-weight: 700; color: #64748b; vertical-align: top; padding: 15px 12px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($talk['display_order']) ? (int)$talk['display_order'] : ($tIdx + 1) ?>
+                                                </td>
+                                                <td style="text-align: center; font-weight: 600; color: #1e293b; vertical-align: top; padding: 15px 12px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($tYear) ? htmlspecialchars($tYear) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                                <td style="color: #0f172a; font-weight: 600; font-size: 0.94rem; vertical-align: top; padding: 15px 16px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= htmlspecialchars($talk['title']) ?>
+                                                </td>
+                                                <td style="color: #334155; font-size: 0.92rem; vertical-align: top; padding: 15px 16px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($tPlace) ? htmlspecialchars($tPlace) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                                <td style="color: #64748b; font-size: 0.88rem; line-height: 1.5; vertical-align: top; padding: 15px 16px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($tDetails) ? htmlspecialchars($tDetails) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+
             <!-- Dynamic Tab Panes for Other Sections -->
             <?php
             $tabPanesConfig = [
-                'tab-editorial'    => ['key' => 'editorial',    'title' => 'Editorial & Review Board Roles',  'icon' => 'fas fa-feather-alt'],
-                'tab-talks'        => ['key' => 'expert_talks',  'title' => 'Expert Lectures & Keynotes Delivered','icon' => 'fas fa-microphone-alt'],
                 'tab-workshops'    => ['key' => 'workshops',     'title' => 'Workshops & Seminars Attended',  'icon' => 'fas fa-chalkboard-teacher'],
                 'tab-experience'   => ['key' => 'experience',    'title' => 'Professional & Industrial Experience', 'icon' => 'fas fa-history'],
                 'tab-extra'        => ['key' => 'extra',         'title' => 'Awards, Honors & Additional Distinctions', 'icon' => 'fas fa-award']
