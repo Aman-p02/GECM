@@ -398,10 +398,132 @@ require_once __DIR__ . '/../includes/header.php';
                 <?php endif; ?>
             </div>
 
+            <!-- 3. Books & Monographs Pane (Dedicated Card Layout) -->
+            <div id="tab-books" class="pr-tab-pane" role="tabpanel">
+                <?php 
+                $booksList = $tabItems['books'] ?? [];
+                if (empty($booksList)): 
+                ?>
+                    <div class="pr-empty-box">
+                        <i class="fas fa-book-open" aria-hidden="true"></i>
+                        <h4 class="pr-empty-title">Books &amp; Monographs</h4>
+                        <p class="pr-empty-sub">Academic books and curriculum text publications are updated periodically through the Principal's Office.</p>
+                    </div>
+                <?php else: ?>
+                    <div class="pr-pub-papers-wrap">
+                        <div class="pr-pub-papers-header">
+                            <h4 class="pr-pub-papers-title">
+                                <i class="fas fa-book" aria-hidden="true"></i>
+                                <span>Books &amp; Monographs Authored</span>
+                            </h4>
+                            <span class="pr-pub-count-label">Showing <?= count($booksList) ?> Authored Titles</span>
+                        </div>
+
+                        <div class="pr-pub-items-list">
+                            <?php foreach ($booksList as $bIdx => $b): 
+                                $publisher = trim($b['extra_info'] ?? '');
+                                $desc = trim($b['description'] ?? '');
+
+                                $edition = '';
+                                $univ = '';
+                                $branch = '';
+                                $semester = '';
+                                $book_code = '';
+                                $isbn = '';
+
+                                $lines = explode("\n", $desc);
+                                foreach ($lines as $ln) {
+                                    $ln = trim($ln);
+                                    if (preg_match('/^(?:Edition|Content):\s*(.*)$/i', $ln, $m)) {
+                                        $val = trim($m[1]);
+                                        if ($val !== '--' && $val !== '-') $edition = $val;
+                                    } elseif (preg_match('/^University:\s*(.*)$/i', $ln, $m)) {
+                                        $val = trim($m[1]);
+                                        if ($val !== '--' && $val !== '-') $univ = $val;
+                                    } elseif (preg_match('/^Branch:\s*(.*)$/i', $ln, $m)) {
+                                        $val = trim($m[1]);
+                                        if ($val !== '--' && $val !== '-') $branch = $val;
+                                    } elseif (preg_match('/^Semester:\s*(.*)$/i', $ln, $m)) {
+                                        $val = trim($m[1]);
+                                        if ($val !== '--' && $val !== '-') $semester = $val;
+                                    } elseif (preg_match('/^(?:Book Code|Code):\s*(.*)$/i', $ln, $m)) {
+                                        $val = trim($m[1]);
+                                        if ($val !== '--' && $val !== '-') $book_code = $val;
+                                    } elseif (preg_match('/^ISBN:\s*(.*)$/i', $ln, $m)) {
+                                        $val = trim($m[1]);
+                                        if ($val !== '--' && $val !== '-') $isbn = $val;
+                                    }
+                                }
+
+                                if (empty($edition) && empty($univ) && empty($branch) && empty($isbn) && empty($book_code) && empty($semester) && !empty($desc)) {
+                                    $edition = $desc;
+                                }
+                            ?>
+                                <article class="pr-pub-item">
+                                    <div class="pr-pub-icon-col" style="background: #eff6ff; color: #1e90ff; border-color: #bfdbfe;" aria-hidden="true">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    
+                                    <div class="pr-pub-content-col">
+                                        <h5 class="pr-pub-paper-title"><?= htmlspecialchars($b['title']) ?></h5>
+
+                                        <?php if (!empty($publisher)): ?>
+                                            <div class="pr-pub-authors" style="color: #1e40af;">
+                                                <i class="fas fa-building" style="color: #3b82f6;" aria-hidden="true"></i>
+                                                <span>Publisher: <strong><?= htmlspecialchars($publisher) ?></strong></span>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($univ) || !empty($branch) || !empty($semester)): ?>
+                                            <div class="pr-pub-journal">
+                                                <i class="fas fa-university" aria-hidden="true"></i>
+                                                <span>
+                                                    <?php
+                                                    $metaParts = [];
+                                                    if (!empty($univ)) $metaParts[] = $univ;
+                                                    if (!empty($branch)) $metaParts[] = 'Branch: ' . $branch;
+                                                    if (!empty($semester)) $metaParts[] = 'Sem: ' . $semester;
+                                                    echo htmlspecialchars(implode(' • ', $metaParts));
+                                                    ?>
+                                                </span>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if (!empty($edition) || !empty($isbn) || !empty($book_code)): ?>
+                                            <div class="pr-pub-footer">
+                                                <?php if (!empty($edition)): ?>
+                                                    <span class="pr-pub-tag tag-journal" style="background: #f8fafc; color: #334155; border-color: #cbd5e1;">
+                                                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                                                        <?= htmlspecialchars($edition) ?>
+                                                    </span>
+                                                <?php endif; ?>
+
+                                                <?php if (!empty($book_code)): ?>
+                                                    <span class="pr-pub-tag" style="background: #f1f5f9; color: #475569; border-color: #cbd5e1;">
+                                                        <i class="fas fa-hashtag" aria-hidden="true"></i>
+                                                        Code: <?= htmlspecialchars($book_code) ?>
+                                                    </span>
+                                                <?php endif; ?>
+
+                                                <?php if (!empty($isbn)): ?>
+                                                    <span class="pr-pub-tag tag-conference">
+                                                        <i class="fas fa-barcode" aria-hidden="true"></i>
+                                                        <?= htmlspecialchars($isbn) ?>
+                                                    </span>
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </article>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+
             <!-- Dynamic Tab Panes for Other Sections -->
             <?php
             $tabPanesConfig = [
-                'tab-books'        => ['key' => 'books',        'title' => 'Books & Monographs Authored',     'icon' => 'fas fa-book-open'],
                 'tab-editorial'    => ['key' => 'editorial',    'title' => 'Editorial & Review Board Roles',  'icon' => 'fas fa-feather-alt'],
                 'tab-talks'        => ['key' => 'expert_talks',  'title' => 'Expert Lectures & Keynotes Delivered','icon' => 'fas fa-microphone-alt'],
                 'tab-workshops'    => ['key' => 'workshops',     'title' => 'Workshops & Seminars Attended',  'icon' => 'fas fa-chalkboard-teacher'],

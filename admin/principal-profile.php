@@ -123,6 +123,33 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $authors = trim($_POST['pub_authors'] ?? '');
             $journal = trim($_POST['pub_journal'] ?? '');
             $desc = (!empty($authors) ? "Authors: " . $authors . "\n" : "") . $journal;
+        } elseif ($tab_name === 'books') {
+            $bTitle = trim($_POST['title'] ?? '');
+            $bPublisher = trim($_POST['extra_info'] ?? '');
+            $bUniv = trim($_POST['book_univ'] ?? '');
+            $bCode = trim($_POST['book_code'] ?? '');
+            $bBranch = trim($_POST['book_branch'] ?? '');
+            $bSemester = trim($_POST['book_semester'] ?? '');
+            $bIsbn = trim($_POST['book_isbn'] ?? '');
+            $bContent = trim($_POST['book_content'] ?? '');
+
+            // Mandatory validation: Book Title, Publisher Name, and University
+            if (empty($bTitle) || empty($bPublisher) || empty($bUniv)) {
+                setFlashMessage('error', 'Book Title, Publisher Name, and University are mandatory fields!');
+                header('Location: principal-profile.php?tab=tab_items&subtab=books');
+                exit;
+            }
+
+            $descLines = [];
+            if (!empty($bContent) && $bContent !== '--' && $bContent !== '-') $descLines[] = "Content: " . $bContent;
+            if (!empty($bUniv) && $bUniv !== '--' && $bUniv !== '-') $descLines[] = "University: " . $bUniv;
+            if (!empty($bBranch) && $bBranch !== '--' && $bBranch !== '-') $descLines[] = "Branch: " . $bBranch;
+            if (!empty($bSemester) && $bSemester !== '--' && $bSemester !== '-') $descLines[] = "Semester: " . $bSemester;
+            if (!empty($bCode) && $bCode !== '--' && $bCode !== '-') $descLines[] = "Book Code: " . $bCode;
+            if (!empty($bIsbn) && $bIsbn !== '--' && $bIsbn !== '-') $descLines[] = "ISBN: " . $bIsbn;
+            $desc = implode("\n", $descLines);
+            $extra_info = $bPublisher;
+            $title = $bTitle;
         }
 
         if (!empty($title)) {
@@ -145,6 +172,33 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $authors = trim($_POST['pub_authors'] ?? '');
             $journal = trim($_POST['pub_journal'] ?? '');
             $desc = (!empty($authors) ? "Authors: " . $authors . "\n" : "") . $journal;
+        } elseif ($tab_name === 'books') {
+            $bTitle = trim($_POST['title'] ?? '');
+            $bPublisher = trim($_POST['extra_info'] ?? '');
+            $bUniv = trim($_POST['book_univ'] ?? '');
+            $bCode = trim($_POST['book_code'] ?? '');
+            $bBranch = trim($_POST['book_branch'] ?? '');
+            $bSemester = trim($_POST['book_semester'] ?? '');
+            $bIsbn = trim($_POST['book_isbn'] ?? '');
+            $bContent = trim($_POST['book_content'] ?? '');
+
+            // Mandatory validation: Book Title, Publisher Name, and University
+            if (empty($bTitle) || empty($bPublisher) || empty($bUniv)) {
+                setFlashMessage('error', 'Book Title, Publisher Name, and University are mandatory fields!');
+                header('Location: principal-profile.php?tab=tab_items&subtab=books&edit_item=' . $id);
+                exit;
+            }
+
+            $descLines = [];
+            if (!empty($bContent) && $bContent !== '--' && $bContent !== '-') $descLines[] = "Content: " . $bContent;
+            if (!empty($bUniv) && $bUniv !== '--' && $bUniv !== '-') $descLines[] = "University: " . $bUniv;
+            if (!empty($bBranch) && $bBranch !== '--' && $bBranch !== '-') $descLines[] = "Branch: " . $bBranch;
+            if (!empty($bSemester) && $bSemester !== '--' && $bSemester !== '-') $descLines[] = "Semester: " . $bSemester;
+            if (!empty($bCode) && $bCode !== '--' && $bCode !== '-') $descLines[] = "Book Code: " . $bCode;
+            if (!empty($bIsbn) && $bIsbn !== '--' && $bIsbn !== '-') $descLines[] = "ISBN: " . $bIsbn;
+            $desc = implode("\n", $descLines);
+            $extra_info = $bPublisher;
+            $title = $bTitle;
         }
 
         if ($id > 0 && !empty($title)) {
@@ -453,13 +507,36 @@ require_once __DIR__ . '/includes/header.php';
 
         $editAuthors = '';
         $editJournal = '';
+        $editBookCode = '';
+        $editBookUniv = '';
+        $editBookBranch = '';
+        $editBookSemester = '';
+        $editBookIsbn = '';
+        $editBookContent = '';
+
         if ($editItem) {
             $eDesc = $editItem['description'] ?? '';
-            if (preg_match('/^Authors:\s*(.*?)(?:\n(.*))?$/s', $eDesc, $matches)) {
-                $editAuthors = trim($matches[1]);
-                $editJournal = isset($matches[2]) ? trim($matches[2]) : '';
-            } else {
-                $editJournal = $eDesc;
+            if ($subtab === 'publications') {
+                if (preg_match('/^Authors:\s*(.*?)(?:\n(.*))?$/s', $eDesc, $matches)) {
+                    $editAuthors = trim($matches[1]);
+                    $editJournal = isset($matches[2]) ? trim($matches[2]) : '';
+                } else {
+                    $editJournal = $eDesc;
+                }
+            } elseif ($subtab === 'books') {
+                $lines = explode("\n", $eDesc);
+                foreach ($lines as $ln) {
+                    $ln = trim($ln);
+                    if (preg_match('/^(?:Edition|Content):\s*(.*)$/i', $ln, $m)) $editBookContent = trim($m[1]);
+                    elseif (preg_match('/^University:\s*(.*)$/i', $ln, $m)) $editBookUniv = trim($m[1]);
+                    elseif (preg_match('/^Branch:\s*(.*)$/i', $ln, $m)) $editBookBranch = trim($m[1]);
+                    elseif (preg_match('/^Semester:\s*(.*)$/i', $ln, $m)) $editBookSemester = trim($m[1]);
+                    elseif (preg_match('/^(?:Book Code|Code):\s*(.*)$/i', $ln, $m)) $editBookCode = trim($m[1]);
+                    elseif (preg_match('/^ISBN:\s*(.*)$/i', $ln, $m)) $editBookIsbn = trim($m[1]);
+                }
+                if (empty($editBookContent) && empty($editBookUniv) && empty($editBookBranch) && empty($editBookIsbn) && empty($editBookCode) && empty($editBookSemester)) {
+                    $editBookContent = $eDesc;
+                }
             }
         }
         ?>
@@ -561,6 +638,80 @@ require_once __DIR__ . '/includes/header.php';
                         <textarea name="pub_journal" class="form-control" rows="2" placeholder="e.g. International Journal of Computational and Experimental Science and Engineering, Vol. 11, DOI: 10.22399/..."><?= htmlspecialchars($editJournal) ?></textarea>
                     </div>
 
+                <?php elseif ($subtab === 'books'): ?>
+                    <!-- Row 1: Book Title & Publisher Name (Both Mandatory) -->
+                    <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 16px; margin-bottom: 16px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Book Title / Name <span style="color: #ef4444; font-weight: bold;">*</span>
+                            </label>
+                            <input type="text" name="title" class="form-control" placeholder="e.g. Computer Integrated Manufacturing" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Official book title or monograph name</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Publisher Name <span style="color: #ef4444; font-weight: bold;">*</span>
+                            </label>
+                            <input type="text" name="extra_info" class="form-control" placeholder="e.g. Books India Publications, Pearson" required value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Publishing house or entity</small>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: University (Mandatory), Branch (Optional), Semester (Optional) -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                University <span style="color: #ef4444; font-weight: bold;">*</span>
+                            </label>
+                            <input type="text" name="book_univ" class="form-control" placeholder="e.g. GTU" required value="<?= htmlspecialchars($editBookUniv) ?>">
+                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Affiliated university / board</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Branch <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="book_branch" class="form-control" placeholder="e.g. Mechanical (or leave empty)" value="<?= htmlspecialchars($editBookBranch) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Leave empty if not specified</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Semester <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="book_semester" class="form-control" placeholder="e.g. Sem 5, Sem 7 (or leave empty)" value="<?= htmlspecialchars($editBookSemester) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Leave empty if not specified</small>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Content/Edition (Optional), Book Code (Optional), ISBN Code (Optional) -->
+                    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 16px; margin-bottom: 16px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Content / Edition <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="book_content" class="form-control" placeholder="e.g. GTU Syllabus, First Edition Dec 2019" value="<?= htmlspecialchars($editBookContent) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Edition details or curriculum scope</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Book Code <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="book_code" class="form-control" placeholder="e.g. ME-204 (or leave empty)" value="<?= htmlspecialchars($editBookCode) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Leave empty if not applicable</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                ISBN Code <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="book_isbn" class="form-control" placeholder="e.g. 978-93-80867-54-0 (or leave empty)" value="<?= htmlspecialchars($editBookIsbn) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Leave empty if not assigned</small>
+                        </div>
+                    </div>
+
                 <?php else: ?>
                     <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
@@ -597,9 +748,9 @@ require_once __DIR__ . '/includes/header.php';
                 <thead>
                     <tr>
                         <th style="width: 50px;">#</th>
-                        <th>Title / Citation</th>
-                        <th>Journal / Publisher / Date</th>
-                        <th>Description</th>
+                        <th><?= ($subtab === 'books') ? 'Book Title / Monograph' : 'Title / Citation' ?></th>
+                        <th><?= ($subtab === 'books') ? 'Publisher' : 'Journal / Publisher / Date' ?></th>
+                        <th><?= ($subtab === 'books') ? 'Edition, University & ISBN' : 'Description' ?></th>
                         <th style="width: 100px; text-align: right;">Action</th>
                     </tr>
                 </thead>
@@ -615,8 +766,18 @@ require_once __DIR__ . '/includes/header.php';
                             <tr style="<?= ($editItem && $editItem['id'] == $item['id']) ? 'background: #fffbeb;' : '' ?>">
                                 <td><?= $idx + 1 ?></td>
                                 <td style="font-weight: 600; color: #1e293b;"><?= htmlspecialchars($item['title']) ?></td>
-                                <td><?= htmlspecialchars($item['extra_info'] ?? '-') ?></td>
-                                <td style="font-size: 13px; color: #475569; max-width: 320px;"><?= htmlspecialchars(mb_strimwidth($item['description'] ?? '', 0, 90, '...')) ?></td>
+                                <td>
+                                    <?php if (!empty($item['extra_info'])): ?>
+                                        <span style="font-weight: 600; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 4px; font-size: 12px; border: 1px solid #bfdbfe;">
+                                            <?= htmlspecialchars($item['extra_info']) ?>
+                                        </span>
+                                    <?php else: ?>
+                                        -
+                                    <?php endif; ?>
+                                </td>
+                                <td style="font-size: 13px; color: #475569; max-width: 340px;">
+                                    <?= htmlspecialchars(str_replace("\n", " • ", mb_strimwidth($item['description'] ?? '', 0, 100, '...'))) ?>
+                                </td>
                                 <td style="text-align: right; white-space: nowrap;">
                                     <a href="principal-profile.php?tab=tab_items&subtab=<?= urlencode($subtab) ?>&edit_item=<?= $item['id'] ?>#item-form" class="btn btn-sm btn-info" style="padding: 3px 8px; margin-right: 4px;" title="Modify / Edit this entry">
                                         <i class="fas fa-edit"></i>
