@@ -28,8 +28,8 @@
                         <li><a href="<?= ($root_path ?? '') ?>about/facilities"><i class="fas fa-angle-right"></i> Facilities</a></li>
                         <li><a href="<?= ($root_path ?? '') ?>about/mandatory-disclosure"><i class="fas fa-angle-right"></i> Mandatory Disclosures</a></li>
                         <li><a href="<?= ($root_path ?? '') ?>administration/committees?c=anti-ragging"><i class="fas fa-angle-right"></i> Anti-Ragging Committee</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>admission"><i class="fas fa-angle-right"></i> Admissions</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>courses"><i class="fas fa-angle-right"></i> Courses &amp; Intake</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>academics/admission"><i class="fas fa-angle-right"></i> Admissions</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>academics/courses"><i class="fas fa-angle-right"></i> Courses &amp; Intake</a></li>
                         <li><a href="<?= ($root_path ?? '') ?>contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
                     </ul>
                 </div>

@@ -108,13 +108,13 @@
 
     <!-- 4. Academic & Admissions -->
     <url>
-        <loc>https://gecmodasa.ac.in/courses</loc>
+        <loc>https://gecmodasa.ac.in/academics/courses</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/admission</loc>
+        <loc>https://gecmodasa.ac.in/academics/admission</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.90</priority>

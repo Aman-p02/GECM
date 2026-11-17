@@ -41,6 +41,12 @@ DirectoryIndex index.php index.html
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(principal|council-of-heads|account-section|hostel-mess|committees)(?:\.php)?([?\s]) [NC]
     RewriteRule ^ %1/administration/%2 [R=301,L,NE,QSA]
 
+    # 3d. 301 Redirect: Legacy root academic URLs to /academics/ (environment-agnostic)
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin|academics)/ [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(courses|admission)(?:\.php)?([?\s]) [NC]
+    RewriteRule ^ %1/academics/%2 [R=301,L,NE,QSA]
+
     # 4. 301 Redirect: Direct .php requests to clean URL (except admin areas and POST)
     RewriteCond %{REQUEST_METHOD} !POST
     RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin)/ [NC]
