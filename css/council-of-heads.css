@@ -1,218 +1,372 @@
-/* Council of Heads Institutional Page Styles */
-.coh-wrapper {
-    background-color: #f8fafc;
-    min-height: calc(100vh - 280px);
-    padding: 30px 0 60px 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --coh-primary: #111111;
+    --coh-accent: #ff8800;
+    --coh-accent-hover: #e07700;
+    --coh-accent-light: rgba(255, 136, 0, 0.08);
+    --coh-kicker: #ff8800;
+    --coh-body: #4b5563;
+    --coh-muted: #6b7280;
+    --coh-border: #e5e7eb;
+    --coh-border-subtle: #f3f4f6;
+    --coh-bg-subtle: #f8fafc;
+    --coh-font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --coh-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --coh-transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Page container and layout wrapper */
+.coh-page {
+    font-family: var(--coh-font-body);
+    background-color: #ffffff;
+    color: var(--coh-body);
+    margin: 0;
+    padding: 0 0 100px 0;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
 }
 
 .coh-container {
-    max-width: 1180px;
+    width: 100%;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 32px;
+    box-sizing: border-box;
 }
 
-.coh-breadcrumbs {
-    font-size: 13px;
-    color: #64748b;
-    margin-bottom: 24px;
+/* Hero banner header - Department Style */
+.coh-hero-banner {
+    padding: 44px 0 32px;
+    border-bottom: 1px solid var(--coh-border);
+    margin-bottom: 40px;
 }
 
-.coh-breadcrumbs a {
-    color: #0284c7;
-    text-decoration: none;
+.coh-kicker {
+    font-family: var(--coh-font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--coh-kicker);
+    margin-bottom: 14px;
+    display: block;
 }
 
-.coh-breadcrumbs a:hover {
-    text-decoration: underline;
+.coh-heading {
+    font-family: var(--coh-font-display);
+    font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+    font-weight: 800;
+    color: var(--coh-primary);
+    line-height: 1.1;
+    margin: 0 0 16px;
+    letter-spacing: -0.03em;
 }
 
-.coh-nav-tabs {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-    background: #ffffff;
-    padding: 8px;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e2e8f0;
+.coh-tagline {
+    font-family: var(--coh-font-body);
+    font-size: 1.125rem;
+    color: var(--coh-body);
+    line-height: 1.7;
+    max-width: 820px;
+    margin: 0;
+    font-weight: 400;
 }
 
-.coh-tab-btn {
-    padding: 10px 18px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #475569;
-    background: transparent;
-    border: none;
+/* Head of the Institute Executive Card */
+.coh-exec-card {
+    background: var(--coh-bg-subtle);
+    border: 1px solid var(--coh-border);
     border-radius: 6px;
-    cursor: pointer;
+    padding: 28px 36px;
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.coh-exec-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.coh-exec-kicker {
+    font-family: var(--coh-font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--coh-accent);
+}
+
+.coh-exec-name {
+    font-family: var(--coh-font-display);
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--coh-primary);
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.coh-exec-desig {
+    font-family: var(--coh-font-body);
+    font-size: 0.95rem;
+    color: var(--coh-muted);
+}
+
+.coh-exec-link {
+    font-family: var(--coh-font-display);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--coh-primary);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.2s ease;
-}
-
-.coh-tab-btn:hover {
-    color: #0284c7;
-    background: #f1f5f9;
-}
-
-.coh-tab-btn.active {
-    color: #ffffff;
-    background: #0284c7;
-}
-
-.coh-section-card {
+    padding: 9px 18px;
+    border: 1px solid var(--coh-border);
+    border-radius: 4px;
     background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: var(--coh-transition);
 }
 
-.coh-principal-banner {
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    padding: 14px 20px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 700;
-    color: #1e293b;
-    background: #ffffff;
-    margin-bottom: 25px;
+.coh-exec-link:hover {
+    color: var(--coh-accent);
+    border-color: var(--coh-accent);
 }
 
-.coh-section-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #1e293b;
-    text-align: center;
-    margin: 0 0 20px 0;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #0284c7;
-    display: inline-block;
+/* Administrative Narrative Intro */
+.coh-lead-intro {
+    font-family: var(--coh-font-body);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--coh-body);
+    margin-bottom: 56px;
+    padding-left: 20px;
+    border-left: 3px solid var(--coh-accent);
 }
 
-.coh-title-wrap {
-    text-align: center;
-    margin-bottom: 25px;
+/* Section Header - Department Style */
+.coh-section-block {
+    margin-bottom: 64px;
 }
 
-.coh-description-text {
-    font-size: 14.5px;
-    line-height: 1.7;
-    color: #334155;
+.coh-section-header {
     margin-bottom: 24px;
-    text-align: justify;
 }
 
-/* Institutional Table Style */
+.coh-section-kicker {
+    font-family: var(--coh-font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--coh-accent);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.coh-section-header h2 {
+    font-family: var(--coh-font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--coh-primary);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin: 0 0 8px;
+}
+
+.coh-section-header p {
+    font-family: var(--coh-font-body);
+    font-size: 1.02rem;
+    color: var(--coh-muted);
+    line-height: 1.6;
+    max-width: 860px;
+    margin: 0;
+}
+
+.coh-narrative-note {
+    font-family: var(--coh-font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--coh-body);
+    background: var(--coh-bg-subtle);
+    border: 1px solid var(--coh-border);
+    border-radius: 4px;
+    padding: 16px 22px;
+    margin-bottom: 20px;
+}
+
+/* Department-style Clean Table */
 .coh-table-wrap {
-    overflow-x: auto;
-    border: 1px solid #cbd5e1;
+    border: 1px solid var(--coh-border);
     border-radius: 6px;
+    overflow-x: auto;
+    background: #ffffff;
 }
 
-.coh-table {
+.coh-clean-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14.5px;
+    font-size: 0.94rem;
     text-align: left;
-    background: #ffffff;
 }
 
-.coh-table th {
-    background-color: #f8fafc;
-    color: #1e293b;
+.coh-clean-table th {
+    background: var(--coh-bg-subtle);
+    font-family: var(--coh-font-display);
+    font-size: 0.78rem;
     font-weight: 700;
-    padding: 14px 18px;
-    border-bottom: 2px solid #cbd5e1;
-    border-right: 1px solid #e2e8f0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--coh-primary);
+    padding: 14px 20px;
+    border-bottom: 2px solid var(--coh-border);
+    white-space: nowrap;
 }
 
-.coh-table th:last-child {
-    border-right: none;
-}
-
-.coh-table td {
-    padding: 13px 18px;
-    border-bottom: 1px solid #e2e8f0;
-    border-right: 1px solid #e2e8f0;
-    color: #334155;
+.coh-clean-table td {
+    font-family: var(--coh-font-body);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--coh-border);
+    color: #374151;
     vertical-align: middle;
 }
 
-.coh-table td:last-child {
-    border-right: none;
+.coh-clean-table tr:last-child td {
+    border-bottom: none;
 }
 
-.coh-table tr:nth-child(even) td {
-    background-color: #fafbfc;
+.coh-clean-table tr:hover td {
+    background: #fafafc;
 }
 
-.coh-table tr:hover td {
-    background-color: #f0f7ff;
-}
-
-.coh-highlight-name {
+.coh-primary-cell {
+    font-family: var(--coh-font-display);
     font-weight: 600;
-    color: #0f172a;
+    color: var(--coh-primary);
 }
 
-.coh-badge-convener {
-    display: inline-block;
-    padding: 4px 10px;
-    font-size: 12.5px;
+.coh-faculty-name {
+    font-family: var(--coh-font-display);
     font-weight: 600;
-    background-color: #e0f2fe;
     color: #0369a1;
-    border-radius: 4px;
 }
 
-.coh-badge-chairman {
+/* Subtle, Understated Tags - No Cluttered Pastel Rainbow */
+.coh-tag {
     display: inline-block;
-    padding: 4px 10px;
-    font-size: 12.5px;
-    font-weight: 600;
-    background-color: #fef3c7;
-    color: #92400e;
+    padding: 3px 9px;
     border-radius: 4px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    font-family: var(--coh-font-display);
+    white-space: nowrap;
 }
 
-.coh-contact-link {
-    color: #0284c7;
+.coh-tag-convener {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.coh-tag-chairman {
+    background: #fefce8;
+    color: #854d0e;
+    border: 1px solid #fef08a;
+}
+
+.coh-tag-coordinator {
+    background: #f0f9ff;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
+.coh-tag-member {
+    background: var(--coh-bg-subtle);
+    color: var(--coh-muted);
+    border: 1px solid var(--coh-border);
+}
+
+/* Contact phone link */
+.coh-phone-link {
+    font-family: var(--coh-font-display);
+    font-size: 0.92rem;
     font-weight: 600;
+    color: #0284c7;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    transition: var(--coh-transition);
 }
 
-.coh-contact-link:hover {
+.coh-phone-link:hover {
+    color: var(--coh-accent);
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-    .coh-section-card {
-        padding: 18px;
-    }
-    
-    .coh-principal-banner {
-        font-size: 15px;
-        padding: 10px 14px;
-    }
-
-    .coh-section-title {
-        font-size: 18px;
-    }
-
-    .coh-table th, .coh-table td {
-        padding: 10px 12px;
-        font-size: 13.5px;
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .coh-stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
     }
 }
 
+@media (max-width: 768px) {
+    .coh-container {
+        padding: 0 20px;
+    }
+
+    .coh-hero-banner {
+        padding: 24px 0 36px;
+        margin-bottom: 36px;
+    }
+
+    .coh-stats-strip {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .coh-stat-num {
+        font-size: 2rem;
+    }
+
+    .coh-exec-card {
+        padding: 20px;
+    }
+
+    .coh-section-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .coh-clean-table th,
+    .coh-clean-table td {
+        padding: 12px 14px;
+        font-size: 0.88rem;
+    }
+}
+
+@media print {
+    .coh-exec-link,
+    .coh-breadcrumbs,
+    .hdr-main,
+    .footer-main {
+        display: none !important;
+    }
+
+    .coh-page {
+        padding: 0;
+    }
+
+    .coh-table-wrap {
+        border: 1px solid #000;
+    }
+}

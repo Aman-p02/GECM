@@ -121,228 +121,6 @@ if ($pdo) {
             $stmtE = $pdo->query("SELECT * FROM principal_tab_items WHERE tab_name = 'experience' ORDER BY display_order ASC, id DESC");
             $tabItems['experience'] = $stmtE ? $stmtE->fetchAll(PDO::FETCH_ASSOC) : [];
         }
-
-        // Auto-seed achievements if not present
-        if (empty($tabItems['achievements'])) {
-            $initialAchievements = [
-                [
-                    'title' => 'Patent for "Universal Centrifugal Casting Machine"',
-                    'extra_info' => 'Granted',
-                    'description' => 'Patent for "Universal Centrifugal Casting Machine" is Published in the Official Journal of The Patent Office. Publication Date: 17-12-2021, and Granted on 18/03/2024, Patent No: 528730, ID: 202121056480.',
-                    'display_order' => 1
-                ],
-                [
-                    'title' => 'Associate Dean, GTU',
-                    'extra_info' => 'GTU',
-                    'description' => 'Associate Dean, GTU from 25 May 2021 to 24 May 2024.',
-                    'display_order' => 2
-                ],
-                [
-                    'title' => 'Innovative Research Technologist & Dedicated Teaching Professional Awards',
-                    'extra_info' => 'ISME, Chennai',
-                    'description' => 'Received Innovative Research Technologist and Dedicated Teaching Professional Awards, ISME, Chennai Year-2021',
-                    'display_order' => 3
-                ],
-                [
-                    'title' => 'Global Faculty Award 2020',
-                    'extra_info' => 'AKS Education, New Delhi',
-                    'description' => 'Global Faculty Award 2020, AKS Education, New Delhi Year-2020',
-                    'display_order' => 4
-                ],
-                [
-                    'title' => 'Bharat Shiksharatan Award',
-                    'extra_info' => 'Delhi',
-                    'description' => 'Awarded Bharat Shiksharatan Award from Global Society for Health and Education Growth, Delhi, Year-2003.',
-                    'display_order' => 5
-                ],
-                [
-                    'title' => 'Nominated for Meritorious Educational Excellence Award',
-                    'extra_info' => 'Delhi',
-                    'description' => 'Nominated for the Meritorious Educational Excellence Award from Global Society for Health and Education Growth, Delhi, Year 2002-2003.',
-                    'display_order' => 6
-                ],
-                [
-                    'title' => 'Hari Ohm Ashram Prerit Bhaikaka Inter-University Smarak Trust Award',
-                    'extra_info' => '1998',
-                    'description' => 'Received Prestigious Hariohm Ashram PreritBhaikaka Inter-University Smarak Trust Award for the Best Publication of Petri nets Application to Project Management, Year-1998',
-                    'display_order' => 7
-                ]
-            ];
-            $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('achievements', ?, ?, ?, ?)");
-            foreach ($initialAchievements as $ia) {
-                $insStmt->execute([$ia['title'], $ia['description'], $ia['extra_info'], $ia['display_order']]);
-            }
-            $stmtAch = $pdo->query("SELECT * FROM principal_tab_items WHERE tab_name = 'achievements' ORDER BY display_order ASC, id DESC");
-            $tabItems['achievements'] = $stmtAch ? $stmtAch->fetchAll(PDO::FETCH_ASSOC) : [];
-        }
-
-        // Auto-seed dissertation if not present
-        if (empty($tabItems['dissertation'])) {
-            $initialDissertation = [
-                [
-                    'title' => 'Mechanical Engineering',
-                    'extra_info' => 'B M Trivedi',
-                    'description' => "Year: 2017\nStudent: B M Trivedi\nDetails: Rai Uni Ahemedabad",
-                    'display_order' => 1
-                ],
-                [
-                    'title' => 'Laser Beam Cladding',
-                    'extra_info' => 'Srushti Bhatt',
-                    'description' => "Year: 2024\nStudent: Srushti Bhatt\nDetails: Pursuing (Admission 2024)",
-                    'display_order' => 2
-                ],
-                [
-                    'title' => 'SME Industry Energy',
-                    'extra_info' => 'Meeta Chauhan',
-                    'description' => "Year: 2025\nStudent: Meeta Chauhan\nDetails: Submitted",
-                    'display_order' => 3
-                ],
-                [
-                    'title' => 'Engineer to Order',
-                    'extra_info' => 'Nimesh Soni',
-                    'description' => "Year: 2024\nStudent: Nimesh Soni\nDetails: GTU Ahmedabad 2024",
-                    'display_order' => 4
-                ],
-                [
-                    'title' => 'Sheet Metal Working',
-                    'extra_info' => 'Nimesh Patel',
-                    'description' => "Year: 2023\nStudent: Nimesh Patel\nDetails: GTU Ahmedabad 2023",
-                    'display_order' => 5
-                ],
-                [
-                    'title' => 'Centrifugal Casting',
-                    'extra_info' => 'Anand Patel',
-                    'description' => "Year: 2023\nStudent: Anand Patel\nDetails: GTU Ahmedabad 2023",
-                    'display_order' => 6
-                ],
-                [
-                    'title' => 'Metal Matrix Composite',
-                    'extra_info' => 'Mehul Mehta',
-                    'description' => "Year: 2023\nStudent: Mehul Mehta\nDetails: GTU Ahmedabad 2023",
-                    'display_order' => 7
-                ],
-                [
-                    'title' => 'Nylone Gear teeth Analysis',
-                    'extra_info' => 'Anand Kalani',
-                    'description' => "Year: 2023\nStudent: Anand Kalani\nDetails: GTU Ahmedabad 2023",
-                    'display_order' => 8
-                ],
-                [
-                    'title' => 'Machining Vibration and Condition Monitoring',
-                    'extra_info' => 'Narendra Patel',
-                    'description' => "Year: 2021\nStudent: Narendra Patel\nDetails: GTU Ahmedabad 2021",
-                    'display_order' => 9
-                ],
-                [
-                    'title' => 'Analysis of heat transfer in conical shell and circular tube heat exchanger',
-                    'extra_info' => 'Chirag Maradiya',
-                    'description' => "Year: 2020\nStudent: Chirag Maradiya\nDetails: GTU Chandkheda -Ahmedabad (Completed 2020)",
-                    'display_order' => 10
-                ],
-                [
-                    'title' => 'Sustainability in Manufacturing Process in Steel Re-rolling Mills',
-                    'extra_info' => 'Rita Jani',
-                    'description' => "Year: 2020\nStudent: Rita Jani\nDetails: GTU Chandkheda- Ahmedabad (Completed 2020)",
-                    'display_order' => 11
-                ],
-                [
-                    'title' => 'Minimization of sand casting defects by predicting and analyzing the process parameters',
-                    'extra_info' => 'Priyank Parekh',
-                    'description' => "Year: 2019\nStudent: Priyank Parekh\nDetails: RK University Rajkot, (Completed 2019)",
-                    'display_order' => 12
-                ],
-                [
-                    'title' => 'Evaluate furan no-bake binder system for quality casting and environmental aspects Year of notification',
-                    'extra_info' => 'Shailee Acharya',
-                    'description' => "Year: 2017\nStudent: Shailee Acharya\nDetails: RK University Rajkot (Completed 2017)",
-                    'display_order' => 13
-                ]
-            ];
-            $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('dissertation', ?, ?, ?, ?)");
-            foreach ($initialDissertation as $idiss) {
-                $insStmt->execute([$idiss['title'], $idiss['description'], $idiss['extra_info'], $idiss['display_order']]);
-            }
-            $stmtDiss = $pdo->query("SELECT * FROM principal_tab_items WHERE tab_name = 'dissertation' ORDER BY display_order ASC, id DESC");
-            $tabItems['dissertation'] = $stmtDiss ? $stmtDiss->fetchAll(PDO::FETCH_ASSOC) : [];
-        }
-
-        // Auto-seed membership if not present
-        if (empty($tabItems['membership'])) {
-            $initialMembership = [
-                [
-                    'title' => 'Professional Member - ASME',
-                    'extra_info' => 'ASME',
-                    'description' => 'Professional Member - ASME, New York, ID 103778216., 05 May 2023',
-                    'display_order' => 1
-                ],
-                [
-                    'title' => 'Sr Member : SMISME',
-                    'extra_info' => 'SMISME',
-                    'description' => 'Sr Member : SMISME, SMISME20200207, 15 Feb 2020.',
-                    'display_order' => 2
-                ],
-                [
-                    'title' => 'Fellow : FSISRP',
-                    'extra_info' => 'FSISRP',
-                    'description' => 'Fellow : FSISRP, LM171899318, 15 Feb 2020',
-                    'display_order' => 3
-                ],
-                [
-                    'title' => 'Life Member : IA ENG',
-                    'extra_info' => 'IA ENG',
-                    'description' => 'Life Member : IA ENG, International Association of Engineers, Hong Kong,( M-245200)',
-                    'display_order' => 4
-                ],
-                [
-                    'title' => 'Member : ISTE',
-                    'extra_info' => 'ISTE',
-                    'description' => 'Member : ISTE, New Delhi (M-62770)',
-                    'display_order' => 5
-                ],
-                [
-                    'title' => 'Life Member : Institute of Engineers',
-                    'extra_info' => 'IEI',
-                    'description' => 'Life Member : Institute of Engineers, Kolkata(LM 146505-2)',
-                    'display_order' => 6
-                ],
-                [
-                    'title' => 'Life Member : Indian Institute of Industrial Engineering',
-                    'extra_info' => 'IIIE',
-                    'description' => 'Life Member : Indian Institute of Industrial Engineering, Mumbai (LM 9467)',
-                    'display_order' => 7
-                ],
-                [
-                    'title' => 'Life Fellow : Indian Institute of Production Engineers',
-                    'extra_info' => 'IIPE',
-                    'description' => 'Life Fellow : Indian Institute of Production Engineers, Bengaluru (W/LF/1364)',
-                    'display_order' => 8
-                ]
-            ];
-            $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('membership', ?, ?, ?, ?)");
-            foreach ($initialMembership as $im) {
-                $insStmt->execute([$im['title'], $im['description'], $im['extra_info'], $im['display_order']]);
-            }
-            $stmtMem = $pdo->query("SELECT * FROM principal_tab_items WHERE tab_name = 'membership' ORDER BY display_order ASC, id DESC");
-            $tabItems['membership'] = $stmtMem ? $stmtMem->fetchAll(PDO::FETCH_ASSOC) : [];
-        }
-
-        // Auto-seed patents if not present
-        if (empty($tabItems['patents'])) {
-            $initialPatents = [
-                [
-                    'title' => 'Patent for Universal Centrifugal Casting Machine',
-                    'extra_info' => 'Patent No: 528730',
-                    'description' => 'Patent for "Universal Centrifugal Casting Machine" is Published in the Official Journal of The Patent Office. Publication Date: 17-12-2021, and Granted on 18/03/2024, Patent No: 528730, ID: 202121056480.',
-                    'display_order' => 1
-                ]
-            ];
-            $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('patents', ?, ?, ?, ?)");
-            foreach ($initialPatents as $ip) {
-                $insStmt->execute([$ip['title'], $ip['description'], $ip['extra_info'], $ip['display_order']]);
-            }
-            $stmtPat = $pdo->query("SELECT * FROM principal_tab_items WHERE tab_name = 'patents' ORDER BY display_order ASC, id DESC");
-            $tabItems['patents'] = $stmtPat ? $stmtPat->fetchAll(PDO::FETCH_ASSOC) : [];
-        }
     } catch (Throwable $e) {
         error_log("Principal profile load error: " . $e->getMessage());
     }
@@ -1217,246 +995,69 @@ require_once __DIR__ . '/../includes/header.php';
                 <?php endif; ?>
             </div>
 
-            <!-- 8. Achievements Pane (Dedicated Table Layout matching image 1) -->
-            <div id="tab-achievements" class="pr-tab-pane" role="tabpanel">
-                <?php 
-                $achievementsList = $tabItems['achievements'] ?? [];
-                if (empty($achievementsList)): 
-                ?>
-                    <div class="pr-empty-box">
-                        <i class="fas fa-trophy" aria-hidden="true"></i>
-                        <h4 class="pr-empty-title">Honors &amp; Achievements</h4>
-                        <p class="pr-empty-sub">Academic distinctions, state recognitions, and professional awards are updated periodically through the Principal's Office.</p>
-                    </div>
-                <?php else: ?>
-                    <div class="pr-pub-papers-wrap">
-                        <div class="pr-pub-papers-header">
-                            <h4 class="pr-pub-papers-title">
-                                <i class="fas fa-trophy" aria-hidden="true"></i>
-                                <span>Honors, Awards &amp; Institutional Achievements</span>
-                            </h4>
-                            <span class="pr-pub-count-label">Showing <?= count($achievementsList) ?> Achievement Records</span>
-                        </div>
+            <!-- Dynamic Tab Panes for Other Sections (Achievements, Dissertation, Membership, Patents) -->
+            <?php
+            $tabPanesConfig = [
+                'tab-achievements' => [
+                    'key'   => 'achievements',
+                    'title' => 'Achievements & Honors',
+                    'icon'  => 'fas fa-trophy',
+                    'desc'  => 'Honors, awards, and prestigious institutional recognitions are updated periodically.'
+                ],
+                'tab-dissertation' => [
+                    'key'   => 'dissertation',
+                    'title' => 'Dissertation / Ph.D. Thesis Guidance',
+                    'icon'  => 'fas fa-tag',
+                    'desc'  => 'Doctoral and Master\'s thesis supervision records are updated periodically.'
+                ],
+                'tab-membership'   => [
+                    'key'   => 'membership',
+                    'title' => 'Professional Memberships',
+                    'icon'  => 'fas fa-user',
+                    'desc'  => 'Professional society memberships and council affiliations are updated periodically.'
+                ],
+                'tab-patents'      => [
+                    'key'   => 'patents',
+                    'title' => 'Patents & Innovations',
+                    'icon'  => 'fas fa-user',
+                    'desc'  => 'Patents filed, published, and granted are updated periodically.'
+                ]
+            ];
 
-                        <div class="pr-pub-summary-card" style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0; border-radius: 10px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);">
-                            <div class="table-responsive">
-                                <table class="pr-pub-summary-table" style="margin-bottom: 0;">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 80px; text-align: center; font-weight: 700;">Sr. No.</th>
-                                            <th style="font-weight: 700;">Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($achievementsList as $aIdx => $ach): 
-                                            $aText = !empty($ach['description']) ? $ach['description'] : $ach['title'];
-                                        ?>
-                                            <tr>
-                                                <td style="text-align: center; font-weight: 700; color: #64748b; vertical-align: top; padding: 16px 14px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= !empty($ach['display_order']) ? (int)$ach['display_order'] : ($aIdx + 1) ?>
-                                                </td>
-                                                <td style="color: #334155; font-size: 0.935rem; line-height: 1.6; vertical-align: middle; padding: 16px 20px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= htmlspecialchars($aText) ?>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
+            foreach ($tabPanesConfig as $paneId => $cfg):
+                $items = $tabItems[$cfg['key']] ?? [];
+            ?>
+                <div id="<?= $paneId ?>" class="pr-tab-pane" role="tabpanel">
+                    <?php if (empty($items)): ?>
+                        <div class="pr-empty-box">
+                            <i class="<?= $cfg['icon'] ?>" aria-hidden="true"></i>
+                            <h4 class="pr-empty-title">No <?= htmlspecialchars($cfg['title']) ?> Listed Yet</h4>
+                            <p class="pr-empty-sub"><?= htmlspecialchars($cfg['desc']) ?></p>
                         </div>
-                    </div>
-                <?php endif; ?>
-            </div>
-
-            <!-- 9. Dissertation / Ph.D. Guidance Pane (Dedicated Table Layout matching image 2) -->
-            <div id="tab-dissertation" class="pr-tab-pane" role="tabpanel">
-                <?php 
-                $dissertationList = $tabItems['dissertation'] ?? [];
-                if (empty($dissertationList)): 
-                ?>
-                    <div class="pr-empty-box">
-                        <i class="fas fa-tag" aria-hidden="true"></i>
-                        <h4 class="pr-empty-title">Dissertation / Ph.D. Thesis Guidance</h4>
-                        <p class="pr-empty-sub">Supervised doctoral research scholars and post-graduate dissertations are updated periodically through the Principal's Office.</p>
-                    </div>
-                <?php else: ?>
-                    <div class="pr-pub-papers-wrap">
-                        <div class="pr-pub-papers-header">
-                            <h4 class="pr-pub-papers-title">
-                                <i class="fas fa-tag" aria-hidden="true"></i>
-                                <span>Dissertation &amp; Ph.D. Thesis Guidance</span>
-                            </h4>
-                            <span class="pr-pub-count-label">Showing <?= count($dissertationList) ?> Research Scholars</span>
+                    <?php else: ?>
+                        <div class="pr-entries-list">
+                            <?php foreach ($items as $it): ?>
+                                <div class="pr-entry-card">
+                                    <div class="pr-entry-icon" aria-hidden="true">
+                                        <i class="<?= $cfg['icon'] ?>"></i>
+                                    </div>
+                                    <div class="pr-entry-content">
+                                        <div class="pr-entry-header">
+                                            <h4 class="pr-entry-title"><?= htmlspecialchars($it['title']) ?></h4>
+                                            <?php if (!empty($it['extra_info']) && $it['extra_info'] !== '-'): ?>
+                                                <span class="pr-entry-tag"><?= htmlspecialchars($it['extra_info']) ?></span>
+                                            <?php endif; ?>
+                                        </div>
+                                        <?php if (!empty($it['description'])): ?>
+                                            <p class="pr-entry-desc"><?= nl2br(htmlspecialchars($it['description'])) ?></p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
-
-                        <div class="pr-pub-summary-card" style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0; border-radius: 10px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);">
-                            <div class="table-responsive">
-                                <table class="pr-pub-summary-table" style="margin-bottom: 0;">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 70px; text-align: center; font-weight: 700;">Sr. No.</th>
-                                            <th style="width: 85px; text-align: center; font-weight: 700;">Year</th>
-                                            <th style="font-weight: 700;">Title</th>
-                                            <th style="width: 170px; font-weight: 700;">Student</th>
-                                            <th style="font-weight: 700;">Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($dissertationList as $dIdx => $diss): 
-                                            $dDesc = trim($diss['description'] ?? '');
-                                            $dYear = '';
-                                            $dStudent = trim($diss['extra_info'] ?? '');
-                                            $dDetails = '';
-
-                                            $lines = explode("\n", $dDesc);
-                                            foreach ($lines as $ln) {
-                                                $ln = trim($ln);
-                                                if (preg_match('/^Year:\s*(.*)$/i', $ln, $m)) {
-                                                    $val = trim($m[1]);
-                                                    if ($val !== '--' && $val !== '-') $dYear = $val;
-                                                } elseif (preg_match('/^Student:\s*(.*)$/i', $ln, $m)) {
-                                                    $val = trim($m[1]);
-                                                    if ($val !== '--' && $val !== '-') $dStudent = $val;
-                                                } elseif (preg_match('/^Details:\s*(.*)$/i', $ln, $m)) {
-                                                    $val = trim($m[1]);
-                                                    if ($val !== '--' && $val !== '-') $dDetails = $val;
-                                                }
-                                            }
-                                            if (empty($dDetails) && !empty($dDesc) && !preg_match('/^(?:Year|Student|Details):/i', $dDesc)) {
-                                                $dDetails = $dDesc;
-                                            }
-                                        ?>
-                                            <tr>
-                                                <td style="text-align: center; font-weight: 700; color: #64748b; vertical-align: top; padding: 15px 12px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= !empty($diss['display_order']) ? (int)$diss['display_order'] : ($dIdx + 1) ?>
-                                                </td>
-                                                <td style="text-align: center; font-weight: 600; color: #475569; font-size: 0.9rem; vertical-align: top; padding: 15px 10px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= !empty($dYear) ? htmlspecialchars($dYear) : '<span style="color: #94a3b8;">-</span>' ?>
-                                                </td>
-                                                <td style="font-weight: 600; color: #0f172a; font-size: 0.92rem; line-height: 1.5; vertical-align: top; padding: 15px 16px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= htmlspecialchars($diss['title']) ?>
-                                                </td>
-                                                <td style="color: #1e40af; font-weight: 600; font-size: 0.91rem; vertical-align: top; padding: 15px 14px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= !empty($dStudent) ? htmlspecialchars($dStudent) : '<span style="color: #94a3b8;">-</span>' ?>
-                                                </td>
-                                                <td style="color: #334155; font-size: 0.9rem; line-height: 1.5; vertical-align: top; padding: 15px 16px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= !empty($dDetails) ? htmlspecialchars($dDetails) : '<span style="color: #94a3b8;">-</span>' ?>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-            </div>
-
-            <!-- 10. Membership Pane (Dedicated Table Layout matching image 3) -->
-            <div id="tab-membership" class="pr-tab-pane" role="tabpanel">
-                <?php 
-                $membershipList = $tabItems['membership'] ?? [];
-                if (empty($membershipList)): 
-                ?>
-                    <div class="pr-empty-box">
-                        <i class="fas fa-user" aria-hidden="true"></i>
-                        <h4 class="pr-empty-title">Professional Memberships</h4>
-                        <p class="pr-empty-sub">Professional bodies, technical societies, and engineering institutions memberships are updated periodically.</p>
-                    </div>
-                <?php else: ?>
-                    <div class="pr-pub-papers-wrap">
-                        <div class="pr-pub-papers-header">
-                            <h4 class="pr-pub-papers-title">
-                                <i class="fas fa-user" aria-hidden="true"></i>
-                                <span>Professional Memberships &amp; Society Affiliations</span>
-                            </h4>
-                            <span class="pr-pub-count-label">Showing <?= count($membershipList) ?> Memberships</span>
-                        </div>
-
-                        <div class="pr-pub-summary-card" style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0; border-radius: 10px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);">
-                            <div class="table-responsive">
-                                <table class="pr-pub-summary-table" style="margin-bottom: 0;">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 80px; text-align: center; font-weight: 700;">Sr. No.</th>
-                                            <th style="font-weight: 700;">Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($membershipList as $mIdx => $mem): 
-                                            $mText = !empty($mem['description']) ? $mem['description'] : $mem['title'];
-                                        ?>
-                                            <tr>
-                                                <td style="text-align: center; font-weight: 700; color: #64748b; vertical-align: top; padding: 16px 14px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= !empty($mem['display_order']) ? (int)$mem['display_order'] : ($mIdx + 1) ?>
-                                                </td>
-                                                <td style="color: #334155; font-size: 0.935rem; line-height: 1.6; vertical-align: middle; padding: 16px 20px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= htmlspecialchars($mText) ?>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-            </div>
-
-            <!-- 11. Patents Pane (Dedicated Table Layout matching image 4) -->
-            <div id="tab-patents" class="pr-tab-pane" role="tabpanel">
-                <?php 
-                $patentsList = $tabItems['patents'] ?? [];
-                if (empty($patentsList)): 
-                ?>
-                    <div class="pr-empty-box">
-                        <i class="fas fa-user" aria-hidden="true"></i>
-                        <h4 class="pr-empty-title">Patents &amp; Innovations</h4>
-                        <p class="pr-empty-sub">Intellectual property, published and granted patents are updated periodically through the Principal's Office.</p>
-                    </div>
-                <?php else: ?>
-                    <div class="pr-pub-papers-wrap">
-                        <div class="pr-pub-papers-header">
-                            <h4 class="pr-pub-papers-title">
-                                <i class="fas fa-user" aria-hidden="true"></i>
-                                <span>Patents &amp; Intellectual Property Rights (IPR)</span>
-                            </h4>
-                            <span class="pr-pub-count-label">Showing <?= count($patentsList) ?> Patent Records</span>
-                        </div>
-
-                        <div class="pr-pub-summary-card" style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0; border-radius: 10px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);">
-                            <div class="table-responsive">
-                                <table class="pr-pub-summary-table" style="margin-bottom: 0;">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 70px; text-align: center; font-weight: 700;">Sr. No.</th>
-                                            <th style="width: 260px; font-weight: 700;">Title</th>
-                                            <th style="font-weight: 700;">Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($patentsList as $pIdx => $pat): 
-                                            $pDetails = !empty($pat['description']) ? $pat['description'] : $pat['title'];
-                                        ?>
-                                            <tr>
-                                                <td style="text-align: center; font-weight: 700; color: #64748b; vertical-align: top; padding: 16px 14px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= !empty($pat['display_order']) ? (int)$pat['display_order'] : ($pIdx + 1) ?>
-                                                </td>
-                                                <td style="font-weight: 600; color: #0f172a; font-size: 0.93rem; line-height: 1.5; vertical-align: top; padding: 16px 18px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= htmlspecialchars($pat['title']) ?>
-                                                </td>
-                                                <td style="color: #334155; font-size: 0.92rem; line-height: 1.6; vertical-align: top; padding: 16px 20px; border-bottom: 1px solid #f1f5f9;">
-                                                    <?= htmlspecialchars($pDetails) ?>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-            </div>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
 
         </section>
 

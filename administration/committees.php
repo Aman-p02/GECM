@@ -1,12 +1,9 @@
 <?php
-$page_title = "Committees | Government Engineering College, Modasa";
-$active_page = "committees";
-$root_path = "../";
+$page_title = "Committees | GEC Modasa";
+$page_heading = "Committees";
+$page_subheading = "Statutory committees, departmental heads, Internal Quality Assurance Cell (IQAC), and administrative governance of Government Engineering College, Modasa.";
+$active_page = 'committees';
+$root_path = '../';
 
-require_once __DIR__ . '/../includes/header.php';
-?>
+require_once __DIR__ . '/includes/council-view.php';
 
-<div class="container" style="min-height: 60vh;">
-</div>
-
-<?php require_once __DIR__ . '/../includes/footer.php'; ?>
