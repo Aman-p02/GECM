@@ -130,7 +130,7 @@ require_once __DIR__ . '/includes/header.php';
                                 $shortDate = date('d/m/Y', strtotime($msg['message_date']));
                                 $isCurrent = ($currentMsg && $currentMsg['id'] == $msg['id']);
                             ?>
-                                <a href="principal-message.php?id=<?= (int)$msg['id'] ?>" class="pm-archive-card <?= $isCurrent ? 'is-current' : '' ?>">
+                                <a href="principal-message?id=<?= (int)$msg['id'] ?>" class="pm-archive-card <?= $isCurrent ? 'is-current' : '' ?>">
                                     <div class="pm-archive-card-left">
                                         <div class="pm-archive-icon-box">
                                             <i class="far fa-calendar-alt"></i>

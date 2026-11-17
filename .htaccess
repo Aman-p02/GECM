@@ -7,3 +7,41 @@ DirectoryIndex index.php index.html
     Deny from all
 </FilesMatch>
 
+# --------------------------------------------------------------
+# CLEAN URL ENGINE (Pretty URLs for GEC Modasa)
+# Seamlessly works on both Localhost (XAMPP) and Production
+# --------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Prevent loop: if already rewritten internally, stop
+    RewriteCond %{ENV:REDIRECT_STATUS} 200
+    RewriteRule ^ - [L]
+
+    # 2. 301 Redirect: /index.php to / (root or subfolder, excludes admin areas and POST)
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin)/ [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+index\.php([^\s]*) [NC]
+    RewriteRule ^ %1/%2 [R=301,L,NE]
+
+    # 3. 301 Redirect: Direct .php requests to clean URL (except admin areas and POST)
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin)/ [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^.]+)\.php([^\s]*)\s [NC]
+    RewriteRule ^ %1%2 [R=301,L,NE]
+
+    # 4. Stop rewrite processing for existing files and directories (css, js, images, etc.)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 5. Remove trailing slashes from non-directories (prevents broken relative assets)
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]+?)/+[?\s] [NC]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ %1 [R=301,L,NE]
+
+    # 6. Internal Rewrite: clean URL to matching .php file (e.g. /about -> about.php)
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^([a-zA-Z0-9_\-\/]+)$ $1.php [L,QSA]
+</IfModule>

@@ -46,7 +46,7 @@ $headOfInstitute = $principal['name'] ?? 'Prof. (Dr.) J. A. Vadher';
         
         <!-- Breadcrumbs -->
         <div class="coh-breadcrumbs">
-            <a href="index.php"><i class="fas fa-home"></i></a>
+            <a href="./"><i class="fas fa-home"></i></a>
             <span style="color: #cbd5e1; margin: 0 6px;">/</span>
             <span>Administration</span>
             <span style="color: #cbd5e1; margin: 0 6px;">/</span>

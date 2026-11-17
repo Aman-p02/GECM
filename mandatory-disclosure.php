@@ -65,7 +65,7 @@ $disclosureItems = [
     <section class="md-hero">
         <div class="container md-container">
             <span class="md-kicker">INSTITUTIONAL STATUTORY BODIES</span>
-            <h1 class="md-heading"><a href="mandatory-disclosure.php" style="color: inherit; text-decoration: none;">Mandatory Disclosures &amp; Campus Committees</a></h1>
+            <h1 class="md-heading"><a href="mandatory-disclosure" style="color: inherit; text-decoration: none;">Mandatory Disclosures &amp; Campus Committees</a></h1>
         </div>
     </section>
 
@@ -83,7 +83,7 @@ $disclosureItems = [
                     <ul class="md-subnav-dropdown" role="menu">
                         <?php foreach ($committeeItems as $cItem): ?>
                             <li role="none">
-                                <a href="mandatory-disclosure.php?doc=<?= urlencode($cItem['slug']) ?>" class="md-subnav-dd-link <?= ($currentDoc === $cItem['slug']) ? 'active' : '' ?>" role="menuitem">
+                                <a href="mandatory-disclosure?doc=<?= urlencode($cItem['slug']) ?>" class="md-subnav-dd-link <?= ($currentDoc === $cItem['slug']) ? 'active' : '' ?>" role="menuitem">
                                     <span><?= htmlspecialchars($cItem['title']) ?></span>
                                 </a>
                             </li>
@@ -100,7 +100,7 @@ $disclosureItems = [
                     <ul class="md-subnav-dropdown" role="menu">
                         <?php foreach ($disclosureItems as $dItem): ?>
                             <li role="none">
-                                <a href="disclosure-pdf.php?doc=<?= urlencode($dItem['slug']) ?>" target="_blank" rel="noopener noreferrer" class="md-subnav-dd-link" role="menuitem">
+                                <a href="disclosure-pdf?doc=<?= urlencode($dItem['slug']) ?>" target="_blank" rel="noopener noreferrer" class="md-subnav-dd-link" role="menuitem">
                                     <span><?= htmlspecialchars($dItem['title']) ?></span>
                                     <i class="fas fa-file-pdf" style="font-size: 0.78rem; color: #e11d48; margin-left: auto;" aria-hidden="true"></i>
                                 </a>

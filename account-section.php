@@ -26,7 +26,7 @@ $services = $accountData['services_offered'] ?? "• Student Tuition Fee & Term 
         
         <!-- Breadcrumbs -->
         <div style="font-size: 13px; color: #64748b; margin-bottom: 24px;">
-            <a href="index.php" style="color: #0284c7; text-decoration: none;"><i class="fas fa-home"></i></a>
+            <a href="./" style="color: #0284c7; text-decoration: none;"><i class="fas fa-home"></i></a>
             <span style="color: #cbd5e1; margin: 0 6px;">/</span>
             <span>Administration</span>
             <span style="color: #cbd5e1; margin: 0 6px;">/</span>

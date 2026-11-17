@@ -22,15 +22,15 @@
                 <div class="footer-col links-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="<?= ($root_path ?? '') ?>overview.php"><i class="fas fa-angle-right"></i> About GECM</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>principal.php"><i class="fas fa-angle-right"></i> Principal Profile</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>council-of-heads.php"><i class="fas fa-angle-right"></i> Council of Heads</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>facilities.php"><i class="fas fa-angle-right"></i> Facilities</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>mandatory-disclosure.php"><i class="fas fa-angle-right"></i> Mandatory Disclosures</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>committees.php?c=anti-ragging"><i class="fas fa-angle-right"></i> Anti-Ragging Committee</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>admission.php"><i class="fas fa-angle-right"></i> Admissions</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>courses.php"><i class="fas fa-angle-right"></i> Courses &amp; Intake</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>contact.php"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>overview"><i class="fas fa-angle-right"></i> About GECM</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>principal"><i class="fas fa-angle-right"></i> Principal Profile</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>council-of-heads"><i class="fas fa-angle-right"></i> Council of Heads</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>facilities"><i class="fas fa-angle-right"></i> Facilities</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>mandatory-disclosure"><i class="fas fa-angle-right"></i> Mandatory Disclosures</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>committees?c=anti-ragging"><i class="fas fa-angle-right"></i> Anti-Ragging Committee</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>admission"><i class="fas fa-angle-right"></i> Admissions</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>courses"><i class="fas fa-angle-right"></i> Courses &amp; Intake</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-col contact-col">

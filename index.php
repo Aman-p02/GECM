@@ -299,7 +299,7 @@ include_once __DIR__ . '/includes/header.php';
     <div class="recent-events-card">
         <div class="section-header">
             <h4>Recent Events</h4>
-            <a href="college-activities.php" class="view-all">All Events</a>
+            <a href="college-activities" class="view-all">All Events</a>
         </div>
         <div class="events-slider-container">
             <?php if (!empty($recentEvents)): ?>
