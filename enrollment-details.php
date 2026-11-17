@@ -56,58 +56,58 @@ if ($pdo) {
 if (empty($enrollmentGroups)) {
     $defaultYears = [
         '2025-26' => [
-            ['Automobile Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '420 KB'],
-            ['Civil Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '450 KB'],
-            ['Computer Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '510 KB'],
-            ['Electrical Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '430 KB'],
-            ['Electronics and Communication Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '410 KB'],
-            ['Information Technology', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '480 KB'],
-            ['Mechanical Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '490 KB'],
-            ['Computer Engineering (PG)', 'PG', 'uploads/enrollments/sample_enrollment.pdf', '380 KB']
+            ['Automobile Engineering', 'UG', '', ''],
+            ['Civil Engineering', 'UG', '', ''],
+            ['Computer Engineering', 'UG', '', ''],
+            ['Electrical Engineering', 'UG', '', ''],
+            ['Electronics and Communication Engineering', 'UG', '', ''],
+            ['Information Technology', 'UG', '', ''],
+            ['Mechanical Engineering', 'UG', '', ''],
+            ['Computer Engineering (PG)', 'PG', '', '']
         ],
         '2024-25' => [
-            ['Automobile Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '410 KB'],
-            ['Civil Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '440 KB'],
-            ['Computer Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '520 KB'],
-            ['Electrical Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '420 KB'],
-            ['Electronics and Communication Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '400 KB'],
-            ['Information Technology', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '470 KB'],
-            ['Mechanical Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '480 KB'],
-            ['Civil Engineering (PG)', 'PG', 'uploads/enrollments/sample_enrollment.pdf', '360 KB'],
-            ['Computer Engineering (PG)', 'PG', 'uploads/enrollments/sample_enrollment.pdf', '390 KB']
+            ['Automobile Engineering', 'UG', '', ''],
+            ['Civil Engineering', 'UG', '', ''],
+            ['Computer Engineering', 'UG', '', ''],
+            ['Electrical Engineering', 'UG', '', ''],
+            ['Electronics and Communication Engineering', 'UG', '', ''],
+            ['Information Technology', 'UG', '', ''],
+            ['Mechanical Engineering', 'UG', '', ''],
+            ['Civil Engineering (PG)', 'PG', '', ''],
+            ['Computer Engineering (PG)', 'PG', '', '']
         ],
         '2023-24' => [
-            ['Automobile Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '405 KB'],
-            ['Civil Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '435 KB'],
-            ['Computer Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '515 KB'],
-            ['Electrical Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '415 KB'],
-            ['Electronics and Communication Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '395 KB'],
-            ['Information Technology', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '465 KB'],
-            ['Mechanical Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '475 KB'],
-            ['Civil Engineering (PG)', 'PG', 'uploads/enrollments/sample_enrollment.pdf', '355 KB'],
-            ['Computer Engineering (PG)', 'PG', 'uploads/enrollments/sample_enrollment.pdf', '385 KB']
+            ['Automobile Engineering', 'UG', '', ''],
+            ['Civil Engineering', 'UG', '', ''],
+            ['Computer Engineering', 'UG', '', ''],
+            ['Electrical Engineering', 'UG', '', ''],
+            ['Electronics and Communication Engineering', 'UG', '', ''],
+            ['Information Technology', 'UG', '', ''],
+            ['Mechanical Engineering', 'UG', '', ''],
+            ['Civil Engineering (PG)', 'PG', '', ''],
+            ['Computer Engineering (PG)', 'PG', '', '']
         ],
         '2022-23' => [
-            ['Automobile Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '400 KB'],
-            ['Civil Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '430 KB'],
-            ['Computer Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '505 KB'],
-            ['Electrical Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '410 KB'],
-            ['Electronics and Communication Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '390 KB'],
-            ['Information Technology', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '460 KB'],
-            ['Mechanical Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '470 KB'],
-            ['Civil Engineering (PG)', 'PG', 'uploads/enrollments/sample_enrollment.pdf', '350 KB'],
-            ['Computer Engineering (PG)', 'PG', 'uploads/enrollments/sample_enrollment.pdf', '380 KB']
+            ['Automobile Engineering', 'UG', '', ''],
+            ['Civil Engineering', 'UG', '', ''],
+            ['Computer Engineering', 'UG', '', ''],
+            ['Electrical Engineering', 'UG', '', ''],
+            ['Electronics and Communication Engineering', 'UG', '', ''],
+            ['Information Technology', 'UG', '', ''],
+            ['Mechanical Engineering', 'UG', '', ''],
+            ['Civil Engineering (PG)', 'PG', '', ''],
+            ['Computer Engineering (PG)', 'PG', '', '']
         ],
         '2021-22' => [
-            ['Automobile Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '395 KB'],
-            ['Civil Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '425 KB'],
-            ['Computer Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '500 KB'],
-            ['Electrical Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '405 KB'],
-            ['Electronics and Communication Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '385 KB'],
-            ['Information Technology', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '455 KB'],
-            ['Mechanical Engineering', 'UG', 'uploads/enrollments/sample_enrollment.pdf', '465 KB'],
-            ['Civil Engineering (PG)', 'PG', 'uploads/enrollments/sample_enrollment.pdf', '345 KB'],
-            ['Computer Engineering (PG)', 'PG', 'uploads/enrollments/sample_enrollment.pdf', '375 KB']
+            ['Automobile Engineering', 'UG', '', ''],
+            ['Civil Engineering', 'UG', '', ''],
+            ['Computer Engineering', 'UG', '', ''],
+            ['Electrical Engineering', 'UG', '', ''],
+            ['Electronics and Communication Engineering', 'UG', '', ''],
+            ['Information Technology', 'UG', '', ''],
+            ['Mechanical Engineering', 'UG', '', ''],
+            ['Civil Engineering (PG)', 'PG', '', ''],
+            ['Computer Engineering (PG)', 'PG', '', '']
         ]
     ];
 
@@ -136,7 +136,7 @@ if (empty($enrollmentGroups)) {
             </span>
             <h1 class="enrollment-title">Student Enrollment Summary</h1>
             <p class="enrollment-lead">
-                Year-wise approved enrollment registers and student intake documentation across all undergraduate (B.E.) and postgraduate (M.E.) branches affiliated with Gujarat Technological University (GTU). Click any discipline to view or download the official PDF.
+                Year-wise approved enrollment registers and student intake documentation across all undergraduate (B.E.) and postgraduate (M.E.) branches affiliated with Gujarat Technological University (GTU).
             </p>
         </div>
     </header>
@@ -183,35 +183,31 @@ if (empty($enrollmentGroups)) {
                     <?php foreach ($items as $item): ?>
                         <?php
                         $iconClass = getBranchIcon($item['branch_name'], $item['program_type']);
-                        $isPg = ($item['program_type'] === 'PG');
-                        $pdfPath = $root_path . ltrim($item['file_path'], '/');
+                        $hasRealPdf = !empty($item['file_path']) && file_exists(__DIR__ . '/' . $item['file_path']);
+                        $linkHref = $hasRealPdf ? htmlspecialchars($root_path . ltrim($item['file_path'], '/')) : 'javascript:void(0);';
+                        $targetAttr = $hasRealPdf ? 'target="_blank" rel="noopener noreferrer"' : '';
                         ?>
-                        <a href="<?= htmlspecialchars($pdfPath) ?>"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="enr-branch-card"
+                        <a href="<?= $linkHref ?>"
+                           <?= $targetAttr ?>
+                           class="enr-branch-card <?= !$hasRealPdf ? 'is-static' : '' ?>"
                            data-branch-name="<?= strtolower(htmlspecialchars($item['branch_name'] . ' ' . $academicYear)) ?>"
-                           aria-label="View <?= htmlspecialchars($item['branch_name']) ?> Enrollment PDF for <?= htmlspecialchars($academicYear) ?>">
+                           aria-label="<?= htmlspecialchars($item['branch_name']) ?> Enrollment Document">
                             <div class="enr-card-top">
                                 <div class="enr-card-icon">
                                     <i class="fas <?= $iconClass ?>"></i>
                                 </div>
                                 <div class="enr-card-meta">
                                     <h3 class="enr-branch-name"><?= htmlspecialchars($item['branch_name']) ?></h3>
-                                    <?php if ($isPg): ?>
-                                        <span class="enr-level-tag enr-level-pg">Postgraduate (M.E.)</span>
-                                    <?php else: ?>
-                                        <span class="enr-level-tag enr-level-ug">Undergraduate (B.E.)</span>
-                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="enr-card-footer">
                                 <span class="enr-pdf-label">
                                     <i class="fas fa-file-pdf"></i>
-                                    <span>View PDF</span>
-                                    <span class="enr-pdf-size">(<?= htmlspecialchars($item['file_size'] ?? 'PDF') ?>)</span>
+                                    <span><?= $hasRealPdf ? 'View PDF' : 'PDF Document' ?></span>
                                 </span>
-                                <i class="fas fa-external-link-alt enr-open-icon"></i>
+                                <?php if ($hasRealPdf): ?>
+                                    <i class="fas fa-external-link-alt enr-open-icon"></i>
+                                <?php endif; ?>
                             </div>
                         </a>
                     <?php endforeach; ?>

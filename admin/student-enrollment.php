@@ -311,11 +311,14 @@ require_once __DIR__ . '/includes/header.php';
                         <?php endif; ?>
                     </td>
                     <td>
-                        <a href="../<?= htmlspecialchars($row['file_path']) ?>" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; color: #dc2626; font-weight: 600; text-decoration: none; font-size: 13px;">
-                            <i class="fas fa-file-pdf" style="font-size: 16px;"></i>
-                            <span>View PDF</span>
-                            <span style="font-size: 11px; color: #64748b; font-weight: normal;">(<?= htmlspecialchars($row['file_size'] ?? 'PDF') ?>)</span>
-                        </a>
+                        <?php if (!empty($row['file_path']) && file_exists(__DIR__ . '/../' . $row['file_path'])): ?>
+                            <a href="../<?= htmlspecialchars($row['file_path']) ?>" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; color: #dc2626; font-weight: 600; text-decoration: none; font-size: 13px;">
+                                <i class="fas fa-file-pdf" style="font-size: 16px;"></i>
+                                <span>View PDF</span>
+                            </a>
+                        <?php else: ?>
+                            <span style="font-size: 12px; color: #94a3b8; font-style: italic;">No PDF Uploaded</span>
+                        <?php endif; ?>
                     </td>
                     <td style="text-align: center;">
                         <a href="student-enrollment.php?toggle=<?= (int)$row['id'] ?><?= !empty($filterYear) ? '&year=' . urlencode($filterYear) : '' ?>" title="Click to toggle status" style="text-decoration: none;">
@@ -473,14 +476,17 @@ require_once __DIR__ . '/includes/header.php';
 
                 <div class="form-group">
                     <label class="form-label">Current PDF Document</label>
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                        <a href="../<?= htmlspecialchars($editItem['file_path']) ?>" target="_blank" rel="noopener noreferrer" style="color: #dc2626; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
-                            <i class="fas fa-file-pdf" style="font-size: 18px;"></i>
-                            <span><?= htmlspecialchars($editItem['file_path']) ?></span>
-                        </a>
-                        <span style="font-size: 12px; color: #64748b;">(<?= htmlspecialchars($editItem['file_size'] ?? 'PDF') ?>)</span>
-                    </div>
-                    <label class="form-label" for="edit_pdf_file">Upload New PDF to Replace (Optional)</label>
+                    <?php if (!empty($editItem['file_path']) && file_exists(__DIR__ . '/../' . $editItem['file_path'])): ?>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                            <a href="../<?= htmlspecialchars($editItem['file_path']) ?>" target="_blank" rel="noopener noreferrer" style="color: #dc2626; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                <i class="fas fa-file-pdf" style="font-size: 18px;"></i>
+                                <span><?= htmlspecialchars($editItem['file_path']) ?></span>
+                            </a>
+                        </div>
+                    <?php else: ?>
+                        <div style="font-size: 13px; color: #94a3b8; margin-bottom: 8px; font-style: italic;">No PDF document uploaded yet.</div>
+                    <?php endif; ?>
+                    <label class="form-label" for="edit_pdf_file">Upload PDF Document</label>
                     <input type="file" name="pdf_file" id="edit_pdf_file" class="form-control" accept=".pdf,application/pdf">
                 </div>
 
