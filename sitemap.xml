@@ -76,31 +76,31 @@
 
     <!-- 3. Administration Section -->
     <url>
-        <loc>https://gecmodasa.ac.in/principal</loc>
+        <loc>https://gecmodasa.ac.in/administration/principal</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/council-of-heads</loc>
+        <loc>https://gecmodasa.ac.in/administration/council-of-heads</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/account-section</loc>
+        <loc>https://gecmodasa.ac.in/administration/account-section</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/hostel-mess</loc>
+        <loc>https://gecmodasa.ac.in/administration/hostel-mess</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/committees</loc>
+        <loc>https://gecmodasa.ac.in/administration/committees</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>

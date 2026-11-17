@@ -23,11 +23,11 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="<?= ($root_path ?? '') ?>about/overview"><i class="fas fa-angle-right"></i> About GECM</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>principal"><i class="fas fa-angle-right"></i> Principal Profile</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>council-of-heads"><i class="fas fa-angle-right"></i> Council of Heads</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>administration/principal"><i class="fas fa-angle-right"></i> Principal Profile</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>administration/council-of-heads"><i class="fas fa-angle-right"></i> Council of Heads</a></li>
                         <li><a href="<?= ($root_path ?? '') ?>about/facilities"><i class="fas fa-angle-right"></i> Facilities</a></li>
                         <li><a href="<?= ($root_path ?? '') ?>about/mandatory-disclosure"><i class="fas fa-angle-right"></i> Mandatory Disclosures</a></li>
-                        <li><a href="<?= ($root_path ?? '') ?>committees?c=anti-ragging"><i class="fas fa-angle-right"></i> Anti-Ragging Committee</a></li>
+                        <li><a href="<?= ($root_path ?? '') ?>administration/committees?c=anti-ragging"><i class="fas fa-angle-right"></i> Anti-Ragging Committee</a></li>
                         <li><a href="<?= ($root_path ?? '') ?>admission"><i class="fas fa-angle-right"></i> Admissions</a></li>
                         <li><a href="<?= ($root_path ?? '') ?>courses"><i class="fas fa-angle-right"></i> Courses &amp; Intake</a></li>
                         <li><a href="<?= ($root_path ?? '') ?>contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>

@@ -271,7 +271,7 @@ include __DIR__ . '/includes/header.php';
 ?>
 
 <div class="content-header-action" style="display: flex; justify-content: flex-end; margin-bottom: 1.5rem;">
-    <a href="../hostel-mess.php" target="_blank" class="btn btn-outline-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 500;">
+    <a href="../administration/hostel-mess" target="_blank" class="btn btn-outline-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 500;">
         <i class="fas fa-external-link-alt"></i> View Public Hostel &amp; Mess Page
     </a>
 </div>

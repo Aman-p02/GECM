@@ -40,7 +40,7 @@ require_once __DIR__ . '/../includes/header.php';
             <div class="rnk-content-wrapper" id="rnkContentWrapper">
                 <?php foreach ($rankingsByYear as $year => $reports): ?>
                     <section class="rnk-year-block" id="year-<?= htmlspecialchars($year) ?>">
-                        
+
                         <div class="rnk-year-header">
                             <h2 class="rnk-year-title">
                                 <span><?= htmlspecialchars($year) ?></span>
@@ -50,9 +50,9 @@ require_once __DIR__ . '/../includes/header.php';
                         <div class="rnk-reports-list">
                             <?php foreach ($reports as $doc): ?>
                                 <?php
-                                    $hasRealFile = !empty($doc['file_path']) && $doc['file_path'] !== '#' && file_exists(__DIR__ . '/../' . ltrim($doc['file_path'], '/'));
-                                    $fileUrl = $hasRealFile ? htmlspecialchars($root_path . ltrim($doc['file_path'], '/')) : 'javascript:void(0);';
-                                    $agency = !empty($doc['ranking_body']) ? htmlspecialchars($doc['ranking_body']) : 'NIRF';
+                                $hasRealFile = !empty($doc['file_path']) && $doc['file_path'] !== '#' && file_exists(__DIR__ . '/../' . ltrim($doc['file_path'], '/'));
+                                $fileUrl = $hasRealFile ? htmlspecialchars($root_path . ltrim($doc['file_path'], '/')) : 'javascript:void(0);';
+                                $agency = !empty($doc['ranking_body']) ? htmlspecialchars($doc['ranking_body']) : 'NIRF';
                                 ?>
                                 <article class="rnk-report-card">
                                     <div class="rnk-report-left">
@@ -94,10 +94,14 @@ require_once __DIR__ . '/../includes/header.php';
                 <?php endforeach; ?>
             </div>
         <?php else: ?>
-            <div class="rnk-empty-state" style="text-align: center; padding: 56px 24px; background: #ffffff; border: 1px dashed #cbd5e1; border-radius: 8px; margin: 30px 0;">
-                <i class="fas fa-file-pdf" style="font-size: 38px; color: #cbd5e1; margin-bottom: 12px; display: block;"></i>
-                <h3 style="font-size: 17px; font-weight: 700; color: #1e293b; margin: 0 0 6px 0;">No Ranking Reports Published Yet</h3>
-                <p style="font-size: 14px; color: #64748b; margin: 0;">Institutional ranking reports uploaded through the admin panel will appear here.</p>
+            <div class="rnk-empty-state"
+                style="text-align: center; padding: 56px 24px; background: #ffffff; border: 1px dashed #cbd5e1; border-radius: 8px; margin: 30px 0;">
+                <i class="fas fa-file-pdf"
+                    style="font-size: 38px; color: #cbd5e1; margin-bottom: 12px; display: block;"></i>
+                <h3 style="font-size: 17px; font-weight: 700; color: #1e293b; margin: 0 0 6px 0;">No Ranking Reports
+                    Published Yet</h3>
+                <p style="font-size: 14px; color: #64748b; margin: 0;">Institutional ranking reports uploaded through the
+                    admin panel will appear here.</p>
             </div>
         <?php endif; ?>
 
