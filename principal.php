@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 require_once __DIR__ . '/includes/db.php';
 
 // Fetch Principal Profile
@@ -339,3 +340,8 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
+=======
+header("HTTP/1.1 301 Moved Permanently");
+header("Location: administration/principal");
+exit;
+>>>>>>> 19df5583b511eacee9ff9678b079772366f652ce

@@ -24,7 +24,30 @@ DirectoryIndex index.php index.html
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+index\.php([^\s]*) [NC]
     RewriteRule ^ %1/%2 [R=301,L,NE]
 
-    # 3. 301 Redirect: Direct .php requests to clean URL (except admin areas and POST)
+    # 3. 301 Redirect: Legacy root about URLs to /about/ (environment-agnostic)
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} !/about/ [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(overview|vision-mission|principal-message|facilities|e-newsletters|brochure|mandatory-disclosure|rankings|mou|idp)(?:\.php)?([?\s]) [NC]
+    RewriteRule ^ %1/about/%2 [R=301,L,NE,QSA]
+
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} !/about/ [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+about-gecm(?:\.php)?([?\s]) [NC]
+    RewriteRule ^ %1/about/overview [R=301,L,NE,QSA]
+
+    # 3c. 301 Redirect: Legacy root administration URLs to /administration/ (environment-agnostic)
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin|administration)/ [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(principal|council-of-heads|account-section|hostel-mess|committees)(?:\.php)?([?\s]) [NC]
+    RewriteRule ^ %1/administration/%2 [R=301,L,NE,QSA]
+
+    # 3d. 301 Redirect: Legacy root academic URLs to /academics/ (environment-agnostic)
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin|academics)/ [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(courses|admission)(?:\.php)?([?\s]) [NC]
+    RewriteRule ^ %1/academics/%2 [R=301,L,NE,QSA]
+
+    # 4. 301 Redirect: Direct .php requests to clean URL (except admin areas and POST)
     RewriteCond %{REQUEST_METHOD} !POST
     RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin)/ [NC]
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^.]+)\.php([^\s]*)\s [NC]

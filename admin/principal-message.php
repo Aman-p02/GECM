@@ -153,7 +153,7 @@ require_once __DIR__ . '/includes/header.php';
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #eef2f6; flex-wrap: wrap; gap: 12px;">
     <p style="color: #64748b; font-size: 13.5px; margin: 0;">Add and manage the current message from the Principal and archive past institutional messages.</p>
     <div>
-        <a href="../principal-message.php" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; padding: 6px 14px; font-size: 12.5px;">
+        <a href="../about/principal-message" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; padding: 6px 14px; font-size: 12.5px;">
             <i class="fas fa-external-link-alt"></i> View Public Page
         </a>
     </div>
@@ -337,7 +337,7 @@ require_once __DIR__ . '/includes/header.php';
                                                 <i class="fas fa-star"></i> Set Active
                                             </a>
                                         <?php endif; ?>
-                                        <a href="../principal-message.php?id=<?= (int)$row['id'] ?>" target="_blank" class="btn btn-sm btn-secondary" title="Preview" style="padding: 4px 8px; font-size: 12px;">
+                                        <a href="../about/principal-message?id=<?= (int)$row['id'] ?>" target="_blank" class="btn btn-sm btn-secondary" title="Preview" style="padding: 4px 8px; font-size: 12px;">
                                             <i class="fas fa-eye"></i>
                                         </a>
                                         <a href="principal-message.php?edit=<?= (int)$row['id'] ?>" class="btn btn-sm btn-outline-primary" title="Edit" style="padding: 4px 8px; font-size: 12px;">

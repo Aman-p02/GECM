@@ -204,30 +204,21 @@
 }
 
 .pr-badge-strip {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
+    display: block;
+    margin-bottom: 8px;
 }
 
 .pr-badge-lead {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 5px 12px;
-    border-radius: 6px;
-    font-size: 0.76rem;
+    display: inline-block;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background: #eff6ff;
-    color: #0284c7;
-    border: 1px solid #bfdbfe;
-}
-
-.pr-badge-lead i {
-    font-size: 0.8rem;
-    color: #0284c7;
+    letter-spacing: 0.12em;
+    background: transparent;
+    color: #ff8800;
+    border: none;
 }
 
 .pr-profile-name {
