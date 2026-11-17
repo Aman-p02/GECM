@@ -371,7 +371,7 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 
     <!-- Navigation Tabs -->
-    <div style="display: flex; gap: 8px; border-bottom: 2px solid #e2e8f0; margin-bottom: 24px;">
+    <div style="display: flex; gap: 8px; border-bottom: 2px solid #e2e8f0; margin-bottom: 24px; flex-wrap: wrap;">
         <a href="principal-profile.php?tab=profile" 
            style="padding: 9px 18px; font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 3px solid <?= ($activeTab === 'profile') ? '#1e90ff' : 'transparent' ?>; color: <?= ($activeTab === 'profile') ? '#1e90ff' : '#64748b' ?>; display: inline-flex; align-items: center; gap: 8px;">
             <i class="fas fa-user-tie"></i> Profile Details &amp; Photo
@@ -400,7 +400,7 @@ require_once __DIR__ . '/includes/header.php';
                 <input type="hidden" name="existing_photo" value="<?= htmlspecialchars($profile['photo_url'] ?? '') ?>">
 
                 <!-- Row 1 -->
-                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px;">
+                <div style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; margin-bottom: 16px;">
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">Full Name &amp; Title <span style="color: #ef4444;">*</span></label>
                         <input type="text" name="name" class="form-control" placeholder="e.g. Dr. JEETENDRAKUMAR VADHER" required value="<?= htmlspecialchars($profile['name'] ?? 'Dr. JEETENDRAKUMAR VADHER') ?>">
@@ -413,7 +413,7 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <!-- Row 2 -->
-                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 16px;">
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">Highest Qualification</label>
                         <input type="text" name="qualification" class="form-control" placeholder="e.g. M. Tech. (IIT-Madras), Ph.D. (HNGU-Patan)" value="<?= htmlspecialchars($profile['qualification'] ?? '') ?>">
@@ -477,7 +477,7 @@ require_once __DIR__ . '/includes/header.php';
                     <input type="hidden" name="id" value="<?= $editQual['id'] ?>">
                 <?php endif; ?>
 
-                <div style="display: grid; grid-template-columns: 2fr 2fr 1fr 1fr 1fr; gap: 14px; margin-bottom: 18px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 18px;">
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">Degree / Qualification <span style="color: #ef4444;">*</span></label>
                         <input type="text" name="qualification" class="form-control" placeholder="e.g. Ph.D. or M. Tech." required value="<?= htmlspecialchars($editQual['qualification'] ?? '') ?>">
@@ -682,7 +682,7 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         <?php endif; ?>
 
-        <div id="item-form" style="background: <?= $editItem ? '#fffbeb' : '#f8fafc' ?>; border: 1px solid <?= $editItem ? '#fde68a' : '#e2e8f0' ?>; border-radius: 8px; padding: 22px; margin-bottom: 24px;">
+        <div id="item-form" style="background: <?= $editItem ? '#fffbeb' : '#f8fafc' ?>; border: 1px solid <?= $editItem ? '#fde68a' : '#e2e8f0' ?>; border-radius: 8px; padding: 22px; margin-bottom: 24px; max-width: 100%; box-sizing: border-box; overflow: hidden;">
             <h3 style="font-size: 15px; font-weight: 700; color: #1e293b; margin: 0 0 16px 0; display: flex; align-items: center; justify-content: space-between;">
                 <span>
                     <i class="<?= $editItem ? 'fas fa-edit' : 'fas fa-plus-circle' ?>" style="color: <?= $editItem ? '#d97706' : '#1e90ff' ?>;"></i> 
@@ -705,7 +705,7 @@ require_once __DIR__ . '/includes/header.php';
                 <?php if ($subtab === 'publications'): 
                     $selectedCat = $editItem['extra_info'] ?? 'International Journal';
                 ?>
-                    <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 16px; margin-bottom: 16px;">
+                    <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label">Research Paper Title <span style="color: #ef4444;">*</span></label>
                             <input type="text" name="title" class="form-control" placeholder="e.g. An Impact of reinforcement on Aluminum metal matrix composites: A critical Review" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
@@ -734,7 +734,7 @@ require_once __DIR__ . '/includes/header.php';
 
                 <?php elseif ($subtab === 'books'): ?>
                     <!-- Row 1: Book Title & Publisher Name (Both Mandatory) -->
-                    <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 16px; margin-bottom: 16px;">
+                    <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">
                                 Book Title / Name <span style="color: #ef4444; font-weight: bold;">*</span>
@@ -753,7 +753,7 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
 
                     <!-- Row 2: University (Mandatory), Branch (Optional), Semester (Optional) -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">
                                 University <span style="color: #ef4444; font-weight: bold;">*</span>
@@ -780,7 +780,7 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
 
                     <!-- Row 3: Content/Edition (Optional), Book Code (Optional), ISBN Code (Optional) -->
-                    <div style="display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 16px; margin-bottom: 16px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">
                                 Content / Edition <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
@@ -815,7 +815,7 @@ require_once __DIR__ . '/includes/header.php';
                         <small style="font-size: 11.5px; color: #64748b;">Mandatory: Full editorial board title, journal/conference name, ISSN, location, or date.</small>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-bottom: 16px;">
+                    <div style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">
                                 Organization / Location / Tag <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
@@ -835,7 +835,7 @@ require_once __DIR__ . '/includes/header.php';
 
                 <?php elseif ($subtab === 'expert_talks'): ?>
                     <!-- Row 1: Subject (Mandatory) & Place (Mandatory) -->
-                    <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 16px; margin-bottom: 16px;">
+                    <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">
                                 Subject / Lecture Title <span style="color: #ef4444; font-weight: bold;">*</span>
@@ -854,7 +854,54 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
 
                     <!-- Row 2: Year (Optional), Details (Optional), Sr. No. (Optional) -->
-                    <div style="display: grid; grid-template-columns: 1fr 2.5fr 1fr; gap: 16px; margin-bottom: 16px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 16px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Year <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="talk_year" class="form-control" placeholder="e.g. 2023 (or leave empty)" value="<?= htmlspecialchars($editTalkYear) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Delivery year</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Details / Audience / Remarks <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="talk_details" class="form-control" placeholder="e.g. PhD students of batch 2022, 5 March 23 (or leave empty)" value="<?= htmlspecialchars($editTalkDetails) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Audience, session details, or remarks</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Sr. No. / Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Sorting order</small>
+                        </div>
+                    </div>
+
+                <?php elseif ($subtab === 'expert_talks'): ?>
+                    <!-- Row 1: Subject (Mandatory) & Place (Mandatory) -->
+                    <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; margin-bottom: 16px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Subject / Lecture Title <span style="color: #ef4444; font-weight: bold;">*</span>
+                            </label>
+                            <input type="text" name="title" class="form-control" placeholder="e.g. Research Methodology, Technologies Enables to Industry 4.0" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Topic, keynote title, or subject</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Place / Host Institution <span style="color: #ef4444; font-weight: bold;">*</span>
+                            </label>
+                            <input type="text" name="talk_place" class="form-control" placeholder="e.g. GTU Ahmedabad Online, SSEC Bhavnagar, LE College Morbi" required value="<?= htmlspecialchars($editTalkPlace) ?>">
+                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Venue, department, college, or online platform</small>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Year (Optional), Details (Optional), Sr. No. (Optional) -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">
                                 Year <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
@@ -881,7 +928,7 @@ require_once __DIR__ . '/includes/header.php';
                     </div>
 
                 <?php else: ?>
-                    <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 16px; margin-bottom: 16px;">
+                    <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label">Title / Citation <span style="color: #ef4444;">*</span></label>
                             <input type="text" name="title" class="form-control" placeholder="e.g. Research Paper Title, Book Name, Talk Subject" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">

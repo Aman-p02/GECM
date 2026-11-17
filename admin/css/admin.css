@@ -32,6 +32,11 @@ body, input, textarea, select, button, optgroup {
     font-family: var(--font-family) !important;
 }
 
+html {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
 body {
     font-family: var(--font-family);
     background-color: var(--admin-body-bg);
@@ -39,6 +44,8 @@ body {
     line-height: 1.5;
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 a {
@@ -58,6 +65,9 @@ a:hover {
     display: flex;
     min-height: 100vh;
     width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* --------------------------------------------------------------------------
@@ -210,11 +220,16 @@ a:hover {
 .admin-main {
     flex-grow: 1;
     margin-left: 260px;
+    width: calc(100% - 260px);
+    max-width: calc(100% - 260px);
+    min-width: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--admin-body-bg);
     transition: margin-left 0.3s ease;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
@@ -231,6 +246,9 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 900;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .topbar-left {
@@ -315,6 +333,11 @@ a:hover {
 .admin-content {
     padding: 24px 28px;
     flex-grow: 1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 /* --------------------------------------------------------------------------
@@ -429,6 +452,10 @@ a:hover {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     margin-bottom: 24px;
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .card-top {
@@ -574,7 +601,11 @@ a:hover {
    -------------------------------------------------------------------------- */
 .table-responsive {
     width: 100%;
+    max-width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    box-sizing: border-box;
 }
 
 .table,
@@ -593,7 +624,6 @@ a:hover {
     font-weight: 600;
     padding: 13px 18px;
     border-bottom: 2px solid var(--admin-border-color);
-    white-space: nowrap;
     font-size: 14px;
     font-family: var(--font-family) !important;
 }
@@ -613,6 +643,8 @@ a:hover {
     vertical-align: middle;
     font-size: 14px;
     font-family: var(--font-family) !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .table tbody tr,
@@ -1041,6 +1073,8 @@ textarea.form-control {
 
     .admin-main {
         margin-left: 0;
+        width: 100%;
+        max-width: 100%;
     }
 
     .sidebar-toggle-btn {
