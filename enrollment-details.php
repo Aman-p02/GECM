@@ -52,78 +52,6 @@ if ($pdo) {
     }
 }
 
-// Resilient Fallback if database is offline or empty
-if (empty($enrollmentGroups)) {
-    $defaultYears = [
-        '2025-26' => [
-            ['Automobile Engineering', 'UG', '', ''],
-            ['Civil Engineering', 'UG', '', ''],
-            ['Computer Engineering', 'UG', '', ''],
-            ['Electrical Engineering', 'UG', '', ''],
-            ['Electronics and Communication Engineering', 'UG', '', ''],
-            ['Information Technology', 'UG', '', ''],
-            ['Mechanical Engineering', 'UG', '', ''],
-            ['Computer Engineering (PG)', 'PG', '', '']
-        ],
-        '2024-25' => [
-            ['Automobile Engineering', 'UG', '', ''],
-            ['Civil Engineering', 'UG', '', ''],
-            ['Computer Engineering', 'UG', '', ''],
-            ['Electrical Engineering', 'UG', '', ''],
-            ['Electronics and Communication Engineering', 'UG', '', ''],
-            ['Information Technology', 'UG', '', ''],
-            ['Mechanical Engineering', 'UG', '', ''],
-            ['Civil Engineering (PG)', 'PG', '', ''],
-            ['Computer Engineering (PG)', 'PG', '', '']
-        ],
-        '2023-24' => [
-            ['Automobile Engineering', 'UG', '', ''],
-            ['Civil Engineering', 'UG', '', ''],
-            ['Computer Engineering', 'UG', '', ''],
-            ['Electrical Engineering', 'UG', '', ''],
-            ['Electronics and Communication Engineering', 'UG', '', ''],
-            ['Information Technology', 'UG', '', ''],
-            ['Mechanical Engineering', 'UG', '', ''],
-            ['Civil Engineering (PG)', 'PG', '', ''],
-            ['Computer Engineering (PG)', 'PG', '', '']
-        ],
-        '2022-23' => [
-            ['Automobile Engineering', 'UG', '', ''],
-            ['Civil Engineering', 'UG', '', ''],
-            ['Computer Engineering', 'UG', '', ''],
-            ['Electrical Engineering', 'UG', '', ''],
-            ['Electronics and Communication Engineering', 'UG', '', ''],
-            ['Information Technology', 'UG', '', ''],
-            ['Mechanical Engineering', 'UG', '', ''],
-            ['Civil Engineering (PG)', 'PG', '', ''],
-            ['Computer Engineering (PG)', 'PG', '', '']
-        ],
-        '2021-22' => [
-            ['Automobile Engineering', 'UG', '', ''],
-            ['Civil Engineering', 'UG', '', ''],
-            ['Computer Engineering', 'UG', '', ''],
-            ['Electrical Engineering', 'UG', '', ''],
-            ['Electronics and Communication Engineering', 'UG', '', ''],
-            ['Information Technology', 'UG', '', ''],
-            ['Mechanical Engineering', 'UG', '', ''],
-            ['Civil Engineering (PG)', 'PG', '', ''],
-            ['Computer Engineering (PG)', 'PG', '', '']
-        ]
-    ];
-
-    foreach ($defaultYears as $yr => $branches) {
-        foreach ($branches as $b) {
-            $enrollmentGroups[$yr][] = [
-                'academic_year' => $yr,
-                'branch_name'   => $b[0],
-                'program_type'  => $b[1],
-                'file_path'     => $b[2],
-                'file_size'     => $b[3],
-                'title'         => $b[0] . ' Enrollment List (' . $yr . ')'
-            ];
-        }
-    }
-}
 ?>
 
 <div class="enrollment-page" id="mainContent">
@@ -135,31 +63,42 @@ if (empty($enrollmentGroups)) {
         </div>
     </header>
 
-    <!-- Quick Year Filters & Search Bar -->
-    <div class="enrollment-filter-bar">
-        <div class="enrollment-filter-card">
-            <div class="enrollment-pills" id="yearPillFilters" role="tablist" aria-label="Enrollment Academic Years">
-                <button type="button" class="enr-pill-btn is-active" data-year="all" role="tab" aria-selected="true">
-                    <i class="fas fa-layer-group"></i> All Academic Years
-                </button>
-                <?php foreach (array_keys($enrollmentGroups) as $yrKey): ?>
-                    <button type="button" class="enr-pill-btn" data-year="<?= htmlspecialchars($yrKey) ?>" role="tab" aria-selected="false">
-                        <i class="far fa-calendar-alt"></i> <?= htmlspecialchars($yrKey) ?>
+    <?php if (!empty($enrollmentGroups)): ?>
+        <!-- Quick Year Filters & Search Bar -->
+        <div class="enrollment-filter-bar">
+            <div class="enrollment-filter-card">
+                <div class="enrollment-pills" id="yearPillFilters" role="tablist" aria-label="Enrollment Academic Years">
+                    <button type="button" class="enr-pill-btn is-active" data-year="all" role="tab" aria-selected="true">
+                        <i class="fas fa-layer-group"></i> All Academic Years
                     </button>
-                <?php endforeach; ?>
-            </div>
+                    <?php foreach (array_keys($enrollmentGroups) as $yrKey): ?>
+                        <button type="button" class="enr-pill-btn" data-year="<?= htmlspecialchars($yrKey) ?>" role="tab" aria-selected="false">
+                            <i class="far fa-calendar-alt"></i> <?= htmlspecialchars($yrKey) ?>
+                        </button>
+                    <?php endforeach; ?>
+                </div>
 
-            <div class="enr-search-wrap">
-                <i class="fas fa-search"></i>
-                <input type="text" id="branchSearchInput" class="enr-search-input" placeholder="Search branch or year..." aria-label="Search branch or enrollment year">
+                <div class="enr-search-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="branchSearchInput" class="enr-search-input" placeholder="Search branch or year..." aria-label="Search branch or enrollment year">
+                </div>
             </div>
         </div>
-    </div>
+    <?php endif; ?>
 
     <!-- Main Content Container -->
     <main class="enrollment-container" id="enrollmentSectionsWrap">
 
-        <?php foreach ($enrollmentGroups as $academicYear => $items): ?>
+        <?php if (empty($enrollmentGroups)): ?>
+            <div class="enr-empty-state">
+                <div class="enr-empty-icon">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <h3 class="enr-empty-title">No Enrollment Records Found</h3>
+                <p class="enr-empty-text">Currently there are no student enrollment records published. Once the student section publishes approved enrollment lists from the admin panel, they will appear here organized by academic year.</p>
+            </div>
+        <?php else: ?>
+            <?php foreach ($enrollmentGroups as $academicYear => $items): ?>
             <section class="enrollment-year-block" data-year-section="<?= htmlspecialchars($academicYear) ?>">
                 <!-- Year Header -->
                 <div class="enrollment-year-header">
@@ -208,6 +147,7 @@ if (empty($enrollmentGroups)) {
                 </div>
             </section>
         <?php endforeach; ?>
+        <?php endif; ?>
 
         <!-- Institutional Note -->
         <div class="enrollment-info-note">

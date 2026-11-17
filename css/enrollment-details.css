@@ -300,6 +300,45 @@
     transform: translate(2px, -2px);
 }
 
+/* Empty State */
+.enr-empty-state {
+    background: #ffffff;
+    border: 1px solid var(--enr-border);
+    border-radius: 12px;
+    padding: 60px 24px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    margin-bottom: 24px;
+}
+
+.enr-empty-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 26px;
+}
+
+.enr-empty-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--enr-slate);
+    margin: 0 0 8px;
+}
+
+.enr-empty-text {
+    font-size: 0.92rem;
+    color: var(--enr-muted);
+    margin: 0 auto;
+    max-width: 500px;
+    line-height: 1.55;
+}
+
 /* Institutional Note Banner */
 .enrollment-info-note {
     background: #eff6ff;
