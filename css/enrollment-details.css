@@ -26,71 +26,26 @@
     padding-bottom: 60px;
 }
 
-/* Hero Section */
-.enrollment-hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0369a1 100%);
-    color: #ffffff;
-    padding: 56px 20px 48px;
-    border-bottom: 3px solid var(--enr-primary);
-    position: relative;
-    overflow: hidden;
+/* Simple Page Header (Clean Light Theme) */
+.enrollment-page-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--enr-border);
+    padding: 24px 0;
+    margin-bottom: 28px;
 }
 
-.enrollment-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(0, 157, 255, 0.15) 0%, transparent 60%);
-    pointer-events: none;
-}
-
-.enrollment-hero-inner {
-    max-width: 1320px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-}
-
-.enrollment-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.8rem;
+.enrollment-page-title {
+    font-size: clamp(1.5rem, 3vw, 1.85rem);
     font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #38bdf8;
-    background: rgba(56, 189, 248, 0.12);
-    padding: 6px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    margin-bottom: 14px;
-}
-
-.enrollment-title {
-    font-size: clamp(1.85rem, 4vw, 2.65rem);
-    font-weight: 800;
-    line-height: 1.2;
-    margin: 0 0 12px;
-    color: #ffffff;
-    letter-spacing: -0.02em;
-}
-
-.enrollment-lead {
-    font-size: clamp(0.95rem, 1.8vw, 1.08rem);
-    color: #cbd5e1;
-    line-height: 1.6;
-    max-width: 860px;
+    color: #1e293b;
     margin: 0;
+    line-height: 1.25;
 }
 
 /* Quick Bar & Filters */
 .enrollment-filter-bar {
     max-width: 1320px;
-    margin: -24px auto 36px;
+    margin: 0 auto 28px;
     padding: 0 20px;
     position: relative;
     z-index: 2;
@@ -369,13 +324,14 @@
 
 /* Responsive Breakpoints */
 @media (max-width: 768px) {
-    .enrollment-hero {
-        padding: 40px 16px 36px;
+    .enrollment-page-header {
+        padding: 18px 0;
+        margin-bottom: 20px;
     }
 
     .enrollment-filter-bar {
-        margin-top: -16px;
         padding: 0 16px;
+        margin-bottom: 20px;
     }
 
     .enrollment-filter-card {

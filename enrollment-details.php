@@ -128,16 +128,10 @@ if (empty($enrollmentGroups)) {
 
 <div class="enrollment-page" id="mainContent">
 
-    <!-- Hero Section -->
-    <header class="enrollment-hero">
-        <div class="enrollment-hero-inner">
-            <span class="enrollment-kicker">
-                <i class="fas fa-user-graduate"></i> Student Corner
-            </span>
-            <h1 class="enrollment-title">Student Enrollment Summary</h1>
-            <p class="enrollment-lead">
-                Year-wise approved enrollment registers and student intake documentation across all undergraduate (B.E.) and postgraduate (M.E.) branches affiliated with Gujarat Technological University (GTU).
-            </p>
+    <!-- Simple Page Header -->
+    <header class="enrollment-page-header">
+        <div class="enrollment-container">
+            <h1 class="enrollment-page-title">Enrollment Details</h1>
         </div>
     </header>
 
