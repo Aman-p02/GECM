@@ -19,6 +19,108 @@ if ($pdo) {
         foreach ($allTabs as $t) {
             $tabItems[$t['tab_name']][] = $t;
         }
+
+        // Auto-seed workshops if not present
+        if (empty($tabItems['workshops'])) {
+            $initialWorkshops = [
+                [
+                    'title' => 'Organized One Day Workshop on Multi Varient Techniques',
+                    'extra_info' => 'S. S. Engineering College, Bhavnagar',
+                    'description' => "Year: 2015\nDuration: 26-June-2015\nPlace: S. S. Engineering College, Bhavnagar\nDetails: Name of Expert : Prof. M. K. Barua, IIT Roorkee, Under TQIP-II",
+                    'display_order' => 1
+                ],
+                [
+                    'title' => 'Organized One week STTP on Product Design by Solid Works',
+                    'extra_info' => 'S. S. Engineering College, Bhavnagar',
+                    'description' => "Year: 2015\nDuration: 12-16 Oct 2015\nPlace: S. S. Engineering College, Bhavnagar\nDetails: -",
+                    'display_order' => 2
+                ],
+                [
+                    'title' => 'Worked as Co-coordinator of Entrepreneurship and Management Development Center',
+                    'extra_info' => 'Government Engineering College Modasa',
+                    'description' => "Year: 2003\nDuration: -\nPlace: Government Engineering College Modasa\nDetails: Sponsored by AICTE, New Delhi",
+                    'display_order' => 3
+                ],
+                [
+                    'title' => 'Organized "2-D State Level Workshop on Computer Based Diesel Engine Test Rig"',
+                    'extra_info' => '-',
+                    'description' => "Year: 2002\nDuration: 17th&18th October 2002\nPlace: -\nDetails: Sponsored by GUJCOST, Gandhinagar as a committee member.",
+                    'display_order' => 4
+                ]
+            ];
+            $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('workshops', ?, ?, ?, ?)");
+            foreach ($initialWorkshops as $iw) {
+                $insStmt->execute([$iw['title'], $iw['description'], $iw['extra_info'], $iw['display_order']]);
+            }
+            $stmtW = $pdo->query("SELECT * FROM principal_tab_items WHERE tab_name = 'workshops' ORDER BY display_order ASC, id DESC");
+            $tabItems['workshops'] = $stmtW ? $stmtW->fetchAll(PDO::FETCH_ASSOC) : [];
+        }
+
+        // Auto-seed experience if not present
+        if (empty($tabItems['experience'])) {
+            $initialExperience = [
+                [
+                    'title' => 'Professor and Head in Mechanical Engineering',
+                    'extra_info' => 'Government Engineering College Modasa',
+                    'description' => "Date of Joining: 18-05-2022\nDate of Leave: Till Date\nDepartment: Mechanical Engineering\nDuration: -\nPlace: Government Engineering College Modasa",
+                    'display_order' => 1
+                ],
+                [
+                    'title' => 'Professor and Head in Mechanical Engineering',
+                    'extra_info' => 'Government Engineering College Palanpur',
+                    'description' => "Date of Joining: 01-04-2017\nDate of Leave: 17-05-2022\nDepartment: Mechanical Engineering\nDuration: 5 years 1 month\nPlace: Government Engineering College Palanpur",
+                    'display_order' => 2
+                ],
+                [
+                    'title' => 'Incharge Principal (CTE Order)',
+                    'extra_info' => 'Government Engineering College Palanpur',
+                    'description' => "Date of Joining: 04-02-2016\nDate of Leave: 31-03-2017\nDepartment: Mechanical Engineering\nDuration: 1 year 1 month\nPlace: Government Engineering College Palanpur",
+                    'display_order' => 3
+                ],
+                [
+                    'title' => 'Professor Mechanical (Promotion and Transfer)',
+                    'extra_info' => 'Government Engineering College Palanpur',
+                    'description' => "Date of Joining: 23-12-2015\nDate of Leave: 03-02-2016\nDepartment: Mechanical Engineering\nDuration: 1 months 11 days\nPlace: Government Engineering College Palanpur",
+                    'display_order' => 4
+                ],
+                [
+                    'title' => 'Associate Professor (Promotion)',
+                    'extra_info' => 'Shantilal Shah Engineering College, Bhavnagar',
+                    'description' => "Date of Joining: 15-07-2010\nDate of Leave: 22-12-2015\nDepartment: Mechanical Engineering\nDuration: 5 years 5 months\nPlace: Shantilal Shah Engineering College, Bhavnagar",
+                    'display_order' => 5
+                ],
+                [
+                    'title' => 'Lecturer',
+                    'extra_info' => 'Shantilal Shah Engineering College, Bhavnagar',
+                    'description' => "Date of Joining: 07-04-2004\nDate of Leave: 14-07-2010\nDepartment: Mechanical Engineering\nDuration: 6 years 1 months\nPlace: Shantilal Shah Engineering College, Bhavnagar",
+                    'display_order' => 6
+                ],
+                [
+                    'title' => 'Lecturer (GPSC Posting)',
+                    'extra_info' => 'Government Engineering College, Modasa',
+                    'description' => "Date of Joining: 05-04-2000\nDate of Leave: 06-12-2004\nDepartment: Mechanical Engineering\nDuration: 4 years 8 months\nPlace: Government Engineering College, Modasa",
+                    'display_order' => 7
+                ],
+                [
+                    'title' => 'Lecturer',
+                    'extra_info' => 'GCET, V V Nagar',
+                    'description' => "Date of Joining: 23-06-1998\nDate of Leave: 04-04-2000\nDepartment: Mechanical Engineering\nDuration: 1 years 9 months\nPlace: GCET, V V Nagar",
+                    'display_order' => 8
+                ],
+                [
+                    'title' => 'Lecturer',
+                    'extra_info' => 'Shantilal Shah Engineering College, Bhavnagar',
+                    'description' => "Date of Joining: 26-12-1995\nDate of Leave: 04-07-1996\nDepartment: Mechanical\nDuration: 6 months\nPlace: Shantilal Shah Engineering College, Bhavnagar",
+                    'display_order' => 9
+                ]
+            ];
+            $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('experience', ?, ?, ?, ?)");
+            foreach ($initialExperience as $ie) {
+                $insStmt->execute([$ie['title'], $ie['description'], $ie['extra_info'], $ie['display_order']]);
+            }
+            $stmtE = $pdo->query("SELECT * FROM principal_tab_items WHERE tab_name = 'experience' ORDER BY display_order ASC, id DESC");
+            $tabItems['experience'] = $stmtE ? $stmtE->fetchAll(PDO::FETCH_ASSOC) : [];
+        }
     } catch (Throwable $e) {
         error_log("Principal profile load error: " . $e->getMessage());
     }
@@ -220,10 +322,16 @@ require_once __DIR__ . '/../includes/header.php';
                 <button type="button" class="pr-tab-btn" data-tab="tab-workshops" role="tab" aria-selected="false" aria-controls="tab-workshops">
                     <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
                     <span>Workshops</span>
+                    <?php if (!empty($tabItems['workshops'])): ?>
+                        <span class="pr-tab-count"><?= count($tabItems['workshops']) ?></span>
+                    <?php endif; ?>
                 </button>
                 <button type="button" class="pr-tab-btn" data-tab="tab-experience" role="tab" aria-selected="false" aria-controls="tab-experience">
                     <i class="fas fa-history" aria-hidden="true"></i>
                     <span>Experience</span>
+                    <?php if (!empty($tabItems['experience'])): ?>
+                        <span class="pr-tab-count"><?= count($tabItems['experience']) ?></span>
+                    <?php endif; ?>
                 </button>
                 <button type="button" class="pr-tab-btn" data-tab="tab-extra" role="tab" aria-selected="false" aria-controls="tab-extra">
                     <i class="fas fa-award" aria-hidden="true"></i>
@@ -667,11 +775,204 @@ require_once __DIR__ . '/../includes/header.php';
                 <?php endif; ?>
             </div>
 
+            <!-- 6. Workshops & STTPs Pane -->
+            <div id="tab-workshops" class="pr-tab-pane" role="tabpanel">
+                <?php 
+                $workshopsList = $tabItems['workshops'] ?? [];
+                if (empty($workshopsList)): 
+                ?>
+                    <div class="pr-empty-box">
+                        <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+                        <h4 class="pr-empty-title">Workshops &amp; STTPs</h4>
+                        <p class="pr-empty-sub">Workshops, training programs, and seminars organized or conducted are updated periodically through the Principal's Office.</p>
+                    </div>
+                <?php else: ?>
+                    <div class="pr-pub-papers-wrap">
+                        <div class="pr-pub-papers-header">
+                            <h4 class="pr-pub-papers-title">
+                                <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+                                <span>Workshops &amp; Short Term Training Programs (STTP)</span>
+                            </h4>
+                            <span class="pr-pub-count-label">Showing <?= count($workshopsList) ?> Workshop Records</span>
+                        </div>
+
+                        <div class="pr-pub-summary-card" style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0; border-radius: 10px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);">
+                            <div class="table-responsive">
+                                <table class="pr-pub-summary-table" style="margin-bottom: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center; font-weight: 700;">Sr. No.</th>
+                                            <th style="width: 85px; text-align: center; font-weight: 700;">Year</th>
+                                            <th style="width: 140px; font-weight: 700;">Duration</th>
+                                            <th style="font-weight: 700;">Subject</th>
+                                            <th style="font-weight: 700;">Place</th>
+                                            <th style="font-weight: 700;">Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($workshopsList as $wIdx => $ws): 
+                                            $wDesc = trim($ws['description'] ?? '');
+                                            $wYear = '';
+                                            $wDuration = '';
+                                            $wPlace = trim($ws['extra_info'] ?? '');
+                                            $wDetails = '';
+
+                                            $lines = explode("\n", $wDesc);
+                                            foreach ($lines as $ln) {
+                                                $ln = trim($ln);
+                                                if (preg_match('/^Year:\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $wYear = $val;
+                                                } elseif (preg_match('/^Duration:\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $wDuration = $val;
+                                                } elseif (preg_match('/^Place:\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $wPlace = $val;
+                                                } elseif (preg_match('/^Details:\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $wDetails = $val;
+                                                }
+                                            }
+                                            if (empty($wDetails) && empty($wYear) && empty($wDuration) && !empty($wDesc) && !preg_match('/^(?:Year|Duration|Place|Details):/i', $wDesc)) {
+                                                $wDetails = $wDesc;
+                                            }
+                                        ?>
+                                            <tr>
+                                                <td style="text-align: center; font-weight: 700; color: #64748b; vertical-align: top; padding: 15px 12px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($ws['display_order']) ? (int)$ws['display_order'] : ($wIdx + 1) ?>
+                                                </td>
+                                                <td style="text-align: center; font-weight: 600; color: #1e293b; vertical-align: top; padding: 15px 12px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($wYear) ? htmlspecialchars($wYear) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                                <td style="color: #1e293b; font-weight: 500; font-size: 0.91rem; vertical-align: top; padding: 15px 14px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($wDuration) ? htmlspecialchars($wDuration) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                                <td style="color: #0f172a; font-weight: 600; font-size: 0.94rem; vertical-align: top; padding: 15px 16px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= htmlspecialchars($ws['title']) ?>
+                                                </td>
+                                                <td style="color: #334155; font-size: 0.92rem; vertical-align: top; padding: 15px 16px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= (!empty($wPlace) && $wPlace !== '-') ? htmlspecialchars($wPlace) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                                <td style="color: #64748b; font-size: 0.88rem; line-height: 1.5; vertical-align: top; padding: 15px 16px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= (!empty($wDetails) && $wDetails !== '-') ? htmlspecialchars($wDetails) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <!-- 7. Professional & Academic Experience Pane -->
+            <div id="tab-experience" class="pr-tab-pane" role="tabpanel">
+                <?php 
+                $expList = $tabItems['experience'] ?? [];
+                if (empty($expList)): 
+                ?>
+                    <div class="pr-empty-box">
+                        <i class="fas fa-history" aria-hidden="true"></i>
+                        <h4 class="pr-empty-title">Professional Experience</h4>
+                        <p class="pr-empty-sub">Academic appointments, administrative roles, and institutional service records are updated periodically through the Principal's Office.</p>
+                    </div>
+                <?php else: ?>
+                    <div class="pr-pub-papers-wrap">
+                        <div class="pr-pub-papers-header">
+                            <h4 class="pr-pub-papers-title">
+                                <i class="fas fa-history" aria-hidden="true"></i>
+                                <span>Professional, Academic &amp; Administrative Experience</span>
+                            </h4>
+                            <span class="pr-pub-count-label">Showing <?= count($expList) ?> Experience Records</span>
+                        </div>
+
+                        <div class="pr-pub-summary-card" style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0; border-radius: 10px; background: #ffffff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);">
+                            <div class="table-responsive">
+                                <table class="pr-pub-summary-table" style="margin-bottom: 0;">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 60px; text-align: center; font-weight: 700;">Sr. No.</th>
+                                            <th style="font-weight: 700;">Designation</th>
+                                            <th style="width: 110px; font-weight: 700;">Date of Joining</th>
+                                            <th style="width: 110px; font-weight: 700;">Date of Leave</th>
+                                            <th style="font-weight: 700;">Department</th>
+                                            <th style="width: 120px; font-weight: 700;">Duration</th>
+                                            <th style="font-weight: 700;">Place</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($expList as $eIdx => $exp): 
+                                            $eDesc = trim($exp['description'] ?? '');
+                                            $eJoin = '';
+                                            $eLeave = '';
+                                            $eDept = '';
+                                            $eDur = '';
+                                            $ePlace = trim($exp['extra_info'] ?? '');
+
+                                            $lines = explode("\n", $eDesc);
+                                            foreach ($lines as $ln) {
+                                                $ln = trim($ln);
+                                                if (preg_match('/^(?:Date of Joining|Joining):\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $eJoin = $val;
+                                                } elseif (preg_match('/^(?:Date of Leave|Leave):\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $eLeave = $val;
+                                                } elseif (preg_match('/^Department:\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $eDept = $val;
+                                                } elseif (preg_match('/^Duration:\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $eDur = $val;
+                                                } elseif (preg_match('/^Place:\s*(.*)$/i', $ln, $m)) {
+                                                    $val = trim($m[1]);
+                                                    if ($val !== '--' && $val !== '-') $ePlace = $val;
+                                                }
+                                            }
+                                        ?>
+                                            <tr>
+                                                <td style="text-align: center; font-weight: 700; color: #64748b; vertical-align: top; padding: 15px 10px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($exp['display_order']) ? (int)$exp['display_order'] : ($eIdx + 1) ?>
+                                                </td>
+                                                <td style="color: #0f172a; font-weight: 600; font-size: 0.935rem; vertical-align: top; padding: 15px 14px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= htmlspecialchars($exp['title']) ?>
+                                                </td>
+                                                <td style="color: #1e293b; font-size: 0.90rem; vertical-align: top; padding: 15px 12px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($eJoin) ? htmlspecialchars($eJoin) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                                <td style="color: #1e293b; font-size: 0.90rem; vertical-align: top; padding: 15px 12px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?php if (strcasecmp($eLeave, 'Till Date') === 0): ?>
+                                                        <span style="display: inline-block; background: #ecfdf5; color: #047857; font-weight: 700; font-size: 11.5px; padding: 2px 7px; border-radius: 4px; border: 1px solid #a7f3d0;">
+                                                            Till Date
+                                                        </span>
+                                                    <?php else: ?>
+                                                        <?= !empty($eLeave) ? htmlspecialchars($eLeave) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td style="color: #475569; font-size: 0.91rem; vertical-align: top; padding: 15px 14px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= !empty($eDept) ? htmlspecialchars($eDept) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                                <td style="color: #0369a1; font-weight: 500; font-size: 0.89rem; vertical-align: top; padding: 15px 12px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= (!empty($eDur) && $eDur !== '-') ? htmlspecialchars($eDur) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                                <td style="color: #334155; font-size: 0.91rem; vertical-align: top; padding: 15px 14px; border-bottom: 1px solid #f1f5f9;">
+                                                    <?= (!empty($ePlace) && $ePlace !== '-') ? htmlspecialchars($ePlace) : '<span style="color: #94a3b8;">-</span>' ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+
             <!-- Dynamic Tab Panes for Other Sections -->
             <?php
             $tabPanesConfig = [
-                'tab-workshops'    => ['key' => 'workshops',     'title' => 'Workshops & Seminars Attended',  'icon' => 'fas fa-chalkboard-teacher'],
-                'tab-experience'   => ['key' => 'experience',    'title' => 'Professional & Industrial Experience', 'icon' => 'fas fa-history'],
                 'tab-extra'        => ['key' => 'extra',         'title' => 'Awards, Honors & Additional Distinctions', 'icon' => 'fas fa-award']
             ];
 

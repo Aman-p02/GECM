@@ -192,6 +192,60 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             if (!empty($talkDetails) && $talkDetails !== '--' && $talkDetails !== '-') $descLines[] = "Details: " . $talkDetails;
             $desc = implode("\n", $descLines);
             $extra_info = $talkPlace;
+        } elseif ($tab_name === 'workshops') {
+            $title = trim($_POST['title'] ?? '');
+            $wsPlace = trim($_POST['workshop_place'] ?? $_POST['extra_info'] ?? '');
+            $wsYear = trim($_POST['workshop_year'] ?? '');
+            $wsDuration = trim($_POST['workshop_duration'] ?? '');
+            $wsDetails = trim($_POST['workshop_details'] ?? '');
+            $order = (int)($_POST['display_order'] ?? 0);
+
+            if (empty($title)) {
+                setFlashMessage('error', 'Subject / Workshop Title is mandatory!');
+                header('Location: principal-profile.php?tab=tab_items&subtab=workshops');
+                exit;
+            }
+
+            if ($order === 0) {
+                $maxStmt = $pdo->query("SELECT COALESCE(MAX(display_order), 0) + 1 FROM principal_tab_items WHERE tab_name = 'workshops'");
+                $order = (int)$maxStmt->fetchColumn();
+            }
+
+            $descLines = [];
+            if (!empty($wsYear) && $wsYear !== '--' && $wsYear !== '-') $descLines[] = "Year: " . $wsYear;
+            if (!empty($wsDuration) && $wsDuration !== '--' && $wsDuration !== '-') $descLines[] = "Duration: " . $wsDuration;
+            if (!empty($wsPlace) && $wsPlace !== '--' && $wsPlace !== '-') $descLines[] = "Place: " . $wsPlace;
+            if (!empty($wsDetails) && $wsDetails !== '--' && $wsDetails !== '-') $descLines[] = "Details: " . $wsDetails;
+            $desc = implode("\n", $descLines);
+            $extra_info = !empty($wsPlace) ? $wsPlace : '-';
+        } elseif ($tab_name === 'experience') {
+            $title = trim($_POST['title'] ?? '');
+            $expPlace = trim($_POST['exp_place'] ?? $_POST['extra_info'] ?? '');
+            $expJoin = trim($_POST['exp_join'] ?? '');
+            $expLeave = trim($_POST['exp_leave'] ?? '');
+            $expDept = trim($_POST['exp_dept'] ?? '');
+            $expDuration = trim($_POST['exp_duration'] ?? '');
+            $order = (int)($_POST['display_order'] ?? 0);
+
+            if (empty($title)) {
+                setFlashMessage('error', 'Designation is mandatory!');
+                header('Location: principal-profile.php?tab=tab_items&subtab=experience');
+                exit;
+            }
+
+            if ($order === 0) {
+                $maxStmt = $pdo->query("SELECT COALESCE(MAX(display_order), 0) + 1 FROM principal_tab_items WHERE tab_name = 'experience'");
+                $order = (int)$maxStmt->fetchColumn();
+            }
+
+            $descLines = [];
+            if (!empty($expJoin) && $expJoin !== '--' && $expJoin !== '-') $descLines[] = "Date of Joining: " . $expJoin;
+            if (!empty($expLeave) && $expLeave !== '--' && $expLeave !== '-') $descLines[] = "Date of Leave: " . $expLeave;
+            if (!empty($expDept) && $expDept !== '--' && $expDept !== '-') $descLines[] = "Department: " . $expDept;
+            if (!empty($expDuration) && $expDuration !== '--' && $expDuration !== '-') $descLines[] = "Duration: " . $expDuration;
+            if (!empty($expPlace) && $expPlace !== '--' && $expPlace !== '-') $descLines[] = "Place: " . $expPlace;
+            $desc = implode("\n", $descLines);
+            $extra_info = !empty($expPlace) ? $expPlace : '-';
         }
 
         if (!empty($title)) {
@@ -278,6 +332,60 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             if (!empty($talkDetails) && $talkDetails !== '--' && $talkDetails !== '-') $descLines[] = "Details: " . $talkDetails;
             $desc = implode("\n", $descLines);
             $extra_info = $talkPlace;
+        } elseif ($tab_name === 'workshops') {
+            $title = trim($_POST['title'] ?? '');
+            $wsPlace = trim($_POST['workshop_place'] ?? $_POST['extra_info'] ?? '');
+            $wsYear = trim($_POST['workshop_year'] ?? '');
+            $wsDuration = trim($_POST['workshop_duration'] ?? '');
+            $wsDetails = trim($_POST['workshop_details'] ?? '');
+            $order = (int)($_POST['display_order'] ?? 0);
+
+            if (empty($title)) {
+                setFlashMessage('error', 'Subject / Workshop Title is mandatory!');
+                header('Location: principal-profile.php?tab=tab_items&subtab=workshops');
+                exit;
+            }
+
+            if ($order === 0) {
+                $maxStmt = $pdo->query("SELECT COALESCE(MAX(display_order), 0) + 1 FROM principal_tab_items WHERE tab_name = 'workshops'");
+                $order = (int)$maxStmt->fetchColumn();
+            }
+
+            $descLines = [];
+            if (!empty($wsYear) && $wsYear !== '--' && $wsYear !== '-') $descLines[] = "Year: " . $wsYear;
+            if (!empty($wsDuration) && $wsDuration !== '--' && $wsDuration !== '-') $descLines[] = "Duration: " . $wsDuration;
+            if (!empty($wsPlace) && $wsPlace !== '--' && $wsPlace !== '-') $descLines[] = "Place: " . $wsPlace;
+            if (!empty($wsDetails) && $wsDetails !== '--' && $wsDetails !== '-') $descLines[] = "Details: " . $wsDetails;
+            $desc = implode("\n", $descLines);
+            $extra_info = !empty($wsPlace) ? $wsPlace : '-';
+        } elseif ($tab_name === 'experience') {
+            $title = trim($_POST['title'] ?? '');
+            $expPlace = trim($_POST['exp_place'] ?? $_POST['extra_info'] ?? '');
+            $expJoin = trim($_POST['exp_join'] ?? '');
+            $expLeave = trim($_POST['exp_leave'] ?? '');
+            $expDept = trim($_POST['exp_dept'] ?? '');
+            $expDuration = trim($_POST['exp_duration'] ?? '');
+            $order = (int)($_POST['display_order'] ?? 0);
+
+            if (empty($title)) {
+                setFlashMessage('error', 'Designation is mandatory!');
+                header('Location: principal-profile.php?tab=tab_items&subtab=experience');
+                exit;
+            }
+
+            if ($order === 0) {
+                $maxStmt = $pdo->query("SELECT COALESCE(MAX(display_order), 0) + 1 FROM principal_tab_items WHERE tab_name = 'experience'");
+                $order = (int)$maxStmt->fetchColumn();
+            }
+
+            $descLines = [];
+            if (!empty($expJoin) && $expJoin !== '--' && $expJoin !== '-') $descLines[] = "Date of Joining: " . $expJoin;
+            if (!empty($expLeave) && $expLeave !== '--' && $expLeave !== '-') $descLines[] = "Date of Leave: " . $expLeave;
+            if (!empty($expDept) && $expDept !== '--' && $expDept !== '-') $descLines[] = "Department: " . $expDept;
+            if (!empty($expDuration) && $expDuration !== '--' && $expDuration !== '-') $descLines[] = "Duration: " . $expDuration;
+            if (!empty($expPlace) && $expPlace !== '--' && $expPlace !== '-') $descLines[] = "Place: " . $expPlace;
+            $desc = implode("\n", $descLines);
+            $extra_info = !empty($expPlace) ? $expPlace : '-';
         }
 
         if ($id > 0 && !empty($title)) {
@@ -335,6 +443,106 @@ if ($pdo) {
 $subtab = $_GET['subtab'] ?? 'publications';
 $tabItems = [];
 if ($pdo) {
+    // Auto-seed workshops if not present
+    $wsChk = $pdo->query("SELECT COUNT(*) FROM principal_tab_items WHERE tab_name = 'workshops'")->fetchColumn();
+    if ($wsChk == 0) {
+        $initialWorkshops = [
+            [
+                'title' => 'Organized One Day Workshop on Multi Varient Techniques',
+                'extra_info' => 'S. S. Engineering College, Bhavnagar',
+                'description' => "Year: 2015\nDuration: 26-June-2015\nPlace: S. S. Engineering College, Bhavnagar\nDetails: Name of Expert : Prof. M. K. Barua, IIT Roorkee, Under TQIP-II",
+                'display_order' => 1
+            ],
+            [
+                'title' => 'Organized One week STTP on Product Design by Solid Works',
+                'extra_info' => 'S. S. Engineering College, Bhavnagar',
+                'description' => "Year: 2015\nDuration: 12-16 Oct 2015\nPlace: S. S. Engineering College, Bhavnagar\nDetails: -",
+                'display_order' => 2
+            ],
+            [
+                'title' => 'Worked as Co-coordinator of Entrepreneurship and Management Development Center',
+                'extra_info' => 'Government Engineering College Modasa',
+                'description' => "Year: 2003\nDuration: -\nPlace: Government Engineering College Modasa\nDetails: Sponsored by AICTE, New Delhi",
+                'display_order' => 3
+            ],
+            [
+                'title' => 'Organized "2-D State Level Workshop on Computer Based Diesel Engine Test Rig"',
+                'extra_info' => '-',
+                'description' => "Year: 2002\nDuration: 17th&18th October 2002\nPlace: -\nDetails: Sponsored by GUJCOST, Gandhinagar as a committee member.",
+                'display_order' => 4
+            ]
+        ];
+        $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('workshops', ?, ?, ?, ?)");
+        foreach ($initialWorkshops as $iw) {
+            $insStmt->execute([$iw['title'], $iw['description'], $iw['extra_info'], $iw['display_order']]);
+        }
+    }
+
+    // Auto-seed experience if not present
+    $expChk = $pdo->query("SELECT COUNT(*) FROM principal_tab_items WHERE tab_name = 'experience'")->fetchColumn();
+    if ($expChk == 0) {
+        $initialExperience = [
+            [
+                'title' => 'Professor and Head in Mechanical Engineering',
+                'extra_info' => 'Government Engineering College Modasa',
+                'description' => "Date of Joining: 18-05-2022\nDate of Leave: Till Date\nDepartment: Mechanical Engineering\nDuration: -\nPlace: Government Engineering College Modasa",
+                'display_order' => 1
+            ],
+            [
+                'title' => 'Professor and Head in Mechanical Engineering',
+                'extra_info' => 'Government Engineering College Palanpur',
+                'description' => "Date of Joining: 01-04-2017\nDate of Leave: 17-05-2022\nDepartment: Mechanical Engineering\nDuration: 5 years 1 month\nPlace: Government Engineering College Palanpur",
+                'display_order' => 2
+            ],
+            [
+                'title' => 'Incharge Principal (CTE Order)',
+                'extra_info' => 'Government Engineering College Palanpur',
+                'description' => "Date of Joining: 04-02-2016\nDate of Leave: 31-03-2017\nDepartment: Mechanical Engineering\nDuration: 1 year 1 month\nPlace: Government Engineering College Palanpur",
+                'display_order' => 3
+            ],
+            [
+                'title' => 'Professor Mechanical (Promotion and Transfer)',
+                'extra_info' => 'Government Engineering College Palanpur',
+                'description' => "Date of Joining: 23-12-2015\nDate of Leave: 03-02-2016\nDepartment: Mechanical Engineering\nDuration: 1 months 11 days\nPlace: Government Engineering College Palanpur",
+                'display_order' => 4
+            ],
+            [
+                'title' => 'Associate Professor (Promotion)',
+                'extra_info' => 'Shantilal Shah Engineering College, Bhavnagar',
+                'description' => "Date of Joining: 15-07-2010\nDate of Leave: 22-12-2015\nDepartment: Mechanical Engineering\nDuration: 5 years 5 months\nPlace: Shantilal Shah Engineering College, Bhavnagar",
+                'display_order' => 5
+            ],
+            [
+                'title' => 'Lecturer',
+                'extra_info' => 'Shantilal Shah Engineering College, Bhavnagar',
+                'description' => "Date of Joining: 07-04-2004\nDate of Leave: 14-07-2010\nDepartment: Mechanical Engineering\nDuration: 6 years 1 months\nPlace: Shantilal Shah Engineering College, Bhavnagar",
+                'display_order' => 6
+            ],
+            [
+                'title' => 'Lecturer (GPSC Posting)',
+                'extra_info' => 'Government Engineering College, Modasa',
+                'description' => "Date of Joining: 05-04-2000\nDate of Leave: 06-12-2004\nDepartment: Mechanical Engineering\nDuration: 4 years 8 months\nPlace: Government Engineering College, Modasa",
+                'display_order' => 7
+            ],
+            [
+                'title' => 'Lecturer',
+                'extra_info' => 'GCET, V V Nagar',
+                'description' => "Date of Joining: 23-06-1998\nDate of Leave: 04-04-2000\nDepartment: Mechanical Engineering\nDuration: 1 years 9 months\nPlace: GCET, V V Nagar",
+                'display_order' => 8
+            ],
+            [
+                'title' => 'Lecturer',
+                'extra_info' => 'Shantilal Shah Engineering College, Bhavnagar',
+                'description' => "Date of Joining: 26-12-1995\nDate of Leave: 04-07-1996\nDepartment: Mechanical\nDuration: 6 months\nPlace: Shantilal Shah Engineering College, Bhavnagar",
+                'display_order' => 9
+            ]
+        ];
+        $insStmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES ('experience', ?, ?, ?, ?)");
+        foreach ($initialExperience as $ie) {
+            $insStmt->execute([$ie['title'], $ie['description'], $ie['extra_info'], $ie['display_order']]);
+        }
+    }
+
     $stmt = $pdo->prepare("SELECT * FROM principal_tab_items WHERE tab_name = ? ORDER BY display_order ASC, id DESC");
     $stmt->execute([$subtab]);
     $tabItems = $stmt->fetchAll();
@@ -595,6 +803,15 @@ require_once __DIR__ . '/includes/header.php';
         $editTalkYear = '';
         $editTalkPlace = '';
         $editTalkDetails = '';
+        $editWorkshopYear = '';
+        $editWorkshopDuration = '';
+        $editWorkshopPlace = '';
+        $editWorkshopDetails = '';
+        $editExpJoin = '';
+        $editExpLeave = '';
+        $editExpDept = '';
+        $editExpDuration = '';
+        $editExpPlace = '';
 
         if ($editItem) {
             $eDesc = $editItem['description'] ?? '';
@@ -630,6 +847,40 @@ require_once __DIR__ . '/includes/header.php';
                 }
                 if (empty($editTalkDetails) && empty($editTalkYear) && !empty($eDesc) && !preg_match('/^(?:Year|Place|Details):/i', $eDesc)) {
                     $editTalkDetails = $eDesc;
+                }
+            } elseif ($subtab === 'workshops') {
+                $editWorkshopPlace = $editItem['extra_info'] ?? '';
+                if ($editWorkshopPlace === '-') $editWorkshopPlace = '';
+                $lines = explode("\n", $eDesc);
+                foreach ($lines as $ln) {
+                    $ln = trim($ln);
+                    if (preg_match('/^Year:\s*(.*)$/i', $ln, $m)) $editWorkshopYear = trim($m[1]);
+                    elseif (preg_match('/^Duration:\s*(.*)$/i', $ln, $m)) $editWorkshopDuration = trim($m[1]);
+                    elseif (preg_match('/^Place:\s*(.*)$/i', $ln, $m)) {
+                        $p = trim($m[1]);
+                        if ($p !== '-') $editWorkshopPlace = $p;
+                    } elseif (preg_match('/^Details:\s*(.*)$/i', $ln, $m)) {
+                        $d = trim($m[1]);
+                        if ($d !== '-') $editWorkshopDetails = $d;
+                    }
+                }
+                if (empty($editWorkshopDetails) && empty($editWorkshopYear) && empty($editWorkshopDuration) && !empty($eDesc) && !preg_match('/^(?:Year|Duration|Place|Details):/i', $eDesc)) {
+                    $editWorkshopDetails = $eDesc;
+                }
+            } elseif ($subtab === 'experience') {
+                $editExpPlace = $editItem['extra_info'] ?? '';
+                if ($editExpPlace === '-') $editExpPlace = '';
+                $lines = explode("\n", $eDesc);
+                foreach ($lines as $ln) {
+                    $ln = trim($ln);
+                    if (preg_match('/^(?:Date of Joining|Joining):\s*(.*)$/i', $ln, $m)) $editExpJoin = trim($m[1]);
+                    elseif (preg_match('/^(?:Date of Leave|Leave):\s*(.*)$/i', $ln, $m)) $editExpLeave = trim($m[1]);
+                    elseif (preg_match('/^Department:\s*(.*)$/i', $ln, $m)) $editExpDept = trim($m[1]);
+                    elseif (preg_match('/^Duration:\s*(.*)$/i', $ln, $m)) $editExpDuration = trim($m[1]);
+                    elseif (preg_match('/^Place:\s*(.*)$/i', $ln, $m)) {
+                        $p = trim($m[1]);
+                        if ($p !== '-') $editExpPlace = $p;
+                    }
                 }
             }
         }
@@ -880,42 +1131,113 @@ require_once __DIR__ . '/includes/header.php';
                         </div>
                     </div>
 
-                <?php elseif ($subtab === 'expert_talks'): ?>
-                    <!-- Row 1: Subject (Mandatory) & Place (Mandatory) -->
+                <?php elseif ($subtab === 'workshops'): ?>
+                    <!-- Row 1: Subject (Mandatory) & Place (Optional) -->
                     <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">
-                                Subject / Lecture Title <span style="color: #ef4444; font-weight: bold;">*</span>
+                                Subject / Workshop Title <span style="color: #ef4444; font-weight: bold;">*</span>
                             </label>
-                            <input type="text" name="title" class="form-control" placeholder="e.g. Research Methodology, Technologies Enables to Industry 4.0" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
-                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Topic, keynote title, or subject</small>
+                            <input type="text" name="title" class="form-control" placeholder="e.g. Organized One Day Workshop on Multi Varient Techniques" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Workshop, STTP, or seminar topic / title</small>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">
-                                Place / Host Institution <span style="color: #ef4444; font-weight: bold;">*</span>
+                                Place / Host Institution <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="talk_place" class="form-control" placeholder="e.g. GTU Ahmedabad Online, SSEC Bhavnagar, LE College Morbi" required value="<?= htmlspecialchars($editTalkPlace) ?>">
-                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Venue, department, college, or online platform</small>
+                            <input type="text" name="workshop_place" class="form-control" placeholder="e.g. S. S. Engineering College, Bhavnagar or GEC Modasa" value="<?= htmlspecialchars($editWorkshopPlace) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Host college, venue, or department (leave empty if not applicable)</small>
                         </div>
                     </div>
 
-                    <!-- Row 2: Year (Optional), Details (Optional), Sr. No. (Optional) -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 16px;">
+                    <!-- Row 2: Year (Optional), Duration (Optional), Details (Optional), Sr. No. (Optional) -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">
                                 Year <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="talk_year" class="form-control" placeholder="e.g. 2023 (or leave empty)" value="<?= htmlspecialchars($editTalkYear) ?>">
-                            <small style="font-size: 11.5px; color: #94a3b8;">Delivery year</small>
+                            <input type="text" name="workshop_year" class="form-control" placeholder="e.g. 2015, 2003" value="<?= htmlspecialchars($editWorkshopYear) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Event year</small>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">
-                                Details / Audience / Remarks <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                                Duration / Dates <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="talk_details" class="form-control" placeholder="e.g. PhD students of batch 2022, 5 March 23 (or leave empty)" value="<?= htmlspecialchars($editTalkDetails) ?>">
-                            <small style="font-size: 11.5px; color: #94a3b8;">Audience, session details, or remarks</small>
+                            <input type="text" name="workshop_duration" class="form-control" placeholder="e.g. 26-June-2015, 12-16 Oct 2015" value="<?= htmlspecialchars($editWorkshopDuration) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Specific dates or duration</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Details / Sponsor / Expert <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="workshop_details" class="form-control" placeholder="e.g. Name of Expert: Prof. M. K. Barua, Sponsored by AICTE" value="<?= htmlspecialchars($editWorkshopDetails) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Sponsorship, expert details, or role</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Sr. No. / Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Sorting order</small>
+                        </div>
+                    </div>
+
+                <?php elseif ($subtab === 'experience'): ?>
+                    <!-- Row 1: Designation (Mandatory) & Place (Optional) -->
+                    <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; margin-bottom: 16px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Designation / Role <span style="color: #ef4444; font-weight: bold;">*</span>
+                            </label>
+                            <input type="text" name="title" class="form-control" placeholder="e.g. Professor and Head in Mechanical Engineering, Incharge Principal" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Official job title or administrative designation</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Place / College / Institution <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="exp_place" class="form-control" placeholder="e.g. Government Engineering College Modasa or SSEC Bhavnagar" value="<?= htmlspecialchars($editExpPlace) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">College, university, or organization name</small>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Joining, Leave, Department, Duration, Order -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 16px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Date of Joining <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="exp_join" class="form-control" placeholder="e.g. 18-05-2022" value="<?= htmlspecialchars($editExpJoin) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Joining date</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Date of Leave <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="exp_leave" class="form-control" placeholder="e.g. Till Date or 17-05-2022" value="<?= htmlspecialchars($editExpLeave) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Relieving date or Till Date</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Department <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="exp_dept" class="form-control" placeholder="e.g. Mechanical Engineering" value="<?= htmlspecialchars($editExpDept) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Academic department</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Duration <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="exp_duration" class="form-control" placeholder="e.g. 5 years 1 month, 6 months" value="<?= htmlspecialchars($editExpDuration) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Total tenure</small>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 0;">
@@ -963,9 +1285,9 @@ require_once __DIR__ . '/includes/header.php';
                 <thead>
                     <tr>
                         <th style="width: 50px;">#</th>
-                        <th><?= ($subtab === 'books') ? 'Book Title / Monograph' : (($subtab === 'editorial') ? 'Editorial Role & Details' : (($subtab === 'expert_talks') ? 'Subject / Lecture Title' : 'Title / Citation')) ?></th>
-                        <th><?= ($subtab === 'books') ? 'Publisher' : (($subtab === 'editorial') ? 'Organization / Location' : (($subtab === 'expert_talks') ? 'Place / Institution' : 'Journal / Publisher / Date')) ?></th>
-                        <th><?= ($subtab === 'books') ? 'University, Edition & Details' : (($subtab === 'editorial') ? 'Editorial Summary' : (($subtab === 'expert_talks') ? 'Year & Details' : 'Description')) ?></th>
+                        <th><?= ($subtab === 'books') ? 'Book Title / Monograph' : (($subtab === 'editorial') ? 'Editorial Role & Details' : (($subtab === 'expert_talks') ? 'Subject / Lecture Title' : (($subtab === 'workshops') ? 'Subject / Workshop Title' : (($subtab === 'experience') ? 'Designation / Role' : 'Title / Citation')))) ?></th>
+                        <th><?= ($subtab === 'books') ? 'Publisher' : (($subtab === 'editorial') ? 'Organization / Location' : (($subtab === 'expert_talks' || $subtab === 'workshops' || $subtab === 'experience') ? 'Place / Institution' : 'Journal / Publisher / Date')) ?></th>
+                        <th><?= ($subtab === 'books') ? 'University, Edition & Details' : (($subtab === 'editorial') ? 'Editorial Summary' : (($subtab === 'expert_talks') ? 'Year & Details' : (($subtab === 'workshops') ? 'Year, Duration & Details' : (($subtab === 'experience') ? 'Joining, Leave, Dept & Duration' : 'Description')))) ?></th>
                         <th style="width: 100px; text-align: right;">Action</th>
                     </tr>
                 </thead>
@@ -988,7 +1310,7 @@ require_once __DIR__ . '/includes/header.php';
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <?php if (!empty($item['extra_info'])): ?>
+                                    <?php if (!empty($item['extra_info']) && $item['extra_info'] !== '-'): ?>
                                         <span style="font-weight: 600; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 4px; font-size: 12px; border: 1px solid #bfdbfe;">
                                             <?= htmlspecialchars($item['extra_info']) ?>
                                         </span>
@@ -1009,6 +1331,43 @@ require_once __DIR__ . '/includes/header.php';
                                         $parts = [];
                                         if (!empty($y)) $parts[] = '<strong>Year: ' . htmlspecialchars($y) . '</strong>';
                                         if (!empty($d)) $parts[] = htmlspecialchars($d);
+                                        echo !empty($parts) ? implode(' • ', $parts) : '<span style="color: #94a3b8;">-</span>';
+                                    } elseif ($subtab === 'workshops') {
+                                        $wDesc = $item['description'] ?? '';
+                                        $y = '';
+                                        $dur = '';
+                                        $d = '';
+                                        foreach (explode("\n", $wDesc) as $ln) {
+                                            if (preg_match('/^Year:\s*(.*)$/i', $ln, $m)) $y = trim($m[1]);
+                                            elseif (preg_match('/^Duration:\s*(.*)$/i', $ln, $m)) $dur = trim($m[1]);
+                                            elseif (preg_match('/^Details:\s*(.*)$/i', $ln, $m)) $d = trim($m[1]);
+                                        }
+                                        $parts = [];
+                                        if (!empty($y) && $y !== '-') $parts[] = '<strong>Year: ' . htmlspecialchars($y) . '</strong>';
+                                        if (!empty($dur) && $dur !== '-') $parts[] = '<span style="color: #0369a1;"><i class="fas fa-calendar-alt"></i> ' . htmlspecialchars($dur) . '</span>';
+                                        if (!empty($d) && $d !== '-') $parts[] = htmlspecialchars($d);
+                                        echo !empty($parts) ? implode(' • ', $parts) : '<span style="color: #94a3b8;">-</span>';
+                                    } elseif ($subtab === 'experience') {
+                                        $eDesc = $item['description'] ?? '';
+                                        $j = '';
+                                        $l = '';
+                                        $dept = '';
+                                        $dur = '';
+                                        foreach (explode("\n", $eDesc) as $ln) {
+                                            if (preg_match('/^(?:Date of Joining|Joining):\s*(.*)$/i', $ln, $m)) $j = trim($m[1]);
+                                            elseif (preg_match('/^(?:Date of Leave|Leave):\s*(.*)$/i', $ln, $m)) $l = trim($m[1]);
+                                            elseif (preg_match('/^Department:\s*(.*)$/i', $ln, $m)) $dept = trim($m[1]);
+                                            elseif (preg_match('/^Duration:\s*(.*)$/i', $ln, $m)) $dur = trim($m[1]);
+                                        }
+                                        $parts = [];
+                                        if (!empty($j) || !empty($l)) {
+                                            $leaveTag = (strcasecmp($l, 'Till Date') === 0) 
+                                                ? '<span style="background: #ecfdf5; color: #047857; font-weight: 700; font-size: 11px; padding: 1px 5px; border-radius: 3px;">Till Date</span>'
+                                                : htmlspecialchars($l);
+                                            $parts[] = '<strong>' . htmlspecialchars($j) . ' &rarr; ' . $leaveTag . '</strong>';
+                                        }
+                                        if (!empty($dept) && $dept !== '-') $parts[] = htmlspecialchars($dept);
+                                        if (!empty($dur) && $dur !== '-') $parts[] = '<span style="color: #0369a1;"><i class="fas fa-hourglass-half"></i> ' . htmlspecialchars($dur) . '</span>';
                                         echo !empty($parts) ? implode(' • ', $parts) : '<span style="color: #94a3b8;">-</span>';
                                     } else {
                                         echo htmlspecialchars(str_replace("\n", " • ", mb_strimwidth(!empty($item['description']) ? $item['description'] : ($item['title'] ?? ''), 0, 110, '...')));
