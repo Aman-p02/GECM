@@ -248,6 +248,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $extra_info = !empty($expPlace) ? $expPlace : '-';
         }
 
+        if ($order === 0) {
+            $maxStmt = $pdo->prepare("SELECT COALESCE(MAX(display_order), 0) + 1 FROM principal_tab_items WHERE tab_name = ?");
+            $maxStmt->execute([$tab_name]);
+            $order = (int)$maxStmt->fetchColumn();
+        }
+
         if (!empty($title)) {
             $stmt = $pdo->prepare("INSERT INTO principal_tab_items (tab_name, title, description, extra_info, display_order) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([$tab_name, $title, $desc, $extra_info, $order]);
@@ -558,12 +564,15 @@ if (isset($_GET['edit_qual']) && (int)$_GET['edit_qual'] > 0 && $pdo) {
 
 $tabList = [
     'publications' => 'Publications',
-    'books' => 'Books',
-    'editorial' => 'Editorial',
+    'books'        => 'Books',
+    'editorial'    => 'Editorial',
     'expert_talks' => 'Expert Talks',
-    'workshops' => 'Workshops',
-    'experience' => 'Experience',
-    'extra' => 'Extra'
+    'workshops'    => 'Workshops',
+    'experience'   => 'Experience',
+    'achievements' => 'Achievements',
+    'dissertation' => 'Dissertation/Ph.D. Thesis Guidance',
+    'membership'   => 'Membership',
+    'patents'      => 'Patents'
 ];
 
 require_once __DIR__ . '/includes/header.php';
@@ -1249,22 +1258,65 @@ require_once __DIR__ . '/includes/header.php';
                         </div>
                     </div>
 
-                <?php else: ?>
-                    <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 16px; margin-bottom: 16px;">
+                <?php else: 
+                    // Dynamic labels & placeholders for tabs
+                    $fTitleLabel = 'Title / Citation';
+                    $fTitlePlace = 'e.g. Research Paper Title, Book Name, Talk Subject';
+                    $fExtraLabel = 'Extra Info / Journal / Publisher / Year';
+                    $fExtraPlace = 'e.g. Elsevier 2023, ISBN...';
+                    $fDescLabel  = 'Full Description / Abstract';
+                    $fDescPlace  = 'Brief summary, authors, conference details...';
+
+                    if ($subtab === 'achievements') {
+                        $fTitleLabel = 'Award / Achievement Title';
+                        $fTitlePlace = 'e.g. Best Teacher Award, National Merit Citation, State Recognition';
+                        $fExtraLabel = 'Awarding Body / Organization / Year';
+                        $fExtraPlace = 'e.g. Government of Gujarat (2022)';
+                        $fDescLabel  = 'Details / Recognition Scope (Optional)';
+                        $fDescPlace  = 'Brief background, citation details, or significance...';
+                    } elseif ($subtab === 'dissertation') {
+                        $fTitleLabel = 'Candidate Name & Thesis Topic';
+                        $fTitlePlace = 'e.g. Dr. A. K. Patel - Optimization of Advanced Thermal Systems';
+                        $fExtraLabel = 'Degree & Status / Year';
+                        $fExtraPlace = 'e.g. Ph.D. Awarded (2021) / M.Tech. Guided (2020)';
+                        $fDescLabel  = 'University / Abstract / Guidance Details (Optional)';
+                        $fDescPlace  = 'University, co-supervisors, publication outcomes, or abstract...';
+                    } elseif ($subtab === 'membership') {
+                        $fTitleLabel = 'Professional Body / Society Name';
+                        $fTitlePlace = 'e.g. Indian Society for Technical Education (ISTE) / IEEE / ASME';
+                        $fExtraLabel = 'Membership Grade / ID';
+                        $fExtraPlace = 'e.g. Life Member (LM-12345) / Fellow / Senior Member';
+                        $fDescLabel  = 'Tenure & Association Details (Optional)';
+                        $fDescPlace  = 'Executive committee roles, years of active membership, or chapter details...';
+                    } elseif ($subtab === 'patents') {
+                        $fTitleLabel = 'Patent / Invention Title';
+                        $fTitlePlace = 'e.g. Solar-powered Multi-utility Agricultural Harvester Mechanism';
+                        $fExtraLabel = 'Application / Patent No. & Status';
+                        $fExtraPlace = 'e.g. Patent No: 452109 (Granted) / App No: 20232100... (Published)';
+                        $fDescLabel  = 'Inventors & Scope (Optional)';
+                        $fDescPlace  = 'List of inventors, filing date, country, or technological field...';
+                    }
+                ?>
+                    <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1.5fr) minmax(0, 110px); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
-                            <label class="form-label">Title / Citation <span style="color: #ef4444;">*</span></label>
-                            <input type="text" name="title" class="form-control" placeholder="e.g. Research Paper Title, Book Name, Talk Subject" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <label class="form-label" style="font-weight: 600;"><?= $fTitleLabel ?> <span style="color: #ef4444;">*</span></label>
+                            <input type="text" name="title" class="form-control" placeholder="<?= $fTitlePlace ?>" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
                         </div>
 
                         <div class="form-group" style="margin-bottom: 0;">
-                            <label class="form-label">Extra Info / Journal / Publisher / Year</label>
-                            <input type="text" name="extra_info" class="form-control" placeholder="e.g. Elsevier 2023, ISBN..." value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
+                            <label class="form-label" style="font-weight: 600;"><?= $fExtraLabel ?></label>
+                            <input type="text" name="extra_info" class="form-control" placeholder="<?= $fExtraPlace ?>" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">Order</label>
+                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
                         </div>
                     </div>
 
                     <div class="form-group" style="margin-bottom: 16px;">
-                        <label class="form-label">Full Description / Abstract</label>
-                        <textarea name="description" class="form-control" rows="3" placeholder="Brief summary, authors, conference details..."><?= htmlspecialchars($editItem['description'] ?? '') ?></textarea>
+                        <label class="form-label" style="font-weight: 600;"><?= $fDescLabel ?></label>
+                        <textarea name="description" class="form-control" rows="3" placeholder="<?= $fDescPlace ?>"><?= htmlspecialchars($editItem['description'] ?? '') ?></textarea>
                     </div>
                 <?php endif; ?>
 
@@ -1285,9 +1337,46 @@ require_once __DIR__ . '/includes/header.php';
                 <thead>
                     <tr>
                         <th style="width: 50px;">#</th>
-                        <th><?= ($subtab === 'books') ? 'Book Title / Monograph' : (($subtab === 'editorial') ? 'Editorial Role & Details' : (($subtab === 'expert_talks') ? 'Subject / Lecture Title' : (($subtab === 'workshops') ? 'Subject / Workshop Title' : (($subtab === 'experience') ? 'Designation / Role' : 'Title / Citation')))) ?></th>
-                        <th><?= ($subtab === 'books') ? 'Publisher' : (($subtab === 'editorial') ? 'Organization / Location' : (($subtab === 'expert_talks' || $subtab === 'workshops' || $subtab === 'experience') ? 'Place / Institution' : 'Journal / Publisher / Date')) ?></th>
-                        <th><?= ($subtab === 'books') ? 'University, Edition & Details' : (($subtab === 'editorial') ? 'Editorial Summary' : (($subtab === 'expert_talks') ? 'Year & Details' : (($subtab === 'workshops') ? 'Year, Duration & Details' : (($subtab === 'experience') ? 'Joining, Leave, Dept & Duration' : 'Description')))) ?></th>
+                        <th>
+                            <?php
+                            if ($subtab === 'books') echo 'Book Title / Monograph';
+                            elseif ($subtab === 'editorial') echo 'Editorial Role & Details';
+                            elseif ($subtab === 'expert_talks') echo 'Subject / Lecture Title';
+                            elseif ($subtab === 'workshops') echo 'Subject / Workshop Title';
+                            elseif ($subtab === 'experience') echo 'Designation / Role';
+                            elseif ($subtab === 'achievements') echo 'Award / Achievement Title';
+                            elseif ($subtab === 'dissertation') echo 'Candidate & Thesis Topic';
+                            elseif ($subtab === 'membership') echo 'Professional Body / Society';
+                            elseif ($subtab === 'patents') echo 'Patent / Invention Title';
+                            else echo 'Title / Citation';
+                            ?>
+                        </th>
+                        <th>
+                            <?php
+                            if ($subtab === 'books') echo 'Publisher';
+                            elseif ($subtab === 'editorial') echo 'Organization / Location';
+                            elseif ($subtab === 'expert_talks' || $subtab === 'workshops' || $subtab === 'experience') echo 'Place / Institution';
+                            elseif ($subtab === 'achievements') echo 'Awarding Body / Year';
+                            elseif ($subtab === 'dissertation') echo 'Degree & Status';
+                            elseif ($subtab === 'membership') echo 'Grade / ID';
+                            elseif ($subtab === 'patents') echo 'Application / Patent No.';
+                            else echo 'Journal / Publisher / Date';
+                            ?>
+                        </th>
+                        <th>
+                            <?php
+                            if ($subtab === 'books') echo 'University, Edition & Details';
+                            elseif ($subtab === 'editorial') echo 'Editorial Summary';
+                            elseif ($subtab === 'expert_talks') echo 'Year & Details';
+                            elseif ($subtab === 'workshops') echo 'Year, Duration & Details';
+                            elseif ($subtab === 'experience') echo 'Joining, Leave, Dept & Duration';
+                            elseif ($subtab === 'achievements') echo 'Details & Recognition';
+                            elseif ($subtab === 'dissertation') echo 'University & Guidance Details';
+                            elseif ($subtab === 'membership') echo 'Tenure & Association Details';
+                            elseif ($subtab === 'patents') echo 'Inventors & Scope';
+                            else echo 'Description';
+                            ?>
+                        </th>
                         <th style="width: 100px; text-align: right;">Action</th>
                     </tr>
                 </thead>

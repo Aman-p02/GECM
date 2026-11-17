@@ -334,9 +334,33 @@ require_once __DIR__ . '/../includes/header.php';
                         <span class="pr-tab-count"><?= count($tabItems['experience']) ?></span>
                     <?php endif; ?>
                 </button>
-                <button type="button" class="pr-tab-btn" data-tab="tab-extra" role="tab" aria-selected="false" aria-controls="tab-extra">
-                    <i class="fas fa-award" aria-hidden="true"></i>
-                    <span>Honors &amp; Extra</span>
+                <button type="button" class="pr-tab-btn" data-tab="tab-achievements" role="tab" aria-selected="false" aria-controls="tab-achievements">
+                    <i class="fas fa-trophy" aria-hidden="true"></i>
+                    <span>Achievements</span>
+                    <?php if (!empty($tabItems['achievements'])): ?>
+                        <span class="pr-tab-count"><?= count($tabItems['achievements']) ?></span>
+                    <?php endif; ?>
+                </button>
+                <button type="button" class="pr-tab-btn" data-tab="tab-dissertation" role="tab" aria-selected="false" aria-controls="tab-dissertation">
+                    <i class="fas fa-tag" aria-hidden="true"></i>
+                    <span>Dissertation/Ph.D. Thesis Guidance</span>
+                    <?php if (!empty($tabItems['dissertation'])): ?>
+                        <span class="pr-tab-count"><?= count($tabItems['dissertation']) ?></span>
+                    <?php endif; ?>
+                </button>
+                <button type="button" class="pr-tab-btn" data-tab="tab-membership" role="tab" aria-selected="false" aria-controls="tab-membership">
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                    <span>Membership</span>
+                    <?php if (!empty($tabItems['membership'])): ?>
+                        <span class="pr-tab-count"><?= count($tabItems['membership']) ?></span>
+                    <?php endif; ?>
+                </button>
+                <button type="button" class="pr-tab-btn" data-tab="tab-patents" role="tab" aria-selected="false" aria-controls="tab-patents">
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                    <span>Patents</span>
+                    <?php if (!empty($tabItems['patents'])): ?>
+                        <span class="pr-tab-count"><?= count($tabItems['patents']) ?></span>
+                    <?php endif; ?>
                 </button>
             </div>
 
@@ -971,10 +995,33 @@ require_once __DIR__ . '/../includes/header.php';
                 <?php endif; ?>
             </div>
 
-            <!-- Dynamic Tab Panes for Other Sections -->
+            <!-- Dynamic Tab Panes for Other Sections (Achievements, Dissertation, Membership, Patents) -->
             <?php
             $tabPanesConfig = [
-                'tab-extra'        => ['key' => 'extra',         'title' => 'Awards, Honors & Additional Distinctions', 'icon' => 'fas fa-award']
+                'tab-achievements' => [
+                    'key'   => 'achievements',
+                    'title' => 'Achievements & Honors',
+                    'icon'  => 'fas fa-trophy',
+                    'desc'  => 'Honors, awards, and prestigious institutional recognitions are updated periodically.'
+                ],
+                'tab-dissertation' => [
+                    'key'   => 'dissertation',
+                    'title' => 'Dissertation / Ph.D. Thesis Guidance',
+                    'icon'  => 'fas fa-tag',
+                    'desc'  => 'Doctoral and Master\'s thesis supervision records are updated periodically.'
+                ],
+                'tab-membership'   => [
+                    'key'   => 'membership',
+                    'title' => 'Professional Memberships',
+                    'icon'  => 'fas fa-user',
+                    'desc'  => 'Professional society memberships and council affiliations are updated periodically.'
+                ],
+                'tab-patents'      => [
+                    'key'   => 'patents',
+                    'title' => 'Patents & Innovations',
+                    'icon'  => 'fas fa-user',
+                    'desc'  => 'Patents filed, published, and granted are updated periodically.'
+                ]
             ];
 
             foreach ($tabPanesConfig as $paneId => $cfg):
@@ -985,7 +1032,7 @@ require_once __DIR__ . '/../includes/header.php';
                         <div class="pr-empty-box">
                             <i class="<?= $cfg['icon'] ?>" aria-hidden="true"></i>
                             <h4 class="pr-empty-title">No <?= htmlspecialchars($cfg['title']) ?> Listed Yet</h4>
-                            <p class="pr-empty-sub">Academic publications and administrative records are updated periodically through the Principal's Office.</p>
+                            <p class="pr-empty-sub"><?= htmlspecialchars($cfg['desc']) ?></p>
                         </div>
                     <?php else: ?>
                         <div class="pr-entries-list">
@@ -997,7 +1044,7 @@ require_once __DIR__ . '/../includes/header.php';
                                     <div class="pr-entry-content">
                                         <div class="pr-entry-header">
                                             <h4 class="pr-entry-title"><?= htmlspecialchars($it['title']) ?></h4>
-                                            <?php if (!empty($it['extra_info'])): ?>
+                                            <?php if (!empty($it['extra_info']) && $it['extra_info'] !== '-'): ?>
                                                 <span class="pr-entry-tag"><?= htmlspecialchars($it['extra_info']) ?></span>
                                             <?php endif; ?>
                                         </div>
