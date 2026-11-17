@@ -1,5 +1,5 @@
 <?php
-$page_title = "Council of Heads :: Government Engineering College, Modasa";
+$page_title = "Council of Heads | GEC Modasa";
 $active_page = 'council-of-heads';
 $root_path = '../';
 $extra_css = 'css/council-of-heads.css';

@@ -16,6 +16,9 @@ $page_title = $page_title ?? 'Dashboard Overview';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($page_title) ?> - GEC Admin</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../logos/logo.png">
+    <link rel="shortcut icon" href="../logos/logo.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

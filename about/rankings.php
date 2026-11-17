@@ -16,7 +16,7 @@ if ($pdo) {
     }
 }
 
-$page_title = "NIRF & Institutional Rankings :: Government Engineering College, Modasa";
+$page_title = "NIRF & Institutional Rankings | GEC Modasa";
 $active_page = 'about';
 $root_path = '../';
 $extra_css = 'css/rankings.css';

@@ -1,5 +1,5 @@
 <?php
-$page_title = "Account Section :: Government Engineering College, Modasa";
+$page_title = "Account Section | GEC Modasa";
 $active_page = 'account-section';
 $root_path = '../';
 require_once __DIR__ . '/../includes/header.php';

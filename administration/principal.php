@@ -146,7 +146,8 @@ if (!empty($profile['photo_url']) && file_exists(__DIR__ . '/../' . ltrim($profi
 // Parse specialization tags
 $interests = array_filter(array_map('trim', explode(',', $raw_interests)));
 
-$page_title = "Principal :: Government Engineering College, Modasa";
+$page_title = "Principal Profile | GEC Modasa";
+$page_description = "Official academic profile, research publications, books, and experience of Dr. Jeetendrakumar Vadher, Principal of Government Engineering College, Modasa (GECM).";
 $active_page = 'principal';
 $root_path = '../';
 $extra_css = 'css/principal.css';

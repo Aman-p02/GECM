@@ -42,6 +42,11 @@ if (!isset($active_page)) {
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="<?= $root_path ?>logos/logo.png">
+    <link rel="shortcut icon" href="<?= $root_path ?>logos/logo.png">
+    <link rel="apple-touch-icon" href="<?= $root_path ?>logos/logo.png">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo htmlspecialchars($canonical_url); ?>">

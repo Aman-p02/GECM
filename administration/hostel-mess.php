@@ -1,5 +1,5 @@
 <?php
-$page_title = "Hostel & Mess Facility :: Government Engineering College, Modasa";
+$page_title = "Hostel & Mess Facility | GEC Modasa";
 $active_page = 'hostel-mess';
 $root_path = '../';
 $extra_css = 'css/hostel-mess.css';

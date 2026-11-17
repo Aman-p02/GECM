@@ -11,7 +11,7 @@ if ($pdo) {
     }
 }
 
-$page_title = "Memorandums of Understanding (MoU) :: Government Engineering College, Modasa";
+$page_title = "MoUs & Strategic Collaborations | GEC Modasa";
 $active_page = 'about';
 $root_path = '../';
 $extra_css = 'css/mou.css';
