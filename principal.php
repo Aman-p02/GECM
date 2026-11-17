@@ -58,7 +58,6 @@ require_once __DIR__ . '/includes/header.php';
         <div class="container pr-container">
             <span class="pr-kicker">INSTITUTIONAL LEADERSHIP</span>
             <h1 class="pr-heading">Principal Profile</h1>
-            <p class="pr-subhead">Academic credentials, administrative milestones, and research profile of the Head of the Institute.</p>
         </div>
     </header>
 
@@ -93,13 +92,6 @@ require_once __DIR__ . '/includes/header.php';
                                 <span>Email</span>
                             </a>
                         <?php endif; ?>
-
-                        <?php if (!empty($website)): ?>
-                            <a href="<?= htmlspecialchars($website) ?>" target="_blank" rel="noopener noreferrer" class="pr-contact-btn" title="Visit Official Portal">
-                                <i class="fas fa-globe" aria-hidden="true"></i>
-                                <span>Website</span>
-                            </a>
-                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -107,9 +99,7 @@ require_once __DIR__ . '/includes/header.php';
             <!-- Right Body / Information -->
             <div class="pr-profile-body">
                 <div class="pr-badge-strip">
-                    <span class="pr-badge-lead">
-                        <i class="fas fa-shield-alt" aria-hidden="true"></i> Head of the Institute &bull; Principal
-                    </span>
+                    <span class="pr-badge-lead">Head of the Institute &bull; Principal</span>
                 </div>
 
                 <h2 class="pr-profile-name"><?= htmlspecialchars($name) ?></h2>
