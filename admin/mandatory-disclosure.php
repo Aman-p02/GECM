@@ -277,7 +277,7 @@ require_once __DIR__ . '/includes/header.php';
             <h2 style="font-size: 18px; font-weight: 700; color: #1e293b; margin: 0 0 4px 0;">Mandatory Disclosure Documents</h2>
             <p style="font-size: 13.5px; color: #64748b; margin: 0;">Upload statutory regulatory PDFs. The PDF file name will automatically be used as the document title.</p>
         </div>
-        <a href="../mandatory-disclosure.php" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; font-size: 13px;">
+        <a href="../about/mandatory-disclosure" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; font-size: 13px;">
             <i class="fas fa-external-link-alt"></i> View Public Page
         </a>
     </div>

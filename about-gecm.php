@@ -1,6 +1,4 @@
 <?php
-/**
- * Direct alias for Overview page (matching official URL naming convention)
- */
-require_once __DIR__ . '/overview.php';
-
+header("HTTP/1.1 301 Moved Permanently");
+header("Location: about/overview");
+exit;

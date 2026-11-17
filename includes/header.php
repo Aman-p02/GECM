@@ -154,22 +154,22 @@ if (!isset($active_page)) {
 
                 <!-- About Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="<?= $root_path ?>overview"
+                    <a href="<?= $root_path ?>about/overview"
                        class="hdr-nav-link <?= in_array($active_page, ['about', 'overview', 'vision-mission', 'principal-message', 'idp', 'facilities', 'newsletters', 'brochure', 'mandatory-disclosure', 'rankings', 'mou']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">About</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
-                            <li><a href="<?= $root_path ?>overview" class="hdr-dd-link <?= ($active_page === 'overview') ? 'is-active active' : '' ?>">Overview</a></li>
-                            <li><a href="<?= $root_path ?>vision-mission" class="hdr-dd-link <?= ($active_page === 'vision-mission') ? 'is-active active' : '' ?>">Vision &amp; Mission</a></li>
-                            <li><a href="<?= $root_path ?>principal-message" class="hdr-dd-link <?= ($active_page === 'principal-message') ? 'is-active active' : '' ?>">Principal's Message</a></li>
-                            <li><a href="<?= $root_path ?>idp" target="_blank" class="hdr-dd-link <?= ($active_page === 'idp') ? 'is-active active' : '' ?>">IDP</a></li>
-                            <li><a href="<?= $root_path ?>facilities" class="hdr-dd-link <?= ($active_page === 'facilities') ? 'is-active active' : '' ?>">Facilities</a></li>
-                            <li><a href="<?= $root_path ?>e-newsletters" class="hdr-dd-link <?= ($active_page === 'newsletters') ? 'is-active active' : '' ?>">E-Newsletter</a></li>
-                            <li><a href="<?= $root_path ?>brochure" class="hdr-dd-link <?= ($active_page === 'brochure') ? 'is-active active' : '' ?>">Information Brochure</a></li>
-                            <li><a href="<?= $root_path ?>mandatory-disclosure" class="hdr-dd-link <?= ($active_page === 'mandatory-disclosure') ? 'is-active active' : '' ?>">Mandatory Disclosure</a></li>
-                            <li><a href="<?= $root_path ?>rankings" class="hdr-dd-link <?= ($active_page === 'rankings') ? 'is-active active' : '' ?>">Rankings</a></li>
-                            <li><a href="<?= $root_path ?>mou" class="hdr-dd-link <?= ($active_page === 'mou') ? 'is-active active' : '' ?>">MoU</a></li>
+                            <li><a href="<?= $root_path ?>about/overview" class="hdr-dd-link <?= ($active_page === 'overview') ? 'is-active active' : '' ?>">Overview</a></li>
+                            <li><a href="<?= $root_path ?>about/vision-mission" class="hdr-dd-link <?= ($active_page === 'vision-mission') ? 'is-active active' : '' ?>">Vision &amp; Mission</a></li>
+                            <li><a href="<?= $root_path ?>about/principal-message" class="hdr-dd-link <?= ($active_page === 'principal-message') ? 'is-active active' : '' ?>">Principal's Message</a></li>
+                            <li><a href="<?= $root_path ?>about/idp" target="_blank" class="hdr-dd-link <?= ($active_page === 'idp') ? 'is-active active' : '' ?>">IDP</a></li>
+                            <li><a href="<?= $root_path ?>about/facilities" class="hdr-dd-link <?= ($active_page === 'facilities') ? 'is-active active' : '' ?>">Facilities</a></li>
+                            <li><a href="<?= $root_path ?>about/e-newsletters" class="hdr-dd-link <?= ($active_page === 'newsletters') ? 'is-active active' : '' ?>">E-Newsletter</a></li>
+                            <li><a href="<?= $root_path ?>about/brochure" class="hdr-dd-link <?= ($active_page === 'brochure') ? 'is-active active' : '' ?>">Information Brochure</a></li>
+                            <li><a href="<?= $root_path ?>about/mandatory-disclosure" class="hdr-dd-link <?= ($active_page === 'mandatory-disclosure') ? 'is-active active' : '' ?>">Mandatory Disclosure</a></li>
+                            <li><a href="<?= $root_path ?>about/rankings" class="hdr-dd-link <?= ($active_page === 'rankings') ? 'is-active active' : '' ?>">Rankings</a></li>
+                            <li><a href="<?= $root_path ?>about/mou" class="hdr-dd-link <?= ($active_page === 'mou') ? 'is-active active' : '' ?>">MoU</a></li>
                         </ul>
                     </div>
                 </li>

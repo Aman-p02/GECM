@@ -14,61 +14,61 @@
 
     <!-- 2. About Section -->
     <url>
-        <loc>https://gecmodasa.ac.in/overview</loc>
+        <loc>https://gecmodasa.ac.in/about/overview</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/vision-mission</loc>
+        <loc>https://gecmodasa.ac.in/about/vision-mission</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/principal-message</loc>
+        <loc>https://gecmodasa.ac.in/about/principal-message</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/idp</loc>
+        <loc>https://gecmodasa.ac.in/about/idp</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/facilities</loc>
+        <loc>https://gecmodasa.ac.in/about/facilities</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/e-newsletters</loc>
+        <loc>https://gecmodasa.ac.in/about/e-newsletters</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/brochure</loc>
+        <loc>https://gecmodasa.ac.in/about/brochure</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/mandatory-disclosure</loc>
+        <loc>https://gecmodasa.ac.in/about/mandatory-disclosure</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/rankings</loc>
+        <loc>https://gecmodasa.ac.in/about/rankings</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/mou</loc>
+        <loc>https://gecmodasa.ac.in/about/mou</loc>
         <lastmod>2026-11-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>

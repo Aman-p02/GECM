@@ -120,7 +120,7 @@ require_once __DIR__ . '/includes/header.php';
     <!-- Top Action Bar -->
     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eef2f6; padding-bottom: 14px; margin-bottom: 22px; flex-wrap: wrap; gap: 12px;">
         <p style="font-size: 13.5px; color: #64748b; margin: 0;">Upload and publish official Memorandums of Understanding (MoU) signed with industries, academic institutions, and research bodies (PDF).</p>
-        <a href="../mou.php" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; font-size: 13px;">
+        <a href="../about/mou" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; font-size: 13px;">
             <i class="fas fa-external-link-alt"></i> View Public Page
         </a>
     </div>

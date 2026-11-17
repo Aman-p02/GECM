@@ -15,7 +15,7 @@ require_once __DIR__ . '/includes/header.php';
             <h2 style="font-size: 18px; font-weight: 700; color: #1e293b; margin: 0 0 4px 0;">Campus Facilities</h2>
             <p style="font-size: 13.5px; color: #64748b; margin: 0;">Institutional campus facilities overview and website display status.</p>
         </div>
-        <a href="../facilities.php" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; font-size: 13px;">
+        <a href="../about/facilities" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; font-size: 13px;">
             <i class="fas fa-external-link-alt"></i> View Public Facilities Page
         </a>
     </div>
@@ -32,7 +32,7 @@ require_once __DIR__ . '/includes/header.php';
                     Campus facilities are maintained directly as high-performance institutional content on the website with zero database dependency.
                 </p>
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <a href="../facilities.php" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px;">
+                    <a href="../about/facilities" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px;">
                         <i class="fas fa-eye"></i> Open Public View
                     </a>
                 </div>
