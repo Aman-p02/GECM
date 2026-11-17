@@ -54,7 +54,7 @@ $page_title = $page_title ?? 'Dashboard Overview';
                 $administrationPageItems = ['principal-profile', 'council-of-heads', 'account-section', 'hostel-mess', 'administration-committees'];
                 $isAdministrationActive = in_array($current_page, $administrationPageItems);
 
-                $studentCornerPageItems = ['student-chapters'];
+                $studentCornerPageItems = ['student-chapters', 'student-enrollment'];
                 $isStudentCornerActive = in_array($current_page, $studentCornerPageItems);
 
                 $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni', 'faculty-activities'];
@@ -164,6 +164,11 @@ $page_title = $page_title ?? 'Dashboard Overview';
                         <li class="submenu-item <?= ($current_page === 'student-chapters') ? 'active' : '' ?>">
                             <a href="student-chapters.php" class="submenu-link">
                                 <span>Student Chapters</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'student-enrollment') ? 'active' : '' ?>">
+                            <a href="student-enrollment.php" class="submenu-link">
+                                <span>Enrollment Details</span>
                             </a>
                         </li>
                     </ul>

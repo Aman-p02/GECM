@@ -271,7 +271,7 @@ if (!isset($active_page)) {
                 <!-- Student Corner Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="javascript:void(0);"
-                       class="hdr-nav-link <?= in_array($active_page, ['student-section', 'student_section', 'student-rules']) ? 'active is-active' : '' ?>">
+                       class="hdr-nav-link <?= in_array($active_page, ['student-section', 'student_section', 'student-rules', 'enrollment-details']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">Student Corner</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
@@ -279,7 +279,7 @@ if (!isset($active_page)) {
                             <li><a href="<?= $root_path ?>student-section" class="hdr-dd-link <?= ($active_page === 'student-section') ? 'is-active active' : '' ?>">Student Section</a></li>
                             <li><a href="<?= $root_path ?>student-rules" class="hdr-dd-link <?= ($active_page === 'student-rules') ? 'is-active active' : '' ?>">General Rules &amp; Regulations</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Student Chapters &amp; Clubs</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link">Enrollment Details</a></li>
+                            <li><a href="<?= $root_path ?>enrollment-details" class="hdr-dd-link <?= ($active_page === 'enrollment-details') ? 'is-active active' : '' ?>">Enrollment Details</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Scholarships</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Grade History Card</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Online Fees Payment</a></li>

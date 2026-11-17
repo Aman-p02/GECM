@@ -286,3 +286,23 @@ CREATE TABLE IF NOT EXISTS `student_chapters` (
     INDEX `idx_sc_status_order` (`is_active`, `display_order`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------------
+-- 13. STUDENT ENROLLMENTS SUMMARY TABLE
+-- --------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `student_enrollments` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `academic_year` VARCHAR(20) NOT NULL,
+    `branch_name` VARCHAR(100) NOT NULL,
+    `branch_code` VARCHAR(20) DEFAULT NULL,
+    `program_type` ENUM('UG', 'PG') NOT NULL DEFAULT 'UG',
+    `title` VARCHAR(255) DEFAULT NULL,
+    `file_path` VARCHAR(255) NOT NULL,
+    `file_size` VARCHAR(50) DEFAULT NULL,
+    `display_order` INT NOT NULL DEFAULT 0,
+    `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX `idx_enroll_year` (`academic_year`, `is_active`, `display_order`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+

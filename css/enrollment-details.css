@@ -1,0 +1,419 @@
+/**
+ * GEC MODASA - Student Enrollment Summary Stylesheet
+ * Responsive, clean institutional theme with zero em-dashes
+ */
+
+:root {
+    --enr-primary: #009dff;
+    --enr-primary-dark: #0077c2;
+    --enr-primary-light: #e0f2fe;
+    --enr-navy: #0f172a;
+    --enr-slate: #1e293b;
+    --enr-muted: #64748b;
+    --enr-border: #e2e8f0;
+    --enr-bg-card: #ffffff;
+    --enr-bg-subtle: #f8fafc;
+    --enr-pdf-red: #e11d48;
+}
+
+/* Page Container */
+.enrollment-page {
+    width: 100%;
+    min-height: 80vh;
+    background: #f8fafc;
+    color: var(--enr-slate);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding-bottom: 60px;
+}
+
+/* Hero Section */
+.enrollment-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0369a1 100%);
+    color: #ffffff;
+    padding: 56px 20px 48px;
+    border-bottom: 3px solid var(--enr-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.enrollment-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(0, 157, 255, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.enrollment-hero-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.enrollment-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    margin-bottom: 14px;
+}
+
+.enrollment-title {
+    font-size: clamp(1.85rem, 4vw, 2.65rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.enrollment-lead {
+    font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+    color: #cbd5e1;
+    line-height: 1.6;
+    max-width: 860px;
+    margin: 0;
+}
+
+/* Quick Bar & Filters */
+.enrollment-filter-bar {
+    max-width: 1320px;
+    margin: -24px auto 36px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.enrollment-filter-card {
+    background: #ffffff;
+    border: 1px solid var(--enr-border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.enrollment-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.enr-pill-btn {
+    border: 1px solid var(--enr-border);
+    background: #ffffff;
+    color: var(--enr-slate);
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.enr-pill-btn:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: var(--enr-primary);
+}
+
+.enr-pill-btn.is-active {
+    background: var(--enr-primary);
+    color: #ffffff;
+    border-color: var(--enr-primary);
+    box-shadow: 0 2px 8px rgba(0, 157, 255, 0.35);
+}
+
+.enr-search-wrap {
+    position: relative;
+    min-width: 260px;
+}
+
+.enr-search-wrap i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.enr-search-input {
+    width: 100%;
+    padding: 8px 14px 8px 34px;
+    border-radius: 8px;
+    border: 1px solid var(--enr-border);
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.enr-search-input:focus {
+    border-color: var(--enr-primary);
+    box-shadow: 0 0 0 3px rgba(0, 157, 255, 0.15);
+}
+
+/* Main Content Layout */
+.enrollment-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Year Section Block */
+.enrollment-year-block {
+    background: #ffffff;
+    border: 1px solid var(--enr-border);
+    border-radius: 14px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.enrollment-year-block:hover {
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+}
+
+.enrollment-year-header {
+    background: linear-gradient(to right, #f8fafc, #ffffff);
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--enr-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.enrollment-year-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--enr-navy);
+}
+
+.enrollment-year-title i {
+    color: var(--enr-primary);
+    font-size: 1.1rem;
+}
+
+.enrollment-year-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid #bae6fd;
+}
+
+/* Branch Grid */
+.enrollment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    padding: 24px;
+}
+
+/* Branch PDF Card */
+.enr-branch-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.22s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.enr-branch-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--enr-primary);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.enr-branch-card:hover {
+    border-color: #38bdf8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 157, 255, 0.12);
+}
+
+.enr-branch-card:hover::before {
+    opacity: 1;
+}
+
+.enr-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.enr-card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    color: var(--enr-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.enr-branch-card:hover .enr-card-icon {
+    background: #e0f2fe;
+    color: var(--enr-primary-dark);
+}
+
+.enr-card-meta {
+    flex: 1;
+}
+
+.enr-branch-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.35;
+    margin: 0 0 4px;
+}
+
+.enr-level-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+}
+
+.enr-level-ug {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.enr-level-pg {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+/* Action Footer of Branch Card */
+.enr-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px dashed #f1f5f9;
+    font-size: 0.82rem;
+}
+
+.enr-pdf-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--enr-pdf-red);
+    font-weight: 600;
+}
+
+.enr-pdf-size {
+    color: #64748b;
+    font-size: 0.75rem;
+}
+
+.enr-open-icon {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.enr-branch-card:hover .enr-open-icon {
+    color: var(--enr-primary);
+    transform: translate(2px, -2px);
+}
+
+/* Institutional Note Banner */
+.enrollment-info-note {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 0.88rem;
+    color: #1e40af;
+    line-height: 1.5;
+}
+
+.enrollment-info-note i {
+    font-size: 1.25rem;
+    color: #2563eb;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    .enrollment-hero {
+        padding: 40px 16px 36px;
+    }
+
+    .enrollment-filter-bar {
+        margin-top: -16px;
+        padding: 0 16px;
+    }
+
+    .enrollment-filter-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .enr-search-wrap {
+        width: 100%;
+    }
+
+    .enrollment-grid {
+        grid-template-columns: 1fr;
+        padding: 16px;
+        gap: 12px;
+    }
+}
