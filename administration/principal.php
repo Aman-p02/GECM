@@ -637,7 +637,7 @@ require_once __DIR__ . '/../includes/header.php';
                                                     if ($val !== '--' && $val !== '-') $tDetails = $val;
                                                 }
                                             }
-                                            if (empty($tDetails) && empty($tYear) && !empty($tDesc) && strpos($tDesc, 'Year:') === false) {
+                                            if (empty($tDetails) && empty($tYear) && !empty($tDesc) && !preg_match('/^(?:Year|Place|Details):/i', $tDesc)) {
                                                 $tDetails = $tDesc;
                                             }
                                         ?>

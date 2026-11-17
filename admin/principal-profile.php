@@ -592,6 +592,9 @@ require_once __DIR__ . '/includes/header.php';
         $editBookSemester = '';
         $editBookIsbn = '';
         $editBookContent = '';
+        $editTalkYear = '';
+        $editTalkPlace = '';
+        $editTalkDetails = '';
 
         if ($editItem) {
             $eDesc = $editItem['description'] ?? '';
@@ -615,6 +618,18 @@ require_once __DIR__ . '/includes/header.php';
                 }
                 if (empty($editBookContent) && empty($editBookUniv) && empty($editBookBranch) && empty($editBookIsbn) && empty($editBookCode) && empty($editBookSemester)) {
                     $editBookContent = $eDesc;
+                }
+            } elseif ($subtab === 'expert_talks') {
+                $editTalkPlace = $editItem['extra_info'] ?? '';
+                $lines = explode("\n", $eDesc);
+                foreach ($lines as $ln) {
+                    $ln = trim($ln);
+                    if (preg_match('/^Year:\s*(.*)$/i', $ln, $m)) $editTalkYear = trim($m[1]);
+                    elseif (preg_match('/^Place:\s*(.*)$/i', $ln, $m)) $editTalkPlace = trim($m[1]);
+                    elseif (preg_match('/^Details:\s*(.*)$/i', $ln, $m)) $editTalkDetails = trim($m[1]);
+                }
+                if (empty($editTalkDetails) && empty($editTalkYear) && !empty($eDesc) && !preg_match('/^(?:Year|Place|Details):/i', $eDesc)) {
+                    $editTalkDetails = $eDesc;
                 }
             }
         }
@@ -818,6 +833,53 @@ require_once __DIR__ . '/includes/header.php';
                         </div>
                     </div>
 
+                <?php elseif ($subtab === 'expert_talks'): ?>
+                    <!-- Row 1: Subject (Mandatory) & Place (Mandatory) -->
+                    <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 16px; margin-bottom: 16px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Subject / Lecture Title <span style="color: #ef4444; font-weight: bold;">*</span>
+                            </label>
+                            <input type="text" name="title" class="form-control" placeholder="e.g. Research Methodology, Technologies Enables to Industry 4.0" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Topic, keynote title, or subject</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Place / Host Institution <span style="color: #ef4444; font-weight: bold;">*</span>
+                            </label>
+                            <input type="text" name="talk_place" class="form-control" placeholder="e.g. GTU Ahmedabad Online, SSEC Bhavnagar, LE College Morbi" required value="<?= htmlspecialchars($editTalkPlace) ?>">
+                            <small style="font-size: 11.5px; color: #64748b;">Mandatory: Venue, department, college, or online platform</small>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Year (Optional), Details (Optional), Sr. No. (Optional) -->
+                    <div style="display: grid; grid-template-columns: 1fr 2.5fr 1fr; gap: 16px; margin-bottom: 16px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Year <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="talk_year" class="form-control" placeholder="e.g. 2023 (or leave empty)" value="<?= htmlspecialchars($editTalkYear) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Delivery year</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Details / Audience / Remarks <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="text" name="talk_details" class="form-control" placeholder="e.g. PhD students of batch 2022, 5 March 23 (or leave empty)" value="<?= htmlspecialchars($editTalkDetails) ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Audience, session details, or remarks</small>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" style="font-weight: 600;">
+                                Sr. No. / Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
+                            </label>
+                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <small style="font-size: 11.5px; color: #94a3b8;">Sorting order</small>
+                        </div>
+                    </div>
+
                 <?php else: ?>
                     <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
@@ -854,9 +916,9 @@ require_once __DIR__ . '/includes/header.php';
                 <thead>
                     <tr>
                         <th style="width: 50px;">#</th>
-                        <th><?= ($subtab === 'books') ? 'Book Title / Monograph' : (($subtab === 'editorial') ? 'Editorial Role & Details' : 'Title / Citation') ?></th>
-                        <th><?= ($subtab === 'books') ? 'Publisher' : (($subtab === 'editorial') ? 'Organization / Location' : 'Journal / Publisher / Date') ?></th>
-                        <th><?= ($subtab === 'books') ? 'University, Edition & Details' : (($subtab === 'editorial') ? 'Editorial Summary' : 'Description') ?></th>
+                        <th><?= ($subtab === 'books') ? 'Book Title / Monograph' : (($subtab === 'editorial') ? 'Editorial Role & Details' : (($subtab === 'expert_talks') ? 'Subject / Lecture Title' : 'Title / Citation')) ?></th>
+                        <th><?= ($subtab === 'books') ? 'Publisher' : (($subtab === 'editorial') ? 'Organization / Location' : (($subtab === 'expert_talks') ? 'Place / Institution' : 'Journal / Publisher / Date')) ?></th>
+                        <th><?= ($subtab === 'books') ? 'University, Edition & Details' : (($subtab === 'editorial') ? 'Editorial Summary' : (($subtab === 'expert_talks') ? 'Year & Details' : 'Description')) ?></th>
                         <th style="width: 100px; text-align: right;">Action</th>
                     </tr>
                 </thead>
@@ -888,7 +950,23 @@ require_once __DIR__ . '/includes/header.php';
                                     <?php endif; ?>
                                 </td>
                                 <td style="font-size: 13px; color: #475569; max-width: 340px;">
-                                    <?= htmlspecialchars(str_replace("\n", " • ", mb_strimwidth(!empty($item['description']) ? $item['description'] : ($item['title'] ?? ''), 0, 110, '...'))) ?>
+                                    <?php 
+                                    if ($subtab === 'expert_talks') {
+                                        $tDesc = $item['description'] ?? '';
+                                        $y = '';
+                                        $d = '';
+                                        foreach (explode("\n", $tDesc) as $ln) {
+                                            if (preg_match('/^Year:\s*(.*)$/i', $ln, $m)) $y = trim($m[1]);
+                                            elseif (preg_match('/^Details:\s*(.*)$/i', $ln, $m)) $d = trim($m[1]);
+                                        }
+                                        $parts = [];
+                                        if (!empty($y)) $parts[] = '<strong>Year: ' . htmlspecialchars($y) . '</strong>';
+                                        if (!empty($d)) $parts[] = htmlspecialchars($d);
+                                        echo !empty($parts) ? implode(' • ', $parts) : '<span style="color: #94a3b8;">-</span>';
+                                    } else {
+                                        echo htmlspecialchars(str_replace("\n", " • ", mb_strimwidth(!empty($item['description']) ? $item['description'] : ($item['title'] ?? ''), 0, 110, '...')));
+                                    }
+                                    ?>
                                 </td>
                                 <td style="text-align: right; white-space: nowrap;">
                                     <a href="principal-profile.php?tab=tab_items&subtab=<?= urlencode($subtab) ?>&edit_item=<?= $item['id'] ?>#item-form" class="btn btn-sm btn-info" style="padding: 3px 8px; margin-right: 4px;" title="Modify / Edit this entry">
