@@ -750,7 +750,7 @@ require_once __DIR__ . '/includes/header.php';
                         <th style="width: 50px;">#</th>
                         <th><?= ($subtab === 'books') ? 'Book Title / Monograph' : 'Title / Citation' ?></th>
                         <th><?= ($subtab === 'books') ? 'Publisher' : 'Journal / Publisher / Date' ?></th>
-                        <th><?= ($subtab === 'books') ? 'Edition, University & ISBN' : 'Description' ?></th>
+                        <th><?= ($subtab === 'books') ? 'University, Edition & Details' : 'Description' ?></th>
                         <th style="width: 100px; text-align: right;">Action</th>
                     </tr>
                 </thead>
