@@ -994,7 +994,7 @@ require_once __DIR__ . '/includes/header.php';
                 <div style="display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; margin-bottom: 16px;">
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">Full Name &amp; Title <span style="color: #ef4444;">*</span></label>
-                        <input type="text" name="name" class="form-control" placeholder="e.g. Dr. JEETENDRAKUMAR VADHER" required value="<?= htmlspecialchars($profile['name'] ?? 'Dr. JEETENDRAKUMAR VADHER') ?>">
+                        <input type="text" name="name" class="form-control" required value="<?= htmlspecialchars($profile['name'] ?? 'Dr. JEETENDRAKUMAR VADHER') ?>">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 0;">
@@ -1007,30 +1007,30 @@ require_once __DIR__ . '/includes/header.php';
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 16px;">
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">Highest Qualification</label>
-                        <input type="text" name="qualification" class="form-control" placeholder="e.g. M. Tech. (IIT-Madras), Ph.D. (HNGU-Patan)" value="<?= htmlspecialchars($profile['qualification'] ?? '') ?>">
+                        <input type="text" name="qualification" class="form-control" value="<?= htmlspecialchars($profile['qualification'] ?? '') ?>">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">Experience</label>
-                        <input type="text" name="experience" class="form-control" placeholder="e.g. 28 Years" value="<?= htmlspecialchars($profile['experience'] ?? '') ?>">
+                        <input type="text" name="experience" class="form-control" value="<?= htmlspecialchars($profile['experience'] ?? '') ?>">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">Date of Joining</label>
-                        <input type="text" name="date_of_joining" class="form-control" placeholder="e.g. 18-05-2022" value="<?= htmlspecialchars($profile['date_of_joining'] ?? '') ?>">
+                        <input type="text" name="date_of_joining" class="form-control" value="<?= htmlspecialchars($profile['date_of_joining'] ?? '') ?>">
                     </div>
                 </div>
 
                 <!-- Row 3 -->
                 <div class="form-group" style="margin-bottom: 16px;">
                     <label class="form-label">Area of Interest / Research Specialization</label>
-                    <input type="text" name="area_of_interest" class="form-control" placeholder="e.g. Production, Manufacturing, Industrial Engineering, CAD/CAM, Automation" value="<?= htmlspecialchars($profile['area_of_interest'] ?? '') ?>">
+                    <input type="text" name="area_of_interest" class="form-control" value="<?= htmlspecialchars($profile['area_of_interest'] ?? '') ?>">
                 </div>
 
                 <!-- Row 4: Official Contact -->
                 <div class="form-group" style="margin-bottom: 16px;">
                     <label class="form-label">Official Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="e.g. jeetendra.vadher@gecmodasa.ac.in" value="<?= htmlspecialchars($profile['email'] ?? '') ?>">
+                    <input type="email" name="email" class="form-control" value="<?= htmlspecialchars($profile['email'] ?? '') ?>">
                 </div>
 
                 <!-- Row 5: Photo -->
@@ -1071,22 +1071,22 @@ require_once __DIR__ . '/includes/header.php';
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 18px;">
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">Degree / Qualification <span style="color: #ef4444;">*</span></label>
-                        <input type="text" name="qualification" class="form-control" placeholder="e.g. Ph.D. or M. Tech." required value="<?= htmlspecialchars($editQual['qualification'] ?? '') ?>">
+                        <input type="text" name="qualification" class="form-control" required value="<?= htmlspecialchars($editQual['qualification'] ?? '') ?>">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">University / Board</label>
-                        <input type="text" name="university_board" class="form-control" placeholder="IIT Madras" value="<?= htmlspecialchars($editQual['university_board'] ?? '') ?>">
+                        <input type="text" name="university_board" class="form-control" value="<?= htmlspecialchars($editQual['university_board'] ?? '') ?>">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">Passing Year</label>
-                        <input type="text" name="year_of_passing" class="form-control" placeholder="e.g. 2015" value="<?= htmlspecialchars($editQual['year_of_passing'] ?? '') ?>">
+                        <input type="text" name="year_of_passing" class="form-control" value="<?= htmlspecialchars($editQual['year_of_passing'] ?? '') ?>">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 0;">
                         <label class="form-label">Grade / CGPA</label>
-                        <input type="text" name="percentage" class="form-control" placeholder="e.g. Distinction or 8.44 CGPA" value="<?= htmlspecialchars($editQual['percentage'] ?? '') ?>">
+                        <input type="text" name="percentage" class="form-control" value="<?= htmlspecialchars($editQual['percentage'] ?? '') ?>">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 0;">
@@ -1364,7 +1364,7 @@ require_once __DIR__ . '/includes/header.php';
                     <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label">Research Paper Title <span style="color: #ef4444;">*</span></label>
-                            <input type="text" name="title" class="form-control" placeholder="e.g. An Impact of reinforcement on Aluminum metal matrix composites: A critical Review" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <input type="text" name="title" class="form-control" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
                         </div>
 
                         <div class="form-group" style="margin-bottom: 0;">
@@ -1380,12 +1380,12 @@ require_once __DIR__ . '/includes/header.php';
 
                     <div class="form-group" style="margin-bottom: 16px;">
                         <label class="form-label">Authors</label>
-                        <input type="text" name="pub_authors" class="form-control" placeholder="e.g. Kapil Banker, Anand Dhruv, Jeetendra Vadher, Utkarsh Patel" value="<?= htmlspecialchars($editAuthors) ?>">
+                        <input type="text" name="pub_authors" class="form-control" value="<?= htmlspecialchars($editAuthors) ?>">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 16px;">
                         <label class="form-label">Journal / Conference / ISSN / DOI / Citation</label>
-                        <textarea name="pub_journal" class="form-control" rows="2" placeholder="e.g. International Journal of Computational and Experimental Science and Engineering, Vol. 11, DOI: 10.22399/..."><?= htmlspecialchars($editJournal) ?></textarea>
+                        <textarea name="pub_journal" class="form-control" rows="2"><?= htmlspecialchars($editJournal) ?></textarea>
                     </div>
 
                 <?php elseif ($subtab === 'books'): ?>
@@ -1395,7 +1395,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Book Title / Name <span style="color: #ef4444; font-weight: bold;">*</span>
                             </label>
-                            <input type="text" name="title" class="form-control" placeholder="e.g. Computer Integrated Manufacturing" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <input type="text" name="title" class="form-control" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Mandatory: Official book title or monograph name</small>
                         </div>
 
@@ -1403,7 +1403,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Publisher Name <span style="color: #ef4444; font-weight: bold;">*</span>
                             </label>
-                            <input type="text" name="extra_info" class="form-control" placeholder="e.g. Books India Publications, Pearson" required value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
+                            <input type="text" name="extra_info" class="form-control" required value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Mandatory: Publishing house or entity</small>
                         </div>
                     </div>
@@ -1414,7 +1414,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 University <span style="color: #ef4444; font-weight: bold;">*</span>
                             </label>
-                            <input type="text" name="book_univ" class="form-control" placeholder="e.g. GTU" required value="<?= htmlspecialchars($editBookUniv) ?>">
+                            <input type="text" name="book_univ" class="form-control" required value="<?= htmlspecialchars($editBookUniv) ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Mandatory: Affiliated university / board</small>
                         </div>
 
@@ -1422,7 +1422,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Branch <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="book_branch" class="form-control" placeholder="e.g. Mechanical (or leave empty)" value="<?= htmlspecialchars($editBookBranch) ?>">
+                            <input type="text" name="book_branch" class="form-control" value="<?= htmlspecialchars($editBookBranch) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Leave empty if not specified</small>
                         </div>
 
@@ -1430,7 +1430,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Semester <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="book_semester" class="form-control" placeholder="e.g. Sem 5, Sem 7 (or leave empty)" value="<?= htmlspecialchars($editBookSemester) ?>">
+                            <input type="text" name="book_semester" class="form-control" value="<?= htmlspecialchars($editBookSemester) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Leave empty if not specified</small>
                         </div>
                     </div>
@@ -1441,7 +1441,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Content / Edition <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="book_content" class="form-control" placeholder="e.g. GTU Syllabus, First Edition Dec 2019" value="<?= htmlspecialchars($editBookContent) ?>">
+                            <input type="text" name="book_content" class="form-control" value="<?= htmlspecialchars($editBookContent) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Edition details or curriculum scope</small>
                         </div>
 
@@ -1449,7 +1449,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Book Code <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="book_code" class="form-control" placeholder="e.g. ME-204 (or leave empty)" value="<?= htmlspecialchars($editBookCode) ?>">
+                            <input type="text" name="book_code" class="form-control" value="<?= htmlspecialchars($editBookCode) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Leave empty if not applicable</small>
                         </div>
 
@@ -1457,7 +1457,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 ISBN Code <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="book_isbn" class="form-control" placeholder="e.g. 978-93-80867-54-0 (or leave empty)" value="<?= htmlspecialchars($editBookIsbn) ?>">
+                            <input type="text" name="book_isbn" class="form-control" value="<?= htmlspecialchars($editBookIsbn) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Leave empty if not assigned</small>
                         </div>
                     </div>
@@ -1467,7 +1467,7 @@ require_once __DIR__ . '/includes/header.php';
                         <label class="form-label" style="font-weight: 600;">
                             Editorial Role, Journal / Committee &amp; Details <span style="color: #ef4444; font-weight: bold;">*</span>
                         </label>
-                        <textarea name="editorial_text" class="form-control" rows="3" placeholder="e.g. Editorial Board Member Educational Coordinator, The Technology World, Kuala Lumpur, Malaysia ISSN: 2180-1614, 20 June 2020." required><?= htmlspecialchars($editItem['description'] ?? $editItem['title'] ?? '') ?></textarea>
+                        <textarea name="editorial_text" class="form-control" rows="3" required><?= htmlspecialchars($editItem['description'] ?? $editItem['title'] ?? '') ?></textarea>
                         <small style="font-size: 11.5px; color: #64748b;">Mandatory: Full editorial board title, journal/conference name, ISSN, location, or date.</small>
                     </div>
 
@@ -1476,7 +1476,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Organization / Location / Tag <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="extra_info" class="form-control" placeholder="e.g. Kuala Lumpur, Malaysia or GTU" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
+                            <input type="text" name="extra_info" class="form-control" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Short tag, location, or institution</small>
                         </div>
 
@@ -1484,7 +1484,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Sr. No. / Display Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <input type="number" name="display_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Controls sorting order (leave blank to auto-append)</small>
                         </div>
                     </div>
@@ -1496,7 +1496,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Subject / Lecture Title <span style="color: #ef4444; font-weight: bold;">*</span>
                             </label>
-                            <input type="text" name="title" class="form-control" placeholder="e.g. Research Methodology, Technologies Enables to Industry 4.0" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <input type="text" name="title" class="form-control" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Mandatory: Topic, keynote title, or subject</small>
                         </div>
 
@@ -1504,7 +1504,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Place / Host Institution <span style="color: #ef4444; font-weight: bold;">*</span>
                             </label>
-                            <input type="text" name="talk_place" class="form-control" placeholder="e.g. GTU Ahmedabad Online, SSEC Bhavnagar, LE College Morbi" required value="<?= htmlspecialchars($editTalkPlace) ?>">
+                            <input type="text" name="talk_place" class="form-control" required value="<?= htmlspecialchars($editTalkPlace) ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Mandatory: Venue, department, college, or online platform</small>
                         </div>
                     </div>
@@ -1515,7 +1515,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Year <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="talk_year" class="form-control" placeholder="e.g. 2023 (or leave empty)" value="<?= htmlspecialchars($editTalkYear) ?>">
+                            <input type="text" name="talk_year" class="form-control" value="<?= htmlspecialchars($editTalkYear) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Delivery year</small>
                         </div>
 
@@ -1523,7 +1523,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Details / Audience / Remarks <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="talk_details" class="form-control" placeholder="e.g. PhD students of batch 2022, 5 March 23 (or leave empty)" value="<?= htmlspecialchars($editTalkDetails) ?>">
+                            <input type="text" name="talk_details" class="form-control" value="<?= htmlspecialchars($editTalkDetails) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Audience, session details, or remarks</small>
                         </div>
 
@@ -1531,7 +1531,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Sr. No. / Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <input type="number" name="display_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Sorting order</small>
                         </div>
                     </div>
@@ -1543,7 +1543,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Subject / Workshop Title <span style="color: #ef4444; font-weight: bold;">*</span>
                             </label>
-                            <input type="text" name="title" class="form-control" placeholder="e.g. Organized One Day Workshop on Multi Varient Techniques" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <input type="text" name="title" class="form-control" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Mandatory: Workshop, STTP, or seminar topic / title</small>
                         </div>
 
@@ -1551,7 +1551,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Place / Host Institution <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="workshop_place" class="form-control" placeholder="e.g. S. S. Engineering College, Bhavnagar or GEC Modasa" value="<?= htmlspecialchars($editWorkshopPlace) ?>">
+                            <input type="text" name="workshop_place" class="form-control" value="<?= htmlspecialchars($editWorkshopPlace) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Host college, venue, or department (leave empty if not applicable)</small>
                         </div>
                     </div>
@@ -1562,7 +1562,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Year <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="workshop_year" class="form-control" placeholder="e.g. 2015, 2003" value="<?= htmlspecialchars($editWorkshopYear) ?>">
+                            <input type="text" name="workshop_year" class="form-control" value="<?= htmlspecialchars($editWorkshopYear) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Event year</small>
                         </div>
 
@@ -1570,7 +1570,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Duration / Dates <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="workshop_duration" class="form-control" placeholder="e.g. 26-June-2015, 12-16 Oct 2015" value="<?= htmlspecialchars($editWorkshopDuration) ?>">
+                            <input type="text" name="workshop_duration" class="form-control" value="<?= htmlspecialchars($editWorkshopDuration) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Specific dates or duration</small>
                         </div>
 
@@ -1578,7 +1578,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Details / Sponsor / Expert <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="workshop_details" class="form-control" placeholder="e.g. Name of Expert: Prof. M. K. Barua, Sponsored by AICTE" value="<?= htmlspecialchars($editWorkshopDetails) ?>">
+                            <input type="text" name="workshop_details" class="form-control" value="<?= htmlspecialchars($editWorkshopDetails) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Sponsorship, expert details, or role</small>
                         </div>
 
@@ -1586,7 +1586,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Sr. No. / Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <input type="number" name="display_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Sorting order</small>
                         </div>
                     </div>
@@ -1598,7 +1598,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Designation / Role <span style="color: #ef4444; font-weight: bold;">*</span>
                             </label>
-                            <input type="text" name="title" class="form-control" placeholder="e.g. Professor and Head in Mechanical Engineering, Incharge Principal" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <input type="text" name="title" class="form-control" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Mandatory: Official job title or administrative designation</small>
                         </div>
 
@@ -1606,7 +1606,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Place / College / Institution <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="exp_place" class="form-control" placeholder="e.g. Government Engineering College Modasa or SSEC Bhavnagar" value="<?= htmlspecialchars($editExpPlace) ?>">
+                            <input type="text" name="exp_place" class="form-control" value="<?= htmlspecialchars($editExpPlace) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">College, university, or organization name</small>
                         </div>
                     </div>
@@ -1617,7 +1617,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Date of Joining <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="exp_join" class="form-control" placeholder="e.g. 18-05-2022" value="<?= htmlspecialchars($editExpJoin) ?>">
+                            <input type="text" name="exp_join" class="form-control" value="<?= htmlspecialchars($editExpJoin) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Joining date</small>
                         </div>
 
@@ -1625,7 +1625,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Date of Leave <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="exp_leave" class="form-control" placeholder="e.g. Till Date or 17-05-2022" value="<?= htmlspecialchars($editExpLeave) ?>">
+                            <input type="text" name="exp_leave" class="form-control" value="<?= htmlspecialchars($editExpLeave) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Relieving date or Till Date</small>
                         </div>
 
@@ -1633,7 +1633,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Department <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="exp_dept" class="form-control" placeholder="e.g. Mechanical Engineering" value="<?= htmlspecialchars($editExpDept) ?>">
+                            <input type="text" name="exp_dept" class="form-control" value="<?= htmlspecialchars($editExpDept) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Academic department</small>
                         </div>
 
@@ -1641,7 +1641,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Duration <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="exp_duration" class="form-control" placeholder="e.g. 5 years 1 month, 6 months" value="<?= htmlspecialchars($editExpDuration) ?>">
+                            <input type="text" name="exp_duration" class="form-control" value="<?= htmlspecialchars($editExpDuration) ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Total tenure</small>
                         </div>
 
@@ -1649,7 +1649,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Sr. No. / Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <input type="number" name="display_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #94a3b8;">Sorting order</small>
                         </div>
                     </div>
@@ -1659,7 +1659,7 @@ require_once __DIR__ . '/includes/header.php';
                         <label class="form-label" style="font-weight: 600;">
                             Achievement Details / Award Citation <span style="color: #ef4444; font-weight: bold;">*</span>
                         </label>
-                        <textarea name="details_text" class="form-control" rows="3" placeholder="e.g. Received Innovative Research Technologist and Dedicated Teaching Professional Awards, ISME, Chennai Year-2021" required><?= htmlspecialchars($editDetailsText) ?></textarea>
+                        <textarea name="details_text" class="form-control" rows="3" required><?= htmlspecialchars($editDetailsText) ?></textarea>
                         <small style="font-size: 11.5px; color: #64748b;">Full achievement citation as displayed on the public profile table</small>
                     </div>
 
@@ -1668,7 +1668,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Awarding Body / Organization <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="extra_info" class="form-control" placeholder="e.g. ISME, Chennai or Delhi" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
+                            <input type="text" name="extra_info" class="form-control" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Optional reference tag</small>
                         </div>
 
@@ -1676,7 +1676,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Sr. No. / Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <input type="number" name="display_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Sorting order</small>
                         </div>
                     </div>
@@ -1687,7 +1687,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Research / Thesis Title <span style="color: #ef4444; font-weight: bold;">*</span>
                             </label>
-                            <input type="text" name="title" class="form-control" placeholder="e.g. Laser Beam Cladding" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <input type="text" name="title" class="form-control" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Title of the Ph.D. or Master's research work</small>
                         </div>
 
@@ -1695,7 +1695,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Student / Scholar Name <span style="color: #ef4444; font-weight: bold;">*</span>
                             </label>
-                            <input type="text" name="student" class="form-control" placeholder="e.g. Srushti Bhatt" required value="<?= htmlspecialchars($editDissStudent) ?>">
+                            <input type="text" name="student" class="form-control" required value="<?= htmlspecialchars($editDissStudent) ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Name of the scholar supervised</small>
                         </div>
                     </div>
@@ -1703,19 +1703,19 @@ require_once __DIR__ . '/includes/header.php';
                     <div style="display: grid; grid-template-columns: 120px minmax(0, 3fr) 120px; gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">Year</label>
-                            <input type="text" name="diss_year" class="form-control" placeholder="e.g. 2024" value="<?= htmlspecialchars($editDissYear) ?>">
+                            <input type="text" name="diss_year" class="form-control" value="<?= htmlspecialchars($editDissYear) ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Academic year</small>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">Details / Status / University</label>
-                            <input type="text" name="diss_details" class="form-control" placeholder="e.g. Pursuing (Admission 2024) or GTU Ahmedabad 2024" value="<?= htmlspecialchars($editDissDetails) ?>">
+                            <input type="text" name="diss_details" class="form-control" value="<?= htmlspecialchars($editDissDetails) ?>">
                             <small style="font-size: 11.5px; color: #64748b;">University name, status (Completed, Submitted, Pursuing)</small>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">Order</label>
-                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <input type="number" name="display_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Sorting order</small>
                         </div>
                     </div>
@@ -1725,7 +1725,7 @@ require_once __DIR__ . '/includes/header.php';
                         <label class="form-label" style="font-weight: 600;">
                             Membership Citation &amp; Details <span style="color: #ef4444; font-weight: bold;">*</span>
                         </label>
-                        <textarea name="details_text" class="form-control" rows="3" placeholder="e.g. Professional Member - ASME, New York, ID 103778216., 05 May 2023" required><?= htmlspecialchars($editDetailsText) ?></textarea>
+                        <textarea name="details_text" class="form-control" rows="3" required><?= htmlspecialchars($editDetailsText) ?></textarea>
                         <small style="font-size: 11.5px; color: #64748b;">Full professional body membership title, organization, and ID</small>
                     </div>
 
@@ -1734,7 +1734,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Body / Society Tag <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="extra_info" class="form-control" placeholder="e.g. ASME, ISTE, IEI" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
+                            <input type="text" name="extra_info" class="form-control" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Short abbreviation</small>
                         </div>
 
@@ -1742,7 +1742,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Sr. No. / Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <input type="number" name="display_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Sorting order</small>
                         </div>
                     </div>
@@ -1752,7 +1752,7 @@ require_once __DIR__ . '/includes/header.php';
                         <label class="form-label" style="font-weight: 600;">
                             Patent Title <span style="color: #ef4444; font-weight: bold;">*</span>
                         </label>
-                        <input type="text" name="title" class="form-control" placeholder="e.g. Patent for Universal Centrifugal Casting Machine" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                        <input type="text" name="title" class="form-control" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
                         <small style="font-size: 11.5px; color: #64748b;">Official title of the invention or patent</small>
                     </div>
 
@@ -1760,7 +1760,7 @@ require_once __DIR__ . '/includes/header.php';
                         <label class="form-label" style="font-weight: 600;">
                             Patent Details, Grant &amp; Publication Info <span style="color: #ef4444; font-weight: bold;">*</span>
                         </label>
-                        <textarea name="patent_details" class="form-control" rows="3" placeholder='e.g. Patent for "Universal Centrifugal Casting Machine" is Published in the Official Journal of The Patent Office. Publication Date: 17-12-2021, and Granted on 18/03/2024, Patent No: 528730, ID: 202121056480.' required><?= htmlspecialchars($editPatentDetails) ?></textarea>
+                        <textarea name="patent_details" class="form-control" rows="3" required><?= htmlspecialchars($editPatentDetails) ?></textarea>
                         <small style="font-size: 11.5px; color: #64748b;">Full grant number, application ID, publication journal, and dates</small>
                     </div>
 
@@ -1769,7 +1769,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Patent No. / Status Tag <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="text" name="extra_info" class="form-control" placeholder="e.g. Patent No: 528730 (Granted)" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
+                            <input type="text" name="extra_info" class="form-control" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Patent number or status badge</small>
                         </div>
 
@@ -1777,7 +1777,7 @@ require_once __DIR__ . '/includes/header.php';
                             <label class="form-label" style="font-weight: 600;">
                                 Sr. No. / Order <span style="color: #94a3b8; font-weight: normal;">(Optional)</span>
                             </label>
-                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <input type="number" name="display_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
                             <small style="font-size: 11.5px; color: #64748b;">Sorting order</small>
                         </div>
                     </div>
@@ -1786,23 +1786,23 @@ require_once __DIR__ . '/includes/header.php';
                     <div style="display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1.5fr) minmax(0, 110px); gap: 16px; margin-bottom: 16px;">
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">Title / Citation <span style="color: #ef4444;">*</span></label>
-                            <input type="text" name="title" class="form-control" placeholder="e.g. Research Paper Title, Book Name, Talk Subject" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
+                            <input type="text" name="title" class="form-control" required value="<?= htmlspecialchars($editItem['title'] ?? '') ?>">
                         </div>
 
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">Extra Info</label>
-                            <input type="text" name="extra_info" class="form-control" placeholder="e.g. Elsevier 2023, ISBN..." value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
+                            <input type="text" name="extra_info" class="form-control" value="<?= htmlspecialchars($editItem['extra_info'] ?? '') ?>">
                         </div>
 
                         <div class="form-group" style="margin-bottom: 0;">
                             <label class="form-label" style="font-weight: 600;">Order</label>
-                            <input type="number" name="display_order" class="form-control" placeholder="Auto" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
+                            <input type="number" name="display_order" class="form-control" value="<?= htmlspecialchars($editItem['display_order'] ?? '') ?>">
                         </div>
                     </div>
 
                     <div class="form-group" style="margin-bottom: 16px;">
                         <label class="form-label" style="font-weight: 600;">Full Description / Abstract</label>
-                        <textarea name="description" class="form-control" rows="3" placeholder="Brief summary, authors, conference details..."><?= htmlspecialchars($editItem['description'] ?? '') ?></textarea>
+                        <textarea name="description" class="form-control" rows="3"><?= htmlspecialchars($editItem['description'] ?? '') ?></textarea>
                     </div>
                 <?php endif; ?>
 
