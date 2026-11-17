@@ -74,7 +74,7 @@ require_once __DIR__ . '/includes/header.php';
                 The official notification / document for <strong><?= htmlspecialchars($category) ?></strong> is being compiled by the college administration and will be uploaded here shortly.
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-                <a href="index.php" style="background: #009dff; color: #ffffff; padding: 10px 22px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px;">
+                <a href="./" style="background: #009dff; color: #ffffff; padding: 10px 22px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px;">
                     <i class="fas fa-home"></i> Back to Home
                 </a>
                 <a href="javascript:history.back();" style="background: #ffffff; border: 1px solid #cbd5e1; color: #334155; padding: 10px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 0.9rem;">
