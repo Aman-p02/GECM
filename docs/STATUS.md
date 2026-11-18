@@ -56,6 +56,14 @@
 4. **Duplicate Stub Elimination**:
    - Removed all 21 legacy stub files from root directory.
    - Clean root retained with only active root-level files: `index.php`, `contact.php`, `college-activities.php`, `departmental-activities.php`, `faculty-activities.php`, `developers.php`, `disclosure-pdf.php`.
-5. **Git Deployment**:
-   - Committed (`fab4911`) and pushed cleanly to GitHub `origin main`.
+5. **Activities Section Migration (`activities/`)**:
+   - Created dedicated `activities/` directory.
+   - Migrated `college-activities.php`, `departmental-activities.php`, and `faculty-activities.php` into `activities/` with modular `$root_path = "../"`, updated includes, and robust image fallbacks.
+   - Created `activities/index.php` entrypoint router serving `college-activities.php`.
+   - Updated `includes/header.php`, `admin/faculty-activities.php`, and `sitemap.xml`.
+   - Added environment-agnostic Apache mod_rewrite 301 legacy redirects for `/college-activities`, `/departmental-activities`, and `/faculty-activities` to `/activities/*`.
+   - Clean root retained with only: `index.php`, `contact.php`, `developers.php`, `disclosure-pdf.php`.
+
+6. **Git Deployment**:
+   - Committed and pushed cleanly to GitHub `origin main`.
 

@@ -1,10 +1,10 @@
 <?php
 $page_title = "College Activities & Flagship Events | Government Engineering College, Modasa";
 $active_page = "college_activities";
-$root_path = "";
+$root_path = "../";
 $extra_css = "css/activities-hub.css";
 
-require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/../includes/db.php';
 $pdo = getDBConnection();
 
 $selectedYear = trim($_GET['year'] ?? 'ALL');
@@ -89,7 +89,7 @@ foreach ($collegeEvents as $ev) {
 }
 rsort($availableYears);
 
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="act-hub-page" id="mainContent">
@@ -139,12 +139,14 @@ require_once __DIR__ . '/includes/header.php';
             <?php foreach ($collegeEvents as $event):
                 $evYear = !empty($event['event_date']) ? date('Y', strtotime($event['event_date'])) : '2026';
                 $eventDate = !empty($event['event_date']) ? date('M d, Y', strtotime($event['event_date'])) : 'Annual Flagship';
-                $photoSrc = !empty($event['image_url']) ? htmlspecialchars($event['image_url']) : 'images/hero_campus_1.jpg';
+                $photoSrc = !empty($event['image_url']) 
+                    ? ((strpos($event['image_url'], 'http') === 0) ? htmlspecialchars($event['image_url']) : htmlspecialchars($root_path . $event['image_url'])) 
+                    : ($root_path . 'images/hero_campus_1.jpg');
                 $modalId = 'eventModal_' . $event['id'];
             ?>
                 <article class="act-card dept-card-college" data-year="<?= htmlspecialchars($evYear) ?>">
                     <div class="act-card-media">
-                        <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($event['title']) ?>" loading="lazy" onerror="this.src='images/hero_campus_1.jpg'">
+                        <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($event['title']) ?>" loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
                     </div>
 
                     <div class="act-card-body">
@@ -420,5 +422,5 @@ document.addEventListener("touchmove", (e) => {
 </script>
 
 <?php
-require_once __DIR__ . '/includes/footer.php';
+require_once __DIR__ . '/../includes/footer.php';
 ?>

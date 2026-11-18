@@ -53,6 +53,12 @@ DirectoryIndex index.php index.html
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(student-section|student-rules|enrollment-details)(?:\.php)?([?\s]) [NC]
     RewriteRule ^ %1/student-corner/%2 [R=301,L,NE,QSA]
 
+    # 3f. 301 Redirect: Legacy root activities URLs to /activities/ (environment-agnostic)
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin|activities)/ [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(college-activities|departmental-activities|faculty-activities)(?:\.php)?([?\s]) [NC]
+    RewriteRule ^ %1/activities/%2 [R=301,L,NE,QSA]
+
     # 4. 301 Redirect: Direct .php requests to clean URL (except admin areas and POST)
     RewriteCond %{REQUEST_METHOD} !POST
     RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin)/ [NC]

@@ -1,10 +1,10 @@
 <?php
 $page_title = "Departmental Activities & Events | Government Engineering College, Modasa";
 $active_page = "dept_activities";
-$root_path = "";
+$root_path = "../";
 $extra_css = "css/activities-hub.css";
 
-require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/../includes/db.php';
 $pdo = getDBConnection();
 
 // Fetch departments for filter
@@ -65,7 +65,7 @@ if (!in_array($currentYr, $availableYears)) {
 }
 rsort($availableYears);
 
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="act-hub-page" id="mainContent">
@@ -135,7 +135,7 @@ require_once __DIR__ . '/includes/header.php';
                 $deptTitle = $deptFilterList[$code] ?? $code;
                 $actYear = !empty($act['activity_date']) ? date('Y', strtotime($act['activity_date'])) : '2026';
                 $actDateFormatted = !empty($act['activity_date']) ? date('M d, Y', strtotime($act['activity_date'])) : 'Recent';
-                $photoSrc = !empty($act['image_url']) ? htmlspecialchars($root_path . $act['image_url']) : 'images/hero_campus_1.jpg';
+                $photoSrc = !empty($act['image_url']) ? htmlspecialchars($root_path . $act['image_url']) : ($root_path . 'images/hero_campus_1.jpg');
                 $modalId = 'actModal_' . $act['id'];
                 $badgeClass = 'badge-' . strtolower($code);
                 $rawDesc = !empty($act['short_description']) ? $act['short_description'] : (!empty($act['description']) ? $act['description'] : '');
@@ -146,7 +146,7 @@ require_once __DIR__ . '/includes/header.php';
                          data-year="<?= htmlspecialchars($actYear) ?>">
                     
                     <div class="act-card-media">
-                        <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='images/hero_campus_1.jpg'">
+                        <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
                     </div>
 
                     <div class="act-card-body">
@@ -451,6 +451,6 @@ document.addEventListener("touchmove", (e) => {
 </script>
 
 <?php
-require_once __DIR__ . '/includes/footer.php';
+require_once __DIR__ . '/../includes/footer.php';
 ?>
 

@@ -142,20 +142,20 @@
 
     <!-- 6. Campus & Faculty Activities -->
     <url>
-        <loc>https://gecmodasa.ac.in/college-activities</loc>
-        <lastmod>2026-11-17</lastmod>
+        <loc>https://gecmodasa.ac.in/activities/college-activities</loc>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/departmental-activities</loc>
-        <lastmod>2026-11-17</lastmod>
+        <loc>https://gecmodasa.ac.in/activities/departmental-activities</loc>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/faculty-activities</loc>
-        <lastmod>2026-11-17</lastmod>
+        <loc>https://gecmodasa.ac.in/activities/faculty-activities</loc>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>

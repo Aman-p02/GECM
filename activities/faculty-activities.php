@@ -1,10 +1,10 @@
 <?php
 $page_title = "Faculty Activities & Professional Development | Government Engineering College, Modasa";
 $active_page = "faculty_activities";
-$root_path = "";
+$root_path = "../";
 $extra_css = "css/activities-hub.css";
 
-require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/../includes/db.php';
 $pdo = getDBConnection();
 
 $trainings = [];
@@ -48,7 +48,7 @@ if (!in_array($activeTab, $validTabs)) {
     $activeTab = 'trainings';
 }
 
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="act-hub-page" id="mainContent">
@@ -321,5 +321,5 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <?php
-require_once __DIR__ . '/includes/footer.php';
+require_once __DIR__ . '/../includes/footer.php';
 ?>

@@ -234,7 +234,7 @@ if (!isset($active_page)) {
 
                 <!-- Activities Dropdown (Categorized Mega Dropdown) -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="<?= $root_path ?>college-activities"
+                    <a href="<?= $root_path ?>activities/"
                        class="hdr-nav-link <?= in_array($active_page, ['activities', 'college_activities', 'dept_activities', 'faculty_activities']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">Activities</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
@@ -243,9 +243,9 @@ if (!isset($active_page)) {
                             <div class="hdr-mega-col">
                                 <div class="hdr-dd-heading">CAMPUS ACTIVITIES</div>
                                 <ul class="hdr-dd-list">
-                                    <li><a href="<?= $root_path ?>college-activities" class="hdr-dd-link <?= ($active_page === 'college_activities') ? 'is-active' : '' ?>">College Activities</a></li>
-                                    <li><a href="<?= $root_path ?>departmental-activities" class="hdr-dd-link <?= ($active_page === 'dept_activities') ? 'is-active' : '' ?>">Departmental Activities</a></li>
-                                    <li><a href="<?= $root_path ?>faculty-activities" class="hdr-dd-link <?= ($active_page === 'faculty_activities') ? 'is-active' : '' ?>">Faculty Activities</a></li>
+                                    <li><a href="<?= $root_path ?>activities/college-activities" class="hdr-dd-link <?= ($active_page === 'college_activities') ? 'is-active' : '' ?>">College Activities</a></li>
+                                    <li><a href="<?= $root_path ?>activities/departmental-activities" class="hdr-dd-link <?= ($active_page === 'dept_activities') ? 'is-active' : '' ?>">Departmental Activities</a></li>
+                                    <li><a href="<?= $root_path ?>activities/faculty-activities" class="hdr-dd-link <?= ($active_page === 'faculty_activities') ? 'is-active' : '' ?>">Faculty Activities</a></li>
                                 </ul>
                             </div>
                             <div class="hdr-mega-col">

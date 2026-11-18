@@ -209,7 +209,7 @@ require_once __DIR__ . '/includes/header.php';
             </p>
         </div>
         <div style="display: flex; gap: 10px; align-items: center;">
-            <a href="../faculty-activities.php" target="_blank" class="btn-secondary" style="padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #cbd5e1; background: #ffffff; color: #334155;">
+            <a href="../activities/faculty-activities" target="_blank" class="btn-secondary" style="padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #cbd5e1; background: #ffffff; color: #334155;">
                 <i class="fas fa-external-link-alt" style="color: #0284c7;"></i> View Public Page
             </a>
             <button type="button" class="btn-add-new" onclick="openAddModalFor('<?= htmlspecialchars($selectedCat) ?>')" style="padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 600;">
