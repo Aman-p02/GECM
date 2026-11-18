@@ -181,14 +181,14 @@ if (!isset($active_page)) {
 
                 <!-- Administration Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="javascript:void(0);" class="hdr-nav-link <?= in_array($active_page, ['principal', 'council-of-heads', 'account-section', 'hostel-mess', 'committees']) ? 'active is-active' : '' ?>">
+                    <a href="javascript:void(0);" class="hdr-nav-link <?= in_array($active_page, ['principal', 'council-of-heads', 'hostel-mess', 'committees']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">Administration</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
                             <li><a href="<?= $root_path ?>administration/principal" class="hdr-dd-link <?= ($active_page === 'principal') ? 'is-active active' : '' ?>">Principal</a></li>
                             <li><a href="<?= $root_path ?>administration/council-of-heads" class="hdr-dd-link <?= ($active_page === 'council-of-heads') ? 'is-active active' : '' ?>">Council of Heads</a></li>
-                            <li><a href="<?= $root_path ?>administration/account-section" class="hdr-dd-link <?= ($active_page === 'account-section') ? 'is-active active' : '' ?>">Account Section</a></li>
+                            <li><a href="#" class="hdr-dd-link">Account Section</a></li>
                             <li><a href="<?= $root_path ?>administration/hostel-mess" class="hdr-dd-link <?= ($active_page === 'hostel-mess') ? 'is-active active' : '' ?>">Hostel &amp; Mess</a></li>
                             <li><a href="<?= $root_path ?>administration/committees" class="hdr-dd-link <?= ($active_page === 'committees') ? 'is-active active' : '' ?>">Committees</a></li>
                         </ul>

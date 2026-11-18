@@ -38,7 +38,7 @@ DirectoryIndex index.php index.html
     # 3c. 301 Redirect: Legacy root administration URLs to /administration/ (environment-agnostic)
     RewriteCond %{REQUEST_METHOD} !POST
     RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin|administration)/ [NC]
-    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(principal|council-of-heads|account-section|hostel-mess|committees)(?:\.php)?([?\s]) [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(principal|council-of-heads|hostel-mess|committees)(?:\.php)?([?\s]) [NC]
     RewriteRule ^ %1/administration/%2 [R=301,L,NE,QSA]
 
     # 3d. 301 Redirect: Legacy root academic URLs to /academics/ (environment-agnostic)

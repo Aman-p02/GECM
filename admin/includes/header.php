@@ -54,7 +54,7 @@ $page_title = $page_title ?? 'Dashboard Overview';
                 $aboutPageItems = ['principal-message', 'idp', 'facilities', 'e-newsletters', 'brochure', 'mandatory-disclosure', 'rankings', 'mou', 'approvals'];
                 $isAboutActive = in_array($current_page, $aboutPageItems);
 
-                $administrationPageItems = ['principal-profile', 'council-of-heads', 'account-section', 'hostel-mess', 'administration-committees'];
+                $administrationPageItems = ['principal-profile', 'council-of-heads', 'hostel-mess', 'administration-committees'];
                 $isAdministrationActive = in_array($current_page, $administrationPageItems);
 
                 $studentCornerPageItems = ['student-chapters', 'student-enrollment'];
@@ -137,11 +137,6 @@ $page_title = $page_title ?? 'Dashboard Overview';
                         <li class="submenu-item <?= ($current_page === 'council-of-heads') ? 'active' : '' ?>">
                             <a href="council-of-heads.php" class="submenu-link">
                                 <span>Council of Heads</span>
-                            </a>
-                        </li>
-                        <li class="submenu-item <?= ($current_page === 'account-section') ? 'active' : '' ?>">
-                            <a href="account-section.php" class="submenu-link">
-                                <span>Account Section</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'hostel-mess') ? 'active' : '' ?>">

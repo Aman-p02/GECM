@@ -9,7 +9,6 @@
    - In `admin/includes/header.php`, created the `Administration` accordion submenu right below `About` and above `Main Page` with options:
      - Principal Profile (`principal-profile.php`)
      - Council of Heads (`council-of-heads.php`)
-     - Account Section (`account-section.php`)
      - Hostel & Mess (`hostel-mess.php`)
      - Committees (`administration-committees.php`)
    - In `includes/header.php`, connected public dropdown links to the new dedicated institutional pages.
@@ -29,9 +28,10 @@
    - Admin management in `admin/administration-committees.php` allowing committee creation, text/objectives editing, and member management.
    - Public frontend in `committees.php` and `css/committees.css` with two-column layout (left sidebar for Campus Committees & Mandatory Disclosures, right side for committee content and members table).
 
-5. **Account Section & Hostel/Mess Modules**:
-   - Admin management in `admin/account-section.php` and `admin/hostel-mess.php`.
-   - Public frontend in `account-section.php` and `hostel-mess.php`.
+5. **Hostel/Mess Module**:
+   - Admin management in `admin/hostel-mess.php`.
+   - Public frontend in `hostel-mess.php`.
+   - *(Note: Standalone Account Section dynamic table and page removed as personnel are covered under Council of Heads / Administrative Offices; navbar link preserved as placeholder).*
 
 6. **Single Page Title Enforcement**:
    - Adhered strictly to single topbar title across all admin pages (no duplicate `<h2>` titles).
@@ -45,7 +45,7 @@
 1. **Section Restructuring**:
    - Restructured all pages into dedicated modular folders:
      - `about/`: 11 pages + index overview router (`about-gecm.php`, `overview.php`, `vision-mission.php`, `principal-message.php`, `facilities.php`, `idp.php`, `e-newsletters.php`, `brochure.php`, `mandatory-disclosure.php`, `rankings.php`, `mou.php`).
-     - `administration/`: 5 pages + index overview router (`principal.php`, `council-of-heads.php`, `account-section.php`, `hostel-mess.php`, `committees.php`).
+     - `administration/`: 4 pages + index overview router (`principal.php`, `council-of-heads.php`, `hostel-mess.php`, `committees.php`).
      - `academics/`: 2 pages + index overview router (`courses.php`, `admission.php`).
      - `student-corner/`: 3 pages + index overview router (`student-section.php`, `student-rules.php`, `enrollment-details.php`).
 2. **Server-Level 301 Redirects (.htaccess)**:
