@@ -64,11 +64,11 @@
    - Added environment-agnostic Apache mod_rewrite 301 legacy redirects for `/college-activities`, `/departmental-activities`, and `/faculty-activities` to `/activities/*`.
    - Clean root retained with only: `index.php`, `contact.php`, `developers.php`, `disclosure-pdf.php`.
 
-6. **Admin Student Enrollment Department Navigation & Year Display**:
-   - Enhanced `admin/student-enrollment.php` with one-click Department Tabs (`All Departments`, Computer, IT, Civil, Mechanical, Electrical, EC, Automobile, PG programs).
-   - Clicking any department instantly loads all academic years for that specific department with PDF documents, status toggle, edit/replace, and delete actions.
-   - Added automatic self-seeding for empty database states so all departments and standard academic years are populated and ready with sample PDF viewing.
-   - Added dedicated department highlight banner and quick upload prefill.
+6. **Admin Student Enrollment Department Hub & Drill-Down Management**:
+   - Re-architected `admin/student-enrollment.php` into a dedicated two-tier Master-Detail workflow:
+     - **Main Hub (Landing View)**: Displays all 9 engineering departments across the entire page with prominent cards, icons, color-accented headers, and uploaded academic year counts.
+     - **Department Detail View**: Clicking any department drills down into that specific department, presenting a back navigation button, department banner, quick "Upload New Year PDF" action, and a table showing all academic years with direct PDF viewing, Hide/Show visibility toggle, Edit/Replace, and Delete.
+   - Added automatic self-seeding for empty database states so all departments have GTU academic year registers populated and viewable.
 
 7. **Git Deployment**:
    - Committed and pushed cleanly to GitHub `origin main`.
