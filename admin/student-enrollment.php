@@ -246,7 +246,7 @@ require_once __DIR__ . '/includes/header.php';
             </p>
         </div>
         <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-            <a href="../enrollment-details" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; text-decoration: none;">
+            <a href="../student-corner/enrollment-details" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; text-decoration: none;">
                 <i class="fas fa-external-link-alt"></i> View Public Page
             </a>
             <button type="button" class="btn-add-new" onclick="openModal('addEnrollmentModal')">

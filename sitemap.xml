@@ -122,20 +122,20 @@
 
     <!-- 5. Student Corner -->
     <url>
-        <loc>https://gecmodasa.ac.in/student-section</loc>
-        <lastmod>2026-11-17</lastmod>
+        <loc>https://gecmodasa.ac.in/student-corner/student-section</loc>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/student-rules</loc>
-        <lastmod>2026-11-17</lastmod>
+        <loc>https://gecmodasa.ac.in/student-corner/student-rules</loc>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/enrollment-details</loc>
-        <lastmod>2026-11-17</lastmod>
+        <loc>https://gecmodasa.ac.in/student-corner/enrollment-details</loc>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>

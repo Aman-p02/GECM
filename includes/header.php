@@ -281,10 +281,10 @@ if (!isset($active_page)) {
                     </a>
                     <div class="hdr-dropdown">
                         <ul class="hdr-dd-list">
-                            <li><a href="<?= $root_path ?>student-section" class="hdr-dd-link <?= ($active_page === 'student-section') ? 'is-active active' : '' ?>">Student Section</a></li>
-                            <li><a href="<?= $root_path ?>student-rules" class="hdr-dd-link <?= ($active_page === 'student-rules') ? 'is-active active' : '' ?>">General Rules &amp; Regulations</a></li>
+                            <li><a href="<?= $root_path ?>student-corner/student-section" class="hdr-dd-link <?= ($active_page === 'student-section') ? 'is-active active' : '' ?>">Student Section</a></li>
+                            <li><a href="<?= $root_path ?>student-corner/student-rules" class="hdr-dd-link <?= ($active_page === 'student-rules') ? 'is-active active' : '' ?>">General Rules &amp; Regulations</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Student Chapters &amp; Clubs</a></li>
-                            <li><a href="<?= $root_path ?>enrollment-details" class="hdr-dd-link <?= ($active_page === 'enrollment-details') ? 'is-active active' : '' ?>">Enrollment Details</a></li>
+                            <li><a href="<?= $root_path ?>student-corner/enrollment-details" class="hdr-dd-link <?= ($active_page === 'enrollment-details') ? 'is-active active' : '' ?>">Enrollment Details</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Scholarships</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Grade History Card</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Online Fees Payment</a></li>
