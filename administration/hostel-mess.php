@@ -69,8 +69,7 @@ $feesStructure = $defaultFeesStructure;
 $messPoints = $defaultMessNotes;
 $feePoints = $defaultFeeNotes;
 $photos = [
-    ['caption' => 'GEC Modasa - Main Hostel Building', 'image_path' => 'uploads/hostel/hostel_main.jpg'],
-    ['caption' => 'Hostel Campus & Residential Lawn', 'image_path' => 'uploads/hostel/hostel_campus.jpg']
+    ['caption' => 'GEC Modasa - Main Hostel Building', 'image_path' => 'uploads/hostel/hostel_main.jpg']
 ];
 
 // Safely query database when available
@@ -115,55 +114,68 @@ if ($pdo) {
 $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] : 'uploads/hostel/hostel_rules_and_regulations.pdf';
 ?>
 
-<div class="hostel-page" id="mainContent">
-    <div class="hostel-container">
+<div class="hostel-page" id="mainContent" data-active-tab="about">
 
-        <!-- Department-Style Hero Banner -->
-        <header class="hostel-hero-banner">
-            <div class="hostel-breadcrumbs">
-                <a href="<?= $root_path ?>"><i class="fas fa-home"></i></a>
-                <span class="sep">/</span>
-                <a href="<?= $root_path ?>administration/principal">Administration</a>
-                <span class="sep">/</span>
-                <span class="current">Hostel &amp; Mess Facility</span>
-            </div>
-
-            <span class="hostel-kicker">CAMPUS AMENITIES &amp; RESIDENTIAL LIFE</span>
-            <h1 class="hostel-heading">Hostel &amp; Mess Facility</h1>
-            <p class="hostel-tagline">
-                Comfortable, disciplined, and secure on-campus residential accommodation fostering academic focus, holistic personal development, and an inclusive student community across campus blocks.
-            </p>
-        </header>
-
-        <!-- Institutional Stat Highlights -->
-        <div class="hostel-stats-grid">
-            <div class="hostel-stat-card">
-                <div class="hostel-stat-num">4</div>
-                <div class="hostel-stat-label">Boys' Hostel Blocks</div>
-            </div>
-            <div class="hostel-stat-card">
-                <div class="hostel-stat-num">2</div>
-                <div class="hostel-stat-label">Girls' Hostel Blocks</div>
-            </div>
-            <div class="hostel-stat-card">
-                <div class="hostel-stat-num">462</div>
-                <div class="hostel-stat-label">Total Student Capacity</div>
-            </div>
-            <div class="hostel-stat-card">
-                <div class="hostel-stat-num">154</div>
-                <div class="hostel-stat-label">Furnished Rooms</div>
+    <!-- Sticky Sub-Navigation Bar (Department Style - Placed right under main website navbar) -->
+    <nav class="dept-subnav-bar" id="deptSubNav" aria-label="Hostel Navigation" data-root="<?= $root_path ?>">
+        <div class="hostel-container">
+            <div class="dept-subnav-wrap">
+                <ul class="dept-subnav-list" role="tablist">
+                    <li class="dept-subnav-item active">
+                        <button type="button" class="dept-subnav-link active" data-tab="about" role="tab" aria-selected="true">About</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="mess" role="tab" aria-selected="false">Hostel Mess</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="fees" role="tab" aria-selected="false">Fees Structure</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="rules" role="tab" aria-selected="false">Hostel Rules</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="capacity" role="tab" aria-selected="false">Hostel Block Capacity</button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="photos" role="tab" aria-selected="false">Photos</button>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <!-- Clean Department-Grade Navigation Tabs -->
-        <nav class="hostel-tabs-nav" aria-label="Hostel Sections">
-            <button type="button" class="hostel-tab-btn active" data-target="aboutTab">About</button>
-            <button type="button" class="hostel-tab-btn" data-target="messTab">Hostel Mess</button>
-            <button type="button" class="hostel-tab-btn" data-target="feesTab">Fees Structure</button>
-            <button type="button" class="hostel-tab-btn" data-target="rulesTab">Hostel Rules</button>
-            <button type="button" class="hostel-tab-btn" data-target="capacityTab">Hostel Block Capacity</button>
-            <button type="button" class="hostel-tab-btn" data-target="photosTab">Photos</button>
-        </nav>
+    <!-- Main Hostel Content Area -->
+    <main class="hostel-main-content">
+        <div class="hostel-container">
+
+            <!-- Department-Style Hero Banner -->
+            <header class="hostel-hero-banner">
+                <span class="hostel-kicker">CAMPUS AMENITIES &amp; RESIDENTIAL LIFE</span>
+                <h1 class="hostel-heading">Hostel &amp; Mess Facility</h1>
+                <p class="hostel-tagline">
+                    Comfortable, disciplined, and secure on-campus residential accommodation fostering academic focus, holistic personal development, and an inclusive student community across campus blocks.
+                </p>
+            </header>
+
+            <!-- Institutional Stat Highlights -->
+            <div class="hostel-stats-grid">
+                <div class="hostel-stat-card">
+                    <div class="hostel-stat-num">4</div>
+                    <div class="hostel-stat-label">Boys' Hostel Blocks</div>
+                </div>
+                <div class="hostel-stat-card">
+                    <div class="hostel-stat-num">2</div>
+                    <div class="hostel-stat-label">Girls' Hostel Blocks</div>
+                </div>
+                <div class="hostel-stat-card">
+                    <div class="hostel-stat-num">462</div>
+                    <div class="hostel-stat-label">Total Student Capacity</div>
+                </div>
+                <div class="hostel-stat-card">
+                    <div class="hostel-stat-num">154</div>
+                    <div class="hostel-stat-label">Furnished Rooms</div>
+                </div>
+            </div>
 
         <!-- ========================================================================= -->
         <!-- TAB 1: ABOUT (Overview, Committees, Leadership, Common Room & Staff Table) -->
@@ -519,59 +531,70 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
             </div>
         </div>
 
-    </div>
+    </main>
 </div>
 
 <script>
-// Interactive Tab Switching Script with History Hash Support
-document.addEventListener('DOMContentLoaded', function () {
-    const tabButtons = document.querySelectorAll('.hostel-tab-btn');
-    const tabPanes = document.querySelectorAll('.hostel-tab-pane');
+// Interactive Tab Switching Script with History Hash & Global Mobile Drawer Support
+window.activateTab = function(tabName, shouldScroll) {
+    const cleanKey = tabName.replace('Tab', '').toLowerCase();
+    const targetId = cleanKey + 'Tab';
 
-    function activateTab(targetId) {
-        tabButtons.forEach(btn => {
-            if (btn.getAttribute('data-target') === targetId) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
+    // 1. Update subnav buttons
+    document.querySelectorAll('.dept-subnav-item').forEach(item => {
+        const btn = item.querySelector('.dept-subnav-link');
+        const tabAttr = btn ? btn.getAttribute('data-tab') : '';
+        if (tabAttr === cleanKey) {
+            item.classList.add('active');
+            btn?.classList.add('active');
+            btn?.setAttribute('aria-selected', 'true');
+        } else {
+            item.classList.remove('active');
+            btn?.classList.remove('active');
+            btn?.setAttribute('aria-selected', 'false');
+        }
+    });
 
-        tabPanes.forEach(pane => {
-            if (pane.getAttribute('id') === targetId) {
-                pane.classList.add('active');
-            } else {
-                pane.classList.remove('active');
-            }
-        });
+    // 2. Update tab panes
+    document.querySelectorAll('.hostel-tab-pane').forEach(pane => {
+        const paneId = pane.getAttribute('id');
+        if (paneId === targetId || paneId === cleanKey) {
+            pane.classList.add('active');
+        } else {
+            pane.classList.remove('active');
+        }
+    });
+
+    // 3. Update hash
+    if (history.replaceState) {
+        history.replaceState(null, null, '#' + cleanKey);
+    } else {
+        window.location.hash = cleanKey;
     }
 
-    tabButtons.forEach(btn => {
-        btn.addEventListener('click', function () {
-            const targetId = this.getAttribute('data-target');
-            activateTab(targetId);
-            const hashKey = targetId.replace('Tab', '').toLowerCase();
-            if (history.replaceState) {
-                history.replaceState(null, null, '#' + hashKey);
-            } else {
-                window.location.hash = hashKey;
+    // 4. Update data-active-tab on .hostel-page and body
+    const page = document.querySelector('.hostel-page') || document.body;
+    page.setAttribute('data-active-tab', cleanKey);
+    document.body.setAttribute('data-active-tab', cleanKey);
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Bind click events on desktop subnav buttons
+    document.querySelectorAll('.dept-subnav-link').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const tab = this.getAttribute('data-tab');
+            if (tab) {
+                window.activateTab(tab, true);
             }
         });
     });
 
     // Check URL hash on page load
     const hash = window.location.hash.replace('#', '').toLowerCase();
-    const map = {
-        'about': 'aboutTab',
-        'mess': 'messTab',
-        'fees': 'feesTab',
-        'rules': 'rulesTab',
-        'capacity': 'capacityTab',
-        'photos': 'photosTab'
-    };
-
-    if (hash && map[hash]) {
-        activateTab(map[hash]);
+    const validTabs = ['about', 'mess', 'fees', 'rules', 'capacity', 'photos'];
+    if (hash && validTabs.includes(hash)) {
+        window.activateTab(hash, false);
     }
 });
 </script>

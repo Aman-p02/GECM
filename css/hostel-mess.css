@@ -110,87 +110,147 @@
     font-weight: 400;
 }
 
-/* Institutional Stat Highlights Grid */
+/* Institutional Stat Highlights Grid - Clean Minimal Style without Box Borders */
 .hostel-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 40px;
+    gap: 32px;
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--hostel-border-subtle);
 }
 
 .hostel-stat-card {
-    background: var(--hostel-bg-subtle);
-    border: 1px solid var(--hostel-border);
-    border-radius: 6px;
-    padding: 20px 24px;
-    transition: var(--hostel-transition);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    transition: none;
 }
 
 .hostel-stat-card:hover {
-    border-color: var(--hostel-accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border-color: transparent;
+    transform: none;
+    box-shadow: none;
 }
 
 .hostel-stat-num {
     font-family: var(--hostel-font-display);
-    font-size: 1.9rem;
+    font-size: 2.2rem;
     font-weight: 800;
     color: var(--hostel-primary);
-    line-height: 1.1;
-    margin-bottom: 6px;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
 }
 
 .hostel-stat-label {
     font-family: var(--hostel-font-display);
-    font-size: 0.75rem;
+    font-size: 0.76rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--hostel-muted);
 }
 
-/* Navigation Tabs - Clean Underline / Line Style */
-.hostel-tabs-nav {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-bottom: 2px solid var(--hostel-border);
-    margin-bottom: 36px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+/* Sticky Sub-Navigation Bar (Department Style - Placed right under main website navbar) */
+.dept-subnav-bar {
+    position: sticky;
+    top: var(--site-main-nav-height, 52px);
+    z-index: 950;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--hostel-border);
+    border-bottom: 1px solid var(--hostel-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: top 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    margin-bottom: 0;
 }
 
-.hostel-tabs-nav::-webkit-scrollbar {
+.dept-subnav-wrap,
+.dept-subnav-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Horizontal scrollable tab buttons track */
+.dept-subnav-list {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+.dept-subnav-list::-webkit-scrollbar {
     display: none;
 }
 
-.hostel-tab-btn {
-    font-family: var(--hostel-font-display);
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--hostel-muted);
+.dept-subnav-item {
+    flex: 0 0 auto;
+}
+
+.dept-subnav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 15px 16px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    color: var(--hostel-body);
+    text-decoration: none;
     background: transparent;
     border: none;
-    border-bottom: 3px solid transparent;
-    padding: 14px 22px;
     cursor: pointer;
-    white-space: nowrap;
-    transition: var(--hostel-transition);
-    margin-bottom: -2px;
-    border-radius: 0;
-    outline: none;
+    position: relative;
+    font-family: var(--hostel-font-display);
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hostel-tab-btn:hover {
+/* Hover and active expanding indicator like main navbar */
+.dept-subnav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2.5px;
+    background: var(--hostel-accent);
+    border-radius: 1.5px 1.5px 0 0;
+    transform: translateX(-50%);
+    transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.dept-subnav-link:hover {
     color: var(--hostel-accent);
+    background: transparent;
 }
 
-.hostel-tab-btn.active {
-    color: var(--hostel-primary);
-    font-weight: 700;
-    border-bottom-color: var(--hostel-accent);
+.dept-subnav-link:hover::after,
+.dept-subnav-link:active::after,
+.dept-subnav-item.active .dept-subnav-link::after,
+.dept-subnav-link.active::after {
+    width: calc(100% - 16px);
+}
+
+.dept-subnav-item.active .dept-subnav-link,
+.dept-subnav-link.active {
+    color: var(--hostel-accent) !important;
+    font-weight: 600;
+}
+
+.hostel-main-content {
+    padding-top: 24px;
 }
 
 /* Tab Content Panes */
@@ -689,6 +749,14 @@
     .hostel-container {
         padding: 0 20px;
     }
+    .dept-subnav-bar {
+        top: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    .dept-subnav-link {
+        padding: 13px 12px;
+        font-size: 0.86rem;
+    }
     .hostel-hero-banner {
         padding: 32px 0 24px;
         margin-bottom: 28px;
@@ -707,13 +775,13 @@
     }
     .hostel-stats-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 20px 16px;
     }
     .hostel-stat-card {
-        padding: 16px;
+        padding: 0;
     }
     .hostel-stat-num {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
     .hostel-gov-card {
         padding: 20px;

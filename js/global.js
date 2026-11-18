@@ -262,9 +262,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function buildDeptNav() {
             const subnavItems = deptSubNav.querySelectorAll(".dept-subnav-list > li");
+            const rootAttr = deptSubNav.getAttribute("data-root");
+            const identityHref = document.querySelector(".hdr-identity")?.getAttribute("href");
+            const homeHref = (rootAttr !== null && rootAttr !== undefined) ? (rootAttr || "./") : (identityHref || "../../index.php");
             let html = `
                 <li class="hdr-nav-item">
-                    <a href="../../index.php" class="hdr-nav-link dept-home-nav-link">
+                    <a href="${homeHref}" class="hdr-nav-link dept-home-nav-link">
                         Home
                     </a>
                 </li>
