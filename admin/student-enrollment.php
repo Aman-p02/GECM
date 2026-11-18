@@ -53,35 +53,12 @@ function findDepartment($code, $departments) {
     return null;
 }
 
-// Auto-seed default records if table is empty
+// Clean up any dummy sample records if present
 if ($pdo) {
     try {
-        $checkCount = (int)$pdo->query("SELECT COUNT(*) FROM student_enrollments")->fetchColumn();
-        if ($checkCount === 0) {
-            $defaultYears = ['2025-26', '2024-25', '2023-24', '2022-23'];
-            $samplePdfPath = 'uploads/enrollments/sample_enrollment.pdf';
-            $insStmt = $pdo->prepare("INSERT INTO student_enrollments 
-                (academic_year, branch_name, branch_code, program_type, title, file_path, file_size, display_order, is_active) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $order = 1;
-            foreach ($defaultYears as $yr) {
-                foreach ($departments as $d) {
-                    $insStmt->execute([
-                        $yr,
-                        $d['name'],
-                        $d['code'],
-                        $d['type'],
-                        $d['name'] . ' (' . $yr . ')',
-                        $samplePdfPath,
-                        '30 KB',
-                        $order++,
-                        1
-                    ]);
-                }
-            }
-        }
+        $pdo->exec("DELETE FROM student_enrollments WHERE file_path LIKE '%sample_enrollment.pdf%' OR file_path LIKE '%sample%'");
     } catch (Exception $e) {
-        error_log("Seed error: " . $e->getMessage());
+        // silent
     }
 }
 
@@ -186,7 +163,7 @@ if (isset($_GET['delete'])) {
         $stmt->execute([$id]);
         $row = $stmt->fetch();
         $targetDept = $row['branch_code'] ?? ($_GET['dept'] ?? '');
-        if ($row && !empty($row['file_path']) && $row['file_path'] !== 'uploads/enrollments/sample_enrollment.pdf') {
+        if ($row && !empty($row['file_path'])) {
             $realFile = realpath(__DIR__ . '/../' . $row['file_path']);
             if ($realFile && file_exists($realFile)) {
                 @unlink($realFile);

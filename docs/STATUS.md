@@ -64,11 +64,11 @@
    - Added environment-agnostic Apache mod_rewrite 301 legacy redirects for `/college-activities`, `/departmental-activities`, and `/faculty-activities` to `/activities/*`.
    - Clean root retained with only: `index.php`, `contact.php`, `developers.php`, `disclosure-pdf.php`.
 
-6. **Admin Student Enrollment Department Hub & Drill-Down Management**:
-   - Re-architected `admin/student-enrollment.php` into a dedicated two-tier Master-Detail workflow:
-     - **Main Hub (Landing View)**: Displays all 9 engineering departments across the entire page with prominent cards, icons, color-accented headers, and uploaded academic year counts.
-     - **Department Detail View**: Clicking any department drills down into that specific department, presenting a back navigation button, department banner, quick "Upload New Year PDF" action, and a table showing all academic years with direct PDF viewing, Hide/Show visibility toggle, Edit/Replace, and Delete.
-   - Added automatic self-seeding for empty database states so all departments have GTU academic year registers populated and viewable.
+6. **Admin Student Enrollment Department Hub & Clean Data Architecture**:
+   - Re-architected `admin/student-enrollment.php` into a minimalist two-tier workflow:
+     - **Main Hub (Landing View)**: Simple, clean grid showing only Department Name and degree level (`B.E.` or `M.E.`).
+     - **Department Detail View**: Clean table showing only Academic Year, Degree (`B.E.`/`M.E.`), PDF Document, Status (Visible/Hidden 1-click toggle), and Edit/Delete actions.
+   - **Zero Dummy Data Enforcement**: Removed all auto-seeding logic, purged placeholder PDF files (`uploads/enrollments/sample_enrollment.pdf`), and cleared dummy records so both admin panel and frontend only show genuine uploaded enrollment documents.
 
 7. **Git Deployment**:
    - Committed and pushed cleanly to GitHub `origin main`.
