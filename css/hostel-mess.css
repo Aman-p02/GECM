@@ -1,233 +1,721 @@
-/* Hostel & Mess Facility Stylesheet - Matches Official Institutional Reference */
-.hostel-wrapper {
-    background-color: #f8fafc;
-    min-height: calc(100vh - 280px);
-    padding: 30px 0 60px 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+/* ==========================================================================
+   GEC MODASA - HOSTEL & MESS FACILITY STYLESHEET
+   Department-grade Editorial Aesthetic, Fully Responsive & Clean
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --hostel-primary: #111111;
+    --hostel-accent: #ff8800;
+    --hostel-accent-hover: #e07700;
+    --hostel-accent-light: rgba(255, 136, 0, 0.08);
+    --hostel-kicker: #ff8800;
+    --hostel-body: #4b5563;
+    --hostel-muted: #6b7280;
+    --hostel-border: #e5e7eb;
+    --hostel-border-subtle: #f3f4f6;
+    --hostel-bg-subtle: #f8fafc;
+    --hostel-font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --hostel-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --hostel-transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Page wrapper */
+.hostel-page {
+    font-family: var(--hostel-font-body);
+    background-color: #ffffff;
+    color: var(--hostel-body);
+    margin: 0;
+    padding: 0 0 100px 0;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
 }
 
 .hostel-container {
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+
+/* Hero banner header - Department Style */
+.hostel-hero-banner {
+    padding: 44px 0 32px;
+    border-bottom: 1px solid var(--hostel-border);
+    margin-bottom: 36px;
 }
 
 .hostel-breadcrumbs {
-    font-size: 13px;
-    color: #64748b;
-    margin-bottom: 24px;
+    font-size: 0.825rem;
+    color: var(--hostel-muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .hostel-breadcrumbs a {
-    color: #0284c7;
+    color: var(--hostel-body);
     text-decoration: none;
+    transition: var(--hostel-transition);
 }
 
 .hostel-breadcrumbs a:hover {
-    text-decoration: underline;
+    color: var(--hostel-accent);
 }
 
-.hostel-page-title {
-    font-size: 24px;
+.hostel-breadcrumbs .sep {
+    color: #cbd5e1;
+    font-size: 0.75rem;
+}
+
+.hostel-breadcrumbs .current {
+    color: var(--hostel-primary);
+    font-weight: 600;
+}
+
+.hostel-kicker {
+    font-family: var(--hostel-font-display);
+    font-size: 0.8rem;
     font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 24px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hostel-kicker);
+    margin-bottom: 14px;
+    display: block;
 }
 
-/* Institutional Top Navigation Tabs matching Image 1 */
+.hostel-heading {
+    font-family: var(--hostel-font-display);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 800;
+    color: var(--hostel-primary);
+    line-height: 1.12;
+    margin: 0 0 16px;
+    letter-spacing: -0.03em;
+}
+
+.hostel-tagline {
+    font-family: var(--hostel-font-body);
+    font-size: 1.1rem;
+    color: var(--hostel-body);
+    line-height: 1.7;
+    max-width: 860px;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Institutional Stat Highlights Grid */
+.hostel-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.hostel-stat-card {
+    background: var(--hostel-bg-subtle);
+    border: 1px solid var(--hostel-border);
+    border-radius: 6px;
+    padding: 20px 24px;
+    transition: var(--hostel-transition);
+}
+
+.hostel-stat-card:hover {
+    border-color: var(--hostel-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.hostel-stat-num {
+    font-family: var(--hostel-font-display);
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--hostel-primary);
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+.hostel-stat-label {
+    font-family: var(--hostel-font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--hostel-muted);
+}
+
+/* Navigation Tabs - Clean Underline / Line Style */
 .hostel-tabs-nav {
     display: flex;
-    flex-wrap: wrap;
-    border-bottom: 2px solid #0284c7;
-    margin-bottom: 30px;
-    gap: 2px;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid var(--hostel-border);
+    margin-bottom: 36px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.hostel-tabs-nav::-webkit-scrollbar {
+    display: none;
 }
 
 .hostel-tab-btn {
-    padding: 10px 22px;
-    font-size: 15px;
+    font-family: var(--hostel-font-display);
+    font-size: 0.95rem;
     font-weight: 600;
-    color: #475569;
+    color: var(--hostel-muted);
     background: transparent;
     border: none;
+    border-bottom: 3px solid transparent;
+    padding: 14px 22px;
     cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border-radius: 4px 4px 0 0;
-    display: inline-block;
+    white-space: nowrap;
+    transition: var(--hostel-transition);
+    margin-bottom: -2px;
+    border-radius: 0;
+    outline: none;
 }
 
 .hostel-tab-btn:hover {
-    color: #0284c7;
-    background: #f1f5f9;
+    color: var(--hostel-accent);
 }
 
 .hostel-tab-btn.active {
-    background-color: #0284c7;
-    color: #ffffff;
+    color: var(--hostel-primary);
+    font-weight: 700;
+    border-bottom-color: var(--hostel-accent);
 }
 
-/* Tab Panes */
+/* Tab Content Panes */
 .hostel-tab-pane {
     display: none;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 32px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .hostel-tab-pane.active {
     display: block;
+    animation: hostelFadeIn 0.25s ease-out;
 }
 
-/* Administrational Structure Subtitle */
-.hostel-sub-intro {
-    font-size: 14.5px;
-    color: #334155;
-    margin-bottom: 20px;
+@keyframes hostelFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Institutional Tables */
+/* Section Header Component */
+.hostel-sec-header {
+    margin-bottom: 24px;
+}
+
+.hostel-sec-kicker {
+    font-family: var(--hostel-font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--hostel-kicker);
+    margin-bottom: 6px;
+    display: block;
+}
+
+.hostel-sec-title {
+    font-family: var(--hostel-font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--hostel-primary);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* Campus Overview Hero Card */
+.hostel-overview-card {
+    background: #ffffff;
+    border: 1px solid var(--hostel-border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.hostel-overview-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 0;
+    align-items: stretch;
+}
+
+.hostel-overview-media {
+    position: relative;
+    min-height: 280px;
+    background: var(--hostel-bg-subtle);
+    overflow: hidden;
+}
+
+.hostel-overview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hostel-overview-body {
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hostel-overview-lead {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--hostel-body);
+    margin: 0 0 20px;
+}
+
+.hostel-overview-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hostel-badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--hostel-primary);
+    background: var(--hostel-bg-subtle);
+    border: 1px solid var(--hostel-border);
+    padding: 6px 14px;
+    border-radius: 4px;
+}
+
+.hostel-badge-tag i {
+    color: var(--hostel-accent);
+}
+
+/* Governance & Organizational Structure Cards Grid */
+.hostel-gov-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.hostel-gov-card {
+    background: #ffffff;
+    border: 1px solid var(--hostel-border);
+    border-top: 3px solid var(--hostel-accent);
+    border-radius: 6px;
+    padding: 28px 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    transition: var(--hostel-transition);
+}
+
+.hostel-gov-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.hostel-gov-card-title {
+    font-family: var(--hostel-font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--hostel-primary);
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hostel-gov-card-title i {
+    color: var(--hostel-accent);
+    font-size: 1rem;
+}
+
+.hostel-gov-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hostel-gov-item {
+    font-size: 0.95rem;
+    color: var(--hostel-body);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--hostel-border-subtle);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.5;
+}
+
+.hostel-gov-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.hostel-gov-item-num {
+    font-family: var(--hostel-font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--hostel-accent);
+    background: var(--hostel-accent-light);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.hostel-gov-item-text {
+    flex: 1;
+}
+
+.hostel-gov-item-label {
+    font-weight: 700;
+    color: var(--hostel-primary);
+}
+
+/* Executive Leadership & Common Room Highlight Strip */
+.hostel-exec-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.hostel-exec-box {
+    background: var(--hostel-bg-subtle);
+    border: 1px solid var(--hostel-border);
+    border-radius: 6px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.hostel-exec-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    background: #ffffff;
+    border: 1px solid var(--hostel-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hostel-accent);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.hostel-exec-content {
+    flex: 1;
+}
+
+.hostel-exec-label {
+    font-family: var(--hostel-font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--hostel-muted);
+    margin-bottom: 4px;
+}
+
+.hostel-exec-name {
+    font-family: var(--hostel-font-display);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--hostel-primary);
+    margin-bottom: 6px;
+}
+
+.hostel-exec-sub {
+    font-size: 0.875rem;
+    color: var(--hostel-body);
+    line-height: 1.5;
+}
+
+/* Department-grade Institutional Tables */
 .hostel-table-wrap {
     overflow-x: auto;
-    border: 1px solid #cbd5e1;
-    border-radius: 4px;
-    margin-top: 15px;
+    border: 1px solid var(--hostel-border);
+    border-radius: 6px;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    margin-bottom: 30px;
 }
 
 .hostel-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
-    background: #ffffff;
+    font-size: 0.925rem;
+    text-align: left;
 }
 
-.hostel-table th {
-    background-color: #f8fafc;
-    color: #1e293b;
+.hostel-table thead th {
+    background-color: var(--hostel-bg-subtle);
+    color: var(--hostel-primary);
+    font-family: var(--hostel-font-display);
+    font-size: 0.8rem;
     font-weight: 700;
-    padding: 12px 16px;
-    border: 1px solid #cbd5e1;
-    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--hostel-border);
+    border-right: 1px solid var(--hostel-border);
+    white-space: nowrap;
 }
 
-.hostel-table td {
-    padding: 11px 16px;
-    border: 1px solid #cbd5e1;
-    color: #334155;
+.hostel-table thead th:last-child {
+    border-right: none;
+}
+
+.hostel-table tbody td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--hostel-border-subtle);
+    border-right: 1px solid var(--hostel-border-subtle);
+    color: var(--hostel-body);
     vertical-align: middle;
+    line-height: 1.6;
 }
 
-.hostel-table tr:hover td {
-    background-color: #f8fafc;
+.hostel-table tbody td:last-child {
+    border-right: none;
 }
 
-.hostel-table-center th,
-.hostel-table-center td {
-    text-align: center;
+.hostel-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
-.hostel-table th.text-left,
-.hostel-table td.text-left {
-    text-align: left;
+.hostel-table tbody tr:hover td {
+    background-color: #fafbfc;
 }
 
-/* Chevron Bullet Points matching Images 3, 4, 5 */
+.hostel-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-family: var(--hostel-font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--hostel-primary);
+    background: var(--hostel-bg-subtle);
+    border: 1px solid var(--hostel-border);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* Bullet Points Lists (Mess & Fees) */
+.hostel-bullet-card {
+    background: var(--hostel-bg-subtle);
+    border: 1px solid var(--hostel-border);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-bottom: 30px;
+}
+
 .hostel-bullet-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 24px 0;
+    margin: 0;
 }
 
 .hostel-bullet-item {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    font-size: 14.5px;
+    gap: 14px;
+    font-size: 0.98rem;
     line-height: 1.7;
-    color: #334155;
-    margin-bottom: 12px;
+    color: var(--hostel-body);
+    margin-bottom: 14px;
+}
+
+.hostel-bullet-item:last-child {
+    margin-bottom: 0;
 }
 
 .hostel-bullet-icon {
-    color: #0284c7;
-    font-size: 16px;
-    margin-top: 5px;
+    color: var(--hostel-accent);
+    font-size: 1rem;
+    margin-top: 4px;
     flex-shrink: 0;
 }
 
-/* Download Rules Link matching Image 5 */
-.hostel-rules-link {
+/* Rules Document Download Callout */
+.hostel-rules-callout {
+    background: #ffffff;
+    border: 1px solid var(--hostel-border);
+    border-left: 4px solid var(--hostel-accent);
+    border-radius: 6px;
+    padding: 32px 36px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.hostel-rules-info {
+    max-width: 680px;
+}
+
+.hostel-rules-title {
+    font-family: var(--hostel-font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--hostel-primary);
+    margin: 0 0 8px;
+}
+
+.hostel-rules-desc {
+    font-size: 0.95rem;
+    color: var(--hostel-body);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.hostel-rules-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #0284c7;
+    font-family: var(--hostel-font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--hostel-accent);
     text-decoration: none;
-    padding: 16px 20px;
-    background: #f0f9ff;
-    border: 1px solid #bae6fd;
-    border-radius: 6px;
-    transition: all 0.2s ease;
+    padding: 14px 26px;
+    border-radius: 4px;
+    transition: var(--hostel-transition);
+    white-space: nowrap;
 }
 
-.hostel-rules-link:hover {
-    background: #e0f2fe;
-    color: #0369a1;
+.hostel-rules-btn:hover {
+    background: var(--hostel-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(255, 136, 0, 0.28);
 }
 
-/* Photos Gallery matching Image 7 */
+/* Photo Gallery Grid */
 .hostel-photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
 }
 
 .hostel-photo-card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--hostel-border);
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: var(--hostel-transition);
 }
 
 .hostel-photo-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: var(--hostel-border);
+}
+
+.hostel-photo-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--hostel-bg-subtle);
 }
 
 .hostel-photo-thumb {
     width: 100%;
-    height: 170px;
+    height: 100%;
     object-fit: cover;
-    background-color: #f1f5f9;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hostel-photo-card:hover .hostel-photo-thumb {
+    transform: scale(1.04);
 }
 
 .hostel-photo-caption {
-    padding: 12px 14px;
-    text-align: center;
-    font-size: 14px;
+    padding: 14px 18px;
+    font-family: var(--hostel-font-display);
+    font-size: 0.9rem;
     font-weight: 600;
-    color: #1e293b;
-    border-top: 1px solid #f1f5f9;
+    color: var(--hostel-primary);
+    border-top: 1px solid var(--hostel-border-subtle);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .hostel-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hostel-overview-grid {
+        grid-template-columns: 1fr;
+    }
+    .hostel-overview-media {
+        min-height: 240px;
+        max-height: 360px;
+    }
+    .hostel-gov-grid {
+        grid-template-columns: 1fr;
+    }
+    .hostel-exec-strip {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
-    .hostel-tab-pane {
-        padding: 20px 16px;
+    .hostel-container {
+        padding: 0 20px;
+    }
+    .hostel-hero-banner {
+        padding: 32px 0 24px;
+        margin-bottom: 28px;
+    }
+    .hostel-overview-body {
+        padding: 24px 20px;
     }
     .hostel-tab-btn {
-        padding: 8px 14px;
-        font-size: 13.5px;
+        padding: 12px 16px;
+        font-size: 0.88rem;
     }
-    .hostel-table th, .hostel-table td {
-        padding: 8px 10px;
-        font-size: 13px;
+    .hostel-table thead th,
+    .hostel-table tbody td {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+    }
+    .hostel-stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    .hostel-stat-card {
+        padding: 16px;
+    }
+    .hostel-stat-num {
+        font-size: 1.6rem;
+    }
+    .hostel-gov-card {
+        padding: 20px;
     }
 }
-

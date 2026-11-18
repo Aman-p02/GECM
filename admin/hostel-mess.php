@@ -247,11 +247,23 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 }
 
 // Fetch all data for display
-$hostelData = $pdo ? $pdo->query("SELECT * FROM hostel_mess LIMIT 1")->fetch() : null;
-$staffList = $pdo ? $pdo->query("SELECT * FROM hostel_staff ORDER BY display_order ASC, id ASC")->fetchAll() : [];
-$blocksList = $pdo ? $pdo->query("SELECT * FROM hostel_blocks ORDER BY display_order ASC, sr_no ASC")->fetchAll() : [];
-$feesList = $pdo ? $pdo->query("SELECT * FROM hostel_fees ORDER BY display_order ASC, id ASC")->fetchAll() : [];
-$photosList = $pdo ? $pdo->query("SELECT * FROM hostel_photos ORDER BY display_order ASC, id DESC")->fetchAll() : [];
+$hostelData = null;
+$staffList = [];
+$blocksList = [];
+$feesList = [];
+$photosList = [];
+
+if ($pdo) {
+    try {
+        $hostelData = $pdo->query("SELECT * FROM hostel_mess LIMIT 1")->fetch();
+        $staffList = $pdo->query("SELECT * FROM hostel_staff ORDER BY display_order ASC, id ASC")->fetchAll();
+        $blocksList = $pdo->query("SELECT * FROM hostel_blocks ORDER BY display_order ASC, sr_no ASC")->fetchAll();
+        $feesList = $pdo->query("SELECT * FROM hostel_fees ORDER BY display_order ASC, id ASC")->fetchAll();
+        $photosList = $pdo->query("SELECT * FROM hostel_photos ORDER BY display_order ASC, id DESC")->fetchAll();
+    } catch (Throwable $e) {
+        error_log("Admin hostel data fetch error: " . $e->getMessage());
+    }
+}
 
 $editStaff = null;
 $editBlock = null;

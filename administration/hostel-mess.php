@@ -1,66 +1,161 @@
 <?php
+/**
+ * GEC MODASA - HOSTEL & MESS FACILITY
+ * Modern Department-Grade Editorial Design, 100% Mobile Responsive
+ */
 $page_title = "Hostel & Mess Facility | GEC Modasa";
 $active_page = 'hostel-mess';
 $root_path = '../';
 $extra_css = 'css/hostel-mess.css';
+
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/db.php';
 
-// Data queries
+// Official In-Memory Datasets Matching Institutional Records
+$defaultWardenStaff = [
+    ['work_description' => 'Warden & Care Taker', 'block_name' => 'A', 'warden' => "Prof. A. D. Chaudhari (Info. Tech. Dept.)", 'care_taker' => "Prof. J. P. Pandya (Civil Dept.)"],
+    ['work_description' => 'Warden & Care Taker', 'block_name' => 'B', 'warden' => "Prof. A. J. Patel (Applied Mechanics Dept.)", 'care_taker' => "Prof. D. B. Sathvara (Applied Mechanics Dept.)"],
+    ['work_description' => 'Warden & Care Taker', 'block_name' => 'C', 'warden' => "Prof. J. R. Bhavsar (Mechanical Dept.)", 'care_taker' => "Prof. N. V. Nagekar (Computer Dept.)"],
+    ['work_description' => 'Warden & Care Taker', 'block_name' => 'E (Ground Floor)', 'warden' => "Prof. A. K. Dodiya (Computer Dept.)", 'care_taker' => ''],
+    ['work_description' => 'Warden & Care Taker', 'block_name' => 'E (First Floor)', 'warden' => "Prof. M. G. Patel (Mechanical Dept.)", 'care_taker' => ''],
+    ['work_description' => 'Warden & Care Taker', 'block_name' => 'E (Second Floor)', 'warden' => "Prof. C. K. Bariya (Electrical Dept.)", 'care_taker' => ''],
+    ['work_description' => 'Warden & Care Taker', 'block_name' => 'E (Third Floor)', 'warden' => "Prof. M. M. Bhunga (Applied Mechanics Dept.)", 'care_taker' => ''],
+    ['work_description' => 'Warden & Care Taker', 'block_name' => "F (Girl's Hostel)", 'warden' => "Prof. S. K. Rana (EC Dept.)\nProf. Nehal S. Chawdhary (Computer Dept.)", 'care_taker' => "Prof. Rinkal J. Prajapati (Computer Dept.)\nProf. Hinal B. Thakar (Civil Dept.)"]
+];
+
+$defaultWorkStaff = [
+    ['work_description' => 'Civil works', 'staff_incharge' => 'Prof. D. A. Sagar (Applied Mechanics Dept.)'],
+    ['work_description' => 'Electrical works', 'staff_incharge' => 'Prof. J. B. Pujara (Electrical Dept.)'],
+    ['work_description' => 'Administrative works', 'staff_incharge' => 'Shri H. M. Vanakar (Mechanical Engineering)']
+];
+
+$defaultBlockCapacity = [
+    ['sr_no' => 1, 'block_name' => 'A', 'number_of_floor' => 'G + 2', 'total_rooms' => 44, 'number_of_students' => 132],
+    ['sr_no' => 2, 'block_name' => 'B', 'number_of_floor' => 'G + 2', 'total_rooms' => 44, 'number_of_students' => 132],
+    ['sr_no' => 3, 'block_name' => 'C', 'number_of_floor' => 'G + 2', 'total_rooms' => 44, 'number_of_students' => 132],
+    ['sr_no' => 4, 'block_name' => 'D', 'number_of_floor' => 'G + 2', 'total_rooms' => 16, 'number_of_students' => 48],
+    ['sr_no' => 5, 'block_name' => 'E', 'number_of_floor' => 'G + 3', 'total_rooms' => 122, 'number_of_students' => 366],
+    ['sr_no' => 6, 'block_name' => 'F', 'number_of_floor' => 'G + 2', 'total_rooms' => 32, 'number_of_students' => 96]
+];
+
+$defaultFeesStructure = [
+    ['year_name' => '1st year', 'hostel_fees' => '1750'],
+    ['year_name' => '2nd year', 'hostel_fees' => '1700'],
+    ['year_name' => '3rd year', 'hostel_fees' => '1700']
+];
+
+$defaultMessNotes = [
+    "The Mess is operated twice a day at lunch and at dinner.",
+    "The mess is operated by the private mess contractor.",
+    "The mess contractor is finalized based on the terms and condition of contract.",
+    "The mess committee is framed to monitor the quantity, quality and rates of food provided by the mess contractor.",
+    "The mess is non operative during vacation.",
+    "The hostel fee does not include mess fee. It is to be paid separately to the mess contractor as per the terms and condition of mess contract."
+];
+
+$defaultFeeNotes = [
+    "Hostel facility is available exclusively for boy students of GEC, Modasa campus only.",
+    "Hostel fee is non-transferable and not refundable.",
+    "The hostel fee does not include mess fee. It is to be paid separately to the mess contractor as per the terms and condition of mess contract.",
+    "Hostel facility is available upto 3rd year only."
+];
+
+// Initial State
 $hostelData = null;
-$wardenStaff = [];
-$workStaff = [];
-$blockCapacity = [];
-$feesStructure = [];
-$photos = [];
+$wardenStaff = $defaultWardenStaff;
+$workStaff = $defaultWorkStaff;
+$blockCapacity = $defaultBlockCapacity;
+$feesStructure = $defaultFeesStructure;
+$messPoints = $defaultMessNotes;
+$feePoints = $defaultFeeNotes;
+$photos = [
+    ['caption' => 'GEC Modasa - Main Hostel Building', 'image_path' => 'uploads/hostel/hostel_main.jpg'],
+    ['caption' => 'Hostel Campus & Residential Lawn', 'image_path' => 'uploads/hostel/hostel_campus.jpg']
+];
 
+// Safely query database when available
 if ($pdo) {
-    // 1. General Info & PDF
-    $stmtH = $pdo->query("SELECT * FROM hostel_mess LIMIT 1");
-    $hostelData = $stmtH ? $stmtH->fetch() : null;
+    try {
+        $stmtH = $pdo->query("SELECT * FROM hostel_mess LIMIT 1");
+        $hDb = $stmtH ? $stmtH->fetch(PDO::FETCH_ASSOC) : null;
+        if ($hDb) {
+            $hostelData = $hDb;
+            if (!empty($hDb['mess_notes'])) {
+                $messPoints = explode("\n", str_replace("\r", "", trim($hDb['mess_notes'])));
+            }
+            if (!empty($hDb['fee_notes'])) {
+                $feePoints = explode("\n", str_replace("\r", "", trim($hDb['fee_notes'])));
+            }
+        }
 
-    // 2. Staff Incharge (About)
-    $stmtW = $pdo->query("SELECT * FROM hostel_staff WHERE section_type = 'warden_caretaker' ORDER BY display_order ASC, id ASC");
-    $wardenStaff = $stmtW ? $stmtW->fetchAll() : [];
+        $stmtW = $pdo->query("SELECT * FROM hostel_staff WHERE section_type = 'warden_caretaker' ORDER BY display_order ASC, id ASC");
+        $wDb = $stmtW ? $stmtW->fetchAll(PDO::FETCH_ASSOC) : [];
+        if (!empty($wDb)) $wardenStaff = $wDb;
 
-    $stmtWorks = $pdo->query("SELECT * FROM hostel_staff WHERE section_type = 'works' ORDER BY display_order ASC, id ASC");
-    $workStaff = $stmtWorks ? $stmtWorks->fetchAll() : [];
+        $stmtWorks = $pdo->query("SELECT * FROM hostel_staff WHERE section_type = 'works' ORDER BY display_order ASC, id ASC");
+        $worksDb = $stmtWorks ? $stmtWorks->fetchAll(PDO::FETCH_ASSOC) : [];
+        if (!empty($worksDb)) $workStaff = $worksDb;
 
-    // 3. Block Capacity
-    $stmtB = $pdo->query("SELECT * FROM hostel_blocks ORDER BY display_order ASC, sr_no ASC");
-    $blockCapacity = $stmtB ? $stmtB->fetchAll() : [];
+        $stmtB = $pdo->query("SELECT * FROM hostel_blocks ORDER BY display_order ASC, sr_no ASC");
+        $bDb = $stmtB ? $stmtB->fetchAll(PDO::FETCH_ASSOC) : [];
+        if (!empty($bDb)) $blockCapacity = $bDb;
 
-    // 4. Fees
-    $stmtF = $pdo->query("SELECT * FROM hostel_fees ORDER BY display_order ASC, id ASC");
-    $feesStructure = $stmtF ? $stmtF->fetchAll() : [];
+        $stmtF = $pdo->query("SELECT * FROM hostel_fees ORDER BY display_order ASC, id ASC");
+        $fDb = $stmtF ? $stmtF->fetchAll(PDO::FETCH_ASSOC) : [];
+        if (!empty($fDb)) $feesStructure = $fDb;
 
-    // 5. Photos
-    $stmtP = $pdo->query("SELECT * FROM hostel_photos WHERE is_active = 1 ORDER BY display_order ASC, id ASC");
-    $photos = $stmtP ? $stmtP->fetchAll() : [];
+        $stmtP = $pdo->query("SELECT * FROM hostel_photos WHERE is_active = 1 ORDER BY display_order ASC, id ASC");
+        $pDb = $stmtP ? $stmtP->fetchAll(PDO::FETCH_ASSOC) : [];
+        if (!empty($pDb)) $photos = $pDb;
+    } catch (Throwable $e) {
+        error_log("Hostel data fetch error: " . $e->getMessage());
+    }
 }
 
 $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] : 'uploads/hostel/hostel_rules_and_regulations.pdf';
-
-// Parse bullet points
-$messPoints = !empty($hostelData['mess_notes']) ? explode("\n", str_replace("\r", "", trim($hostelData['mess_notes']))) : [];
-$feePoints = !empty($hostelData['fee_notes']) ? explode("\n", str_replace("\r", "", trim($hostelData['fee_notes']))) : [];
 ?>
 
-<div class="hostel-wrapper">
+<div class="hostel-page" id="mainContent">
     <div class="hostel-container">
-        
-        <!-- Breadcrumbs -->
-        <div class="hostel-breadcrumbs">
-            <a href="<?= $root_path ?>"><i class="fas fa-home"></i></a>
-            <span style="color: #cbd5e1; margin: 0 6px;">/</span>
-            <span>Administration</span>
-            <span style="color: #cbd5e1; margin: 0 6px;">/</span>
-            <span style="color: #1e293b; font-weight: 500;">Hostel &amp; Mess Facility</span>
+
+        <!-- Department-Style Hero Banner -->
+        <header class="hostel-hero-banner">
+            <div class="hostel-breadcrumbs">
+                <a href="<?= $root_path ?>"><i class="fas fa-home"></i></a>
+                <span class="sep">/</span>
+                <a href="<?= $root_path ?>administration/principal">Administration</a>
+                <span class="sep">/</span>
+                <span class="current">Hostel &amp; Mess Facility</span>
+            </div>
+
+            <span class="hostel-kicker">CAMPUS AMENITIES &amp; RESIDENTIAL LIFE</span>
+            <h1 class="hostel-heading">Hostel &amp; Mess Facility</h1>
+            <p class="hostel-tagline">
+                Comfortable, disciplined, and secure on-campus residential accommodation fostering academic focus, holistic personal development, and an inclusive student community across campus blocks.
+            </p>
+        </header>
+
+        <!-- Institutional Stat Highlights -->
+        <div class="hostel-stats-grid">
+            <div class="hostel-stat-card">
+                <div class="hostel-stat-num">4</div>
+                <div class="hostel-stat-label">Boys' Hostel Blocks</div>
+            </div>
+            <div class="hostel-stat-card">
+                <div class="hostel-stat-num">2</div>
+                <div class="hostel-stat-label">Girls' Hostel Blocks</div>
+            </div>
+            <div class="hostel-stat-card">
+                <div class="hostel-stat-num">462</div>
+                <div class="hostel-stat-label">Total Student Capacity</div>
+            </div>
+            <div class="hostel-stat-card">
+                <div class="hostel-stat-num">154</div>
+                <div class="hostel-stat-label">Furnished Rooms</div>
+            </div>
         </div>
 
-        <h1 class="hostel-page-title">Hostel &amp; Mess Facility</h1>
-
-        <!-- Navigation Tabs matching Image 1 -->
+        <!-- Clean Department-Grade Navigation Tabs -->
         <nav class="hostel-tabs-nav" aria-label="Hostel Sections">
             <button type="button" class="hostel-tab-btn active" data-target="aboutTab">About</button>
             <button type="button" class="hostel-tab-btn" data-target="messTab">Hostel Mess</button>
@@ -71,305 +166,356 @@ $feePoints = !empty($hostelData['fee_notes']) ? explode("\n", str_replace("\r", 
         </nav>
 
         <!-- ========================================================================= -->
-        <!-- TAB 1: ABOUT (Image 2 - Administrational Structure) -->
+        <!-- TAB 1: ABOUT (Overview, Committees, Leadership, Common Room & Staff Table) -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane active" id="aboutTab">
-            <p class="hostel-sub-intro">
-                The administrational structure of hostel is shown as below.
-            </p>
+
+            <!-- 1. Campus Overview Hero Card with Building Photo -->
+            <div class="hostel-overview-card">
+                <div class="hostel-overview-grid">
+                    <div class="hostel-overview-media">
+                        <img src="<?= $root_path ?>uploads/hostel/hostel_main.jpg" alt="Hostel Building - GEC Modasa" class="hostel-overview-img" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
+                    </div>
+                    <div class="hostel-overview-body">
+                        <span class="hostel-sec-kicker">RESIDENTIAL OVERVIEW</span>
+                        <h2 class="hostel-sec-title" style="margin-bottom: 16px;">Campus Residential Blocks</h2>
+                        <p class="hostel-overview-lead">
+                            The College has four Boys' Hostel blocks and two Girls' Hostel blocks near the campus to accommodate students coming from different parts of Gujarat and other states. The Boys' Hostels provide accommodation for 366 students in 122 rooms across various semesters. The Girls' Hostels have a capacity of 96 students in 32 rooms.
+                        </p>
+                        <p class="hostel-overview-lead" style="margin-bottom: 24px;">
+                            Hostel admission is granted based on distance based, department-wise, and category-wise criteria. Students are allowed to stay in the hostel for a maximum of six semesters (up to the 3rd year). The mess facility operates twice a day, serving lunch and dinner. Each room accommodates three students and is furnished with three steel beds, three chairs, three wall cupboards, and three study tables.
+                        </p>
+                        <div class="hostel-overview-badge-row">
+                            <span class="hostel-badge-tag"><i class="fas fa-bed"></i> 3 Beds &amp; Study Tables / Room</span>
+                            <span class="hostel-badge-tag"><i class="fas fa-utensils"></i> Lunch &amp; Dinner Mess Service</span>
+                            <span class="hostel-badge-tag"><i class="fas fa-calendar-alt"></i> Max 6 Semesters (Up to 3rd Yr)</span>
+                            <span class="hostel-badge-tag"><i class="fas fa-shield-alt"></i> 24x7 Campus Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Organizational Structure Committees Grid -->
+            <div class="hostel-sec-header">
+                <span class="hostel-sec-kicker">GOVERNANCE &amp; COMMITTEES</span>
+                <h2 class="hostel-sec-title">Organizational Structure of Hostel</h2>
+            </div>
+
+            <div class="hostel-gov-grid">
+                <!-- Card 1: Hostel Management Committee -->
+                <div class="hostel-gov-card">
+                    <h3 class="hostel-gov-card-title">
+                        <i class="fas fa-users-cog"></i> Hostel Management Committee
+                    </h3>
+                    <p style="font-size: 0.88rem; color: var(--hostel-muted); margin: 0 0 14px;">The following officers constitute the Hostel Management:</p>
+                    <ul class="hostel-gov-list">
+                        <li class="hostel-gov-item">
+                            <span class="hostel-gov-item-num">1</span>
+                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Principal</span> (Patron &amp; Head of Institute)</span>
+                        </li>
+                        <li class="hostel-gov-item">
+                            <span class="hostel-gov-item-num">2</span>
+                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Rector and / or Assistant Rector</span></span>
+                        </li>
+                        <li class="hostel-gov-item">
+                            <span class="hostel-gov-item-num">3</span>
+                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Wardens</span></span>
+                        </li>
+                        <li class="hostel-gov-item">
+                            <span class="hostel-gov-item-num">4</span>
+                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Care Takers</span></span>
+                        </li>
+                        <li class="hostel-gov-item">
+                            <span class="hostel-gov-item-num">5</span>
+                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Administrative Staff</span></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Institute Disciplinary Committee -->
+                <div class="hostel-gov-card">
+                    <h3 class="hostel-gov-card-title">
+                        <i class="fas fa-balance-scale"></i> Institute Disciplinary Committee
+                    </h3>
+                    <p style="font-size: 0.88rem; color: var(--hostel-muted); margin: 0 0 14px;">The following officers constitute the Institute Disciplinary Committee:</p>
+                    <ul class="hostel-gov-list">
+                        <li class="hostel-gov-item">
+                            <span class="hostel-gov-item-num">1</span>
+                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Principal</span> (Chairman)</span>
+                        </li>
+                        <li class="hostel-gov-item">
+                            <span class="hostel-gov-item-num">2</span>
+                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">All Heads of the Departments</span></span>
+                        </li>
+                        <li class="hostel-gov-item">
+                            <span class="hostel-gov-item-num">3</span>
+                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Rector and / or Assistant Rector</span></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3. Key Leadership & Common Room Highlight Strip -->
+            <div class="hostel-exec-strip">
+                <!-- Rector & Assistant Rectors Box -->
+                <div class="hostel-exec-box">
+                    <div class="hostel-exec-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="hostel-exec-content">
+                        <div class="hostel-exec-label">Hostel Leadership</div>
+                        <div class="hostel-exec-name">Prof. (Dr.) U. V. Shah</div>
+                        <div class="hostel-exec-sub"><strong>Rector</strong> (Professor &amp; Head, Mechanical Engineering Dept.)</div>
+                        <div class="hostel-exec-sub" style="margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--hostel-border);">
+                            <strong>Assistant Rector(s):</strong><br>
+                            &bull; Prof. P. R. Gamit (Assistant Prof., Computer Engineering Dept.)<br>
+                            &bull; Prof. P. V. Patel (Assistant Prof., EC Engineering Dept.)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Girl's Common Room Facility Box -->
+                <div class="hostel-exec-box">
+                    <div class="hostel-exec-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <div class="hostel-exec-content">
+                        <div class="hostel-exec-label">Campus Amenities</div>
+                        <div class="hostel-exec-name">Girl's Common Room Facility</div>
+                        <div class="hostel-exec-sub" style="margin-top: 4px;">
+                            <strong>1. Electrical Department:</strong> Room No. 7102<br>
+                            <strong>2. Girl's Hostel (Emergency Case):</strong> Recreation Hall
+                        </div>
+                        <div class="hostel-exec-sub" style="margin-top: 8px; font-size: 0.82rem; color: var(--hostel-muted);">
+                            Dedicated hygienic rest, study, and recreation spaces designated for female students across academic hours.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Staff Incharge Table (Administrational Structure) -->
+            <div class="hostel-sec-header" style="margin-top: 48px;">
+                <span class="hostel-sec-kicker">DUTY ALLOCATION &amp; CARETAKERS</span>
+                <h2 class="hostel-sec-title">Administrational Structure of Hostel</h2>
+                <p style="font-size: 0.95rem; color: var(--hostel-muted); margin: 6px 0 0;">
+                    The administrational structure and designated officers in charge of respective blocks are shown below:
+                </p>
+            </div>
 
             <div class="hostel-table-wrap">
                 <table class="hostel-table">
                     <thead>
                         <tr>
-                            <th rowspan="2" style="width: 25%;">Description of work</th>
+                            <th rowspan="2" style="width: 24%;">Description of work</th>
                             <th colspan="3" style="text-align: center;">Staff Incharge</th>
                         </tr>
                         <tr>
                             <th style="width: 22%; text-align: center;">Block</th>
-                            <th style="width: 26%;">Warden</th>
+                            <th style="width: 27%;">Warden</th>
                             <th style="width: 27%;">Care Taker</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($wardenStaff) && empty($workStaff)): ?>
+                        <?php 
+                        $wardenCount = count($wardenStaff);
+                        $first = true;
+                        foreach ($wardenStaff as $w): 
+                        ?>
                             <tr>
-                                <td colspan="4" style="text-align: center; padding: 25px; color: #64748b;">No administration records available.</td>
+                                <?php if ($first): ?>
+                                    <td rowspan="<?= $wardenCount ?>" style="font-weight: 700; color: var(--hostel-primary); vertical-align: top; background: #ffffff;">
+                                        <?= htmlspecialchars($w['work_description']) ?>
+                                    </td>
+                                    <?php $first = false; ?>
+                                <?php endif; ?>
+                                <td style="text-align: center;">
+                                    <span class="hostel-badge"><?= htmlspecialchars($w['block_name']) ?></span>
+                                </td>
+                                <td style="font-weight: 500; color: var(--hostel-primary);">
+                                    <?= nl2br(htmlspecialchars($w['warden'])) ?>
+                                </td>
+                                <td>
+                                    <?= !empty($w['care_taker']) ? nl2br(htmlspecialchars($w['care_taker'])) : '<span style="color: #94a3b8;">&mdash;</span>' ?>
+                                </td>
                             </tr>
-                        <?php else: ?>
-                            <?php 
-                            $wardenCount = count($wardenStaff);
-                            $first = true;
-                            foreach ($wardenStaff as $w): 
-                            ?>
-                                <tr>
-                                    <?php if ($first): ?>
-                                        <td rowspan="<?= $wardenCount ?>" style="font-weight: 600; color: #1e293b; vertical-align: top; background: #ffffff;">
-                                            <?= htmlspecialchars($w['work_description']) ?>
-                                        </td>
-                                        <?php $first = false; ?>
-                                    <?php endif; ?>
-                                    <td style="text-align: center; font-weight: 600;"><?= htmlspecialchars($w['block_name']) ?></td>
-                                    <td><?= nl2br(htmlspecialchars($w['warden'])) ?></td>
-                                    <td><?= !empty($w['care_taker']) ? nl2br(htmlspecialchars($w['care_taker'])) : '' ?></td>
-                                </tr>
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                            <!-- Works Section (Civil, Electrical, Administrative) -->
-                            <?php foreach ($workStaff as $ws): ?>
-                                <tr>
-                                    <td style="font-weight: 600; color: #1e293b;"><?= htmlspecialchars($ws['work_description']) ?></td>
-                                    <td colspan="3"><?= htmlspecialchars($ws['staff_incharge'] ?? $ws['warden']) ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                        <!-- Technical & Works Section (Civil, Electrical, Administrative) -->
+                        <?php foreach ($workStaff as $ws): ?>
+                            <tr>
+                                <td style="font-weight: 700; color: var(--hostel-primary);">
+                                    <?= htmlspecialchars($ws['work_description']) ?>
+                                </td>
+                                <td colspan="3" style="font-weight: 500; color: var(--hostel-primary);">
+                                    <?= htmlspecialchars($ws['staff_incharge'] ?? $ws['warden']) ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
+
         </div>
 
         <!-- ========================================================================= -->
-        <!-- TAB 2: HOSTEL MESS (Image 3) -->
+        <!-- TAB 2: HOSTEL MESS -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane" id="messTab">
-            <ul class="hostel-bullet-list">
-                <?php if (!empty($messPoints)): ?>
+            <div class="hostel-sec-header">
+                <span class="hostel-sec-kicker">CAMPUS DINING</span>
+                <h2 class="hostel-sec-title">Hostel Mess Facility &amp; Operational Guidelines</h2>
+            </div>
+
+            <div class="hostel-bullet-card">
+                <ul class="hostel-bullet-list">
                     <?php foreach ($messPoints as $pt): ?>
                         <?php if (!empty(trim($pt))): ?>
                             <li class="hostel-bullet-item">
-                                <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
+                                <i class="fas fa-check-circle hostel-bullet-icon"></i>
                                 <span><?= htmlspecialchars(trim($pt)) ?></span>
                             </li>
                         <?php endif; ?>
                     <?php endforeach; ?>
-                <?php else: ?>
-                    <li class="hostel-bullet-item">
-                        <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
-                        <span>The Mess is operated twice a day at lunch and at dinner.</span>
-                    </li>
-                    <li class="hostel-bullet-item">
-                        <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
-                        <span>The mess is operated by the private mess contractor.</span>
-                    </li>
-                    <li class="hostel-bullet-item">
-                        <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
-                        <span>The mess contractor is finalized based on the terms and condition of contract.</span>
-                    </li>
-                    <li class="hostel-bullet-item">
-                        <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
-                        <span>The mess committee is framed to monitor the quantity, quality and rates of food provided by the mess contractor.</span>
-                    </li>
-                    <li class="hostel-bullet-item">
-                        <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
-                        <span>The mess is non operative during vacation.</span>
-                    </li>
-                    <li class="hostel-bullet-item">
-                        <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
-                        <span>The hostel fee does not include mess fee. It is to be paid separately to the mess contractor as per the terms and condition of mess contract.</span>
-                    </li>
-                <?php endif; ?>
-            </ul>
+                </ul>
+            </div>
         </div>
 
         <!-- ========================================================================= -->
-        <!-- TAB 3: FEES STRUCTURE (Image 4) -->
+        <!-- TAB 3: FEES STRUCTURE -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane" id="feesTab">
-            <ul class="hostel-bullet-list">
-                <?php if (!empty($feePoints)): ?>
+            <div class="hostel-sec-header">
+                <span class="hostel-sec-kicker">ACCOMMODATION TARIFF</span>
+                <h2 class="hostel-sec-title">Hostel Fees Structure &amp; Regulations</h2>
+            </div>
+
+            <div class="hostel-bullet-card">
+                <ul class="hostel-bullet-list">
                     <?php foreach ($feePoints as $pt): ?>
                         <?php if (!empty(trim($pt))): ?>
                             <li class="hostel-bullet-item">
-                                <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
+                                <i class="fas fa-info-circle hostel-bullet-icon"></i>
                                 <span><?= htmlspecialchars(trim($pt)) ?></span>
                             </li>
                         <?php endif; ?>
                     <?php endforeach; ?>
-                <?php else: ?>
-                    <li class="hostel-bullet-item">
-                        <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
-                        <span>Hostel facility is available exclusively for boy students of GEC, Modasa campus only.</span>
-                    </li>
-                    <li class="hostel-bullet-item">
-                        <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
-                        <span>Hostel fee is non-transferable and not refundable.</span>
-                    </li>
-                    <li class="hostel-bullet-item">
-                        <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
-                        <span>The hostel fee does not include mess fee. It is to be paid separately to the mess contractor as per the terms and condition of mess contract.</span>
-                    </li>
-                    <li class="hostel-bullet-item">
-                        <i class="fas fa-chevron-circle-right hostel-bullet-icon"></i>
-                        <span>Hostel facility is available upto 3rd year only.</span>
-                    </li>
-                <?php endif; ?>
-            </ul>
+                </ul>
+            </div>
 
-            <div class="hostel-table-wrap" style="max-width: 900px;">
+            <div class="hostel-table-wrap" style="max-width: 800px;">
                 <table class="hostel-table">
                     <thead>
                         <tr>
-                            <th style="width: 50%;">Year</th>
-                            <th style="width: 50%;">Hostel Fees</th>
+                            <th style="width: 50%;">Academic Year / Term</th>
+                            <th style="width: 50%;">Hostel Fees (₹)</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($feesStructure)): ?>
+                        <?php foreach ($feesStructure as $f): ?>
                             <tr>
-                                <td>1st year</td>
-                                <td>1750</td>
+                                <td style="font-weight: 600; color: var(--hostel-primary);"><?= htmlspecialchars($f['year_name']) ?></td>
+                                <td style="font-weight: 700; color: var(--hostel-accent);">₹<?= htmlspecialchars($f['hostel_fees']) ?>/-</td>
                             </tr>
-                            <tr>
-                                <td>2nd year</td>
-                                <td>1700</td>
-                            </tr>
-                            <tr>
-                                <td>3rd year</td>
-                                <td>1700</td>
-                            </tr>
-                        <?php else: ?>
-                            <?php foreach ($feesStructure as $f): ?>
-                                <tr>
-                                    <td><?= htmlspecialchars($f['year_name']) ?></td>
-                                    <td><?= htmlspecialchars($f['hostel_fees']) ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
 
         <!-- ========================================================================= -->
-        <!-- TAB 4: HOSTEL RULES (Image 5) -->
+        <!-- TAB 4: HOSTEL RULES -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane" id="rulesTab">
-            <div style="padding: 20px 0;">
-                <a href="<?= htmlspecialchars($root_path . ltrim($rulesPdf, '/')) ?>" target="_blank" class="hostel-rules-link">
-                    <i class="fas fa-chevron-circle-right" style="font-size: 20px;"></i>
-                    <span>View/Download Updated Hostel Rules and Regulations</span>
-                </a>
+            <div class="hostel-sec-header">
+                <span class="hostel-sec-kicker">CODE OF CONDUCT &amp; COMPLIANCE</span>
+                <h2 class="hostel-sec-title">Hostel Rules &amp; Regulations</h2>
+            </div>
+
+            <div class="hostel-rules-callout">
+                <div class="hostel-rules-info">
+                    <h3 class="hostel-rules-title">Official Hostel Code of Conduct Document</h3>
+                    <p class="hostel-rules-desc">
+                        All resident students are strictly required to adhere to the institutional discipline policies, anti-ragging mandates, entry-exit timings, and campus code of conduct issued by the Directorate of Technical Education and Government Engineering College, Modasa.
+                    </p>
+                </div>
+                <div>
+                    <a href="<?= htmlspecialchars($root_path . ltrim($rulesPdf, '/')) ?>" target="_blank" rel="noopener noreferrer" class="hostel-rules-btn">
+                        <i class="fas fa-file-pdf"></i> Download Hostel Rules (PDF)
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- ========================================================================= -->
-        <!-- TAB 5: HOSTEL BLOCK CAPACITY (Image 6) -->
+        <!-- TAB 5: HOSTEL BLOCK CAPACITY -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane" id="capacityTab">
-            <div style="text-align: center; margin-bottom: 20px;">
-                <h2 style="font-size: 18px; font-weight: 700; color: #1e293b; margin: 0;">Hostel Block Wise Details</h2>
+            <div class="hostel-sec-header">
+                <span class="hostel-sec-kicker">INFRASTRUCTURE AUDIT</span>
+                <h2 class="hostel-sec-title">Hostel Block Wise Capacity Details</h2>
             </div>
 
             <div class="hostel-table-wrap">
                 <table class="hostel-table">
                     <thead>
                         <tr>
-                            <th style="width: 12%;">Sr No.</th>
+                            <th style="width: 12%; text-align: center;">Sr. No.</th>
                             <th style="width: 25%;">Block Name</th>
-                            <th style="width: 25%;">Number of Floor</th>
-                            <th style="width: 18%;">Total Rooms</th>
-                            <th style="width: 20%;">Number of Students</th>
+                            <th style="width: 25%;">Number of Floors</th>
+                            <th style="width: 18%; text-align: center;">Total Rooms</th>
+                            <th style="width: 20%; text-align: center;">Student Capacity</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
                         $sumRooms = 0;
                         $sumStudents = 0;
-                        if (!empty($blockCapacity)): 
-                            foreach ($blockCapacity as $b): 
-                                $sumRooms += (int)$b['total_rooms'];
-                                $sumStudents += (int)$b['number_of_students'];
+                        foreach ($blockCapacity as $b): 
+                            $sumRooms += (int)$b['total_rooms'];
+                            $sumStudents += (int)$b['number_of_students'];
                         ?>
-                                <tr>
-                                    <td><?= (int)$b['sr_no'] ?></td>
-                                    <td><?= htmlspecialchars($b['block_name']) ?></td>
-                                    <td><?= htmlspecialchars($b['number_of_floor']) ?></td>
-                                    <td><?= (int)$b['total_rooms'] ?></td>
-                                    <td><?= (int)$b['number_of_students'] ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                            <tr style="font-weight: 700; background-color: #f8fafc;">
-                                <td></td>
-                                <td>Total</td>
-                                <td></td>
-                                <td><?= $sumRooms ?></td>
-                                <td><?= $sumStudents ?></td>
-                            </tr>
-                        <?php else: ?>
                             <tr>
-                                <td>1</td>
-                                <td>A</td>
-                                <td>G + 2</td>
-                                <td>44</td>
-                                <td>132</td>
+                                <td style="text-align: center; color: var(--hostel-muted);"><?= (int)$b['sr_no'] ?></td>
+                                <td>
+                                    <span class="hostel-badge">Block <?= htmlspecialchars($b['block_name']) ?></span>
+                                </td>
+                                <td><?= htmlspecialchars($b['number_of_floor']) ?></td>
+                                <td style="text-align: center; font-weight: 600;"><?= (int)$b['total_rooms'] ?></td>
+                                <td style="text-align: center; font-weight: 700; color: var(--hostel-primary);"><?= (int)$b['number_of_students'] ?></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>B</td>
-                                <td>G + 2</td>
-                                <td>44</td>
-                                <td>132</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>C</td>
-                                <td>G + 2</td>
-                                <td>44</td>
-                                <td>132</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>D</td>
-                                <td>G + 2</td>
-                                <td>16</td>
-                                <td>48</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>E</td>
-                                <td>G + 3</td>
-                                <td>122</td>
-                                <td>366</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>F</td>
-                                <td>G + 2</td>
-                                <td>32</td>
-                                <td>96</td>
-                            </tr>
-                            <tr style="font-weight: 700; background-color: #f8fafc;">
-                                <td></td>
-                                <td>Total</td>
-                                <td></td>
-                                <td>302</td>
-                                <td>906</td>
-                            </tr>
-                        <?php endif; ?>
+                        <?php endforeach; ?>
+                        <tr style="font-weight: 800; background-color: var(--hostel-bg-subtle);">
+                            <td colspan="3" style="text-align: right; text-transform: uppercase; font-size: 0.82rem; letter-spacing: 0.05em; color: var(--hostel-primary);">
+                                Consolidated Campus Total
+                            </td>
+                            <td style="text-align: center; font-size: 1rem; color: var(--hostel-primary);"><?= $sumRooms ?> Rooms</td>
+                            <td style="text-align: center; font-size: 1rem; color: var(--hostel-accent);"><?= $sumStudents ?> Students</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
         <!-- ========================================================================= -->
-        <!-- TAB 6: PHOTOS GALLERY (Image 7) -->
+        <!-- TAB 6: PHOTOS GALLERY -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane" id="photosTab">
+            <div class="hostel-sec-header">
+                <span class="hostel-sec-kicker">CAMPUS LIFE &amp; LIVING</span>
+                <h2 class="hostel-sec-title">Hostel &amp; Residential Gallery</h2>
+            </div>
+
             <div class="hostel-photo-grid">
-                <?php if (empty($photos)): ?>
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #64748b;">
-                        No hostel photos uploaded yet.
-                    </div>
-                <?php else: ?>
-                    <?php foreach ($photos as $ph): ?>
-                        <div class="hostel-photo-card">
+                <?php foreach ($photos as $ph): ?>
+                    <div class="hostel-photo-card">
+                        <div class="hostel-photo-thumb-wrap">
                             <img src="<?= htmlspecialchars($root_path . ltrim($ph['image_path'], '/')) ?>" alt="<?= htmlspecialchars($ph['caption']) ?>" class="hostel-photo-thumb" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
-                            <div class="hostel-photo-caption">
-                                <?= htmlspecialchars($ph['caption']) ?>
-                            </div>
                         </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                        <div class="hostel-photo-caption">
+                            <?= htmlspecialchars($ph['caption']) ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
@@ -377,7 +523,7 @@ $feePoints = !empty($hostelData['fee_notes']) ? explode("\n", str_replace("\r", 
 </div>
 
 <script>
-// Tab Switching Script with Hash Support
+// Interactive Tab Switching Script with History Hash Support
 document.addEventListener('DOMContentLoaded', function () {
     const tabButtons = document.querySelectorAll('.hostel-tab-btn');
     const tabPanes = document.querySelectorAll('.hostel-tab-pane');
@@ -404,7 +550,12 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.addEventListener('click', function () {
             const targetId = this.getAttribute('data-target');
             activateTab(targetId);
-            window.location.hash = targetId.replace('Tab', '').toLowerCase();
+            const hashKey = targetId.replace('Tab', '').toLowerCase();
+            if (history.replaceState) {
+                history.replaceState(null, null, '#' + hashKey);
+            } else {
+                window.location.hash = hashKey;
+            }
         });
     });
 
