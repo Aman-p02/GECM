@@ -36,3 +36,26 @@
 6. **Single Page Title Enforcement**:
    - Adhered strictly to single topbar title across all admin pages (no duplicate `<h2>` titles).
    - Zero em-dash compliance checked and verified.
+
+---
+
+## Update: 18-Nov-2026 - Modular Section Folder Restructuring & Duplicate Stub Cleanup
+
+### Completed:
+1. **Section Restructuring**:
+   - Restructured all pages into dedicated modular folders:
+     - `about/`: 11 pages + index overview router (`about-gecm.php`, `overview.php`, `vision-mission.php`, `principal-message.php`, `facilities.php`, `idp.php`, `e-newsletters.php`, `brochure.php`, `mandatory-disclosure.php`, `rankings.php`, `mou.php`).
+     - `administration/`: 5 pages + index overview router (`principal.php`, `council-of-heads.php`, `account-section.php`, `hostel-mess.php`, `committees.php`).
+     - `academics/`: 2 pages + index overview router (`courses.php`, `admission.php`).
+     - `student-corner/`: 3 pages + index overview router (`student-section.php`, `student-rules.php`, `enrollment-details.php`).
+2. **Server-Level 301 Redirects (.htaccess)**:
+   - Configured robust environment-agnostic Apache mod_rewrite rules in `.htaccess`.
+   - Automatically 301 redirects legacy URLs (e.g. `/overview`, `/principal`, `/courses`, `/student-section`, with or without `.php`) to clean subfolder paths (`/about/overview`, `/administration/principal`, etc.) on both localhost and production.
+3. **Navigation & SEO Sync**:
+   - Updated `includes/header.php`, `includes/footer.php`, and `sitemap.xml` with clean URLs.
+4. **Duplicate Stub Elimination**:
+   - Removed all 21 legacy stub files from root directory.
+   - Clean root retained with only active root-level files: `index.php`, `contact.php`, `college-activities.php`, `departmental-activities.php`, `faculty-activities.php`, `developers.php`, `disclosure-pdf.php`.
+5. **Git Deployment**:
+   - Committed (`fab4911`) and pushed cleanly to GitHub `origin main`.
+
