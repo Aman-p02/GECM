@@ -29,6 +29,12 @@ $defaultWorkStaff = [
     ['work_description' => 'Administrative works', 'staff_incharge' => 'Shri H. M. Vanakar (Mechanical Engineering)']
 ];
 
+$defaultLeadership = [
+    ['role_badge' => 'Chief Warden / Rector', 'name' => 'Prof. (Dr.) U. V. Shah', 'designation' => 'Professor & Head', 'department' => 'Mechanical Engineering Department', 'is_primary' => 1, 'display_order' => 1],
+    ['role_badge' => 'Assistant Rector', 'name' => 'Prof. P. R. Gamit', 'designation' => 'Assistant Professor', 'department' => 'Computer Engineering Department', 'is_primary' => 0, 'display_order' => 2],
+    ['role_badge' => 'Assistant Rector', 'name' => 'Prof. P. V. Patel', 'designation' => 'Assistant Professor', 'department' => 'Electronics & Communication Dept.', 'is_primary' => 0, 'display_order' => 3]
+];
+
 $defaultBlockCapacity = [
     ['sr_no' => 1, 'block_name' => 'A', 'number_of_floor' => 'G + 2', 'total_rooms' => 44, 'number_of_students' => 132],
     ['sr_no' => 2, 'block_name' => 'B', 'number_of_floor' => 'G + 2', 'total_rooms' => 44, 'number_of_students' => 132],
@@ -62,6 +68,7 @@ $defaultFeeNotes = [
 
 // Initial State
 $hostelData = null;
+$leadershipList = $defaultLeadership;
 $wardenStaff = $defaultWardenStaff;
 $workStaff = $defaultWorkStaff;
 $blockCapacity = $defaultBlockCapacity;
@@ -86,6 +93,10 @@ if ($pdo) {
                 $feePoints = explode("\n", str_replace("\r", "", trim($hDb['fee_notes'])));
             }
         }
+
+        $stmtLd = $pdo->query("SELECT * FROM hostel_leadership ORDER BY display_order ASC, id ASC");
+        $ldDb = $stmtLd ? $stmtLd->fetchAll(PDO::FETCH_ASSOC) : [];
+        if (!empty($ldDb)) $leadershipList = $ldDb;
 
         $stmtW = $pdo->query("SELECT * FROM hostel_staff WHERE section_type = 'warden_caretaker' ORDER BY display_order ASC, id ASC");
         $wDb = $stmtW ? $stmtW->fetchAll(PDO::FETCH_ASSOC) : [];
@@ -310,29 +321,14 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
             </div>
 
             <div class="hostel-leadership-cards">
-                <!-- Rector Card -->
-                <div class="hostel-leader-tile hostel-leader-primary">
-                    <span class="hostel-leader-role-tag">Chief Warden / Rector</span>
-                    <h3 class="hostel-leader-name">Prof. (Dr.) U. V. Shah</h3>
-                    <div class="hostel-leader-desig">Professor &amp; Head</div>
-                    <div class="hostel-leader-dept">Mechanical Engineering Department</div>
-                </div>
-
-                <!-- Assistant Rector 1 -->
-                <div class="hostel-leader-tile">
-                    <span class="hostel-leader-role-tag">Assistant Rector</span>
-                    <h3 class="hostel-leader-name">Prof. P. R. Gamit</h3>
-                    <div class="hostel-leader-desig">Assistant Professor</div>
-                    <div class="hostel-leader-dept">Computer Engineering Department</div>
-                </div>
-
-                <!-- Assistant Rector 2 -->
-                <div class="hostel-leader-tile">
-                    <span class="hostel-leader-role-tag">Assistant Rector</span>
-                    <h3 class="hostel-leader-name">Prof. P. V. Patel</h3>
-                    <div class="hostel-leader-desig">Assistant Professor</div>
-                    <div class="hostel-leader-dept">Electronics &amp; Communication Dept.</div>
-                </div>
+                <?php foreach ($leadershipList as $ld): ?>
+                    <div class="hostel-leader-tile <?= !empty($ld['is_primary']) ? 'hostel-leader-primary' : '' ?>">
+                        <span class="hostel-leader-role-tag"><?= htmlspecialchars($ld['role_badge']) ?></span>
+                        <h3 class="hostel-leader-name"><?= htmlspecialchars($ld['name']) ?></h3>
+                        <div class="hostel-leader-desig"><?= htmlspecialchars($ld['designation']) ?></div>
+                        <div class="hostel-leader-dept"><?= htmlspecialchars($ld['department']) ?></div>
+                    </div>
+                <?php endforeach; ?>
             </div>
 
             <!-- 4. Campus Student Welfare: Girl's Common Room Facility -->

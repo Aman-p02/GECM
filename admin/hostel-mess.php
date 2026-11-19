@@ -21,6 +21,57 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     $action = $_POST['action'] ?? '';
 
     // =========================================================================
+    // 0. HOSTEL LEADERSHIP ACTIONS (RECTOR & ASSISTANT RECTORS)
+    // =========================================================================
+    if ($action === 'add_leadership') {
+        $role_badge = trim($_POST['role_badge'] ?? 'Assistant Rector');
+        $name = trim($_POST['name'] ?? '');
+        $designation = trim($_POST['designation'] ?? '');
+        $department = trim($_POST['department'] ?? '');
+        $is_primary = isset($_POST['is_primary']) ? 1 : 0;
+        $display_order = (int)($_POST['display_order'] ?? 0);
+
+        if (!empty($name)) {
+            $stmt = $pdo->prepare("INSERT INTO hostel_leadership (role_badge, name, designation, department, is_primary, display_order) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->execute([$role_badge, $name, $designation, $department, $is_primary, $display_order]);
+            setFlashMessage('success', 'Hostel leadership officer added successfully.');
+        } else {
+            setFlashMessage('danger', 'Officer name cannot be empty.');
+        }
+        header('Location: hostel-mess?tab=leadership');
+        exit;
+    }
+
+    if ($action === 'edit_leadership') {
+        $id = (int)($_POST['id'] ?? 0);
+        $role_badge = trim($_POST['role_badge'] ?? 'Assistant Rector');
+        $name = trim($_POST['name'] ?? '');
+        $designation = trim($_POST['designation'] ?? '');
+        $department = trim($_POST['department'] ?? '');
+        $is_primary = isset($_POST['is_primary']) ? 1 : 0;
+        $display_order = (int)($_POST['display_order'] ?? 0);
+
+        if ($id > 0 && !empty($name)) {
+            $stmt = $pdo->prepare("UPDATE hostel_leadership SET role_badge = ?, name = ?, designation = ?, department = ?, is_primary = ?, display_order = ? WHERE id = ?");
+            $stmt->execute([$role_badge, $name, $designation, $department, $is_primary, $display_order, $id]);
+            setFlashMessage('success', 'Hostel leadership officer updated successfully.');
+        }
+        header('Location: hostel-mess?tab=leadership');
+        exit;
+    }
+
+    if ($action === 'delete_leadership') {
+        $id = (int)($_POST['id'] ?? 0);
+        if ($id > 0) {
+            $stmt = $pdo->prepare("DELETE FROM hostel_leadership WHERE id = ?");
+            $stmt->execute([$id]);
+            setFlashMessage('success', 'Leadership officer record removed.');
+        }
+        header('Location: hostel-mess?tab=leadership');
+        exit;
+    }
+
+    // =========================================================================
     // 1. UPLOAD HOSTEL RULES PDF
     // =========================================================================
     if ($action === 'upload_rules_pdf') {
@@ -31,13 +82,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
             if (!in_array($ext, $allowed)) {
                 setFlashMessage('danger', 'Only PDF files are allowed for Hostel Rules.');
-                header('Location: hostel-mess.php?tab=rules');
+                header('Location: hostel-mess?tab=rules');
                 exit;
             }
 
             if ($file['size'] > 25 * 1024 * 1024) {
                 setFlashMessage('danger', 'File size exceeds maximum limit of 25MB.');
-                header('Location: hostel-mess.php?tab=rules');
+                header('Location: hostel-mess?tab=rules');
                 exit;
             }
 
@@ -60,7 +111,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         } else {
             setFlashMessage('danger', 'Please choose a valid PDF file to upload.');
         }
-        header('Location: hostel-mess.php?tab=rules');
+        header('Location: hostel-mess?tab=rules');
         exit;
     }
 
@@ -79,7 +130,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         $stmt = $pdo->prepare("INSERT INTO hostel_staff (section_type, work_description, block_name, warden, care_taker, staff_incharge, display_order) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$section_type, $work_description, $block_name, $warden, $care_taker, $staff_incharge, $display_order]);
         setFlashMessage('success', 'Staff in-charge entry added successfully.');
-        header('Location: hostel-mess.php?tab=staff');
+        header('Location: hostel-mess?tab=staff');
         exit;
     }
 
@@ -98,7 +149,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $stmt->execute([$section_type, $work_description, $block_name, $warden, $care_taker, $staff_incharge, $display_order, $id]);
             setFlashMessage('success', 'Staff in-charge record updated.');
         }
-        header('Location: hostel-mess.php?tab=staff');
+        header('Location: hostel-mess?tab=staff');
         exit;
     }
 
@@ -109,7 +160,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $stmt->execute([$id]);
             setFlashMessage('success', 'Staff entry removed.');
         }
-        header('Location: hostel-mess.php?tab=staff');
+        header('Location: hostel-mess?tab=staff');
         exit;
     }
 
@@ -129,7 +180,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $stmt->execute([$sr_no, $block_name, $number_of_floor, $total_rooms, $number_of_students, $display_order]);
             setFlashMessage('success', 'Hostel block capacity added.');
         }
-        header('Location: hostel-mess.php?tab=blocks');
+        header('Location: hostel-mess?tab=blocks');
         exit;
     }
 
@@ -147,7 +198,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $stmt->execute([$sr_no, $block_name, $number_of_floor, $total_rooms, $number_of_students, $display_order, $id]);
             setFlashMessage('success', 'Block capacity updated.');
         }
-        header('Location: hostel-mess.php?tab=blocks');
+        header('Location: hostel-mess?tab=blocks');
         exit;
     }
 
@@ -158,7 +209,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $stmt->execute([$id]);
             setFlashMessage('success', 'Block entry deleted.');
         }
-        header('Location: hostel-mess.php?tab=blocks');
+        header('Location: hostel-mess?tab=blocks');
         exit;
     }
 
@@ -170,7 +221,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         $stmt = $pdo->prepare("UPDATE hostel_mess SET fee_notes = ? WHERE id = 1");
         $stmt->execute([$fee_notes]);
         setFlashMessage('success', 'Hostel fee guidelines updated.');
-        header('Location: hostel-mess.php?tab=fees');
+        header('Location: hostel-mess?tab=fees');
         exit;
     }
 
@@ -184,7 +235,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $stmt->execute([$year_name, $hostel_fees, $display_order]);
             setFlashMessage('success', 'Fee row added.');
         }
-        header('Location: hostel-mess.php?tab=fees');
+        header('Location: hostel-mess?tab=fees');
         exit;
     }
 
@@ -195,7 +246,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $stmt->execute([$id]);
             setFlashMessage('success', 'Fee row removed.');
         }
-        header('Location: hostel-mess.php?tab=fees');
+        header('Location: hostel-mess?tab=fees');
         exit;
     }
 
@@ -207,7 +258,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         $stmt = $pdo->prepare("UPDATE hostel_mess SET mess_notes = ? WHERE id = 1");
         $stmt->execute([$mess_notes]);
         setFlashMessage('success', 'Hostel mess guidelines updated successfully.');
-        header('Location: hostel-mess.php?tab=mess');
+        header('Location: hostel-mess?tab=mess');
         exit;
     }
 
@@ -230,7 +281,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         } else {
             setFlashMessage('danger', 'Please select an image file to upload.');
         }
-        header('Location: hostel-mess.php?tab=photos');
+        header('Location: hostel-mess?tab=photos');
         exit;
     }
 
@@ -241,13 +292,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
             $stmt->execute([$id]);
             setFlashMessage('success', 'Photo removed.');
         }
-        header('Location: hostel-mess.php?tab=photos');
+        header('Location: hostel-mess?tab=photos');
         exit;
     }
 }
 
 // Fetch all data for display
 $hostelData = null;
+$leadershipList = [];
 $staffList = [];
 $blocksList = [];
 $feesList = [];
@@ -256,6 +308,7 @@ $photosList = [];
 if ($pdo) {
     try {
         $hostelData = $pdo->query("SELECT * FROM hostel_mess LIMIT 1")->fetch();
+        $leadershipList = $pdo->query("SELECT * FROM hostel_leadership ORDER BY display_order ASC, id ASC")->fetchAll();
         $staffList = $pdo->query("SELECT * FROM hostel_staff ORDER BY display_order ASC, id ASC")->fetchAll();
         $blocksList = $pdo->query("SELECT * FROM hostel_blocks ORDER BY display_order ASC, sr_no ASC")->fetchAll();
         $feesList = $pdo->query("SELECT * FROM hostel_fees ORDER BY display_order ASC, id ASC")->fetchAll();
@@ -265,10 +318,15 @@ if ($pdo) {
     }
 }
 
+$editLeadership = null;
 $editStaff = null;
 $editBlock = null;
 if ($editId > 0 && $pdo) {
-    if ($activeTab === 'staff') {
+    if ($activeTab === 'leadership') {
+        $stmt = $pdo->prepare("SELECT * FROM hostel_leadership WHERE id = ?");
+        $stmt->execute([$editId]);
+        $editLeadership = $stmt->fetch();
+    } elseif ($activeTab === 'staff') {
         $stmt = $pdo->prepare("SELECT * FROM hostel_staff WHERE id = ?");
         $stmt->execute([$editId]);
         $editStaff = $stmt->fetch();
@@ -292,37 +350,165 @@ include __DIR__ . '/includes/header.php';
 <div class="card" style="margin-bottom: 1.5rem; padding: 0.5rem;">
     <ul class="nav nav-tabs-modern" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0; padding: 0; list-style: none;">
         <li>
-            <a href="hostel-mess.php?tab=rules" class="btn <?= ($activeTab === 'rules') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
+            <a href="hostel-mess?tab=leadership" class="btn <?= ($activeTab === 'leadership') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
+                <i class="fas fa-user-tie"></i> Hostel Leadership (<?= count($leadershipList) ?>)
+            </a>
+        </li>
+        <li>
+            <a href="hostel-mess?tab=rules" class="btn <?= ($activeTab === 'rules') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
                 <i class="fas fa-file-pdf"></i> Hostel Rules PDF
             </a>
         </li>
         <li>
-            <a href="hostel-mess.php?tab=staff" class="btn <?= ($activeTab === 'staff') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
+            <a href="hostel-mess?tab=staff" class="btn <?= ($activeTab === 'staff') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
                 <i class="fas fa-users-cog"></i> Duty Allocation &amp; Caretakers (<?= count($staffList) ?>)
             </a>
         </li>
         <li>
-            <a href="hostel-mess.php?tab=blocks" class="btn <?= ($activeTab === 'blocks') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
+            <a href="hostel-mess?tab=blocks" class="btn <?= ($activeTab === 'blocks') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
                 <i class="fas fa-building"></i> Block Capacity (<?= count($blocksList) ?>)
             </a>
         </li>
         <li>
-            <a href="hostel-mess.php?tab=fees" class="btn <?= ($activeTab === 'fees') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
+            <a href="hostel-mess?tab=fees" class="btn <?= ($activeTab === 'fees') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
                 <i class="fas fa-money-bill-wave"></i> Fees Structure (<?= count($feesList) ?>)
             </a>
         </li>
         <li>
-            <a href="hostel-mess.php?tab=mess" class="btn <?= ($activeTab === 'mess') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
+            <a href="hostel-mess?tab=mess" class="btn <?= ($activeTab === 'mess') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
                 <i class="fas fa-utensils"></i> Mess Guidelines
             </a>
         </li>
         <li>
-            <a href="hostel-mess.php?tab=photos" class="btn <?= ($activeTab === 'photos') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
+            <a href="hostel-mess?tab=photos" class="btn <?= ($activeTab === 'photos') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
                 <i class="fas fa-images"></i> Photos Gallery (<?= count($photosList) ?>)
             </a>
         </li>
     </ul>
 </div>
+
+<!-- ========================================================================= -->
+<!-- TAB 0: HOSTEL LEADERSHIP & ADMINISTRATION -->
+<!-- ========================================================================= -->
+<?php if ($activeTab === 'leadership'): ?>
+<div class="card" style="margin-bottom: 2rem;">
+    <div style="font-weight: 600; font-size: 1.1rem; color: #1e293b; margin-bottom: 1.25rem;">
+        <i class="fas fa-<?= $editLeadership ? 'edit' : 'user-plus' ?> text-primary"></i>
+        <?= $editLeadership ? 'Edit Hostel Leadership Officer' : 'Add New Hostel Leadership Officer' ?>
+    </div>
+    <form method="POST" action="hostel-mess?tab=leadership">
+        <input type="hidden" name="action" value="<?= $editLeadership ? 'edit_leadership' : 'add_leadership' ?>">
+        <?php if ($editLeadership): ?>
+            <input type="hidden" name="id" value="<?= (int)$editLeadership['id'] ?>">
+        <?php endif; ?>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600;">Role / Badge <span class="text-danger">*</span></label>
+                <input type="text" name="role_badge" class="form-control" required placeholder="e.g. Chief Warden / Rector or Assistant Rector" value="<?= htmlspecialchars($editLeadership['role_badge'] ?? 'Assistant Rector') ?>">
+                <small class="text-muted">Displayed as the blue pill tag above the name.</small>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600;">Full Name with Salutation <span class="text-danger">*</span></label>
+                <input type="text" name="name" class="form-control" required placeholder="e.g. Prof. (Dr.) U. V. Shah" value="<?= htmlspecialchars($editLeadership['name'] ?? '') ?>">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600;">Designation</label>
+                <input type="text" name="designation" class="form-control" placeholder="e.g. Professor & Head / Assistant Professor" value="<?= htmlspecialchars($editLeadership['designation'] ?? 'Assistant Professor') ?>">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600;">Department / Unit</label>
+                <input type="text" name="department" class="form-control" placeholder="e.g. Mechanical Engineering Department" value="<?= htmlspecialchars($editLeadership['department'] ?? '') ?>">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" style="font-weight: 600;">Display Priority / Order</label>
+                <input type="number" name="display_order" class="form-control" value="<?= (int)($editLeadership['display_order'] ?? (count($leadershipList) + 1)) ?>">
+            </div>
+
+            <div class="form-group" style="display: flex; align-items: center; margin-top: 1.8rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; cursor: pointer;">
+                    <input type="checkbox" name="is_primary" value="1" <?= (!empty($editLeadership['is_primary'])) ? 'checked' : '' ?>>
+                    Mark as Primary / Chief Rector (Highlighted)
+                </label>
+            </div>
+        </div>
+
+        <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem;">
+            <button type="submit" class="btn btn-primary" style="font-weight: 600;">
+                <i class="fas fa-save"></i> <?= $editLeadership ? 'Update Officer' : 'Save Officer' ?>
+            </button>
+            <?php if ($editLeadership): ?>
+                <a href="hostel-mess?tab=leadership" class="btn btn-light">Cancel Edit</a>
+            <?php endif; ?>
+        </div>
+    </form>
+</div>
+
+<div class="card">
+    <div style="font-weight: 600; font-size: 1.1rem; color: #1e293b; margin-bottom: 1rem;">
+        Hostel Leadership &amp; Administration Directory (<?= count($leadershipList) ?>)
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 50px;">Order</th>
+                    <th>Role / Badge</th>
+                    <th>Officer Name</th>
+                    <th>Designation</th>
+                    <th>Department</th>
+                    <th>Role Type</th>
+                    <th style="width: 140px; text-align: center;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (empty($leadershipList)): ?>
+                    <tr class="no-records-row"><td colspan="7" class="text-center" style="padding: 2rem; color: #64748b;">No leadership records found.</td></tr>
+                <?php else: ?>
+                    <?php foreach ($leadershipList as $ld): ?>
+                        <tr>
+                            <td><span class="badge badge-light"><?= (int)$ld['display_order'] ?></span></td>
+                            <td>
+                                <span class="badge badge-primary" style="font-size: 11px; text-transform: uppercase;">
+                                    <?= htmlspecialchars($ld['role_badge']) ?>
+                                </span>
+                            </td>
+                            <td style="font-weight: 600; color: #1e293b;"><?= htmlspecialchars($ld['name']) ?></td>
+                            <td><?= htmlspecialchars($ld['designation'] ?: '--') ?></td>
+                            <td><?= htmlspecialchars($ld['department'] ?: '--') ?></td>
+                            <td>
+                                <?php if (!empty($ld['is_primary'])): ?>
+                                    <span class="badge badge-success">Primary / Chief</span>
+                                <?php else: ?>
+                                    <span class="badge badge-secondary">Assistant</span>
+                                <?php endif; ?>
+                            </td>
+                            <td style="text-align: center;">
+                                <div style="display: inline-flex; gap: 0.4rem;">
+                                    <a href="hostel-mess?tab=leadership&edit_id=<?= (int)$ld['id'] ?>" class="btn btn-sm btn-outline-primary" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form method="POST" action="hostel-mess?tab=leadership" onsubmit="return confirm('Delete this officer from hostel leadership?');" style="margin: 0;">
+                                        <input type="hidden" name="action" value="delete_leadership">
+                                        <input type="hidden" name="id" value="<?= (int)$ld['id'] ?>">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="Delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<?php endif; ?>
 
 <!-- ========================================================================= -->
 <!-- TAB 1: HOSTEL RULES PDF -->
@@ -349,7 +535,7 @@ include __DIR__ . '/includes/header.php';
         <?php endif; ?>
     </div>
 
-    <form method="POST" action="hostel-mess.php?tab=rules" enctype="multipart/form-data">
+    <form method="POST" action="hostel-mess?tab=rules" enctype="multipart/form-data">
         <input type="hidden" name="action" value="upload_rules_pdf">
         <div class="form-group" style="margin-bottom: 1.25rem;">
             <label class="form-label" style="font-weight: 600;">Select New Hostel Rules &amp; Regulations PDF <span class="text-danger">*</span></label>
@@ -372,7 +558,7 @@ include __DIR__ . '/includes/header.php';
         <i class="fas fa-<?= $editStaff ? 'edit' : 'plus-circle' ?> text-primary"></i>
         <?= $editStaff ? 'Edit Staff In-Charge' : 'Add New Staff / Warden In-Charge' ?>
     </div>
-    <form method="POST" action="hostel-mess.php?tab=staff">
+    <form method="POST" action="hostel-mess?tab=staff">
         <input type="hidden" name="action" value="<?= $editStaff ? 'edit_staff' : 'add_staff' ?>">
         <?php if ($editStaff): ?>
             <input type="hidden" name="id" value="<?= (int)$editStaff['id'] ?>">
@@ -423,7 +609,7 @@ include __DIR__ . '/includes/header.php';
                 <i class="fas fa-save"></i> <?= $editStaff ? 'Update Entry' : 'Add Staff Entry' ?>
             </button>
             <?php if ($editStaff): ?>
-                <a href="hostel-mess.php?tab=staff" class="btn btn-light">Cancel Edit</a>
+                <a href="hostel-mess?tab=staff" class="btn btn-light">Cancel Edit</a>
             <?php endif; ?>
         </div>
     </form>
@@ -460,10 +646,10 @@ include __DIR__ . '/includes/header.php';
                             <td><?= nl2br(htmlspecialchars($s['care_taker'] ?: '--')) ?></td>
                             <td style="text-align: center;">
                                 <div style="display: inline-flex; gap: 0.4rem;">
-                                    <a href="hostel-mess.php?tab=staff&edit_id=<?= (int)$s['id'] ?>" class="btn btn-sm btn-outline-primary" title="Edit">
+                                    <a href="hostel-mess?tab=staff&edit_id=<?= (int)$s['id'] ?>" class="btn btn-sm btn-outline-primary" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <form method="POST" action="hostel-mess.php?tab=staff" onsubmit="return confirm('Delete this staff record?');" style="margin: 0;">
+                                    <form method="POST" action="hostel-mess?tab=staff" onsubmit="return confirm('Delete this staff record?');" style="margin: 0;">
                                         <input type="hidden" name="action" value="delete_staff">
                                         <input type="hidden" name="id" value="<?= (int)$s['id'] ?>">
                                         <button type="submit" class="btn btn-sm btn-outline-danger" title="Delete">
@@ -490,7 +676,7 @@ include __DIR__ . '/includes/header.php';
         <i class="fas fa-<?= $editBlock ? 'edit' : 'plus-circle' ?> text-primary"></i>
         <?= $editBlock ? 'Edit Block Capacity' : 'Add New Block Capacity' ?>
     </div>
-    <form method="POST" action="hostel-mess.php?tab=blocks">
+    <form method="POST" action="hostel-mess?tab=blocks">
         <input type="hidden" name="action" value="<?= $editBlock ? 'edit_block' : 'add_block' ?>">
         <?php if ($editBlock): ?>
             <input type="hidden" name="id" value="<?= (int)$editBlock['id'] ?>">
@@ -533,7 +719,7 @@ include __DIR__ . '/includes/header.php';
                 <i class="fas fa-save"></i> <?= $editBlock ? 'Update Block' : 'Add Block Entry' ?>
             </button>
             <?php if ($editBlock): ?>
-                <a href="hostel-mess.php?tab=blocks" class="btn btn-light">Cancel Edit</a>
+                <a href="hostel-mess?tab=blocks" class="btn btn-light">Cancel Edit</a>
             <?php endif; ?>
         </div>
     </form>
@@ -570,10 +756,10 @@ include __DIR__ . '/includes/header.php';
                         <td><?= (int)$b['number_of_students'] ?></td>
                         <td style="text-align: center;">
                             <div style="display: inline-flex; gap: 0.4rem;">
-                                <a href="hostel-mess.php?tab=blocks&edit_id=<?= (int)$b['id'] ?>" class="btn btn-sm btn-outline-primary" title="Edit">
+                                <a href="hostel-mess?tab=blocks&edit_id=<?= (int)$b['id'] ?>" class="btn btn-sm btn-outline-primary" title="Edit">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form method="POST" action="hostel-mess.php?tab=blocks" onsubmit="return confirm('Delete this block?');" style="margin: 0;">
+                                <form method="POST" action="hostel-mess?tab=blocks" onsubmit="return confirm('Delete this block?');" style="margin: 0;">
                                     <input type="hidden" name="action" value="delete_block">
                                     <input type="hidden" name="id" value="<?= (int)$b['id'] ?>">
                                     <button type="submit" class="btn btn-sm btn-outline-danger" title="Delete">
@@ -606,7 +792,7 @@ include __DIR__ . '/includes/header.php';
     <div style="font-weight: 600; font-size: 1.1rem; color: #1e293b; margin-bottom: 1.25rem;">
         <i class="fas fa-edit text-primary"></i> Edit Fees Guidelines &amp; Bullet Points
     </div>
-    <form method="POST" action="hostel-mess.php?tab=fees">
+    <form method="POST" action="hostel-mess?tab=fees">
         <input type="hidden" name="action" value="save_fee_notes">
         <div class="form-group" style="margin-bottom: 1.25rem;">
             <label class="form-label" style="font-weight: 600;">Fees Guidelines (One bullet point per line)</label>
@@ -622,7 +808,7 @@ include __DIR__ . '/includes/header.php';
     <div style="font-weight: 600; font-size: 1.1rem; color: #1e293b; margin-bottom: 1.25rem;">
         <i class="fas fa-plus-circle text-primary"></i> Add Year Fee Row
     </div>
-    <form method="POST" action="hostel-mess.php?tab=fees" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end;">
+    <form method="POST" action="hostel-mess?tab=fees" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end;">
         <input type="hidden" name="action" value="add_fee_row">
         <div class="form-group" style="flex: 1; min-width: 200px;">
             <label class="form-label" style="font-weight: 600;">Year / Semester</label>
@@ -661,7 +847,7 @@ include __DIR__ . '/includes/header.php';
                         <td style="font-weight: 600;"><?= htmlspecialchars($f['year_name']) ?></td>
                         <td>₹ <?= htmlspecialchars($f['hostel_fees']) ?></td>
                         <td style="text-align: center;">
-                            <form method="POST" action="hostel-mess.php?tab=fees" onsubmit="return confirm('Delete this fee entry?');" style="margin: 0;">
+                            <form method="POST" action="hostel-mess?tab=fees" onsubmit="return confirm('Delete this fee entry?');" style="margin: 0;">
                                 <input type="hidden" name="action" value="delete_fee_row">
                                 <input type="hidden" name="id" value="<?= (int)$f['id'] ?>">
                                 <button type="submit" class="btn btn-sm btn-outline-danger" title="Delete">
@@ -685,7 +871,7 @@ include __DIR__ . '/includes/header.php';
     <div style="font-weight: 600; font-size: 1.1rem; color: #1e293b; margin-bottom: 1.25rem;">
         <i class="fas fa-utensils text-primary"></i> Edit Hostel Mess Guidelines &amp; Bullet Points
     </div>
-    <form method="POST" action="hostel-mess.php?tab=mess">
+    <form method="POST" action="hostel-mess?tab=mess">
         <input type="hidden" name="action" value="save_mess_notes">
         <div class="form-group" style="margin-bottom: 1.25rem;">
             <label class="form-label" style="font-weight: 600;">Mess Guidelines (One bullet point per line)</label>
@@ -707,7 +893,7 @@ include __DIR__ . '/includes/header.php';
     <div style="font-weight: 600; font-size: 1.1rem; color: #1e293b; margin-bottom: 1.25rem;">
         <i class="fas fa-upload text-primary"></i> Upload New Hostel Photo
     </div>
-    <form method="POST" action="hostel-mess.php?tab=photos" enctype="multipart/form-data">
+    <form method="POST" action="hostel-mess?tab=photos" enctype="multipart/form-data">
         <input type="hidden" name="action" value="add_photo">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 1.25rem;">
             <div class="form-group">
@@ -745,7 +931,7 @@ include __DIR__ . '/includes/header.php';
                     <?= htmlspecialchars($p['caption']) ?>
                 </div>
                 <div style="padding: 0 10px 10px 10px; text-align: center;">
-                    <form method="POST" action="hostel-mess.php?tab=photos" onsubmit="return confirm('Delete this photo?');" style="margin: 0;">
+                    <form method="POST" action="hostel-mess?tab=photos" onsubmit="return confirm('Delete this photo?');" style="margin: 0;">
                         <input type="hidden" name="action" value="delete_photo">
                         <input type="hidden" name="id" value="<?= (int)$p['id'] ?>">
                         <button type="submit" class="btn btn-sm btn-outline-danger" style="width: 100%;">
