@@ -46,11 +46,11 @@ if (isset($pdo) && $pdo) {
                     <span class="about-metric-label">Campus Area</span>
                 </div>
                 <div class="about-metric-card">
-                    <span class="about-metric-num" style="font-size: 1.45rem;">AICTE &amp; GTU</span>
+                    <span class="about-metric-num about-metric-text">AICTE &amp; GTU</span>
                     <span class="about-metric-label">Affiliation Status</span>
                 </div>
                 <div class="about-metric-card">
-                    <span class="about-metric-num" style="color: #009dff;">09</span>
+                    <span class="about-metric-num about-metric-accent">09</span>
                     <span class="about-metric-label">UG &amp; PG Programs</span>
                 </div>
             </div>
@@ -198,11 +198,12 @@ if (isset($pdo) && $pdo) {
                 </div>
 
                 <div class="about-table-card">
+                    <div class="about-scroll-hint"><i class="fas fa-arrows-left-right"></i> Swipe table horizontally to view full matrix</div>
                     <div class="about-table-wrap">
                         <table class="about-courses-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 45%;">Engineering Program</th>
+                                    <th class="about-th-program">Engineering Program</th>
                                     <th style="width: 20%; text-align: center;">Commencement Year</th>
                                     <th style="width: 15%; text-align: center;">Sanctioned Intake</th>
                                     <th style="width: 20%; text-align: center;">GTU Course Code</th>
@@ -269,11 +270,12 @@ if (isset($pdo) && $pdo) {
                 </div>
 
                 <div class="about-table-card">
+                    <div class="about-scroll-hint"><i class="fas fa-arrows-left-right"></i> Swipe table horizontally to view full matrix</div>
                     <div class="about-table-wrap">
                         <table class="about-courses-table">
                             <thead>
                                 <tr>
-                                    <th style="width: 45%;">Specialization Program</th>
+                                    <th class="about-th-program">Specialization Program</th>
                                     <th style="width: 20%; text-align: center;">Commencement Year</th>
                                     <th style="width: 15%; text-align: center;">Sanctioned Intake</th>
                                     <th style="width: 20%; text-align: center;">GTU Course Code</th>

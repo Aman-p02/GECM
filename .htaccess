@@ -24,14 +24,23 @@ DirectoryIndex index.php index.html
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+index\.php([^\s]*) [NC]
     RewriteRule ^ %1/%2 [R=301,L,NE]
 
+    # 2b. Redirect cached browser requests for /admin/about/* back to clean /admin/*
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+admin/about/([a-zA-Z0-9_\-]+) [NC]
+    RewriteRule ^ %1/admin/%2 [R=302,L,NE]
+
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+admin/about/?\s [NC]
+    RewriteRule ^ %1/admin/principal-message [R=302,L,NE]
+
     # 3. 301 Redirect: Legacy root about URLs to /about/ (environment-agnostic)
     RewriteCond %{REQUEST_METHOD} !POST
-    RewriteCond %{THE_REQUEST} !/about/ [NC]
+    RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin|about)/ [NC]
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(overview|vision-mission|principal-message|facilities|e-newsletters|brochure|mandatory-disclosure|rankings|mou|idp)(?:\.php)?([?\s]) [NC]
     RewriteRule ^ %1/about/%2 [R=301,L,NE,QSA]
 
     RewriteCond %{REQUEST_METHOD} !POST
-    RewriteCond %{THE_REQUEST} !/about/ [NC]
+    RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin|about)/ [NC]
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+about-gecm(?:\.php)?([?\s]) [NC]
     RewriteRule ^ %1/about/overview [R=301,L,NE,QSA]
 

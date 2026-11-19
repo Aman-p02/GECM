@@ -9,10 +9,18 @@ $admin = getLoggedInAdmin();
 $current_page = $current_page ?? 'dashboard';
 $page_title = $page_title ?? 'Dashboard Overview';
 ?>
+<?php
+$adminScriptDir = dirname($_SERVER['SCRIPT_NAME'] ?? '/admin/index.php');
+$adminBaseUrl = preg_replace('#/admin(/.*)?$#i', '/admin/', $adminScriptDir);
+if (substr($adminBaseUrl, -1) !== '/') {
+    $adminBaseUrl .= '/';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <base href="<?= htmlspecialchars($adminBaseUrl) ?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($page_title) ?> - GEC Admin</title>
