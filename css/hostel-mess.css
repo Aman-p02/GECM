@@ -174,11 +174,12 @@
     width: 100%;
 }
 
-/* Horizontal scrollable tab buttons track */
+/* Horizontal scrollable tab buttons track - Centered in navbar */
 .dept-subnav-list {
     display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: center;
+    gap: 8px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -187,6 +188,12 @@
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+}
+
+@media (max-width: 900px) {
+    .dept-subnav-list {
+        justify-content: flex-start;
+    }
 }
 
 .dept-subnav-list::-webkit-scrollbar {
@@ -201,7 +208,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 15px 16px;
+    padding: 15px 18px;
     font-size: 0.92rem;
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -216,7 +223,7 @@
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover and active expanding indicator like main navbar */
+/* Hover and active expanding indicator - Main Navbar Blue (#009dff) */
 .dept-subnav-link::after {
     content: '';
     position: absolute;
@@ -224,7 +231,7 @@
     left: 50%;
     width: 0;
     height: 2.5px;
-    background: var(--hostel-accent);
+    background: #009dff;
     border-radius: 1.5px 1.5px 0 0;
     transform: translateX(-50%);
     transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
@@ -232,7 +239,7 @@
 }
 
 .dept-subnav-link:hover {
-    color: var(--hostel-accent);
+    color: #009dff;
     background: transparent;
 }
 
@@ -245,7 +252,7 @@
 
 .dept-subnav-item.active .dept-subnav-link,
 .dept-subnav-link.active {
-    color: var(--hostel-accent) !important;
+    color: #009dff !important;
     font-weight: 600;
 }
 
