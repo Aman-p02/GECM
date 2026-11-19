@@ -82,7 +82,7 @@ if (isset($pdo) && $pdo) {
                         <div class="faculty-card-top">
                             <div class="faculty-rank"><?= htmlspecialchars($fac['designation'] ?: 'Faculty Member') ?></div>
                             <h3 class="faculty-name">
-                                <a href="<?= $root_path ?>departments/faculty-profile.php?id=<?= $fac['id'] ?>">
+                                <a href="<?= $root_path ?>departments/faculty-profile?id=<?= $fac['id'] ?>">
                                     <?= htmlspecialchars($fac['name']) ?>
                                 </a>
                             </h3>
@@ -133,7 +133,7 @@ if (isset($pdo) && $pdo) {
                                     </a>
                                 <?php endif; ?>
                             </div>
-                            <a href="<?= $root_path ?>departments/faculty-profile.php?id=<?= $fac['id'] ?>" class="faculty-profile-cta">
+                            <a href="<?= $root_path ?>departments/faculty-profile?id=<?= $fac['id'] ?>" class="faculty-profile-cta">
                                 <span>View Profile</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>

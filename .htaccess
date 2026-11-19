@@ -59,9 +59,8 @@ DirectoryIndex index.php index.html
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(college-activities|departmental-activities|faculty-activities)(?:\.php)?([?\s]) [NC]
     RewriteRule ^ %1/activities/%2 [R=301,L,NE,QSA]
 
-    # 4. 301 Redirect: Direct .php requests to clean URL (except admin areas and POST)
+    # 4. 301 Redirect: Direct .php requests to clean URL (excludes POST requests)
     RewriteCond %{REQUEST_METHOD} !POST
-    RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin)/ [NC]
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^.]+)\.php([^\s]*)\s [NC]
     RewriteRule ^ %1%2 [R=301,L,NE]
 

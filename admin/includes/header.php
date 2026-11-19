@@ -35,7 +35,7 @@ $page_title = $page_title ?? 'Dashboard Overview';
         <!-- Sidebar -->
         <aside class="admin-sidebar" id="adminSidebar">
             <div class="sidebar-header">
-                <a href="dashboard.php" class="sidebar-brand">
+                <a href="dashboard" class="sidebar-brand">
                     GECM Admin
                 </a>
             </div>
@@ -43,7 +43,7 @@ $page_title = $page_title ?? 'Dashboard Overview';
             <ul class="sidebar-menu">
                 <li class="menu-category">Main Navigation</li>
                 <li class="menu-item <?= ($current_page === 'dashboard') ? 'active' : '' ?>">
-                    <a href="dashboard.php" class="menu-link">
+                    <a href="dashboard" class="menu-link">
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -75,47 +75,47 @@ $page_title = $page_title ?? 'Dashboard Overview';
                     </a>
                     <ul class="submenu-list">
                         <li class="submenu-item <?= ($current_page === 'principal-message') ? 'active' : '' ?>">
-                            <a href="principal-message.php" class="submenu-link">
+                            <a href="principal-message" class="submenu-link">
                                 <span>Principal's Message</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'idp') ? 'active' : '' ?>">
-                            <a href="idp.php" class="submenu-link">
+                            <a href="idp" class="submenu-link">
                                 <span>IDP</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'facilities') ? 'active' : '' ?>">
-                            <a href="facilities.php" class="submenu-link">
+                            <a href="facilities" class="submenu-link">
                                 <span>Facilities</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'e-newsletters') ? 'active' : '' ?>">
-                            <a href="e-newsletters.php" class="submenu-link">
+                            <a href="e-newsletters" class="submenu-link">
                                 <span>E-Newsletters</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'brochure') ? 'active' : '' ?>">
-                            <a href="brochure.php" class="submenu-link">
+                            <a href="brochure" class="submenu-link">
                                 <span>Information Brochure</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'mandatory-disclosure') ? 'active' : '' ?>">
-                            <a href="mandatory-disclosure.php" class="submenu-link">
+                            <a href="mandatory-disclosure" class="submenu-link">
                                 <span>Mandatory Disclosure</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'rankings') ? 'active' : '' ?>">
-                            <a href="rankings.php" class="submenu-link">
+                            <a href="rankings" class="submenu-link">
                                 <span>Rankings</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'mou') ? 'active' : '' ?>">
-                            <a href="mou.php" class="submenu-link">
+                            <a href="mou" class="submenu-link">
                                 <span>MoU</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'approvals') ? 'active' : '' ?>">
-                            <a href="approvals.php" class="submenu-link">
+                            <a href="approvals" class="submenu-link">
                                 <span>AICTE &amp; GTU Approvals</span>
                             </a>
                         </li>
@@ -130,22 +130,22 @@ $page_title = $page_title ?? 'Dashboard Overview';
                     </a>
                     <ul class="submenu-list">
                         <li class="submenu-item <?= ($current_page === 'principal-profile') ? 'active' : '' ?>">
-                            <a href="principal-profile.php" class="submenu-link">
+                            <a href="principal-profile" class="submenu-link">
                                 <span>Principal</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'council-of-heads') ? 'active' : '' ?>">
-                            <a href="council-of-heads.php" class="submenu-link">
+                            <a href="council-of-heads" class="submenu-link">
                                 <span>Council of Heads</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'hostel-mess') ? 'active' : '' ?>">
-                            <a href="hostel-mess.php" class="submenu-link">
+                            <a href="hostel-mess" class="submenu-link">
                                 <span>Hostel &amp; Mess</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'administration-committees') ? 'active' : '' ?>">
-                            <a href="administration-committees.php" class="submenu-link">
+                            <a href="administration-committees" class="submenu-link">
                                 <span>Committees</span>
                             </a>
                         </li>
@@ -160,12 +160,12 @@ $page_title = $page_title ?? 'Dashboard Overview';
                     </a>
                     <ul class="submenu-list">
                         <li class="submenu-item <?= ($current_page === 'student-chapters') ? 'active' : '' ?>">
-                            <a href="student-chapters.php" class="submenu-link">
+                            <a href="student-chapters" class="submenu-link">
                                 <span>Student Chapters</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'student-enrollment') ? 'active' : '' ?>">
-                            <a href="student-enrollment.php" class="submenu-link">
+                            <a href="student-enrollment" class="submenu-link">
                                 <span>Enrollment Details</span>
                             </a>
                         </li>
@@ -180,42 +180,42 @@ $page_title = $page_title ?? 'Dashboard Overview';
                     </a>
                     <ul class="submenu-list">
                         <li class="submenu-item <?= ($current_page === 'hero') ? 'active' : '' ?>">
-                            <a href="hero.php" class="submenu-link">
+                            <a href="hero" class="submenu-link">
                                 <span>Hero Slides</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'notices') ? 'active' : '' ?>">
-                            <a href="notices.php" class="submenu-link">
+                            <a href="notices" class="submenu-link">
                                 <span>Notice Board</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'ticker') ? 'active' : '' ?>">
-                            <a href="ticker.php" class="submenu-link">
+                            <a href="ticker" class="submenu-link">
                                 <span>News Ticker</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'events') ? 'active' : '' ?>">
-                            <a href="events.php" class="submenu-link">
+                            <a href="events" class="submenu-link">
                                 <span>Recent Events</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'shots') ? 'active' : '' ?>">
-                            <a href="shots.php" class="submenu-link">
+                            <a href="shots" class="submenu-link">
                                 <span>Latest Shots</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'departments') ? 'active' : '' ?>">
-                            <a href="departments.php" class="submenu-link">
+                            <a href="departments" class="submenu-link">
                                 <span>Departments</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'alumni') ? 'active' : '' ?>">
-                            <a href="alumni.php" class="submenu-link">
+                            <a href="alumni" class="submenu-link">
                                 <span>Manage Alumni</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'faculty-activities') ? 'active' : '' ?>">
-                            <a href="faculty-activities.php" class="submenu-link">
+                            <a href="faculty-activities" class="submenu-link">
                                 <span>Faculty Activities</span>
                             </a>
                         </li>
@@ -230,47 +230,47 @@ $page_title = $page_title ?? 'Dashboard Overview';
                     </a>
                     <ul class="submenu-list">
                         <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'CE') ? 'active' : '' ?>">
-                            <a href="dept-faculty.php?dept=CE" class="submenu-link">
+                            <a href="dept-faculty?dept=CE" class="submenu-link">
                                 <span>Computer Engineering</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'IT') ? 'active' : '' ?>">
-                            <a href="dept-faculty.php?dept=IT" class="submenu-link">
+                            <a href="dept-faculty?dept=IT" class="submenu-link">
                                 <span>Information Technology</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'ME') ? 'active' : '' ?>">
-                            <a href="dept-faculty.php?dept=ME" class="submenu-link">
+                            <a href="dept-faculty?dept=ME" class="submenu-link">
                                 <span>Mechanical Engineering</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'CIVIL') ? 'active' : '' ?>">
-                            <a href="dept-faculty.php?dept=CIVIL" class="submenu-link">
+                            <a href="dept-faculty?dept=CIVIL" class="submenu-link">
                                 <span>Civil Engineering</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'EE') ? 'active' : '' ?>">
-                            <a href="dept-faculty.php?dept=EE" class="submenu-link">
+                            <a href="dept-faculty?dept=EE" class="submenu-link">
                                 <span>Electrical Engineering</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'EC') ? 'active' : '' ?>">
-                            <a href="dept-faculty.php?dept=EC" class="submenu-link">
+                            <a href="dept-faculty?dept=EC" class="submenu-link">
                                 <span>Electronics &amp; Comm.</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'AE') ? 'active' : '' ?>">
-                            <a href="dept-faculty.php?dept=AE" class="submenu-link">
+                            <a href="dept-faculty?dept=AE" class="submenu-link">
                                 <span>Automobile Engineering</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'AM') ? 'active' : '' ?>">
-                            <a href="dept-faculty.php?dept=AM" class="submenu-link">
+                            <a href="dept-faculty?dept=AM" class="submenu-link">
                                 <span>Applied Mechanics</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($isDeptActive && $activeDeptCode === 'SH') ? 'active' : '' ?>">
-                            <a href="dept-faculty.php?dept=SH" class="submenu-link">
+                            <a href="dept-faculty?dept=SH" class="submenu-link">
                                 <span>Science &amp; Humanities</span>
                             </a>
                         </li>
@@ -279,12 +279,12 @@ $page_title = $page_title ?? 'Dashboard Overview';
 
                 <li class="menu-category">System & Settings</li>
                 <li class="menu-item <?= ($current_page === 'settings') ? 'active' : '' ?>">
-                    <a href="settings.php" class="menu-link">
+                    <a href="settings" class="menu-link">
                         <span>Site Settings</span>
                     </a>
                 </li>
                 <li class="menu-item <?= ($current_page === 'admins') ? 'active' : '' ?>">
-                    <a href="admins.php" class="menu-link">
+                    <a href="admins" class="menu-link">
                         <span>Admin Users</span>
                     </a>
                 </li>
@@ -299,7 +299,7 @@ if ($headerPdo) {
 }
 ?>
                 <li class="menu-item <?= ($current_page === 'dept-approvals') ? 'active' : '' ?>">
-                    <a href="dept-approvals.php" class="menu-link" style="display:flex; justify-content:space-between; align-items:center;">
+                    <a href="dept-approvals" class="menu-link" style="display:flex; justify-content:space-between; align-items:center;">
                         <span>Dept Admin Requests</span>
                         <?php if ($pendingDeptCount > 0): ?>
                             <span style="background:#ef4444; color:#fff; font-size:11px; font-weight:700; padding:2px 7px; border-radius:10px;"><?= $pendingDeptCount ?></span>
@@ -307,7 +307,7 @@ if ($headerPdo) {
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="../index.php" target="_blank" class="menu-link">
+                    <a href="../" target="_blank" class="menu-link">
                         <span>View Website</span>
                     </a>
                 </li>
@@ -326,7 +326,7 @@ if ($headerPdo) {
                 </div>
 
                 <div class="topbar-right">
-                    <a href="dept-approvals.php" class="topbar-bell" title="<?= ($pendingDeptCount > 0) ? $pendingDeptCount . ' Pending Dept Admin Requests' : 'Notifications' ?>" style="text-decoration:none; position:relative; display:inline-flex; align-items:center; justify-content:center;">
+                    <a href="dept-approvals" class="topbar-bell" title="<?= ($pendingDeptCount > 0) ? $pendingDeptCount . ' Pending Dept Admin Requests' : 'Notifications' ?>" style="text-decoration:none; position:relative; display:inline-flex; align-items:center; justify-content:center;">
                         <i class="fas fa-bell"></i>
                         <?php if ($pendingDeptCount > 0): ?>
                             <span style="position:absolute; top:-4px; right:-4px; background:#ef4444; color:#fff; font-size:10px; font-weight:700; width:17px; height:17px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:2px solid #fff;">
@@ -338,7 +338,7 @@ if ($headerPdo) {
                         Hi, <?= htmlspecialchars($admin['username']) ?>
                     </div>
 
-                    <a href="logout.php" class="btn-logout">
+                    <a href="logout" class="btn-logout">
                         <i class="fas fa-sign-out-alt"></i> Logout
                     </a>
                 </div>

@@ -148,6 +148,11 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
     <main class="hostel-main-content">
         <div class="hostel-container">
 
+        <!-- ========================================================================= -->
+        <!-- TAB 1: ABOUT (Overview, Committees, Leadership, Common Room & Staff Table) -->
+        <!-- ========================================================================= -->
+        <div class="hostel-tab-pane active" id="aboutTab">
+
             <!-- Department-Style Hero Banner -->
             <header class="hostel-hero-banner">
                 <span class="hostel-kicker">CAMPUS AMENITIES &amp; RESIDENTIAL LIFE</span>
@@ -176,11 +181,6 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
                     <div class="hostel-stat-label">Furnished Rooms</div>
                 </div>
             </div>
-
-        <!-- ========================================================================= -->
-        <!-- TAB 1: ABOUT (Overview, Committees, Leadership, Common Room & Staff Table) -->
-        <!-- ========================================================================= -->
-        <div class="hostel-tab-pane active" id="aboutTab">
 
             <!-- 1. Campus Overview Hero Card with Building Photo -->
             <div class="hostel-overview-card">
@@ -213,94 +213,147 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
                 <h2 class="hostel-sec-title">Organizational Structure of Hostel</h2>
             </div>
 
-            <div class="hostel-gov-grid">
-                <!-- Card 1: Hostel Management Committee -->
-                <div class="hostel-gov-card">
-                    <h3 class="hostel-gov-card-title">
-                        <i class="fas fa-users-cog"></i> Hostel Management Committee
-                    </h3>
-                    <p style="font-size: 0.88rem; color: var(--hostel-muted); margin: 0 0 14px;">The following officers constitute the Hostel Management:</p>
-                    <ul class="hostel-gov-list">
-                        <li class="hostel-gov-item">
-                            <span class="hostel-gov-item-num">1</span>
-                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Principal</span> (Patron &amp; Head of Institute)</span>
-                        </li>
-                        <li class="hostel-gov-item">
-                            <span class="hostel-gov-item-num">2</span>
-                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Rector and / or Assistant Rector</span></span>
-                        </li>
-                        <li class="hostel-gov-item">
-                            <span class="hostel-gov-item-num">3</span>
-                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Wardens</span></span>
-                        </li>
-                        <li class="hostel-gov-item">
-                            <span class="hostel-gov-item-num">4</span>
-                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Care Takers</span></span>
-                        </li>
-                        <li class="hostel-gov-item">
-                            <span class="hostel-gov-item-num">5</span>
-                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Administrative Staff</span></span>
-                        </li>
-                    </ul>
+            <div class="hostel-governance-panels">
+                <!-- Panel 1: Hostel Management Committee -->
+                <div class="hostel-panel">
+                    <div class="hostel-panel-header">
+                        <div class="hostel-panel-header-main">
+                            <span class="hostel-panel-kicker">Statutory Body</span>
+                            <h3 class="hostel-panel-title">Hostel Management Committee</h3>
+                        </div>
+                    </div>
+                    <p class="hostel-panel-desc">Constituted for residential governance, hostel policy formulation, student welfare, and operational supervision:</p>
+                    <div class="hostel-panel-table-wrap">
+                        <table class="hostel-panel-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 14%;">No.</th>
+                                    <th style="width: 48%;">Designation</th>
+                                    <th style="width: 38%;">Role in Committee</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="hostel-idx">01</td>
+                                    <td class="hostel-officer">Principal</td>
+                                    <td><span class="hostel-role-tag hostel-role-patron">Patron &amp; Head of Institute</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="hostel-idx">02</td>
+                                    <td class="hostel-officer">Rector / Assistant Rector</td>
+                                    <td><span class="hostel-role-tag hostel-role-exec">Executive Authority</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="hostel-idx">03</td>
+                                    <td class="hostel-officer">Hostel Wardens</td>
+                                    <td><span class="hostel-role-tag">Block Administration</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="hostel-idx">04</td>
+                                    <td class="hostel-officer">Care Takers</td>
+                                    <td><span class="hostel-role-tag">Ground Supervision</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="hostel-idx">05</td>
+                                    <td class="hostel-officer">Administrative Staff</td>
+                                    <td><span class="hostel-role-tag">Records &amp; Secretariat</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
-                <!-- Card 2: Institute Disciplinary Committee -->
-                <div class="hostel-gov-card">
-                    <h3 class="hostel-gov-card-title">
-                        <i class="fas fa-balance-scale"></i> Institute Disciplinary Committee
-                    </h3>
-                    <p style="font-size: 0.88rem; color: var(--hostel-muted); margin: 0 0 14px;">The following officers constitute the Institute Disciplinary Committee:</p>
-                    <ul class="hostel-gov-list">
-                        <li class="hostel-gov-item">
-                            <span class="hostel-gov-item-num">1</span>
-                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Principal</span> (Chairman)</span>
-                        </li>
-                        <li class="hostel-gov-item">
-                            <span class="hostel-gov-item-num">2</span>
-                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">All Heads of the Departments</span></span>
-                        </li>
-                        <li class="hostel-gov-item">
-                            <span class="hostel-gov-item-num">3</span>
-                            <span class="hostel-gov-item-text"><span class="hostel-gov-item-label">Rector and / or Assistant Rector</span></span>
-                        </li>
-                    </ul>
+                <!-- Panel 2: Institute Disciplinary Committee -->
+                <div class="hostel-panel">
+                    <div class="hostel-panel-header">
+                        <div class="hostel-panel-header-main">
+                            <span class="hostel-panel-kicker">Institutional Body</span>
+                            <h3 class="hostel-panel-title">Institute Disciplinary Committee</h3>
+                        </div>
+                    </div>
+                    <p class="hostel-panel-desc">Mandated with maintaining institutional discipline, student conduct guidelines, and hostel code of ethics:</p>
+                    <div class="hostel-panel-table-wrap">
+                        <table class="hostel-panel-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 14%;">No.</th>
+                                    <th style="width: 48%;">Designation</th>
+                                    <th style="width: 38%;">Role in Committee</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="hostel-idx">01</td>
+                                    <td class="hostel-officer">Principal</td>
+                                    <td><span class="hostel-role-tag hostel-role-patron">Chairman</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="hostel-idx">02</td>
+                                    <td class="hostel-officer">All Heads of the Departments</td>
+                                    <td><span class="hostel-role-tag">Members</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="hostel-idx">03</td>
+                                    <td class="hostel-officer">Rector / Assistant Rector</td>
+                                    <td><span class="hostel-role-tag hostel-role-exec">Member Secretary</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
-            <!-- 3. Key Leadership & Common Room Highlight Strip -->
-            <div class="hostel-exec-strip">
-                <!-- Rector & Assistant Rectors Box -->
-                <div class="hostel-exec-box">
-                    <div class="hostel-exec-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="hostel-exec-content">
-                        <div class="hostel-exec-label">Hostel Leadership</div>
-                        <div class="hostel-exec-name">Prof. (Dr.) U. V. Shah</div>
-                        <div class="hostel-exec-sub"><strong>Rector</strong> (Professor &amp; Head, Mechanical Engineering Dept.)</div>
-                        <div class="hostel-exec-sub" style="margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--hostel-border);">
-                            <strong>Assistant Rector(s):</strong><br>
-                            &bull; Prof. P. R. Gamit (Assistant Prof., Computer Engineering Dept.)<br>
-                            &bull; Prof. P. V. Patel (Assistant Prof., EC Engineering Dept.)
-                        </div>
-                    </div>
+            <!-- 3. Executive Leadership & Administration -->
+            <div class="hostel-sec-header" style="margin-top: 40px;">
+                <span class="hostel-sec-kicker">EXECUTIVE ADMINISTRATION</span>
+                <h2 class="hostel-sec-title">Hostel Leadership &amp; Administration</h2>
+            </div>
+
+            <div class="hostel-leadership-cards">
+                <!-- Rector Card -->
+                <div class="hostel-leader-tile hostel-leader-primary">
+                    <span class="hostel-leader-role-tag">Chief Warden / Rector</span>
+                    <h3 class="hostel-leader-name">Prof. (Dr.) U. V. Shah</h3>
+                    <div class="hostel-leader-desig">Professor &amp; Head</div>
+                    <div class="hostel-leader-dept">Mechanical Engineering Department</div>
                 </div>
 
-                <!-- Girl's Common Room Facility Box -->
-                <div class="hostel-exec-box">
-                    <div class="hostel-exec-icon">
-                        <i class="fas fa-female"></i>
+                <!-- Assistant Rector 1 -->
+                <div class="hostel-leader-tile">
+                    <span class="hostel-leader-role-tag">Assistant Rector</span>
+                    <h3 class="hostel-leader-name">Prof. P. R. Gamit</h3>
+                    <div class="hostel-leader-desig">Assistant Professor</div>
+                    <div class="hostel-leader-dept">Computer Engineering Department</div>
+                </div>
+
+                <!-- Assistant Rector 2 -->
+                <div class="hostel-leader-tile">
+                    <span class="hostel-leader-role-tag">Assistant Rector</span>
+                    <h3 class="hostel-leader-name">Prof. P. V. Patel</h3>
+                    <div class="hostel-leader-desig">Assistant Professor</div>
+                    <div class="hostel-leader-dept">Electronics &amp; Communication Dept.</div>
+                </div>
+            </div>
+
+            <!-- 4. Campus Student Welfare: Girl's Common Room Facility -->
+            <div class="hostel-common-room-banner">
+                <div class="hostel-cr-left">
+                    <span class="hostel-cr-kicker">CAMPUS STUDENT WELFARE</span>
+                    <h3 class="hostel-cr-title">Dedicated Girl's Common Room Facility</h3>
+                    <p class="hostel-cr-desc">
+                        Equipped, hygienic, and secure rest, study, and recreational spaces designated for female students across campus hours:
+                    </p>
+                </div>
+                <div class="hostel-cr-locations">
+                    <div class="hostel-cr-loc-card">
+                        <span class="hostel-cr-loc-badge">Primary Academic Hours</span>
+                        <div class="hostel-cr-loc-room">Room No. 7102</div>
+                        <div class="hostel-cr-loc-bldg">Electrical Engineering Department</div>
                     </div>
-                    <div class="hostel-exec-content">
-                        <div class="hostel-exec-label">Campus Amenities</div>
-                        <div class="hostel-exec-name">Girl's Common Room Facility</div>
-                        <div class="hostel-exec-sub" style="margin-top: 4px;">
-                            <strong>1. Electrical Department:</strong> Room No. 7102<br>
-                            <strong>2. Girl's Hostel (Emergency Case):</strong> Recreation Hall
-                        </div>
-                        <div class="hostel-exec-sub" style="margin-top: 8px; font-size: 0.82rem; color: var(--hostel-muted);">
-                            Dedicated hygienic rest, study, and recreation spaces designated for female students across academic hours.
-                        </div>
+                    <div class="hostel-cr-loc-card">
+                        <span class="hostel-cr-loc-badge">Residential &amp; Emergency</span>
+                        <div class="hostel-cr-loc-room">Recreation Hall</div>
+                        <div class="hostel-cr-loc-bldg">Girl's Hostel Campus</div>
                     </div>
                 </div>
             </div>
@@ -328,41 +381,61 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                        $wardenCount = count($wardenStaff);
-                        $first = true;
-                        foreach ($wardenStaff as $w): 
-                        ?>
+                        <?php if (empty($wardenStaff) && empty($workStaff)): ?>
                             <tr>
-                                <?php if ($first): ?>
-                                    <td rowspan="<?= $wardenCount ?>" style="font-weight: 700; color: var(--hostel-primary); vertical-align: top; background: #ffffff;">
-                                        <?= htmlspecialchars($w['work_description']) ?>
-                                    </td>
-                                    <?php $first = false; ?>
-                                <?php endif; ?>
-                                <td style="text-align: center;">
-                                    <span class="hostel-badge"><?= htmlspecialchars($w['block_name']) ?></span>
-                                </td>
-                                <td style="font-weight: 500; color: var(--hostel-primary);">
-                                    <?= nl2br(htmlspecialchars($w['warden'])) ?>
-                                </td>
-                                <td>
-                                    <?= !empty($w['care_taker']) ? nl2br(htmlspecialchars($w['care_taker'])) : '<span style="color: #94a3b8;">&mdash;</span>' ?>
+                                <td colspan="4" style="text-align: center; padding: 24px; color: var(--hostel-muted);">
+                                    No staff records currently published.
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php else: ?>
+                            <?php 
+                            // Group wardenStaff dynamically by work_description
+                            $groupedWarden = [];
+                            foreach ($wardenStaff as $w) {
+                                $desc = trim($w['work_description'] ?? 'Warden & Care Taker');
+                                if ($desc === '') $desc = 'Warden & Care Taker';
+                                $groupedWarden[$desc][] = $w;
+                            }
 
-                        <!-- Technical & Works Section (Civil, Electrical, Administrative) -->
-                        <?php foreach ($workStaff as $ws): ?>
-                            <tr>
-                                <td style="font-weight: 700; color: var(--hostel-primary);">
-                                    <?= htmlspecialchars($ws['work_description']) ?>
-                                </td>
-                                <td colspan="3" style="font-weight: 500; color: var(--hostel-primary);">
-                                    <?= htmlspecialchars($ws['staff_incharge'] ?? $ws['warden']) ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                            foreach ($groupedWarden as $groupDesc => $groupRows):
+                                $groupCount = count($groupRows);
+                                $isFirst = true;
+                                foreach ($groupRows as $w):
+                            ?>
+                                <tr>
+                                    <?php if ($isFirst): ?>
+                                        <td rowspan="<?= $groupCount ?>" style="font-weight: 700; color: var(--hostel-primary); vertical-align: top; background: #ffffff;">
+                                            <?= htmlspecialchars($groupDesc) ?>
+                                        </td>
+                                        <?php $isFirst = false; ?>
+                                    <?php endif; ?>
+                                    <td style="text-align: center;">
+                                        <span class="hostel-badge"><?= htmlspecialchars($w['block_name']) ?></span>
+                                    </td>
+                                    <td style="font-weight: 500; color: var(--hostel-primary);">
+                                        <?= nl2br(htmlspecialchars(str_replace('\n', "\n", $w['warden'] ?? ''))) ?>
+                                    </td>
+                                    <td>
+                                        <?= !empty($w['care_taker']) ? nl2br(htmlspecialchars(str_replace('\n', "\n", $w['care_taker']))) : '<span style="color: #94a3b8;">&mdash;</span>' ?>
+                                    </td>
+                                </tr>
+                            <?php 
+                                endforeach;
+                            endforeach; 
+                            ?>
+
+                            <!-- Technical & Works Section (Civil, Electrical, Administrative) -->
+                            <?php foreach ($workStaff as $ws): ?>
+                                <tr>
+                                    <td style="font-weight: 700; color: var(--hostel-primary);">
+                                        <?= htmlspecialchars($ws['work_description']) ?>
+                                    </td>
+                                    <td colspan="3" style="font-weight: 500; color: var(--hostel-primary);">
+                                        <?= htmlspecialchars($ws['staff_incharge'] ?? $ws['warden'] ?? '') ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>

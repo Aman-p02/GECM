@@ -11,7 +11,7 @@ require_once __DIR__ . '/../../includes/db.php';
 
 function checkAdminAuth() {
     if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-        header('Location: login.php?msg=Please+login+to+continue');
+        header('Location: login?msg=Please+login+to+continue');
         exit;
     }
 }

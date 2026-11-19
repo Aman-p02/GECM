@@ -14,7 +14,7 @@ $editId = isset($_GET['edit_id']) ? (int)$_GET['edit_id'] : 0;
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     if (!$pdo) {
         setFlashMessage('danger', 'Database offline. Please start MySQL in XAMPP Control Panel.');
-        header("Location: hostel-mess.php?tab={$activeTab}");
+        header("Location: hostel-mess?tab={$activeTab}");
         exit;
     }
 
@@ -298,7 +298,7 @@ include __DIR__ . '/includes/header.php';
         </li>
         <li>
             <a href="hostel-mess.php?tab=staff" class="btn <?= ($activeTab === 'staff') ? 'btn-primary' : 'btn-light' ?>" style="font-weight: 600;">
-                <i class="fas fa-users-cog"></i> Warden &amp; Staff (About) (<?= count($staffList) ?>)
+                <i class="fas fa-users-cog"></i> Duty Allocation &amp; Caretakers (<?= count($staffList) ?>)
             </a>
         </li>
         <li>
@@ -431,7 +431,7 @@ include __DIR__ . '/includes/header.php';
 
 <div class="card">
     <div style="font-weight: 600; font-size: 1.1rem; color: #1e293b; margin-bottom: 1rem;">
-        Administrational Structure Directory (<?= count($staffList) ?>)
+        Administrational Structure Directory &mdash; Duty Allocation &amp; Caretakers (<?= count($staffList) ?>)
     </div>
     <div class="table-responsive">
         <table class="table">
