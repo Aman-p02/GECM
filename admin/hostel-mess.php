@@ -72,7 +72,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     }
 
     // =========================================================================
-    // 1. UPLOAD HOSTEL RULES PDF
+    // 1. UPLOAD & DELETE HOSTEL RULES PDF
     // =========================================================================
     if ($action === 'upload_rules_pdf') {
         if (isset($_FILES['rules_pdf']) && $_FILES['rules_pdf']['error'] === UPLOAD_ERR_OK) {
@@ -97,20 +97,61 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
                 mkdir($uploadDir, 0777, true);
             }
 
+            // Fetch current old PDF URL from database
+            $stmtOld = $pdo->query("SELECT rules_pdf_url FROM hostel_mess WHERE id = 1");
+            $oldRow = $stmtOld ? $stmtOld->fetch() : null;
+            $oldPdfUrl = $oldRow['rules_pdf_url'] ?? '';
+
             $newFileName = 'hostel_rules_' . time() . '.pdf';
             $destPath = $uploadDir . '/' . $newFileName;
             $dbPath = 'uploads/hostel/' . $newFileName;
 
             if (move_uploaded_file($file['tmp_name'], $destPath)) {
+                // Sanitize PDF metadata title to prevent "MergedFile" appearing on browser tabs
+                sanitizePdfTitle($destPath, 'Rules and Regulations for Hostel Students - GEC Modasa');
+
+                // Completely delete the old PDF file from disk
+                if (!empty($oldPdfUrl) && $oldPdfUrl !== $dbPath) {
+                    deleteUploadedFile($oldPdfUrl);
+                }
+
+                // Clean up any remaining previous hostel_rules_*.pdf files in directory
+                foreach (glob($uploadDir . '/hostel_rules_*.pdf') as $existingPdf) {
+                    if (basename($existingPdf) !== $newFileName) {
+                        @unlink($existingPdf);
+                    }
+                }
+
                 $stmt = $pdo->prepare("UPDATE hostel_mess SET rules_pdf_url = ? WHERE id = 1");
                 $stmt->execute([$dbPath]);
-                setFlashMessage('success', 'Hostel Rules PDF updated successfully!');
+                setFlashMessage('success', 'Hostel Rules PDF updated successfully! Previous PDF was completely removed.');
             } else {
                 setFlashMessage('danger', 'Failed to save uploaded PDF file.');
             }
         } else {
             setFlashMessage('danger', 'Please choose a valid PDF file to upload.');
         }
+        header('Location: hostel-mess?tab=rules');
+        exit;
+    }
+
+    if ($action === 'delete_rules_pdf') {
+        $stmtOld = $pdo->query("SELECT rules_pdf_url FROM hostel_mess WHERE id = 1");
+        $oldRow = $stmtOld ? $stmtOld->fetch() : null;
+        $oldPdfUrl = $oldRow['rules_pdf_url'] ?? '';
+
+        if (!empty($oldPdfUrl)) {
+            deleteUploadedFile($oldPdfUrl);
+        }
+
+        $uploadDir = __DIR__ . '/../uploads/hostel';
+        foreach (glob($uploadDir . '/hostel_rules_*.pdf') as $existingPdf) {
+            @unlink($existingPdf);
+        }
+
+        $stmt = $pdo->prepare("UPDATE hostel_mess SET rules_pdf_url = NULL WHERE id = 1");
+        $stmt->execute();
+        setFlashMessage('success', 'Current Hostel Rules PDF has been completely deleted from server and database.');
         header('Location: hostel-mess?tab=rules');
         exit;
     }
@@ -288,9 +329,16 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     if ($action === 'delete_photo') {
         $id = (int)($_POST['id'] ?? 0);
         if ($id > 0) {
+            $stmtPhoto = $pdo->prepare("SELECT image_path FROM hostel_photos WHERE id = ?");
+            $stmtPhoto->execute([$id]);
+            $photoRow = $stmtPhoto->fetch();
+            if ($photoRow && !empty($photoRow['image_path'])) {
+                deleteUploadedFile($photoRow['image_path']);
+            }
+
             $stmt = $pdo->prepare("DELETE FROM hostel_photos WHERE id = ?");
             $stmt->execute([$id]);
-            setFlashMessage('success', 'Photo removed.');
+            setFlashMessage('success', 'Photo and image file removed successfully.');
         }
         header('Location: hostel-mess?tab=photos');
         exit;
@@ -521,14 +569,31 @@ include __DIR__ . '/includes/header.php';
 
     <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
         <div style="font-weight: 600; color: #1e293b; margin-bottom: 8px;">Current Active Rules Document:</div>
-        <?php if (!empty($hostelData['rules_pdf_url'])): ?>
+        <?php 
+        $hasRulesPdf = !empty($hostelData['rules_pdf_url']);
+        $rulesPdfDiskPath = $hasRulesPdf ? (__DIR__ . '/../' . ltrim($hostelData['rules_pdf_url'], '/')) : '';
+        $rulesPdfExists = $hasRulesPdf && file_exists($rulesPdfDiskPath);
+        if ($hasRulesPdf && $rulesPdfExists): 
+            $fileSizeBytes = filesize($rulesPdfDiskPath);
+            $formattedSize = ($fileSizeBytes >= 1048576) ? number_format($fileSizeBytes / 1048576, 2) . ' MB' : number_format($fileSizeBytes / 1024, 0) . ' KB';
+        ?>
             <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                <span class="badge badge-primary" style="font-size: 13px; padding: 6px 12px;">
-                    <i class="fas fa-file-pdf"></i> <?= htmlspecialchars(basename($hostelData['rules_pdf_url'])) ?>
+                <span class="badge badge-primary" style="font-size: 13px; padding: 7px 12px; display: inline-flex; align-items: center; gap: 6px;">
+                    <i class="fas fa-file-pdf"></i> <?= htmlspecialchars(basename($hostelData['rules_pdf_url'])) ?> (<?= $formattedSize ?>)
                 </span>
-                <a href="../<?= htmlspecialchars($hostelData['rules_pdf_url']) ?>" target="_blank" class="btn btn-sm btn-outline-primary">
+                <a href="../<?= htmlspecialchars($hostelData['rules_pdf_url']) ?>" target="_blank" class="btn btn-sm btn-outline-primary" style="font-weight: 600;">
                     <i class="fas fa-eye"></i> View Current PDF
                 </a>
+                <form method="POST" action="hostel-mess?tab=rules" onsubmit="return confirm('Are you sure you want to permanently delete this Rules PDF? It will be completely removed from server storage and database.');" style="margin: 0; display: inline;">
+                    <input type="hidden" name="action" value="delete_rules_pdf">
+                    <button type="submit" class="btn btn-sm btn-outline-danger" style="font-weight: 600;">
+                        <i class="fas fa-trash-alt"></i> Delete Current PDF
+                    </button>
+                </form>
+            </div>
+            <div style="margin-top: 10px; font-size: 12.5px; color: #64748b; display: flex; align-items: center; gap: 6px;">
+                <i class="fas fa-shield-alt text-success"></i> 
+                Auto-cleanup active: Jab aap naya PDF upload karenge, to ye purani file server disk se permanently delete ho jayegi.
             </div>
         <?php else: ?>
             <span style="color: #64748b;">No PDF document uploaded yet.</span>

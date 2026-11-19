@@ -92,80 +92,17 @@ $cellsList = $defaultCells;
 $contactsList = $defaultContacts;
 $headOfInstitute = 'Prof. (Dr.) J. A. Vadher';
 
-if ($pdo) {
+// Sync principal name from profile if available
+if (!empty($pdo)) {
     try {
-        $pStmt = $pdo->query("SELECT name, designation FROM principal_profile LIMIT 1");
+        $pStmt = $pdo->query("SELECT name FROM principal_profile LIMIT 1");
         if ($pRow = $pStmt->fetch()) {
-            if (!empty($pRow['name'])) $headOfInstitute = $pRow['name'];
-        }
-
-        // 1. Council of Heads
-        $cStmt = $pdo->query("SELECT * FROM council_of_heads ORDER BY display_order ASC, id ASC");
-        $cDb = $cStmt ? $cStmt->fetchAll(PDO::FETCH_ASSOC) : [];
-        if (!empty($cDb)) {
-            $councilList = $cDb;
-        } else {
-            $insC = $pdo->prepare("INSERT INTO council_of_heads (section_name, designation, section_head, display_order) VALUES (?, ?, ?, ?)");
-            foreach ($defaultCouncil as $r) {
-                $insC->execute([$r['section_name'], $r['designation'], $r['section_head'], $r['display_order']]);
+            if (!empty($pRow['name'])) {
+                $headOfInstitute = $pRow['name'];
             }
         }
-
-        // 2. IQAC Members
-        $iqStmt = $pdo->query("SELECT * FROM iqac_members ORDER BY display_order ASC, id ASC");
-        $iqDb = $iqStmt ? $iqStmt->fetchAll(PDO::FETCH_ASSOC) : [];
-        if (!empty($iqDb)) {
-            $iqacList = $iqDb;
-        } else {
-            $insI = $pdo->prepare("INSERT INTO iqac_members (name, designation, status_role, display_order) VALUES (?, ?, ?, ?)");
-            foreach ($defaultIQAC as $r) {
-                $insI->execute([$r['name'], $r['designation'], $r['status_role'], $r['display_order']]);
-            }
-        }
-
-        // 3. Head of Departments
-        $hStmt = $pdo->query("SELECT * FROM head_of_departments ORDER BY display_order ASC, id ASC");
-        $hDb = $hStmt ? $hStmt->fetchAll(PDO::FETCH_ASSOC) : [];
-        if (!empty($hDb)) {
-            $hodList = $hDb;
-        } else {
-            $insH = $pdo->prepare("INSERT INTO head_of_departments (department_name, designation, faculty_name, display_order) VALUES (?, ?, ?, ?)");
-            foreach ($defaultHOD as $r) {
-                $insH->execute([$r['department_name'], $r['designation'], $r['faculty_name'], $r['display_order']]);
-            }
-        }
-
-        // 4. Important Cells & Committees (With duplicate check)
-        $existingCellCheck = $pdo->prepare("SELECT COUNT(*) FROM important_cells WHERE cell_name = ? AND officer_name = ?");
-        $insCell = $pdo->prepare("INSERT INTO important_cells (cell_name, designation, officer_name, display_order) VALUES (?, ?, ?, ?)");
-        foreach ($defaultCells as $r) {
-            $existingCellCheck->execute([$r['cell_name'], $r['officer_name']]);
-            if ((int)$existingCellCheck->fetchColumn() === 0) {
-                $insCell->execute([$r['cell_name'], $r['designation'], $r['officer_name'], $r['display_order']]);
-            }
-        }
-        $cellStmt = $pdo->query("SELECT * FROM important_cells ORDER BY display_order ASC, id ASC");
-        $cellDb = $cellStmt ? $cellStmt->fetchAll(PDO::FETCH_ASSOC) : [];
-        if (!empty($cellDb)) $cellsList = $cellDb;
-
-        // 5. Contacts (With duplicate check & phone sync)
-        $existingCntCheck = $pdo->prepare("SELECT COUNT(*) FROM important_contacts WHERE organization_name = ?");
-        $insCnt = $pdo->prepare("INSERT INTO important_contacts (sr_no, organization_name, contact_number, display_order) VALUES (?, ?, ?, ?)");
-        $updCnt = $pdo->prepare("UPDATE important_contacts SET contact_number = ?, display_order = ?, sr_no = ? WHERE organization_name = ?");
-        foreach ($defaultContacts as $r) {
-            $existingCntCheck->execute([$r['organization_name']]);
-            if ((int)$existingCntCheck->fetchColumn() === 0) {
-                $insCnt->execute([$r['sr_no'], $r['organization_name'], $r['contact_number'], $r['display_order']]);
-            } else {
-                $updCnt->execute([$r['contact_number'], $r['display_order'], $r['sr_no'], $r['organization_name']]);
-            }
-        }
-        $cntStmt = $pdo->query("SELECT * FROM important_contacts ORDER BY display_order ASC, id ASC");
-        $cntDb = $cntStmt ? $cntStmt->fetchAll(PDO::FETCH_ASSOC) : [];
-        if (!empty($cntDb)) $contactsList = $cntDb;
-
     } catch (Throwable $e) {
-        error_log("Council/Committees data load error: " . $e->getMessage());
+        // Silently continue with default head
     }
 }
 

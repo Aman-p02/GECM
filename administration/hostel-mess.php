@@ -520,9 +520,18 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
                     </p>
                 </div>
                 <div>
-                    <a href="<?= htmlspecialchars($root_path . ltrim($rulesPdf, '/')) ?>" target="_blank" rel="noopener noreferrer" class="hostel-rules-btn">
-                        <i class="fas fa-file-pdf"></i> Download Hostel Rules (PDF)
-                    </a>
+                    <?php 
+                    $rulesPdfPath = !empty($rulesPdf) ? (__DIR__ . '/../' . ltrim($rulesPdf, '/')) : '';
+                    if (!empty($rulesPdf) && file_exists($rulesPdfPath)): 
+                    ?>
+                        <a href="<?= htmlspecialchars($root_path . ltrim($rulesPdf, '/')) ?>" target="_blank" rel="noopener noreferrer" class="hostel-rules-btn">
+                            <i class="fas fa-file-pdf"></i> Download Hostel Rules (PDF)
+                        </a>
+                    <?php else: ?>
+                        <span class="hostel-rules-btn" style="opacity: 0.7; cursor: default; background: #64748b;">
+                            <i class="fas fa-info-circle"></i> Document Under Revision
+                        </span>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

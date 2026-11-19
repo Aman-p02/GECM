@@ -165,3 +165,83 @@ function handlePdfUpload($fileOrKey, $subfolder = 'documents', $existingPath = n
         'error'   => 'Please select a valid PDF file.'
     ];
 }
+
+/**
+ * Safely delete an uploaded file from disk.
+ *
+ * @param string|null $relativePath Relative path to uploaded file (e.g. 'uploads/hostel/file.pdf')
+ * @return bool True if deleted or already absent, False on failure
+ */
+function deleteUploadedFile($relativePath) {
+    if (empty($relativePath)) {
+        return false;
+    }
+
+    // Do not touch external URLs
+    if (strpos($relativePath, 'http://') === 0 || strpos($relativePath, 'https://') === 0 || strpos($relativePath, '//') === 0) {
+        return false;
+    }
+
+    $baseUploads = realpath(__DIR__ . '/../../uploads');
+    if (!$baseUploads) {
+        $baseUploads = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'uploads';
+    }
+
+    // Strip traversal and leading slashes
+    $cleanRel = ltrim(str_replace(['../', '..\\'], '', $relativePath), '/\\');
+    if (strpos($cleanRel, 'uploads/') === 0 || strpos($cleanRel, 'uploads\\') === 0) {
+        $cleanRel = substr($cleanRel, 8);
+    }
+
+    $fullPath = $baseUploads . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $cleanRel);
+
+    if (file_exists($fullPath) && is_file($fullPath)) {
+        return @unlink($fullPath);
+    }
+
+    return true;
+}
+
+/**
+ * Automatically sanitizes PDF internal /Title metadata so browsers (Chrome/Edge/Firefox)
+ * display the official document title on the browser tab instead of scanner/merger tags
+ * like "MergedFile", "Untitled", etc.
+ *
+ * Keeps file byte-length strictly identical so xref offsets are preserved.
+ */
+function sanitizePdfTitle($filePath, $cleanTitle = 'Rules and Regulations for Hostel Students - GEC Modasa') {
+    if (!file_exists($filePath) || !is_file($filePath)) {
+        return false;
+    }
+
+    $content = file_get_contents($filePath);
+    if ($content === false) {
+        return false;
+    }
+
+    $pos = strpos($content, '/Title (');
+    if ($pos === false) {
+        return true;
+    }
+
+    $endPos = strpos($content, ')', $pos + 8);
+    if ($endPos === false) {
+        return false;
+    }
+
+    $currentTitle = substr($content, $pos + 8, $endPos - ($pos + 8));
+
+    // If title has unwanted automated strings
+    if (stripos($currentTitle, 'Merged') !== false || stripos($currentTitle, 'Untitled') !== false || stripos($currentTitle, 'Scan') !== false) {
+        $oldLen = strlen($currentTitle);
+        $cleanSlice = substr($cleanTitle, 0, $oldLen);
+        if (strlen($cleanSlice) < $oldLen) {
+            $cleanSlice = str_pad($cleanSlice, $oldLen, ' ');
+        }
+        $content = substr_replace($content, $cleanSlice, $pos + 8, $oldLen);
+        file_put_contents($filePath, $content);
+        return true;
+    }
+
+    return true;
+}
