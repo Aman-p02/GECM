@@ -317,7 +317,7 @@ $moreTabs = [
                 </div>
 
                 <div style="margin-top: 24px;">
-                    <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm" target="_blank" rel="noopener noreferrer" class="theme-action-btn">
+                    <a href="https://sbcollect.sbi.bank.in/sbicollect/icollecthome.htm" target="_blank" rel="noopener noreferrer" class="theme-action-btn">
                         <i class="fas fa-external-link-alt"></i> Proceed to SBI Collect Portal
                     </a>
                 </div>

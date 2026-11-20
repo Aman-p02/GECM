@@ -71,6 +71,9 @@ DirectoryIndex index.php index.html
     # 3g. 301 Redirect: Grade History Card to GTU Student Portal
     RewriteRule ^(?:student-corner/)?grade-history-card(?:\.php)?$ https://www.students.gtu.ac.in/Default.aspx [R=301,L,NE]
 
+    # 3h. 301 Redirect: Online Fees Payment to SBI Collect Portal
+    RewriteRule ^(?:student-corner/)?(?:online-fees?-payment|fees?-payment)(?:\.php)?$ https://sbcollect.sbi.bank.in/sbicollect/icollecthome.htm [R=301,L,NE]
+
     # 4. 301 Redirect: Direct .php requests to clean URL (excludes POST requests)
     RewriteCond %{REQUEST_METHOD} !POST
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^.]+)\.php([^\s]*)\s [NC]
