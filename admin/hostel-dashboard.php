@@ -1,11 +1,11 @@
 <?php
-$current_page = 'hostel-dashboard';
-$page_title = 'Hostel Administration Dashboard';
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/auth.php';
+checkAdminAuth();
+require_once __DIR__ . '/../includes/db.php';
 
 $pdo = getDBConnection();
 
-// Handle AJAX toggle for form open/close
+// Handle AJAX toggle for form open/close BEFORE any HTML output
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'toggle_form_status') {
     header('Content-Type: application/json');
     $newStatus = (int)($_POST['status'] ?? 0);
@@ -22,6 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     echo json_encode($response);
     exit;
 }
+
+$current_page = 'hostel-dashboard';
+$page_title = 'Hostel Administration Dashboard';
+require_once __DIR__ . '/includes/header.php';
 
 // 1. Fetch form status
 $formIsOpen = 0;
@@ -113,12 +117,12 @@ if ($pdo) {
             <label style="font-size: 0.90rem; font-weight: 700; color: #1e293b; cursor: pointer; user-select: none;" for="toggleFormIntake">
                 Student Online Form:
             </label>
-            <div style="position: relative; width: 62px; height: 32px;">
-                <input type="checkbox" id="toggleFormIntake" style="opacity: 0; width: 0; height: 0;" <?= $formIsOpen ? 'checked' : '' ?> onchange="toggleFormIntakeState(this.checked)">
-                <span id="switchSlider" style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: <?= $formIsOpen ? '#ff8800' : '#cbd5e1' ?>; transition: .3s; border-radius: 34px;">
+            <label for="toggleFormIntake" style="position: relative; width: 62px; height: 32px; display: inline-block; cursor: pointer; margin: 0; user-select: none;">
+                <input type="checkbox" id="toggleFormIntake" style="position: absolute; opacity: 0; width: 0; height: 0;" <?= $formIsOpen ? 'checked' : '' ?> onchange="toggleFormIntakeState(this.checked)">
+                <span id="switchSlider" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: <?= $formIsOpen ? '#ff8800' : '#cbd5e1' ?>; transition: .3s; border-radius: 34px;">
                     <span id="switchCircle" style="position: absolute; content: ''; height: 24px; width: 24px; left: <?= $formIsOpen ? '34px' : '4px' ?>; bottom: 4px; background-color: white; transition: .3s; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"></span>
                 </span>
-            </div>
+            </label>
             <a href="../student-corner/hostel-admission.php" target="_blank" class="btn btn-secondary" style="font-size: 0.84rem; padding: 7px 14px; text-decoration: none; border-radius: 6px;">
                 <i class="fas fa-external-link-alt"></i> Preview Form
             </a>
@@ -278,7 +282,7 @@ function toggleFormIntakeState(isOpen) {
     fetch('hostel-dashboard.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'action=toggle_form_status&status=' + statusVal
+        body: 'action=toggle_form_status&status=' + encodeURIComponent(statusVal)
     })
     .then(r => r.json())
     .then(data => {
@@ -295,12 +299,18 @@ function toggleFormIntakeState(isOpen) {
                 badge.textContent = '○ ADMISSIONS CLOSED';
             }
         } else {
-            alert('Failed to update form status. Please try again.');
+            alert('Failed to update form status: ' + (data.error || 'Unknown error'));
+            document.getElementById('toggleFormIntake').checked = !isOpen;
+            slider.style.backgroundColor = !isOpen ? '#ff8800' : '#cbd5e1';
+            circle.style.left = !isOpen ? '34px' : '4px';
         }
     })
     .catch(err => {
         console.error(err);
-        alert('Server connection error.');
+        alert('Server communication error.');
+        document.getElementById('toggleFormIntake').checked = !isOpen;
+        slider.style.backgroundColor = !isOpen ? '#ff8800' : '#cbd5e1';
+        circle.style.left = !isOpen ? '34px' : '4px';
     });
 }
 </script>

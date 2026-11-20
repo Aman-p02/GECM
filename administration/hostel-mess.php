@@ -122,6 +122,18 @@ if ($pdo) {
     }
 }
 
+$formIsOpen = 0;
+$academicYear = '2024-2025';
+if ($pdo) {
+    try {
+        $stmtStatus = $pdo->query("SELECT is_open, academic_year FROM form_status WHERE id = 1");
+        if ($stRow = $stmtStatus->fetch(PDO::FETCH_ASSOC)) {
+            $formIsOpen = (int)$stRow['is_open'];
+            $academicYear = $stRow['academic_year'] ?? '2024-2025';
+        }
+    } catch (Throwable $e) {}
+}
+
 $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] : 'uploads/hostel/hostel_rules_and_regulations.pdf';
 ?>
 
@@ -172,6 +184,35 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
                     Comfortable, disciplined, and secure on-campus residential accommodation fostering academic focus, holistic personal development, and an inclusive student community across campus blocks.
                 </p>
             </header>
+
+            <!-- Live Admission Status Callout Banner -->
+            <?php if ($formIsOpen): ?>
+                <div style="background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border: 2px solid #ff8800; border-radius: 12px; padding: 18px 24px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; box-shadow: 0 4px 14px rgba(255, 136, 0, 0.15);">
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                        <div style="width: 44px; height: 44px; border-radius: 50%; background: #ff8800; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="background: #047857; color: #ffffff; font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 10px; letter-spacing: 0.05em; text-transform: uppercase;">Admissions Open</span>
+                                <span style="font-size: 0.82rem; font-weight: 700; color: #9a3412;">Academic Year <?= htmlspecialchars($academicYear) ?></span>
+                            </div>
+                            <h3 style="margin: 4px 0 0 0; font-size: 1.15rem; font-weight: 800; color: #0f172a;">Hostel Online Application Intake is Now Active!</h3>
+                        </div>
+                    </div>
+                    <a href="<?= $root_path ?>student-corner/hostel-admission" class="btn btn-primary" style="background: #ff8800; border: none; color: #fff; padding: 10px 22px; font-weight: 700; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 3px 10px rgba(255, 136, 0, 0.3);">
+                        Apply Online Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            <?php else: ?>
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 14px 20px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                    <div style="display: flex; align-items: center; gap: 10px; color: #64748b; font-size: 0.90rem;">
+                        <i class="fas fa-info-circle" style="color: #94a3b8; font-size: 1.1rem;"></i>
+                        <span>Hostel admissions for the current session are currently <strong>closed</strong>.</span>
+                    </div>
+                    <a href="<?= $root_path ?>student-corner/hostel-admission" style="font-size: 0.85rem; font-weight: 600; color: #ff8800; text-decoration: none;">View Admission Details &rarr;</a>
+                </div>
+            <?php endif; ?>
 
             <!-- Institutional Stat Highlights -->
             <div class="hostel-stats-grid">
