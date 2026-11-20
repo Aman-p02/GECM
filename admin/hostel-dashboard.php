@@ -169,26 +169,6 @@ if ($pdo) {
         </div>
     </div>
 
-    <!-- Quick Navigation Shortcuts -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 26px;">
-        <a href="hostel-applications.php" class="btn" style="background: #ffffff; border: 1.5px solid #cbd5e1; color: #1e293b; padding: 14px 18px; border-radius: 8px; font-weight: 700; font-size: 0.90rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-            <span><i class="fas fa-address-book" style="color: #ff8800; margin-right: 8px;"></i> View Applications</span>
-            <i class="fas fa-arrow-right" style="font-size: 0.80rem; color: #94a3b8;"></i>
-        </a>
-        <a href="hostel-blocks.php" class="btn" style="background: #ffffff; border: 1.5px solid #cbd5e1; color: #1e293b; padding: 14px 18px; border-radius: 8px; font-weight: 700; font-size: 0.90rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-            <span><i class="fas fa-building" style="color: #ff8800; margin-right: 8px;"></i> Manage Blocks &amp; Quotas</span>
-            <i class="fas fa-arrow-right" style="font-size: 0.80rem; color: #94a3b8;"></i>
-        </a>
-        <a href="hostel-allocation.php" class="btn" style="background: #ffffff; border: 1.5px solid #cbd5e1; color: #1e293b; padding: 14px 18px; border-radius: 8px; font-weight: 700; font-size: 0.90rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-            <span><i class="fas fa-cogs" style="color: #ff8800; margin-right: 8px;"></i> Run Allocation &amp; Merit</span>
-            <i class="fas fa-arrow-right" style="font-size: 0.80rem; color: #94a3b8;"></i>
-        </a>
-        <a href="hostel-confirmation.php" class="btn" style="background: #ffffff; border: 1.5px solid #cbd5e1; color: #1e293b; padding: 14px 18px; border-radius: 8px; font-weight: 700; font-size: 0.90rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,0.03);">
-            <span><i class="fas fa-door-open" style="color: #ff8800; margin-right: 8px;"></i> Room Allotment Desk</span>
-            <i class="fas fa-arrow-right" style="font-size: 0.80rem; color: #94a3b8;"></i>
-        </a>
-    </div>
-
     <!-- Two-Column Layout: Block Occupancy & Recent Applications -->
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 26px;">
 
