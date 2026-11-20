@@ -130,6 +130,11 @@ $flash = getDeptFlash();
                         <span>Newsletters</span>
                     </a>
                 </li>
+                <li class="menu-item <?= ($activeTab === 'grievances') ? 'active' : '' ?>">
+                    <a href="grievances.php" class="menu-link">
+                        <span>Grievances</span>
+                    </a>
+                </li>
 
                 <li class="menu-category">External Links</li>
                 <li class="menu-item">

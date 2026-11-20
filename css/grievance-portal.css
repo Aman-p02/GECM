@@ -1,0 +1,193 @@
+/* ==========================================================================
+   Student / Faculty Grievance Portal Stylesheet
+   Government Engineering College, Modasa (GECM)
+   Matches official institutional form design
+   ========================================================================== */
+
+.grv-page {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    padding: 40px 16px 80px;
+    min-height: 85vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.grv-container {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.grv-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    padding: 36px 32px;
+    border: 1px solid #e2e8f0;
+}
+
+.grv-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #1f646c;
+    text-align: center;
+    margin: 0 0 28px 0;
+    letter-spacing: -0.02em;
+}
+
+/* Alert Notification */
+.grv-alert {
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.grv-alert-success {
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+}
+
+.grv-alert-danger {
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+}
+
+/* Fieldset Section Outlines */
+.grv-section {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 18px 20px 20px;
+    margin-bottom: 24px;
+    background: #ffffff;
+}
+
+.grv-section-legend {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #1f646c;
+    padding: 0 10px;
+    margin-left: 6px;
+    letter-spacing: -0.01em;
+}
+
+/* Form Layout */
+.grv-form-group {
+    margin-bottom: 16px;
+}
+
+.grv-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.grv-label {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.grv-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.grv-grid-2:last-child {
+    margin-bottom: 0;
+}
+
+/* Form Controls */
+.grv-input,
+.grv-select,
+.grv-textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    color: #1e293b;
+    background-color: #ffffff;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    box-sizing: border-box;
+}
+
+.grv-input:focus,
+.grv-select:focus,
+.grv-textarea:focus {
+    border-color: #1f646c;
+    box-shadow: 0 0 0 3px rgba(31, 100, 108, 0.12);
+}
+
+.grv-input::placeholder,
+.grv-textarea::placeholder {
+    color: #94a3b8;
+    font-size: 0.84rem;
+}
+
+.grv-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+.grv-textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+}
+
+/* Submit Button */
+.grv-submit-btn {
+    width: 100%;
+    padding: 13px 24px;
+    background-color: #1f646c;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.grv-submit-btn:hover {
+    background-color: #174e54;
+}
+
+.grv-submit-btn:active {
+    transform: scale(0.99);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .grv-card {
+        padding: 24px 18px;
+    }
+
+    .grv-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .grv-title {
+        font-size: 1.35rem;
+    }
+}

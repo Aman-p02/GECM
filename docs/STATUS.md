@@ -121,5 +121,31 @@
    - Updated `.htaccess` with 301 redirect for legacy `/education-verification` requests.
    - Updated `sitemap.xml` with `<loc>https://gecmodasa.ac.in/student-corner/education-verification</loc>`.
 
+---
+
+## Update: 20-Nov-2026 - Student Corner Grievance Form & Multi-Tier Redressal Module
+
+### Completed:
+1. **Public Grievance Form (`student-corner/grievance-portal.php` & `css/grievance-portal.css`)**:
+   - Institutional form layout replicating the official GECM Student / Faculty Grievance Form screenshot.
+   - Sections: Personal Information (Full Name, Enrollment No/Faculty ID, Contact No, Gender, Category, Father's Name), Academic Details (Semester, Branch), and Grievance Details (Grievance Category, Grievance Description).
+   - Generates unique tracking ticket number (e.g. `GRV-2026-XXXXXX`) upon successful submission.
+   - Automatically maps selected Branch to the respective Department Code (`CE`, `IT`, `CIVIL`, `ME`, `EE`, `EC`, `AE`, `AM`, `SH`, `GEN`).
+
+2. **Department Admin Grievance Module (`dept-admin/grievances.php`)**:
+   - Integrated into the Department Admin sidebar navigation (`dept-admin/includes/header.php`).
+   - Strict department-level data isolation: Each Department Admin can ONLY view, review, and resolve grievances submitted for their own department.
+   - Status filtering (Pending, Under Review, Resolved, Rejected), instant search, and resolution remarks entry.
+
+3. **Super Admin Grievance Module (`admin/grievances.php`)**:
+   - Added under the Student Corner accordion in the Super Admin sidebar (`admin/includes/header.php`).
+   - Comprehensive cross-departmental access to all college grievances with department filter dropdown, status filter, overview metrics/counters, ticket search, review modal, and delete actions.
+
+4. **Routing, Navigation & SEO Integration**:
+   - Updated public navigation in `includes/header.php` under Student Corner dropdown to link to `student-corner/grievance-portal`.
+   - Updated `.htaccess` with 301 redirect for legacy `/grievance-portal` requests.
+   - Updated `sitemap.xml` with `<loc>https://gecmodasa.ac.in/student-corner/grievance-portal</loc>`.
+
+
 
 
