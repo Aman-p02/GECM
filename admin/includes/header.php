@@ -65,7 +65,7 @@ if (substr($adminBaseUrl, -1) !== '/') {
                 $administrationPageItems = ['principal-profile', 'hostel-mess'];
                 $isAdministrationActive = in_array($current_page, $administrationPageItems);
 
-                $studentCornerPageItems = ['student-chapters', 'student-enrollment'];
+                $studentCornerPageItems = ['student-chapters', 'student-enrollment', 'scholarships'];
                 $isStudentCornerActive = in_array($current_page, $studentCornerPageItems);
 
                 $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni', 'faculty-activities'];
@@ -165,6 +165,11 @@ if (substr($adminBaseUrl, -1) !== '/') {
                         <li class="submenu-item <?= ($current_page === 'student-enrollment') ? 'active' : '' ?>">
                             <a href="student-enrollment" class="submenu-link">
                                 <span>Enrollment Details</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'scholarships') ? 'active' : '' ?>">
+                            <a href="scholarships" class="submenu-link">
+                                <span>Scholarships</span>
                             </a>
                         </li>
                     </ul>

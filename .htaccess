@@ -59,7 +59,7 @@ DirectoryIndex index.php index.html
     # 3e. 301 Redirect: Legacy root student corner URLs to /student-corner/ (environment-agnostic)
     RewriteCond %{REQUEST_METHOD} !POST
     RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin|student-corner)/ [NC]
-    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(student-section|student-rules|enrollment-details)(?:\.php)?([?\s]) [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(student-section|student-rules|enrollment-details|scholarships)(?:\.php)?([?\s]) [NC]
     RewriteRule ^ %1/student-corner/%2 [R=301,L,NE,QSA]
 
     # 3f. 301 Redirect: Legacy root activities URLs to /activities/ (environment-agnostic)

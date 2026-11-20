@@ -73,3 +73,28 @@
 7. **Git Deployment**:
    - Committed and pushed cleanly to GitHub `origin main`.
 
+---
+
+## Update: 20-Nov-2026 - Student Corner Scholarship Module & Admin Management
+
+### Completed:
+1. **Public Scholarship Page (`student-corner/scholarships.php`)**:
+   - Responsive, institutional layout designed with GECM styling tokens (`css/scholarships.css`).
+   - Introductory section matching official institutional text.
+   - Dynamic Scholarship Committee table (Academic Year 2025-26) with columns: Name of Faculty/Staff, Role/Duties, and Cabin No.
+   - Grouped category sub-headers: Convener & Leadership, Co In-charge (SEBC Scholarship), Co In-charge (SC / ST Scholarship), Co In-charge (MYSY / CMSS Scholarship), and Co In-charge (PMSS & Other Scholarship).
+   - "Guidelines for following Scholarships" section with clean portal cards for Digital Gujarat Portal, NSP Portal, PMSSS, Shram Vibhag, MYSY, and PM-USP.
+   - Automatic fallback data if database is empty or offline.
+
+2. **Admin Management Module (`admin/scholarships.php`)**:
+   - Added inside the Student Corner accordion in the admin panel sidebar (`admin/includes/header.php`).
+   - Self-healing database table (`scholarship_committee`) with auto-seeding of the 14 committee members matching the official circular.
+   - Complete CRUD capabilities: Add new member, Edit existing details (Faculty name, Department, Role/Duties, Cabin number, Display order, Active status), 1-click visibility toggle, and secure delete.
+   - Live client-side search filtering across faculty names, roles, and cabin numbers.
+
+3. **Routing, Navigation & SEO Integration**:
+   - Updated public navigation in `includes/header.php` under the Student Corner dropdown.
+   - Updated `.htaccess` with 301 redirect for legacy `/scholarships` requests to `/student-corner/scholarships`.
+   - Updated `sitemap.xml` with `<loc>https://gecmodasa.ac.in/student-corner/scholarships</loc>`.
+
+
