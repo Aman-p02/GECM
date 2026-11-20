@@ -1297,7 +1297,6 @@ h4 {
         border: none !important;
         border-top: 1px solid #e2e8f0 !important;
         border-bottom: 1px solid #cbd5e1 !important;
-        border-left: 4px solid #ff8800 !important;
         border-radius: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
@@ -1318,7 +1317,7 @@ h4 {
         opacity: 1;
         visibility: visible;
         background: #f1f5f9 !important;
-        padding: 8px 6px 10px 8px !important;
+        padding: 8px 6px 10px 6px !important;
         pointer-events: auto;
     }
 
