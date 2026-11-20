@@ -166,6 +166,7 @@ require_once __DIR__ . '/../includes/header.php';
             <!-- PANE 1: GRIEVANCE SUBMISSION FORM                             -->
             <!-- ============================================================== -->
             <div id="paneForm" style="<?= ($activeTab === 'form') ? 'display: block;' : 'display: none;' ?>">
+                <span class="grv-kicker">STUDENT CORNER</span>
                 <h1 class="grv-title">Student / Faculty Grievance Form</h1>
 
                 <?php if (!empty($successMessage)): ?>
@@ -174,10 +175,10 @@ require_once __DIR__ . '/../includes/header.php';
                             <i class="fas fa-check-circle"></i> Submission Successful
                         </div>
                         <p style="margin: 0 0 10px 0;"><?= htmlspecialchars($successMessage) ?></p>
-                        <div style="background: #ffffff; border: 1px dashed #10b981; border-radius: 6px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                        <div style="background: #ffffff; border: 1px dashed #fde68a; border-radius: 6px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
                             <div>
                                 <span style="font-size: 0.85rem; color: #475569;">Grievance Reference Ticket:</span>
-                                <strong style="font-size: 1.05rem; color: #047857; letter-spacing: 0.04em; margin-left: 6px;">
+                                <strong style="font-size: 1.05rem; color: #ff8800; letter-spacing: 0.04em; margin-left: 6px;">
                                     <?= htmlspecialchars($generatedTicket) ?>
                                 </strong>
                             </div>
@@ -349,6 +350,7 @@ require_once __DIR__ . '/../includes/header.php';
             <!-- PANE 2: TRACK GRIEVANCE STATUS                                 -->
             <!-- ============================================================== -->
             <div id="paneTrack" style="<?= ($activeTab === 'track') ? 'display: block;' : 'display: none;' ?>">
+                <span class="grv-kicker">STUDENT CORNER</span>
                 <h2 class="grv-title" style="margin-bottom: 12px;">Track Grievance Status</h2>
                 <p style="font-size: 0.92rem; color: #64748b; text-align: center; margin: 0 0 22px 0;">
                     Enter your unique Grievance Ticket Number or Student Enrollment ID to view current redressal progress.
@@ -357,7 +359,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <!-- Search Input Box -->
                 <form method="GET" action="grievance-portal.php" class="grv-track-box">
                     <input type="hidden" name="tab" value="track">
-                    <label class="grv-label" style="font-weight: 700; color: #1f646c; margin-bottom: 8px;">
+                    <label class="grv-label" style="font-weight: 700; color: #0f172a; margin-bottom: 8px;">
                         Grievance Ticket Number / Enrollment No.
                     </label>
                     <div class="grv-track-search-row">
@@ -435,7 +437,7 @@ require_once __DIR__ . '/../includes/header.php';
 
                         <div class="grv-detail-box">
                             <div class="grv-detail-label">
-                                Grievance Category: <span style="color: #1f646c;"><?= htmlspecialchars($trackedGrievance['grievance_category']) ?></span>
+                                Grievance Category: <span style="color: #ff8800; font-weight: 800;"><?= htmlspecialchars($trackedGrievance['grievance_category']) ?></span>
                             </div>
                             <div class="grv-detail-content">
                                 <?= nl2br(htmlspecialchars($trackedGrievance['grievance_description'])) ?>

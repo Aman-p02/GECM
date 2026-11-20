@@ -1,11 +1,16 @@
 /* ==========================================================================
    Student / Faculty Grievance Portal Stylesheet
    Government Engineering College, Modasa (GECM)
-   Matches official institutional form design
+   Color Palette aligned with GECM Official Theme:
+   - Deep Black: #000000 / #0f172a
+   - Institutional Orange / Yellow: #ff8800 (Hover: #e67a00)
+   - Pure White: #ffffff
+   - Soft Background: #f8fafc / #fbfcfd
+   - Clean Borders: #e2e8f0 / #cbd5e1
    ========================================================================== */
 
 .grv-page {
-    background-color: #f1f5f9;
+    background-color: #f8fafc;
     color: #1e293b;
     padding: 34px 16px 80px;
     min-height: 85vh;
@@ -13,27 +18,41 @@
 }
 
 .grv-container {
-    max-width: 680px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
-/* Tab Switcher */
+/* Kicker Badge */
+.grv-kicker {
+    display: block;
+    text-align: center;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 6px;
+}
+
+/* Tab Switcher - Pill Theme */
 .grv-nav-tabs {
     display: flex;
-    background: #e2e8f0;
-    padding: 4px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    gap: 4px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 6px;
+    border-radius: 30px;
+    margin-bottom: 24px;
+    gap: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .grv-tab-btn {
     flex: 1;
-    padding: 10px 16px;
+    padding: 10px 18px;
     border: none;
     background: transparent;
-    border-radius: 6px;
-    font-size: 0.9rem;
+    border-radius: 24px;
+    font-size: 0.88rem;
     font-weight: 700;
     color: #475569;
     cursor: pointer;
@@ -45,34 +64,36 @@
 }
 
 .grv-tab-btn:hover {
-    color: #1e293b;
+    color: #000000;
 }
 
 .grv-tab-btn.active {
-    background: #ffffff;
-    color: #1f646c;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    background: #ff8800;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(255, 136, 0, 0.28);
 }
 
+/* Main Card */
 .grv-card {
     background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    padding: 34px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 36px 34px;
     border: 1px solid #e2e8f0;
 }
 
 .grv-title {
     font-family: 'Inter', sans-serif;
-    font-size: 1.65rem;
+    font-size: clamp(1.5rem, 2.4vw, 1.85rem);
     font-weight: 800;
-    color: #1f646c;
+    color: #000000;
     text-align: center;
     margin: 0 0 24px 0;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
 }
 
-/* Alert Notification */
+/* Alert Notifications */
 .grv-alert {
     padding: 14px 18px;
     border-radius: 8px;
@@ -82,9 +103,9 @@
 }
 
 .grv-alert-success {
-    background-color: #ecfdf5;
-    border: 1px solid #a7f3d0;
-    color: #065f46;
+    background-color: #fffbeb;
+    border: 1px solid #fde68a;
+    color: #92400e;
 }
 
 .grv-alert-danger {
@@ -101,20 +122,21 @@
 
 /* Fieldset Section Outlines */
 .grv-section {
-    border: 1px solid #cbd5e1;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
     padding: 18px 20px 20px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     background: #ffffff;
 }
 
 .grv-section-legend {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: #1f646c;
+    font-size: 0.80rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #ff8800;
     padding: 0 10px;
     margin-left: 6px;
-    letter-spacing: -0.01em;
 }
 
 /* Form Layout */
@@ -128,9 +150,9 @@
 
 .grv-label {
     display: block;
-    font-size: 0.84rem;
-    font-weight: 600;
-    color: #334155;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f172a;
     margin-bottom: 6px;
 }
 
@@ -150,11 +172,11 @@
 .grv-select,
 .grv-textarea {
     width: 100%;
-    padding: 10px 14px;
+    padding: 11px 14px;
     border: 1px solid #cbd5e1;
     border-radius: 6px;
-    font-size: 0.88rem;
-    color: #1e293b;
+    font-size: 0.90rem;
+    color: #000000;
     background-color: #ffffff;
     outline: none;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -164,25 +186,25 @@
 .grv-input:focus,
 .grv-select:focus,
 .grv-textarea:focus {
-    border-color: #1f646c;
-    box-shadow: 0 0 0 3px rgba(31, 100, 108, 0.12);
+    border-color: #ff8800;
+    box-shadow: 0 0 0 3px rgba(255, 136, 0, 0.18);
 }
 
 .grv-input::placeholder,
 .grv-textarea::placeholder {
     color: #94a3b8;
-    font-size: 0.84rem;
+    font-size: 0.85rem;
 }
 
 .grv-select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ff8800'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    padding-right: 36px;
+    background-position: right 14px center;
+    background-size: 14px;
+    padding-right: 38px;
     cursor: pointer;
 }
 
@@ -192,31 +214,35 @@
     line-height: 1.5;
 }
 
-/* Submit Button */
+/* Submit Button - Yellow / Institutional Orange */
 .grv-submit-btn {
     width: 100%;
-    padding: 13px 24px;
-    background-color: #1f646c;
+    padding: 14px 24px;
+    background-color: #ff8800;
     color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 0.98rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     margin-top: 10px;
+    box-shadow: 0 3px 10px rgba(255, 136, 0, 0.25);
 }
 
 .grv-submit-btn:hover {
-    background-color: #174e54;
+    background-color: #e67a00;
+    box-shadow: 0 4px 14px rgba(255, 136, 0, 0.35);
+    transform: translateY(-1px);
 }
 
 .grv-submit-btn:active {
-    transform: scale(0.99);
+    transform: translateY(0);
 }
 
 /* ==========================================================================
@@ -224,9 +250,9 @@
    ========================================================================== */
 .grv-track-box {
     background: #f8fafc;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
-    padding: 20px;
+    padding: 22px;
     margin-bottom: 24px;
 }
 
@@ -237,15 +263,15 @@
 }
 
 .grv-track-btn {
-    padding: 10px 20px;
-    background-color: #1f646c;
+    padding: 11px 22px;
+    background-color: #ff8800;
     color: #ffffff;
-    font-size: 0.9rem;
+    font-size: 0.90rem;
     font-weight: 700;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -253,17 +279,17 @@
 }
 
 .grv-track-btn:hover {
-    background-color: #174e54;
+    background-color: #e67a00;
 }
 
 /* Status Result Card */
 .grv-result-card {
     background: #ffffff;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #e2e8f0;
     border-radius: 10px;
     padding: 24px;
     margin-top: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
 .grv-result-header {
@@ -278,25 +304,27 @@
 }
 
 .grv-result-ticket {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 800;
-    color: #0f172a;
-    letter-spacing: -0.01em;
+    color: #000000;
+    letter-spacing: 0.02em;
 }
 
 .grv-status-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 4px 12px;
-    border-radius: 14px;
+    padding: 5px 14px;
+    border-radius: 20px;
     font-size: 0.82rem;
-    font-weight: 700;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .grv-status-pending {
-    background: #fef3c7;
-    color: #92400e;
+    background: #fffbeb;
+    color: #b45309;
     border: 1px solid #fde68a;
 }
 
@@ -307,14 +335,14 @@
 }
 
 .grv-status-resolved {
-    background: #d1fae5;
-    color: #065f46;
+    background: #ecfdf5;
+    color: #047857;
     border: 1px solid #a7f3d0;
 }
 
 .grv-status-rejected {
-    background: #fee2e2;
-    color: #991b1b;
+    background: #fef2f2;
+    color: #b91c1c;
     border: 1px solid #fecaca;
 }
 
@@ -324,8 +352,8 @@
     gap: 14px;
     margin-bottom: 18px;
     background: #f8fafc;
-    padding: 14px;
-    border-radius: 6px;
+    padding: 16px;
+    border-radius: 8px;
     border: 1px solid #e2e8f0;
 }
 
@@ -336,16 +364,17 @@
 .grv-info-label {
     display: block;
     font-size: 0.76rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #64748b;
     text-transform: uppercase;
-    margin-bottom: 2px;
+    letter-spacing: 0.04em;
+    margin-bottom: 3px;
 }
 
 .grv-info-value {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #000000;
 }
 
 .grv-detail-box {
@@ -354,70 +383,67 @@
 
 .grv-detail-label {
     font-size: 0.82rem;
-    font-weight: 700;
-    color: #475569;
+    font-weight: 800;
+    color: #0f172a;
     text-transform: uppercase;
-    margin-bottom: 4px;
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
 }
 
 .grv-detail-content {
-    background: #ffffff;
+    background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
-    padding: 12px 14px;
-    font-size: 0.88rem;
-    line-height: 1.55;
-    color: #334155;
+    padding: 14px 16px;
+    font-size: 0.90rem;
+    line-height: 1.6;
+    color: #1e293b;
 }
 
 .grv-remarks-box {
-    background: #f0fdf4;
-    border: 1.5px solid #86efac;
-    border-radius: 6px;
-    padding: 14px;
-    margin-top: 14px;
+    background: #fffbeb;
+    border: 1.5px solid #fde68a;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 16px;
 }
 
-.grv-remarks-box.pending {
-    background: #fffbeb;
-    border-color: #fde68a;
+.grv-remarks-box.resolved {
+    background: #ecfdf5;
+    border-color: #a7f3d0;
 }
 
 .grv-remarks-title {
-    font-size: 0.84rem;
-    font-weight: 700;
-    color: #065f46;
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: #b45309;
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
-.grv-remarks-title.pending {
-    color: #b45309;
+.grv-remarks-title.resolved {
+    color: #047857;
 }
 
 .grv-remarks-text {
-    font-size: 0.88rem;
+    font-size: 0.90rem;
     color: #1e293b;
-    line-height: 1.5;
+    line-height: 1.55;
     margin: 0;
 }
 
 /* Responsive */
 @media (max-width: 600px) {
     .grv-card {
-        padding: 22px 16px;
+        padding: 24px 18px;
     }
 
     .grv-grid-2,
     .grv-info-grid {
         grid-template-columns: 1fr;
         gap: 12px;
-    }
-
-    .grv-title {
-        font-size: 1.35rem;
     }
 
     .grv-track-search-row {
