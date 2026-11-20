@@ -111,6 +111,9 @@ if (substr($adminBaseUrl, -1) !== '/') {
                 $aboutPageItems = ['principal-message', 'idp', 'facilities', 'e-newsletters', 'brochure', 'mandatory-disclosure', 'rankings', 'mou', 'approvals'];
                 $isAboutActive = in_array($current_page, $aboutPageItems);
 
+                $academicsPageItems = ['academic-calendar'];
+                $isAcademicsActive = in_array($current_page, $academicsPageItems);
+
                 $administrationPageItems = ['principal-profile', 'hostel-mess'];
                 $isAdministrationActive = in_array($current_page, $administrationPageItems);
 
@@ -177,6 +180,21 @@ if (substr($adminBaseUrl, -1) !== '/') {
                         <li class="submenu-item <?= ($current_page === 'approvals') ? 'active' : '' ?>">
                             <a href="approvals" class="submenu-link">
                                 <span>AICTE &amp; GTU Approvals</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Academics Accordion Dropdown -->
+                <li class="menu-item menu-item-has-submenu <?= $isAcademicsActive ? 'active open' : '' ?>">
+                    <a href="javascript:void(0);" class="menu-link submenu-toggle" id="academicsMenuToggle">
+                        <span>Academics</span>
+                        <i class="fas fa-chevron-down submenu-arrow"></i>
+                    </a>
+                    <ul class="submenu-list">
+                        <li class="submenu-item <?= ($current_page === 'academic-calendar') ? 'active' : '' ?>">
+                            <a href="academic-calendar.php" class="submenu-link">
+                                <span>Academic Calendar</span>
                             </a>
                         </li>
                     </ul>
