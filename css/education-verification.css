@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Student Education Verification & Student Section Stylesheet
+   Government Engineering College, Modasa (GECM)
+   Strictly aligned with GECM Institutional Design System
+   ========================================================================== */
+
+.ev-page {
+    background-color: #fbfcfd;
+    color: #1f2937;
+    padding: 0 0 70px 0;
+    min-height: 80vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Hero Section */
+.ev-hero {
+    padding: 34px 0 24px;
+    border-bottom: 1px solid #eef2f6;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+}
+
+.ev-hero-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 36px;
+}
+
+.ev-kicker {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ff8800;
+    margin-bottom: 6px;
+}
+
+.ev-heading {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.85rem, 2.6vw, 2.35rem);
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px 0;
+}
+
+.ev-lead {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: #475569;
+    max-width: 1150px;
+    margin: 0;
+}
+
+/* Main Content Container */
+.ev-main-content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 30px 36px 0;
+}
+
+/* Card Wrappers */
+.ev-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.ev-card-header {
+    padding: 18px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.ev-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ev-card-title i {
+    color: #0284c7;
+}
+
+.ev-card-body {
+    padding: 24px;
+}
+
+/* Activities Grid */
+.ev-activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.ev-activity-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 11px 16px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #334155;
+    transition: all 0.2s ease;
+}
+
+.ev-activity-item:hover {
+    background: #f0f9ff;
+    border-color: #bae6fd;
+    color: #0284c7;
+}
+
+.ev-activity-item i {
+    color: #ff8800;
+    font-size: 0.82rem;
+}
+
+/* Table Styling */
+.ev-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    text-align: left;
+}
+
+.ev-table thead th {
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 14px 20px;
+    border-bottom: 1.5px solid #cbd5e1;
+    white-space: nowrap;
+}
+
+.ev-table tbody td {
+    padding: 13px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #1e293b;
+    vertical-align: middle;
+}
+
+.ev-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.ev-sr-no {
+    font-weight: 700;
+    color: #64748b;
+    text-align: center;
+    width: 70px;
+}
+
+.ev-name {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.ev-dept {
+    color: #334155;
+}
+
+.ev-designation-badge {
+    font-weight: 600;
+    color: #0284c7;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 0.82rem;
+}
+
+.ev-designation-badge.convener {
+    color: #b45309;
+    background: #fffbeb;
+    border-color: #fde68a;
+}
+
+/* Departmental PDF Section Below Table */
+.ev-pdf-bar {
+    padding: 18px 24px;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.ev-pdf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #0284c7;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #bae6fd;
+    background: #ffffff;
+}
+
+.ev-pdf-link:hover {
+    color: #0369a1;
+    background: #f0f9ff;
+    border-color: #0284c7;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.12);
+}
+
+.ev-pdf-link i {
+    font-size: 1.15rem;
+    color: #ef4444;
+}
+
+/* Verification Guide Card */
+.ev-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-top: 14px;
+}
+
+.ev-guide-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.ev-guide-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px 0;
+}
+
+.ev-guide-title i {
+    color: #ff8800;
+}
+
+.ev-guide-val {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #475569;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ev-hero-inner,
+    .ev-main-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .ev-table thead th,
+    .ev-table tbody td {
+        padding: 11px 14px;
+        font-size: 0.88rem;
+    }
+
+    .ev-activities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ev-pdf-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

@@ -276,7 +276,7 @@ if (!isset($active_page)) {
                 <!-- Student Corner Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="javascript:void(0);"
-                       class="hdr-nav-link <?= in_array($active_page, ['student-section', 'student_section', 'student-rules', 'enrollment-details', 'scholarships']) ? 'active is-active' : '' ?>">
+                       class="hdr-nav-link <?= in_array($active_page, ['student-section', 'student_section', 'student-rules', 'enrollment-details', 'scholarships', 'education-verification']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">Student Corner</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
@@ -288,7 +288,7 @@ if (!isset($active_page)) {
                             <li><a href="<?= $root_path ?>student-corner/scholarships" class="hdr-dd-link <?= ($active_page === 'scholarships') ? 'is-active active' : '' ?>">Scholarships</a></li>
                             <li><a href="https://www.students.gtu.ac.in/Default.aspx" target="_blank" rel="noopener noreferrer" class="hdr-dd-link">Grade History Card</a></li>
                             <li><a href="https://sbcollect.sbi.bank.in/sbicollect/icollecthome.htm" target="_blank" rel="noopener noreferrer" class="hdr-dd-link">Online Fees Payment</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link">Education Verification</a></li>
+                            <li><a href="<?= $root_path ?>student-corner/education-verification" class="hdr-dd-link <?= ($active_page === 'education-verification') ? 'is-active active' : '' ?>">Education Verification</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Grievance Portal</a></li>
                         </ul>
                     </div>

@@ -97,4 +97,29 @@
    - Updated `.htaccess` with 301 redirect for legacy `/scholarships` requests to `/student-corner/scholarships`.
    - Updated `sitemap.xml` with `<loc>https://gecmodasa.ac.in/student-corner/scholarships</loc>`.
 
+---
+
+## Update: 20-Nov-2026 - Student Corner Education Verification & Student Section Team Module
+
+### Completed:
+1. **Public Education Verification & Student Section Page (`student-corner/education-verification.php`)**:
+   - Responsive layout designed with institutional styling tokens (`css/education-verification.css`).
+   - Official Student Section header and prime objective paragraph matching institutional circular.
+   - 10 Key activities grid (Student Registration, Fees Payment, Scholarships, Admission Cancellation, Institute Transfer, Student I-Card, GTU certificates, Bona fide / Character Certificate, Name Correction, Transcript).
+   - Dynamic Student Section Team table (Sr No., Name, Department, Designation) with auto-seeding of the 6 official members and fallback if database is offline.
+   - "Departmental Student Section Team Members" PDF link below the table with PDF icon and new window opener (`target="_blank"`).
+   - Official Education Verification guidelines for corporate background verification (BGV) partners, embassies, and academic bodies.
+
+2. **Admin Management Module (`admin/education-verification.php`)**:
+   - Added inside the Student Corner accordion in the admin panel sidebar (`admin/includes/header.php`).
+   - Self-healing database tables: `student_section_team` and `student_section_settings`.
+   - Departmental Student Section Team PDF management: Upload PDF from computer (up to 25MB), view current PDF, update title, and delete/replace.
+   - Complete CRUD for team members: Add member, Edit details, 1-click active/hidden toggle, secure delete, and live search filter.
+
+3. **Routing, Navigation & SEO Integration**:
+   - Updated public navigation in `includes/header.php` under the Student Corner dropdown to link to `student-corner/education-verification`.
+   - Updated `.htaccess` with 301 redirect for legacy `/education-verification` requests.
+   - Updated `sitemap.xml` with `<loc>https://gecmodasa.ac.in/student-corner/education-verification</loc>`.
+
+
 
