@@ -150,33 +150,36 @@ require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="admin-card">
-    <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px;">
-        <a href="../student-corner/grievance-portal" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; text-decoration: none;">
-            <i class="fas fa-external-link-alt"></i> View Public Grievance Form
+    <!-- Card Top Actions Bar -->
+    <div class="card-top" style="justify-content: flex-end; padding: 16px 24px; border-bottom: 1px solid var(--admin-border-color); background: #ffffff;">
+        <a href="../student-corner/grievance-portal" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; text-decoration: none; padding: 7px 16px; border-radius: 6px; font-weight: 600;">
+            <i class="fas fa-external-link-alt" style="color: #0284c7;"></i> View Public Grievance Form
         </a>
     </div>
 
-    <!-- Quick Stats Cards -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 22px;">
-        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px;">
-            <div style="font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase;">Total Submissions</div>
-            <div style="font-size: 26px; font-weight: 800; color: #0f172a; margin-top: 4px;"><?= $stats['Total'] ?></div>
-        </div>
-        <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 14px 18px;">
-            <div style="font-size: 12px; font-weight: 700; color: #b45309; text-transform: uppercase;">Pending Action</div>
-            <div style="font-size: 26px; font-weight: 800; color: #b45309; margin-top: 4px;"><?= $stats['Pending'] ?></div>
-        </div>
-        <div style="background: #e0f2fe; border: 1px solid #bae6fd; border-radius: 8px; padding: 14px 18px;">
-            <div style="font-size: 12px; font-weight: 700; color: #0369a1; text-transform: uppercase;">Under Review</div>
-            <div style="font-size: 26px; font-weight: 800; color: #0369a1; margin-top: 4px;"><?= $stats['Under Review'] ?></div>
-        </div>
-        <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 14px 18px;">
-            <div style="font-size: 12px; font-weight: 700; color: #047857; text-transform: uppercase;">Resolved</div>
-            <div style="font-size: 26px; font-weight: 800; color: #047857; margin-top: 4px;"><?= $stats['Resolved'] ?></div>
-        </div>
-        <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 14px 18px;">
-            <div style="font-size: 12px; font-weight: 700; color: #b91c1c; text-transform: uppercase;">Rejected</div>
-            <div style="font-size: 26px; font-weight: 800; color: #b91c1c; margin-top: 4px;"><?= $stats['Rejected'] ?></div>
+    <!-- Quick Stats Cards with clean padding -->
+    <div style="padding: 22px 24px 6px 24px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 16px;">
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase;">Total Submissions</div>
+                <div style="font-size: 26px; font-weight: 800; color: #0f172a; margin-top: 4px;"><?= $stats['Total'] ?></div>
+            </div>
+            <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #b45309; text-transform: uppercase;">Pending Action</div>
+                <div style="font-size: 26px; font-weight: 800; color: #b45309; margin-top: 4px;"><?= $stats['Pending'] ?></div>
+            </div>
+            <div style="background: #e0f2fe; border: 1px solid #bae6fd; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #0369a1; text-transform: uppercase;">Under Review</div>
+                <div style="font-size: 26px; font-weight: 800; color: #0369a1; margin-top: 4px;"><?= $stats['Under Review'] ?></div>
+            </div>
+            <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #047857; text-transform: uppercase;">Resolved</div>
+                <div style="font-size: 26px; font-weight: 800; color: #047857; margin-top: 4px;"><?= $stats['Resolved'] ?></div>
+            </div>
+            <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 14px 18px;">
+                <div style="font-size: 12px; font-weight: 700; color: #b91c1c; text-transform: uppercase;">Rejected</div>
+                <div style="font-size: 26px; font-weight: 800; color: #b91c1c; margin-top: 4px;"><?= $stats['Rejected'] ?></div>
+            </div>
         </div>
     </div>
 
@@ -293,15 +296,15 @@ require_once __DIR__ . '/includes/header.php';
                             <?= date('d M Y', strtotime($row['created_at'])) ?>
                         </td>
                         <td style="text-align: center;">
-                            <div style="display: inline-flex; gap: 6px;">
+                            <div class="table-actions" style="justify-content: center; gap: 8px;">
                                 <button type="button" 
-                                        class="btn-icon edit" 
+                                        class="btn-table-action btn-edit" 
                                         title="View / Resolve Grievance" 
                                         onclick='openAdminGrvModal(<?= json_encode($row) ?>)'>
                                     <i class="fas fa-eye"></i>
                                 </button>
                                 <a href="grievances.php?delete=<?= $row['id'] ?>" 
-                                   class="btn-icon delete" 
+                                   class="btn-table-action btn-delete" 
                                    title="Delete Grievance" 
                                    onclick="return confirm('Are you sure you want to delete this grievance record?');">
                                     <i class="fas fa-trash-alt"></i>

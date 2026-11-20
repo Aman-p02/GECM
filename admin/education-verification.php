@@ -409,12 +409,12 @@ require_once __DIR__ . '/includes/header.php';
                         </a>
                     </td>
                     <td style="text-align: center;">
-                        <div style="display: inline-flex; gap: 6px;">
-                            <a href="education-verification.php?edit=<?= $row['id'] ?>" class="btn-icon edit" title="Edit Member">
+                        <div class="table-actions" style="justify-content: center; gap: 8px;">
+                            <a href="education-verification.php?edit=<?= $row['id'] ?>" class="btn-table-action btn-edit" title="Edit Member">
                                 <i class="fas fa-edit"></i>
                             </a>
                             <a href="education-verification.php?delete=<?= $row['id'] ?>" 
-                               class="btn-icon delete" 
+                               class="btn-table-action btn-delete" 
                                title="Delete Member" 
                                onclick="return confirm('Are you sure you want to delete this team member?');">
                                 <i class="fas fa-trash-alt"></i>
