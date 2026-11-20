@@ -150,18 +150,10 @@ require_once __DIR__ . '/includes/header.php';
 ?>
 
 <div class="admin-card">
-    <div class="card-top">
-        <div class="card-title-group">
-            <h2 class="card-title">Institutional Grievance Redressal Management</h2>
-            <p style="font-size: 13.5px; color: #64748b; margin: 4px 0 0 0;">
-                Comprehensive central dashboard for reviewing, filtering, and resolving student and faculty grievances across all college departments.
-            </p>
-        </div>
-        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-            <a href="../student-corner/grievance-portal" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; text-decoration: none;">
-                <i class="fas fa-external-link-alt"></i> View Public Grievance Form
-            </a>
-        </div>
+    <div style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 20px;">
+        <a href="../student-corner/grievance-portal" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; text-decoration: none;">
+            <i class="fas fa-external-link-alt"></i> View Public Grievance Form
+        </a>
     </div>
 
     <!-- Quick Stats Cards -->

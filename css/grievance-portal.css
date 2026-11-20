@@ -7,7 +7,7 @@
 .grv-page {
     background-color: #f1f5f9;
     color: #1e293b;
-    padding: 40px 16px 80px;
+    padding: 34px 16px 80px;
     min-height: 85vh;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -17,11 +17,48 @@
     margin: 0 auto;
 }
 
+/* Tab Switcher */
+.grv-nav-tabs {
+    display: flex;
+    background: #e2e8f0;
+    padding: 4px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    gap: 4px;
+}
+
+.grv-tab-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.grv-tab-btn:hover {
+    color: #1e293b;
+}
+
+.grv-tab-btn.active {
+    background: #ffffff;
+    color: #1f646c;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
 .grv-card {
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    padding: 36px 32px;
+    padding: 34px 32px;
     border: 1px solid #e2e8f0;
 }
 
@@ -31,7 +68,7 @@
     font-weight: 800;
     color: #1f646c;
     text-align: center;
-    margin: 0 0 28px 0;
+    margin: 0 0 24px 0;
     letter-spacing: -0.02em;
 }
 
@@ -54,6 +91,12 @@
     background-color: #fef2f2;
     border: 1px solid #fecaca;
     color: #991b1b;
+}
+
+.grv-alert-info {
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    color: #0369a1;
 }
 
 /* Fieldset Section Outlines */
@@ -176,18 +219,213 @@
     transform: scale(0.99);
 }
 
+/* ==========================================================================
+   Grievance Status Tracking Card Styles
+   ========================================================================== */
+.grv-track-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.grv-track-search-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.grv-track-btn {
+    padding: 10px 20px;
+    background-color: #1f646c;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.grv-track-btn:hover {
+    background-color: #174e54;
+}
+
+/* Status Result Card */
+.grv-result-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.grv-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+}
+
+.grv-result-ticket {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+}
+
+.grv-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.grv-status-pending {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+.grv-status-under-review {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
+.grv-status-resolved {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.grv-status-rejected {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.grv-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+    background: #f8fafc;
+    padding: 14px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.grv-info-item {
+    font-size: 0.85rem;
+}
+
+.grv-info-label {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.grv-info-value {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.grv-detail-box {
+    margin-bottom: 16px;
+}
+
+.grv-detail-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #475569;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.grv-detail-content {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #334155;
+}
+
+.grv-remarks-box {
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    border-radius: 6px;
+    padding: 14px;
+    margin-top: 14px;
+}
+
+.grv-remarks-box.pending {
+    background: #fffbeb;
+    border-color: #fde68a;
+}
+
+.grv-remarks-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #065f46;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.grv-remarks-title.pending {
+    color: #b45309;
+}
+
+.grv-remarks-text {
+    font-size: 0.88rem;
+    color: #1e293b;
+    line-height: 1.5;
+    margin: 0;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .grv-card {
-        padding: 24px 18px;
+        padding: 22px 16px;
     }
 
-    .grv-grid-2 {
+    .grv-grid-2,
+    .grv-info-grid {
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 12px;
     }
 
     .grv-title {
         font-size: 1.35rem;
+    }
+
+    .grv-track-search-row {
+        flex-direction: column;
+    }
+
+    .grv-track-btn {
+        width: 100%;
+        justify-content: center;
     }
 }

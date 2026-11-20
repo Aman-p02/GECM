@@ -146,6 +146,12 @@
    - Updated `.htaccess` with 301 redirect for legacy `/grievance-portal` requests.
    - Updated `sitemap.xml` with `<loc>https://gecmodasa.ac.in/student-corner/grievance-portal</loc>`.
 
+5. **Enhancements & Refinements**:
+   - Cleaned up Super Admin Grievance dashboard (`admin/grievances.php`) by removing redundant duplicate header titles to maintain single page title uniformity across admin screens.
+   - Built dual-tab workflow into `student-corner/grievance-portal.php` enabling students to both submit new grievances and track live redressal status by entering their Reference Ticket Number or Enrollment ID.
+   - Display department resolution remarks, timestamps, and current stage badges directly on the public tracking interface.
+
+
 
 
 
