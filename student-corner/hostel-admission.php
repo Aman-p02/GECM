@@ -188,6 +188,56 @@ require_once __DIR__ . '/../includes/header.php';
     gap: 14px;
     margin-bottom: 14px;
 }
+.btn-hostel-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.90rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    text-decoration: none !important;
+    border-radius: 6px;
+    border: 1.5px solid #cbd5e1;
+    background: #ffffff;
+    color: #1e293b !important;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.btn-hostel-outline i {
+    color: #ff8800;
+}
+.btn-hostel-outline:hover {
+    background: #f8fafc;
+    border-color: #ff8800;
+    color: #ff8800 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.btn-hostel-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.90rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    text-decoration: none !important;
+    border-radius: 6px;
+    border: 1.5px solid #ff8800;
+    background: #ff8800;
+    color: #ffffff !important;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(255, 136, 0, 0.25);
+}
+.btn-hostel-solid i {
+    color: #ffffff;
+}
+.btn-hostel-solid:hover {
+    background: #e67a00;
+    border-color: #e67a00;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(255, 136, 0, 0.35);
+}
 @media (max-width: 650px) {
     .hostel-form-card { padding: 24px 18px; }
     .hostel-grid-2, .hostel-grid-3 { grid-template-columns: 1fr; gap: 12px; }
@@ -241,10 +291,10 @@ require_once __DIR__ . '/../includes/header.php';
                     The online application intake for hostel admission is not accepting submissions at this time. Registrations open during the official admission rounds (July - September).
                 </p>
                 <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-                    <a href="../administration/hostel-mess" class="btn btn-secondary" style="font-size: 0.88rem; padding: 8px 18px; text-decoration: none; border-radius: 6px; border: 1.5px solid #cbd5e1;">
+                    <a href="../administration/hostel-mess" class="btn-hostel-outline">
                         <i class="fas fa-info-circle"></i> View Hostel &amp; Mess Info
                     </a>
-                    <a href="../contact" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-size: 0.88rem; padding: 8px 18px; text-decoration: none; border-radius: 6px;">
+                    <a href="../contact" class="btn-hostel-solid">
                         <i class="fas fa-envelope"></i> Contact Administration
                     </a>
                 </div>
