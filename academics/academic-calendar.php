@@ -2,6 +2,7 @@
 /**
  * GEC MODASA - ACADEMIC CALENDAR
  * Official Institutional Semester Term Schedules & GTU Circulars
+ * Follows GECM Institutional Department Design System
  */
 $page_title = "Academic Calendar | Government Engineering College, Modasa";
 $active_page = "academic-calendar";
@@ -70,93 +71,103 @@ $totalDocsCount = count($calendarList);
 $latestYear = array_key_first($groupedYears) ?? '2026-27';
 ?>
 
-<div class="cal-page" id="mainContent">
+<div class="dept-page" id="mainContent">
 
-    <!-- Hero Banner -->
-    <header class="cal-hero">
-        <div class="container">
-            <nav class="cal-breadcrumbs" aria-label="Breadcrumb">
-                <a href="<?= $root_path ?>">Home</a>
-                <span class="sep"><i class="fas fa-chevron-right"></i></span>
-                <a href="<?= $root_path ?>academics/courses">Academics</a>
-                <span class="sep"><i class="fas fa-chevron-right"></i></span>
-                <span class="current">Academic Calendar</span>
-            </nav>
+    <div class="dept-container">
+        <!-- Breadcrumbs -->
+        <nav class="dept-breadcrumbs" aria-label="Breadcrumb">
+            <a href="<?= $root_path ?>">Home</a>
+            <span class="sep"><i class="fas fa-chevron-right"></i></span>
+            <a href="<?= $root_path ?>academics/courses">Academics</a>
+            <span class="sep"><i class="fas fa-chevron-right"></i></span>
+            <span class="current">Academic Calendar</span>
+        </nav>
 
-            <span class="cal-kicker">OFFICIAL INSTITUTIONAL SCHEDULE</span>
-            <h1 class="cal-heading">Academic Calendar</h1>
-            <p class="cal-lead">
-                Comprehensive semester-wise schedule detailing instructional terms, commencement dates, mid-semester assessments, vacation periods, and Gujarat Technological University (GTU) academic timelines.
-            </p>
+        <!-- Department Style Clean Hero -->
+        <div class="dept-about-hero">
+            <div class="dept-hero-grid">
+                <div class="dept-hero-text">
+                    <span class="dept-kicker">ACADEMIC PROGRAMMES &amp; SCHEDULE</span>
+                    <h1 class="dept-heading">Academic Calendar</h1>
+                    <p class="dept-tagline">
+                        Official institutional semester term schedules, instructional commencement dates, examination windows, and Gujarat Technological University (GTU) academic regulations.
+                    </p>
+                </div>
+            </div>
 
-            <!-- Key Metrics Stats Grid -->
-            <div class="cal-stats-grid">
-                <div class="cal-stat-card">
-                    <span class="cal-stat-num"><?= $latestYear ?></span>
-                    <span class="cal-stat-label">Current Academic Session</span>
+            <!-- Key metrics counter strip -->
+            <div class="dept-stats-strip">
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num"><?= htmlspecialchars($latestYear) ?></span>
+                    <span class="dept-stat-label">CURRENT ACADEMIC SESSION</span>
                 </div>
-                <div class="cal-stat-card">
-                    <span class="cal-stat-num"><?= $totalYearsCount ?> Years</span>
-                    <span class="cal-stat-label">Archived Sessions</span>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num"><?= $totalYearsCount ?></span>
+                    <span class="dept-stat-label">ARCHIVED SESSIONS</span>
                 </div>
-                <div class="cal-stat-card">
-                    <span class="cal-stat-num">Odd &amp; Even</span>
-                    <span class="cal-stat-label">Semester Term Schedules</span>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">ODD &amp; EVEN</span>
+                    <span class="dept-stat-label">SEMESTER TERM SCHEDULES</span>
                 </div>
-                <div class="cal-stat-card">
-                    <span class="cal-stat-num">GTU Aligned</span>
-                    <span class="cal-stat-label">State University Guidelines</span>
+                <div class="dept-stat-item">
+                    <span class="dept-stat-num">GTU</span>
+                    <span class="dept-stat-label">REGULATORY AFFILIATION</span>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
-    <div class="container" style="margin-top: 0;">
+    <!-- Sticky Sub-Navigation Bar matching Department Tabs -->
+    <nav class="dept-subnav-bar" id="calSubNav" aria-label="Academic Calendar Navigation">
+        <div class="dept-container">
+            <div class="dept-subnav-wrap">
+                <ul class="dept-subnav-list" role="tablist">
+                    <li class="dept-subnav-item active">
+                        <button type="button" class="dept-subnav-link active" data-filter="all" role="tab" aria-selected="true">
+                            All Sessions (<?= $totalYearsCount ?>)
+                        </button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-filter="odd" role="tab" aria-selected="false">
+                            Odd Semester (Sem 1, 3, 5, 7)
+                        </button>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-filter="even" role="tab" aria-selected="false">
+                            Even Semester (Sem 2, 4, 6, 8)
+                        </button>
+                    </li>
+                </ul>
 
-        <!-- Filter & Search Toolbar -->
-        <div class="cal-toolbar-card">
-            <div class="cal-toolbar-inner">
-                <div class="cal-filter-pills" role="tablist">
-                    <button type="button" class="cal-pill-btn active" data-filter="all">
-                        <i class="fas fa-layer-group"></i> All Sessions (<?= $totalYearsCount ?>)
-                    </button>
-                    <button type="button" class="cal-pill-btn" data-filter="odd">
-                        <i class="fas fa-calendar-alt"></i> Odd Semesters
-                    </button>
-                    <button type="button" class="cal-pill-btn" data-filter="even">
-                        <i class="fas fa-calendar-check"></i> Even Semesters
-                    </button>
-                </div>
-
-                <div class="cal-search-box">
+                <div class="cal-search-wrap">
                     <i class="fas fa-search cal-search-icon"></i>
                     <input type="text" id="calSearchInput" class="cal-search-input" placeholder="Search academic year (e.g. 2026-27)..." aria-label="Search Academic Calendar">
                 </div>
             </div>
         </div>
+    </nav>
 
-        <!-- Institutional Regulation Callout -->
-        <div class="cal-notice-card">
-            <i class="fas fa-info-circle cal-notice-icon"></i>
-            <p class="cal-notice-text">
-                <strong>Academic Governance Notice:</strong> The Academic Calendars published herein are formulated in accordance with the regulatory directives of Gujarat Technological University (GTU), Ahmedabad, and the Directorate of Technical Education (DTE), Gandhinagar. Term dates, end-semester examinations, and non-instructional days are subject to official university notifications.
-            </p>
-        </div>
+    <!-- Main Content Container -->
+    <main class="dept-main-content">
+        <div class="dept-container">
 
-        <!-- Academic Calendar Main Table Card -->
-        <div class="cal-table-card">
-            <div class="cal-table-header-strip">
-                <div>
-                    <h2 class="cal-table-heading">
-                        <i class="fas fa-calendar-week"></i> Session-Wise Academic Calendars
-                    </h2>
-                    <p class="cal-table-sub">Click on any semester term document below to view or download the verified institutional PDF schedule.</p>
-                </div>
+            <div class="dept-section-header">
+                <span class="dept-section-kicker">INSTITUTIONAL TIMELINE</span>
+                <h2>Official Semester Schedules</h2>
+                <p>Term dates, teaching phases, internal assessment periods, end-semester university examinations, and non-instructional days as sanctioned by Gujarat Technological University.</p>
             </div>
 
-            <!-- Desktop View: High Contrast Structured Table -->
-            <div class="cal-table-wrap">
-                <table class="cal-table" id="calMainTable">
+            <!-- Institutional Governance Notice -->
+            <div class="cal-notice-box">
+                <i class="fas fa-info-circle cal-notice-ico"></i>
+                <p class="cal-notice-text">
+                    <strong>Academic Governance Directive:</strong> The Academic Calendars published below are structured strictly in conformity with directives from Gujarat Technological University (GTU), Ahmedabad, and the Directorate of Technical Education (DTE), Gandhinagar. Official revisions and circular amendments are updated by the institutional administration.
+                </p>
+            </div>
+
+            <!-- Desktop Clean Data Table -->
+            <div class="dept-table-wrap">
+                <table class="dept-clean-table" id="calMainTable">
                     <thead>
                         <tr>
                             <th style="width: 22%;">Academic Year</th>
@@ -173,10 +184,10 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                             <tr class="cal-row" data-year="<?= htmlspecialchars(strtolower($yearKey)) ?>" data-has-odd="<?= $oddDoc ? '1' : '0' ?>" data-has-even="<?= $evenDoc ? '1' : '0' ?>">
                                 <!-- Academic Year Column -->
                                 <td>
-                                    <div class="cal-year-badge">
-                                        <?= htmlspecialchars($yearKey) ?>
+                                    <div class="cal-year-title">
+                                        <span><?= htmlspecialchars($yearKey) ?></span>
                                         <?php if ($isCurrentYear): ?>
-                                            <span class="cal-tag-current">Current</span>
+                                            <span class="cal-tag-current">CURRENT</span>
                                         <?php endif; ?>
                                     </div>
                                 </td>
@@ -188,25 +199,15 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                                         $oddSize = $oddDoc['file_size'] ?? 'PDF';
                                         $oddLabel = htmlspecialchars($oddDoc['title'] ?? ($yearKey . ' (Odd)'));
                                     ?>
-                                        <a href="<?= htmlspecialchars($oddUrl) ?>" target="_blank" class="cal-doc-item" title="Download <?= $oddLabel ?>">
-                                            <div class="cal-doc-icon">
-                                                <i class="fas fa-file-pdf"></i>
-                                            </div>
-                                            <div class="cal-doc-info">
-                                                <span class="cal-doc-title"><?= htmlspecialchars($yearKey) ?> (Odd)</span>
-                                                <span class="cal-doc-meta">
-                                                    <span><?= htmlspecialchars($oddSize) ?></span>
-                                                    <span>•</span>
-                                                    <span>Verified GTU</span>
-                                                </span>
-                                            </div>
-                                            <span class="cal-doc-action-tag">
-                                                <i class="fas fa-arrow-down"></i>
-                                            </span>
+                                        <a href="<?= htmlspecialchars($oddUrl) ?>" target="_blank" class="cal-doc-link" title="Download <?= $oddLabel ?>">
+                                            <i class="fas fa-file-pdf cal-pdf-ico"></i>
+                                            <span><?= htmlspecialchars($yearKey) ?> (Odd)</span>
+                                            <span class="cal-doc-size"><?= htmlspecialchars($oddSize) ?></span>
+                                            <i class="fas fa-arrow-down cal-download-arrow"></i>
                                         </a>
                                     <?php else: ?>
-                                        <span class="cal-empty-state-cell">
-                                            <i class="fas fa-clock"></i> Schedule Awaited / Not Applicable
+                                        <span class="cal-awaited-cell">
+                                            <i class="far fa-clock"></i> Schedule Awaited
                                         </span>
                                     <?php endif; ?>
                                 </td>
@@ -218,25 +219,15 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                                         $evenSize = $evenDoc['file_size'] ?? 'PDF';
                                         $evenLabel = htmlspecialchars($evenDoc['title'] ?? ($yearKey . ' (Even)'));
                                     ?>
-                                        <a href="<?= htmlspecialchars($evenUrl) ?>" target="_blank" class="cal-doc-item" title="Download <?= $evenLabel ?>">
-                                            <div class="cal-doc-icon">
-                                                <i class="fas fa-file-pdf"></i>
-                                            </div>
-                                            <div class="cal-doc-info">
-                                                <span class="cal-doc-title"><?= htmlspecialchars($yearKey) ?> (Even)</span>
-                                                <span class="cal-doc-meta">
-                                                    <span><?= htmlspecialchars($evenSize) ?></span>
-                                                    <span>•</span>
-                                                    <span>Verified GTU</span>
-                                                </span>
-                                            </div>
-                                            <span class="cal-doc-action-tag">
-                                                <i class="fas fa-arrow-down"></i>
-                                            </span>
+                                        <a href="<?= htmlspecialchars($evenUrl) ?>" target="_blank" class="cal-doc-link" title="Download <?= $evenLabel ?>">
+                                            <i class="fas fa-file-pdf cal-pdf-ico"></i>
+                                            <span><?= htmlspecialchars($yearKey) ?> (Even)</span>
+                                            <span class="cal-doc-size"><?= htmlspecialchars($evenSize) ?></span>
+                                            <i class="fas fa-arrow-down cal-download-arrow"></i>
                                         </a>
                                     <?php else: ?>
-                                        <span class="cal-empty-state-cell">
-                                            <i class="fas fa-clock"></i> Schedule Awaited / In Preparation
+                                        <span class="cal-awaited-cell">
+                                            <i class="far fa-clock"></i> Schedule Awaited
                                         </span>
                                     <?php endif; ?>
                                 </td>
@@ -246,7 +237,7 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                 </table>
             </div>
 
-            <!-- Mobile View: Clean Responsive Cards (< 820px) -->
+            <!-- Mobile View: Clean Institutional Cards (< 820px) -->
             <div class="cal-mobile-list" id="calMobileList">
                 <?php foreach ($groupedYears as $yearKey => $yearData): 
                     $oddDoc = $yearData['Odd'];
@@ -257,65 +248,79 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                         <div class="cal-mobile-header">
                             <span class="cal-mobile-year"><?= htmlspecialchars($yearKey) ?></span>
                             <?php if ($isCurrentYear): ?>
-                                <span class="cal-tag-current">Current Session</span>
+                                <span class="cal-tag-current">CURRENT SESSION</span>
                             <?php endif; ?>
                         </div>
 
-                        <!-- Odd Section -->
-                        <div class="cal-mobile-section">
-                            <span class="cal-mobile-sec-label">Odd Semester (Sem 1, 3, 5, 7)</span>
+                        <!-- Odd Semester Item -->
+                        <div class="cal-mobile-group">
+                            <span class="cal-mobile-label">Odd Semester (Sem 1, 3, 5, 7)</span>
                             <?php if ($oddDoc && !empty($oddDoc['file_path'])): 
                                 $oddUrl = $root_path . ltrim($oddDoc['file_path'], '/');
                             ?>
-                                <a href="<?= htmlspecialchars($oddUrl) ?>" target="_blank" class="cal-doc-item">
-                                    <div class="cal-doc-icon"><i class="fas fa-file-pdf"></i></div>
-                                    <div class="cal-doc-info">
-                                        <span class="cal-doc-title"><?= htmlspecialchars($yearKey) ?> (Odd)</span>
-                                        <span class="cal-doc-meta"><?= htmlspecialchars($oddDoc['file_size'] ?? 'PDF') ?> • GTU Approved</span>
+                                <a href="<?= htmlspecialchars($oddUrl) ?>" target="_blank" class="cal-doc-link">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <i class="fas fa-file-pdf cal-pdf-ico"></i>
+                                        <span><?= htmlspecialchars($yearKey) ?> (Odd)</span>
                                     </div>
-                                    <span class="cal-doc-action-tag"><i class="fas fa-download"></i></span>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span class="cal-doc-size"><?= htmlspecialchars($oddDoc['file_size'] ?? 'PDF') ?></span>
+                                        <i class="fas fa-download cal-download-arrow"></i>
+                                    </div>
                                 </a>
                             <?php else: ?>
-                                <span class="cal-empty-state-cell"><i class="fas fa-clock"></i> Schedule Awaited</span>
+                                <span class="cal-awaited-cell"><i class="far fa-clock"></i> Schedule Awaited</span>
                             <?php endif; ?>
                         </div>
 
-                        <!-- Even Section -->
-                        <div class="cal-mobile-section">
-                            <span class="cal-mobile-sec-label">Even Semester (Sem 2, 4, 6, 8)</span>
+                        <!-- Even Semester Item -->
+                        <div class="cal-mobile-group">
+                            <span class="cal-mobile-label">Even Semester (Sem 2, 4, 6, 8)</span>
                             <?php if ($evenDoc && !empty($evenDoc['file_path'])): 
                                 $evenUrl = $root_path . ltrim($evenDoc['file_path'], '/');
                             ?>
-                                <a href="<?= htmlspecialchars($evenUrl) ?>" target="_blank" class="cal-doc-item">
-                                    <div class="cal-doc-icon"><i class="fas fa-file-pdf"></i></div>
-                                    <div class="cal-doc-info">
-                                        <span class="cal-doc-title"><?= htmlspecialchars($yearKey) ?> (Even)</span>
-                                        <span class="cal-doc-meta"><?= htmlspecialchars($evenDoc['file_size'] ?? 'PDF') ?> • GTU Approved</span>
+                                <a href="<?= htmlspecialchars($evenUrl) ?>" target="_blank" class="cal-doc-link">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <i class="fas fa-file-pdf cal-pdf-ico"></i>
+                                        <span><?= htmlspecialchars($yearKey) ?> (Even)</span>
                                     </div>
-                                    <span class="cal-doc-action-tag"><i class="fas fa-download"></i></span>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span class="cal-doc-size"><?= htmlspecialchars($evenDoc['file_size'] ?? 'PDF') ?></span>
+                                        <i class="fas fa-download cal-download-arrow"></i>
+                                    </div>
                                 </a>
                             <?php else: ?>
-                                <span class="cal-empty-state-cell"><i class="fas fa-clock"></i> Schedule Awaited</span>
+                                <span class="cal-awaited-cell"><i class="far fa-clock"></i> Schedule Awaited</span>
                             <?php endif; ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
             </div>
-        </div>
 
-    </div>
+            <!-- No Results Message -->
+            <div id="calNoResults" class="cal-empty-search" style="display: none;">
+                <i class="fas fa-search"></i>
+                <p>No academic calendars matched your search criteria.</p>
+            </div>
+
+        </div>
+    </main>
+
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('calSearchInput');
-    const filterPills = document.querySelectorAll('.cal-pill-btn');
+    const filterTabs = document.querySelectorAll('.dept-subnav-link');
+    const filterItems = document.querySelectorAll('.dept-subnav-item');
     const rows = document.querySelectorAll('.cal-row');
+    const noResults = document.getElementById('calNoResults');
 
     let currentFilter = 'all';
 
     function applyFilter() {
         const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        let visibleCount = 0;
 
         rows.forEach(function (row) {
             const year = row.getAttribute('data-year') || '';
@@ -325,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Check search text
             const matchesQuery = !query || year.includes(query);
 
-            // Check pill filter
+            // Check pill / subnav tab filter
             let matchesFilter = true;
             if (currentFilter === 'odd') {
                 matchesFilter = hasOdd;
@@ -335,20 +340,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (matchesQuery && matchesFilter) {
                 row.style.display = '';
+                visibleCount++;
             } else {
                 row.style.display = 'none';
             }
         });
+
+        if (noResults) {
+            noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+        }
     }
 
     if (searchInput) {
         searchInput.addEventListener('input', applyFilter);
     }
 
-    filterPills.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            filterPills.forEach(b => b.classList.remove('active'));
+    filterTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            filterItems.forEach(item => item.classList.remove('active'));
+            filterTabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+
             this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+            if (this.parentElement) {
+                this.parentElement.classList.add('active');
+            }
+
             currentFilter = this.getAttribute('data-filter') || 'all';
             applyFilter();
         });
