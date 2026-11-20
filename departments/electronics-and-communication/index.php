@@ -288,7 +288,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Lab 1: Analog & Digital Electronics Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_analog_digital.jpg" alt="Analog Electronics and Digital Electronics laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_analog_digital.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_analog_digital.jpg') ?>" alt="Analog Electronics and Digital Electronics laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
@@ -302,7 +302,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Lab 2: Signal Processing Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_signal_processing.jpg" alt="Signal Processing Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_signal_processing.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_signal_processing.jpg') ?>" alt="Signal Processing Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
@@ -316,7 +316,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Lab 3: VLSI & Embedded Systems Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_vlsi_embedded.jpg" alt="VLSI &amp; Embedded Systems Lab - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_vlsi_embedded.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_vlsi_embedded.jpg') ?>" alt="VLSI &amp; Embedded Systems Lab - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
@@ -330,7 +330,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Lab 4: Digital Communication Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_digital_communication.jpg" alt="Digital Communication Lab - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_digital_communication.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_digital_communication.jpg') ?>" alt="Digital Communication Lab - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
