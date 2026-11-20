@@ -322,7 +322,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Facility 3: Transportation Engineering Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_transportation.jpg" alt="Transportation Engineering Laboratory with Highway Material Testing Apparatus" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_transportation.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_transportation.jpg') ?>" alt="Transportation Engineering Laboratory with Highway Material Testing Apparatus" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Main Building</span>
@@ -336,7 +336,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Facility 4: Fluid Mechanics Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_fluid_mechanics.jpg" alt="Fluid Mechanics Laboratory Hydraulic Measurement Apparatus" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_fluid_mechanics.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_fluid_mechanics.jpg') ?>" alt="Fluid Mechanics Laboratory Hydraulic Measurement Apparatus" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">Main Building</span>

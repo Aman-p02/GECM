@@ -294,7 +294,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Lab 1: Electrical Machine Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_electrical_machines.jpg" alt="Electrical Machine Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_electrical_machines.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_electrical_machines.jpg') ?>" alt="Electrical Machine Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
@@ -308,7 +308,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Lab 2: Measurement & Instrumentation Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_measurement_instrumentation.jpg" alt="Measurement and Instrumentation Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_measurement_instrumentation.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_measurement_instrumentation.jpg') ?>" alt="Measurement and Instrumentation Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
@@ -322,7 +322,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Lab 3: High Voltage Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_high_voltage.jpg" alt="High Voltage Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_high_voltage.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_high_voltage.jpg') ?>" alt="High Voltage Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
@@ -336,7 +336,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Lab 4: Basic Electrical Engineering Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_basic_electrical.jpg" alt="Basic Electrical Engineering Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_basic_electrical.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_basic_electrical.jpg') ?>" alt="Basic Electrical Engineering Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
@@ -350,7 +350,7 @@ include_once __DIR__ . '/../includes/department-seo.php';
                     <!-- Lab 5: Embedded Systems Lab -->
                     <div class="dept-lab-card">
                         <div class="dept-lab-image-frame">
-                            <img src="images/labs/lab_embedded_systems.jpg" alt="Embedded Systems Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
+                            <img src="images/labs/lab_embedded_systems.jpg?v=<?= filemtime(__DIR__ . '/images/labs/lab_embedded_systems.jpg') ?>" alt="Embedded Systems Laboratory - GEC Modasa" loading="lazy" onerror="this.src='../../images/hero_campus_1.jpg'">
                         </div>
                         <div class="dept-lab-details">
                             <span class="dept-lab-room">ACADEMIC BUILDING NO. 4</span>
