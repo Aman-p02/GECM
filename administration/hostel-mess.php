@@ -77,64 +77,42 @@ $messPoints = $defaultMessNotes;
 $feePoints = $defaultFeeNotes;
 $photos = [
     [
-        'caption' => 'GEC Modasa - Campus Hostel Complex & Main Entrance',
-        'image_path' => 'uploads/hostel/hostel_main.jpg',
-        'category' => 'Campus Infrastructure',
-        'filter' => 'infrastructure'
-    ],
-    [
-        'caption' => 'New Multi-Storey Boys Hostel Block Building',
-        'image_path' => 'uploads/hostel/hostel_new_building_exterior.jpg',
-        'category' => 'Residential Blocks',
-        'filter' => 'blocks'
+        'caption' => 'New Multi-Storey Hostel Block Building',
+        'image_path' => 'uploads/hostel/hostel_new_building_exterior.jpg'
     ],
     [
         'caption' => 'Hostel Blocks A, B & C Residential Wings',
-        'image_path' => 'uploads/hostel/hostel_blocks_abc.jpg',
-        'category' => 'Residential Blocks',
-        'filter' => 'blocks'
+        'image_path' => 'uploads/hostel/hostel_blocks_abc.jpg'
+    ],
+    [
+        'caption' => 'Hostel Campus Grounds & Inter-Block Walkways',
+        'image_path' => 'uploads/hostel/hostel_campus_ground.jpg'
+    ],
+    [
+        'caption' => 'Lush Green Lawn & Open Recreation Space',
+        'image_path' => 'uploads/hostel/hostel_garden_lawn.jpg'
     ],
     [
         'caption' => 'Student Residential Room with Furnished Bedding',
-        'image_path' => 'uploads/hostel/hostel_student_room.jpg',
-        'category' => 'Student Rooms',
-        'filter' => 'rooms'
+        'image_path' => 'uploads/hostel/hostel_student_room.jpg'
     ],
     [
-        'caption' => 'Central Dining Hall & Student Mess Facility',
-        'image_path' => 'uploads/hostel/hostel_mess_dining_hall.jpg',
-        'category' => 'Dining & Mess',
-        'filter' => 'dining'
+        'caption' => 'Central Student Mess Dining Hall Facility',
+        'image_path' => 'uploads/hostel/hostel_mess_dining_hall.jpg'
     ],
     [
         'caption' => 'Hostel Library & Reading Room (News Paper Room)',
         'image_path' => 'uploads/hostel/hostel_newspaper_reading_room.jpg',
-        'category' => 'Facilities & Study',
-        'filter' => 'facilities'
+        'position' => 'center bottom'
     ],
     [
-        'caption' => 'Common Hall & Student Recreation Area',
-        'image_path' => 'uploads/hostel/hostel_common_room_hall.jpg',
-        'category' => 'Facilities & Study',
-        'filter' => 'facilities'
+        'caption' => 'Hostel Mess Preparation & Serving Counter Facility',
+        'image_path' => 'uploads/hostel/hostel_mess_kitchen.jpg'
     ],
     [
-        'caption' => 'Guest Accommodation & Visiting Faculty Room',
+        'caption' => 'Institutional Guest Room & Visitor Accommodation',
         'image_path' => 'uploads/hostel/hostel_guest_room.jpg',
-        'category' => 'Facilities & Study',
-        'filter' => 'facilities'
-    ],
-    [
-        'caption' => 'Hostel Campus Grounds & Inter-Block Walkways',
-        'image_path' => 'uploads/hostel/hostel_campus_ground.jpg',
-        'category' => 'Campus Grounds',
-        'filter' => 'grounds'
-    ],
-    [
-        'caption' => 'Lush Green Lawn & Open Recreation Environment',
-        'image_path' => 'uploads/hostel/hostel_garden_lawn.jpg',
-        'category' => 'Campus Grounds',
-        'filter' => 'grounds'
+        'position' => 'center bottom'
     ]
 ];
 
@@ -175,7 +153,7 @@ if ($pdo) {
 
         $stmtP = $pdo->query("SELECT * FROM hostel_photos WHERE is_active = 1 ORDER BY display_order ASC, id ASC");
         $pDb = $stmtP ? $stmtP->fetchAll(PDO::FETCH_ASSOC) : [];
-        if (!empty($pDb) && count($pDb) > 1) $photos = $pDb;
+        if (!empty($pDb) && count($pDb) >= 9) $photos = $pDb;
     } catch (Throwable $e) {
         error_log("Hostel data fetch error: " . $e->getMessage());
     }
@@ -765,13 +743,16 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
             <div class="hostel-photo-grid">
                 <?php foreach ($photos as $ph): 
                     $cat = $ph['category'] ?? 'Campus Living';
-                    $filter = $ph['filter'] ?? 'all';
-                    $imgUrl = htmlspecialchars($root_path . ltrim($ph['image_path'], '/'));
+                    $imgRel = ltrim($ph['image_path'], '/');
+                    $fsPath = __DIR__ . '/../' . $imgRel;
+                    $v = file_exists($fsPath) ? filemtime($fsPath) : time();
+                    $imgUrl = htmlspecialchars($root_path . $imgRel . '?v=' . $v);
                     $caption = htmlspecialchars($ph['caption']);
+                    $posStyle = !empty($ph['position']) ? ' style="object-position: ' . htmlspecialchars($ph['position']) . ';"' : '';
                 ?>
-                    <div class="hostel-photo-card" data-category="<?= $filter ?>" data-img="<?= $imgUrl ?>" data-caption="<?= $caption ?>" data-badge="<?= htmlspecialchars($cat) ?>">
+                    <div class="hostel-photo-card" data-img="<?= $imgUrl ?>" data-caption="<?= $caption ?>" data-badge="<?= htmlspecialchars($cat) ?>">
                         <div class="hostel-photo-thumb-wrap">
-                            <img src="<?= $imgUrl ?>" alt="<?= $caption ?>" class="hostel-photo-thumb" loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
+                            <img src="<?= $imgUrl ?>" alt="<?= $caption ?>" class="hostel-photo-thumb"<?= $posStyle ?> loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
                         </div>
                         <div class="hostel-photo-caption">
                             <h3 class="hostel-photo-title"><?= $caption ?></h3>
