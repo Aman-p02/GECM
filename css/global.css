@@ -428,7 +428,7 @@ h4 {
     left: 0;
     width: 0;
     height: 2.5px;
-    background: #009dff;
+    background: #ff8800;
     border-radius: 2px 2px 0 0;
     transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
@@ -444,14 +444,14 @@ h4 {
 }
 
 .hdr-nav-link:hover {
-    color: #009dff;
+    color: #ff8800;
 }
 
 .hdr-nav-link.is-active,
 .hdr-nav-link.active,
 .hdr-nav-item.has-dropdown:has(.hdr-dd-link.is-active) > .hdr-nav-link,
 .hdr-nav-item.has-dropdown:has(.hdr-dd-link.active) > .hdr-nav-link {
-    color: #009dff !important;
+    color: #ff8800 !important;
     font-weight: 600;
 }
 
@@ -459,7 +459,7 @@ h4 {
 .hdr-nav-link.active .hdr-arrow,
 .hdr-nav-item.has-dropdown:has(.hdr-dd-link.is-active) > .hdr-nav-link .hdr-arrow,
 .hdr-nav-item.has-dropdown:has(.hdr-dd-link.active) > .hdr-nav-link .hdr-arrow {
-    color: #009dff !important;
+    color: #ff8800 !important;
 }
 
 /* Desktop dropdown navigation */
@@ -480,7 +480,7 @@ h4 {
     .hdr-nav-item.has-dropdown:hover>.hdr-nav-link .hdr-arrow,
     .hdr-nav-item.has-dropdown.is-desktop-open>.hdr-nav-link .hdr-arrow {
         transform: rotate(180deg);
-        color: #009dff;
+        color: #ff8800;
     }
 
     /* Dropdown menu container */
@@ -564,9 +564,9 @@ h4 {
     .hdr-dd-link:active,
     .hdr-dd-link.is-active,
     .hdr-dd-link.active {
-        background-color: #f1f5f9;
-        color: #009dff;
-        font-weight: 500;
+        background-color: #fff7ed;
+        color: #ff8800;
+        font-weight: 600;
     }
 
     /* Mobile submenu header - desktop fallback */
@@ -719,7 +719,7 @@ h4 {
 }
 
 .nav-links li a:hover {
-    color: #123b68;
+    color: #ff8800;
 }
 
 .nav-links li a:hover::after {
@@ -727,14 +727,14 @@ h4 {
 }
 
 .nav-links li a.active {
-    color: #123b68;
+    color: #ff8800;
     font-weight: 600;
 }
 
 .nav-links li a.active::after {
     width: calc(100% - 36px);
     height: 2.5px;
-    background: #123b68;
+    background: #ff8800;
 }
 
 .nav-home-btn {
@@ -1205,7 +1205,7 @@ h4 {
     }
 
     .hdr-nav-link.is-active {
-        color: #009dff;
+        color: #ff8800;
         font-weight: 600;
         background-color: transparent;
     }
@@ -1236,14 +1236,14 @@ h4 {
     }
 
     .hdr-nav-item.has-dropdown.is-sub-open>.hdr-nav-link {
-        color: #0284c7;
+        color: #ff8800;
         font-weight: 600;
         background-color: transparent;
     }
 
     .hdr-nav-item.has-dropdown.is-sub-open>.hdr-nav-link .hdr-arrow {
         transform: rotate(180deg);
-        color: #0284c7;
+        color: #ff8800;
     }
 
     /* Submenu accordion drawer */
@@ -1317,9 +1317,9 @@ h4 {
     .hdr-dd-link:active,
     .hdr-dd-link.is-active,
     .hdr-dd-link.active {
-        color: #009dff !important;
-        background-color: #d2d9e0 !important;
-        font-weight: 500;
+        color: #ff8800 !important;
+        background-color: #fff7ed !important;
+        font-weight: 600;
     }
 
     .hdr-dd-link.is-active::after,
@@ -1327,7 +1327,7 @@ h4 {
         content: '•';
         font-size: 1.2rem;
         line-height: 1;
-        color: #009dff;
+        color: #ff8800;
         margin-left: auto;
     }
 
@@ -1489,14 +1489,14 @@ h4 {
     .nav-links li a:hover,
     .nav-links li a:active {
         background-color: #f8fafc;
-        color: #009dff;
+        color: #ff8800;
         padding-left: 20px;
     }
 
     .nav-links li a.active {
-        color: #009dff;
+        color: #ff8800;
         font-weight: 600;
-        background-color: rgba(0, 157, 255, 0.08);
+        background-color: rgba(255, 136, 0, 0.08);
     }
 
     .nav-links li a.active::before {
@@ -1504,7 +1504,7 @@ h4 {
         width: 3.5px;
         height: 15px;
         border-radius: 2px;
-        background: #009dff;
+        background: #ff8800;
         margin-right: 11px;
         flex-shrink: 0;
     }
@@ -1803,7 +1803,7 @@ img.zoom-hover:hover {
 }
 
 .back-to-top-btn:hover {
-    background: #009dff !important;
+    background: #e67a00 !important;
     box-shadow: none !important;
     transform: translateY(-2px) scale(1.04);
 }

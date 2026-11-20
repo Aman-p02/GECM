@@ -223,7 +223,7 @@
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover and active expanding indicator - Main Navbar Blue (#009dff) */
+/* Hover and active expanding indicator - Main Navbar Institutional Orange (#ff8800) */
 .dept-subnav-link::after {
     content: '';
     position: absolute;
@@ -231,7 +231,7 @@
     left: 50%;
     width: 0;
     height: 2.5px;
-    background: #009dff;
+    background: #ff8800;
     border-radius: 1.5px 1.5px 0 0;
     transform: translateX(-50%);
     transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
@@ -239,7 +239,7 @@
 }
 
 .dept-subnav-link:hover {
-    color: #009dff;
+    color: #ff8800;
     background: transparent;
 }
 
@@ -252,7 +252,7 @@
 
 .dept-subnav-item.active .dept-subnav-link,
 .dept-subnav-link.active {
-    color: #009dff !important;
+    color: #ff8800 !important;
     font-weight: 600;
 }
 
