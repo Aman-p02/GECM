@@ -148,14 +148,12 @@ require_once __DIR__ . '/../includes/header.php';
                     class="grv-tab-btn <?= ($activeTab === 'form') ? 'active' : '' ?>" 
                     id="btnTabForm" 
                     onclick="switchGrvTab('form')">
-                <i class="fas fa-file-alt"></i>
                 <span>Submit Grievance</span>
             </button>
             <button type="button" 
                     class="grv-tab-btn <?= ($activeTab === 'track') ? 'active' : '' ?>" 
                     id="btnTabTrack" 
                     onclick="switchGrvTab('track')">
-                <i class="fas fa-search-location"></i>
                 <span>Track Grievance Status</span>
             </button>
         </div>
