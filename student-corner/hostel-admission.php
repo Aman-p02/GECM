@@ -50,6 +50,17 @@ $successMessage = '';
 $errorMessage = '';
 $generatedAppId = null;
 
+// Read messages from session (Post/Redirect/Get pattern to prevent re-submission on refresh)
+if (isset($_SESSION['hostel_success'])) {
+    $successMessage = $_SESSION['hostel_success'];
+    $generatedAppId = $_SESSION['hostel_app_id'] ?? null;
+    unset($_SESSION['hostel_success'], $_SESSION['hostel_app_id']);
+}
+if (isset($_SESSION['hostel_error'])) {
+    $errorMessage = $_SESSION['hostel_error'];
+    unset($_SESSION['hostel_error']);
+}
+
 // Handle Form Submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_application'])) {
     $studentName   = strtoupper(trim($_POST['student_name'] ?? ''));
@@ -113,7 +124,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_application'])
                 ]);
 
                 $generatedAppId = $pdo->lastInsertId();
-                $successMessage = "Your Hostel Admission application has been successfully recorded! Application ID: #" . $generatedAppId;
+                $_SESSION['hostel_success'] = "Your Hostel Admission application has been successfully recorded! Application ID: #" . $generatedAppId;
+                $_SESSION['hostel_app_id'] = $generatedAppId;
+
+                // Post/Redirect/Get to prevent duplicate submission on page refresh
+                header("Location: hostel-admission.php?status=submitted");
+                exit;
             }
         } catch (Exception $e) {
             $errorMessage = "Error submitting application: " . $e->getMessage();
@@ -260,15 +276,23 @@ require_once __DIR__ . '/../includes/header.php';
         </div>
 
         <?php if (!empty($successMessage)): ?>
-            <div style="background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 10px; padding: 22px; margin-bottom: 24px; text-align: center;">
+            <div style="background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 10px; padding: 24px; margin-bottom: 24px; text-align: center;">
                 <div style="width: 48px; height: 48px; border-radius: 50%; background: #047857; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 12px auto;">
                     <i class="fas fa-check"></i>
                 </div>
                 <h3 style="margin: 0 0 6px 0; font-size: 1.25rem; font-weight: 800; color: #065f46;">Application Submitted Successfully!</h3>
                 <p style="margin: 0 0 16px 0; font-size: 0.92rem; color: #047857;"><?= htmlspecialchars($successMessage) ?></p>
-                <div style="background: #ffffff; border: 1px dashed #6ee7b7; border-radius: 8px; padding: 12px; display: inline-block;">
+                <div style="background: #ffffff; border: 1px dashed #6ee7b7; border-radius: 8px; padding: 12px 20px; display: inline-block;">
                     <span style="font-size: 0.85rem; color: #475569;">Your Application Reference ID:</span>
-                    <strong style="font-size: 1.2rem; color: #ff8800; margin-left: 6px;">#<?= $generatedAppId ?></strong>
+                    <strong style="font-size: 1.25rem; color: #ff8800; margin-left: 6px;">#<?= htmlspecialchars($generatedAppId) ?></strong>
+                </div>
+                <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                    <a href="hostel-admission.php" class="btn-hostel-outline" style="font-size: 0.85rem; padding: 8px 16px;">
+                        <i class="fas fa-plus-circle"></i> Submit Another Application
+                    </a>
+                    <a href="../administration/hostel-mess" class="btn-hostel-solid" style="font-size: 0.85rem; padding: 8px 16px;">
+                        <i class="fas fa-hotel"></i> View Hostel &amp; Mess Info
+                    </a>
                 </div>
             </div>
         <?php endif; ?>
@@ -302,7 +326,7 @@ require_once __DIR__ . '/../includes/header.php';
         <?php else: ?>
             <!-- Main Application Form -->
             <div class="hostel-form-card">
-                <form method="POST" action="hostel-admission.php" enctype="multipart/form-data">
+                <form method="POST" action="hostel-admission.php" enctype="multipart/form-data" id="hostelAppForm" onsubmit="const btn = document.getElementById('submitAppBtn'); if(btn){btn.disabled=true; btn.innerHTML='<i class=\'fas fa-spinner fa-spin\'></i> Submitting Application...';}">
                     <input type="hidden" name="submit_application" value="1">
                     <input type="hidden" name="admission_year" value="<?= htmlspecialchars($academicYear) ?>">
 
@@ -459,7 +483,7 @@ require_once __DIR__ . '/../includes/header.php';
                         </div>
                     </fieldset>
 
-                    <button type="submit" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; width: 100%; padding: 14px; font-size: 1.05rem; font-weight: 800; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 136, 0, 0.25);">
+                    <button type="submit" id="submitAppBtn" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; width: 100%; padding: 14px; font-size: 1.05rem; font-weight: 800; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 136, 0, 0.25);">
                         Submit Application &amp; Generate Acknowledgment
                     </button>
                 </form>
