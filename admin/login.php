@@ -1,10 +1,17 @@
 <?php
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-    header('Location: dashboard.php');
+    if (($_SESSION['admin_role'] ?? '') === 'hostel_admin') {
+        header('Location: hostel-dashboard.php');
+    } else {
+        header('Location: dashboard.php');
+    }
     exit;
 }
 
@@ -15,13 +22,41 @@ if (isset($_GET['msg'])) {
     $error = htmlspecialchars($_GET['msg']);
 }
 
+$selectedRole = 'super_admin';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $selectedRole = trim($_POST['admin_role'] ?? 'super_admin');
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
     if (empty($username) || empty($password)) {
         $error = 'Please enter both username and password.';
     } else {
+        // 1. Direct Hardcoded fallback for Hostel Admin
+        if ($username === 'hostel' && $password === '123') {
+            $_SESSION['admin_logged_in'] = true;
+            $_SESSION['admin_id'] = 2;
+            $_SESSION['admin_username'] = 'hostel';
+            $_SESSION['admin_email'] = 'hostel@gecmodasa.ac.in';
+            $_SESSION['admin_role'] = 'hostel_admin';
+
+            header('Location: hostel-dashboard.php');
+            exit;
+        }
+
+        // 2. Direct Hardcoded fallback for Super Admin
+        if ($username === 'admin' && ($password === 'admin123' || $password === 'password123')) {
+            $_SESSION['admin_logged_in'] = true;
+            $_SESSION['admin_id'] = 1;
+            $_SESSION['admin_username'] = 'admin';
+            $_SESSION['admin_email'] = 'admin@gecmodasa.ac.in';
+            $_SESSION['admin_role'] = 'super_admin';
+
+            header('Location: dashboard.php');
+            exit;
+        }
+
+        // 3. Database authentication
         $pdo = getDBConnection();
         if ($pdo) {
             try {
@@ -36,17 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['admin_email'] = $admin['email'];
                     $_SESSION['admin_role'] = $admin['role'];
 
-                    header('Location: dashboard.php');
-                    exit;
-                } else if ($username === 'admin' && ($password === 'admin123' || $password === 'password123')) {
-                    // Default setup fallback
-                    $_SESSION['admin_logged_in'] = true;
-                    $_SESSION['admin_id'] = 1;
-                    $_SESSION['admin_username'] = 'admin';
-                    $_SESSION['admin_email'] = 'admin@gecmodasa.ac.in';
-                    $_SESSION['admin_role'] = 'super_admin';
-
-                    header('Location: dashboard.php');
+                    if ($admin['role'] === 'hostel_admin') {
+                        header('Location: hostel-dashboard.php');
+                    } else {
+                        header('Location: dashboard.php');
+                    }
                     exit;
                 } else {
                     $error = 'Invalid username or password.';
@@ -55,15 +84,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $error = 'Database error: ' . $e->getMessage();
             }
         } else {
-            // Offline fallback
-            if ($username === 'admin' && ($password === 'admin123' || $password === 'password123')) {
-                $_SESSION['admin_logged_in'] = true;
-                $_SESSION['admin_id'] = 1;
-                $_SESSION['admin_username'] = 'admin';
-                $_SESSION['admin_role'] = 'super_admin';
-                header('Location: dashboard.php');
-                exit;
-            }
             $error = 'Could not connect to database.';
         }
     }
@@ -177,6 +197,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 15px;
             color: #dc2626;
             flex-shrink: 0;
+        }
+
+        /* Role Selector Segmented Controls */
+        .role-selector-wrap {
+            display: flex;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 10px;
+            gap: 6px;
+            border: 1.5px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .role-pill-label {
+            flex: 1;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .role-pill-label input[type="radio"] {
+            display: none;
+        }
+
+        .role-pill-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 12px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #475569;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .role-pill-label input[type="radio"]:checked + .role-pill-btn {
+            background: #ff8800;
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(255, 136, 0, 0.28);
         }
 
         /* Form elements */
@@ -474,6 +535,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form method="POST" action="login.php" id="loginForm" autocomplete="off">
                 <div class="form-field">
+                    <label class="form-label">Select Portal Role</label>
+                    <div class="role-selector-wrap">
+                        <label class="role-pill-label">
+                            <input type="radio" name="admin_role" value="super_admin" <?= ($selectedRole === 'super_admin') ? 'checked' : '' ?> onchange="onRoleChange('super_admin')">
+                            <span class="role-pill-btn"><i class="fas fa-shield-alt"></i> Super Admin</span>
+                        </label>
+                        <label class="role-pill-label">
+                            <input type="radio" name="admin_role" value="hostel_admin" <?= ($selectedRole === 'hostel_admin') ? 'checked' : '' ?> onchange="onRoleChange('hostel_admin')">
+                            <span class="role-pill-btn"><i class="fas fa-hotel"></i> Hostel Admin</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-field">
                     <label class="form-label" for="username">Username or Official Email</label>
                     <div class="input-group">
                         <i class="fas fa-user field-icon"></i>
@@ -576,6 +651,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <script>
+        function onRoleChange(role) {
+            const userField = document.getElementById('username');
+            if (role === 'hostel_admin') {
+                userField.placeholder = "Enter username (e.g. hostel)";
+                if (!userField.value || userField.value === 'admin') {
+                    userField.value = 'hostel';
+                }
+            } else {
+                userField.placeholder = "Enter username (e.g. admin)";
+                if (userField.value === 'hostel') {
+                    userField.value = 'admin';
+                }
+            }
+        }
+
         // Auto-dismiss alert notification
         const alertEl = document.getElementById('loginAlert');
         if (alertEl) {

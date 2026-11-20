@@ -49,6 +49,45 @@ if (substr($adminBaseUrl, -1) !== '/') {
             </div>
 
             <ul class="sidebar-menu">
+            <?php if (($admin['role'] ?? '') === 'hostel_admin'): ?>
+                <li class="menu-category">Hostel Administration</li>
+                <li class="menu-item <?= ($current_page === 'hostel-dashboard') ? 'active' : '' ?>">
+                    <a href="hostel-dashboard.php" class="menu-link">
+                        <span>Dashboard &amp; Status</span>
+                    </a>
+                </li>
+                <li class="menu-item <?= ($current_page === 'hostel-applications') ? 'active' : '' ?>">
+                    <a href="hostel-applications.php" class="menu-link">
+                        <span>Applications</span>
+                    </a>
+                </li>
+                <li class="menu-item <?= ($current_page === 'hostel-blocks') ? 'active' : '' ?>">
+                    <a href="hostel-blocks.php" class="menu-link">
+                        <span>Blocks &amp; Seat Quotas</span>
+                    </a>
+                </li>
+                <li class="menu-item <?= ($current_page === 'hostel-allocation') ? 'active' : '' ?>">
+                    <a href="hostel-allocation.php" class="menu-link">
+                        <span>Run Allocation &amp; Merit</span>
+                    </a>
+                </li>
+                <li class="menu-item <?= ($current_page === 'hostel-confirmation') ? 'active' : '' ?>">
+                    <a href="hostel-confirmation.php" class="menu-link">
+                        <span>Room Allotment &amp; Confirm</span>
+                    </a>
+                </li>
+                <li class="menu-category">External Portals</li>
+                <li class="menu-item">
+                    <a href="../student-corner/hostel-admission.php" target="_blank" class="menu-link">
+                        <span>View Public Form</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="../administration/hostel-mess" target="_blank" class="menu-link">
+                        <span>Hostel Information Page</span>
+                    </a>
+                </li>
+            <?php else: ?>
                 <li class="menu-category">Main Navigation</li>
                 <li class="menu-item <?= ($current_page === 'dashboard') ? 'active' : '' ?>">
                     <a href="dashboard" class="menu-link">
@@ -64,6 +103,9 @@ if (substr($adminBaseUrl, -1) !== '/') {
 
                 $administrationPageItems = ['principal-profile', 'hostel-mess'];
                 $isAdministrationActive = in_array($current_page, $administrationPageItems);
+
+                $hostelPageItems = ['hostel-dashboard', 'hostel-applications', 'hostel-blocks', 'hostel-allocation', 'hostel-confirmation'];
+                $isHostelActive = in_array($current_page, $hostelPageItems);
 
                 $studentCornerPageItems = ['student-chapters', 'student-enrollment', 'scholarships', 'education-verification', 'grievances'];
                 $isStudentCornerActive = in_array($current_page, $studentCornerPageItems);
@@ -145,6 +187,41 @@ if (substr($adminBaseUrl, -1) !== '/') {
                         <li class="submenu-item <?= ($current_page === 'hostel-mess') ? 'active' : '' ?>">
                             <a href="hostel-mess" class="submenu-link">
                                 <span>Hostel &amp; Mess</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Hostel Administration Accordion Dropdown -->
+                <li class="menu-item menu-item-has-submenu <?= $isHostelActive ? 'active open' : '' ?>">
+                    <a href="javascript:void(0);" class="menu-link submenu-toggle" id="hostelAdminToggle">
+                        <span>Hostel Admissions</span>
+                        <i class="fas fa-chevron-down submenu-arrow"></i>
+                    </a>
+                    <ul class="submenu-list">
+                        <li class="submenu-item <?= ($current_page === 'hostel-dashboard') ? 'active' : '' ?>">
+                            <a href="hostel-dashboard.php" class="submenu-link">
+                                <span>Dashboard &amp; Status</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'hostel-applications') ? 'active' : '' ?>">
+                            <a href="hostel-applications.php" class="submenu-link">
+                                <span>Applications</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'hostel-blocks') ? 'active' : '' ?>">
+                            <a href="hostel-blocks.php" class="submenu-link">
+                                <span>Blocks &amp; Seat Quotas</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'hostel-allocation') ? 'active' : '' ?>">
+                            <a href="hostel-allocation.php" class="submenu-link">
+                                <span>Run Allocation &amp; Merit</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'hostel-confirmation') ? 'active' : '' ?>">
+                            <a href="hostel-confirmation.php" class="submenu-link">
+                                <span>Room Allotment</span>
                             </a>
                         </li>
                     </ul>
@@ -324,6 +401,7 @@ if ($headerPdo) {
                         <span>View Website</span>
                     </a>
                 </li>
+            <?php endif; ?>
             </ul>
         </aside>
 

@@ -276,7 +276,7 @@ if (!isset($active_page)) {
                 <!-- Student Corner Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="javascript:void(0);"
-                       class="hdr-nav-link <?= in_array($active_page, ['student-section', 'student_section', 'student-rules', 'enrollment-details', 'scholarships', 'education-verification', 'grievance-portal']) ? 'active is-active' : '' ?>">
+                       class="hdr-nav-link <?= in_array($active_page, ['student-section', 'student_section', 'student-rules', 'enrollment-details', 'scholarships', 'education-verification', 'grievance-portal', 'hostel-admission']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">Student Corner</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
@@ -290,6 +290,7 @@ if (!isset($active_page)) {
                             <li><a href="https://sbcollect.sbi.bank.in/sbicollect/icollecthome.htm" target="_blank" rel="noopener noreferrer" class="hdr-dd-link">Online Fees Payment</a></li>
                             <li><a href="<?= $root_path ?>student-corner/education-verification" class="hdr-dd-link <?= ($active_page === 'education-verification') ? 'is-active active' : '' ?>">Education Verification</a></li>
                             <li><a href="<?= $root_path ?>student-corner/grievance-portal" class="hdr-dd-link <?= ($active_page === 'grievance-portal') ? 'is-active active' : '' ?>">Grievance Portal</a></li>
+                            <li><a href="<?= $root_path ?>student-corner/hostel-admission" class="hdr-dd-link <?= ($active_page === 'hostel-admission') ? 'is-active active' : '' ?>">Hostel Admission</a></li>
                         </ul>
                     </div>
                 </li>
