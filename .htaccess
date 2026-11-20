@@ -68,6 +68,9 @@ DirectoryIndex index.php index.html
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(college-activities|departmental-activities|faculty-activities)(?:\.php)?([?\s]) [NC]
     RewriteRule ^ %1/activities/%2 [R=301,L,NE,QSA]
 
+    # 3g. 301 Redirect: Grade History Card to GTU Student Portal
+    RewriteRule ^(?:student-corner/)?grade-history-card(?:\.php)?$ https://www.students.gtu.ac.in/Default.aspx [R=301,L,NE]
+
     # 4. 301 Redirect: Direct .php requests to clean URL (excludes POST requests)
     RewriteCond %{REQUEST_METHOD} !POST
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^.]+)\.php([^\s]*)\s [NC]

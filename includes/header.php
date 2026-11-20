@@ -286,7 +286,7 @@ if (!isset($active_page)) {
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Student Chapters &amp; Clubs</a></li>
                             <li><a href="<?= $root_path ?>student-corner/enrollment-details" class="hdr-dd-link <?= ($active_page === 'enrollment-details') ? 'is-active active' : '' ?>">Enrollment Details</a></li>
                             <li><a href="<?= $root_path ?>student-corner/scholarships" class="hdr-dd-link <?= ($active_page === 'scholarships') ? 'is-active active' : '' ?>">Scholarships</a></li>
-                            <li><a href="javascript:void(0);" class="hdr-dd-link">Grade History Card</a></li>
+                            <li><a href="https://www.students.gtu.ac.in/Default.aspx" target="_blank" rel="noopener noreferrer" class="hdr-dd-link">Grade History Card</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Online Fees Payment</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Education Verification</a></li>
                             <li><a href="javascript:void(0);" class="hdr-dd-link">Grievance Portal</a></li>
