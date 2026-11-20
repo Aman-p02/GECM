@@ -2,10 +2,10 @@
 
 :root {
     --primary-blue: #0f172a;
-    --primary-brand: #1e88e5;
-    --primary-brand-hover: #1565c0;
-    --accent-orange: #ff6600;
-    --accent-hover: #e55c00;
+    --primary-brand: #ff8800;
+    --primary-brand-hover: #e67a00;
+    --accent-orange: #ff8800;
+    --accent-hover: #e67a00;
     --bg-light: #f8fafc;
     --border-color: #e2e8f0;
     --border-input: #cbd5e1;
@@ -189,8 +189,8 @@ select.form-input {
 }
 
 .form-input:focus {
-    border-color: #1e88e5;
-    box-shadow: 0 0 0 3.5px rgba(30, 136, 229, 0.2);
+    border-color: #ff8800;
+    box-shadow: 0 0 0 3.5px rgba(255, 136, 0, 0.2);
 }
 
 .form-input:disabled {
@@ -203,7 +203,7 @@ select.form-input {
 .btn-submit {
     width: 100%;
     height: 44px;
-    background-color: #1e88e5;
+    background-color: #ff8800;
     border: none;
     border-radius: 8px;
     color: #ffffff;
@@ -214,14 +214,14 @@ select.form-input {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
+    box-shadow: 0 4px 12px rgba(255, 136, 0, 0.25);
     transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
     margin-top: 22px;
 }
 
 .btn-submit:hover {
-    background-color: #1565c0;
-    box-shadow: 0 6px 16px rgba(30, 136, 229, 0.35);
+    background-color: #e67a00;
+    box-shadow: 0 6px 16px rgba(255, 136, 0, 0.35);
 }
 
 .btn-submit:active {
@@ -237,7 +237,7 @@ select.form-input {
 }
 
 .login-footer a {
-    color: #1e88e5;
+    color: #ff8800;
     text-decoration: none;
     font-weight: 600;
 }
@@ -259,7 +259,7 @@ select.form-input {
 }
 
 .back-link:hover {
-    color: #0f172a;
+    color: #ff8800;
 }
 
 /* Dashboard Specifics */
@@ -384,7 +384,7 @@ select.form-input {
 }
 
 .nav-link.active {
-    background-color: rgba(30, 136, 229, 0.08);
+    background-color: rgba(255, 136, 0, 0.10);
     color: var(--primary-brand);
     font-weight: 600;
 }
@@ -556,8 +556,8 @@ select.form-input {
 
 .form-control:focus {
     outline: none;
-    border-color: #1e88e5;
-    box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+    border-color: var(--primary-brand);
+    box-shadow: 0 0 0 3px rgba(255, 136, 0, 0.2);
 }
 
 textarea.form-control {

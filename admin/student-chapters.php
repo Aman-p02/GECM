@@ -203,7 +203,7 @@ require_once __DIR__ . '/includes/header.php';
             <tbody>
                 <?php foreach ($chapters as $row): ?>
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
-                    <td style="font-weight: 700; color: #1e88e5; text-align: center;">#<?= (int)$row['display_order'] ?></td>
+                    <td style="font-weight: 700; color: var(--admin-primary); text-align: center;">#<?= (int)$row['display_order'] ?></td>
                     <td>
                         <img src="<?= htmlspecialchars(getAdminImageSrc($row['image_url'])) ?>"
                              alt="Chapter"

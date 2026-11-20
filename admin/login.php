@@ -227,8 +227,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .form-input:focus {
-            border-color: #1e88e5;
-            box-shadow: 0 0 0 3.5px rgba(30, 136, 229, 0.2);
+            border-color: #ff8800;
+            box-shadow: 0 0 0 3.5px rgba(255, 136, 0, 0.2);
         }
 
         /* Monkey inside Password Input (Right Side) */
@@ -377,7 +377,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .checkbox-item input[type="checkbox"] {
-            accent-color: #1e88e5;
+            accent-color: #ff8800;
             width: 16px;
             height: 16px;
             cursor: pointer;
@@ -387,7 +387,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .btn-submit {
             width: 100%;
             height: 46px;
-            background-color: #1e88e5;
+            background-color: #ff8800;
             border: none;
             border-radius: 8px;
             color: #ffffff;
@@ -398,13 +398,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
+            box-shadow: 0 4px 12px rgba(255, 136, 0, 0.25);
             transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
         }
 
         .btn-submit:hover {
-            background-color: #1565c0;
-            box-shadow: 0 6px 16px rgba(30, 136, 229, 0.35);
+            background-color: #e67a00;
+            box-shadow: 0 6px 16px rgba(255, 136, 0, 0.35);
         }
 
         .btn-submit:active {
@@ -431,7 +431,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .back-link:hover {
-            color: #0f172a;
+            color: #ff8800;
         }
 
         .disclaimer-text {

@@ -205,8 +205,8 @@ require_once __DIR__ . '/includes/header.php';
             <tbody>
                 <?php foreach ($events as $row): ?>
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
-                    <td style="font-weight: 600; color: #1e88e5; font-size: 13px; white-space: nowrap;">
-                        <i class="far fa-calendar-alt" style="margin-right: 4px;"></i><?= !empty($row['event_date']) ? date('d M Y', strtotime($row['event_date'])) : '—' ?>
+                    <td style="font-weight: 600; color: var(--admin-primary); font-size: 13px; white-space: nowrap;">
+                        <i class="far fa-calendar-alt" style="margin-right: 4px;"></i><?= !empty($row['event_date']) ? date('d M Y', strtotime($row['event_date'])) : '-' ?>
                     </td>
                     <td>
                         <img src="<?= htmlspecialchars(getAdminImageSrc($row['image_url'])) ?>" alt="Event Cover" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Event';">

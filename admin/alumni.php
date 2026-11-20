@@ -163,7 +163,7 @@ require_once __DIR__ . '/includes/header.php';
             <tbody>
                 <?php foreach ($alumniList as $row): ?>
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
-                    <td style="font-weight: 700; color: #1e88e5; text-align: center;">#<?= $row['display_order'] ?></td>
+                    <td style="font-weight: 700; color: var(--admin-primary); text-align: center;">#<?= $row['display_order'] ?></td>
                     <td>
                         <img src="<?= htmlspecialchars(getAdminImageSrc($row['photo_url'])) ?>" alt="Photo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/40?text=A';">
                     </td>
@@ -172,7 +172,7 @@ require_once __DIR__ . '/includes/header.php';
                     </td>
                     <td><?= htmlspecialchars($row['branch']) ?></td>
                     <td><span class="badge badge-secondary"><?= $row['graduation_year'] ?></span></td>
-                    <td style="color: #1e88e5; font-weight: 500;">
+                    <td style="color: var(--admin-primary); font-weight: 500;">
                         <i class="fas fa-building" style="color: #666; margin-right: 5px;"></i>
                         <?= htmlspecialchars($row['company']) ?>
                     </td>

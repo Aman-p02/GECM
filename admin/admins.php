@@ -154,7 +154,7 @@ require_once __DIR__ . '/includes/header.php';
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
                     <td style="color: #888;">#<?= $row['id'] ?></td>
                     <td style="font-weight: 600; color: #1a263d;">
-                        <i class="fas fa-user-shield" style="color: #1e88e5; margin-right: 6px;"></i>
+                        <i class="fas fa-user-shield" style="color: var(--admin-primary); margin-right: 6px;"></i>
                         <?= htmlspecialchars($row['username']) ?>
                     </td>
                     <td><?= htmlspecialchars($row['email']) ?></td>

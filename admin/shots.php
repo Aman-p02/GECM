@@ -155,7 +155,7 @@ require_once __DIR__ . '/includes/header.php';
             <tbody>
                 <?php foreach ($shots as $row): ?>
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
-                    <td style="font-weight: 700; color: #1e88e5; text-align: center;">#<?= $row['display_order'] ?></td>
+                    <td style="font-weight: 700; color: var(--admin-primary); text-align: center;">#<?= $row['display_order'] ?></td>
                     <td>
                         <img src="<?= htmlspecialchars(getAdminImageSrc($row['image_url'])) ?>" alt="Shot" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Shot';">
                     </td>

@@ -153,7 +153,7 @@ require_once __DIR__ . '/includes/header.php';
     <!-- Card Top Actions Bar -->
     <div class="card-top" style="justify-content: flex-end; padding: 16px 24px; border-bottom: 1px solid var(--admin-border-color); background: #ffffff;">
         <a href="../student-corner/grievance-portal" target="_blank" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; text-decoration: none; padding: 7px 16px; border-radius: 6px; font-weight: 600;">
-            <i class="fas fa-external-link-alt" style="color: #0284c7;"></i> View Public Grievance Form
+            <i class="fas fa-external-link-alt" style="color: #ff8800;"></i> View Public Grievance Form
         </a>
     </div>
 
@@ -362,7 +362,7 @@ require_once __DIR__ . '/includes/header.php';
 
             <div style="margin-bottom: 16px;">
                 <label style="display: block; font-size: 12.5px; font-weight: 700; color: #334155; margin-bottom: 4px;">
-                    Grievance Category: <span id="saCategory" style="color: #0284c7;"></span>
+                    Grievance Category: <span id="saCategory" style="color: #ff8800; font-weight: 700;"></span>
                 </label>
                 <div id="saDescription" style="padding: 12px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; color: #1e293b; line-height: 1.6; white-space: pre-wrap; max-height: 180px; overflow-y: auto;"></div>
             </div>
@@ -392,7 +392,7 @@ require_once __DIR__ . '/includes/header.php';
                     <button type="button" onclick="closeAdminGrvModal()" class="btn btn-secondary" style="padding: 8px 16px; border: 1px solid #cbd5e1; border-radius: 6px; background: #f8fafc; cursor: pointer;">
                         Close
                     </button>
-                    <button type="submit" class="btn btn-primary" style="padding: 8px 20px; border: none; border-radius: 6px; background: #0284c7; color: #ffffff; font-weight: 600; cursor: pointer;">
+                    <button type="submit" class="btn btn-primary" style="padding: 8px 20px; border: none; border-radius: 6px; background: #ff8800; color: #ffffff; font-weight: 600; cursor: pointer;">
                         Save Resolution
                     </button>
                 </div>

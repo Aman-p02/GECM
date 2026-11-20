@@ -145,8 +145,8 @@ require_once __DIR__ . '/includes/header.php';
             <tbody>
                 <?php foreach ($departments as $row): ?>
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
-                    <td style="font-weight: 700; color: #1e88e5; text-align: center;">#<?= $row['display_order'] ?></td>
-                    <td style="text-align: center; font-size: 18px; color: #1e88e5;">
+                    <td style="font-weight: 700; color: var(--admin-primary); text-align: center;">#<?= $row['display_order'] ?></td>
+                    <td style="text-align: center; font-size: 18px; color: var(--admin-primary);">
                         <i class="<?= htmlspecialchars($row['icon_class']) ?>"></i>
                     </td>
                     <td style="font-weight: 600; color: #1a263d;">

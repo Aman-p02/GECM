@@ -160,7 +160,7 @@ require_once __DIR__ . '/includes/header.php';
                             <?= htmlspecialchars($row['title']) ?>
                             <?php if (!empty($row['link_url']) && $row['link_url'] !== '#'): ?>
                                 <a href="<?= htmlspecialchars($row['link_url']) ?>" target="_blank"
-                                    style="margin-left: 6px; font-size: 12px; color: #1e88e5;">
+                                    style="margin-left: 6px; font-size: 12px; color: var(--admin-primary);">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
                             <?php endif; ?>

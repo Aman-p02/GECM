@@ -159,7 +159,7 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top" style="background:#ffffff; border-bottom:1px solid #e5e9f0; padding:16px 24px;">
         <div style="display:flex; align-items:center; gap:12px;">
-            <div style="width:36px; height:36px; border-radius:8px; background:#eff6ff; color:#1e88e5; display:flex; align-items:center; justify-content:center; font-size:16px;">
+            <div style="width:36px; height:36px; border-radius:8px; background:#fff7ed; color:var(--admin-primary); display:flex; align-items:center; justify-content:center; font-size:16px;">
                 <i class="fas fa-users-gear"></i>
             </div>
             <div>

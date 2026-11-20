@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <option value="">-- First choose a department above --</option>
                         </select>
                     </div>
-                    <small id="fac_loading_text" style="display:none; color: #1e88e5; font-size:12px; margin-top:4px;">
+                    <small id="fac_loading_text" style="display:none; color: #ff8800; font-size:12px; margin-top:4px;">
                         <i class="fas fa-spinner fa-spin"></i> Loading faculties for selected department...
                     </small>
                 </div>

@@ -127,7 +127,7 @@ if ($pdo) {
     <!-- Status Filter Buttons & Search -->
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px;">
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <a href="grievances.php" class="btn btn-sm" style="text-decoration: none; border-radius: 20px; padding: 5px 14px; font-size: 12.5px; font-weight: 600; <?= empty($statusFilter) ? 'background: #0284c7; color: #ffffff;' : 'background: #f1f5f9; color: #475569;' ?>">
+            <a href="grievances.php" class="btn btn-sm" style="text-decoration: none; border-radius: 20px; padding: 5px 14px; font-size: 12.5px; font-weight: 600; <?= empty($statusFilter) ? 'background: #ff8800; color: #ffffff;' : 'background: #f1f5f9; color: #475569;' ?>">
                 All (<?= $counts['Total'] ?>)
             </a>
             <a href="grievances.php?status=Pending" class="btn btn-sm" style="text-decoration: none; border-radius: 20px; padding: 5px 14px; font-size: 12.5px; font-weight: 600; <?= ($statusFilter === 'Pending') ? 'background: #f59e0b; color: #ffffff;' : 'background: #fef3c7; color: #92400e;' ?>">
@@ -221,7 +221,7 @@ if ($pdo) {
                             <button type="button" 
                                     class="btn btn-sm btn-primary" 
                                     onclick='viewGrievance(<?= json_encode($row) ?>)'
-                                    style="padding: 5px 12px; font-size: 12px; border-radius: 4px; background: #0284c7; color: #fff; border: none; cursor: pointer;">
+                                    style="padding: 5px 12px; font-size: 12px; border-radius: 4px; background: #ff8800; color: #fff; border: none; cursor: pointer;">
                                 View / Review
                             </button>
                         </td>
@@ -276,7 +276,7 @@ if ($pdo) {
 
             <div style="margin-bottom: 16px;">
                 <label style="display: block; font-size: 12.5px; font-weight: 700; color: #334155; margin-bottom: 4px;">
-                    Grievance Category: <span id="mCategory" style="color: #0284c7;"></span>
+                    Grievance Category: <span id="mCategory" style="color: #ff8800; font-weight: 700;"></span>
                 </label>
                 <div id="mDescription" style="padding: 12px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; color: #1e293b; line-height: 1.6; white-space: pre-wrap; max-height: 160px; overflow-y: auto;"></div>
             </div>
@@ -306,7 +306,7 @@ if ($pdo) {
                     <button type="button" onclick="closeGrvModal()" class="btn btn-secondary" style="padding: 8px 16px; border: 1px solid #cbd5e1; border-radius: 6px; background: #f8fafc; cursor: pointer;">
                         Close
                     </button>
-                    <button type="submit" class="btn btn-primary" style="padding: 8px 20px; border: none; border-radius: 6px; background: #0284c7; color: #ffffff; font-weight: 600; cursor: pointer;">
+                    <button type="submit" class="btn btn-primary" style="padding: 8px 20px; border: none; border-radius: 6px; background: #ff8800; color: #ffffff; font-weight: 600; cursor: pointer;">
                         Save Resolution
                     </button>
                 </div>

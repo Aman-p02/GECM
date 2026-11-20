@@ -132,7 +132,7 @@ require_once __DIR__ . '/includes/header.php';
             <tbody>
                 <?php foreach ($tickers as $row): ?>
                 <tr data-status="<?= $row['is_active'] ? 'active' : 'inactive' ?>">
-                    <td style="font-weight: 700; color: #1e88e5; text-align: center;">#<?= $row['display_order'] ?></td>
+                    <td style="font-weight: 700; color: var(--admin-primary); text-align: center;">#<?= $row['display_order'] ?></td>
                     <td style="font-weight: 500; color: #1a263d;">
                         <i class="fas fa-bullhorn" style="color: #e53935; margin-right: 8px;"></i>
                         <?= htmlspecialchars($row['message']) ?>
