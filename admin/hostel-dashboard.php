@@ -98,18 +98,14 @@ if ($pdo) {
 <div class="admin-fade-in">
 
     <!-- Top Action Banner with Live Form Switcher -->
-    <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 22px 26px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+    <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
         <div>
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; background: #fff7ed; color: #ff8800; border: 1px solid #fed7aa; padding: 3px 10px; border-radius: 12px;">
-                    Academic Year <?= htmlspecialchars($academicYear) ?>
-                </span>
                 <span id="badgeFormStatus" style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 12px; <?= $formIsOpen ? 'background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0;' : 'background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca;' ?>">
                     <?= $formIsOpen ? '● ADMISSIONS OPEN' : '○ ADMISSIONS CLOSED' ?>
                 </span>
             </div>
-            <h2 style="font-size: 1.45rem; font-weight: 800; color: #0f172a; margin: 0 0 4px 0;">Hostel Central Management &amp; Allocation</h2>
-            <p style="font-size: 0.88rem; color: #64748b; margin: 0;">Control online application intake, view incoming student forms, and run automated seat allocation.</p>
+            <h2 style="font-size: 1.45rem; font-weight: 800; color: #0f172a; margin: 0;">Hostel Central Management &amp; Allocation</h2>
         </div>
 
         <!-- Form Status Toggle Button -->
@@ -123,9 +119,6 @@ if ($pdo) {
                     <span id="switchCircle" style="position: absolute; content: ''; height: 24px; width: 24px; left: <?= $formIsOpen ? '34px' : '4px' ?>; bottom: 4px; background-color: white; transition: .3s; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"></span>
                 </span>
             </label>
-            <a href="../student-corner/hostel-admission.php" target="_blank" class="btn btn-secondary" style="font-size: 0.84rem; padding: 7px 14px; text-decoration: none; border-radius: 6px;">
-                <i class="fas fa-external-link-alt"></i> Preview Form
-            </a>
         </div>
     </div>
 
