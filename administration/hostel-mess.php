@@ -76,7 +76,66 @@ $feesStructure = $defaultFeesStructure;
 $messPoints = $defaultMessNotes;
 $feePoints = $defaultFeeNotes;
 $photos = [
-    ['caption' => 'GEC Modasa - Main Hostel Building', 'image_path' => 'uploads/hostel/hostel_main.jpg']
+    [
+        'caption' => 'GEC Modasa - Campus Hostel Complex & Main Entrance',
+        'image_path' => 'uploads/hostel/hostel_main.jpg',
+        'category' => 'Campus Infrastructure',
+        'filter' => 'infrastructure'
+    ],
+    [
+        'caption' => 'New Multi-Storey Boys Hostel Block Building',
+        'image_path' => 'uploads/hostel/hostel_new_building_exterior.jpg',
+        'category' => 'Residential Blocks',
+        'filter' => 'blocks'
+    ],
+    [
+        'caption' => 'Hostel Blocks A, B & C Residential Wings',
+        'image_path' => 'uploads/hostel/hostel_blocks_abc.jpg',
+        'category' => 'Residential Blocks',
+        'filter' => 'blocks'
+    ],
+    [
+        'caption' => 'Student Residential Room with Furnished Bedding',
+        'image_path' => 'uploads/hostel/hostel_student_room.jpg',
+        'category' => 'Student Rooms',
+        'filter' => 'rooms'
+    ],
+    [
+        'caption' => 'Central Dining Hall & Student Mess Facility',
+        'image_path' => 'uploads/hostel/hostel_mess_dining_hall.jpg',
+        'category' => 'Dining & Mess',
+        'filter' => 'dining'
+    ],
+    [
+        'caption' => 'Hostel Library & Reading Room (News Paper Room)',
+        'image_path' => 'uploads/hostel/hostel_newspaper_reading_room.jpg',
+        'category' => 'Facilities & Study',
+        'filter' => 'facilities'
+    ],
+    [
+        'caption' => 'Common Hall & Student Recreation Area',
+        'image_path' => 'uploads/hostel/hostel_common_room_hall.jpg',
+        'category' => 'Facilities & Study',
+        'filter' => 'facilities'
+    ],
+    [
+        'caption' => 'Guest Accommodation & Visiting Faculty Room',
+        'image_path' => 'uploads/hostel/hostel_guest_room.jpg',
+        'category' => 'Facilities & Study',
+        'filter' => 'facilities'
+    ],
+    [
+        'caption' => 'Hostel Campus Grounds & Inter-Block Walkways',
+        'image_path' => 'uploads/hostel/hostel_campus_ground.jpg',
+        'category' => 'Campus Grounds',
+        'filter' => 'grounds'
+    ],
+    [
+        'caption' => 'Lush Green Lawn & Open Recreation Environment',
+        'image_path' => 'uploads/hostel/hostel_garden_lawn.jpg',
+        'category' => 'Campus Grounds',
+        'filter' => 'grounds'
+    ]
 ];
 
 // Safely query database when available
@@ -116,7 +175,7 @@ if ($pdo) {
 
         $stmtP = $pdo->query("SELECT * FROM hostel_photos WHERE is_active = 1 ORDER BY display_order ASC, id ASC");
         $pDb = $stmtP ? $stmtP->fetchAll(PDO::FETCH_ASSOC) : [];
-        if (!empty($pDb)) $photos = $pDb;
+        if (!empty($pDb) && count($pDb) > 1) $photos = $pDb;
     } catch (Throwable $e) {
         error_log("Hostel data fetch error: " . $e->getMessage());
     }
@@ -535,41 +594,74 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
         <!-- TAB 3: FEES STRUCTURE -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane" id="feesTab">
-            <div class="hostel-sec-header">
+            <!-- Section Header with Enlarged Heading -->
+            <div class="hostel-sec-header hostel-fees-main-header">
                 <span class="hostel-sec-kicker">ACCOMMODATION TARIFF</span>
-                <h2 class="hostel-sec-title">Hostel Fees Structure &amp; Regulations</h2>
+                <h2 class="hostel-sec-title hostel-fees-main-title">Hostel Fees Structure &amp; Regulations</h2>
             </div>
 
-            <div class="hostel-bullet-card">
-                <ul class="hostel-bullet-list">
-                    <?php foreach ($feePoints as $pt): ?>
-                        <?php if (!empty(trim($pt))): ?>
-                            <li class="hostel-bullet-item">
-                                <i class="fas fa-info-circle hostel-bullet-icon"></i>
-                                <span><?= htmlspecialchars(trim($pt)) ?></span>
-                            </li>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </ul>
+            <!-- 1. Annual Tariff Tier Showcase Cards -->
+            <div class="hostel-fees-cards-grid">
+                <?php foreach ($feesStructure as $f): 
+                    $feeAmount = htmlspecialchars($f['hostel_fees']);
+                    $yearName = htmlspecialchars($f['year_name']);
+                ?>
+                    <div class="hostel-fee-card">
+                        <div class="hostel-fee-card-top">
+                            <h3 class="hostel-fee-year"><?= $yearName ?></h3>
+                            <span class="hostel-fee-badge">Academic Tariff</span>
+                        </div>
+                        <div class="hostel-fee-amount-wrap">
+                            <span class="hostel-fee-currency">₹</span>
+                            <span class="hostel-fee-amount"><?= $feeAmount ?></span>
+                            <span class="hostel-fee-period">/ Term</span>
+                        </div>
+                        <div class="hostel-fee-meta">
+                            <span><i class="fas fa-check"></i> Standard Room Rent &amp; Utilities</span>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
 
-            <div class="hostel-table-wrap" style="max-width: 800px;">
-                <table class="hostel-table">
+            <!-- 2. Official Fee Regulations Table -->
+            <div class="hostel-table-wrap hostel-fees-table-wrap">
+                <table class="hostel-table hostel-fees-table">
                     <thead>
                         <tr>
-                            <th style="width: 50%;">Academic Year / Term</th>
-                            <th style="width: 50%;">Hostel Fees (₹)</th>
+                            <th style="width: 80px; text-align: center;">Sr. No.</th>
+                            <th>Fee Regulation &amp; Tenancy Policy Description</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($feesStructure as $f): ?>
+                        <?php 
+                        $feeRuleNo = 1;
+                        foreach ($feePoints as $pt): 
+                            $text = trim($pt);
+                            if (empty($text)) continue;
+                        ?>
                             <tr>
-                                <td style="font-weight: 600; color: var(--hostel-primary);"><?= htmlspecialchars($f['year_name']) ?></td>
-                                <td style="font-weight: 700; color: var(--hostel-accent);">₹<?= htmlspecialchars($f['hostel_fees']) ?>/-</td>
+                                <td class="hostel-idx" style="text-align: center; vertical-align: top; padding-top: 18px; font-weight: 700; color: #ff8800; font-size: 0.95rem;">
+                                    <?= sprintf('%02d', $feeRuleNo) ?>
+                                </td>
+                                <td style="padding: 16px 20px; vertical-align: middle;">
+                                    <p class="hostel-mess-entry-text"><?= htmlspecialchars($text) ?></p>
+                                </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php 
+                            $feeRuleNo++;
+                        endforeach; 
+                        ?>
                     </tbody>
                 </table>
+            </div>
+
+            <!-- 3. Important Administrative Fee Policy Callout -->
+            <div class="hostel-mess-callout-note">
+                <i class="fas fa-info-circle hostel-mess-note-icon"></i>
+                <div>
+                    <strong>Payment &amp; Refund Policy:</strong>
+                    Hostel admission fees are prescribed by the Directorate of Technical Education. Fees once deposited are strictly non-refundable and non-transferable. Mess charges are separate and payable directly to the authorized mess contractor.
+                </div>
             </div>
         </div>
 
@@ -577,9 +669,10 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
         <!-- TAB 4: HOSTEL RULES -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane" id="rulesTab">
-            <div class="hostel-sec-header">
+            <!-- Section Header with Enlarged Heading & Top Spacing -->
+            <div class="hostel-sec-header hostel-rules-main-header">
                 <span class="hostel-sec-kicker">CODE OF CONDUCT &amp; COMPLIANCE</span>
-                <h2 class="hostel-sec-title">Hostel Rules &amp; Regulations</h2>
+                <h2 class="hostel-sec-title hostel-rules-main-title">Hostel Rules &amp; Regulations</h2>
             </div>
 
             <div class="hostel-rules-callout">
@@ -610,9 +703,10 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
         <!-- TAB 5: HOSTEL BLOCK CAPACITY -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane" id="capacityTab">
-            <div class="hostel-sec-header">
+            <!-- Section Header with Enlarged Heading & Top Spacing -->
+            <div class="hostel-sec-header hostel-capacity-main-header">
                 <span class="hostel-sec-kicker">INFRASTRUCTURE AUDIT</span>
-                <h2 class="hostel-sec-title">Hostel Block Wise Capacity Details</h2>
+                <h2 class="hostel-sec-title hostel-capacity-main-title">Hostel Block Wise Capacity Details</h2>
             </div>
 
             <div class="hostel-table-wrap">
@@ -660,19 +754,27 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
         <!-- TAB 6: PHOTOS GALLERY -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane" id="photosTab">
-            <div class="hostel-sec-header">
+            <!-- Section Header with Enlarged Heading & Top Spacing -->
+            <div class="hostel-sec-header hostel-photos-main-header">
                 <span class="hostel-sec-kicker">CAMPUS LIFE &amp; LIVING</span>
-                <h2 class="hostel-sec-title">Hostel &amp; Residential Gallery</h2>
+                <h2 class="hostel-sec-title hostel-photos-main-title">Hostel &amp; Residential Gallery</h2>
+                <p class="hostel-sec-subtitle">Comprehensive showcase of residential quarters, student rooms, hygienic mess dining facilities, and lush campus amenities at GEC Modasa.</p>
             </div>
 
+            <!-- Gallery Grid with Large Cards -->
             <div class="hostel-photo-grid">
-                <?php foreach ($photos as $ph): ?>
-                    <div class="hostel-photo-card">
+                <?php foreach ($photos as $ph): 
+                    $cat = $ph['category'] ?? 'Campus Living';
+                    $filter = $ph['filter'] ?? 'all';
+                    $imgUrl = htmlspecialchars($root_path . ltrim($ph['image_path'], '/'));
+                    $caption = htmlspecialchars($ph['caption']);
+                ?>
+                    <div class="hostel-photo-card" data-category="<?= $filter ?>" data-img="<?= $imgUrl ?>" data-caption="<?= $caption ?>" data-badge="<?= htmlspecialchars($cat) ?>">
                         <div class="hostel-photo-thumb-wrap">
-                            <img src="<?= htmlspecialchars($root_path . ltrim($ph['image_path'], '/')) ?>" alt="<?= htmlspecialchars($ph['caption']) ?>" class="hostel-photo-thumb" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
+                            <img src="<?= $imgUrl ?>" alt="<?= $caption ?>" class="hostel-photo-thumb" loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
                         </div>
                         <div class="hostel-photo-caption">
-                            <?= htmlspecialchars($ph['caption']) ?>
+                            <h3 class="hostel-photo-title"><?= $caption ?></h3>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -680,6 +782,21 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
         </div>
 
     </main>
+
+    <!-- Lightbox Modal for Fullscreen Image Viewing -->
+    <div class="hostel-lightbox" id="hostelLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="hostel-lightbox-backdrop" id="hostelLightboxBackdrop"></div>
+        <div class="hostel-lightbox-dialog">
+            <button type="button" class="hostel-lightbox-close" id="hostelLightboxClose" aria-label="Close Lightbox">&times;</button>
+            <div class="hostel-lightbox-media">
+                <img src="" alt="" id="hostelLightboxImg">
+            </div>
+            <div class="hostel-lightbox-info">
+                <span class="hostel-lightbox-badge" id="hostelLightboxBadge">Hostel Facility</span>
+                <p class="hostel-lightbox-caption" id="hostelLightboxCaption"></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -724,18 +841,22 @@ window.activateTab = function(tabName, shouldScroll) {
     const page = document.querySelector('.hostel-page') || document.body;
     page.setAttribute('data-active-tab', cleanKey);
     document.body.setAttribute('data-active-tab', cleanKey);
-
-    // 5. Ensure smooth scroll alignment if user clicked a tab while scrolled down
-    if (shouldScroll) {
-        const subnav = document.querySelector('.dept-subnav-bar');
-        if (subnav && window.pageYOffset > (subnav.offsetTop + 40)) {
-            const targetY = subnav.offsetTop - 10;
-            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
-        }
-    }
 };
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Dynamically synchronize main website navbar height to ensure 0 gap under navbar
+    function syncNavHeight() {
+        const mainNav = document.getElementById("mainNavbar") || document.querySelector(".hdr-nav");
+        if (!mainNav || window.innerWidth <= 768) {
+            document.documentElement.style.setProperty('--site-main-nav-height', '0px');
+        } else {
+            const h = mainNav.offsetHeight || 55;
+            document.documentElement.style.setProperty('--site-main-nav-height', h + 'px');
+        }
+    }
+    syncNavHeight();
+    window.addEventListener('resize', syncNavHeight, { passive: true });
+
     // Bind click events on desktop subnav buttons
     document.querySelectorAll('.dept-subnav-link').forEach(btn => {
         btn.addEventListener('click', function (e) {
@@ -752,6 +873,53 @@ document.addEventListener('DOMContentLoaded', function () {
     const validTabs = ['about', 'mess', 'fees', 'rules', 'capacity', 'photos'];
     if (hash && validTabs.includes(hash)) {
         window.activateTab(hash, false);
+    }
+
+    // Photo Gallery Lightbox Interactions
+    const photoCards = document.querySelectorAll('.hostel-photo-card');
+    const lightbox = document.getElementById('hostelLightbox');
+    const lightboxImg = document.getElementById('hostelLightboxImg');
+    const lightboxCaption = document.getElementById('hostelLightboxCaption');
+    const lightboxBadge = document.getElementById('hostelLightboxBadge');
+    const lightboxClose = document.getElementById('hostelLightboxClose');
+    const lightboxBackdrop = document.getElementById('hostelLightboxBackdrop');
+
+    if (photoCards.length > 0) {
+        // Open Lightbox on card click
+        photoCards.forEach(card => {
+            card.addEventListener('click', function () {
+                const imgUrl = this.getAttribute('data-img');
+                const caption = this.getAttribute('data-caption');
+                const badge = this.getAttribute('data-badge') || 'Campus Facility';
+
+                if (lightbox && lightboxImg && imgUrl) {
+                    lightboxImg.src = imgUrl;
+                    lightboxImg.alt = caption || 'Hostel Photo';
+                    if (lightboxCaption) lightboxCaption.textContent = caption || '';
+                    if (lightboxBadge) lightboxBadge.textContent = badge;
+                    lightbox.classList.add('is-open');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        function closeLightbox() {
+            if (lightbox) {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+        if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && lightbox && lightbox.classList.contains('is-open')) {
+                closeLightbox();
+            }
+        });
     }
 });
 </script>
