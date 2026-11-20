@@ -29,6 +29,8 @@
     margin: 0;
     padding: 0 0 100px 0;
     width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
@@ -40,6 +42,7 @@
     margin: 0 auto;
     padding: 0 32px;
     box-sizing: border-box;
+    min-width: 0;
 }
 
 /* Hero banner header - Department Style */
@@ -163,15 +166,23 @@
     -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid var(--hostel-border);
     border-bottom: 1px solid var(--hostel-border);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
     transition: top 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    margin-bottom: 0;
+    margin-bottom: 24px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .dept-subnav-wrap,
 .dept-subnav-wrapper {
     position: relative;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* Horizontal scrollable tab buttons track - Centered in navbar */
@@ -188,6 +199,9 @@
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 @media (max-width: 900px) {
@@ -257,13 +271,23 @@
 }
 
 .hostel-main-content {
-    padding-top: 8px;
+    padding-top: 24px;
+    padding-bottom: 60px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 /* Tab Content Panes */
 .hostel-tab-pane {
     display: none;
-    padding-top: 4px;
+    padding-top: 14px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .hostel-tab-pane.active {
@@ -306,6 +330,14 @@
     color: var(--hostel-primary);
     letter-spacing: -0.02em;
     margin: 0;
+}
+
+.hostel-sec-subtitle {
+    font-size: 0.95rem;
+    color: var(--hostel-muted);
+    margin-top: 6px;
+    margin-bottom: 0;
+    line-height: 1.55;
 }
 
 /* Campus Overview Hero Card */
@@ -395,6 +427,8 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     margin-bottom: 36px;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .hostel-panel {
@@ -405,6 +439,10 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .hostel-panel-header {
@@ -459,6 +497,10 @@
     overflow-x: auto;
     border: 1px solid var(--hostel-border-subtle);
     border-radius: 4px;
+    width: 100%;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
 }
 
 .hostel-panel-table {
@@ -509,13 +551,16 @@
 
 .hostel-role-tag {
     display: inline-block;
-    padding: 2px 8px;
+    padding: 3px 8px;
     font-size: 0.76rem;
     font-weight: 600;
     color: #475569;
     background: #f1f5f9;
     border-radius: 4px;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    line-height: 1.35;
 }
 
 .hostel-role-tag.hostel-role-patron {
@@ -786,6 +831,68 @@
     flex-shrink: 0;
 }
 
+/* ==========================================================================
+   INSTITUTIONAL MESS GUIDELINES TABLE
+   ========================================================================== */
+.hostel-mess-main-header {
+    margin-bottom: 24px;
+}
+
+.hostel-mess-main-title {
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.025em;
+    color: var(--hostel-primary);
+    line-height: 1.25;
+    margin: 4px 0 0 0;
+}
+
+.hostel-mess-table-wrap {
+    margin-bottom: 24px;
+}
+
+.hostel-mess-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.hostel-mess-table tbody tr:hover td {
+    background-color: #fafbfc;
+}
+
+.hostel-mess-entry-text {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: var(--hostel-primary);
+    margin: 0;
+    font-weight: 500;
+}
+
+.hostel-mess-callout-note {
+    margin-top: 22px;
+    padding: 14px 18px;
+    background: #fbfcfe;
+    border: 1px solid var(--hostel-border);
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: var(--hostel-body);
+    line-height: 1.6;
+}
+
+.hostel-mess-note-icon {
+    color: var(--hostel-muted);
+    font-size: 1.05rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.hostel-mess-callout-note strong {
+    color: var(--hostel-primary);
+    margin-right: 4px;
+}
+
 /* Rules Document Download Callout */
 .hostel-rules-callout {
     background: #ffffff;
@@ -920,12 +1027,16 @@
 
 @media (max-width: 768px) {
     .hostel-container {
-        padding: 0 20px;
+        padding: 0 16px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .dept-subnav-bar {
         top: 0;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 16px;
     }
 
     .dept-subnav-link {
@@ -947,10 +1058,24 @@
         font-size: 0.88rem;
     }
 
+    .hostel-panel-table thead th,
+    .hostel-panel-table tbody td {
+        padding: 10px 8px;
+        font-size: 0.80rem;
+        white-space: normal;
+    }
+
+    .hostel-role-tag {
+        font-size: 0.70rem;
+        padding: 2px 6px;
+        white-space: normal;
+        word-break: break-word;
+    }
+
     .hostel-table thead th,
     .hostel-table tbody td {
-        padding: 12px 14px;
-        font-size: 0.85rem;
+        padding: 10px 12px;
+        font-size: 0.82rem;
     }
 
     .hostel-stats-grid {
@@ -982,12 +1107,53 @@
 
     .hostel-panel,
     .hostel-leader-tile {
-        padding: 20px 16px;
+        padding: 18px 14px;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
     }
-}
+
+    .hostel-panel-table-wrap,
+    .hostel-table-wrap {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
+    }
+
+    .hostel-mess-main-title {
+        font-size: 1.55rem !important;
+    }
 }
 
 @media (max-width: 580px) {
+    .hostel-container {
+        padding: 0 14px;
+    }
+
+    .hostel-sec-title {
+        font-size: 1.35rem;
+    }
+
+    .hostel-mess-main-title {
+        font-size: 1.4rem !important;
+    }
+
+    .hostel-panel-title {
+        font-size: 1.05rem;
+    }
+
+    .hostel-panel {
+        padding: 16px 12px;
+    }
+
+    .hostel-panel-table thead th,
+    .hostel-panel-table tbody td {
+        padding: 8px 6px;
+        font-size: 0.78rem;
+    }
+
     .hostel-overview-badge-row {
         grid-template-columns: 1fr;
     }

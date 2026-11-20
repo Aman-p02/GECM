@@ -483,22 +483,51 @@ $rulesPdf = !empty($hostelData['rules_pdf_url']) ? $hostelData['rules_pdf_url'] 
         <!-- TAB 2: HOSTEL MESS -->
         <!-- ========================================================================= -->
         <div class="hostel-tab-pane" id="messTab">
-            <div class="hostel-sec-header">
+            <!-- Section Header with Enlarged Heading -->
+            <div class="hostel-sec-header hostel-mess-main-header">
                 <span class="hostel-sec-kicker">CAMPUS DINING</span>
-                <h2 class="hostel-sec-title">Hostel Mess Facility &amp; Operational Guidelines</h2>
+                <h2 class="hostel-sec-title hostel-mess-main-title">Hostel Mess Facility &amp; Operational Guidelines</h2>
             </div>
 
-            <div class="hostel-bullet-card">
-                <ul class="hostel-bullet-list">
-                    <?php foreach ($messPoints as $pt): ?>
-                        <?php if (!empty(trim($pt))): ?>
-                            <li class="hostel-bullet-item">
-                                <i class="fas fa-check-circle hostel-bullet-icon"></i>
-                                <span><?= htmlspecialchars(trim($pt)) ?></span>
-                            </li>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </ul>
+            <!-- Guidelines Table Directly on the Page (No nested box wrapper, No count) -->
+            <div class="hostel-table-wrap hostel-mess-table-wrap">
+                <table class="hostel-table hostel-mess-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 80px; text-align: center;">Sr. No.</th>
+                            <th>Operational Guideline / Regulation Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $ruleNo = 1;
+                        foreach ($messPoints as $pt): 
+                            $text = trim($pt);
+                            if (empty($text)) continue;
+                        ?>
+                            <tr>
+                                <td class="hostel-idx" style="text-align: center; vertical-align: top; padding-top: 18px; font-weight: 700; color: #ff8800; font-size: 0.95rem;">
+                                    <?= sprintf('%02d', $ruleNo) ?>
+                                </td>
+                                <td style="padding: 16px 20px; vertical-align: middle;">
+                                    <p class="hostel-mess-entry-text"><?= htmlspecialchars($text) ?></p>
+                                </td>
+                            </tr>
+                        <?php 
+                            $ruleNo++;
+                        endforeach; 
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Administrative Policy Footnote -->
+            <div class="hostel-mess-callout-note">
+                <i class="fas fa-info-circle hostel-mess-note-icon"></i>
+                <div>
+                    <strong>Administrative Policy:</strong>
+                    The hostel mess remains non-operative during official college vacations. The hostel accommodation fee does not include mess charges, which must be settled directly with the authorized contractor.
+                </div>
             </div>
         </div>
 
@@ -695,6 +724,15 @@ window.activateTab = function(tabName, shouldScroll) {
     const page = document.querySelector('.hostel-page') || document.body;
     page.setAttribute('data-active-tab', cleanKey);
     document.body.setAttribute('data-active-tab', cleanKey);
+
+    // 5. Ensure smooth scroll alignment if user clicked a tab while scrolled down
+    if (shouldScroll) {
+        const subnav = document.querySelector('.dept-subnav-bar');
+        if (subnav && window.pageYOffset > (subnav.offsetTop + 40)) {
+            const targetY = subnav.offsetTop - 10;
+            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+        }
+    }
 };
 
 document.addEventListener('DOMContentLoaded', function () {
