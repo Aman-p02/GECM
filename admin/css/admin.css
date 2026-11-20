@@ -88,6 +88,27 @@ a:hover {
     z-index: 1000;
     transition: transform 0.3s ease;
     overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.admin-sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.admin-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.35);
 }
 
 .sidebar-header {
@@ -139,8 +160,9 @@ a:hover {
     border-radius: 6px;
     font-size: 15px;
     font-weight: 500;
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
     cursor: pointer;
+    user-select: none;
 }
 
 .menu-link > span {
@@ -162,10 +184,16 @@ a:hover {
 
 /* Submenu / Accordion Dropdown */
 .submenu-arrow {
-    display: inline-block !important;
-    font-size: 12px;
-    transition: transform 0.25s ease;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    font-size: 11px;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     color: #94a3b8;
+    transform-origin: center center;
+    flex-shrink: 0;
 }
 
 .menu-item-has-submenu.open > .menu-link .submenu-arrow {
@@ -175,14 +203,20 @@ a:hover {
 
 .submenu-list {
     list-style: none;
-    padding: 4px 0 6px 12px;
-    margin: 4px 0 4px 10px;
+    padding: 0 0 0 12px;
+    margin: 0 0 0 10px;
     border-left: 2px solid rgba(255, 255, 255, 0.12);
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease, padding 0.3s ease, margin 0.3s ease;
 }
 
-.menu-item-has-submenu.open .submenu-list {
-    display: block;
+.menu-item-has-submenu.open > .submenu-list {
+    max-height: 600px;
+    opacity: 1;
+    padding: 4px 0 6px 12px;
+    margin: 4px 0 4px 10px;
 }
 
 .submenu-item {
@@ -198,13 +232,12 @@ a:hover {
     font-weight: 500;
     border-radius: 5px;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .submenu-link:hover {
     color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.06);
-    padding-left: 18px;
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .submenu-item.active .submenu-link {

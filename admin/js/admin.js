@@ -3,14 +3,29 @@
  */
 
 document.addEventListener('DOMContentLoaded', function () {
-    // 0. Sidebar Submenu Accordion Toggle
+    // 0. Sidebar Submenu Accordion Toggle (Smooth & Exclusive)
     const submenuToggles = document.querySelectorAll('.submenu-toggle');
     submenuToggles.forEach(function (toggle) {
         toggle.addEventListener('click', function (e) {
             e.preventDefault();
+            e.stopPropagation();
             const parentItem = this.closest('.menu-item-has-submenu');
-            if (parentItem) {
-                parentItem.classList.toggle('open');
+            if (!parentItem) return;
+
+            const isAlreadyOpen = parentItem.classList.contains('open');
+
+            // Close other open submenus to prevent scrollbar jumping and clutter
+            document.querySelectorAll('.menu-item-has-submenu.open').forEach(function (otherItem) {
+                if (otherItem !== parentItem) {
+                    otherItem.classList.remove('open');
+                }
+            });
+
+            // Toggle current
+            if (isAlreadyOpen) {
+                parentItem.classList.remove('open');
+            } else {
+                parentItem.classList.add('open');
             }
         });
     });
