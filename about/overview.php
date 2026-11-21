@@ -64,7 +64,7 @@ if (isset($pdo) && $pdo) {
             <!-- Campus Overview & Narrative Split Card -->
             <section class="about-overview-card" aria-label="Campus Environment and Recognition">
                 <div class="about-overview-media">
-                    <img src="images/hero_campus_1.jpg" alt="Government Engineering College Modasa Campus Building" loading="lazy" onerror="this.src='images/slider/default.jpg'">
+                    <img src="<?= $root_path ?>images/hero_campus_1.jpg" alt="Government Engineering College Modasa Campus Building" loading="lazy">
                 </div>
                 <div class="about-overview-body">
                     <span class="about-section-kicker">CAMPUS &amp; ECOSYSTEM</span>
