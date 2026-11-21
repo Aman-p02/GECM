@@ -57,24 +57,34 @@ require_once __DIR__ . '/../includes/header.php';
         <div class="dept-container">
             <div class="dept-subnav-wrap">
                 <ul class="dept-subnav-list" role="tablist">
-                    <li class="dept-subnav-item active">
-                        <button type="button" class="dept-subnav-link active" data-tab="overview" role="tab" aria-selected="true">
-                            Overview &amp; Infrastructure
+                    <li class="dept-subnav-item dept-subnav-dropdown active">
+                        <button type="button" class="dept-subnav-link dept-subnav-link-with-arrow active" data-tab="details" role="tab" aria-selected="true" aria-haspopup="true" aria-expanded="false" id="libDetailsTab">
+                            <span>Library Details</span>
+                            <svg class="dept-subnav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="dept-subnav-dropdown-menu" role="menu" aria-label="Library Details Subsections">
+                            <button type="button" class="dept-subnav-dropdown-item active" data-subtab="overview" role="menuitem">
+                                Overview &amp; Infrastructure
+                            </button>
+                            <button type="button" class="dept-subnav-dropdown-item" data-subtab="volumes" role="menuitem">
+                                Book Collection &amp; Volumes
+                            </button>
+                            <button type="button" class="dept-subnav-dropdown-item" data-subtab="digital" role="menuitem">
+                                Digital Library &amp; E-Resources
+                            </button>
+                            <button type="button" class="dept-subnav-dropdown-item" data-subtab="membership" role="menuitem">
+                                Membership &amp; Guidelines
+                            </button>
+                        </div>
+                    </li>
+                    <li class="dept-subnav-item">
+                        <button type="button" class="dept-subnav-link" data-tab="incharge" role="tab" aria-selected="false">
+                            Library In-charge
                         </button>
                     </li>
                     <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="volumes" role="tab" aria-selected="false">
-                            Book Collection &amp; Volumes
-                        </button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="digital" role="tab" aria-selected="false">
-                            Digital Library &amp; E-Resources
-                        </button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="membership" role="tab" aria-selected="false">
-                            Membership &amp; Guidelines
+                        <button type="button" class="dept-subnav-link" data-tab="gallery" role="tab" aria-selected="false">
+                            Library at a glance
                         </button>
                     </li>
                 </ul>
@@ -86,8 +96,11 @@ require_once __DIR__ . '/../includes/header.php';
     <main class="dept-main-content">
         <div class="dept-container">
 
-            <!-- TAB 1: OVERVIEW & INFRASTRUCTURE -->
-            <section class="dept-tab-pane active" id="tab-overview">
+            <!-- TAB 1: LIBRARY DETAILS (CONSOLIDATED) -->
+            <section class="dept-tab-pane active" id="tab-details">
+
+                <!-- SUB-PANE 1: OVERVIEW & INFRASTRUCTURE -->
+                <div class="lib-subpane active" id="subpane-overview">
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">ABOUT THE LIBRARY</span>
                     <h2>Learning Resource Centre (LRC)</h2>
@@ -180,10 +193,10 @@ require_once __DIR__ . '/../includes/header.php';
                         </tbody>
                     </table>
                 </div>
-            </section>
+            </div> <!-- /subpane-overview -->
 
-            <!-- TAB 2: BOOK COLLECTION & VOLUMES -->
-            <section class="dept-tab-pane" id="tab-volumes">
+            <!-- SUB-PANE 2: BOOK COLLECTION & VOLUMES -->
+            <div class="lib-subpane" id="subpane-volumes">
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">COMPREHENSIVE REPOSITORY</span>
                     <h2>Departmental Book Matrix &amp; Volumes</h2>
@@ -284,10 +297,10 @@ require_once __DIR__ . '/../includes/header.php';
                         </tbody>
                     </table>
                 </div>
-            </section>
+            </div> <!-- /subpane-volumes -->
 
-            <!-- TAB 3: DIGITAL LIBRARY & E-RESOURCES -->
-            <section class="dept-tab-pane" id="tab-digital">
+            <!-- SUB-PANE 3: DIGITAL LIBRARY & E-RESOURCES -->
+            <div class="lib-subpane" id="subpane-digital">
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">ELECTRONIC ACCESS &amp; NETWORKING</span>
                     <h2>Digital Library &amp; National Portals</h2>
@@ -392,10 +405,10 @@ require_once __DIR__ . '/../includes/header.php';
                         </a>
                     </div>
                 </div>
-            </section>
+            </div> <!-- /subpane-digital -->
 
-            <!-- TAB 4: MEMBERSHIP & GUIDELINES -->
-            <section class="dept-tab-pane" id="tab-membership">
+            <!-- SUB-PANE 4: MEMBERSHIP & GUIDELINES -->
+            <div class="lib-subpane" id="subpane-membership">
                 <div class="dept-section-header">
                     <span class="dept-section-kicker">RULES &amp; REGULATIONS</span>
                     <h2>Library Membership &amp; Access Policies</h2>
@@ -455,6 +468,281 @@ require_once __DIR__ . '/../includes/header.php';
                         <span>11:00 AM – 5:00 PM (All Working Days)</span>
                     </div>
                 </div>
+            </div> <!-- /subpane-membership -->
+        </section> <!-- /tab-details -->
+
+        <!-- TAB 2: LIBRARY IN-CHARGE & STAFF -->
+        <section class="dept-tab-pane" id="tab-incharge">
+            <div class="dept-section-header">
+                <span class="dept-section-kicker">INSTITUTIONAL GOVERNANCE</span>
+                <h2>Library Committee &amp; Team</h2>
+                <p>The College has a Central Library located in the Learning Resource Centre (LRC) building on the ground floor, governed by the faculty library committee and supported by professional staff.</p>
+            </div>
+
+            <!-- Table 1: Library Team (Faculty In-charges & Members) -->
+            <div style="margin-bottom: 36px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                    <h3 style="font-family: var(--dept-font-display); font-size: 1.25rem; font-weight: 700; color: #111111; margin: 0; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-users" style="color: var(--dept-accent); font-size: 1.1rem;"></i>
+                        Library Committee (Faculty Team)
+                    </h3>
+                </div>
+
+                <div class="dept-table-wrap">
+                    <table class="dept-clean-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10%; text-align: center;">Sr. No.</th>
+                                <th style="width: 50%;">Faculty Name &amp; Academic Department</th>
+                                <th style="width: 40%;">Designation / Role in Library</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center; color: #6b7280; font-weight: 600;">1</td>
+                                <td>
+                                    <strong>Prof. Nirali V. Upadhyay</strong>
+                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Electrical Engineering (AP.EE)</div>
+                                </td>
+                                <td>
+                                    <span class="dept-tag-incharge">Library Incharge</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; color: #6b7280; font-weight: 600;">2</td>
+                                <td>
+                                    <strong>Prof. Kunal V. Fadadu</strong>
+                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Automobile Engineering (AP.AT)</div>
+                                </td>
+                                <td>
+                                    <span class="dept-tag-asst">Assistant Library Incharge</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; color: #6b7280; font-weight: 600;">3</td>
+                                <td>
+                                    <strong>Prof. A. B. Parmar</strong>
+                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Computer Engineering (AP.CE)</div>
+                                </td>
+                                <td>
+                                    <span class="dept-tag-ug">Member</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; color: #6b7280; font-weight: 600;">4</td>
+                                <td>
+                                    <strong>Prof. N. S. Chowdhary</strong>
+                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Computer Engineering (AP.CE)</div>
+                                </td>
+                                <td>
+                                    <span class="dept-tag-ug">Member</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; color: #6b7280; font-weight: 600;">5</td>
+                                <td>
+                                    <strong>Prof. R. N. Vaza</strong>
+                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Computer Engineering (AP.CE)</div>
+                                </td>
+                                <td>
+                                    <span class="dept-tag-ug">Member</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; color: #6b7280; font-weight: 600;">6</td>
+                                <td>
+                                    <strong>Prof. C. K. Baria</strong>
+                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Electrical Engineering (AP.EE)</div>
+                                </td>
+                                <td>
+                                    <span class="dept-tag-ug">Member</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Table 2: Library Staff -->
+            <div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                    <h3 style="font-family: var(--dept-font-display); font-size: 1.25rem; font-weight: 700; color: #111111; margin: 0; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-id-badge" style="color: var(--dept-accent); font-size: 1.1rem;"></i>
+                        Library Administrative &amp; Technical Staff
+                    </h3>
+                </div>
+
+                <div class="dept-table-wrap">
+                    <table class="dept-clean-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10%; text-align: center;">Sr. No.</th>
+                                <th style="width: 50%;">Staff Member Name</th>
+                                <th style="width: 40%;">Designation / Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center; color: #6b7280; font-weight: 600;">1</td>
+                                <td>
+                                    <strong>Shri A. M. Patel</strong>
+                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Learning Resource Centre (LRC)</div>
+                                </td>
+                                <td>
+                                    <span class="dept-tag-librarian">In-charge (Librarian)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; color: #6b7280; font-weight: 600;">2</td>
+                                <td>
+                                    <strong>Shri J. N. Patel</strong>
+                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Electronics &amp; Communication Engineering (EC)</div>
+                                </td>
+                                <td>
+                                    <span class="dept-tag-ug">Member</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: LIBRARY AT A GLANCE (PHOTO GALLERY) -->
+        <section class="dept-tab-pane" id="tab-gallery">
+                <div class="dept-section-header">
+                    <span class="dept-section-kicker">INFRASTRUCTURE SHOWCASE</span>
+                    <h2>Library at a Glance</h2>
+                    <p>A visual walkthrough of the Learning Resource Centre (LRC) featuring our reading halls, digital laboratory, stack areas, and periodical sections.</p>
+                </div>
+
+                <div class="lib-gallery-grid">
+                    <!-- Photo 1: Reading Room Wide -->
+                    <div class="lib-gallery-card">
+                        <div class="lib-gallery-media">
+                            <img src="<?= $root_path ?>images/library/gallery_reading_hall_wide.jpg" alt="Central Library Reading Hall Wide Overview" class="lib-gallery-img" loading="lazy">
+                        </div>
+                        <div class="lib-gallery-body">
+                            <div>
+                                <span class="lib-gallery-tag">READING HALL</span>
+                                <h3 class="lib-gallery-title">Spacious Reading Hall</h3>
+                                <p class="lib-gallery-desc">Modern 100-seat reading hall featuring natural ventilation, expansive study tables, and a serene academic atmosphere.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 2: Reading Room Study Desks -->
+                    <div class="lib-gallery-card">
+                        <div class="lib-gallery-media">
+                            <img src="<?= $root_path ?>images/library/gallery_reading_hall_study.jpg" alt="Student Reading and Study Desks" class="lib-gallery-img" loading="lazy">
+                        </div>
+                        <div class="lib-gallery-body">
+                            <div>
+                                <span class="lib-gallery-tag">STUDY AREA</span>
+                                <h3 class="lib-gallery-title">Student Reading Desks</h3>
+                                <p class="lib-gallery-desc">Ergonomic seating arrangements providing focused and peaceful environments for extended study sessions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 3: Digital Library Workstations -->
+                    <div class="lib-gallery-card">
+                        <div class="lib-gallery-media">
+                            <img src="<?= $root_path ?>images/library/gallery_digital_workstations.jpg" alt="Digital Library Computing Terminals" class="lib-gallery-img" loading="lazy">
+                        </div>
+                        <div class="lib-gallery-body">
+                            <div>
+                                <span class="lib-gallery-tag">DIGITAL LIBRARY</span>
+                                <h3 class="lib-gallery-title">Multimedia Workstations</h3>
+                                <p class="lib-gallery-desc">Dedicated high-speed PC terminals (Stations 6 &amp; 7) connected to 100 Mbps NKN broadband with strict quiet zone protocols.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 4: Digital Research & E-Resources -->
+                    <div class="lib-gallery-card">
+                        <div class="lib-gallery-media">
+                            <img src="<?= $root_path ?>images/library/gallery_digital_research.jpg" alt="Students and Faculty Accessing E-Resources" class="lib-gallery-img" loading="lazy">
+                        </div>
+                        <div class="lib-gallery-body">
+                            <div>
+                                <span class="lib-gallery-tag">E-RESOURCES</span>
+                                <h3 class="lib-gallery-title">Online Journal &amp; Research Lab</h3>
+                                <p class="lib-gallery-desc">Students and faculty actively accessing online institutional databases, e-books, and research publications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 5: Periodicals & Journals Display -->
+                    <div class="lib-gallery-card">
+                        <div class="lib-gallery-media">
+                            <img src="<?= $root_path ?>images/library/gallery_periodicals_rack.jpg" alt="Technical Periodicals and Journals Display Rack" class="lib-gallery-img" loading="lazy">
+                        </div>
+                        <div class="lib-gallery-body">
+                            <div>
+                                <span class="lib-gallery-tag">PERIODICALS</span>
+                                <h3 class="lib-gallery-title">Periodicals &amp; Magazine Display</h3>
+                                <p class="lib-gallery-desc">Current national and international periodicals including DRDO newsletters, MARG, Engineering Success Review, and technical digests.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 6: Librarian Office & Cabin -->
+                    <div class="lib-gallery-card">
+                        <div class="lib-gallery-media">
+                            <img src="<?= $root_path ?>images/library/gallery_librarian_cabin.jpg" alt="Librarian Office Cabin Room 3109-A" class="lib-gallery-img" loading="lazy">
+                        </div>
+                        <div class="lib-gallery-body">
+                            <div>
+                                <span class="lib-gallery-tag">ADMINISTRATION</span>
+                                <h3 class="lib-gallery-title">Librarian Office (Room 3109-A)</h3>
+                                <p class="lib-gallery-desc">Dedicated glass-partitioned administration cabin for circulation help, member registration, and book management.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 7: Reference Reading Area & Corridor -->
+                    <div class="lib-gallery-card">
+                        <div class="lib-gallery-media">
+                            <img src="<?= $root_path ?>images/library/gallery_reference_section.jpg" alt="Reference Section and Periodicals Corridor" class="lib-gallery-img" loading="lazy">
+                        </div>
+                        <div class="lib-gallery-body">
+                            <div>
+                                <span class="lib-gallery-tag">REFERENCE AREA</span>
+                                <h3 class="lib-gallery-title">Reference Reading Area</h3>
+                                <p class="lib-gallery-desc">Adjacent reading desks with direct access to current periodicals racks, academic journals, and general digests.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 8: Main Book Storage Almirahs -->
+                    <div class="lib-gallery-card">
+                        <div class="lib-gallery-media">
+                            <img src="<?= $root_path ?>images/library/gallery_book_stacks_1.jpg" alt="Main Book Storage and Glass-Door Almirahs" class="lib-gallery-img" loading="lazy">
+                        </div>
+                        <div class="lib-gallery-body">
+                            <div>
+                                <span class="lib-gallery-tag">BOOK STACKS</span>
+                                <h3 class="lib-gallery-title">Main Book Storage &amp; Almirahs</h3>
+                                <p class="lib-gallery-desc">Secure glass-door cupboards housing over 24,800+ barcoded and categorized academic engineering volumes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo 9: Book Stacks & Partition Corridor -->
+                    <div class="lib-gallery-card">
+                        <div class="lib-gallery-media">
+                            <img src="<?= $root_path ?>images/library/gallery_book_stacks_2.jpg" alt="Book Stacks and Circulation Aisles" class="lib-gallery-img" loading="lazy">
+                        </div>
+                        <div class="lib-gallery-body">
+                            <div>
+                                <span class="lib-gallery-tag">CIRCULATION AISLES</span>
+                                <h3 class="lib-gallery-title">Book Stacks &amp; Partition Aisles</h3>
+                                <p class="lib-gallery-desc">Department-wise organized steel and wood stack aisles facilitating efficient textbook retrieval.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
         </div>
@@ -464,34 +752,99 @@ require_once __DIR__ . '/../includes/header.php';
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const subnavLinks = document.querySelectorAll('.dept-subnav-link');
-    const tabPanes = document.querySelectorAll('.dept-tab-pane');
-    const subnavItems = document.querySelectorAll('.dept-subnav-item');
+    const mainSubnavLinks = document.querySelectorAll('.dept-subnav-link');
+    const mainSubnavItems = document.querySelectorAll('.dept-subnav-item');
+    const mainTabPanes = document.querySelectorAll('.dept-tab-pane');
 
-    subnavLinks.forEach(function (button) {
-        button.addEventListener('click', function () {
-            const targetTab = this.getAttribute('data-tab');
+    const dropdownWrap = document.querySelector('.dept-subnav-dropdown');
+    const dropdownItems = document.querySelectorAll('.dept-subnav-dropdown-item');
+    const libSubpanes = document.querySelectorAll('.lib-subpane');
 
-            // Deactivate all
-            subnavItems.forEach(item => item.classList.remove('active'));
-            subnavLinks.forEach(link => {
-                link.classList.remove('active');
-                link.setAttribute('aria-selected', 'false');
-            });
-            tabPanes.forEach(pane => pane.classList.remove('active'));
+    // Switch Top-Level Tabs (details / incharge / gallery)
+    function switchMainTab(targetTab) {
+        mainSubnavItems.forEach(item => item.classList.remove('active'));
+        mainSubnavLinks.forEach(link => {
+            link.classList.remove('active');
+            link.setAttribute('aria-selected', 'false');
+        });
+        mainTabPanes.forEach(pane => pane.classList.remove('active'));
 
-            // Activate clicked
-            this.classList.add('active');
-            this.setAttribute('aria-selected', 'true');
-            if (this.parentElement) {
-                this.parentElement.classList.add('active');
+        const targetBtn = document.querySelector(`.dept-subnav-link[data-tab="${targetTab}"]`);
+        if (targetBtn) {
+            targetBtn.classList.add('active');
+            targetBtn.setAttribute('aria-selected', 'true');
+            if (targetBtn.parentElement) {
+                targetBtn.parentElement.classList.add('active');
             }
+        }
 
-            const activePane = document.getElementById('tab-' + targetTab);
-            if (activePane) {
-                activePane.classList.add('active');
+        const activePane = document.getElementById('tab-' + targetTab);
+        if (activePane) {
+            activePane.classList.add('active');
+        }
+
+        if (dropdownWrap && targetTab !== 'details') {
+            dropdownWrap.classList.remove('open');
+        }
+    }
+
+    // Switch Sub-Options inside Library Details
+    function switchSubPane(subtabId) {
+        // Ensure Library Details parent tab is active
+        switchMainTab('details');
+
+        // Update Dropdown Items active state
+        dropdownItems.forEach(item => {
+            const isMatch = item.getAttribute('data-subtab') === subtabId;
+            item.classList.toggle('active', isMatch);
+        });
+
+        // Update Sub-panes
+        libSubpanes.forEach(pane => pane.classList.remove('active'));
+        const targetSubpane = document.getElementById('subpane-' + subtabId);
+        if (targetSubpane) {
+            targetSubpane.classList.add('active');
+        }
+
+        // Close dropdown
+        if (dropdownWrap) {
+            dropdownWrap.classList.remove('open');
+        }
+    }
+
+    // Top Subnav Link Clicks
+    mainSubnavLinks.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            const targetTab = this.getAttribute('data-tab');
+            if (targetTab === 'details') {
+                e.preventDefault();
+                switchMainTab('details');
+                if (dropdownWrap) {
+                    dropdownWrap.classList.toggle('open');
+                }
+            } else {
+                switchMainTab(targetTab);
+                if (dropdownWrap) {
+                    dropdownWrap.classList.remove('open');
+                }
             }
         });
+    });
+
+    // Dropdown Items Click
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const subtab = this.getAttribute('data-subtab');
+            switchSubPane(subtab);
+        });
+    });
+
+    // Close Dropdown on Click Outside
+    document.addEventListener('click', function (e) {
+        if (dropdownWrap && !dropdownWrap.contains(e.target)) {
+            dropdownWrap.classList.remove('open');
+        }
     });
 });
 </script>
