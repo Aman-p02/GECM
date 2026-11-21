@@ -98,10 +98,10 @@ require_once __DIR__ . '/../includes/header.php';
                     </button>
                 </li>
 
-                <!-- Library at a glance -->
+                <!-- Photos Tab -->
                 <li class="lib-nav-item">
                     <button type="button" class="lib-nav-link" data-tab="gallery" role="tab" aria-selected="false">
-                        <span class="lib-nav-text">Library at a glance</span>
+                        <span class="lib-nav-text">Photos</span>
                     </button>
                 </li>
             </ul>
@@ -698,9 +698,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let hoverTimer;
 
+    // Dynamic sticky positioning for library subnav
+    function updateSubnavTop() {
+        const isMobile = window.innerWidth <= 991;
+        if (isMobile) {
+            document.documentElement.style.setProperty('--site-main-nav-height', '0px');
+        } else {
+            const mainNav = document.querySelector('.hdr-nav') || document.querySelector('.navbar');
+            const h = mainNav ? mainNav.offsetHeight : 52;
+            document.documentElement.style.setProperty('--site-main-nav-height', h + 'px');
+        }
+    }
+    updateSubnavTop();
+    window.addEventListener('resize', updateSubnavTop);
+
     function openDropdown() {
         clearTimeout(hoverTimer);
-        if (dropdownMenu) dropdownMenu.classList.add('show');
+        if (dropdownMenu) {
+            dropdownMenu.classList.remove('is-closing');
+            dropdownMenu.classList.add('show');
+        }
         if (dropdownWrap) dropdownWrap.classList.add('open');
         if (detailsTab) detailsTab.setAttribute('aria-expanded', 'true');
     }
@@ -708,9 +725,18 @@ document.addEventListener('DOMContentLoaded', function () {
     function closeDropdown(immediate) {
         clearTimeout(hoverTimer);
         if (immediate) {
-            if (dropdownMenu) dropdownMenu.classList.remove('show');
+            if (dropdownMenu) {
+                dropdownMenu.classList.remove('show');
+                dropdownMenu.classList.add('is-closing');
+                setTimeout(function () {
+                    if (dropdownMenu) dropdownMenu.classList.remove('is-closing');
+                }, 250);
+            }
             if (dropdownWrap) dropdownWrap.classList.remove('open');
             if (detailsTab) detailsTab.setAttribute('aria-expanded', 'false');
+            if (document.activeElement && typeof document.activeElement.blur === 'function') {
+                document.activeElement.blur();
+            }
         } else {
             hoverTimer = setTimeout(function () {
                 if (dropdownMenu) dropdownMenu.classList.remove('show');
@@ -759,6 +785,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const activePane = document.getElementById('tab-' + targetTab);
         if (activePane) {
             activePane.classList.add('active');
+            setupRevealElements(activePane);
         }
 
         if (dropdownWrap && targetTab !== 'details') {
@@ -782,6 +809,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const targetSubpane = document.getElementById('subpane-' + subtabId);
         if (targetSubpane) {
             targetSubpane.classList.add('active');
+            setupRevealElements(targetSubpane);
         }
 
         // Close dropdown immediately
@@ -869,6 +897,82 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // =========================================================================
+    // SCROLL REVEAL ENTRANCE ANIMATION SYSTEM
+    // =========================================================================
+    const revealSelectors = [
+        '.dept-section-header',
+        '.lib-zone-card',
+        '.lib-eresource-card',
+        '.lib-rule-card',
+        '.lib-gallery-card',
+        '.dept-table-wrap',
+        '.dept-lead-quote',
+        '.dept-story-body > p',
+        '.dept-stat-item'
+    ];
+
+    let revealObserver = null;
+    if ('IntersectionObserver' in window) {
+        revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.12
+        });
+    }
+
+    function setupRevealElements(container = document) {
+        if (!container) return;
+
+        const gridSelectors = [
+            '.lib-zones-grid',
+            '.lib-eresources-grid',
+            '.lib-rules-grid',
+            '.lib-gallery-grid',
+            '.dept-stats-strip'
+        ];
+
+        gridSelectors.forEach(sel => {
+            container.querySelectorAll(sel).forEach(grid => {
+                Array.from(grid.children).forEach((child, idx) => {
+                    child.classList.add(`stagger-${(idx % 4) + 1}`);
+                });
+            });
+        });
+
+        const elements = container.querySelectorAll(revealSelectors.join(', '));
+        elements.forEach(el => {
+            if (!el.classList.contains('dept-reveal')) {
+                el.classList.add('dept-reveal');
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    setTimeout(() => el.classList.add('is-revealed'), 120);
+                } else if (revealObserver) {
+                    revealObserver.observe(el);
+                } else {
+                    el.classList.add('is-revealed');
+                }
+            } else if (!el.classList.contains('is-revealed')) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    setTimeout(() => el.classList.add('is-revealed'), 60);
+                } else if (revealObserver) {
+                    revealObserver.observe(el);
+                }
+            }
+        });
+    }
+
+    // Initialize Scroll Reveal on page load
+    setupRevealElements(document);
 });
 </script>
 
