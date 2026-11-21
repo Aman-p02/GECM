@@ -62,20 +62,6 @@ require_once __DIR__ . '/../includes/header.php';
                             <span>Library Details</span>
                             <svg class="dept-subnav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         </button>
-                        <div class="dept-subnav-dropdown-menu" role="menu" aria-label="Library Details Subsections">
-                            <button type="button" class="dept-subnav-dropdown-item active" data-subtab="overview" role="menuitem">
-                                Overview &amp; Infrastructure
-                            </button>
-                            <button type="button" class="dept-subnav-dropdown-item" data-subtab="volumes" role="menuitem">
-                                Book Collection &amp; Volumes
-                            </button>
-                            <button type="button" class="dept-subnav-dropdown-item" data-subtab="digital" role="menuitem">
-                                Digital Library &amp; E-Resources
-                            </button>
-                            <button type="button" class="dept-subnav-dropdown-item" data-subtab="membership" role="menuitem">
-                                Membership &amp; Guidelines
-                            </button>
-                        </div>
                     </li>
                     <li class="dept-subnav-item">
                         <button type="button" class="dept-subnav-link" data-tab="incharge" role="tab" aria-selected="false">
@@ -88,6 +74,22 @@ require_once __DIR__ . '/../includes/header.php';
                         </button>
                     </li>
                 </ul>
+
+                <!-- Dropdown Menu for Library Details Subsections -->
+                <div class="dept-subnav-dropdown-menu" id="libDetailsMenu" role="menu" aria-label="Library Details Subsections">
+                    <button type="button" class="dept-subnav-dropdown-item active" data-subtab="overview" role="menuitem">
+                        Overview &amp; Infrastructure
+                    </button>
+                    <button type="button" class="dept-subnav-dropdown-item" data-subtab="volumes" role="menuitem">
+                        Book Collection &amp; Volumes
+                    </button>
+                    <button type="button" class="dept-subnav-dropdown-item" data-subtab="digital" role="menuitem">
+                        Digital Library &amp; E-Resources
+                    </button>
+                    <button type="button" class="dept-subnav-dropdown-item" data-subtab="membership" role="menuitem">
+                        Membership &amp; Guidelines
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
@@ -738,9 +740,53 @@ document.addEventListener('DOMContentLoaded', function () {
     const mainSubnavItems = document.querySelectorAll('.dept-subnav-item');
     const mainTabPanes = document.querySelectorAll('.dept-tab-pane');
 
+    const detailsTab = document.getElementById('libDetailsTab');
+    const dropdownMenu = document.getElementById('libDetailsMenu');
     const dropdownWrap = document.querySelector('.dept-subnav-dropdown');
     const dropdownItems = document.querySelectorAll('.dept-subnav-dropdown-item');
     const libSubpanes = document.querySelectorAll('.lib-subpane');
+
+    let hoverTimer;
+
+    function openDropdown() {
+        clearTimeout(hoverTimer);
+        if (dropdownMenu) dropdownMenu.classList.add('show');
+        if (dropdownWrap) dropdownWrap.classList.add('open');
+        if (detailsTab) detailsTab.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeDropdown(immediate) {
+        clearTimeout(hoverTimer);
+        if (immediate) {
+            if (dropdownMenu) dropdownMenu.classList.remove('show');
+            if (dropdownWrap) dropdownWrap.classList.remove('open');
+            if (detailsTab) detailsTab.setAttribute('aria-expanded', 'false');
+        } else {
+            hoverTimer = setTimeout(function () {
+                if (dropdownMenu) dropdownMenu.classList.remove('show');
+                if (dropdownWrap) dropdownWrap.classList.remove('open');
+                if (detailsTab) detailsTab.setAttribute('aria-expanded', 'false');
+            }, 220);
+        }
+    }
+
+    // Desktop hover handling (only for devices with true mouse hover support)
+    const hasFineHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (hasFineHover && dropdownWrap && dropdownMenu) {
+        dropdownWrap.addEventListener('mouseenter', openDropdown);
+        dropdownWrap.addEventListener('mouseleave', function () { closeDropdown(false); });
+        dropdownMenu.addEventListener('mouseenter', openDropdown);
+        dropdownMenu.addEventListener('mouseleave', function () { closeDropdown(false); });
+
+        // Hovering other top tabs closes the dropdown immediately
+        mainSubnavLinks.forEach(btn => {
+            if (btn.getAttribute('data-tab') !== 'details' && btn.parentElement) {
+                btn.parentElement.addEventListener('mouseenter', function () {
+                    closeDropdown(true);
+                });
+            }
+        });
+    }
 
     // Switch Top-Level Tabs (details / incharge / gallery)
     function switchMainTab(targetTab) {
@@ -788,10 +834,8 @@ document.addEventListener('DOMContentLoaded', function () {
             targetSubpane.classList.add('active');
         }
 
-        // Close dropdown
-        if (dropdownWrap) {
-            dropdownWrap.classList.remove('open');
-        }
+        // Close dropdown immediately
+        closeDropdown(true);
     }
 
     // Top Subnav Link Clicks
@@ -801,14 +845,15 @@ document.addEventListener('DOMContentLoaded', function () {
             if (targetTab === 'details') {
                 e.preventDefault();
                 switchMainTab('details');
-                if (dropdownWrap) {
-                    dropdownWrap.classList.toggle('open');
+                const isOpen = dropdownMenu && dropdownMenu.classList.contains('show');
+                if (isOpen) {
+                    closeDropdown(true);
+                } else {
+                    openDropdown();
                 }
             } else {
                 switchMainTab(targetTab);
-                if (dropdownWrap) {
-                    dropdownWrap.classList.remove('open');
-                }
+                closeDropdown(true);
             }
         });
     });
@@ -824,8 +869,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Close Dropdown on Click Outside
     document.addEventListener('click', function (e) {
-        if (dropdownWrap && !dropdownWrap.contains(e.target)) {
-            dropdownWrap.classList.remove('open');
+        if (dropdownWrap && dropdownMenu && !dropdownWrap.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            closeDropdown(true);
         }
     });
 
