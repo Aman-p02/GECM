@@ -864,15 +864,16 @@
     border: 1px solid var(--dept-border);
     border-radius: 6px;
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
 }
 
 .lib-gallery-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
     border-color: #cbd5e1;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
 .lib-gallery-media {
@@ -880,7 +881,7 @@
     width: 100%;
     aspect-ratio: 16 / 11;
     overflow: hidden;
-    background: #f8fafc;
+    background: #0f172a;
 }
 
 .lib-gallery-img {
@@ -888,45 +889,141 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .lib-gallery-card:hover .lib-gallery-img {
-    transform: scale(1.04);
+    transform: scale(1.05);
 }
 
 .lib-gallery-body {
-    padding: 16px 18px;
+    padding: 14px 18px;
+    background: #ffffff;
+    border-top: 1px solid var(--dept-border-subtle);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-}
-
-.lib-gallery-tag {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--dept-accent);
-    margin-bottom: 6px;
-    font-family: var(--dept-font-display);
+    align-items: center;
 }
 
 .lib-gallery-title {
     font-family: var(--dept-font-display);
-    font-size: 1.02rem;
+    font-size: 0.96rem;
     font-weight: 700;
-    color: #111111;
-    margin: 0 0 6px;
+    color: var(--dept-primary);
+    margin: 0;
     line-height: 1.35;
 }
 
-.lib-gallery-desc {
-    font-size: 0.86rem;
-    line-height: 1.5;
-    color: var(--dept-muted);
+/* Lightbox Modal (Zoom View) */
+.lib-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.lib-lightbox.is-open {
+    display: flex;
+    animation: libLightboxFade 0.2s ease-out;
+}
+
+@keyframes libLightboxFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.lib-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 15, 25, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.lib-lightbox-dialog {
+    position: relative;
+    z-index: 2;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+.lib-lightbox-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 10;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.lib-lightbox-close:hover {
+    background: var(--dept-accent);
+    transform: scale(1.08);
+}
+
+.lib-lightbox-media {
+    width: 100%;
+    max-height: 78vh;
+    background: #0b0f19;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lib-lightbox-media img {
+    max-width: 100%;
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.lib-lightbox-info {
+    padding: 18px 24px;
+    background: #ffffff;
+    border-top: 1px solid var(--dept-border);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.lib-lightbox-badge {
+    align-self: flex-start;
+    font-family: var(--dept-font-display);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--dept-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.lib-lightbox-caption {
+    font-family: var(--dept-font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dept-primary);
     margin: 0;
 }
 

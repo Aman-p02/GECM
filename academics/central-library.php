@@ -618,132 +618,114 @@ require_once __DIR__ . '/../includes/header.php';
 
                 <div class="lib-gallery-grid">
                     <!-- Photo 1: Reading Room Wide -->
-                    <div class="lib-gallery-card">
+                    <div class="lib-gallery-card" data-img="<?= $root_path ?>images/library/gallery_reading_hall_wide.jpg" data-caption="Spacious Reading Hall" data-badge="Central Library">
                         <div class="lib-gallery-media">
                             <img src="<?= $root_path ?>images/library/gallery_reading_hall_wide.jpg" alt="Central Library Reading Hall Wide Overview" class="lib-gallery-img" loading="lazy">
                         </div>
                         <div class="lib-gallery-body">
-                            <div>
-                                <span class="lib-gallery-tag">READING HALL</span>
-                                <h3 class="lib-gallery-title">Spacious Reading Hall</h3>
-                                <p class="lib-gallery-desc">Modern 100-seat reading hall featuring natural ventilation, expansive study tables, and a serene academic atmosphere.</p>
-                            </div>
+                            <h3 class="lib-gallery-title">Spacious Reading Hall</h3>
                         </div>
                     </div>
 
                     <!-- Photo 2: Reading Room Study Desks -->
-                    <div class="lib-gallery-card">
+                    <div class="lib-gallery-card" data-img="<?= $root_path ?>images/library/gallery_reading_hall_study.jpg" data-caption="Student Reading Desks" data-badge="Central Library">
                         <div class="lib-gallery-media">
                             <img src="<?= $root_path ?>images/library/gallery_reading_hall_study.jpg" alt="Student Reading and Study Desks" class="lib-gallery-img" loading="lazy">
                         </div>
                         <div class="lib-gallery-body">
-                            <div>
-                                <span class="lib-gallery-tag">STUDY AREA</span>
-                                <h3 class="lib-gallery-title">Student Reading Desks</h3>
-                                <p class="lib-gallery-desc">Ergonomic seating arrangements providing focused and peaceful environments for extended study sessions.</p>
-                            </div>
+                            <h3 class="lib-gallery-title">Student Reading Desks</h3>
                         </div>
                     </div>
 
                     <!-- Photo 3: Digital Library Workstations -->
-                    <div class="lib-gallery-card">
+                    <div class="lib-gallery-card" data-img="<?= $root_path ?>images/library/gallery_digital_workstations.jpg" data-caption="Multimedia Workstations (Stations 6 &amp; 7)" data-badge="Digital Infrastructure">
                         <div class="lib-gallery-media">
                             <img src="<?= $root_path ?>images/library/gallery_digital_workstations.jpg" alt="Digital Library Computing Terminals" class="lib-gallery-img" loading="lazy">
                         </div>
                         <div class="lib-gallery-body">
-                            <div>
-                                <span class="lib-gallery-tag">DIGITAL LIBRARY</span>
-                                <h3 class="lib-gallery-title">Multimedia Workstations</h3>
-                                <p class="lib-gallery-desc">Dedicated high-speed PC terminals (Stations 6 &amp; 7) connected to 100 Mbps NKN broadband with strict quiet zone protocols.</p>
-                            </div>
+                            <h3 class="lib-gallery-title">Multimedia Workstations</h3>
                         </div>
                     </div>
 
                     <!-- Photo 4: Digital Research & E-Resources -->
-                    <div class="lib-gallery-card">
+                    <div class="lib-gallery-card" data-img="<?= $root_path ?>images/library/gallery_digital_research.jpg" data-caption="Online Journal &amp; Research Lab" data-badge="E-Resource Center">
                         <div class="lib-gallery-media">
                             <img src="<?= $root_path ?>images/library/gallery_digital_research.jpg" alt="Students and Faculty Accessing E-Resources" class="lib-gallery-img" loading="lazy">
                         </div>
                         <div class="lib-gallery-body">
-                            <div>
-                                <span class="lib-gallery-tag">E-RESOURCES</span>
-                                <h3 class="lib-gallery-title">Online Journal &amp; Research Lab</h3>
-                                <p class="lib-gallery-desc">Students and faculty actively accessing online institutional databases, e-books, and research publications.</p>
-                            </div>
+                            <h3 class="lib-gallery-title">Online Journal &amp; Research Lab</h3>
                         </div>
                     </div>
 
                     <!-- Photo 5: Periodicals & Journals Display -->
-                    <div class="lib-gallery-card">
+                    <div class="lib-gallery-card" data-img="<?= $root_path ?>images/library/gallery_periodicals_rack.jpg" data-caption="Technical Periodicals &amp; Magazines Display" data-badge="Periodicals Section">
                         <div class="lib-gallery-media">
                             <img src="<?= $root_path ?>images/library/gallery_periodicals_rack.jpg" alt="Technical Periodicals and Journals Display Rack" class="lib-gallery-img" loading="lazy">
                         </div>
                         <div class="lib-gallery-body">
-                            <div>
-                                <span class="lib-gallery-tag">PERIODICALS</span>
-                                <h3 class="lib-gallery-title">Periodicals &amp; Magazine Display</h3>
-                                <p class="lib-gallery-desc">Current national and international periodicals including DRDO newsletters, MARG, Engineering Success Review, and technical digests.</p>
-                            </div>
+                            <h3 class="lib-gallery-title">Periodicals &amp; Magazine Display</h3>
                         </div>
                     </div>
 
                     <!-- Photo 6: Librarian Office & Cabin -->
-                    <div class="lib-gallery-card">
+                    <div class="lib-gallery-card" data-img="<?= $root_path ?>images/library/gallery_librarian_cabin.jpg" data-caption="Librarian Office Cabin (Room 3109-A)" data-badge="Administration">
                         <div class="lib-gallery-media">
                             <img src="<?= $root_path ?>images/library/gallery_librarian_cabin.jpg" alt="Librarian Office Cabin Room 3109-A" class="lib-gallery-img" loading="lazy">
                         </div>
                         <div class="lib-gallery-body">
-                            <div>
-                                <span class="lib-gallery-tag">ADMINISTRATION</span>
-                                <h3 class="lib-gallery-title">Librarian Office (Room 3109-A)</h3>
-                                <p class="lib-gallery-desc">Dedicated glass-partitioned administration cabin for circulation help, member registration, and book management.</p>
-                            </div>
+                            <h3 class="lib-gallery-title">Librarian Office (Room 3109-A)</h3>
                         </div>
                     </div>
 
                     <!-- Photo 7: Reference Reading Area & Corridor -->
-                    <div class="lib-gallery-card">
+                    <div class="lib-gallery-card" data-img="<?= $root_path ?>images/library/gallery_reference_section.jpg" data-caption="Reference Reading Area &amp; Study Desks" data-badge="Reference Section">
                         <div class="lib-gallery-media">
                             <img src="<?= $root_path ?>images/library/gallery_reference_section.jpg" alt="Reference Section and Periodicals Corridor" class="lib-gallery-img" loading="lazy">
                         </div>
                         <div class="lib-gallery-body">
-                            <div>
-                                <span class="lib-gallery-tag">REFERENCE AREA</span>
-                                <h3 class="lib-gallery-title">Reference Reading Area</h3>
-                                <p class="lib-gallery-desc">Adjacent reading desks with direct access to current periodicals racks, academic journals, and general digests.</p>
-                            </div>
+                            <h3 class="lib-gallery-title">Reference Reading Area</h3>
                         </div>
                     </div>
 
                     <!-- Photo 8: Main Book Storage Almirahs -->
-                    <div class="lib-gallery-card">
+                    <div class="lib-gallery-card" data-img="<?= $root_path ?>images/library/gallery_book_stacks_1.jpg" data-caption="Main Book Storage &amp; Glass-Door Almirahs" data-badge="Book Stacks">
                         <div class="lib-gallery-media">
                             <img src="<?= $root_path ?>images/library/gallery_book_stacks_1.jpg" alt="Main Book Storage and Glass-Door Almirahs" class="lib-gallery-img" loading="lazy">
                         </div>
                         <div class="lib-gallery-body">
-                            <div>
-                                <span class="lib-gallery-tag">BOOK STACKS</span>
-                                <h3 class="lib-gallery-title">Main Book Storage &amp; Almirahs</h3>
-                                <p class="lib-gallery-desc">Secure glass-door cupboards housing over 24,800+ barcoded and categorized academic engineering volumes.</p>
-                            </div>
+                            <h3 class="lib-gallery-title">Main Book Storage &amp; Almirahs</h3>
                         </div>
                     </div>
 
                     <!-- Photo 9: Book Stacks & Partition Corridor -->
-                    <div class="lib-gallery-card">
+                    <div class="lib-gallery-card" data-img="<?= $root_path ?>images/library/gallery_book_stacks_2.jpg" data-caption="Book Stacks &amp; Partition Aisles" data-badge="Circulation Aisles">
                         <div class="lib-gallery-media">
                             <img src="<?= $root_path ?>images/library/gallery_book_stacks_2.jpg" alt="Book Stacks and Circulation Aisles" class="lib-gallery-img" loading="lazy">
                         </div>
                         <div class="lib-gallery-body">
-                            <div>
-                                <span class="lib-gallery-tag">CIRCULATION AISLES</span>
-                                <h3 class="lib-gallery-title">Book Stacks &amp; Partition Aisles</h3>
-                                <p class="lib-gallery-desc">Department-wise organized steel and wood stack aisles facilitating efficient textbook retrieval.</p>
-                            </div>
+                            <h3 class="lib-gallery-title">Book Stacks &amp; Partition Aisles</h3>
                         </div>
                     </div>
                 </div>
             </section>
+
+        </div>
+    </main>
+
+    <!-- Lightbox Modal for Fullscreen Image Viewing -->
+    <div class="lib-lightbox" id="libLightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="lib-lightbox-backdrop" id="libLightboxBackdrop"></div>
+        <div class="lib-lightbox-dialog">
+            <button type="button" class="lib-lightbox-close" id="libLightboxClose" aria-label="Close Lightbox">&times;</button>
+            <div class="lib-lightbox-media">
+                <img src="" alt="" id="libLightboxImg">
+            </div>
+            <div class="lib-lightbox-info">
+                <span class="lib-lightbox-badge" id="libLightboxBadge">Central Library</span>
+                <p class="lib-lightbox-caption" id="libLightboxCaption"></p>
+            </div>
+        </div>
+    </div>
 
         </div>
     </main>
@@ -846,6 +828,50 @@ document.addEventListener('DOMContentLoaded', function () {
             dropdownWrap.classList.remove('open');
         }
     });
+
+    // Lightbox for Gallery Photos (Zoom View)
+    const galleryCards = document.querySelectorAll('.lib-gallery-card');
+    const lightbox = document.getElementById('libLightbox');
+    const lightboxImg = document.getElementById('libLightboxImg');
+    const lightboxCaption = document.getElementById('libLightboxCaption');
+    const lightboxBadge = document.getElementById('libLightboxBadge');
+    const lightboxClose = document.getElementById('libLightboxClose');
+    const lightboxBackdrop = document.getElementById('libLightboxBackdrop');
+
+    if (galleryCards.length > 0 && lightbox) {
+        galleryCards.forEach(card => {
+            card.addEventListener('click', function () {
+                const imgUrl = this.getAttribute('data-img');
+                const caption = this.getAttribute('data-caption');
+                const badge = this.getAttribute('data-badge') || 'Central Library';
+
+                if (lightboxImg && imgUrl) {
+                    lightboxImg.src = imgUrl;
+                    lightboxImg.alt = caption || 'Library Photo';
+                    if (lightboxCaption) lightboxCaption.textContent = caption || '';
+                    if (lightboxBadge) lightboxBadge.textContent = badge;
+                    lightbox.classList.add('is-open');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+        if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                closeLightbox();
+            }
+        });
+    }
 });
 </script>
 
