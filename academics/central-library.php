@@ -129,7 +129,7 @@ require_once __DIR__ . '/../includes/header.php';
                 <div class="lib-subpane active" id="subpane-overview">
 
                     <!-- Hero Section (Two-Column Department Layout) -->
-                    <div class="dept-about-hero" style="margin-bottom: 56px;">
+                    <div class="dept-about-hero">
                         <div class="dept-hero-grid">
                             <div class="dept-hero-text">
                                 <span class="dept-kicker">LEARNING RESOURCE CENTRE (LRC)</span>
@@ -466,18 +466,6 @@ require_once __DIR__ . '/../includes/header.php';
                         <p>
                             Silence must be observed inside the reading hall and digital laboratory at all times. Mobile phones must be kept on silent mode.
                         </p>
-                    </div>
-                </div>
-
-                <!-- Operating Hours Banner -->
-                <div class="lib-hours-strip">
-                    <div>
-                        <h4 class="lib-hours-title">Library Circulation &amp; Working Timings</h4>
-                        <p class="lib-hours-subtitle">Open on all state working days throughout academic terms.</p>
-                    </div>
-                    <div class="lib-hours-badge">
-                        <i class="far fa-clock"></i>
-                        <span>11:00 AM – 5:00 PM (All Working Days)</span>
                     </div>
                 </div>
             </div> <!-- /subpane-membership -->

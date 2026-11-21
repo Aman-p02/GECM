@@ -732,6 +732,13 @@
     border: 1px solid var(--dept-border);
     border-radius: 6px;
     padding: 24px;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.lib-rule-card:hover {
+    transform: translateY(-4px);
+    border-color: #d1d5db;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
 }
 
 .lib-rule-card h3 {
@@ -747,6 +754,11 @@
 
 .lib-rule-card h3 i {
     color: var(--dept-accent);
+    transition: transform 0.2s ease;
+}
+
+.lib-rule-card:hover h3 i {
+    transform: scale(1.15);
 }
 
 .lib-rule-card p {
@@ -810,9 +822,27 @@
 
 /* Responsive Breakpoints */
 @media (max-width: 991px) {
+    .dept-main-content {
+        padding: 28px 0 0;
+    }
+
+    .dept-about-hero {
+        padding-top: 0;
+        margin-bottom: 32px;
+    }
+
     .dept-hero-grid {
         grid-template-columns: 1fr;
-        gap: 36px;
+        gap: 32px;
+        margin-bottom: 32px;
+    }
+
+    .dept-heading {
+        font-size: 2.3rem;
+    }
+
+    .dept-section-header h2 {
+        font-size: 1.75rem;
     }
 
     .dept-stats-strip {
@@ -833,31 +863,101 @@
     }
 }
 
+@media (max-width: 768px) {
+    .dept-main-content {
+        padding: 20px 0 0;
+    }
+
+    .dept-about-hero {
+        padding-top: 0;
+        margin-bottom: 24px;
+    }
+
+    .dept-hero-grid {
+        gap: 20px;
+        margin-bottom: 22px;
+    }
+
+    .dept-heading {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .dept-section-header {
+        margin-bottom: 22px;
+    }
+
+    .dept-section-header h2 {
+        font-size: 1.45rem;
+        margin-bottom: 8px;
+    }
+}
+
 @media (max-width: 640px) {
     .dept-container {
         padding: 0 16px;
     }
 
+    .dept-main-content {
+        padding: 16px 0 0;
+    }
+
     .dept-about-hero {
-        padding-top: 28px;
-        margin-bottom: 32px;
+        padding-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .dept-hero-grid {
+        gap: 16px;
+        margin-bottom: 18px;
+    }
+
+    .dept-kicker {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 6px;
     }
 
     .dept-heading {
-        font-size: 2.1rem;
+        font-size: 1.8rem;
+        margin: 0 0 8px;
+        line-height: 1.15;
     }
 
     .dept-tagline {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    .dept-section-header {
+        margin-bottom: 18px;
+    }
+
+    .dept-section-kicker {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 5px;
+    }
+
+    .dept-section-header h2 {
+        font-size: 1.3rem;
+        line-height: 1.25;
+        margin: 0 0 8px;
+        font-weight: 700;
+    }
+
+    .dept-section-header p {
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
 
     .dept-stats-strip {
         grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
+        gap: 14px;
     }
 
     .dept-stat-num {
-        font-size: 1.9rem;
+        font-size: 1.7rem;
     }
 
     .lib-zones-grid {
