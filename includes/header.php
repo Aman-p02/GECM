@@ -197,7 +197,7 @@ if (!isset($active_page)) {
 
                 <!-- Academic Dropdown -->
                 <li class="hdr-nav-item has-dropdown">
-                    <a href="javascript:void(0);" class="hdr-nav-link <?= in_array($active_page, ['academics', 'courses', 'admission', 'academic-calendar']) ? 'active is-active' : '' ?>">
+                    <a href="javascript:void(0);" class="hdr-nav-link <?= in_array($active_page, ['academics', 'courses', 'admission', 'academic-calendar', 'central-library']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">Academic</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown">
@@ -206,7 +206,7 @@ if (!isset($active_page)) {
                             <li><a href="<?= $root_path ?>academics/admission" class="hdr-dd-link <?= ($active_page === 'admission') ? 'is-active active' : '' ?>">Admission</a></li>
                             <li><a href="<?= $root_path ?>academics/academic-calendar" class="hdr-dd-link <?= ($active_page === 'academic-calendar') ? 'is-active active' : '' ?>">Academic Calendar</a></li>
                             <li><a href="https://syllabus.gtu.ac.in/" target="_blank" rel="noopener noreferrer" class="hdr-dd-link">Syllabus</a></li>
-                            <li><a href="#" class="hdr-dd-link">Central Library</a></li>
+                            <li><a href="<?= $root_path ?>academics/central-library" class="hdr-dd-link <?= ($active_page === 'central-library') ? 'is-active active' : '' ?>">Central Library</a></li>
                         </ul>
                     </div>
                 </li>

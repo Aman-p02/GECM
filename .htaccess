@@ -53,7 +53,7 @@ DirectoryIndex index.php index.html
     # 3d. 301 Redirect: Legacy root academic URLs to /academics/ (environment-agnostic)
     RewriteCond %{REQUEST_METHOD} !POST
     RewriteCond %{THE_REQUEST} !/(admin|dept-admin|fac-admin|academics)/ [NC]
-    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(courses|admission)(?:\.php)?([?\s]) [NC]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s+([^?]*?)/+(courses|admission|academic-calendar|central-library)(?:\.php)?([?\s]) [NC]
     RewriteRule ^ %1/academics/%2 [R=301,L,NE,QSA]
 
     # 3e. 301 Redirect: Legacy root student corner URLs to /student-corner/ (environment-agnostic)
