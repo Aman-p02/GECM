@@ -138,13 +138,11 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                                 <td>
                                     <?php if ($oddDoc && !empty($oddDoc['file_path'])): 
                                         $oddUrl = $root_path . ltrim($oddDoc['file_path'], '/');
-                                        $oddSize = $oddDoc['file_size'] ?? 'PDF';
                                         $oddLabel = htmlspecialchars($oddDoc['title'] ?? ($yearKey . ' (Odd)'));
                                     ?>
                                         <a href="<?= htmlspecialchars($oddUrl) ?>" target="_blank" class="cal-doc-link" title="Download <?= $oddLabel ?>">
                                             <i class="fas fa-file-pdf cal-pdf-ico"></i>
                                             <span><?= htmlspecialchars($yearKey) ?> (Odd)</span>
-                                            <span class="cal-doc-size"><?= htmlspecialchars($oddSize) ?></span>
                                             <i class="fas fa-arrow-down cal-download-arrow"></i>
                                         </a>
                                     <?php else: ?>
@@ -158,13 +156,11 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                                 <td>
                                     <?php if ($evenDoc && !empty($evenDoc['file_path'])): 
                                         $evenUrl = $root_path . ltrim($evenDoc['file_path'], '/');
-                                        $evenSize = $evenDoc['file_size'] ?? 'PDF';
                                         $evenLabel = htmlspecialchars($evenDoc['title'] ?? ($yearKey . ' (Even)'));
                                     ?>
                                         <a href="<?= htmlspecialchars($evenUrl) ?>" target="_blank" class="cal-doc-link" title="Download <?= $evenLabel ?>">
                                             <i class="fas fa-file-pdf cal-pdf-ico"></i>
                                             <span><?= htmlspecialchars($yearKey) ?> (Even)</span>
-                                            <span class="cal-doc-size"><?= htmlspecialchars($evenSize) ?></span>
                                             <i class="fas fa-arrow-down cal-download-arrow"></i>
                                         </a>
                                     <?php else: ?>
@@ -205,10 +201,7 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                                         <i class="fas fa-file-pdf cal-pdf-ico"></i>
                                         <span><?= htmlspecialchars($yearKey) ?> (Odd)</span>
                                     </div>
-                                    <div style="display: flex; align-items: center; gap: 8px;">
-                                        <span class="cal-doc-size"><?= htmlspecialchars($oddDoc['file_size'] ?? 'PDF') ?></span>
-                                        <i class="fas fa-download cal-download-arrow"></i>
-                                    </div>
+                                    <i class="fas fa-download cal-download-arrow"></i>
                                 </a>
                             <?php else: ?>
                                 <span class="cal-awaited-cell"><i class="far fa-clock"></i> Schedule Awaited</span>
@@ -226,10 +219,7 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                                         <i class="fas fa-file-pdf cal-pdf-ico"></i>
                                         <span><?= htmlspecialchars($yearKey) ?> (Even)</span>
                                     </div>
-                                    <div style="display: flex; align-items: center; gap: 8px;">
-                                        <span class="cal-doc-size"><?= htmlspecialchars($evenDoc['file_size'] ?? 'PDF') ?></span>
-                                        <i class="fas fa-download cal-download-arrow"></i>
-                                    </div>
+                                    <i class="fas fa-download cal-download-arrow"></i>
                                 </a>
                             <?php else: ?>
                                 <span class="cal-awaited-cell"><i class="far fa-clock"></i> Schedule Awaited</span>

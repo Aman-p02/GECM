@@ -447,11 +447,11 @@
 }
 
 .cal-doc-link:hover {
-    border-color: var(--dept-accent);
-    color: var(--dept-accent);
-    background: #fffaf0;
+    border-color: #0284c7;
+    color: #0284c7;
+    background: #f0f9ff;
     transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(255, 136, 0, 0.08);
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.12);
 }
 
 .cal-pdf-ico {
@@ -478,7 +478,7 @@
 
 .cal-doc-link:hover .cal-download-arrow {
     transform: translateY(2px);
-    color: var(--dept-accent);
+    color: #0284c7;
 }
 
 /* Awaited / Empty Cell */
