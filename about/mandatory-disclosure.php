@@ -62,15 +62,7 @@ $disclosureItems = [
 
 <div class="md-page-wrapper">
 
-    <!-- Page Hero Banner -->
-    <section class="md-hero">
-        <div class="container md-container">
-            <span class="md-kicker">INSTITUTIONAL STATUTORY BODIES</span>
-            <h1 class="md-heading"><a href="mandatory-disclosure" style="color: inherit; text-decoration: none;">Mandatory Disclosures &amp; Campus Committees</a></h1>
-        </div>
-    </section>
-
-    <!-- Top Horizontal Sub-Navbar with Dropdowns -->
+    <!-- Top Horizontal Sub-Navbar with Dropdowns (Directly Under Main Navbar) -->
     <nav class="md-subnav-bar" aria-label="Campus Committees and Disclosures Navigation">
         <div class="md-subnav-wrap">
             <ul class="md-subnav-list" role="navigation">
@@ -113,6 +105,14 @@ $disclosureItems = [
             </ul>
         </div>
     </nav>
+
+    <!-- Page Hero Banner -->
+    <section class="md-hero">
+        <div class="container md-container">
+            <span class="md-kicker">INSTITUTIONAL STATUTORY BODIES</span>
+            <h1 class="md-heading"><a href="mandatory-disclosure" style="color: inherit; text-decoration: none;">Mandatory Disclosures &amp; Campus Committees</a></h1>
+        </div>
+    </section>
 
     <!-- Main Content Container -->
     <div class="container md-container">
@@ -500,12 +500,36 @@ $disclosureItems = [
 document.addEventListener('DOMContentLoaded', function() {
     const dropdownItems = document.querySelectorAll('.md-subnav-item.has-dropdown');
 
+    // Dynamic sticky positioning for subnav
+    function updateSubnavTop() {
+        const isMobile = window.innerWidth <= 991;
+        if (isMobile) {
+            document.documentElement.style.setProperty('--site-main-nav-height', '0px');
+        } else {
+            const mainNav = document.querySelector('.hdr-nav') || document.querySelector('.navbar');
+            const h = mainNav ? mainNav.offsetHeight : 52;
+            document.documentElement.style.setProperty('--site-main-nav-height', h + 'px');
+        }
+    }
+    updateSubnavTop();
+    window.addEventListener('resize', updateSubnavTop);
+
     function closeAllDropdowns() {
         dropdownItems.forEach(function(item) {
             item.classList.remove('is-open');
+            const dropdown = item.querySelector('.md-subnav-dropdown');
+            if (dropdown) {
+                dropdown.classList.add('is-closing');
+                setTimeout(function() {
+                    dropdown.classList.remove('is-closing');
+                }, 220);
+            }
             const toggle = item.querySelector('.md-subnav-toggle');
             if (toggle) toggle.setAttribute('aria-expanded', 'false');
         });
+        if (document.activeElement && typeof document.activeElement.blur === 'function') {
+            document.activeElement.blur();
+        }
     }
 
     dropdownItems.forEach(function(item) {
