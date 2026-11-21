@@ -111,7 +111,7 @@ if (substr($adminBaseUrl, -1) !== '/') {
                 $aboutPageItems = ['principal-message', 'idp', 'facilities', 'e-newsletters', 'brochure', 'mandatory-disclosure', 'rankings', 'mou', 'approvals'];
                 $isAboutActive = in_array($current_page, $aboutPageItems);
 
-                $academicsPageItems = ['academic-calendar'];
+                $academicsPageItems = ['academic-calendar', 'library'];
                 $isAcademicsActive = in_array($current_page, $academicsPageItems);
 
                 $administrationPageItems = ['principal-profile', 'hostel-mess'];
@@ -195,6 +195,11 @@ if (substr($adminBaseUrl, -1) !== '/') {
                         <li class="submenu-item <?= ($current_page === 'academic-calendar') ? 'active' : '' ?>">
                             <a href="academic-calendar.php" class="submenu-link">
                                 <span>Academic Calendar</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'library') ? 'active' : '' ?>">
+                            <a href="library.php" class="submenu-link">
+                                <span>Central Library</span>
                             </a>
                         </li>
                     </ul>

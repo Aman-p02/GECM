@@ -9,87 +9,111 @@ $active_page = "central-library";
 $root_path = "../";
 $extra_css = "css/central-library.css";
 
+require_once __DIR__ . '/../includes/db.php';
+$pdo = getDBConnection();
+
+// Default Fallback Collections Data (Institutional Archive)
+$defaultCatalogues = [
+    ['dept_name' => 'Mechanical & Automobile Engineering', 'subtext' => 'Thermodynamics, Manufacturing, Automobile Systems, Machine Design', 'titles_count' => '1,110', 'volume_count' => '4,811', 'file_path' => null],
+    ['dept_name' => 'Civil Engineering & Applied Mechanics', 'subtext' => 'Structural Analysis, Surveying, Geotechnical, Fluid Mechanics, Concrete', 'titles_count' => '1,457', 'volume_count' => '3,873', 'file_path' => null],
+    ['dept_name' => 'Computer Engineering & Information Technology', 'subtext' => 'Algorithms, Operating Systems, Database, AI/ML, Networks, Cyber Security', 'titles_count' => '1,476', 'volume_count' => '5,178', 'file_path' => null],
+    ['dept_name' => 'Electrical Engineering', 'subtext' => 'Electrical Machines, Power Systems, Control Systems, High Voltage', 'titles_count' => '668', 'volume_count' => '2,312', 'file_path' => null],
+    ['dept_name' => 'Electronics & Communication Engineering', 'subtext' => 'Digital Communication, VLSI Design, Embedded Systems, Signal Processing', 'titles_count' => '1,347', 'volume_count' => '4,186', 'file_path' => null],
+    ['dept_name' => 'General Sciences & Humanities', 'subtext' => 'Engineering Mathematics, Physics, Chemistry, Professional English, Ethics', 'titles_count' => '901', 'volume_count' => '2,163', 'file_path' => null],
+    ['dept_name' => 'RUSA Section', 'subtext' => 'Rashtriya Uchchatar Shiksha Abhiyan Special Grant Volumes & Reference', 'titles_count' => '201', 'volume_count' => '290', 'file_path' => null],
+    ['dept_name' => 'Bureau of Indian Standards (IS Code)', 'subtext' => 'National Engineering Specifications, Testing Standards, Codes of Practice', 'titles_count' => '1,818', 'volume_count' => '2,049', 'file_path' => null]
+];
+
+$catalogues = $defaultCatalogues;
+if ($pdo) {
+    try {
+        $stmtCats = $pdo->query("SELECT * FROM library_catalogues WHERE is_active = 1 ORDER BY display_order ASC, id ASC");
+        $fetchedCats = $stmtCats->fetchAll();
+        if (!empty($fetchedCats)) {
+            $catalogues = $fetchedCats;
+        }
+    } catch (Exception $e) {
+        // Fallback to default array
+    }
+}
+
+// Default Fallback Committee & Staff Data
+$defaultCommittee = [
+    ['name' => 'Prof. Nirali V. Upadhyay', 'department_info' => 'Assistant Professor, Electrical Engineering (AP.EE)', 'designation' => 'Library Incharge', 'badge_class' => 'dept-tag-incharge'],
+    ['name' => 'Prof. Kunal V. Fadadu', 'department_info' => 'Assistant Professor, Automobile Engineering (AP.AT)', 'designation' => 'Assistant Library Incharge', 'badge_class' => 'dept-tag-asst'],
+    ['name' => 'Prof. A. B. Parmar', 'department_info' => 'Assistant Professor, Computer Engineering (AP.CE)', 'designation' => 'Member', 'badge_class' => 'dept-tag-ug'],
+    ['name' => 'Prof. N. S. Chowdhary', 'department_info' => 'Assistant Professor, Computer Engineering (AP.CE)', 'designation' => 'Member', 'badge_class' => 'dept-tag-ug'],
+    ['name' => 'Prof. R. N. Vaza', 'department_info' => 'Assistant Professor, Computer Engineering (AP.CE)', 'designation' => 'Member', 'badge_class' => 'dept-tag-ug'],
+    ['name' => 'Prof. C. K. Baria', 'department_info' => 'Assistant Professor, Electrical Engineering (AP.EE)', 'designation' => 'Member', 'badge_class' => 'dept-tag-ug']
+];
+
+$defaultStaff = [
+    ['name' => 'Shri A. M. Patel', 'department_info' => 'Learning Resource Centre (LRC)', 'designation' => 'In-charge (Librarian)', 'badge_class' => 'dept-tag-librarian'],
+    ['name' => 'Shri J. N. Patel', 'department_info' => 'Electronics & Communication Engineering (EC)', 'designation' => 'Member', 'badge_class' => 'dept-tag-ug']
+];
+
+$committeeMembers = $defaultCommittee;
+$staffMembers = $defaultStaff;
+
+if ($pdo) {
+    try {
+        $stmtComm = $pdo->query("SELECT * FROM library_team WHERE team_type = 'committee' AND is_active = 1 ORDER BY display_order ASC, id ASC");
+        $fetchedComm = $stmtComm->fetchAll();
+        if (!empty($fetchedComm)) {
+            $committeeMembers = $fetchedComm;
+        }
+
+        $stmtStf = $pdo->query("SELECT * FROM library_team WHERE team_type = 'staff' AND is_active = 1 ORDER BY display_order ASC, id ASC");
+        $fetchedStf = $stmtStf->fetchAll();
+        if (!empty($fetchedStf)) {
+            $staffMembers = $fetchedStf;
+        }
+    } catch (Exception $e) {
+        // Fallback to default array
+    }
+}
+
 require_once __DIR__ . '/../includes/header.php';
 ?>
 
 <div class="dept-page" id="mainContent">
 
-    <div class="dept-container">
-        <!-- Hero Section (Two-Column Department Layout) -->
-        <div class="dept-about-hero">
-            <div class="dept-hero-grid">
-                <div class="dept-hero-text">
-                    <span class="dept-kicker">LEARNING RESOURCE CENTRE (LRC)</span>
-                    <h1 class="dept-heading">Central Library</h1>
-                    <p class="dept-tagline">
-                        The central information hub supporting technical education, academic research, and intellectual scholarship at Government Engineering College, Modasa. Serving as a collaborative space for faculty, researchers, and students across all disciplines.
-                    </p>
-                </div>
-                <div class="dept-hero-media">
-                    <img src="<?= $root_path ?>images/library/library_reading_room.jpg" alt="Government Engineering College Modasa Central Library Reading Room" class="dept-hero-photo">
-                </div>
-            </div>
+    <!-- Sticky sub-navigation bar matching Main Navbar -->
+    <nav class="lib-subnav-bar" id="libSubNav" aria-label="Library Navigation">
+        <div class="lib-nav-inner">
+            <ul class="lib-nav-list" id="libNavLinks" role="tablist">
 
-            <!-- Key metrics counter strip -->
-            <div class="dept-stats-strip">
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">24,862+</span>
-                    <span class="dept-stat-label">TOTAL BOOK VOLUMES</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">8,978+</span>
-                    <span class="dept-stat-label">SPECIALIZED TITLES</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">100</span>
-                    <span class="dept-stat-label">READING ROOM SEATS</span>
-                </div>
-                <div class="dept-stat-item">
-                    <span class="dept-stat-num">100 MBPS</span>
-                    <span class="dept-stat-label">HIGH-SPEED NKN &amp; WI-FI</span>
-                </div>
-            </div>
-        </div>
-    </div>
+                <!-- Library Details Dropdown Trigger -->
+                <li class="lib-nav-item lib-nav-dropdown active">
+                    <button type="button" class="lib-nav-link active" data-tab="details" role="tab" aria-selected="true" aria-haspopup="true" aria-expanded="false" id="libDetailsTab">
+                        <span class="lib-nav-text">Library Details</span>
+                        <i class="fas fa-chevron-down lib-arrow"></i>
+                    </button>
+                </li>
 
-    <!-- Sticky sub-navigation bar matching Department tabs -->
-    <nav class="dept-subnav-bar" id="libSubNav" aria-label="Library Navigation">
-        <div class="dept-container">
-            <div class="dept-subnav-wrap">
-                <ul class="dept-subnav-list" role="tablist">
-                    <li class="dept-subnav-item dept-subnav-dropdown active">
-                        <button type="button" class="dept-subnav-link dept-subnav-link-with-arrow active" data-tab="details" role="tab" aria-selected="true" aria-haspopup="true" aria-expanded="false" id="libDetailsTab">
-                            <span>Library Details</span>
-                            <svg class="dept-subnav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                        </button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="incharge" role="tab" aria-selected="false">
-                            Library In-charge
-                        </button>
-                    </li>
-                    <li class="dept-subnav-item">
-                        <button type="button" class="dept-subnav-link" data-tab="gallery" role="tab" aria-selected="false">
-                            Library at a glance
-                        </button>
-                    </li>
+                <!-- Library In-charge -->
+                <li class="lib-nav-item">
+                    <button type="button" class="lib-nav-link" data-tab="incharge" role="tab" aria-selected="false">
+                        <span class="lib-nav-text">Library In-charge</span>
+                    </button>
+                </li>
+
+                <!-- Library at a glance -->
+                <li class="lib-nav-item">
+                    <button type="button" class="lib-nav-link" data-tab="gallery" role="tab" aria-selected="false">
+                        <span class="lib-nav-text">Library at a glance</span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Dropdown Menu placed outside <ul> so overflow-x never clips it -->
+            <div class="lib-dropdown" id="libDetailsMenu" role="menu" aria-label="Library Details Subsections">
+                <ul class="lib-dd-list">
+                    <li><button type="button" class="lib-dd-link active" data-subtab="overview" role="menuitem">Overview &amp; Infrastructure</button></li>
+                    <li><button type="button" class="lib-dd-link" data-subtab="volumes" role="menuitem">Book Collection &amp; Volumes</button></li>
+                    <li><button type="button" class="lib-dd-link" data-subtab="digital" role="menuitem">Digital Library &amp; E-Resources</button></li>
+                    <li><button type="button" class="lib-dd-link" data-subtab="membership" role="menuitem">Membership &amp; Guidelines</button></li>
                 </ul>
-
-                <!-- Dropdown Menu for Library Details Subsections -->
-                <div class="dept-subnav-dropdown-menu" id="libDetailsMenu" role="menu" aria-label="Library Details Subsections">
-                    <button type="button" class="dept-subnav-dropdown-item active" data-subtab="overview" role="menuitem">
-                        Overview &amp; Infrastructure
-                    </button>
-                    <button type="button" class="dept-subnav-dropdown-item" data-subtab="volumes" role="menuitem">
-                        Book Collection &amp; Volumes
-                    </button>
-                    <button type="button" class="dept-subnav-dropdown-item" data-subtab="digital" role="menuitem">
-                        Digital Library &amp; E-Resources
-                    </button>
-                    <button type="button" class="dept-subnav-dropdown-item" data-subtab="membership" role="menuitem">
-                        Membership &amp; Guidelines
-                    </button>
-                </div>
             </div>
         </div>
     </nav>
@@ -103,11 +127,48 @@ require_once __DIR__ . '/../includes/header.php';
 
                 <!-- SUB-PANE 1: OVERVIEW & INFRASTRUCTURE -->
                 <div class="lib-subpane active" id="subpane-overview">
-                <div class="dept-section-header">
-                    <span class="dept-section-kicker">ABOUT THE LIBRARY</span>
-                    <h2>Learning Resource Centre (LRC)</h2>
-                    <p>Fostering academic excellence through vast print resources, state-of-the-art digital infrastructure, and a peaceful study environment.</p>
-                </div>
+
+                    <!-- Hero Section (Two-Column Department Layout) -->
+                    <div class="dept-about-hero" style="margin-bottom: 56px;">
+                        <div class="dept-hero-grid">
+                            <div class="dept-hero-text">
+                                <span class="dept-kicker">LEARNING RESOURCE CENTRE (LRC)</span>
+                                <h1 class="dept-heading">Central Library</h1>
+                                <p class="dept-tagline">
+                                    The central information hub supporting technical education, academic research, and intellectual scholarship at Government Engineering College, Modasa. Serving as a collaborative space for faculty, researchers, and students across all disciplines.
+                                </p>
+                            </div>
+                            <div class="dept-hero-media">
+                                <img src="<?= $root_path ?>images/library/library_reading_room.jpg" alt="Government Engineering College Modasa Central Library Reading Room" class="dept-hero-photo">
+                            </div>
+                        </div>
+
+                        <!-- Key metrics counter strip -->
+                        <div class="dept-stats-strip">
+                            <div class="dept-stat-item">
+                                <span class="dept-stat-num">24,862+</span>
+                                <span class="dept-stat-label">TOTAL BOOK VOLUMES</span>
+                            </div>
+                            <div class="dept-stat-item">
+                                <span class="dept-stat-num">8,978+</span>
+                                <span class="dept-stat-label">SPECIALIZED TITLES</span>
+                            </div>
+                            <div class="dept-stat-item">
+                                <span class="dept-stat-num">100</span>
+                                <span class="dept-stat-label">READING ROOM SEATS</span>
+                            </div>
+                            <div class="dept-stat-item">
+                                <span class="dept-stat-num">100 MBPS</span>
+                                <span class="dept-stat-label">HIGH-SPEED NKN &amp; WI-FI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dept-section-header">
+                        <span class="dept-section-kicker">ABOUT THE LIBRARY</span>
+                        <h2>Learning Resource Centre (LRC)</h2>
+                        <p>Fostering academic excellence through vast print resources, state-of-the-art digital infrastructure, and a peaceful study environment.</p>
+                    </div>
 
                 <div class="dept-story-body">
                     <blockquote class="dept-lead-quote">
@@ -218,78 +279,27 @@ require_once __DIR__ . '/../includes/header.php';
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <strong>Mechanical &amp; Automobile Engineering</strong>
-                                    <div style="font-size: 0.82rem; color: #6b7280; margin-top: 3px;">Thermodynamics, Manufacturing, Automobile Systems, Machine Design</div>
-                                </td>
-                                <td style="text-align: center;" class="lib-vol-num">1,110</td>
-                                <td style="text-align: center;" class="lib-vol-num">4,811</td>
-                                <td style="text-align: center;"><span class="dept-tag-ug">Barcoded</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Civil Engineering &amp; Applied Mechanics</strong>
-                                    <div style="font-size: 0.82rem; color: #6b7280; margin-top: 3px;">Structural Analysis, Surveying, Geotechnical, Fluid Mechanics, Concrete</div>
-                                </td>
-                                <td style="text-align: center;" class="lib-vol-num">1,457</td>
-                                <td style="text-align: center;" class="lib-vol-num">3,873</td>
-                                <td style="text-align: center;"><span class="dept-tag-ug">Barcoded</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Computer Engineering &amp; Information Technology</strong>
-                                    <div style="font-size: 0.82rem; color: #6b7280; margin-top: 3px;">Algorithms, Operating Systems, Database, AI/ML, Networks, Cyber Security</div>
-                                </td>
-                                <td style="text-align: center;" class="lib-vol-num">1,476</td>
-                                <td style="text-align: center;" class="lib-vol-num">5,178</td>
-                                <td style="text-align: center;"><span class="dept-tag-ug">Barcoded</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Electrical Engineering</strong>
-                                    <div style="font-size: 0.82rem; color: #6b7280; margin-top: 3px;">Electrical Machines, Power Systems, Control Systems, High Voltage</div>
-                                </td>
-                                <td style="text-align: center;" class="lib-vol-num">668</td>
-                                <td style="text-align: center;" class="lib-vol-num">2,312</td>
-                                <td style="text-align: center;"><span class="dept-tag-ug">Barcoded</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Electronics &amp; Communication Engineering</strong>
-                                    <div style="font-size: 0.82rem; color: #6b7280; margin-top: 3px;">Digital Communication, VLSI Design, Embedded Systems, Signal Processing</div>
-                                </td>
-                                <td style="text-align: center;" class="lib-vol-num">1,347</td>
-                                <td style="text-align: center;" class="lib-vol-num">4,186</td>
-                                <td style="text-align: center;"><span class="dept-tag-ug">Barcoded</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>General Sciences &amp; Humanities</strong>
-                                    <div style="font-size: 0.82rem; color: #6b7280; margin-top: 3px;">Engineering Mathematics, Physics, Chemistry, Professional English, Ethics</div>
-                                </td>
-                                <td style="text-align: center;" class="lib-vol-num">901</td>
-                                <td style="text-align: center;" class="lib-vol-num">2,163</td>
-                                <td style="text-align: center;"><span class="dept-tag-ug">Barcoded</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>RUSA Section</strong>
-                                    <div style="font-size: 0.82rem; color: #6b7280; margin-top: 3px;">Rashtriya Uchchatar Shiksha Abhiyan Special Grant Volumes &amp; Reference</div>
-                                </td>
-                                <td style="text-align: center;" class="lib-vol-num">201</td>
-                                <td style="text-align: center;" class="lib-vol-num">290</td>
-                                <td style="text-align: center;"><span class="dept-tag-ug">Special Grant</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Bureau of Indian Standards (IS Code)</strong>
-                                    <div style="font-size: 0.82rem; color: #6b7280; margin-top: 3px;">National Engineering Specifications, Testing Standards, Codes of Practice</div>
-                                </td>
-                                <td style="text-align: center;" class="lib-vol-num">1,818</td>
-                                <td style="text-align: center;" class="lib-vol-num">2,049</td>
-                                <td style="text-align: center;"><span class="dept-tag-ug">Standards</span></td>
-                            </tr>
+                            <?php foreach ($catalogues as $cat): ?>
+                                <tr>
+                                    <td>
+                                        <strong><?= htmlspecialchars($cat['dept_name']) ?></strong>
+                                        <?php if (!empty($cat['subtext'])): ?>
+                                            <div style="font-size: 0.82rem; color: #6b7280; margin-top: 3px;"><?= htmlspecialchars($cat['subtext']) ?></div>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td style="text-align: center;" class="lib-vol-num"><?= htmlspecialchars($cat['titles_count']) ?></td>
+                                    <td style="text-align: center;" class="lib-vol-num"><?= htmlspecialchars($cat['volume_count']) ?></td>
+                                    <td style="text-align: center;">
+                                        <?php if (!empty($cat['file_path'])): ?>
+                                            <a href="<?= $root_path . htmlspecialchars(ltrim($cat['file_path'], '/')) ?>" target="_blank" download class="lib-btn-view" title="Download / View <?= htmlspecialchars($cat['dept_name']) ?> Catalogue Spreadsheet">
+                                                <i class="fas fa-file-excel"></i> <span>View</span>
+                                            </a>
+                                        <?php else: ?>
+                                            <span class="dept-tag-ug">Barcoded</span>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                             <tr style="background: #f8fafc; font-weight: 700;">
                                 <td><strong>Total Institutional Collection</strong></td>
                                 <td style="text-align: center;" class="lib-vol-num" style="color: var(--dept-accent); font-size: 1.1rem;">8,978 Titles</td>
@@ -500,66 +510,22 @@ require_once __DIR__ . '/../includes/header.php';
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="text-align: center; color: #6b7280; font-weight: 600;">1</td>
-                                <td>
-                                    <strong>Prof. Nirali V. Upadhyay</strong>
-                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Electrical Engineering (AP.EE)</div>
-                                </td>
-                                <td>
-                                    <span class="dept-tag-incharge">Library Incharge</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; color: #6b7280; font-weight: 600;">2</td>
-                                <td>
-                                    <strong>Prof. Kunal V. Fadadu</strong>
-                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Automobile Engineering (AP.AT)</div>
-                                </td>
-                                <td>
-                                    <span class="dept-tag-asst">Assistant Library Incharge</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; color: #6b7280; font-weight: 600;">3</td>
-                                <td>
-                                    <strong>Prof. A. B. Parmar</strong>
-                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Computer Engineering (AP.CE)</div>
-                                </td>
-                                <td>
-                                    <span class="dept-tag-ug">Member</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; color: #6b7280; font-weight: 600;">4</td>
-                                <td>
-                                    <strong>Prof. N. S. Chowdhary</strong>
-                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Computer Engineering (AP.CE)</div>
-                                </td>
-                                <td>
-                                    <span class="dept-tag-ug">Member</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; color: #6b7280; font-weight: 600;">5</td>
-                                <td>
-                                    <strong>Prof. R. N. Vaza</strong>
-                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Computer Engineering (AP.CE)</div>
-                                </td>
-                                <td>
-                                    <span class="dept-tag-ug">Member</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; color: #6b7280; font-weight: 600;">6</td>
-                                <td>
-                                    <strong>Prof. C. K. Baria</strong>
-                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Assistant Professor, Electrical Engineering (AP.EE)</div>
-                                </td>
-                                <td>
-                                    <span class="dept-tag-ug">Member</span>
-                                </td>
-                            </tr>
+                            <?php foreach ($committeeMembers as $idx => $mem): ?>
+                                <tr>
+                                    <td style="text-align: center; color: #6b7280; font-weight: 600;"><?= $idx + 1 ?></td>
+                                    <td>
+                                        <strong><?= htmlspecialchars($mem['name']) ?></strong>
+                                        <?php if (!empty($mem['department_info'])): ?>
+                                            <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;"><?= htmlspecialchars($mem['department_info']) ?></div>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <span class="<?= htmlspecialchars($mem['badge_class'] ?? 'dept-tag-ug') ?>">
+                                            <?= htmlspecialchars($mem['designation']) ?>
+                                        </span>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -584,26 +550,22 @@ require_once __DIR__ . '/../includes/header.php';
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="text-align: center; color: #6b7280; font-weight: 600;">1</td>
-                                <td>
-                                    <strong>Shri A. M. Patel</strong>
-                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Learning Resource Centre (LRC)</div>
-                                </td>
-                                <td>
-                                    <span class="dept-tag-librarian">In-charge (Librarian)</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center; color: #6b7280; font-weight: 600;">2</td>
-                                <td>
-                                    <strong>Shri J. N. Patel</strong>
-                                    <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;">Electronics &amp; Communication Engineering (EC)</div>
-                                </td>
-                                <td>
-                                    <span class="dept-tag-ug">Member</span>
-                                </td>
-                            </tr>
+                            <?php foreach ($staffMembers as $idx => $stf): ?>
+                                <tr>
+                                    <td style="text-align: center; color: #6b7280; font-weight: 600;"><?= $idx + 1 ?></td>
+                                    <td>
+                                        <strong><?= htmlspecialchars($stf['name']) ?></strong>
+                                        <?php if (!empty($stf['department_info'])): ?>
+                                            <div style="font-size: 0.84rem; color: #6b7280; margin-top: 2px;"><?= htmlspecialchars($stf['department_info']) ?></div>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <span class="<?= htmlspecialchars($stf['badge_class'] ?? 'dept-tag-ug') ?>">
+                                            <?= htmlspecialchars($stf['designation']) ?>
+                                        </span>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -736,14 +698,14 @@ require_once __DIR__ . '/../includes/header.php';
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const mainSubnavLinks = document.querySelectorAll('.dept-subnav-link');
-    const mainSubnavItems = document.querySelectorAll('.dept-subnav-item');
+    const mainSubnavLinks = document.querySelectorAll('.lib-nav-list .lib-nav-link');
+    const mainSubnavItems = document.querySelectorAll('.lib-nav-list .lib-nav-item');
     const mainTabPanes = document.querySelectorAll('.dept-tab-pane');
 
     const detailsTab = document.getElementById('libDetailsTab');
     const dropdownMenu = document.getElementById('libDetailsMenu');
-    const dropdownWrap = document.querySelector('.dept-subnav-dropdown');
-    const dropdownItems = document.querySelectorAll('.dept-subnav-dropdown-item');
+    const dropdownWrap = document.querySelector('.lib-nav-dropdown');
+    const dropdownItems = document.querySelectorAll('.lib-dropdown .lib-dd-link');
     const libSubpanes = document.querySelectorAll('.lib-subpane');
 
     let hoverTimer;
@@ -797,7 +759,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         mainTabPanes.forEach(pane => pane.classList.remove('active'));
 
-        const targetBtn = document.querySelector(`.dept-subnav-link[data-tab="${targetTab}"]`);
+        const targetBtn = document.querySelector(`.lib-nav-list .lib-nav-link[data-tab="${targetTab}"]`);
         if (targetBtn) {
             targetBtn.classList.add('active');
             targetBtn.setAttribute('aria-selected', 'true');
@@ -844,6 +806,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetTab = this.getAttribute('data-tab');
             if (targetTab === 'details') {
                 e.preventDefault();
+                e.stopPropagation();
                 switchMainTab('details');
                 const isOpen = dropdownMenu && dropdownMenu.classList.contains('show');
                 if (isOpen) {
@@ -861,6 +824,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Dropdown Items Click
     dropdownItems.forEach(item => {
         item.addEventListener('click', function (e) {
+            e.preventDefault();
             e.stopPropagation();
             const subtab = this.getAttribute('data-subtab');
             switchSubPane(subtab);
