@@ -55,21 +55,10 @@ require_once __DIR__ . '/../includes/header.php';
                 </div>
 
                 <div class="headerbar-right">
-                    <!-- Live Search Input -->
-                    <div class="patent-search-box">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="patentTableSearch" placeholder="Search by title, faculty, department..." aria-label="Search patents">
-                    </div>
-
                     <!-- Total Count Pill -->
                     <div class="patent-count-chip">
-                        Showing&nbsp;<strong id="patentDisplayCount"><?= $totalPatents ?></strong>&nbsp;patents
+                        Total Registered:&nbsp;<strong><?= $totalPatents ?></strong>&nbsp;patents
                     </div>
-
-                    <!-- Print Button -->
-                    <button type="button" onclick="window.print()" class="patent-btn-print" title="Print Register">
-                        <i class="fas fa-print"></i> <span>Print</span>
-                    </button>
                 </div>
             </div>
 
@@ -111,13 +100,6 @@ require_once __DIR__ . '/../includes/header.php';
                                 <!-- Title -->
                                 <td class="cell-title">
                                     <div class="title-main"><?= htmlspecialchars($row['title']) ?></div>
-                                    <?php if (!empty($row['external_url']) && $row['external_url'] !== '#'): ?>
-                                        <div style="margin-top: 5px;">
-                                            <a href="<?= htmlspecialchars($row['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="patent-cert-link">
-                                                <i class="fas fa-arrow-up-right-from-square"></i> Gazette / Certificate Link
-                                            </a>
-                                        </div>
-                                    <?php endif; ?>
                                 </td>
 
                                 <!-- Year -->
@@ -178,18 +160,6 @@ require_once __DIR__ . '/../includes/header.php';
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div>
-
-            <!-- Empty Search Results State -->
-            <div id="noPatentMatches" class="patent-empty-state" style="display: none;">
-                <div class="empty-icon-circle">
-                    <i class="fas fa-search"></i>
-                </div>
-                <h3 class="empty-title">No matching patents found</h3>
-                <p class="empty-subtitle">Try searching for a different keyword, faculty name, or department.</p>
-                <button type="button" id="resetPatentSearch" class="btn-reset-search">
-                    <i class="fas fa-rotate-left"></i> Clear Search
-                </button>
             </div>
         </div>
     </main>
@@ -651,51 +621,5 @@ require_once __DIR__ . '/../includes/header.php';
     }
 }
 </style>
-
-<!-- Live Instant Search Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('patentTableSearch');
-    const tableBody = document.getElementById('patentTableBody');
-    const rows = Array.from(document.querySelectorAll('.patent-data-row'));
-    const countDisplay = document.getElementById('patentDisplayCount');
-    const noMatches = document.getElementById('noPatentMatches');
-    const resetBtn = document.getElementById('resetPatentSearch');
-
-    function filterTable() {
-        const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
-        let visibleCount = 0;
-
-        rows.forEach(row => {
-            const searchContent = row.getAttribute('data-search') || '';
-            if (!query || searchContent.includes(query)) {
-                row.style.display = '';
-                visibleCount++;
-            } else {
-                row.style.display = 'none';
-            }
-        });
-
-        if (countDisplay) {
-            countDisplay.textContent = visibleCount;
-        }
-
-        if (noMatches) {
-            noMatches.style.display = (visibleCount === 0) ? 'block' : 'none';
-        }
-    }
-
-    if (searchInput) {
-        searchInput.addEventListener('input', filterTable);
-    }
-
-    if (resetBtn) {
-        resetBtn.addEventListener('click', function() {
-            if (searchInput) searchInput.value = '';
-            filterTable();
-        });
-    }
-});
-</script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>

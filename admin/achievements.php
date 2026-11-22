@@ -670,17 +670,11 @@ require_once __DIR__ . '/includes/header.php';
                         </div>
                         <div style="flex: 1;">
                             <label style="display:block; font-weight:600; margin-bottom:6px;">Category <span style="color:red;">*</span></label>
-                            <select name="patent_category" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
-                                <option value="Utility" selected>Utility</option>
-                                <option value="Design">Design</option>
-                            </select>
+                            <input type="text" name="patent_category" class="form-control" placeholder="e.g. Utility, Design" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
                         </div>
                         <div style="flex: 1;">
                             <label style="display:block; font-weight:600; margin-bottom:6px;">Status <span style="color:red;">*</span></label>
-                            <select name="patent_status" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
-                                <option value="Published" selected>Published</option>
-                                <option value="Granted">Granted</option>
-                            </select>
+                            <input type="text" name="patent_status" class="form-control" placeholder="e.g. Published, Granted" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
                         </div>
                     </div>
 
@@ -693,11 +687,6 @@ require_once __DIR__ . '/includes/header.php';
                             <label style="display:block; font-weight:600; margin-bottom:6px;">Department <span style="color:red;">*</span></label>
                             <input type="text" name="department" class="form-control" placeholder="e.g. CE,IT,EC" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
                         </div>
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 16px;">
-                        <label style="display:block; font-weight:600; margin-bottom:6px;">Certificate / Gazette URL (Optional)</label>
-                        <input type="text" name="external_url" class="form-control" placeholder="https://..." value="#" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 16px;">
@@ -801,17 +790,11 @@ require_once __DIR__ . '/includes/header.php';
                         </div>
                         <div style="flex: 1;">
                             <label style="display:block; font-weight:600; margin-bottom:6px;">Category <span style="color:red;">*</span></label>
-                            <select name="patent_category" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
-                                <option value="Utility" <?= ($curCat === 'Utility') ? 'selected' : '' ?>>Utility</option>
-                                <option value="Design" <?= ($curCat === 'Design') ? 'selected' : '' ?>>Design</option>
-                            </select>
+                            <input type="text" name="patent_category" class="form-control" value="<?= htmlspecialchars($curCat) ?>" placeholder="e.g. Utility, Design" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
                         </div>
                         <div style="flex: 1;">
                             <label style="display:block; font-weight:600; margin-bottom:6px;">Status <span style="color:red;">*</span></label>
-                            <select name="patent_status" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
-                                <option value="Published" <?= ($curStat === 'Published') ? 'selected' : '' ?>>Published</option>
-                                <option value="Granted" <?= ($curStat === 'Granted') ? 'selected' : '' ?>>Granted</option>
-                            </select>
+                            <input type="text" name="patent_status" class="form-control" value="<?= htmlspecialchars($curStat) ?>" placeholder="e.g. Published, Granted" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
                         </div>
                     </div>
 
@@ -824,11 +807,6 @@ require_once __DIR__ . '/includes/header.php';
                             <label style="display:block; font-weight:600; margin-bottom:6px;">Department <span style="color:red;">*</span></label>
                             <input type="text" name="department" class="form-control" value="<?= htmlspecialchars($editItem['department'] ?? '') ?>" placeholder="e.g. CE,IT,EC" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
                         </div>
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 16px;">
-                        <label style="display:block; font-weight:600; margin-bottom:6px;">Certificate / Gazette URL</label>
-                        <input type="text" name="external_url" class="form-control" value="<?= htmlspecialchars($editItem['external_url'] ?? '#') ?>" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
                     </div>
 
                     <div class="form-group" style="margin-bottom: 16px;">
