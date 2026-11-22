@@ -38,8 +38,47 @@ function initCellActivitiesTable($pdo) {
         } catch (Exception $e) {
             // Column already exists
         }
+
+        // Auto-seed pre-configured activities and achievements if table is empty
+        seedCellActivitiesIfEmpty($pdo);
     } catch (Exception $e) {
         error_log("Cell activities table init error: " . $e->getMessage());
+    }
+}
+
+/**
+ * Automatically seeds initial institutional activities into database if table is empty
+ */
+function seedCellActivitiesIfEmpty($pdo) {
+    if (!$pdo) return;
+    try {
+        $count = (int)$pdo->query("SELECT COUNT(*) FROM `cell_activities`")->fetchColumn();
+        if ($count === 0) {
+            $fallbacks = getCellActivitiesFallbackData();
+            $stmt = $pdo->prepare("
+                INSERT INTO `cell_activities` 
+                (`category`, `title`, `activity_date`, `image_url`, `gallery_images`, `description`, `external_url`, `display_order`, `is_active`)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)
+            ");
+            $order = 1;
+            foreach ($fallbacks as $catKey => $items) {
+                foreach ($items as $item) {
+                    $gal = !empty($item['gallery_images']) ? json_encode($item['gallery_images']) : null;
+                    $stmt->execute([
+                        $item['category'] ?? $catKey,
+                        $item['title'] ?? 'Activity',
+                        $item['activity_date'] ?? date('Y-m-d'),
+                        $item['image_url'] ?? null,
+                        $gal,
+                        $item['description'] ?? '',
+                        $item['external_url'] ?? '#',
+                        $order++
+                    ]);
+                }
+            }
+        }
+    } catch (Exception $e) {
+        error_log("Cell activities seeding error: " . $e->getMessage());
     }
 }
 

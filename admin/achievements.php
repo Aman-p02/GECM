@@ -163,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Existing gallery images
         $existingGallery = [];
         if (!empty($existing['gallery_images'])) {
-            $decoded = json_decode($existing['gallery_images'], true);
+            $decoded = is_array($existing['gallery_images']) ? $existing['gallery_images'] : json_decode($existing['gallery_images'], true);
             if (is_array($decoded)) {
                 $existingGallery = $decoded;
             }
@@ -192,12 +192,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $gallery_images = !empty($finalGallery) ? json_encode(array_values(array_unique($finalGallery))) : null;
 
         try {
-            $stmt = $pdo->prepare("
-                UPDATE cell_activities 
-                SET category = ?, title = ?, activity_date = ?, image_url = ?, gallery_images = ?, description = ?, external_url = ?, display_order = ?, is_active = ?
-                WHERE id = ?
-            ");
-            $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active, $id]);
+            $stmtCheck = $pdo->prepare("SELECT id FROM cell_activities WHERE id = ?");
+            $stmtCheck->execute([$id]);
+            $exists = $stmtCheck->fetchColumn();
+
+            if ($exists) {
+                $stmt = $pdo->prepare("
+                    UPDATE cell_activities 
+                    SET category = ?, title = ?, activity_date = ?, image_url = ?, gallery_images = ?, description = ?, external_url = ?, display_order = ?, is_active = ?
+                    WHERE id = ?
+                ");
+                $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active, $id]);
+            } else {
+                $stmt = $pdo->prepare("
+                    INSERT INTO cell_activities 
+                    (category, title, activity_date, image_url, gallery_images, description, external_url, display_order, is_active)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ");
+                $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active]);
+            }
             setFlashMessage('success', "Achievement updated successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
@@ -251,11 +264,31 @@ if (isset($_GET['toggle'])) {
 }
 
 // Fetch item for edit mode if requested
-if (isset($_GET['edit']) && $pdo) {
+if (isset($_GET['edit'])) {
     $editId = (int)$_GET['edit'];
-    $stmt = $pdo->prepare("SELECT * FROM cell_activities WHERE id = ?");
-    $stmt->execute([$editId]);
-    $editItem = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($editId > 0) {
+        if ($pdo) {
+            $stmt = $pdo->prepare("SELECT * FROM cell_activities WHERE id = ?");
+            $stmt->execute([$editId]);
+            $editItem = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($editItem) {
+                $selectedCategory = $editItem['category'] ?? $selectedCategory;
+            }
+        }
+        // Fallback lookup if not yet seeded into DB
+        if (!$editItem) {
+            $allFallbacks = getCellActivitiesFallbackData();
+            foreach ($allFallbacks as $catRows) {
+                foreach ($catRows as $r) {
+                    if (($r['id'] ?? 0) == $editId) {
+                        $editItem = $r;
+                        $selectedCategory = $r['category'] ?? $selectedCategory;
+                        break 2;
+                    }
+                }
+            }
+        }
+    }
 }
 
 // Fetch all achievements
@@ -429,17 +462,110 @@ require_once __DIR__ . '/includes/header.php';
 </div>
 
 <!-- ==========================================================================
+     MODAL WINDOW STYLES (CRITICAL OVERLAY & DIALOG FIX)
+     ========================================================================== -->
+<style>
+.modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(15, 23, 42, 0.75) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    display: none;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 999999 !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+}
+.modal-overlay.active,
+.modal-overlay.show,
+.modal-overlay.is-open {
+    display: flex !important;
+}
+.modal-dialog {
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    width: 100% !important;
+    max-width: 650px !important;
+    max-height: 90vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important;
+    overflow: hidden !important;
+    animation: modalPopIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+@keyframes modalPopIn {
+    from { opacity: 0; transform: scale(0.96) translateY(-10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-header {
+    padding: 16px 24px !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #f8fafc !important;
+}
+.modal-title {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+}
+.modal-close {
+    background: none !important;
+    border: none !important;
+    font-size: 26px !important;
+    line-height: 1 !important;
+    color: #64748b !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 6px !important;
+    transition: all 0.15s ease !important;
+}
+.modal-close:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+}
+.modal-body {
+    padding: 20px 24px !important;
+    overflow-y: auto !important;
+    max-height: calc(90vh - 140px) !important;
+}
+.modal-footer {
+    padding: 14px 24px !important;
+    border-top: 1px solid #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    background: #f8fafc !important;
+}
+</style>
+
+<!-- ==========================================================================
      ADD ACHIEVEMENT MODAL
      ========================================================================== -->
-<div class="admin-modal-backdrop" id="addAchievementModal" style="display: none;">
-    <div class="admin-modal-dialog" style="max-width: 650px;">
-        <div class="admin-modal-header">
-            <h3>+ Add New Achievement</h3>
-            <button type="button" class="admin-modal-close" onclick="closeModal('addAchievementModal')">&times;</button>
+<div class="modal-overlay" id="addAchievementModal">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h3 class="modal-title">+ Add New Achievement</h3>
+            <button type="button" class="modal-close" onclick="closeModal('addAchievementModal')">&times;</button>
         </div>
         <form action="achievements.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="action" value="add">
-            <div class="admin-modal-body" style="padding: 20px;">
+            <div class="modal-body">
                 <div class="form-group" style="margin-bottom: 16px;">
                     <label style="display:block; font-weight:600; margin-bottom:6px;">Achievement Category <span style="color:red;">*</span></label>
                     <select name="category" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
@@ -496,7 +622,7 @@ require_once __DIR__ . '/includes/header.php';
                     </label>
                 </div>
             </div>
-            <div class="admin-modal-footer" style="padding: 14px 20px; display: flex; justify-content: flex-end; gap: 10px; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+            <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="closeModal('addAchievementModal')">Cancel</button>
                 <button type="submit" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 600;">Save Achievement</button>
             </div>
@@ -508,16 +634,16 @@ require_once __DIR__ . '/includes/header.php';
      EDIT ACHIEVEMENT MODAL
      ========================================================================== -->
 <?php if ($editItem): ?>
-<div class="admin-modal-backdrop" id="editAchievementModal" style="display: flex;">
-    <div class="admin-modal-dialog" style="max-width: 650px;">
-        <div class="admin-modal-header">
-            <h3>Edit Achievement #<?= $editItem['id'] ?></h3>
-            <a href="achievements.php?category=<?= $selectedCategory ?>" class="admin-modal-close" style="text-decoration: none;">&times;</a>
+<div class="modal-overlay active show is-open" id="editAchievementModal">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h3 class="modal-title">Edit Achievement #<?= $editItem['id'] ?></h3>
+            <a href="achievements.php?category=<?= $selectedCategory ?>" class="modal-close" style="text-decoration: none;">&times;</a>
         </div>
         <form action="achievements.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="action" value="edit">
             <input type="hidden" name="id" value="<?= $editItem['id'] ?>">
-            <div class="admin-modal-body" style="padding: 20px;">
+            <div class="modal-body">
                 <div class="form-group" style="margin-bottom: 16px;">
                     <label style="display:block; font-weight:600; margin-bottom:6px;">Achievement Category <span style="color:red;">*</span></label>
                     <select name="category" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
@@ -564,7 +690,7 @@ require_once __DIR__ . '/includes/header.php';
                     <?php 
                     $existingGallery = [];
                     if (!empty($editItem['gallery_images'])) {
-                        $dec = json_decode($editItem['gallery_images'], true);
+                        $dec = is_array($editItem['gallery_images']) ? $editItem['gallery_images'] : json_decode($editItem['gallery_images'], true);
                         if (is_array($dec)) $existingGallery = $dec;
                     }
                     if (!empty($existingGallery)): 
@@ -601,7 +727,7 @@ require_once __DIR__ . '/includes/header.php';
                     </label>
                 </div>
             </div>
-            <div class="admin-modal-footer" style="padding: 14px 20px; display: flex; justify-content: flex-end; gap: 10px; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+            <div class="modal-footer">
                 <a href="achievements.php?category=<?= $selectedCategory ?>" class="btn btn-secondary" style="text-decoration:none;">Cancel</a>
                 <button type="submit" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 600;">Update Achievement</button>
             </div>
@@ -613,12 +739,26 @@ require_once __DIR__ . '/includes/header.php';
 <script>
 function openModal(id) {
     const modal = document.getElementById(id);
-    if (modal) modal.style.display = 'flex';
+    if (modal) {
+        modal.classList.add('active', 'show', 'is-open');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
 }
 function closeModal(id) {
     const modal = document.getElementById(id);
-    if (modal) modal.style.display = 'none';
+    if (modal) {
+        modal.classList.remove('active', 'show', 'is-open');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
 }
+// Backdrop click to dismiss
+document.addEventListener('click', function(e) {
+    if (e.target.classList && e.target.classList.contains('modal-overlay')) {
+        closeModal(e.target.id);
+    }
+});
 </script>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
