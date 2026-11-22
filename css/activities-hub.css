@@ -20,6 +20,32 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* ==========================================================================
+   Scroll Reveal Animation System (Smooth Gradual Entrance on Scroll)
+   ========================================================================== */
+.act-reveal {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+    transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1), transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.act-reveal.is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .act-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
 /* Hero Section */
 .act-hero {
     background: #ffffff;

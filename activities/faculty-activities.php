@@ -55,14 +55,14 @@ require_once __DIR__ . '/../includes/header.php';
 
     <!-- Page Hero Banner -->
     <header class="act-hero">
-        <div class="act-hero-inner">
+        <div class="act-hero-inner act-reveal">
             <span class="act-kicker">ACADEMIC &amp; RESEARCH LEADERSHIP</span>
             <h1 class="act-heading" style="margin-bottom: 0;">Faculty Activities</h1>
         </div>
     </header>
 
     <!-- Sub-Navigation Bar (Matches Department Sub-Navbar Style) -->
-    <nav class="fac-subnav-bar" id="facSubNav" aria-label="Faculty Activities Navigation">
+    <nav class="fac-subnav-bar act-reveal" id="facSubNav" aria-label="Faculty Activities Navigation">
         <div class="fac-subnav-container">
             <div class="fac-subnav-wrap">
                 <ul class="fac-subnav-list" role="tablist">
@@ -114,7 +114,7 @@ require_once __DIR__ . '/../includes/header.php';
                  aria-labelledby="tabBtnTrainings" 
                  style="<?= ($activeTab === 'trainings') ? '' : 'display: none;' ?>">
 
-            <div class="fac-table-card">
+            <div class="fac-table-card act-reveal">
                 <div class="fac-table-responsive">
                     <table class="fac-table" id="tableTrainings">
                         <thead>
@@ -171,7 +171,7 @@ require_once __DIR__ . '/../includes/header.php';
                  aria-labelledby="tabBtnLectures" 
                  style="<?= ($activeTab === 'expert_lectures') ? '' : 'display: none;' ?>">
 
-            <div class="fac-table-card">
+            <div class="fac-table-card act-reveal">
                 <div class="fac-table-responsive">
                     <table class="fac-table" id="tableLectures">
                         <thead>
@@ -228,7 +228,7 @@ require_once __DIR__ . '/../includes/header.php';
                  aria-labelledby="tabBtnConferences" 
                  style="<?= ($activeTab === 'conferences') ? '' : 'display: none;' ?>">
 
-            <div class="fac-table-card">
+            <div class="fac-table-card act-reveal">
                 <div class="fac-table-responsive">
                     <table class="fac-table" id="tableConferences">
                         <thead>
@@ -272,6 +272,53 @@ require_once __DIR__ . '/../includes/header.php';
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+    // =========================================================================
+    // SCROLL REVEAL ENTRANCE ANIMATION SYSTEM
+    // =========================================================================
+    const revealSelectors = [
+        '.fac-table-card',
+        '.fac-subnav-bar',
+        '.act-hero-inner'
+    ];
+
+    let revealObserver = null;
+    if ('IntersectionObserver' in window) {
+        revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px 20px 0px',
+            threshold: 0.02
+        });
+    }
+
+    function setupRevealElements(container = document) {
+        if (!container) return;
+
+        const elements = container.querySelectorAll(revealSelectors.join(', '));
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        elements.forEach(el => {
+            if (el.closest('.fac-tab-pane') && el.closest('.fac-tab-pane').style.display === 'none') return;
+            if (!el.classList.contains('act-reveal')) {
+                el.classList.add('act-reveal');
+            }
+            const rect = el.getBoundingClientRect();
+            if (rect.top < viewportHeight - 30 && rect.bottom > 0) {
+                setTimeout(() => el.classList.add('is-revealed'), 80);
+            } else if (revealObserver) {
+                revealObserver.observe(el);
+            } else {
+                el.classList.add('is-revealed');
+            }
+        });
+    }
+
     // Tab Switching Functionality matching Department Sub-navbar behavior
     const tabLinks = document.querySelectorAll('.fac-subnav-link');
     const tabPanes = document.querySelectorAll('.fac-tab-pane');
@@ -307,6 +354,18 @@ document.addEventListener('DOMContentLoaded', function () {
             if (activePane) {
                 activePane.classList.add('is-active');
                 activePane.style.display = '';
+
+                // Smooth reveal for newly visible tab content
+                const card = activePane.querySelector('.fac-table-card');
+                if (card) {
+                    card.classList.remove('is-revealed');
+                    card.classList.add('act-reveal');
+                    requestAnimationFrame(() => {
+                        setTimeout(() => {
+                            card.classList.add('is-revealed');
+                        }, 50);
+                    });
+                }
             }
 
             // Sync URL with push/replaceState for bookmarking/navigation
@@ -317,6 +376,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // Run initial reveal on page load
+    setupRevealElements(document);
 });
 </script>
 

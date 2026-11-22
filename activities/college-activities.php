@@ -96,14 +96,14 @@ require_once __DIR__ . '/../includes/header.php';
 
     <!-- Page Hero Banner -->
     <header class="act-hero">
-        <div class="act-hero-inner">
+        <div class="act-hero-inner act-reveal">
             <span class="act-kicker">CAMPUS LIFE &amp; FLAGSHIP INITIATIVES</span>
             <h1 class="act-heading" style="margin-bottom: 0;">College Activities &amp; Events</h1>
         </div>
     </header>
 
     <!-- Minimalist Filter Bar (Year Custom Dropdown) -->
-    <div class="act-toolbar-strip">
+    <div class="act-toolbar-strip act-reveal">
         <div class="act-toolbar-inner">
             <div class="act-toolbar-filters">
                 <!-- Year Custom Dropdown (Navbar-style) -->
@@ -144,7 +144,7 @@ require_once __DIR__ . '/../includes/header.php';
                     : ($root_path . 'images/hero_campus_1.jpg');
                 $modalId = 'eventModal_' . $event['id'];
             ?>
-                <article class="act-card dept-card-college" data-year="<?= htmlspecialchars($evYear) ?>">
+                <article class="act-card dept-card-college act-reveal" data-year="<?= htmlspecialchars($evYear) ?>">
                     <div class="act-card-media">
                         <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($event['title']) ?>" loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
                     </div>
@@ -229,6 +229,53 @@ require_once __DIR__ . '/../includes/header.php';
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+    // =========================================================================
+    // SCROLL REVEAL ENTRANCE ANIMATION SYSTEM
+    // =========================================================================
+    const revealSelectors = [
+        '.act-card',
+        '.act-toolbar-strip',
+        '.act-hero-inner'
+    ];
+
+    let revealObserver = null;
+    if ('IntersectionObserver' in window) {
+        revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px 20px 0px',
+            threshold: 0.02
+        });
+    }
+
+    function setupRevealElements(container = document) {
+        if (!container) return;
+
+        const elements = container.querySelectorAll(revealSelectors.join(', '));
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        elements.forEach(el => {
+            if (el.classList.contains('act-card') && el.style.display === 'none') return;
+            if (!el.classList.contains('act-reveal')) {
+                el.classList.add('act-reveal');
+            }
+            const rect = el.getBoundingClientRect();
+            if (rect.top < viewportHeight - 30 && rect.bottom > 0) {
+                setTimeout(() => el.classList.add('is-revealed'), 80);
+            } else if (revealObserver) {
+                revealObserver.observe(el);
+            } else {
+                el.classList.add('is-revealed');
+            }
+        });
+    }
+
     const yearDropdownWrap = document.getElementById("yearDropdownWrap");
     const yearDropdownTrigger = document.getElementById("yearDropdownTrigger");
     const yearSelectedLabel = document.getElementById("yearSelectedLabel");
@@ -306,6 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         resultsCount.innerHTML = `Showing&nbsp;<strong>${visibleCount}</strong>&nbsp;activit${visibleCount === 1 ? 'y' : 'ies'}`;
+        setupRevealElements(document);
     }
 
     function resetAllFilters() {
@@ -332,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.history.replaceState({}, '', newUrl);
     }
 
-    // Initial check
+    // Initial check & setup
     filterActivities();
 
     // Auto-open event modal if redirected from Homepage (?event=ID) or hash
