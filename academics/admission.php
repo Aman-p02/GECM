@@ -11,7 +11,7 @@ require_once __DIR__ . '/../includes/header.php';
 
     <!-- Page Hero Banner -->
     <header class="admission-hero">
-        <div class="container">
+        <div class="container act-reveal">
             <span class="admission-kicker">ACADEMIC ADMISSIONS</span>
             <h1 class="admission-heading">Admissions</h1>
         </div>
@@ -22,7 +22,7 @@ require_once __DIR__ . '/../includes/header.php';
         <div class="container">
 
             <!-- Official ACPC Governance Statement Card -->
-            <div class="admission-notice-card">
+            <div class="admission-notice-card act-reveal">
                 <p class="admission-statement">
                     Being a Government institute the admissions are governed by ACPC committee. For more information please visit <a href="https://acpc.gujarat.gov.in/be-b-tech" target="_blank" rel="noopener noreferrer" class="admission-acpc-link">ACPC website <i class="fas fa-external-link-alt" style="font-size: 0.72rem;"></i></a>
                 </p>
@@ -32,7 +32,7 @@ require_once __DIR__ . '/../includes/header.php';
             <div class="admission-grid">
 
                 <!-- Undergraduate (B.E.) Card -->
-                <div class="admission-card">
+                <div class="admission-card act-reveal">
                     <div>
                         <div class="admission-card-header">
                             <div class="admission-card-icon">
@@ -57,7 +57,7 @@ require_once __DIR__ . '/../includes/header.php';
                 </div>
 
                 <!-- Postgraduate (M.E.) Card -->
-                <div class="admission-card">
+                <div class="admission-card act-reveal">
                     <div>
                         <div class="admission-card-header">
                             <div class="admission-card-icon">
@@ -87,6 +87,54 @@ require_once __DIR__ . '/../includes/header.php';
     </main>
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const revealSelectors = [
+        '.admission-hero .container',
+        '.admission-notice-card',
+        '.admission-card'
+    ];
+
+    let revealObserver = null;
+    if ('IntersectionObserver' in window) {
+        revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px 20px 0px',
+            threshold: 0.02
+        });
+    }
+
+    function setupRevealElements(container = document) {
+        if (!container) return;
+        const elements = container.querySelectorAll(revealSelectors.join(', '));
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        elements.forEach(el => {
+            if (!el.classList.contains('act-reveal')) {
+                el.classList.add('act-reveal');
+            }
+            const rect = el.getBoundingClientRect();
+            if (rect.top < viewportHeight - 30 && rect.bottom > 0) {
+                setTimeout(() => el.classList.add('is-revealed'), 80);
+            } else if (revealObserver) {
+                revealObserver.observe(el);
+            } else {
+                el.classList.add('is-revealed');
+            }
+        });
+    }
+
+    setupRevealElements(document);
+});
+</script>
 
 <?php
 require_once __DIR__ . '/../includes/footer.php';

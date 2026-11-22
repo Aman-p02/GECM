@@ -75,7 +75,7 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
 
     <div class="dept-container">
         <!-- Department Style Clean Hero -->
-        <div class="dept-about-hero">
+        <div class="dept-about-hero act-reveal">
             <div class="dept-hero-grid">
                 <div class="dept-hero-text">
                     <span class="dept-kicker">ACADEMIC PROGRAMMES &amp; SCHEDULE</span>
@@ -88,19 +88,19 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
 
             <!-- Key metrics counter strip -->
             <div class="dept-stats-strip">
-                <div class="dept-stat-item">
+                <div class="dept-stat-item act-reveal">
                     <span class="dept-stat-num"><?= htmlspecialchars($latestYear) ?></span>
                     <span class="dept-stat-label">CURRENT ACADEMIC SESSION</span>
                 </div>
-                <div class="dept-stat-item">
+                <div class="dept-stat-item act-reveal">
                     <span class="dept-stat-num"><?= $totalYearsCount ?></span>
                     <span class="dept-stat-label">ARCHIVED SESSIONS</span>
                 </div>
-                <div class="dept-stat-item">
+                <div class="dept-stat-item act-reveal">
                     <span class="dept-stat-num">ODD &amp; EVEN</span>
                     <span class="dept-stat-label">SEMESTER TERM SCHEDULES</span>
                 </div>
-                <div class="dept-stat-item">
+                <div class="dept-stat-item act-reveal">
                     <span class="dept-stat-num">GTU</span>
                     <span class="dept-stat-label">REGULATORY AFFILIATION</span>
                 </div>
@@ -108,7 +108,7 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
         </div>
 
         <!-- Desktop Clean Data Table -->
-        <div class="dept-table-wrap">
+        <div class="dept-table-wrap act-reveal">
                 <table class="dept-clean-table" id="calMainTable">
                     <thead>
                         <tr>
@@ -182,7 +182,7 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                     $evenDoc = $yearData['Even'];
                     $isCurrentYear = ($yearKey === $latestYear);
                 ?>
-                    <div class="cal-mobile-card cal-row" data-year="<?= htmlspecialchars(strtolower($yearKey)) ?>" data-has-odd="<?= $oddDoc ? '1' : '0' ?>" data-has-even="<?= $evenDoc ? '1' : '0' ?>">
+                    <div class="cal-mobile-card cal-row act-reveal" data-year="<?= htmlspecialchars(strtolower($yearKey)) ?>" data-has-odd="<?= $oddDoc ? '1' : '0' ?>" data-has-even="<?= $evenDoc ? '1' : '0' ?>">
                         <div class="cal-mobile-header">
                             <span class="cal-mobile-year"><?= htmlspecialchars($yearKey) ?></span>
                             <?php if ($isCurrentYear): ?>
@@ -233,5 +233,54 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
     </div>
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const revealSelectors = [
+        '.dept-about-hero',
+        '.dept-stat-item',
+        '.dept-table-wrap',
+        '.cal-mobile-card'
+    ];
+
+    let revealObserver = null;
+    if ('IntersectionObserver' in window) {
+        revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px 20px 0px',
+            threshold: 0.02
+        });
+    }
+
+    function setupRevealElements(container = document) {
+        if (!container) return;
+        const elements = container.querySelectorAll(revealSelectors.join(', '));
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        elements.forEach(el => {
+            if (!el.classList.contains('act-reveal')) {
+                el.classList.add('act-reveal');
+            }
+            const rect = el.getBoundingClientRect();
+            if (rect.top < viewportHeight - 30 && rect.bottom > 0) {
+                setTimeout(() => el.classList.add('is-revealed'), 80);
+            } else if (revealObserver) {
+                revealObserver.observe(el);
+            } else {
+                el.classList.add('is-revealed');
+            }
+        });
+    }
+
+    setupRevealElements(document);
+});
+</script>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>

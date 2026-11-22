@@ -11,7 +11,7 @@ require_once __DIR__ . '/../includes/header.php';
 
     <!-- Page Hero Banner -->
     <header class="courses-hero">
-        <div class="container">
+        <div class="container act-reveal">
             <span class="courses-kicker">ACADEMIC PROGRAMMES</span>
             <h1 class="courses-heading">Approved Degrees &amp; Course Intake</h1>
             <p class="courses-lead">
@@ -20,19 +20,19 @@ require_once __DIR__ . '/../includes/header.php';
 
             <!-- Key metrics stats grid -->
             <div class="courses-stats-grid">
-                <div class="courses-stat-card">
+                <div class="courses-stat-card act-reveal">
                     <span class="courses-stat-num">7</span>
                     <span class="courses-stat-label">UG (B.E.) Programmes</span>
                 </div>
-                <div class="courses-stat-card">
+                <div class="courses-stat-card act-reveal">
                     <span class="courses-stat-num">2</span>
                     <span class="courses-stat-label">PG (M.E.) Programmes</span>
                 </div>
-                <div class="courses-stat-card">
+                <div class="courses-stat-card act-reveal">
                     <span class="courses-stat-num">540</span>
                     <span class="courses-stat-label">Total Annual UG Intake</span>
                 </div>
-                <div class="courses-stat-card">
+                <div class="courses-stat-card act-reveal">
                     <span class="courses-stat-num">36</span>
                     <span class="courses-stat-label">Total Annual PG Intake</span>
                 </div>
@@ -46,7 +46,7 @@ require_once __DIR__ . '/../includes/header.php';
 
             <!-- Section 1: Under Graduate Courses -->
             <section class="courses-section" aria-labelledby="ugCoursesHeading">
-                <div class="courses-section-header">
+                <div class="courses-section-header act-reveal">
                     <span class="courses-section-kicker">4-YEAR BACHELOR OF ENGINEERING (B.E.)</span>
                     <h2 class="courses-section-title" id="ugCoursesHeading">Under Graduate Courses</h2>
                     <p class="courses-section-desc">
@@ -54,7 +54,7 @@ require_once __DIR__ . '/../includes/header.php';
                     </p>
                 </div>
 
-                <div class="courses-table-card">
+                <div class="courses-table-card act-reveal">
                     <div class="courses-table-wrap">
                         <table class="courses-table">
                             <thead>
@@ -143,7 +143,7 @@ require_once __DIR__ . '/../includes/header.php';
 
             <!-- Section 2: Post Graduate Courses -->
             <section class="courses-section" aria-labelledby="pgCoursesHeading">
-                <div class="courses-section-header">
+                <div class="courses-section-header act-reveal">
                     <span class="courses-section-kicker">2-YEAR MASTER OF ENGINEERING (M.E.)</span>
                     <h2 class="courses-section-title" id="pgCoursesHeading">Post Graduate Courses</h2>
                     <p class="courses-section-desc">
@@ -151,7 +151,7 @@ require_once __DIR__ . '/../includes/header.php';
                     </p>
                 </div>
 
-                <div class="courses-table-card">
+                <div class="courses-table-card act-reveal">
                     <div class="courses-table-wrap">
                         <table class="courses-table">
                             <thead>
@@ -192,6 +192,55 @@ require_once __DIR__ . '/../includes/header.php';
     </main>
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const revealSelectors = [
+        '.courses-hero .container',
+        '.courses-stat-card',
+        '.courses-section-header',
+        '.courses-table-card'
+    ];
+
+    let revealObserver = null;
+    if ('IntersectionObserver' in window) {
+        revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px 20px 0px',
+            threshold: 0.02
+        });
+    }
+
+    function setupRevealElements(container = document) {
+        if (!container) return;
+        const elements = container.querySelectorAll(revealSelectors.join(', '));
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        elements.forEach(el => {
+            if (!el.classList.contains('act-reveal')) {
+                el.classList.add('act-reveal');
+            }
+            const rect = el.getBoundingClientRect();
+            if (rect.top < viewportHeight - 30 && rect.bottom > 0) {
+                setTimeout(() => el.classList.add('is-revealed'), 80);
+            } else if (revealObserver) {
+                revealObserver.observe(el);
+            } else {
+                el.classList.add('is-revealed');
+            }
+        });
+    }
+
+    setupRevealElements(document);
+});
+</script>
 
 <?php
 require_once __DIR__ . '/../includes/footer.php';
