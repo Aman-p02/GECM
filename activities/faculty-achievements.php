@@ -55,6 +55,16 @@ require_once __DIR__ . '/../includes/header.php';
                         <span>Institute Achievements</span>
                     </a>
                 </li>
+                <li class="act-subnav-item">
+                    <a href="patents.php" class="act-subnav-link" style="text-decoration: none;">
+                        <span>Patents</span>
+                    </a>
+                </li>
+                <li class="act-subnav-item">
+                    <a href="technopreneur-club.php" class="act-subnav-link" style="text-decoration: none;">
+                        <span>Technopreneur Club</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>

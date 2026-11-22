@@ -31,6 +31,18 @@ $categories = [
         'badge' => 'Institute',
         'cell' => 'Institutional Accreditations & Honours',
         'live_url' => '../activities/institute-achievements.php'
+    ],
+    'patents' => [
+        'name' => 'Patents & IPR',
+        'badge' => 'Patents',
+        'cell' => 'Intellectual Property & Patents',
+        'live_url' => '../activities/patents.php'
+    ],
+    'technopreneur_club' => [
+        'name' => 'Technopreneur Club',
+        'badge' => 'Club',
+        'cell' => 'Student Technical & Entrepreneurship Club',
+        'live_url' => '../activities/technopreneur-club.php'
     ]
 ];
 

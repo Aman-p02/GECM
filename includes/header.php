@@ -235,7 +235,7 @@ if (!isset($active_page)) {
                 <!-- Activities Dropdown (Categorized Mega Dropdown) -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="<?= $root_path ?>activities/"
-                       class="hdr-nav-link <?= in_array($active_page, ['activities', 'college_activities', 'dept_activities', 'faculty_activities', 'ssip_dic_activities', 'rusa_activities', 'gymkhana_activities', 'finishing_school_activities', 'wdc_uba_activities', 'anchor_nodal_activities', 'student_achievements', 'faculty_achievements', 'institute_achievements']) ? 'active is-active' : '' ?>">
+                       class="hdr-nav-link <?= in_array($active_page, ['activities', 'college_activities', 'dept_activities', 'faculty_activities', 'ssip_dic_activities', 'rusa_activities', 'gymkhana_activities', 'finishing_school_activities', 'wdc_uba_activities', 'anchor_nodal_activities', 'student_achievements', 'faculty_achievements', 'institute_achievements', 'patents', 'technopreneur_club']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">Activities</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown hdr-dropdown-mega">
@@ -265,8 +265,8 @@ if (!isset($active_page)) {
                                     <li><a href="<?= $root_path ?>activities/student-achievements" class="hdr-dd-link <?= ($active_page === 'student_achievements') ? 'is-active' : '' ?>">Student Achievements</a></li>
                                     <li><a href="<?= $root_path ?>activities/faculty-achievements" class="hdr-dd-link <?= ($active_page === 'faculty_achievements') ? 'is-active' : '' ?>">Faculty Achievements</a></li>
                                     <li><a href="<?= $root_path ?>activities/institute-achievements" class="hdr-dd-link <?= ($active_page === 'institute_achievements') ? 'is-active' : '' ?>">Institute Achievements</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Patents</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Technopreneur Club</a></li>
+                                    <li><a href="<?= $root_path ?>activities/patents" class="hdr-dd-link <?= ($active_page === 'patents') ? 'is-active' : '' ?>">Patents</a></li>
+                                    <li><a href="<?= $root_path ?>activities/technopreneur-club" class="hdr-dd-link <?= ($active_page === 'technopreneur_club') ? 'is-active' : '' ?>">Technopreneur Club</a></li>
                                 </ul>
                             </div>
                         </div>

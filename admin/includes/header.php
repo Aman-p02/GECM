@@ -123,8 +123,12 @@ if (substr($adminBaseUrl, -1) !== '/') {
                 $studentCornerPageItems = ['student-chapters', 'student-enrollment', 'scholarships', 'education-verification', 'grievances'];
                 $isStudentCornerActive = in_array($current_page, $studentCornerPageItems);
 
-                $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni', 'faculty-activities', 'cell-activities', 'achievements'];
+                $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni', 'faculty-activities'];
                 $isMainPageActive = in_array($current_page, $mainPageItems);
+
+                $isCellsActive = ($current_page === 'cell-activities');
+                $isAchievementsActive = ($current_page === 'achievements');
+                $currentCategory = strtolower(trim($_GET['category'] ?? 'all'));
 
                 $deptPageItems = ['dept-faculty', 'dept-activities', 'dept-publications', 'dept-board', 'dept-newsletters'];
                 $isDeptActive = in_array($current_page, $deptPageItems);
@@ -343,13 +347,100 @@ if (substr($adminBaseUrl, -1) !== '/') {
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'cell-activities') ? 'active' : '' ?>">
-                            <a href="cell-activities" class="submenu-link">
+                            <a href="cell-activities.php" class="submenu-link">
                                 <span>Cells &amp; Initiatives</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($current_page === 'achievements') ? 'active' : '' ?>">
-                            <a href="achievements" class="submenu-link">
-                                <span>Achievements</span>
+                            <a href="achievements.php" class="submenu-link">
+                                <span>Achievements &amp; Clubs</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-category">Campus Life &amp; Accolades</li>
+
+                <!-- Cells & Initiatives Accordion Dropdown -->
+                <li class="menu-item menu-item-has-submenu <?= $isCellsActive ? 'active open' : '' ?>">
+                    <a href="javascript:void(0);" class="menu-link submenu-toggle" id="cellsMenuToggle">
+                        <span>Cells &amp; Initiatives</span>
+                        <i class="fas fa-chevron-down submenu-arrow"></i>
+                    </a>
+                    <ul class="submenu-list">
+                        <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'all') ? 'active' : '' ?>">
+                            <a href="cell-activities.php?category=all" class="submenu-link">
+                                <span>All Initiatives</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isCellsActive && in_array($currentCategory, ['ssip', 'dic'])) ? 'active' : '' ?>">
+                            <a href="cell-activities.php?category=ssip" class="submenu-link">
+                                <span>SSIP &amp; DIC</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'rusa') ? 'active' : '' ?>">
+                            <a href="cell-activities.php?category=rusa" class="submenu-link">
+                                <span>RUSA Grants</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'gymkhana') ? 'active' : '' ?>">
+                            <a href="cell-activities.php?category=gymkhana" class="submenu-link">
+                                <span>Gymkhana</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'finishing_school') ? 'active' : '' ?>">
+                            <a href="cell-activities.php?category=finishing_school" class="submenu-link">
+                                <span>Finishing School</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isCellsActive && in_array($currentCategory, ['wdc', 'uba'])) ? 'active' : '' ?>">
+                            <a href="cell-activities.php?category=wdc" class="submenu-link">
+                                <span>WDC &amp; UBA</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'anchor_nodal') ? 'active' : '' ?>">
+                            <a href="cell-activities.php?category=anchor_nodal" class="submenu-link">
+                                <span>Anchor Nodal</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Achievements & Clubs Accordion Dropdown -->
+                <li class="menu-item menu-item-has-submenu <?= $isAchievementsActive ? 'active open' : '' ?>">
+                    <a href="javascript:void(0);" class="menu-link submenu-toggle" id="achievementsMenuToggle">
+                        <span>Achievements &amp; Clubs</span>
+                        <i class="fas fa-chevron-down submenu-arrow"></i>
+                    </a>
+                    <ul class="submenu-list">
+                        <li class="submenu-item <?= ($isAchievementsActive && $currentCategory === 'all') ? 'active' : '' ?>">
+                            <a href="achievements.php?category=all" class="submenu-link">
+                                <span>All Achievements</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isAchievementsActive && $currentCategory === 'student_achievements') ? 'active' : '' ?>">
+                            <a href="achievements.php?category=student_achievements" class="submenu-link">
+                                <span>Student Achievements</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isAchievementsActive && $currentCategory === 'faculty_achievements') ? 'active' : '' ?>">
+                            <a href="achievements.php?category=faculty_achievements" class="submenu-link">
+                                <span>Faculty Achievements</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isAchievementsActive && $currentCategory === 'institute_achievements') ? 'active' : '' ?>">
+                            <a href="achievements.php?category=institute_achievements" class="submenu-link">
+                                <span>Institute Achievements</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isAchievementsActive && $currentCategory === 'patents') ? 'active' : '' ?>">
+                            <a href="achievements.php?category=patents" class="submenu-link">
+                                <span>Patents</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isAchievementsActive && $currentCategory === 'technopreneur_club') ? 'active' : '' ?>">
+                            <a href="achievements.php?category=technopreneur_club" class="submenu-link">
+                                <span>Technopreneur Club</span>
                             </a>
                         </li>
                     </ul>

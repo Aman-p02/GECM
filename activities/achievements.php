@@ -11,6 +11,12 @@ if ($type === 'faculty' || $type === 'faculty_achievements') {
 } elseif ($type === 'institute' || $type === 'institute_achievements') {
     header("Location: institute-achievements.php" . (!empty($_GET['year']) ? '?year=' . urlencode($_GET['year']) : ''));
     exit;
+} elseif ($type === 'patents') {
+    header("Location: patents.php" . (!empty($_GET['year']) ? '?year=' . urlencode($_GET['year']) : ''));
+    exit;
+} elseif ($type === 'technopreneur_club' || $type === 'club') {
+    header("Location: technopreneur-club.php" . (!empty($_GET['year']) ? '?year=' . urlencode($_GET['year']) : ''));
+    exit;
 } else {
     header("Location: student-achievements.php" . (!empty($_GET['year']) ? '?year=' . urlencode($_GET['year']) : ''));
     exit;

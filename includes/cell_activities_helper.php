@@ -550,6 +550,90 @@ function getCellActivitiesFallbackData() {
                 'description' => 'Awarded the Green Campus Sustainability Award by Gujarat Energy Development Agency (GEDA) upon successful commissioning of 100 kW grid-tied solar photovoltaic system generating over 1,40,000 clean units annually.',
                 'external_url' => '#'
             ]
+        ],
+        'patents' => [
+            [
+                'id' => 1201,
+                'category' => 'patents',
+                'title' => 'Patent Granted: IoT Smart Grid Transmission Line Fault Detection System',
+                'activity_date' => '2026-05-18',
+                'image_url' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Indian Patent Office (IPO) granted Patent No. IN489210 to GEC Modasa faculty and student researchers for a non-invasive optical and RF hybrid sensor module that pinpoints breakdown locations along high-voltage transmission lines in real-time.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1202,
+                'category' => 'patents',
+                'title' => 'Patent Published: Autonomous Solar Agricultural Payload Rover',
+                'activity_date' => '2025-11-22',
+                'image_url' => 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1581092335397-9583fe92d232?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Official publication in the Indian Patent Gazette for an autonomous self-charging agricultural rover utilizing computer vision for targeted precision micro-spraying and weed eradication in cotton and groundnut crops.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1203,
+                'category' => 'patents',
+                'title' => 'Patent Filed: Low-Cost Fluoride & Contaminant Groundwater Analyzer',
+                'activity_date' => '2025-03-10',
+                'image_url' => 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Provisional patent filing submitted under SSIP 2.0 IPR support for a handheld spectrophotometric sensor delivering instant water quality diagnostics for rural communities across Aravalli district.',
+                'external_url' => '#'
+            ]
+        ],
+        'technopreneur_club' => [
+            [
+                'id' => 1301,
+                'category' => 'technopreneur_club',
+                'title' => 'Annual Technopreneur Startup Pitch & Innovation Expo',
+                'activity_date' => '2026-08-20',
+                'image_url' => 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'The flagship Technopreneur Club expo brought together 35 student enterprise teams showcasing working hardware/software prototypes to angel investors, startup incubators, and Ahmedabad industrial leaders.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1302,
+                'category' => 'technopreneur_club',
+                'title' => 'Industry Founders Mentorship & Venture Scaling Bootcamp',
+                'activity_date' => '2025-09-15',
+                'image_url' => 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'An engaging weekend sprint featuring alumni startup founders delivering hands-on masterclasses on unit economics, legal incorporation, term sheets, and customer acquisition strategies.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1303,
+                'category' => 'technopreneur_club',
+                'title' => 'Hack-a-Sol: 24-Hour Regional Hardware & IoT Hackathon',
+                'activity_date' => '2025-02-14',
+                'image_url' => 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => '24-hour non-stop rapid hacking competition with microcontrollers, 3D printers, and cloud telemetry, producing 18 working prototypes for smart agriculture, traffic flow, and smart energy monitoring.',
+                'external_url' => '#'
+            ]
         ]
     ];
 }
