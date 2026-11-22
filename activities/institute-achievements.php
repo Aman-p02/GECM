@@ -36,39 +36,6 @@ require_once __DIR__ . '/../includes/header.php';
 
 <div class="act-hub-page" id="mainContent">
 
-    <!-- Horizontal Sub-Navbar (Matches Mandatory Disclosure & Central Library) -->
-    <nav class="act-subnav-bar" aria-label="Achievements Navigation">
-        <div class="act-subnav-wrap">
-            <ul class="act-subnav-list">
-                <li class="act-subnav-item">
-                    <a href="student-achievements.php" class="act-subnav-link" style="text-decoration: none;">
-                        <span>Student Achievements</span>
-                    </a>
-                </li>
-                <li class="act-subnav-item">
-                    <a href="faculty-achievements.php" class="act-subnav-link" style="text-decoration: none;">
-                        <span>Faculty Achievements</span>
-                    </a>
-                </li>
-                <li class="act-subnav-item">
-                    <a href="institute-achievements.php" class="act-subnav-link active is-current" style="text-decoration: none;">
-                        <span>Institute Achievements</span>
-                    </a>
-                </li>
-                <li class="act-subnav-item">
-                    <a href="patents.php" class="act-subnav-link" style="text-decoration: none;">
-                        <span>Patents</span>
-                    </a>
-                </li>
-                <li class="act-subnav-item">
-                    <a href="technopreneur-club.php" class="act-subnav-link" style="text-decoration: none;">
-                        <span>Technopreneur Club</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
     <!-- Page Hero Banner -->
     <header class="act-hero">
         <div class="act-hero-inner act-reveal">

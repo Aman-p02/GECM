@@ -39,6 +39,55 @@ function initCellActivitiesTable($pdo) {
             // Column already exists
         }
 
+        // Ensure patent-specific metadata columns exist
+        $patentCols = [
+            'patent_category' => "VARCHAR(50) DEFAULT NULL AFTER `category`",
+            'patent_status' => "VARCHAR(50) DEFAULT NULL AFTER `patent_category`",
+            'faculty_name' => "VARCHAR(255) DEFAULT NULL AFTER `patent_status`",
+            'department' => "VARCHAR(100) DEFAULT NULL AFTER `faculty_name`",
+            'pub_year' => "INT DEFAULT NULL AFTER `department`"
+        ];
+        foreach ($patentCols as $col => $def) {
+            try {
+                $pdo->exec("ALTER TABLE `cell_activities` ADD COLUMN `$col` $def");
+            } catch (Exception $e) {
+                // Column already exists
+            }
+        }
+
+        // Auto-seed or update patents if none exist or if existing patents have no faculty_name
+        try {
+            $patentCount = (int)$pdo->query("SELECT COUNT(*) FROM `cell_activities` WHERE `category` = 'patents' AND `faculty_name` IS NOT NULL AND `faculty_name` != ''")->fetchColumn();
+            if ($patentCount === 0) {
+                // Remove outdated placeholder rows for category 'patents' if any
+                $pdo->exec("DELETE FROM `cell_activities` WHERE `category` = 'patents'");
+                $fallbacks = getCellActivitiesFallbackData();
+                $patentItems = $fallbacks['patents'] ?? [];
+                $stmtP = $pdo->prepare("
+                    INSERT INTO `cell_activities` 
+                    (`category`, `title`, `activity_date`, `description`, `external_url`, `display_order`, `is_active`, `patent_category`, `patent_status`, `faculty_name`, `department`, `pub_year`)
+                    VALUES ('patents', ?, ?, ?, ?, ?, 1, ?, ?, ?, ?, ?)
+                ");
+                $ord = 1;
+                foreach ($patentItems as $p) {
+                    $stmtP->execute([
+                        $p['title'],
+                        $p['activity_date'] ?? date('Y-m-d'),
+                        $p['description'] ?? '',
+                        $p['external_url'] ?? '#',
+                        $ord++,
+                        $p['patent_category'] ?? 'Utility',
+                        $p['patent_status'] ?? 'Published',
+                        $p['faculty_name'] ?? '',
+                        $p['department'] ?? '',
+                        $p['pub_year'] ?? 2024
+                    ]);
+                }
+            }
+        } catch (Exception $pe) {
+            error_log("Patent auto-seed error: " . $pe->getMessage());
+        }
+
         // Auto-seed pre-configured activities and achievements if table is empty
         seedCellActivitiesIfEmpty($pdo);
     } catch (Exception $e) {
@@ -57,13 +106,13 @@ function seedCellActivitiesIfEmpty($pdo) {
             $fallbacks = getCellActivitiesFallbackData();
             $stmt = $pdo->prepare("
                 INSERT INTO `cell_activities` 
-                (`category`, `title`, `activity_date`, `image_url`, `gallery_images`, `description`, `external_url`, `display_order`, `is_active`)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)
+                (`category`, `title`, `activity_date`, `image_url`, `gallery_images`, `description`, `external_url`, `display_order`, `is_active`, `patent_category`, `patent_status`, `faculty_name`, `department`, `pub_year`)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, ?, ?, ?)
             ");
             $order = 1;
             foreach ($fallbacks as $catKey => $items) {
                 foreach ($items as $item) {
-                    $gal = !empty($item['gallery_images']) ? json_encode($item['gallery_images']) : null;
+                    $gal = !empty($item['gallery_images']) ? (is_array($item['gallery_images']) ? json_encode($item['gallery_images']) : $item['gallery_images']) : null;
                     $stmt->execute([
                         $item['category'] ?? $catKey,
                         $item['title'] ?? 'Activity',
@@ -72,7 +121,12 @@ function seedCellActivitiesIfEmpty($pdo) {
                         $gal,
                         $item['description'] ?? '',
                         $item['external_url'] ?? '#',
-                        $order++
+                        $order++,
+                        $item['patent_category'] ?? null,
+                        $item['patent_status'] ?? null,
+                        $item['faculty_name'] ?? null,
+                        $item['department'] ?? null,
+                        $item['pub_year'] ?? null
                     ]);
                 }
             }
@@ -594,41 +648,131 @@ function getCellActivitiesFallbackData() {
             [
                 'id' => 1201,
                 'category' => 'patents',
-                'title' => 'Patent Granted: IoT Smart Grid Transmission Line Fault Detection System',
-                'activity_date' => '2026-05-18',
-                'image_url' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-                'gallery_images' => [
-                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
-                ],
-                'description' => 'Indian Patent Office (IPO) granted Patent No. IN489210 to GEC Modasa faculty and student researchers for a non-invasive optical and RF hybrid sensor module that pinpoints breakdown locations along high-voltage transmission lines in real-time.',
+                'title' => 'Real-Time Road Safety System with Vehicle Detection, LORA Network, and IoT-Enabled Studs',
+                'pub_year' => 2025,
+                'activity_date' => '2025-01-01',
+                'patent_category' => 'Utility',
+                'patent_status' => 'Published',
+                'faculty_name' => 'Prof. N. N. Maltare, Prof. Safvan Vahora, and Prof. Priyank V. Patel',
+                'department' => 'CE,IT,EC',
+                'description' => 'Real-time road safety infrastructure integrating edge vehicle detection sensors, long-range LoRa wireless mesh, and dynamic IoT-enabled road studs to prevent highway accidents.',
                 'external_url' => '#'
             ],
             [
                 'id' => 1202,
                 'category' => 'patents',
-                'title' => 'Patent Published: Autonomous Solar Agricultural Payload Rover',
-                'activity_date' => '2025-11-22',
-                'image_url' => 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-                'gallery_images' => [
-                    'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1581092335397-9583fe92d232?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
-                ],
-                'description' => 'Official publication in the Indian Patent Gazette for an autonomous self-charging agricultural rover utilizing computer vision for targeted precision micro-spraying and weed eradication in cotton and groundnut crops.',
+                'title' => 'Autonomous Document Distribution Robot with Authentication',
+                'pub_year' => 2024,
+                'activity_date' => '2024-01-01',
+                'patent_category' => 'Design',
+                'patent_status' => 'Granted',
+                'faculty_name' => 'Prof. Safvan Vahora, Prof. Hiren Patel, Prof. Nilesh Maltare, Prof. Prashant S. Modi, Prof. Bhavik Brahmbhatt, Prof. Priyank Patel, Prof. Mahesh Goyani',
+                'department' => 'CE,IT,EC',
+                'description' => 'Patented industrial design and mechanics for an indoor autonomous courier robot equipped with biometric and RFID authentication for secure inter-departmental file distribution.',
                 'external_url' => '#'
             ],
             [
                 'id' => 1203,
                 'category' => 'patents',
-                'title' => 'Patent Filed: Low-Cost Fluoride & Contaminant Groundwater Analyzer',
-                'activity_date' => '2025-03-10',
-                'image_url' => 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-                'gallery_images' => [
-                    'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
-                ],
-                'description' => 'Provisional patent filing submitted under SSIP 2.0 IPR support for a handheld spectrophotometric sensor delivering instant water quality diagnostics for rural communities across Aravalli district.',
+                'title' => 'Smart Speedometer with Rear-End Collision-Warning Indicator',
+                'pub_year' => 2024,
+                'activity_date' => '2024-01-01',
+                'patent_category' => 'Design',
+                'patent_status' => 'Granted',
+                'faculty_name' => 'Prof. Safvan Vahora, Prof. Hiren Patel, Prof. Nilesh Maltare, Prof. Prashant S. Modi, Prof. Bhavik Brahmbhatt, Prof. Priyank Patel, Prof. Mahesh Goyani',
+                'department' => 'CE,IT,EC',
+                'description' => 'Integrated vehicle dashboard interface combining real-time speed monitoring, LiDAR distance calculation, and visual/haptic rear-end collision warning alerts.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1204,
+                'category' => 'patents',
+                'title' => 'An IOT Based Pneumatic ICU Hospital Bed with Electric Abs Panel and Railing',
+                'pub_year' => 2023,
+                'activity_date' => '2023-01-01',
+                'patent_category' => 'Utility',
+                'patent_status' => 'Published',
+                'faculty_name' => 'Prof. Nainesh Nagekar, Prof. Prashant Modi, Prof. Safvan Vahora, Prof. Anil A. Prajapati',
+                'department' => 'CE,IT',
+                'description' => 'Automated pneumatic patient re-positioning hospital bed with IoT telemetry and pressure-relieving electric ABS side railings for intensive care units.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1205,
+                'category' => 'patents',
+                'title' => 'Drunk Driver Alert System (Ddas) Using Iot, Image Processing And Machine Learning to Protect From Accident',
+                'pub_year' => 2021,
+                'activity_date' => '2021-01-01',
+                'patent_category' => 'Utility',
+                'patent_status' => 'Published',
+                'faculty_name' => 'Prof. Nilesh Maltare, Prof. Safvan A. Vahora, Prof. Viral R. Patel, Prof. Prashant S. Modi',
+                'department' => 'CE,IT',
+                'description' => 'Computer vision and sensor-fusion in-cabin monitoring architecture detecting driver alcohol impairment and eye closure, triggering automatic throttle de-escalation and alert beacons.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1206,
+                'category' => 'patents',
+                'title' => 'Planetary Geared Brushless DC motor powered Ceiling Fan',
+                'pub_year' => 2024,
+                'activity_date' => '2024-01-01',
+                'patent_category' => 'Design',
+                'patent_status' => 'Granted',
+                'faculty_name' => 'Prof V J Upadhyay',
+                'department' => 'Electrical',
+                'description' => 'High-torque compact planetary gear housing integrated with an ultra-efficient Brushless DC (BLDC) motor for next-generation silent low-power ceiling fans.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1207,
+                'category' => 'patents',
+                'title' => 'AN INTEGRATED DRIVE SYSTEM FOR ELECTRIC VEHICLES WITH ENHANCED EFFICIENCY AND PERFORMANCE',
+                'pub_year' => 2024,
+                'activity_date' => '2024-01-01',
+                'patent_category' => 'Utility',
+                'patent_status' => 'Published',
+                'faculty_name' => 'Prof D.U.Thakar',
+                'department' => 'Electrical',
+                'description' => 'Tightly coupled powertrain inverter and regenerative braking control algorithm designed to maximize energy recovery and motor torque output under urban driving cycles.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1208,
+                'category' => 'patents',
+                'title' => 'Opinion Mining based Product Ranking System (OMPRS)',
+                'pub_year' => 2021,
+                'activity_date' => '2021-01-01',
+                'patent_category' => 'Utility',
+                'patent_status' => 'Published',
+                'faculty_name' => 'Dr. Nilesh Maltare',
+                'department' => 'IT',
+                'description' => 'Natural Language Processing and sentiment polarity mining engine that extracts aspect-level features from consumer review corpora to synthesize reliable multi-criteria product rankings.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1209,
+                'category' => 'patents',
+                'title' => 'IOT Enabled Dustbin',
+                'pub_year' => 2024,
+                'activity_date' => '2024-01-01',
+                'patent_category' => 'Design',
+                'patent_status' => 'Granted',
+                'faculty_name' => 'Prof. Vimal Rathod, Prof. Nilesh Goriya, Prof. Nainesh Nagekar, Prof. Upendra Bhoi',
+                'department' => 'IT',
+                'description' => 'Smart municipal waste receptacle casing with ultrasonic fill-level sensors, automated solar-powered lid mechanism, and cellular telemetry reporting to urban sanitation dashboards.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1210,
+                'category' => 'patents',
+                'title' => 'Universal Centrifugal Casting Machine',
+                'pub_year' => 2024,
+                'activity_date' => '2024-01-01',
+                'patent_category' => 'Utility',
+                'patent_status' => 'Published',
+                'faculty_name' => 'Prof. Jeetendra A. Vadher',
+                'department' => 'Mech',
+                'description' => 'Modular centrifugal casting apparatus accommodating both horizontal and vertical axis molds for casting flawless thin-walled hollow cylinders, bearing bushes, and composite alloys.',
                 'external_url' => '#'
             ]
         ],
@@ -734,10 +878,11 @@ function getCellActivities($category, $pdo = null) {
     if ($pdo) {
         initCellActivitiesTable($pdo);
         try {
+            $orderBy = ($category === 'patents') ? "display_order ASC, id ASC" : "activity_date DESC, id DESC";
             $stmt = $pdo->prepare("
                 SELECT * FROM cell_activities 
                 WHERE category = ? AND is_active = 1 
-                ORDER BY activity_date DESC, id DESC
+                ORDER BY {$orderBy}
             ");
             $stmt->execute([$category]);
             $dbRows = $stmt->fetchAll(PDO::FETCH_ASSOC);

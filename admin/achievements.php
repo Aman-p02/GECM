@@ -72,12 +72,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
 
+        // Patent-specific metadata
+        $patent_category = trim($_POST['patent_category'] ?? '');
+        $patent_status = trim($_POST['patent_status'] ?? '');
+        $faculty_name = trim($_POST['faculty_name'] ?? '');
+        $department = trim($_POST['department'] ?? '');
+        $pub_year = !empty($_POST['pub_year']) ? (int)$_POST['pub_year'] : (!empty($activity_date) ? (int)date('Y', strtotime($activity_date)) : 2026);
+        if ($category === 'patents' && empty($activity_date) && !empty($pub_year)) {
+            $activity_date = "{$pub_year}-01-01";
+        }
+
         if (!isset($categories[$category])) {
             $category = 'student_achievements';
         }
 
         if (empty($title)) {
-            setFlashMessage('danger', 'Achievement Title cannot be empty.');
+            setFlashMessage('danger', 'Title cannot be empty.');
             header("Location: achievements.php?category={$category}");
             exit;
         }
@@ -99,25 +109,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Handle Multiple Gallery Images
         $galleryList = handleMultipleImageUpload('gallery_files', 'cell_activities');
-        if (!empty($_POST['gallery_urls'])) {
-            $urlLines = preg_split('/[\r\n]+/', $_POST['gallery_urls']);
-            foreach ($urlLines as $line) {
-                $line = trim($line);
-                if (!empty($line)) {
-                    $galleryList[] = $line;
-                }
-            }
-        }
         $gallery_images = !empty($galleryList) ? json_encode(array_values(array_unique($galleryList))) : null;
 
         try {
             $stmt = $pdo->prepare("
                 INSERT INTO cell_activities 
-                (category, title, activity_date, image_url, gallery_images, description, external_url, display_order, is_active)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (category, title, activity_date, image_url, gallery_images, description, external_url, display_order, is_active, patent_category, patent_status, faculty_name, department, pub_year)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ");
-            $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active]);
-            setFlashMessage('success', "Achievement '{$title}' added successfully!");
+            $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active, $patent_category, $patent_status, $faculty_name, $department, $pub_year]);
+            setFlashMessage('success', "Record '{$title}' added successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
         }
@@ -135,12 +136,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $display_order = (int)($_POST['display_order'] ?? 0);
         $is_active = isset($_POST['is_active']) ? 1 : 0;
 
+        // Patent-specific metadata
+        $patent_category = trim($_POST['patent_category'] ?? '');
+        $patent_status = trim($_POST['patent_status'] ?? '');
+        $faculty_name = trim($_POST['faculty_name'] ?? '');
+        $department = trim($_POST['department'] ?? '');
+        $pub_year = !empty($_POST['pub_year']) ? (int)$_POST['pub_year'] : (!empty($activity_date) ? (int)date('Y', strtotime($activity_date)) : null);
+        if ($category === 'patents' && empty($activity_date) && !empty($pub_year)) {
+            $activity_date = "{$pub_year}-01-01";
+        }
+
         if (!isset($categories[$category])) {
             $category = 'student_achievements';
         }
 
         if (empty($title) || $id <= 0) {
-            setFlashMessage('danger', 'Invalid achievement ID or title.');
+            setFlashMessage('danger', 'Invalid record ID or title.');
             header("Location: achievements.php?category={$category}");
             exit;
         }
@@ -179,16 +190,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $finalGallery[] = $nu;
         }
 
-        // Add extra gallery URLs
-        if (!empty($_POST['gallery_urls'])) {
-            $urlLines = preg_split('/[\r\n]+/', $_POST['gallery_urls']);
-            foreach ($urlLines as $line) {
-                $line = trim($line);
-                if (!empty($line) && !in_array($line, $finalGallery)) {
-                    $finalGallery[] = $line;
-                }
-            }
-        }
         $gallery_images = !empty($finalGallery) ? json_encode(array_values(array_unique($finalGallery))) : null;
 
         try {
@@ -199,19 +200,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($exists) {
                 $stmt = $pdo->prepare("
                     UPDATE cell_activities 
-                    SET category = ?, title = ?, activity_date = ?, image_url = ?, gallery_images = ?, description = ?, external_url = ?, display_order = ?, is_active = ?
+                    SET category = ?, title = ?, activity_date = ?, image_url = ?, gallery_images = ?, description = ?, external_url = ?, display_order = ?, is_active = ?,
+                        patent_category = ?, patent_status = ?, faculty_name = ?, department = ?, pub_year = ?
                     WHERE id = ?
                 ");
-                $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active, $id]);
+                $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active, $patent_category, $patent_status, $faculty_name, $department, $pub_year, $id]);
             } else {
                 $stmt = $pdo->prepare("
                     INSERT INTO cell_activities 
-                    (category, title, activity_date, image_url, gallery_images, description, external_url, display_order, is_active)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    (category, title, activity_date, image_url, gallery_images, description, external_url, display_order, is_active, patent_category, patent_status, faculty_name, department, pub_year)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ");
-                $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active]);
+                $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active, $patent_category, $patent_status, $faculty_name, $department, $pub_year]);
             }
-            setFlashMessage('success', "Achievement updated successfully!");
+            setFlashMessage('success', "Record updated successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
         }
@@ -306,10 +308,11 @@ if ($pdo) {
             ");
             $stmt->execute($achievementKeys);
         } else {
+            $orderClause = ($selectedCategory === 'patents') ? "display_order ASC, id ASC" : "activity_date DESC, id DESC";
             $stmt = $pdo->prepare("
                 SELECT * FROM cell_activities 
                 WHERE category = ? 
-                ORDER BY activity_date DESC, id DESC
+                ORDER BY {$orderClause}
             ");
             $stmt->execute([$selectedCategory]);
         }
@@ -341,9 +344,11 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top" style="flex-wrap: wrap; gap: 14px;">
         <div class="card-title-group">
-            <h2 class="card-title">Manage Achievements</h2>
+            <h2 class="card-title"><?= ($selectedCategory === 'patents') ? 'Manage Patents &amp; IPR' : 'Manage Achievements' ?></h2>
             <p style="font-size: 0.85rem; color: #64748b; margin: 4px 0 0;">
-                Publish and manage accolades, awards, hackathon triumphs, and recognitions across Student, Faculty, and Institute categories.
+                <?= ($selectedCategory === 'patents') 
+                    ? 'Publish, edit, and organize patents granted and published by GEC Modasa faculty and student researchers.' 
+                    : 'Publish and manage accolades, awards, hackathon triumphs, and recognitions across Student, Faculty, and Institute categories.' ?>
             </p>
         </div>
         <div style="display: flex; gap: 10px; align-items: center; margin-left: auto;">
@@ -353,7 +358,7 @@ require_once __DIR__ . '/includes/header.php';
                 </a>
             <?php endif; ?>
             <button type="button" class="btn-add-new" onclick="openModal('addAchievementModal')">
-                + Add New Achievement
+                + <?= ($selectedCategory === 'patents') ? 'Add New Patent' : 'Add New Achievement' ?>
             </button>
         </div>
     </div>
@@ -374,7 +379,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="card-filters" style="margin-left: auto;">
             <div class="search-input-group">
                 <i class="fas fa-search"></i>
-                <input type="text" class="search-input" placeholder="Search achievements..." data-table-search="achievementsTable">
+                <input type="text" class="search-input" placeholder="Search <?= ($selectedCategory === 'patents') ? 'patents...' : 'achievements...' ?>" data-table-search="achievementsTable">
             </div>
         </div>
     </div>
@@ -382,81 +387,155 @@ require_once __DIR__ . '/includes/header.php';
     <!-- Data Table -->
     <div class="table-responsive">
         <table class="admin-table" id="achievementsTable">
-            <thead>
-                <tr>
-                    <th style="width: 120px;">Date</th>
-                    <th style="width: 130px;">Category</th>
-                    <th style="width: 80px;">Cover</th>
-                    <th>Achievement Title &amp; Details</th>
-                    <th style="width: 100px;">Status</th>
-                    <th style="width: 120px; text-align: center;">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (empty($activitiesList)): ?>
+            <?php if ($selectedCategory === 'patents'): ?>
+                <!-- Patents Specific Table Headers -->
+                <thead>
                     <tr>
-                        <td colspan="6" style="text-align: center; padding: 36px; color: #94a3b8;">
-                            No achievements found for this category. Click <strong>+ Add New Achievement</strong> to publish the first record.
-                        </td>
+                        <th style="width: 60px; text-align: center;">Sr. No.</th>
+                        <th>Title</th>
+                        <th style="width: 90px; text-align: center;">Year</th>
+                        <th style="width: 100px;">Category</th>
+                        <th style="width: 100px;">Status</th>
+                        <th>Faculty Name</th>
+                        <th style="width: 110px;">Department</th>
+                        <th style="width: 90px; text-align: center;">Status</th>
+                        <th style="width: 110px; text-align: center;">Actions</th>
                     </tr>
-                <?php else: ?>
-                    <?php foreach ($activitiesList as $row):
-                        $cat = strtolower(trim($row['category'] ?? 'student_achievements'));
-                        $catBadge = $categories[$cat]['badge'] ?? strtoupper($cat);
-                        $isActive = !isset($row['is_active']) || $row['is_active'] == 1;
-                        $photoSrc = !empty($row['image_url']) 
-                            ? ((strpos($row['image_url'], 'http') === 0) ? htmlspecialchars($row['image_url']) : htmlspecialchars('../' . ltrim($row['image_url'], '/'))) 
-                            : 'https://via.placeholder.com/80x50?text=Accolade';
-                    ?>
-                        <tr data-status="<?= $isActive ? 'active' : 'inactive' ?>">
-                            <td style="font-weight: 600; color: #ff8800; font-size: 13px; white-space: nowrap;">
-                                <i class="far fa-calendar-alt" style="margin-right: 4px;"></i>
-                                <?= !empty($row['activity_date']) ? date('d M Y', strtotime($row['activity_date'])) : 'Honour' ?>
-                            </td>
-                            <td>
-                                <span class="badge" style="background: #e2e8f0; color: #0f172a; font-weight: 700; font-size: 0.74rem; padding: 4px 8px; border-radius: 4px;">
-                                    <?= htmlspecialchars($catBadge) ?>
-                                </span>
-                            </td>
-                            <td>
-                                <div style="position: relative; display: inline-block;">
-                                    <img src="<?= $photoSrc ?>" alt="Cover" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Achievement';">
-                                    <?php 
-                                        $gal = !empty($row['gallery_images']) ? (is_array($row['gallery_images']) ? $row['gallery_images'] : json_decode($row['gallery_images'], true)) : [];
-                                        $extraCount = is_array($gal) ? count($gal) : 0;
-                                        if ($extraCount > 0): 
-                                    ?>
-                                        <span style="position: absolute; bottom: 2px; right: 2px; background: rgba(15,23,42,0.85); color: #fff; font-size: 10px; font-weight: 700; padding: 1px 4px; border-radius: 3px;" title="<?= $extraCount ?> gallery photos">
-                                            +<?= $extraCount ?>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-                            </td>
-                            <td>
-                                <div style="font-weight: 700; color: #0f172a; margin-bottom: 4px;">
-                                    <?= htmlspecialchars($row['title']) ?>
-                                </div>
-                                <div style="color: #64748b; font-size: 13px; line-height: 1.4; max-width: 480px;">
-                                    <?= htmlspecialchars(mb_strimwidth($row['description'] ?? '', 0, 140, '...')) ?>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="achievements.php?toggle=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="badge <?= $isActive ? 'badge-success' : 'badge-danger' ?>" style="text-decoration: none;" title="Click to toggle status">
-                                    <?= $isActive ? 'Active' : 'Inactive' ?>
-                                </a>
-                            </td>
-                            <td style="text-align: center; white-space: nowrap;">
-                                <a href="achievements.php?edit=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-edit" title="Edit Achievement">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="achievements.php?delete=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to permanently delete this achievement?');" title="Delete Achievement">
-                                    <i class="fas fa-trash-alt"></i>
-                                </a>
+                </thead>
+                <tbody>
+                    <?php if (empty($activitiesList)): ?>
+                        <tr>
+                            <td colspan="9" style="text-align: center; padding: 36px; color: #94a3b8;">
+                                No patents found. Click <strong>+ Add New Patent</strong> to publish the first record.
                             </td>
                         </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </tbody>
+                    <?php else: ?>
+                        <?php $sr = 1; foreach ($activitiesList as $row):
+                            $isActive = !isset($row['is_active']) || $row['is_active'] == 1;
+                            $pYear = $row['pub_year'] ?? (!empty($row['activity_date']) ? date('Y', strtotime($row['activity_date'])) : '2025');
+                            $pCat = $row['patent_category'] ?? 'Utility';
+                            $pStat = $row['patent_status'] ?? 'Published';
+                            $pFac = $row['faculty_name'] ?? '';
+                            $pDept = $row['department'] ?? '';
+                        ?>
+                            <tr data-status="<?= $isActive ? 'active' : 'inactive' ?>">
+                                <td style="text-align: center; font-weight: 700; color: #64748b;"><?= $sr++ ?></td>
+                                <td>
+                                    <div style="font-weight: 700; color: #0f172a; line-height: 1.4;"><?= htmlspecialchars($row['title']) ?></div>
+                                    <?php if (!empty($row['description'])): ?>
+                                        <div style="color: #64748b; font-size: 12px; margin-top: 3px; max-width: 450px;">
+                                            <?= htmlspecialchars(mb_strimwidth($row['description'], 0, 110, '...')) ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </td>
+                                <td style="text-align: center; font-weight: 700; color: #0284c7;"><?= htmlspecialchars($pYear) ?></td>
+                                <td>
+                                    <span class="badge" style="background: <?= ($pCat === 'Design') ? '#e0f2fe; color: #0369a1;' : '#fef3c7; color: #b45309;' ?> font-weight: 600; padding: 4px 8px; border-radius: 4px;">
+                                        <?= htmlspecialchars($pCat) ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge" style="font-weight: 700; padding: 4px 8px; border-radius: 4px; <?= ($pStat === 'Granted') ? 'background:#dcfce7; color:#15803d;' : 'background:#e0e7ff; color:#4338ca;' ?>">
+                                        <?= htmlspecialchars($pStat) ?>
+                                    </span>
+                                </td>
+                                <td style="font-size: 13px; color: #334155; max-width: 260px; line-height: 1.4;"><?= htmlspecialchars($pFac) ?></td>
+                                <td style="font-weight: 600; color: #0f172a; font-size: 13px;"><?= htmlspecialchars($pDept) ?></td>
+                                <td style="text-align: center;">
+                                    <a href="achievements.php?toggle=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="badge <?= $isActive ? 'badge-success' : 'badge-danger' ?>" style="text-decoration: none;" title="Click to toggle status">
+                                        <?= $isActive ? 'Active' : 'Inactive' ?>
+                                    </a>
+                                </td>
+                                <td style="text-align: center; white-space: nowrap;">
+                                    <a href="achievements.php?edit=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-edit" title="Edit Patent">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="achievements.php?delete=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to permanently delete this patent?');" title="Delete Patent">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </tbody>
+            <?php else: ?>
+                <!-- Standard Achievements Table -->
+                <thead>
+                    <tr>
+                        <th style="width: 120px;">Date</th>
+                        <th style="width: 130px;">Category</th>
+                        <th style="width: 80px;">Cover</th>
+                        <th>Achievement Title &amp; Details</th>
+                        <th style="width: 100px;">Status</th>
+                        <th style="width: 120px; text-align: center;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (empty($activitiesList)): ?>
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 36px; color: #94a3b8;">
+                                No achievements found for this category. Click <strong>+ Add New Achievement</strong> to publish the first record.
+                            </td>
+                        </tr>
+                    <?php else: ?>
+                        <?php foreach ($activitiesList as $row):
+                            $cat = strtolower(trim($row['category'] ?? 'student_achievements'));
+                            $catBadge = $categories[$cat]['badge'] ?? strtoupper($cat);
+                            $isActive = !isset($row['is_active']) || $row['is_active'] == 1;
+                            $photoSrc = !empty($row['image_url']) 
+                                ? ((strpos($row['image_url'], 'http') === 0) ? htmlspecialchars($row['image_url']) : htmlspecialchars('../' . ltrim($row['image_url'], '/'))) 
+                                : 'https://via.placeholder.com/80x50?text=Accolade';
+                        ?>
+                            <tr data-status="<?= $isActive ? 'active' : 'inactive' ?>">
+                                <td style="font-weight: 600; color: #ff8800; font-size: 13px; white-space: nowrap;">
+                                    <i class="far fa-calendar-alt" style="margin-right: 4px;"></i>
+                                    <?= !empty($row['activity_date']) ? date('d M Y', strtotime($row['activity_date'])) : 'Honour' ?>
+                                </td>
+                                <td>
+                                    <span class="badge" style="background: #e2e8f0; color: #0f172a; font-weight: 700; font-size: 0.74rem; padding: 4px 8px; border-radius: 4px;">
+                                        <?= htmlspecialchars($catBadge) ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div style="position: relative; display: inline-block;">
+                                        <img src="<?= $photoSrc ?>" alt="Cover" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Achievement';">
+                                        <?php 
+                                            $gal = !empty($row['gallery_images']) ? (is_array($row['gallery_images']) ? $row['gallery_images'] : json_decode($row['gallery_images'], true)) : [];
+                                            $extraCount = is_array($gal) ? count($gal) : 0;
+                                            if ($extraCount > 0): 
+                                        ?>
+                                            <span style="position: absolute; bottom: 2px; right: 2px; background: rgba(15,23,42,0.85); color: #fff; font-size: 10px; font-weight: 700; padding: 1px 4px; border-radius: 3px;" title="<?= $extraCount ?> gallery photos">
+                                                +<?= $extraCount ?>
+                                            </span>
+                                        <?php endif; ?>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-weight: 700; color: #0f172a; margin-bottom: 4px;">
+                                        <?= htmlspecialchars($row['title']) ?>
+                                    </div>
+                                    <div style="color: #64748b; font-size: 13px; line-height: 1.4; max-width: 480px;">
+                                        <?= htmlspecialchars(mb_strimwidth($row['description'] ?? '', 0, 140, '...')) ?>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="achievements.php?toggle=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="badge <?= $isActive ? 'badge-success' : 'badge-danger' ?>" style="text-decoration: none;" title="Click to toggle status">
+                                        <?= $isActive ? 'Active' : 'Inactive' ?>
+                                    </a>
+                                </td>
+                                <td style="text-align: center; white-space: nowrap;">
+                                    <a href="achievements.php?edit=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-edit" title="Edit Achievement">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="achievements.php?delete=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to permanently delete this achievement?');" title="Delete Achievement">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </tbody>
+            <?php endif; ?>
         </table>
     </div>
 </div>
@@ -555,19 +634,19 @@ require_once __DIR__ . '/includes/header.php';
 </style>
 
 <!-- ==========================================================================
-     ADD ACHIEVEMENT MODAL
+     ADD RECORD MODAL (DYNAMIC: PATENT VS STANDARD ACHIEVEMENT)
      ========================================================================== -->
 <div class="modal-overlay" id="addAchievementModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title">+ Add New Achievement</h3>
+            <h3 class="modal-title"><?= ($selectedCategory === 'patents') ? '+ Add New Patent' : '+ Add New Achievement' ?></h3>
             <button type="button" class="modal-close" onclick="closeModal('addAchievementModal')">&times;</button>
         </div>
         <form action="achievements.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="action" value="add">
             <div class="modal-body">
                 <div class="form-group" style="margin-bottom: 16px;">
-                    <label style="display:block; font-weight:600; margin-bottom:6px;">Achievement Category <span style="color:red;">*</span></label>
+                    <label style="display:block; font-weight:600; margin-bottom:6px;">Category <span style="color:red;">*</span></label>
                     <select name="category" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
                         <?php foreach ($categories as $catKey => $catMeta): ?>
                             <option value="<?= $catKey ?>" <?= ($selectedCategory === $catKey) ? 'selected' : '' ?>>
@@ -578,42 +657,86 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="form-group" style="margin-bottom: 16px;">
-                    <label style="display:block; font-weight:600; margin-bottom:6px;">Achievement Title <span style="color:red;">*</span></label>
-                    <input type="text" name="title" class="form-control" placeholder="e.g. Smart India Hackathon 1st Prize Winner" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                    <label style="display:block; font-weight:600; margin-bottom:6px;"><?= ($selectedCategory === 'patents') ? 'Patent Title' : 'Achievement Title' ?> <span style="color:red;">*</span></label>
+                    <input type="text" name="title" class="form-control" placeholder="<?= ($selectedCategory === 'patents') ? 'e.g. Real-Time Road Safety System with IoT Studs' : 'e.g. Smart India Hackathon 1st Prize Winner' ?>" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
                 </div>
 
-                <div style="display: flex; gap: 14px; margin-bottom: 16px;">
-                    <div style="flex: 1;">
-                        <label style="display:block; font-weight:600; margin-bottom:6px;">Date / Year</label>
-                        <input type="date" name="activity_date" class="form-control" value="<?= date('Y-m-d') ?>" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                <?php if ($selectedCategory === 'patents'): ?>
+                    <!-- Patent Specific Form Fields -->
+                    <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Year of Publication <span style="color:red;">*</span></label>
+                            <input type="number" name="pub_year" class="form-control" value="<?= date('Y') ?>" min="2000" max="2035" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                        </div>
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Category <span style="color:red;">*</span></label>
+                            <select name="patent_category" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                                <option value="Utility" selected>Utility</option>
+                                <option value="Design">Design</option>
+                            </select>
+                        </div>
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Status <span style="color:red;">*</span></label>
+                            <select name="patent_status" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                                <option value="Published" selected>Published</option>
+                                <option value="Granted">Granted</option>
+                            </select>
+                        </div>
                     </div>
-                    <div style="flex: 1;">
-                        <label style="display:block; font-weight:600; margin-bottom:6px;">Certificate / External URL</label>
+
+                    <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                        <div style="flex: 2;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Faculty Name(s) / Inventors <span style="color:red;">*</span></label>
+                            <input type="text" name="faculty_name" class="form-control" placeholder="e.g. Prof. N. N. Maltare, Prof. Safvan Vahora" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                        </div>
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Department <span style="color:red;">*</span></label>
+                            <input type="text" name="department" class="form-control" placeholder="e.g. CE,IT,EC" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Certificate / Gazette URL (Optional)</label>
                         <input type="text" name="external_url" class="form-control" placeholder="https://..." value="#" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
                     </div>
-                </div>
 
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label style="display:block; font-weight:600; margin-bottom:6px;">Primary Cover Image</label>
-                    <input type="file" name="image_file" class="form-control" accept="image/*" style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db;">
-                    <small style="color: #64748b; display: block; margin-top: 4px;">Or enter primary image URL:</small>
-                    <input type="text" name="image_url" class="form-control" placeholder="images/hero_campus_1.jpg" style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px;">
-                </div>
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Patent Brief / Summary (Optional)</label>
+                        <textarea name="description" rows="3" class="form-control" placeholder="Brief technical summary or application area..." style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;"></textarea>
+                    </div>
+                <?php else: ?>
+                    <!-- Standard Achievement Form Fields -->
+                    <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Date / Year</label>
+                            <input type="date" name="activity_date" class="form-control" value="<?= date('Y-m-d') ?>" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                        </div>
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Certificate / External URL</label>
+                            <input type="text" name="external_url" class="form-control" placeholder="https://..." value="#" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                        </div>
+                    </div>
 
-                <div class="form-group" style="margin-bottom: 16px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 14px;">
-                    <label style="display:flex; align-items:center; gap:8px; font-weight:700; color:#0f172a; margin-bottom:4px;">
-                        <i class="far fa-images" style="color:#ff8800;"></i> Additional Gallery Photos (For Auto Slider)
-                    </label>
-                    <p style="font-size:12px; color:#64748b; margin:0 0 8px;">Select multiple event photos (Hold Ctrl / Shift to select multiple images). They will slide smoothly in the detail popup!</p>
-                    <input type="file" name="gallery_files[]" class="form-control" accept="image/*" multiple style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db; background:#fff;">
-                    <small style="color: #64748b; display: block; margin-top: 6px;">Or enter additional image URLs (one per line):</small>
-                    <textarea name="gallery_urls" rows="2" class="form-control" placeholder="https://...&#10;https://..." style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px; font-size:12px; background:#fff;"></textarea>
-                </div>
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Primary Cover Image</label>
+                        <input type="file" name="image_file" class="form-control" accept="image/*" style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                        <small style="color: #64748b; display: block; margin-top: 4px;">Or enter primary image URL:</small>
+                        <input type="text" name="image_url" class="form-control" placeholder="images/hero_campus_1.jpg" style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px;">
+                    </div>
 
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label style="display:block; font-weight:600; margin-bottom:6px;">Description / Award Highlights</label>
-                    <textarea name="description" rows="4" class="form-control" placeholder="Enter detailed description of the achievement..." style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;"></textarea>
-                </div>
+                    <div class="form-group" style="margin-bottom: 16px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 14px;">
+                        <label style="display:flex; align-items:center; gap:8px; font-weight:700; color:#0f172a; margin-bottom:4px;">
+                            <i class="far fa-images" style="color:#ff8800;"></i> Additional Gallery Photos (For Auto Slider)
+                        </label>
+                        <p style="font-size:12px; color:#64748b; margin:0 0 8px;">Select multiple event photos (Hold Ctrl / Shift to select multiple images). They will slide smoothly in the detail popup!</p>
+                        <input type="file" name="gallery_files[]" class="form-control" accept="image/*" multiple style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db; background:#fff;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Description / Award Highlights</label>
+                        <textarea name="description" rows="4" class="form-control" placeholder="Enter detailed description of the achievement..." style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;"></textarea>
+                    </div>
+                <?php endif; ?>
 
                 <div class="form-group" style="margin-bottom: 8px;">
                     <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-weight: 600;">
@@ -624,20 +747,24 @@ require_once __DIR__ . '/includes/header.php';
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="closeModal('addAchievementModal')">Cancel</button>
-                <button type="submit" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 600;">Save Achievement</button>
+                <button type="submit" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 600;">
+                    <?= ($selectedCategory === 'patents') ? 'Save Patent' : 'Save Achievement' ?>
+                </button>
             </div>
         </form>
     </div>
 </div>
 
 <!-- ==========================================================================
-     EDIT ACHIEVEMENT MODAL
+     EDIT RECORD MODAL (DYNAMIC: PATENT VS STANDARD ACHIEVEMENT)
      ========================================================================== -->
-<?php if ($editItem): ?>
+<?php if ($editItem): 
+    $isEditPatent = ($editItem['category'] === 'patents');
+?>
 <div class="modal-overlay active show is-open" id="editAchievementModal">
     <div class="modal-dialog">
         <div class="modal-header">
-            <h3 class="modal-title">Edit Achievement #<?= $editItem['id'] ?></h3>
+            <h3 class="modal-title"><?= $isEditPatent ? ('Edit Patent #' . $editItem['id']) : ('Edit Achievement #' . $editItem['id']) ?></h3>
             <a href="achievements.php?category=<?= $selectedCategory ?>" class="modal-close" style="text-decoration: none;">&times;</a>
         </div>
         <form action="achievements.php" method="POST" enctype="multipart/form-data">
@@ -645,7 +772,7 @@ require_once __DIR__ . '/includes/header.php';
             <input type="hidden" name="id" value="<?= $editItem['id'] ?>">
             <div class="modal-body">
                 <div class="form-group" style="margin-bottom: 16px;">
-                    <label style="display:block; font-weight:600; margin-bottom:6px;">Achievement Category <span style="color:red;">*</span></label>
+                    <label style="display:block; font-weight:600; margin-bottom:6px;">Category <span style="color:red;">*</span></label>
                     <select name="category" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
                         <?php foreach ($categories as $catKey => $catMeta): ?>
                             <option value="<?= $catKey ?>" <?= ($editItem['category'] === $catKey) ? 'selected' : '' ?>>
@@ -656,69 +783,118 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="form-group" style="margin-bottom: 16px;">
-                    <label style="display:block; font-weight:600; margin-bottom:6px;">Achievement Title <span style="color:red;">*</span></label>
+                    <label style="display:block; font-weight:600; margin-bottom:6px;"><?= $isEditPatent ? 'Patent Title' : 'Achievement Title' ?> <span style="color:red;">*</span></label>
                     <input type="text" name="title" class="form-control" value="<?= htmlspecialchars($editItem['title'] ?? '') ?>" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
                 </div>
 
-                <div style="display: flex; gap: 14px; margin-bottom: 16px;">
-                    <div style="flex: 1;">
-                        <label style="display:block; font-weight:600; margin-bottom:6px;">Date / Year</label>
-                        <input type="date" name="activity_date" class="form-control" value="<?= htmlspecialchars($editItem['activity_date'] ?? '') ?>" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                <?php if ($isEditPatent): ?>
+                    <!-- Patent Specific Edit Fields -->
+                    <?php
+                        $curYear = $editItem['pub_year'] ?? (!empty($editItem['activity_date']) ? date('Y', strtotime($editItem['activity_date'])) : '2025');
+                        $curCat = $editItem['patent_category'] ?? 'Utility';
+                        $curStat = $editItem['patent_status'] ?? 'Published';
+                    ?>
+                    <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Year of Publication <span style="color:red;">*</span></label>
+                            <input type="number" name="pub_year" class="form-control" value="<?= htmlspecialchars($curYear) ?>" min="2000" max="2035" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                        </div>
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Category <span style="color:red;">*</span></label>
+                            <select name="patent_category" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                                <option value="Utility" <?= ($curCat === 'Utility') ? 'selected' : '' ?>>Utility</option>
+                                <option value="Design" <?= ($curCat === 'Design') ? 'selected' : '' ?>>Design</option>
+                            </select>
+                        </div>
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Status <span style="color:red;">*</span></label>
+                            <select name="patent_status" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                                <option value="Published" <?= ($curStat === 'Published') ? 'selected' : '' ?>>Published</option>
+                                <option value="Granted" <?= ($curStat === 'Granted') ? 'selected' : '' ?>>Granted</option>
+                            </select>
+                        </div>
                     </div>
-                    <div style="flex: 1;">
-                        <label style="display:block; font-weight:600; margin-bottom:6px;">Certificate / External URL</label>
+
+                    <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                        <div style="flex: 2;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Faculty Name(s) / Inventors <span style="color:red;">*</span></label>
+                            <input type="text" name="faculty_name" class="form-control" value="<?= htmlspecialchars($editItem['faculty_name'] ?? '') ?>" placeholder="e.g. Prof. N. N. Maltare, Prof. Safvan Vahora" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                        </div>
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Department <span style="color:red;">*</span></label>
+                            <input type="text" name="department" class="form-control" value="<?= htmlspecialchars($editItem['department'] ?? '') ?>" placeholder="e.g. CE,IT,EC" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Certificate / Gazette URL</label>
                         <input type="text" name="external_url" class="form-control" value="<?= htmlspecialchars($editItem['external_url'] ?? '#') ?>" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
                     </div>
-                </div>
 
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label style="display:block; font-weight:600; margin-bottom:6px;">Change Primary Cover Image</label>
-                    <?php if (!empty($editItem['image_url'])): ?>
-                        <div style="margin-bottom: 8px;">
-                            <img src="<?= (strpos($editItem['image_url'], 'http') === 0) ? htmlspecialchars($editItem['image_url']) : htmlspecialchars('../' . ltrim($editItem['image_url'], '/')) ?>" alt="Current Cover" style="width: 80px; height: 50px; border-radius: 4px; object-fit: cover; border: 1px solid #ddd;">
-                            <span style="font-size:12px; color:#64748b; margin-left:8px;">Current Primary Image</span>
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Patent Brief / Summary</label>
+                        <textarea name="description" rows="3" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;"><?= htmlspecialchars($editItem['description'] ?? '') ?></textarea>
+                    </div>
+                <?php else: ?>
+                    <!-- Standard Achievement Edit Fields -->
+                    <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Date / Year</label>
+                            <input type="date" name="activity_date" class="form-control" value="<?= htmlspecialchars($editItem['activity_date'] ?? '') ?>" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
                         </div>
-                    <?php endif; ?>
-                    <input type="file" name="image_file" class="form-control" accept="image/*" style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db;">
-                    <input type="text" name="image_url" class="form-control" value="<?= htmlspecialchars($editItem['image_url'] ?? '') ?>" placeholder="Image URL / path" style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px;">
-                </div>
-
-                <div class="form-group" style="margin-bottom: 16px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 14px;">
-                    <label style="display:flex; align-items:center; gap:8px; font-weight:700; color:#0f172a; margin-bottom:4px;">
-                        <i class="far fa-images" style="color:#ff8800;"></i> Event Gallery Photos (For Auto Slider)
-                    </label>
-                    <?php 
-                    $existingGallery = [];
-                    if (!empty($editItem['gallery_images'])) {
-                        $dec = is_array($editItem['gallery_images']) ? $editItem['gallery_images'] : json_decode($editItem['gallery_images'], true);
-                        if (is_array($dec)) $existingGallery = $dec;
-                    }
-                    if (!empty($existingGallery)): 
-                    ?>
-                        <p style="font-size:12px; color:#334155; margin:0 0 6px; font-weight:600;">Currently Saved Photos (Uncheck to remove):</p>
-                        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
-                            <?php foreach ($existingGallery as $gUrl): 
-                                $src = (strpos($gUrl, 'http') === 0) ? htmlspecialchars($gUrl) : htmlspecialchars('../' . ltrim($gUrl, '/'));
-                            ?>
-                                <label style="display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer;">
-                                    <img src="<?= $src ?>" style="width:65px; height:45px; object-fit:cover; border-radius:4px; border:1px solid #cbd5e1;">
-                                    <span style="font-size:11px; display:inline-flex; align-items:center; gap:3px;">
-                                        <input type="checkbox" name="keep_gallery[]" value="<?= htmlspecialchars($gUrl) ?>" checked> Keep
-                                    </span>
-                                </label>
-                            <?php endforeach; ?>
+                        <div style="flex: 1;">
+                            <label style="display:block; font-weight:600; margin-bottom:6px;">Certificate / External URL</label>
+                            <input type="text" name="external_url" class="form-control" value="<?= htmlspecialchars($editItem['external_url'] ?? '#') ?>" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
                         </div>
-                    <?php endif; ?>
-                    <p style="font-size:12px; color:#64748b; margin:0 0 6px;">Add more photos from your device:</p>
-                    <input type="file" name="gallery_files[]" class="form-control" accept="image/*" multiple style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db; background:#fff;">
-                    <small style="color: #64748b; display: block; margin-top: 6px;">Or add more image URLs (one per line):</small>
-                    <textarea name="gallery_urls" rows="2" class="form-control" placeholder="https://...&#10;https://..." style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px; font-size:12px; background:#fff;"></textarea>
-                </div>
+                    </div>
 
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label style="display:block; font-weight:600; margin-bottom:6px;">Description / Award Highlights</label>
-                    <textarea name="description" rows="4" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;"><?= htmlspecialchars($editItem['description'] ?? '') ?></textarea>
-                </div>
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Change Primary Cover Image</label>
+                        <?php if (!empty($editItem['image_url'])): ?>
+                            <div style="margin-bottom: 8px;">
+                                <img src="<?= (strpos($editItem['image_url'], 'http') === 0) ? htmlspecialchars($editItem['image_url']) : htmlspecialchars('../' . ltrim($editItem['image_url'], '/')) ?>" alt="Current Cover" style="width: 80px; height: 50px; border-radius: 4px; object-fit: cover; border: 1px solid #ddd;">
+                                <span style="font-size:12px; color:#64748b; margin-left:8px;">Current Primary Image</span>
+                            </div>
+                        <?php endif; ?>
+                        <input type="file" name="image_file" class="form-control" accept="image/*" style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                        <input type="text" name="image_url" class="form-control" value="<?= htmlspecialchars($editItem['image_url'] ?? '') ?>" placeholder="Image URL / path" style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 16px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 14px;">
+                        <label style="display:flex; align-items:center; gap:8px; font-weight:700; color:#0f172a; margin-bottom:4px;">
+                            <i class="far fa-images" style="color:#ff8800;"></i> Event Gallery Photos (For Auto Slider)
+                        </label>
+                        <?php 
+                        $existingGallery = [];
+                        if (!empty($editItem['gallery_images'])) {
+                            $dec = is_array($editItem['gallery_images']) ? $editItem['gallery_images'] : json_decode($editItem['gallery_images'], true);
+                            if (is_array($dec)) $existingGallery = $dec;
+                        }
+                        if (!empty($existingGallery)): 
+                        ?>
+                            <p style="font-size:12px; color:#334155; margin:0 0 6px; font-weight:600;">Currently Saved Photos (Uncheck to remove):</p>
+                            <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+                                <?php foreach ($existingGallery as $gUrl): 
+                                    $src = (strpos($gUrl, 'http') === 0) ? htmlspecialchars($gUrl) : htmlspecialchars('../' . ltrim($gUrl, '/'));
+                                ?>
+                                    <label style="display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer;">
+                                        <img src="<?= $src ?>" style="width:65px; height:45px; object-fit:cover; border-radius:4px; border:1px solid #cbd5e1;">
+                                        <span style="font-size:11px; display:inline-flex; align-items:center; gap:3px;">
+                                            <input type="checkbox" name="keep_gallery[]" value="<?= htmlspecialchars($gUrl) ?>" checked> Keep
+                                        </span>
+                                    </label>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                        <p style="font-size:12px; color:#64748b; margin:0 0 6px;">Add more photos from your device:</p>
+                        <input type="file" name="gallery_files[]" class="form-control" accept="image/*" multiple style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db; background:#fff;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 16px;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Description / Award Highlights</label>
+                        <textarea name="description" rows="4" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;"><?= htmlspecialchars($editItem['description'] ?? '') ?></textarea>
+                    </div>
+                <?php endif; ?>
 
                 <div class="form-group" style="margin-bottom: 8px;">
                     <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-weight: 600;">
@@ -729,7 +905,9 @@ require_once __DIR__ . '/includes/header.php';
             </div>
             <div class="modal-footer">
                 <a href="achievements.php?category=<?= $selectedCategory ?>" class="btn btn-secondary" style="text-decoration:none;">Cancel</a>
-                <button type="submit" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 600;">Update Achievement</button>
+                <button type="submit" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 600;">
+                    <?= $isEditPatent ? 'Update Patent' : 'Update Achievement' ?>
+                </button>
             </div>
         </form>
     </div>

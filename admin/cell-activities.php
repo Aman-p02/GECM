@@ -609,8 +609,6 @@ require_once __DIR__ . '/includes/header.php';
                     </label>
                     <p style="font-size:12px; color:#64748b; margin:0 0 8px;">Select multiple event photos (Hold Ctrl / Shift to select multiple images). They will slide automatically every 2.5s in the detail view!</p>
                     <input type="file" name="gallery_files[]" class="form-control" accept="image/*" multiple style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db; background:#fff;">
-                    <small style="color: #64748b; display: block; margin-top: 6px;">Or enter additional image URLs (one per line):</small>
-                    <textarea name="gallery_urls" rows="2" class="form-control" placeholder="https://...&#10;https://..." style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px; font-size:12px; background:#fff;"></textarea>
                 </div>
 
                 <div class="form-group" style="margin-bottom: 16px;">
@@ -716,8 +714,6 @@ require_once __DIR__ . '/includes/header.php';
                     <?php endif; ?>
                     <p style="font-size:12px; color:#64748b; margin:0 0 6px;">Upload additional photos (select multiple):</p>
                     <input type="file" name="gallery_files[]" class="form-control" accept="image/*" multiple style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db; background:#fff;">
-                    <small style="color: #64748b; display: block; margin-top: 6px;">Add more image URLs (one per line):</small>
-                    <textarea name="gallery_urls" rows="2" class="form-control" placeholder="https://...&#10;https://..." style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px; font-size:12px; background:#fff;"></textarea>
                 </div>
 
                 <div class="form-group" style="margin-bottom: 16px;">
