@@ -936,3 +936,370 @@ function getCombinedCellActivities($categories, $pdo = null) {
 
     return $result;
 }
+
+/**
+ * --------------------------------------------------------------------------
+ * TECHNOPRENEUR CLUB TEAM & MENTORS HELPER
+ * --------------------------------------------------------------------------
+ */
+
+/**
+ * Initialize Technopreneur Team Table and seed default official members
+ */
+function initTechnopreneurTeamTable($pdo) {
+    if (!$pdo) return;
+
+    try {
+        $pdo->exec("
+            CREATE TABLE IF NOT EXISTS technopreneur_team (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                group_type VARCHAR(50) NOT NULL, -- 'convener', 'faculty_coordinator', 'student_leadership', 'advisory_board'
+                name VARCHAR(255) NOT NULL,
+                designation_or_role VARCHAR(255) NULL,
+                department VARCHAR(255) NULL,
+                display_order INT DEFAULT 0,
+                is_active TINYINT(1) DEFAULT 1,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                INDEX idx_group (group_type),
+                INDEX idx_order (display_order)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        ");
+
+        // Seed default team members if table is empty
+        $count = $pdo->query("SELECT COUNT(*) FROM technopreneur_team")->fetchColumn();
+        if ($count == 0) {
+            $defaultMembers = getTechnopreneurTeamFallbackData();
+            $stmt = $pdo->prepare("
+                INSERT INTO technopreneur_team (group_type, name, designation_or_role, department, display_order, is_active)
+                VALUES (?, ?, ?, ?, ?, 1)
+            ");
+            foreach ($defaultMembers as $m) {
+                $stmt->execute([
+                    $m['group_type'],
+                    $m['name'],
+                    $m['designation_or_role'] ?? '',
+                    $m['department'] ?? '',
+                    $m['display_order'] ?? 0
+                ]);
+            }
+        }
+    } catch (Exception $e) {
+        error_log("initTechnopreneurTeamTable error: " . $e->getMessage());
+    }
+}
+
+/**
+ * Fallback Seed Data for Technopreneur Team matching official GECM records
+ */
+function getTechnopreneurTeamFallbackData() {
+    return [
+        // 1. Convener
+        [
+            'id' => 1,
+            'group_type' => 'convener',
+            'name' => 'Dr. H. R. Patel',
+            'designation_or_role' => 'Assistant Professor',
+            'department' => 'Information Technology Department',
+            'display_order' => 1
+        ],
+
+        // 2. Faculty Coordinators (Computer Engineering Department)
+        [
+            'id' => 10,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Dr. R. N. Vaza',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 10
+        ],
+        [
+            'id' => 11,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Dr. A. B. Parmar',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 11
+        ],
+        [
+            'id' => 12,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. M. K. Rathva',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 12
+        ],
+        [
+            'id' => 13,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. P. A. Bhura',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 13
+        ],
+        [
+            'id' => 14,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. M. V. Chauhan',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 14
+        ],
+        [
+            'id' => 15,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. U. R. Bhoi',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 15
+        ],
+
+        // Faculty Coordinators (Information Technology Department)
+        [
+            'id' => 20,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Dr. P. S. Modi',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Information Technology Department',
+            'display_order' => 20
+        ],
+        [
+            'id' => 21,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. V. A. Rathod',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Information Technology Department',
+            'display_order' => 21
+        ],
+        [
+            'id' => 22,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. A. A. Prajapati',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Information Technology Department',
+            'display_order' => 22
+        ],
+
+        // Faculty Coordinators (Electrical Engineering Department)
+        [
+            'id' => 30,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. D. U. Thakar',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Electrical Engineering Department',
+            'display_order' => 30
+        ],
+        [
+            'id' => 31,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Dr. H. S. Pandya',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Electrical Engineering Department',
+            'display_order' => 31
+        ],
+
+        // Faculty Coordinators (Mechanical Engineering Department)
+        [
+            'id' => 40,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Dr. P. M. Mistri',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Mechanical Engineering Department',
+            'display_order' => 40
+        ],
+        [
+            'id' => 41,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. M. G. Patel',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Mechanical Engineering Department',
+            'display_order' => 41
+        ],
+        [
+            'id' => 42,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. H. I. Chaudhari',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Mechanical Engineering Department',
+            'display_order' => 42
+        ],
+
+        // Faculty Coordinators (Automobile Engineering Department)
+        [
+            'id' => 50,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. K. V. Fadadu',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Automobile Engineering Department',
+            'display_order' => 50
+        ],
+
+        // Faculty Coordinators (Civil Engineering Department)
+        [
+            'id' => 60,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. H. B. Thakar',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Civil Engineering Department',
+            'display_order' => 60
+        ],
+
+        // Faculty Coordinators (Electronics & Communication Engineering Department)
+        [
+            'id' => 70,
+            'group_type' => 'faculty_coordinator',
+            'name' => 'Prof. M. S. Chauhan',
+            'designation_or_role' => 'Faculty Coordinator',
+            'department' => 'Electronics & Communication Engineering Department',
+            'display_order' => 70
+        ],
+
+        // 3. Student Leadership
+        [
+            'id' => 101,
+            'group_type' => 'student_leadership',
+            'name' => 'Tanmay Panchal',
+            'designation_or_role' => 'President',
+            'department' => 'Information Technology Department',
+            'display_order' => 101
+        ],
+        [
+            'id' => 102,
+            'group_type' => 'student_leadership',
+            'name' => 'Vishva Modi',
+            'designation_or_role' => 'Vice President',
+            'department' => 'Information Technology Department',
+            'display_order' => 102
+        ],
+        [
+            'id' => 103,
+            'group_type' => 'student_leadership',
+            'name' => 'Bhavya Davda',
+            'designation_or_role' => 'Vice President',
+            'department' => 'Information Technology Department',
+            'display_order' => 103
+        ],
+        [
+            'id' => 104,
+            'group_type' => 'student_leadership',
+            'name' => 'Miraj Vaghela',
+            'designation_or_role' => 'Secretary',
+            'department' => 'Information Technology Department',
+            'display_order' => 104
+        ],
+
+        // 4. Advisory Board
+        [
+            'id' => 201,
+            'group_type' => 'advisory_board',
+            'name' => 'Darshil Patel',
+            'designation_or_role' => 'Advisory Member',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 201
+        ],
+        [
+            'id' => 202,
+            'group_type' => 'advisory_board',
+            'name' => 'Darshana Panchal',
+            'designation_or_role' => 'Advisory Member',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 202
+        ],
+        [
+            'id' => 203,
+            'group_type' => 'advisory_board',
+            'name' => 'Satyajeetsinh Dodiya',
+            'designation_or_role' => 'Advisory Member',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 203
+        ],
+        [
+            'id' => 204,
+            'group_type' => 'advisory_board',
+            'name' => 'Jayrajsinh Zala',
+            'designation_or_role' => 'Advisory Member',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 204
+        ],
+        [
+            'id' => 205,
+            'group_type' => 'advisory_board',
+            'name' => 'Jayendra Dabhi',
+            'designation_or_role' => 'Advisory Member',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 205
+        ],
+        [
+            'id' => 206,
+            'group_type' => 'advisory_board',
+            'name' => 'Bhargav Singh',
+            'designation_or_role' => 'Advisory Member',
+            'department' => 'Information Technology Department',
+            'display_order' => 206
+        ],
+        [
+            'id' => 207,
+            'group_type' => 'advisory_board',
+            'name' => 'Zeel Pathak',
+            'designation_or_role' => 'Advisory Member',
+            'department' => 'Information Technology Department',
+            'display_order' => 207
+        ],
+        [
+            'id' => 208,
+            'group_type' => 'advisory_board',
+            'name' => 'Abhishek Singh',
+            'designation_or_role' => 'Advisory Member',
+            'department' => 'Information Technology Department',
+            'display_order' => 208
+        ],
+        [
+            'id' => 209,
+            'group_type' => 'advisory_board',
+            'name' => 'Shivam Ojha',
+            'designation_or_role' => 'Advisory Member',
+            'department' => 'Computer Engineering Department',
+            'display_order' => 209
+        ]
+    ];
+}
+
+/**
+ * Fetch Technopreneur Team members from Database or fallback
+ */
+function getTechnopreneurTeam($groupType = null, $pdo = null) {
+    if ($pdo) {
+        initTechnopreneurTeamTable($pdo);
+        try {
+            if ($groupType) {
+                $stmt = $pdo->prepare("
+                    SELECT * FROM technopreneur_team 
+                    WHERE group_type = ? AND is_active = 1 
+                    ORDER BY display_order ASC, id ASC
+                ");
+                $stmt->execute([$groupType]);
+            } else {
+                $stmt = $pdo->query("
+                    SELECT * FROM technopreneur_team 
+                    WHERE is_active = 1 
+                    ORDER BY display_order ASC, id ASC
+                ");
+            }
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!empty($rows)) {
+                return $rows;
+            }
+        } catch (Exception $e) {
+            error_log("getTechnopreneurTeam error: " . $e->getMessage());
+        }
+    }
+
+    $allFallback = getTechnopreneurTeamFallbackData();
+    if ($groupType) {
+        return array_values(array_filter($allFallback, function($m) use ($groupType) {
+            return ($m['group_type'] === $groupType);
+        }));
+    }
+    return $allFallback;
+}
+

@@ -51,6 +51,12 @@ if ($selectedCategory === 'all' || !isset($categories[$selectedCategory])) {
     $selectedCategory = 'student_achievements';
 }
 
+$clubSection = strtolower(trim($_GET['section'] ?? 'activities'));
+if (!in_array($clubSection, ['activities', 'team'])) {
+    $clubSection = 'activities';
+}
+$teamFilter = trim($_GET['group'] ?? 'all');
+$editTeamMember = null;
 $editItem = null;
 
 // Handle Form Submissions (Add / Edit)
@@ -220,6 +226,124 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         header("Location: achievements.php?category={$category}");
         exit;
+    } elseif ($action === 'add_team_member') {
+        $group_type = trim($_POST['group_type'] ?? 'faculty_coordinator');
+        $name = trim($_POST['name'] ?? '');
+        $designation_or_role = trim($_POST['designation_or_role'] ?? '');
+        $department = trim($_POST['department'] ?? '');
+        $display_order = (int)($_POST['display_order'] ?? 0);
+        $is_active = isset($_POST['is_active']) ? 1 : 0;
+
+        if (empty($name)) {
+            setFlashMessage('danger', 'Member name cannot be empty.');
+            header("Location: achievements.php?category=technopreneur_club&section=team");
+            exit;
+        }
+
+        try {
+            initTechnopreneurTeamTable($pdo);
+            $stmt = $pdo->prepare("
+                INSERT INTO technopreneur_team (group_type, name, designation_or_role, department, display_order, is_active)
+                VALUES (?, ?, ?, ?, ?, ?)
+            ");
+            $stmt->execute([$group_type, $name, $designation_or_role, $department, $display_order, $is_active]);
+            setFlashMessage('success', "Member '{$name}' added to team successfully!");
+        } catch (Exception $e) {
+            setFlashMessage('danger', 'Database error: ' . $e->getMessage());
+        }
+
+        header("Location: achievements.php?category=technopreneur_club&section=team");
+        exit;
+
+    } elseif ($action === 'edit_team_member') {
+        $id = (int)($_POST['id'] ?? 0);
+        $group_type = trim($_POST['group_type'] ?? 'faculty_coordinator');
+        $name = trim($_POST['name'] ?? '');
+        $designation_or_role = trim($_POST['designation_or_role'] ?? '');
+        $department = trim($_POST['department'] ?? '');
+        $display_order = (int)($_POST['display_order'] ?? 0);
+        $is_active = isset($_POST['is_active']) ? 1 : 0;
+
+        if (empty($name) || $id <= 0) {
+            setFlashMessage('danger', 'Invalid member details or name empty.');
+            header("Location: achievements.php?category=technopreneur_club&section=team");
+            exit;
+        }
+
+        try {
+            initTechnopreneurTeamTable($pdo);
+            $stmt = $pdo->prepare("
+                UPDATE technopreneur_team 
+                SET group_type = ?, name = ?, designation_or_role = ?, department = ?, display_order = ?, is_active = ?
+                WHERE id = ?
+            ");
+            $stmt->execute([$group_type, $name, $designation_or_role, $department, $display_order, $is_active, $id]);
+            setFlashMessage('success', "Member '{$name}' updated successfully!");
+        } catch (Exception $e) {
+            setFlashMessage('danger', 'Database error: ' . $e->getMessage());
+        }
+
+        header("Location: achievements.php?category=technopreneur_club&section=team");
+        exit;
+    }
+}
+
+// Handle Delete Technopreneur Team Member
+if (isset($_GET['delete_team_member'])) {
+    if (!$pdo) {
+        setFlashMessage('danger', 'Database offline.');
+        header('Location: achievements.php?category=technopreneur_club&section=team');
+        exit;
+    }
+
+    $id = (int)$_GET['delete_team_member'];
+    try {
+        initTechnopreneurTeamTable($pdo);
+        $stmt = $pdo->prepare("DELETE FROM technopreneur_team WHERE id = ?");
+        $stmt->execute([$id]);
+        setFlashMessage('success', 'Team member deleted successfully.');
+    } catch (Exception $e) {
+        setFlashMessage('danger', 'Delete error: ' . $e->getMessage());
+    }
+
+    header('Location: achievements.php?category=technopreneur_club&section=team');
+    exit;
+}
+
+// Handle Toggle Technopreneur Team Member Active Status
+if (isset($_GET['toggle_team_member'])) {
+    if (!$pdo) {
+        setFlashMessage('danger', 'Database offline.');
+        header('Location: achievements.php?category=technopreneur_club&section=team');
+        exit;
+    }
+
+    $id = (int)$_GET['toggle_team_member'];
+    try {
+        initTechnopreneurTeamTable($pdo);
+        $stmt = $pdo->prepare("UPDATE technopreneur_team SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
+        $stmt->execute([$id]);
+        setFlashMessage('success', 'Member status updated successfully.');
+    } catch (Exception $e) {
+        setFlashMessage('danger', 'Toggle error: ' . $e->getMessage());
+    }
+
+    header('Location: achievements.php?category=technopreneur_club&section=team');
+    exit;
+}
+
+// Fetch team member for edit modal
+if (isset($_GET['edit_team'])) {
+    $editTeamId = (int)$_GET['edit_team'];
+    if ($editTeamId > 0 && $pdo) {
+        initTechnopreneurTeamTable($pdo);
+        $stmt = $pdo->prepare("SELECT * FROM technopreneur_team WHERE id = ?");
+        $stmt->execute([$editTeamId]);
+        $editTeamMember = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($editTeamMember) {
+            $selectedCategory = 'technopreneur_club';
+            $clubSection = 'team';
+        }
     }
 }
 
@@ -336,6 +460,46 @@ if (empty($activitiesList)) {
     }
 }
 
+// Fetch Technopreneur Team counts and members if in club category
+$teamMembersList = [];
+$teamCounts = [
+    'all' => 0,
+    'convener' => 0,
+    'faculty_coordinator' => 0,
+    'student_leadership' => 0,
+    'advisory_board' => 0
+];
+
+if ($selectedCategory === 'technopreneur_club') {
+    if ($pdo) {
+        initTechnopreneurTeamTable($pdo);
+        try {
+            $allRows = $pdo->query("SELECT * FROM technopreneur_team ORDER BY display_order ASC, id ASC")->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($allRows as $r) {
+                $teamCounts['all']++;
+                $grp = $r['group_type'] ?? '';
+                if (isset($teamCounts[$grp])) {
+                    $teamCounts[$grp]++;
+                }
+            }
+            if ($clubSection === 'team') {
+                if ($teamFilter !== 'all' && in_array($teamFilter, ['convener', 'faculty_coordinator', 'student_leadership', 'advisory_board'])) {
+                    $teamMembersList = array_values(array_filter($allRows, function($m) use ($teamFilter) {
+                        return ($m['group_type'] === $teamFilter);
+                    }));
+                } else {
+                    $teamMembersList = $allRows;
+                }
+            }
+        } catch (Exception $e) {
+            error_log("Error fetching team: " . $e->getMessage());
+        }
+    }
+    if (empty($teamMembersList) && $clubSection === 'team') {
+        $teamMembersList = getTechnopreneurTeam($teamFilter !== 'all' ? $teamFilter : null, $pdo);
+    }
+}
+
 $current_page = 'achievements';
 $page_title = 'Manage Achievements';
 require_once __DIR__ . '/includes/header.php';
@@ -344,12 +508,22 @@ require_once __DIR__ . '/includes/header.php';
 <div class="admin-card">
     <div class="card-top" style="flex-wrap: wrap; gap: 14px;">
         <div class="card-title-group">
-            <h2 class="card-title"><?= ($selectedCategory === 'patents') ? 'Manage Patents &amp; IPR' : 'Manage Achievements' ?></h2>
-            <p style="font-size: 0.85rem; color: #64748b; margin: 4px 0 0;">
-                <?= ($selectedCategory === 'patents') 
-                    ? 'Publish, edit, and organize patents granted and published by GEC Modasa faculty and student researchers.' 
-                    : 'Publish and manage accolades, awards, hackathon triumphs, and recognitions across Student, Faculty, and Institute categories.' ?>
-            </p>
+            <?php if ($selectedCategory === 'technopreneur_club' && $clubSection === 'team'): ?>
+                <h2 class="card-title">Manage Technopreneur Club Team &amp; Mentors</h2>
+                <p style="font-size: 0.85rem; color: #64748b; margin: 4px 0 0;">
+                    Manage Convener, Department Faculty Coordinators, Student Leadership, and Advisory Board. All changes reflect live on the Technopreneur Club page.
+                </p>
+            <?php elseif ($selectedCategory === 'patents'): ?>
+                <h2 class="card-title">Manage Patents &amp; IPR</h2>
+                <p style="font-size: 0.85rem; color: #64748b; margin: 4px 0 0;">
+                    Publish, edit, and organize patents granted and published by GEC Modasa faculty and student researchers.
+                </p>
+            <?php else: ?>
+                <h2 class="card-title">Manage Achievements</h2>
+                <p style="font-size: 0.85rem; color: #64748b; margin: 4px 0 0;">
+                    Publish and manage accolades, awards, hackathon triumphs, and recognitions across Student, Faculty, and Institute categories.
+                </p>
+            <?php endif; ?>
         </div>
         <div style="display: flex; gap: 10px; align-items: center; margin-left: auto;">
             <?php if ($selectedCategory !== 'all' && isset($categories[$selectedCategory])): ?>
@@ -357,14 +531,21 @@ require_once __DIR__ . '/includes/header.php';
                     <i class="fas fa-external-link-alt"></i> View Live Page
                 </a>
             <?php endif; ?>
-            <button type="button" class="btn-add-new" onclick="openModal('addAchievementModal')">
-                + <?= ($selectedCategory === 'patents') ? 'Add New Patent' : 'Add New Achievement' ?>
-            </button>
+
+            <?php if ($selectedCategory === 'technopreneur_club' && $clubSection === 'team'): ?>
+                <button type="button" class="btn-add-new" onclick="openModal('addTeamMemberModal')">
+                    <i class="fas fa-user-plus"></i> Add Team Member
+                </button>
+            <?php else: ?>
+                <button type="button" class="btn-add-new" onclick="openModal('addAchievementModal')">
+                    + <?= ($selectedCategory === 'patents') ? 'Add New Patent' : 'Add New Achievement' ?>
+                </button>
+            <?php endif; ?>
         </div>
     </div>
 
     <!-- Category Selector Pill Tabs -->
-    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 14px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 14px; border-bottom: 1px solid #e2e8f0; padding-bottom: 14px;">
         <?php foreach ($categories as $catKey => $catMeta): ?>
             <a href="achievements.php?category=<?= $catKey ?>" 
                class="btn btn-sm <?= ($selectedCategory === $catKey) ? 'btn-primary' : 'btn-light' ?>" 
@@ -374,83 +555,116 @@ require_once __DIR__ . '/includes/header.php';
         <?php endforeach; ?>
     </div>
 
-    <!-- Actions & Filter Row -->
-    <div class="card-actions-row">
-        <div class="card-filters" style="margin-left: auto;">
-            <div class="search-input-group">
+    <!-- Technopreneur Club Sub-Section Navigation -->
+    <?php if ($selectedCategory === 'technopreneur_club'): ?>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 18px; background: #f8fafc; padding: 6px 8px; border-radius: 8px; border: 1px solid #e2e8f0; width: fit-content;">
+            <a href="achievements.php?category=technopreneur_club&section=activities" 
+               class="btn btn-sm <?= ($clubSection === 'activities') ? 'btn-primary' : 'btn-light' ?>" 
+               style="border-radius: 6px; padding: 6px 14px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                <i class="fas fa-calendar-check"></i> Club Activities
+            </a>
+            <a href="achievements.php?category=technopreneur_club&section=team" 
+               class="btn btn-sm <?= ($clubSection === 'team') ? 'btn-primary' : 'btn-light' ?>" 
+               style="border-radius: 6px; padding: 6px 14px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                <i class="fas fa-users"></i> Club Team &amp; Mentors (<?= $teamCounts['all'] ?: count($teamMembersList) ?>)
+            </a>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($selectedCategory === 'technopreneur_club' && $clubSection === 'team'): ?>
+        <!-- Team Subgroup Filter Tabs -->
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; align-items: center;">
+            <span style="font-size: 0.82rem; font-weight: 700; color: #64748b; margin-right: 4px;">FILTER BY ROLE:</span>
+            <a href="achievements.php?category=technopreneur_club&section=team&group=all" class="btn btn-sm <?= ($teamFilter === 'all') ? 'btn-dark' : 'btn-light' ?>" style="border-radius: 9999px; padding: 5px 12px; font-size: 0.8rem; font-weight: 600; text-decoration: none;">
+                All (<?= $teamCounts['all'] ?: count($teamMembersList) ?>)
+            </a>
+            <a href="achievements.php?category=technopreneur_club&section=team&group=convener" class="btn btn-sm <?= ($teamFilter === 'convener') ? 'btn-dark' : 'btn-light' ?>" style="border-radius: 9999px; padding: 5px 12px; font-size: 0.8rem; font-weight: 600; text-decoration: none;">
+                Convener (<?= $teamCounts['convener'] ?: 1 ?>)
+            </a>
+            <a href="achievements.php?category=technopreneur_club&section=team&group=faculty_coordinator" class="btn btn-sm <?= ($teamFilter === 'faculty_coordinator') ? 'btn-dark' : 'btn-light' ?>" style="border-radius: 9999px; padding: 5px 12px; font-size: 0.8rem; font-weight: 600; text-decoration: none;">
+                Faculty Coordinators (<?= $teamCounts['faculty_coordinator'] ?: 17 ?>)
+            </a>
+            <a href="achievements.php?category=technopreneur_club&section=team&group=student_leadership" class="btn btn-sm <?= ($teamFilter === 'student_leadership') ? 'btn-dark' : 'btn-light' ?>" style="border-radius: 9999px; padding: 5px 12px; font-size: 0.8rem; font-weight: 600; text-decoration: none;">
+                Student Leadership (<?= $teamCounts['student_leadership'] ?: 4 ?>)
+            </a>
+            <a href="achievements.php?category=technopreneur_club&section=team&group=advisory_board" class="btn btn-sm <?= ($teamFilter === 'advisory_board') ? 'btn-dark' : 'btn-light' ?>" style="border-radius: 9999px; padding: 5px 12px; font-size: 0.8rem; font-weight: 600; text-decoration: none;">
+                Advisory Board (<?= $teamCounts['advisory_board'] ?: 9 ?>)
+            </a>
+
+            <div class="search-input-group" style="margin-left: auto;">
                 <i class="fas fa-search"></i>
-                <input type="text" class="search-input" placeholder="Search <?= ($selectedCategory === 'patents') ? 'patents...' : 'achievements...' ?>" data-table-search="achievementsTable">
+                <input type="text" class="search-input" placeholder="Search team members..." data-table-search="teamMembersTable">
             </div>
         </div>
-    </div>
 
-    <!-- Data Table -->
-    <div class="table-responsive">
-        <table class="admin-table" id="achievementsTable">
-            <?php if ($selectedCategory === 'patents'): ?>
-                <!-- Patents Specific Table Headers -->
+        <!-- Technopreneur Team Data Table -->
+        <div class="table-responsive">
+            <table class="admin-table" id="teamMembersTable">
                 <thead>
                     <tr>
                         <th style="width: 60px; text-align: center;">Sr. No.</th>
-                        <th>Title</th>
-                        <th style="width: 90px; text-align: center;">Year</th>
-                        <th style="width: 100px;">Category</th>
-                        <th style="width: 100px;">Status</th>
-                        <th>Faculty Name</th>
-                        <th style="width: 110px;">Department</th>
+                        <th>Member Name</th>
+                        <th style="width: 170px;">Role Group</th>
+                        <th>Designation / Role</th>
+                        <th>Department</th>
+                        <th style="width: 70px; text-align: center;">Order</th>
                         <th style="width: 90px; text-align: center;">Status</th>
                         <th style="width: 110px; text-align: center;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (empty($activitiesList)): ?>
+                    <?php if (empty($teamMembersList)): ?>
                         <tr>
-                            <td colspan="9" style="text-align: center; padding: 36px; color: #94a3b8;">
-                                No patents found. Click <strong>+ Add New Patent</strong> to publish the first record.
+                            <td colspan="8" style="text-align: center; padding: 36px; color: #94a3b8;">
+                                No team members found. Click <strong>+ Add Team Member</strong> to add records.
                             </td>
                         </tr>
                     <?php else: ?>
-                        <?php $sr = 1; foreach ($activitiesList as $row):
-                            $isActive = !isset($row['is_active']) || $row['is_active'] == 1;
-                            $pYear = $row['pub_year'] ?? (!empty($row['activity_date']) ? date('Y', strtotime($row['activity_date'])) : '2025');
-                            $pCat = $row['patent_category'] ?? 'Utility';
-                            $pStat = $row['patent_status'] ?? 'Published';
-                            $pFac = $row['faculty_name'] ?? '';
-                            $pDept = $row['department'] ?? '';
+                        <?php $sr = 1; foreach ($teamMembersList as $tm):
+                            $isActive = !isset($tm['is_active']) || $tm['is_active'] == 1;
+                            $grp = $tm['group_type'] ?? 'faculty_coordinator';
+                            $grpLabel = [
+                                'convener' => 'Convener',
+                                'faculty_coordinator' => 'Faculty Coordinator',
+                                'student_leadership' => 'Student Leadership',
+                                'advisory_board' => 'Advisory Board'
+                            ][$grp] ?? ucfirst($grp);
+                            $grpStyle = [
+                                'convener' => 'background:#fef3c7; color:#b45309; border:1px solid #fde68a;',
+                                'faculty_coordinator' => 'background:#e0f2fe; color:#0369a1; border:1px solid #bae6fd;',
+                                'student_leadership' => 'background:#ede9fe; color:#6d28d9; border:1px solid #ddd6fe;',
+                                'advisory_board' => 'background:#f1f5f9; color:#475569; border:1px solid #e2e8f0;'
+                            ][$grp] ?? 'background:#f1f5f9; color:#475569;';
                         ?>
                             <tr data-status="<?= $isActive ? 'active' : 'inactive' ?>">
                                 <td style="text-align: center; font-weight: 700; color: #64748b;"><?= $sr++ ?></td>
-                                <td>
-                                    <div style="font-weight: 700; color: #0f172a; line-height: 1.4;"><?= htmlspecialchars($row['title']) ?></div>
-                                    <?php if (!empty($row['description'])): ?>
-                                        <div style="color: #64748b; font-size: 12px; margin-top: 3px; max-width: 450px;">
-                                            <?= htmlspecialchars(mb_strimwidth($row['description'], 0, 110, '...')) ?>
-                                        </div>
-                                    <?php endif; ?>
+                                <td style="font-weight: 700; color: #0f172a; font-size: 14px;">
+                                    <?= htmlspecialchars($tm['name']) ?>
                                 </td>
-                                <td style="text-align: center; font-weight: 700; color: #0284c7;"><?= htmlspecialchars($pYear) ?></td>
                                 <td>
-                                    <span class="badge" style="background: <?= ($pCat === 'Design') ? '#e0f2fe; color: #0369a1;' : '#fef3c7; color: #b45309;' ?> font-weight: 600; padding: 4px 8px; border-radius: 4px;">
-                                        <?= htmlspecialchars($pCat) ?>
+                                    <span class="badge" style="<?= $grpStyle ?> padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700;">
+                                        <?= htmlspecialchars($grpLabel) ?>
                                     </span>
                                 </td>
-                                <td>
-                                    <span class="badge" style="font-weight: 700; padding: 4px 8px; border-radius: 4px; <?= ($pStat === 'Granted') ? 'background:#dcfce7; color:#15803d;' : 'background:#e0e7ff; color:#4338ca;' ?>">
-                                        <?= htmlspecialchars($pStat) ?>
-                                    </span>
+                                <td style="font-weight: 600; color: #334155; font-size: 13px;">
+                                    <?= htmlspecialchars($tm['designation_or_role'] ?? '—') ?>
                                 </td>
-                                <td style="font-size: 13px; color: #334155; max-width: 260px; line-height: 1.4;"><?= htmlspecialchars($pFac) ?></td>
-                                <td style="font-weight: 600; color: #0f172a; font-size: 13px;"><?= htmlspecialchars($pDept) ?></td>
+                                <td style="font-size: 13px; color: #475569;">
+                                    <?= htmlspecialchars($tm['department'] ?? '—') ?>
+                                </td>
+                                <td style="text-align: center; font-weight: 700; color: #64748b; font-size: 12px;">
+                                    <?= (int)($tm['display_order'] ?? 0) ?>
+                                </td>
                                 <td style="text-align: center;">
-                                    <a href="achievements.php?toggle=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="badge <?= $isActive ? 'badge-success' : 'badge-danger' ?>" style="text-decoration: none;" title="Click to toggle status">
+                                    <a href="achievements.php?category=technopreneur_club&section=team&toggle_team_member=<?= $tm['id'] ?>" class="badge <?= $isActive ? 'badge-success' : 'badge-danger' ?>" style="text-decoration: none;" title="Click to toggle status">
                                         <?= $isActive ? 'Active' : 'Inactive' ?>
                                     </a>
                                 </td>
                                 <td style="text-align: center; white-space: nowrap;">
-                                    <a href="achievements.php?edit=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-edit" title="Edit Patent">
+                                    <a href="achievements.php?category=technopreneur_club&section=team&edit_team=<?= $tm['id'] ?>" class="btn-action btn-edit" title="Edit Member">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="achievements.php?delete=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to permanently delete this patent?');" title="Delete Patent">
+                                    <a href="achievements.php?category=technopreneur_club&section=team&delete_team_member=<?= $tm['id'] ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to permanently delete this team member?');" title="Delete Member">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -458,86 +672,176 @@ require_once __DIR__ . '/includes/header.php';
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </tbody>
-            <?php else: ?>
-                <!-- Standard Achievements Table -->
-                <thead>
-                    <tr>
-                        <th style="width: 120px;">Date</th>
-                        <th style="width: 130px;">Category</th>
-                        <th style="width: 80px;">Cover</th>
-                        <th>Achievement Title &amp; Details</th>
-                        <th style="width: 100px;">Status</th>
-                        <th style="width: 120px; text-align: center;">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (empty($activitiesList)): ?>
+            </table>
+        </div>
+
+    <?php else: ?>
+        <!-- Actions & Filter Row for Activities / Patents -->
+        <div class="card-actions-row">
+            <div class="card-filters" style="margin-left: auto;">
+                <div class="search-input-group">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Search <?= ($selectedCategory === 'patents') ? 'patents...' : 'achievements...' ?>" data-table-search="achievementsTable">
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Table for Activities / Patents -->
+        <div class="table-responsive">
+            <table class="admin-table" id="achievementsTable">
+                <?php if ($selectedCategory === 'patents'): ?>
+                    <!-- Patents Specific Table Headers -->
+                    <thead>
                         <tr>
-                            <td colspan="6" style="text-align: center; padding: 36px; color: #94a3b8;">
-                                No achievements found for this category. Click <strong>+ Add New Achievement</strong> to publish the first record.
-                            </td>
+                            <th style="width: 60px; text-align: center;">Sr. No.</th>
+                            <th>Title</th>
+                            <th style="width: 90px; text-align: center;">Year</th>
+                            <th style="width: 100px;">Category</th>
+                            <th style="width: 100px;">Status</th>
+                            <th>Faculty Name</th>
+                            <th style="width: 110px;">Department</th>
+                            <th style="width: 90px; text-align: center;">Status</th>
+                            <th style="width: 110px; text-align: center;">Actions</th>
                         </tr>
-                    <?php else: ?>
-                        <?php foreach ($activitiesList as $row):
-                            $cat = strtolower(trim($row['category'] ?? 'student_achievements'));
-                            $catBadge = $categories[$cat]['badge'] ?? strtoupper($cat);
-                            $isActive = !isset($row['is_active']) || $row['is_active'] == 1;
-                            $photoSrc = !empty($row['image_url']) 
-                                ? ((strpos($row['image_url'], 'http') === 0) ? htmlspecialchars($row['image_url']) : htmlspecialchars('../' . ltrim($row['image_url'], '/'))) 
-                                : 'https://via.placeholder.com/80x50?text=Accolade';
-                        ?>
-                            <tr data-status="<?= $isActive ? 'active' : 'inactive' ?>">
-                                <td style="font-weight: 600; color: #ff8800; font-size: 13px; white-space: nowrap;">
-                                    <i class="far fa-calendar-alt" style="margin-right: 4px;"></i>
-                                    <?= !empty($row['activity_date']) ? date('d M Y', strtotime($row['activity_date'])) : 'Honour' ?>
-                                </td>
-                                <td>
-                                    <span class="badge" style="background: #e2e8f0; color: #0f172a; font-weight: 700; font-size: 0.74rem; padding: 4px 8px; border-radius: 4px;">
-                                        <?= htmlspecialchars($catBadge) ?>
-                                    </span>
-                                </td>
-                                <td>
-                                    <div style="position: relative; display: inline-block;">
-                                        <img src="<?= $photoSrc ?>" alt="Cover" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Achievement';">
-                                        <?php 
-                                            $gal = !empty($row['gallery_images']) ? (is_array($row['gallery_images']) ? $row['gallery_images'] : json_decode($row['gallery_images'], true)) : [];
-                                            $extraCount = is_array($gal) ? count($gal) : 0;
-                                            if ($extraCount > 0): 
-                                        ?>
-                                            <span style="position: absolute; bottom: 2px; right: 2px; background: rgba(15,23,42,0.85); color: #fff; font-size: 10px; font-weight: 700; padding: 1px 4px; border-radius: 3px;" title="<?= $extraCount ?> gallery photos">
-                                                +<?= $extraCount ?>
-                                            </span>
-                                        <?php endif; ?>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div style="font-weight: 700; color: #0f172a; margin-bottom: 4px;">
-                                        <?= htmlspecialchars($row['title']) ?>
-                                    </div>
-                                    <div style="color: #64748b; font-size: 13px; line-height: 1.4; max-width: 480px;">
-                                        <?= htmlspecialchars(mb_strimwidth($row['description'] ?? '', 0, 140, '...')) ?>
-                                    </div>
-                                </td>
-                                <td>
-                                    <a href="achievements.php?toggle=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="badge <?= $isActive ? 'badge-success' : 'badge-danger' ?>" style="text-decoration: none;" title="Click to toggle status">
-                                        <?= $isActive ? 'Active' : 'Inactive' ?>
-                                    </a>
-                                </td>
-                                <td style="text-align: center; white-space: nowrap;">
-                                    <a href="achievements.php?edit=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-edit" title="Edit Achievement">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="achievements.php?delete=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to permanently delete this achievement?');" title="Delete Achievement">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
+                    </thead>
+                    <tbody>
+                        <?php if (empty($activitiesList)): ?>
+                            <tr>
+                                <td colspan="9" style="text-align: center; padding: 36px; color: #94a3b8;">
+                                    No patents found. Click <strong>+ Add New Patent</strong> to publish the first record.
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </tbody>
-            <?php endif; ?>
-        </table>
-    </div>
+                        <?php else: ?>
+                            <?php $sr = 1; foreach ($activitiesList as $row):
+                                $isActive = !isset($row['is_active']) || $row['is_active'] == 1;
+                                $pYear = $row['pub_year'] ?? (!empty($row['activity_date']) ? date('Y', strtotime($row['activity_date'])) : '2025');
+                                $pCat = $row['patent_category'] ?? 'Utility';
+                                $pStat = $row['patent_status'] ?? 'Published';
+                                $pFac = $row['faculty_name'] ?? '';
+                                $pDept = $row['department'] ?? '';
+                            ?>
+                                <tr data-status="<?= $isActive ? 'active' : 'inactive' ?>">
+                                    <td style="text-align: center; font-weight: 700; color: #64748b;"><?= $sr++ ?></td>
+                                    <td>
+                                        <div style="font-weight: 700; color: #0f172a; line-height: 1.4;"><?= htmlspecialchars($row['title']) ?></div>
+                                        <?php if (!empty($row['description'])): ?>
+                                            <div style="color: #64748b; font-size: 12px; margin-top: 3px; max-width: 450px;">
+                                                <?= htmlspecialchars(mb_strimwidth($row['description'], 0, 110, '...')) ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td style="text-align: center; font-weight: 700; color: #0284c7;"><?= htmlspecialchars($pYear) ?></td>
+                                    <td>
+                                        <span class="badge" style="background: <?= ($pCat === 'Design') ? '#e0f2fe; color: #0369a1;' : '#fef3c7; color: #b45309;' ?> font-weight: 600; padding: 4px 8px; border-radius: 4px;">
+                                            <?= htmlspecialchars($pCat) ?>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="badge" style="font-weight: 700; padding: 4px 8px; border-radius: 4px; <?= ($pStat === 'Granted') ? 'background:#dcfce7; color:#15803d;' : 'background:#e0e7ff; color:#4338ca;' ?>">
+                                            <?= htmlspecialchars($pStat) ?>
+                                        </span>
+                                    </td>
+                                    <td style="font-size: 13px; color: #334155; max-width: 260px; line-height: 1.4;"><?= htmlspecialchars($pFac) ?></td>
+                                    <td style="font-weight: 600; color: #0f172a; font-size: 13px;"><?= htmlspecialchars($pDept) ?></td>
+                                    <td style="text-align: center;">
+                                        <a href="achievements.php?toggle=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="badge <?= $isActive ? 'badge-success' : 'badge-danger' ?>" style="text-decoration: none;" title="Click to toggle status">
+                                            <?= $isActive ? 'Active' : 'Inactive' ?>
+                                        </a>
+                                    </td>
+                                    <td style="text-align: center; white-space: nowrap;">
+                                        <a href="achievements.php?edit=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-edit" title="Edit Patent">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="achievements.php?delete=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to permanently delete this patent?');" title="Delete Patent">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </tbody>
+                <?php else: ?>
+                    <!-- Standard Achievements Table -->
+                    <thead>
+                        <tr>
+                            <th style="width: 120px;">Date</th>
+                            <th style="width: 130px;">Category</th>
+                            <th style="width: 80px;">Cover</th>
+                            <th>Achievement Title &amp; Details</th>
+                            <th style="width: 100px;">Status</th>
+                            <th style="width: 120px; text-align: center;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (empty($activitiesList)): ?>
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 36px; color: #94a3b8;">
+                                    No achievements found for this category. Click <strong>+ Add New Achievement</strong> to publish the first record.
+                                </td>
+                            </tr>
+                        <?php else: ?>
+                            <?php foreach ($activitiesList as $row):
+                                $cat = strtolower(trim($row['category'] ?? 'student_achievements'));
+                                $catBadge = $categories[$cat]['badge'] ?? strtoupper($cat);
+                                $isActive = !isset($row['is_active']) || $row['is_active'] == 1;
+                                $photoSrc = !empty($row['image_url']) 
+                                    ? ((strpos($row['image_url'], 'http') === 0) ? htmlspecialchars($row['image_url']) : htmlspecialchars('../' . ltrim($row['image_url'], '/'))) 
+                                    : 'https://via.placeholder.com/80x50?text=Accolade';
+                            ?>
+                                <tr data-status="<?= $isActive ? 'active' : 'inactive' ?>">
+                                    <td style="font-weight: 600; color: #ff8800; font-size: 13px; white-space: nowrap;">
+                                        <i class="far fa-calendar-alt" style="margin-right: 4px;"></i>
+                                        <?= !empty($row['activity_date']) ? date('d M Y', strtotime($row['activity_date'])) : 'Honour' ?>
+                                    </td>
+                                    <td>
+                                        <span class="badge" style="background: #e2e8f0; color: #0f172a; font-weight: 700; font-size: 0.74rem; padding: 4px 8px; border-radius: 4px;">
+                                            <?= htmlspecialchars($catBadge) ?>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div style="position: relative; display: inline-block;">
+                                            <img src="<?= $photoSrc ?>" alt="Cover" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Achievement';">
+                                            <?php 
+                                                $gal = !empty($row['gallery_images']) ? (is_array($row['gallery_images']) ? $row['gallery_images'] : json_decode($row['gallery_images'], true)) : [];
+                                                $extraCount = is_array($gal) ? count($gal) : 0;
+                                                if ($extraCount > 0): 
+                                            ?>
+                                                <span style="position: absolute; bottom: 2px; right: 2px; background: rgba(15,23,42,0.85); color: #fff; font-size: 10px; font-weight: 700; padding: 1px 4px; border-radius: 3px;" title="<?= $extraCount ?> gallery photos">
+                                                    +<?= $extraCount ?>
+                                                </span>
+                                            <?php endif; ?>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div style="font-weight: 700; color: #0f172a; margin-bottom: 4px;">
+                                            <?= htmlspecialchars($row['title']) ?>
+                                        </div>
+                                        <div style="color: #64748b; font-size: 13px; line-height: 1.4; max-width: 480px;">
+                                            <?= htmlspecialchars(mb_strimwidth($row['description'] ?? '', 0, 140, '...')) ?>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="achievements.php?toggle=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="badge <?= $isActive ? 'badge-success' : 'badge-danger' ?>" style="text-decoration: none;" title="Click to toggle status">
+                                            <?= $isActive ? 'Active' : 'Inactive' ?>
+                                        </a>
+                                    </td>
+                                    <td style="text-align: center; white-space: nowrap;">
+                                        <a href="achievements.php?edit=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-edit" title="Edit Achievement">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="achievements.php?delete=<?= $row['id'] ?>&category=<?= $selectedCategory ?>" class="btn-action btn-delete" onclick="return confirm('Are you sure you want to permanently delete this achievement?');" title="Delete Achievement">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </tbody>
+                <?php endif; ?>
+            </table>
+        </div>
+    <?php endif; ?>
+</div>
 </div>
 
 <!-- ==========================================================================
@@ -885,6 +1189,133 @@ require_once __DIR__ . '/includes/header.php';
                 <a href="achievements.php?category=<?= $selectedCategory ?>" class="btn btn-secondary" style="text-decoration:none;">Cancel</a>
                 <button type="submit" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 600;">
                     <?= $isEditPatent ? 'Update Patent' : 'Update Achievement' ?>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<?php endif; ?>
+
+<!-- ==========================================================================
+     ADD TECHNOPRENEUR TEAM MEMBER MODAL
+     ========================================================================== -->
+<div class="modal-overlay" id="addTeamMemberModal">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h3 class="modal-title">+ Add Technopreneur Team Member</h3>
+            <button type="button" class="modal-close" onclick="closeModal('addTeamMemberModal')">&times;</button>
+        </div>
+        <form action="achievements.php" method="POST">
+            <input type="hidden" name="action" value="add_team_member">
+            <div class="modal-body">
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label style="display:block; font-weight:600; margin-bottom:6px;">Role Group <span style="color:red;">*</span></label>
+                    <select name="group_type" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                        <option value="convener">Convener</option>
+                        <option value="faculty_coordinator" selected>Faculty Coordinator</option>
+                        <option value="student_leadership">Student Leadership</option>
+                        <option value="advisory_board">Advisory Board</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label style="display:block; font-weight:600; margin-bottom:6px;">Member Full Name <span style="color:red;">*</span></label>
+                    <input type="text" name="name" class="form-control" placeholder="e.g. Dr. R. N. Vaza or Tanmay Panchal" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                </div>
+
+                <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                    <div style="flex: 1;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Role / Designation</label>
+                        <input type="text" name="designation_or_role" class="form-control" placeholder="e.g. Faculty Coordinator, President, Vice President" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Department / Branch</label>
+                        <input type="text" name="department" class="form-control" placeholder="e.g. Computer Engineering Department" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                    <div style="flex: 1;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Display Order (Sorting)</label>
+                        <input type="number" name="display_order" class="form-control" value="10" min="0" max="9999" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 8px;">
+                    <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-weight: 600;">
+                        <input type="checkbox" name="is_active" value="1" checked style="width:16px; height:16px;">
+                        Active / Visible on Club Page
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('addTeamMemberModal')">Cancel</button>
+                <button type="submit" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 600;">
+                    Save Team Member
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ==========================================================================
+     EDIT TECHNOPRENEUR TEAM MEMBER MODAL
+     ========================================================================== -->
+<?php if ($editTeamMember): ?>
+<div class="modal-overlay active show is-open" id="editTeamMemberModal">
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h3 class="modal-title">Edit Team Member: <?= htmlspecialchars($editTeamMember['name']) ?></h3>
+            <a href="achievements.php?category=technopreneur_club&section=team" class="modal-close" style="text-decoration: none;">&times;</a>
+        </div>
+        <form action="achievements.php" method="POST">
+            <input type="hidden" name="action" value="edit_team_member">
+            <input type="hidden" name="id" value="<?= $editTeamMember['id'] ?>">
+            <div class="modal-body">
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label style="display:block; font-weight:600; margin-bottom:6px;">Role Group <span style="color:red;">*</span></label>
+                    <select name="group_type" class="form-control" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                        <option value="convener" <?= ($editTeamMember['group_type'] === 'convener') ? 'selected' : '' ?>>Convener</option>
+                        <option value="faculty_coordinator" <?= ($editTeamMember['group_type'] === 'faculty_coordinator') ? 'selected' : '' ?>>Faculty Coordinator</option>
+                        <option value="student_leadership" <?= ($editTeamMember['group_type'] === 'student_leadership') ? 'selected' : '' ?>>Student Leadership</option>
+                        <option value="advisory_board" <?= ($editTeamMember['group_type'] === 'advisory_board') ? 'selected' : '' ?>>Advisory Board</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 16px;">
+                    <label style="display:block; font-weight:600; margin-bottom:6px;">Member Full Name <span style="color:red;">*</span></label>
+                    <input type="text" name="name" class="form-control" value="<?= htmlspecialchars($editTeamMember['name']) ?>" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;" required>
+                </div>
+
+                <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                    <div style="flex: 1;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Role / Designation</label>
+                        <input type="text" name="designation_or_role" class="form-control" value="<?= htmlspecialchars($editTeamMember['designation_or_role'] ?? '') ?>" placeholder="e.g. Faculty Coordinator, President, Vice President" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Department / Branch</label>
+                        <input type="text" name="department" class="form-control" value="<?= htmlspecialchars($editTeamMember['department'] ?? '') ?>" placeholder="e.g. Computer Engineering Department" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 14px; margin-bottom: 16px;">
+                    <div style="flex: 1;">
+                        <label style="display:block; font-weight:600; margin-bottom:6px;">Display Order (Sorting)</label>
+                        <input type="number" name="display_order" class="form-control" value="<?= (int)($editTeamMember['display_order'] ?? 0) ?>" min="0" max="9999" style="width:100%; padding:9px 12px; border-radius:6px; border:1px solid #d1d5db;">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 8px;">
+                    <label style="display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-weight: 600;">
+                        <input type="checkbox" name="is_active" value="1" <?= (!isset($editTeamMember['is_active']) || $editTeamMember['is_active'] == 1) ? 'checked' : '' ?> style="width:16px; height:16px;">
+                        Active / Visible on Club Page
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="achievements.php?category=technopreneur_club&section=team" class="btn btn-secondary" style="text-decoration:none;">Cancel</a>
+                <button type="submit" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 600;">
+                    Update Team Member
                 </button>
             </div>
         </form>

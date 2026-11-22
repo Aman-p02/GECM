@@ -250,6 +250,7 @@
      * Scroll Reveal Animations System
      */
     const revealSelectors = [
+        '.act-reveal',
         '.act-card',
         '.act-toolbar-strip',
         '.act-hero-inner'
