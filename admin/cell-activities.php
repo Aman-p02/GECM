@@ -61,6 +61,24 @@ $categories = [
         'badge' => 'Anchor Nodal',
         'cell' => 'Anchor Nodal Institute Cell',
         'live_url' => '../activities/anchor-nodal-activities.php'
+    ],
+    'student_achievements' => [
+        'name' => 'Student Achievements',
+        'badge' => 'Students',
+        'cell' => 'Student Accolades & Hackathons',
+        'live_url' => '../activities/student-achievements.php'
+    ],
+    'faculty_achievements' => [
+        'name' => 'Faculty Achievements',
+        'badge' => 'Faculty',
+        'cell' => 'Faculty Research & Awards',
+        'live_url' => '../activities/faculty-achievements.php'
+    ],
+    'institute_achievements' => [
+        'name' => 'Institute Achievements',
+        'badge' => 'Institute',
+        'cell' => 'Institutional Accreditations & Honours',
+        'live_url' => '../activities/institute-achievements.php'
     ]
 ];
 
@@ -318,7 +336,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="card-title-group">
             <h2 class="card-title">Manage Cells &amp; Initiatives Activities</h2>
             <p style="font-size: 0.85rem; color: #64748b; margin: 4px 0 0;">
-                Publish and manage official events, workshops, and achievements for SSIP, DIC, RUSA, Gymkhana, Finishing School, WDC, UBA, and Anchor Nodal.
+                Publish and manage official events, workshops, and achievements for SSIP, DIC, RUSA, Gymkhana, Finishing School, WDC, UBA, Anchor Nodal, and Student/Faculty/Institute Achievements.
             </p>
         </div>
         <div style="display: flex; gap: 10px; align-items: center; margin-left: auto;">

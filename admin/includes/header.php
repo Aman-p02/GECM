@@ -123,7 +123,7 @@ if (substr($adminBaseUrl, -1) !== '/') {
                 $studentCornerPageItems = ['student-chapters', 'student-enrollment', 'scholarships', 'education-verification', 'grievances'];
                 $isStudentCornerActive = in_array($current_page, $studentCornerPageItems);
 
-                $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni', 'faculty-activities', 'cell-activities'];
+                $mainPageItems = ['hero', 'notices', 'ticker', 'events', 'shots', 'departments', 'alumni', 'faculty-activities', 'cell-activities', 'achievements'];
                 $isMainPageActive = in_array($current_page, $mainPageItems);
 
                 $deptPageItems = ['dept-faculty', 'dept-activities', 'dept-publications', 'dept-board', 'dept-newsletters'];
@@ -345,6 +345,11 @@ if (substr($adminBaseUrl, -1) !== '/') {
                         <li class="submenu-item <?= ($current_page === 'cell-activities') ? 'active' : '' ?>">
                             <a href="cell-activities" class="submenu-link">
                                 <span>Cells &amp; Initiatives</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($current_page === 'achievements') ? 'active' : '' ?>">
+                            <a href="achievements" class="submenu-link">
+                                <span>Achievements</span>
                             </a>
                         </li>
                     </ul>

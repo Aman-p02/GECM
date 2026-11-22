@@ -383,6 +383,173 @@ function getCellActivitiesFallbackData() {
                 'description' => 'Strategic conclave bridging engineering academics with Gujarat manufacturing enterprises, finalizing bilateral internship partnerships, live student projects, and advanced laboratory equipment access.',
                 'external_url' => '#'
             ]
+        ],
+        'student_achievements' => [
+            [
+                'id' => 901,
+                'category' => 'student_achievements',
+                'title' => 'Smart India Hackathon (SIH) National 1st Prize Winners',
+                'activity_date' => '2026-09-12',
+                'image_url' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Team TechSpark from Computer and IT Engineering won 1st Prize of ₹1,00,000 at the Grand Finale of Smart India Hackathon (SIH Software Edition) for their AI-powered real-time traffic violation detection and emergency ambulance green corridor system, evaluated by Ministry officials.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 902,
+                'category' => 'student_achievements',
+                'title' => 'GTU University Gold Medal & Academic Excellence in B.Tech',
+                'activity_date' => '2025-12-05',
+                'image_url' => 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Patel Dhruv from the Department of Computer Engineering secured University Rank 1 across all affiliated engineering institutes with a cumulative 9.88 CGPA, receiving the prestigious GTU Chancellor Gold Medal at the Annual Convocation.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 903,
+                'category' => 'student_achievements',
+                'title' => 'National Robotics Championship & Drone Challenge - 1st Runner Up',
+                'activity_date' => '2025-03-24',
+                'image_url' => 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1581092335397-9583fe92d232?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'The multidisciplinary Robotics Club of GEC Modasa secured 2nd place nationwide at the National Robocon Innovation Sprint with an indigenous autonomous terrain rover designed for precision agricultural payload delivery.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 904,
+                'category' => 'student_achievements',
+                'title' => 'GATE All-India Rank (AIR 48) & PSU Selections',
+                'activity_date' => '2024-03-18',
+                'image_url' => 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Mechanical Engineering graduate secured All-India Rank 48 in GATE 2024, receiving direct recruitment offers from Indian Oil Corporation Limited (IOCL) and ONGC, alongside admissions to premier IITs.',
+                'external_url' => '#'
+            ]
+        ],
+        'faculty_achievements' => [
+            [
+                'id' => 1001,
+                'category' => 'faculty_achievements',
+                'title' => 'State Best Polytechnic & Engineering Teacher Award by Govt. of Gujarat',
+                'activity_date' => '2026-09-05',
+                'image_url' => 'https://images.unsplash.com/photo-1577495508048-b635879837f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1577495508048-b635879837f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Honoured with the prestigious State Best Teacher Award on Teachers Day by the Education Department, Government of Gujarat, recognizing exemplary teaching methodologies, curriculum design, and 20+ research publications.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1002,
+                'category' => 'faculty_achievements',
+                'title' => 'Indian Patent Granted for Smart IoT Transmission Line Fault Monitoring',
+                'activity_date' => '2025-10-18',
+                'image_url' => 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Faculty members from Electrical Engineering and IT received an official patent grant from the Indian Patent Office (IPO) for an innovative non-invasive optical sensor module that detects high-voltage line breakdown in real-time.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1003,
+                'category' => 'faculty_achievements',
+                'title' => 'Best Research Paper Award at IEEE International Conference',
+                'activity_date' => '2025-04-12',
+                'image_url' => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Awarded Best Research Paper in Machine Learning & Biomedical Engineering at the IEEE International Conference on Smart Computing Technologies for novel deep learning diagnosis models for retinal pathologies.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1004,
+                'category' => 'faculty_achievements',
+                'title' => 'GUJCOST Sponsored Major Research Grant of ₹24.5 Lakhs',
+                'activity_date' => '2024-07-28',
+                'image_url' => 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1507668077129-56e32842fceb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Dr. H. M. Rathod and research team secured competitive research funding of ₹24.5 Lakhs from Gujarat Council on Science and Technology (GUJCOST) for advanced investigations into solar microgrid optimization and storage.',
+                'external_url' => '#'
+            ]
+        ],
+        'institute_achievements' => [
+            [
+                'id' => 1101,
+                'category' => 'institute_achievements',
+                'title' => 'NBA Accreditation Awarded to Premier Engineering Programs',
+                'activity_date' => '2026-06-30',
+                'image_url' => 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'National Board of Accreditation (NBA), New Delhi conferred accredited status upon undergraduate B.Tech programs in Computer Engineering, Mechanical Engineering, and Civil Engineering under Washington Accord Tier-II criteria.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1102,
+                'category' => 'institute_achievements',
+                'title' => 'Top 5 Government Engineering Institute in Gujarat (GSIRF 4-Star)',
+                'activity_date' => '2025-08-14',
+                'image_url' => 'https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'GEC Modasa ranked among top government technical institutions across Gujarat in the Gujarat State Institutional Rating Framework (GSIRF), earning 4 Stars across teaching excellence, graduate outcomes, and research infrastructure.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1103,
+                'category' => 'institute_achievements',
+                'title' => 'Sanction & Establishment of AICTE IDEA Lab (₹1.10 Crores)',
+                'activity_date' => '2025-02-18',
+                'image_url' => 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1581092335397-9583fe92d232?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Selected by the All India Council for Technical Education (AICTE) to set up an advanced IDEA (Idea Development, Evaluation & Application) Lab with 3D scanners, CNC machining, laser engravers, and IoT test benches for hands-on learning.',
+                'external_url' => '#'
+            ],
+            [
+                'id' => 1104,
+                'category' => 'institute_achievements',
+                'title' => 'State Green Campus & 100 kW Rooftop Solar Power Plant Commissioning',
+                'activity_date' => '2024-06-05',
+                'image_url' => 'https://images.unsplash.com/photo-1509391365360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                'gallery_images' => [
+                    'https://images.unsplash.com/photo-1509391365360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                ],
+                'description' => 'Awarded the Green Campus Sustainability Award by Gujarat Energy Development Agency (GEDA) upon successful commissioning of 100 kW grid-tied solar photovoltaic system generating over 1,40,000 clean units annually.',
+                'external_url' => '#'
+            ]
         ]
     ];
 }
