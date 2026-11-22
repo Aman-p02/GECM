@@ -62,6 +62,11 @@ require_once __DIR__ . '/../includes/header.php';
                 </div>
             </div>
 
+            <!-- Mobile Scroll Hint -->
+            <div class="patent-mobile-hint">
+                <i class="fas fa-arrows-left-right"></i> Swipe horizontally to view all patent columns &amp; details
+            </div>
+
             <!-- Responsive Table -->
             <div class="patent-table-scroll">
                 <table class="patent-table-new" id="officialPatentTable">
@@ -306,6 +311,18 @@ require_once __DIR__ . '/../includes/header.php';
     color: #0f172a;
 }
 
+.patent-mobile-hint {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.80rem;
+    font-weight: 600;
+    color: #ea580c;
+    background: #fff7ed;
+    border-bottom: 1px solid #ffedd5;
+    padding: 9px 20px;
+}
+
 /* --------------------------------------------------------------------------
    MODERN TABLE STYLING
    -------------------------------------------------------------------------- */
@@ -317,6 +334,7 @@ require_once __DIR__ . '/../includes/header.php';
 
 .patent-table-new {
     width: 100%;
+    min-width: 1000px;
     border-collapse: collapse;
     font-family: var(--act-font-body, 'Inter', sans-serif);
     text-align: left;
@@ -342,7 +360,7 @@ require_once __DIR__ . '/../includes/header.php';
 }
 
 .th-sr { width: 65px; text-align: center; }
-.th-title { min-width: 290px; }
+.th-title { min-width: 320px; }
 .th-year { width: 120px; text-align: center; }
 .th-category { width: 115px; text-align: center; }
 .th-status { width: 115px; text-align: center; }
@@ -390,11 +408,16 @@ require_once __DIR__ . '/../includes/header.php';
     font-weight: 700;
 }
 
+.cell-title {
+    min-width: 320px;
+}
+
 .title-main {
     font-weight: 600;
     color: #0f172a;
-    line-height: 1.48;
-    font-size: 0.94rem;
+    line-height: 1.5;
+    font-size: 0.96rem;
+    word-break: normal;
 }
 
 .patent-cert-link {
@@ -588,9 +611,15 @@ require_once __DIR__ . '/../includes/header.php';
         width: 100%;
         justify-content: flex-start;
     }
-    .patent-search-box {
-        flex: 1;
-        min-width: 200px;
+    .patent-table-new {
+        min-width: 1000px !important;
+    }
+    .th-title, .cell-title {
+        min-width: 320px !important;
+    }
+    .title-main {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
     }
 }
 
@@ -600,6 +629,14 @@ require_once __DIR__ . '/../includes/header.php';
     }
     .patent-table-new td, .patent-table-new th {
         padding: 12px 14px;
+    }
+    .patent-table-new {
+        min-width: 980px !important;
+    }
+    .title-main {
+        font-size: 0.94rem !important;
+        line-height: 1.5 !important;
+        font-weight: 600 !important;
     }
 }
 
