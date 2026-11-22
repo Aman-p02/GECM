@@ -115,14 +115,10 @@ require_once __DIR__ . '/../includes/header.php';
                     ? ((strpos($act['image_url'], 'http') === 0) ? htmlspecialchars($act['image_url']) : htmlspecialchars($root_path . ltrim($act['image_url'], '/'))) 
                     : ($root_path . 'images/hero_campus_1.jpg');
                 $modalId = 'actModal_' . $act['id'];
-                $catBadge = ($cat === 'wdc') ? 'WDC Cell' : 'UBA 2.0';
             ?>
                 <article class="act-card act-reveal" data-type="<?= htmlspecialchars($cat) ?>" data-year="<?= htmlspecialchars($evYear) ?>">
                     <div class="act-card-media" style="cursor: pointer;" onclick="openActModal('<?= $modalId ?>')">
                         <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
-                        <span style="position: absolute; top: 12px; left: 12px; background: rgba(17, 24, 39, 0.85); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.04em; text-transform: uppercase;">
-                            <?= $catBadge ?>
-                        </span>
                     </div>
 
                     <div class="act-card-body">
@@ -167,7 +163,7 @@ require_once __DIR__ . '/../includes/header.php';
                                 <i class="fas fa-times"></i>
                             </button>
                             <div class="act-card-date" style="display:block; margin:6px 0;">
-                                <i class="far fa-calendar-alt"></i> <?= $eventDate ?> &bull; <strong><?= $catBadge ?></strong>
+                                <i class="far fa-calendar-alt"></i> <?= $eventDate ?>
                             </div>
                             <h2 id="<?= $modalId ?>_title" style="font-size:1.6rem; font-weight:800; color:#111; margin:6px 0 0; line-height:1.25;">
                                 <?= htmlspecialchars($act['title']) ?>
