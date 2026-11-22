@@ -8,6 +8,7 @@ $page_title = "SSIP & DIC Activities | Government Engineering College, Modasa";
 $active_page = "ssip_dic_activities";
 $root_path = "../";
 $extra_css = "css/activities-hub.css";
+$extra_js = "js/activities-hub.js";
 
 require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/cell_activities_helper.php';
@@ -111,14 +112,19 @@ require_once __DIR__ . '/../includes/header.php';
                 $cat = strtolower(trim($act['category'] ?? 'ssip'));
                 $evYear = !empty($act['activity_date']) ? date('Y', strtotime($act['activity_date'])) : '2026';
                 $eventDate = !empty($act['activity_date']) ? date('M d, Y', strtotime($act['activity_date'])) : 'Official Initiative';
-                $photoSrc = !empty($act['image_url']) 
-                    ? ((strpos($act['image_url'], 'http') === 0) ? htmlspecialchars($act['image_url']) : htmlspecialchars($root_path . ltrim($act['image_url'], '/'))) 
-                    : ($root_path . 'images/hero_campus_1.jpg');
+                $images = getActivityImages($act, $root_path);
+                $primaryPhoto = !empty($images[0]) ? $images[0] : ($root_path . 'images/hero_campus_1.jpg');
                 $modalId = 'actModal_' . $act['id'];
+                $sliderId = 'slider_' . $act['id'];
             ?>
                 <article class="act-card act-reveal" data-type="<?= htmlspecialchars($cat) ?>" data-year="<?= htmlspecialchars($evYear) ?>">
                     <div class="act-card-media" style="cursor: pointer;" onclick="openActModal('<?= $modalId ?>')">
-                        <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
+                        <img src="<?= htmlspecialchars($primaryPhoto) ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
+                        <?php if (count($images) > 1): ?>
+                            <span class="act-card-photo-count" title="<?= count($images) ?> Photos">
+                                <i class="far fa-images"></i> <?= count($images) ?>
+                            </span>
+                        <?php endif; ?>
                     </div>
 
                     <div class="act-card-body">
@@ -152,10 +158,42 @@ require_once __DIR__ . '/../includes/header.php';
                 <!-- Full Detail Modal (Bada Hoke Dikhna Chahiye - Max-width 860px) -->
                 <div class="act-modal-backdrop" id="<?= $modalId ?>" role="dialog" aria-modal="true" aria-labelledby="<?= $modalId ?>_title">
                     <div class="act-modal-dialog">
-                        <?php if (!empty($act['image_url'])): ?>
-                            <div class="act-modal-media">
-                                <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($act['title']) ?>">
-                            </div>
+                        <?php if (!empty($images)): ?>
+                            <?php if (count($images) === 1): ?>
+                                <div class="act-modal-media">
+                                    <img src="<?= htmlspecialchars($images[0]) ?>" alt="<?= htmlspecialchars($act['title']) ?>">
+                                </div>
+                            <?php else: ?>
+                                <div class="act-modal-slider-wrap" id="<?= $sliderId ?>" data-slider-id="<?= $sliderId ?>" data-slide-count="<?= count($images) ?>">
+                                    <div class="act-modal-slider">
+                                        <?php foreach ($images as $idx => $imgUrl): ?>
+                                            <div class="act-modal-slide <?= ($idx === 0) ? 'is-active' : '' ?>" data-slide-index="<?= $idx ?>">
+                                                <img src="<?= htmlspecialchars($imgUrl) ?>" alt="<?= htmlspecialchars($act['title']) ?> - Photo <?= $idx + 1 ?>" loading="lazy">
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+
+                                    <!-- Navigation Arrows -->
+                                    <button type="button" class="act-slider-arrow act-slider-prev" onclick="prevActSlide('<?= $sliderId ?>')" aria-label="Previous Photo">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button type="button" class="act-slider-arrow act-slider-next" onclick="nextActSlide('<?= $sliderId ?>')" aria-label="Next Photo">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+
+                                    <!-- Counter Badge -->
+                                    <div class="act-slider-counter" id="counter_<?= $sliderId ?>">
+                                        1 / <?= count($images) ?>
+                                    </div>
+
+                                    <!-- Dot Indicators -->
+                                    <div class="act-slider-dots">
+                                        <?php foreach ($images as $idx => $imgUrl): ?>
+                                            <button type="button" class="act-slider-dot <?= ($idx === 0) ? 'is-active' : '' ?>" onclick="goToActSlide('<?= $sliderId ?>', <?= $idx ?>)" aria-label="Go to photo <?= $idx + 1 ?>"></button>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         <?php endif; ?>
 
                         <div class="act-modal-header">
@@ -203,50 +241,6 @@ require_once __DIR__ . '/../includes/header.php';
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // Scroll Reveal Entrance Animation System
-    const revealSelectors = [
-        '.act-card',
-        '.act-toolbar-strip',
-        '.act-hero-inner'
-    ];
-
-    let revealObserver = null;
-    if ('IntersectionObserver' in window) {
-        revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-revealed');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            root: null,
-            rootMargin: '0px 0px 20px 0px',
-            threshold: 0.02
-        });
-    }
-
-    function setupRevealElements(container = document) {
-        if (!container) return;
-        const elements = container.querySelectorAll(revealSelectors.join(', '));
-        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-
-        elements.forEach(el => {
-            if (el.classList.contains('act-card') && el.style.display === 'none') return;
-            if (!el.classList.contains('act-reveal')) {
-                el.classList.add('act-reveal');
-            }
-            const rect = el.getBoundingClientRect();
-            if (rect.top < viewportHeight - 30 && rect.bottom > 0) {
-                setTimeout(() => el.classList.add('is-revealed'), 80);
-            } else if (revealObserver) {
-                revealObserver.observe(el);
-            } else {
-                el.classList.add('is-revealed');
-            }
-        });
-    }
-
     // Dynamic Filter by Type (SSIP vs DIC) and Year
     const subnavLinks = document.querySelectorAll('.act-subnav-link');
     const cards = Array.from(document.querySelectorAll('#activitiesGrid .act-card'));
@@ -284,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (countNum) countNum.textContent = visibleCount;
         if (emptyState) emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
 
-        setupRevealElements(document);
+        if (window.setupActReveal) window.setupActReveal(document);
     }
 
     function updateHeroContent() {
@@ -362,51 +356,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initial run
     filterGrid();
-});
-
-// Modal helpers with complete background scroll lock
-function lockScroll() {
-    document.documentElement.classList.add("act-modal-open");
-    document.body.classList.add("act-modal-open");
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-}
-
-function unlockScroll() {
-    document.documentElement.classList.remove("act-modal-open");
-    document.body.classList.remove("act-modal-open");
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
-}
-
-window.openActModal = function(id) {
-    const modal = document.getElementById(id);
-    if (!modal) return;
-    modal.classList.add('is-active', 'is-open');
-    lockScroll();
-};
-
-window.closeActModal = function(id) {
-    const modal = document.getElementById(id);
-    if (!modal) return;
-    modal.classList.remove('is-active', 'is-open');
-    unlockScroll();
-};
-
-document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('act-modal-backdrop')) {
-        e.target.classList.remove('is-active', 'is-open');
-        unlockScroll();
-    }
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        document.querySelectorAll('.act-modal-backdrop.is-active, .act-modal-backdrop.is-open').forEach(m => {
-            m.classList.remove('is-active', 'is-open');
-        });
-        unlockScroll();
-    }
 });
 </script>
 

@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        // Handle Image Upload
+        // Handle Primary Image Upload
         $photo_url = '';
         if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ERR_OK) {
             $uploadResult = handleImageUpload('image_file', 'cell_activities');
@@ -115,13 +115,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $photo_url = trim($_POST['image_url']);
         }
 
+        // Handle Multiple Gallery Images
+        $galleryList = handleMultipleImageUpload('gallery_files', 'cell_activities');
+        if (!empty($_POST['gallery_urls'])) {
+            $urlLines = preg_split('/[\r\n]+/', $_POST['gallery_urls']);
+            foreach ($urlLines as $line) {
+                $line = trim($line);
+                if (!empty($line)) {
+                    $galleryList[] = $line;
+                }
+            }
+        }
+        $gallery_images = !empty($galleryList) ? json_encode(array_values(array_unique($galleryList))) : null;
+
         try {
             $stmt = $pdo->prepare("
                 INSERT INTO cell_activities 
-                (category, title, activity_date, image_url, description, external_url, display_order, is_active)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                (category, title, activity_date, image_url, gallery_images, description, external_url, display_order, is_active)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             ");
-            $stmt->execute([$category, $title, $activity_date, $photo_url, $description, $external_url, $display_order, $is_active]);
+            $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active]);
             setFlashMessage('success', "Activity '{$title}' added successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
@@ -165,13 +178,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $photo_url = trim($_POST['image_url']);
         }
 
+        // Handle Gallery Images (Keep checked existing + add new uploads + new URLs)
+        $keptGallery = $_POST['keep_gallery'] ?? [];
+        if (!is_array($keptGallery)) $keptGallery = [];
+        $newGalleryUploads = handleMultipleImageUpload('gallery_files', 'cell_activities');
+        $allGallery = array_merge($keptGallery, $newGalleryUploads);
+
+        if (!empty($_POST['gallery_urls'])) {
+            $urlLines = preg_split('/[\r\n]+/', $_POST['gallery_urls']);
+            foreach ($urlLines as $line) {
+                $line = trim($line);
+                if (!empty($line)) {
+                    $allGallery[] = $line;
+                }
+            }
+        }
+        $gallery_images = !empty($allGallery) ? json_encode(array_values(array_unique($allGallery))) : null;
+
         try {
             $stmt = $pdo->prepare("
                 UPDATE cell_activities 
-                SET category = ?, title = ?, activity_date = ?, image_url = ?, description = ?, external_url = ?, display_order = ?, is_active = ?
+                SET category = ?, title = ?, activity_date = ?, image_url = ?, gallery_images = ?, description = ?, external_url = ?, display_order = ?, is_active = ?
                 WHERE id = ?
             ");
-            $stmt->execute([$category, $title, $activity_date, $photo_url, $description, $external_url, $display_order, $is_active, $id]);
+            $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active, $id]);
             setFlashMessage('success', "Activity updated successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
@@ -369,7 +399,18 @@ require_once __DIR__ . '/includes/header.php';
                                 </span>
                             </td>
                             <td>
-                                <img src="<?= $photoSrc ?>" alt="Cover" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Activity';">
+                                <div style="position: relative; display: inline-block;">
+                                    <img src="<?= $photoSrc ?>" alt="Cover" style="width: 60px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/60x42?text=Activity';">
+                                    <?php 
+                                        $gal = !empty($row['gallery_images']) ? (is_array($row['gallery_images']) ? $row['gallery_images'] : json_decode($row['gallery_images'], true)) : [];
+                                        $extraCount = is_array($gal) ? count($gal) : 0;
+                                        if ($extraCount > 0): 
+                                    ?>
+                                        <span style="position: absolute; bottom: 2px; right: 2px; background: rgba(15,23,42,0.85); color: #fff; font-size: 10px; font-weight: 700; padding: 1px 4px; border-radius: 3px;" title="<?= $extraCount ?> gallery photos">
+                                            +<?= $extraCount ?>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
                             </td>
                             <td>
                                 <div style="font-weight: 700; color: #0f172a; margin-bottom: 4px;">
@@ -440,10 +481,20 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="form-group" style="margin-bottom: 16px;">
-                    <label style="display:block; font-weight:600; margin-bottom:6px;">Activity Image Upload</label>
+                    <label style="display:block; font-weight:600; margin-bottom:6px;">Primary Cover Image</label>
                     <input type="file" name="image_file" class="form-control" accept="image/*" style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db;">
-                    <small style="color: #64748b; display: block; margin-top: 4px;">Or enter an image URL / path below:</small>
+                    <small style="color: #64748b; display: block; margin-top: 4px;">Or enter primary image URL:</small>
                     <input type="text" name="image_url" class="form-control" placeholder="images/hero_campus_1.jpg" style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px;">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 16px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 14px;">
+                    <label style="display:flex; align-items:center; gap:8px; font-weight:700; color:#0f172a; margin-bottom:4px;">
+                        <i class="far fa-images" style="color:#ff8800;"></i> Additional Gallery Photos (For Auto Slider)
+                    </label>
+                    <p style="font-size:12px; color:#64748b; margin:0 0 8px;">Select multiple event photos (Hold Ctrl / Shift to select multiple images). They will slide automatically every 2.5s in the detail view!</p>
+                    <input type="file" name="gallery_files[]" class="form-control" accept="image/*" multiple style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db; background:#fff;">
+                    <small style="color: #64748b; display: block; margin-top: 6px;">Or enter additional image URLs (one per line):</small>
+                    <textarea name="gallery_urls" rows="2" class="form-control" placeholder="https://...&#10;https://..." style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px; font-size:12px; background:#fff;"></textarea>
                 </div>
 
                 <div class="form-group" style="margin-bottom: 16px;">
@@ -510,15 +561,47 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
 
                 <div class="form-group" style="margin-bottom: 16px;">
-                    <label style="display:block; font-weight:600; margin-bottom:6px;">Change Image</label>
+                    <label style="display:block; font-weight:600; margin-bottom:6px;">Change Primary Cover Image</label>
                     <?php if (!empty($editItem['image_url'])): ?>
                         <div style="margin-bottom: 8px;">
                             <img src="<?= (strpos($editItem['image_url'], 'http') === 0) ? htmlspecialchars($editItem['image_url']) : htmlspecialchars('../' . ltrim($editItem['image_url'], '/')) ?>" alt="Current Cover" style="width: 80px; height: 50px; border-radius: 4px; object-fit: cover; border: 1px solid #ddd;">
-                            <span style="font-size:12px; color:#64748b; margin-left:8px;">Current Image</span>
+                            <span style="font-size:12px; color:#64748b; margin-left:8px;">Current Primary Image</span>
                         </div>
                     <?php endif; ?>
                     <input type="file" name="image_file" class="form-control" accept="image/*" style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db;">
                     <input type="text" name="image_url" class="form-control" value="<?= htmlspecialchars($editItem['image_url'] ?? '') ?>" placeholder="Image URL / path" style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px;">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 16px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 14px;">
+                    <label style="display:flex; align-items:center; gap:8px; font-weight:700; color:#0f172a; margin-bottom:4px;">
+                        <i class="far fa-images" style="color:#ff8800;"></i> Event Gallery Photos (For Auto Slider)
+                    </label>
+                    <?php 
+                    $existingGallery = [];
+                    if (!empty($editItem['gallery_images'])) {
+                        $parsed = json_decode($editItem['gallery_images'], true);
+                        if (is_array($parsed)) $existingGallery = $parsed;
+                    }
+                    ?>
+                    <?php if (!empty($existingGallery)): ?>
+                        <p style="font-size:12px; color:#475569; margin:4px 0 8px;">Existing Gallery Photos (Uncheck to remove):</p>
+                        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+                            <?php foreach ($existingGallery as $gIdx => $gPath): 
+                                $gSrc = (strpos($gPath, 'http') === 0) ? htmlspecialchars($gPath) : htmlspecialchars('../' . ltrim($gPath, '/'));
+                            ?>
+                                <label style="display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; background:#fff; padding:4px; border:1px solid #e2e8f0; border-radius:6px;">
+                                    <img src="<?= $gSrc ?>" alt="Gallery Photo" style="width:64px; height:44px; object-fit:cover; border-radius:4px;">
+                                    <span style="font-size:11px; color:#475569;">
+                                        <input type="checkbox" name="keep_gallery[]" value="<?= htmlspecialchars($gPath) ?>" checked> Keep
+                                    </span>
+                                </label>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                    <p style="font-size:12px; color:#64748b; margin:0 0 6px;">Upload additional photos (select multiple):</p>
+                    <input type="file" name="gallery_files[]" class="form-control" accept="image/*" multiple style="width:100%; padding:6px 12px; border-radius:6px; border:1px solid #d1d5db; background:#fff;">
+                    <small style="color: #64748b; display: block; margin-top: 6px;">Add more image URLs (one per line):</small>
+                    <textarea name="gallery_urls" rows="2" class="form-control" placeholder="https://...&#10;https://..." style="width:100%; padding:7px 12px; border-radius:6px; border:1px solid #d1d5db; margin-top: 4px; font-size:12px; background:#fff;"></textarea>
                 </div>
 
                 <div class="form-group" style="margin-bottom: 16px;">

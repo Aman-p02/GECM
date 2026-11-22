@@ -82,6 +82,50 @@ function handleImageUpload($fileOrKey, $subfolder = 'general', $existingPath = n
     ];
 }
 
+/**
+ * Handle Multiple Images Upload (e.g. for activity photo galleries/sliders)
+ */
+function handleMultipleImageUpload($filesKey, $subfolder = 'cell_activities') {
+    $uploadedPaths = [];
+    if (!isset($_FILES[$filesKey]) || !is_array($_FILES[$filesKey]['name'])) {
+        return $uploadedPaths;
+    }
+
+    $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+    $cleanSubfolder = trim(str_replace('\\', '/', $subfolder), '/');
+    $targetDir = realpath(__DIR__ . '/../../uploads');
+    if (!$targetDir) {
+        $targetDir = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'uploads';
+    }
+    $targetDir .= DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $cleanSubfolder) . DIRECTORY_SEPARATOR;
+
+    if (!is_dir($targetDir)) {
+        @mkdir($targetDir, 0777, true);
+    }
+
+    $fileCount = count($_FILES[$filesKey]['name']);
+    for ($i = 0; $i < $fileCount; $i++) {
+        if ($_FILES[$filesKey]['error'][$i] === UPLOAD_ERR_OK) {
+            $ext = strtolower(pathinfo($_FILES[$filesKey]['name'][$i], PATHINFO_EXTENSION));
+            if (!in_array($ext, $allowedExtensions)) {
+                continue;
+            }
+            if ($_FILES[$filesKey]['size'][$i] > 10 * 1024 * 1024) {
+                continue;
+            }
+
+            $cleanFilename = basename(str_replace('\\', '/', $cleanSubfolder)) . '_gal_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
+            $targetFile = $targetDir . $cleanFilename;
+
+            if (move_uploaded_file($_FILES[$filesKey]['tmp_name'][$i], $targetFile)) {
+                $uploadedPaths[] = 'uploads/' . $cleanSubfolder . '/' . $cleanFilename;
+            }
+        }
+    }
+
+    return $uploadedPaths;
+}
+
 function getAdminImageSrc($path) {
     if (empty($path)) {
         return 'https://via.placeholder.com/60?text=No+Img';
