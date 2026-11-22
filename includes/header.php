@@ -235,7 +235,7 @@ if (!isset($active_page)) {
                 <!-- Activities Dropdown (Categorized Mega Dropdown) -->
                 <li class="hdr-nav-item has-dropdown">
                     <a href="<?= $root_path ?>activities/"
-                       class="hdr-nav-link <?= in_array($active_page, ['activities', 'college_activities', 'dept_activities', 'faculty_activities']) ? 'active is-active' : '' ?>">
+                       class="hdr-nav-link <?= in_array($active_page, ['activities', 'college_activities', 'dept_activities', 'faculty_activities', 'ssip_dic_activities', 'rusa_activities', 'gymkhana_activities', 'finishing_school_activities', 'wdc_uba_activities', 'anchor_nodal_activities']) ? 'active is-active' : '' ?>">
                         <span class="hdr-nav-text">Activities</span> <i class="fas fa-chevron-down hdr-arrow"></i>
                     </a>
                     <div class="hdr-dropdown hdr-dropdown-mega">
@@ -251,12 +251,12 @@ if (!isset($active_page)) {
                             <div class="hdr-mega-col">
                                 <div class="hdr-dd-heading">CELLS &amp; INITIATIVES</div>
                                 <ul class="hdr-dd-list">
-                                    <li><a href="#" class="hdr-dd-link">SSIP &amp; DIC</a></li>
-                                    <li><a href="#" class="hdr-dd-link">RUSA</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Gymkhana</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Finishing School</a></li>
-                                    <li><a href="#" class="hdr-dd-link">WDC &amp; UBA</a></li>
-                                    <li><a href="#" class="hdr-dd-link">Anchor Nodal</a></li>
+                                    <li><a href="<?= $root_path ?>activities/ssip-dic-activities" class="hdr-dd-link <?= ($active_page === 'ssip_dic_activities') ? 'is-active' : '' ?>">SSIP &amp; DIC</a></li>
+                                    <li><a href="<?= $root_path ?>activities/rusa-activities" class="hdr-dd-link <?= ($active_page === 'rusa_activities') ? 'is-active' : '' ?>">RUSA</a></li>
+                                    <li><a href="<?= $root_path ?>activities/gymkhana-activities" class="hdr-dd-link <?= ($active_page === 'gymkhana_activities') ? 'is-active' : '' ?>">Gymkhana</a></li>
+                                    <li><a href="<?= $root_path ?>activities/finishing-school-activities" class="hdr-dd-link <?= ($active_page === 'finishing_school_activities') ? 'is-active' : '' ?>">Finishing School</a></li>
+                                    <li><a href="<?= $root_path ?>activities/wdc-uba-activities" class="hdr-dd-link <?= ($active_page === 'wdc_uba_activities') ? 'is-active' : '' ?>">WDC &amp; UBA</a></li>
+                                    <li><a href="<?= $root_path ?>activities/anchor-nodal-activities" class="hdr-dd-link <?= ($active_page === 'anchor_nodal_activities') ? 'is-active' : '' ?>">Anchor Nodal</a></li>
                                 </ul>
                             </div>
                             <div class="hdr-mega-col">

@@ -1,0 +1,334 @@
+<?php
+/**
+ * GEC MODASA - WDC & UBA ACTIVITIES
+ * Women Development Cell (WDC) and Unnat Bharat Abhiyan (UBA)
+ * Follows GECM Institutional Activities Hub Design System
+ */
+$page_title = "WDC & UBA Activities | Government Engineering College, Modasa";
+$active_page = "wdc_uba_activities";
+$root_path = "../";
+$extra_css = "css/activities-hub.css";
+
+require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/cell_activities_helper.php';
+
+$pdo = getDBConnection();
+
+// Initial active tab (wdc or uba)
+$selectedType = strtolower(trim($_GET['type'] ?? 'wdc'));
+if (!in_array($selectedType, ['wdc', 'uba', 'all'])) {
+    $selectedType = 'wdc';
+}
+
+$selectedYear = trim($_GET['year'] ?? 'ALL');
+
+// Fetch WDC and UBA activities
+$allActivities = getCombinedCellActivities(['wdc', 'uba'], $pdo);
+
+// Collect available years
+$availableYears = [];
+foreach ($allActivities as $act) {
+    if (!empty($act['activity_date'])) {
+        $yr = date('Y', strtotime($act['activity_date']));
+        if (!in_array($yr, $availableYears)) {
+            $availableYears[] = $yr;
+        }
+    }
+}
+rsort($availableYears);
+
+require_once __DIR__ . '/../includes/header.php';
+?>
+
+<div class="act-hub-page" id="mainContent">
+
+    <!-- Page Hero Banner -->
+    <header class="act-hero">
+        <div class="act-hero-inner act-reveal">
+            <span class="act-kicker">COMMUNITY IMPACT &amp; EMPOWERMENT</span>
+            <h1 class="act-heading" style="margin-bottom: 0;">WDC &amp; UBA Activities</h1>
+            <p class="act-lead" style="margin-top: 12px;">
+                Driving societal growth through women empowerment, gender equity, rural technological surveys, and sustainable village development under WDC and Unnat Bharat Abhiyan.
+            </p>
+        </div>
+    </header>
+
+    <!-- Toolbar Strip with Dual Initiative Switcher & Year Filter -->
+    <div class="act-toolbar-strip act-reveal">
+        <div class="act-toolbar-inner">
+            <div class="act-toolbar-filters">
+                <!-- Dual Switcher Buttons: WDC Activities and UBA Activities -->
+                <div class="act-type-switcher" role="tablist" aria-label="Select Cell">
+                    <button type="button" class="act-switch-btn <?= ($selectedType === 'wdc') ? 'active' : '' ?>" data-type="wdc" role="tab" aria-selected="<?= ($selectedType === 'wdc') ? 'true' : 'false' ?>" id="btnTabWdc">
+                        <i class="fas fa-female"></i> Women Development Cell (WDC)
+                    </button>
+                    <button type="button" class="act-switch-btn <?= ($selectedType === 'uba') ? 'active' : '' ?>" data-type="uba" role="tab" aria-selected="<?= ($selectedType === 'uba') ? 'true' : 'false' ?>" id="btnTabUba">
+                        <i class="fas fa-seedling"></i> Unnat Bharat Abhiyan (UBA)
+                    </button>
+                </div>
+
+                <!-- Year Custom Dropdown -->
+                <div class="custom-select-wrap" id="yearDropdownWrap">
+                    <button type="button" class="custom-select-trigger" id="yearDropdownTrigger" aria-expanded="false" aria-haspopup="listbox">
+                        <span class="custom-select-value" id="yearSelectedLabel"><?= ($selectedYear === 'ALL') ? 'All Years' : $selectedYear ?></span>
+                        <i class="fas fa-chevron-down custom-select-arrow"></i>
+                    </button>
+                    <div class="custom-select-menu" id="yearDropdownMenu" role="listbox" aria-label="Select Year">
+                        <div class="custom-select-option <?= ($selectedYear === 'ALL') ? 'is-selected' : '' ?>" data-value="ALL" role="option">
+                            All Years
+                        </div>
+                        <?php foreach ($availableYears as $yr): ?>
+                            <div class="custom-select-option <?= ($selectedYear == $yr) ? 'is-selected' : '' ?>" data-value="<?= $yr ?>" role="option">
+                                <?= $yr ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="act-toolbar-meta">
+                <div class="act-count-pill" id="resultsCount">
+                    Showing&nbsp;<strong id="countNum"><?= count($allActivities) ?></strong>&nbsp;activities
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activities Grid Container -->
+    <main class="act-container">
+        <div class="act-grid" id="activitiesGrid">
+            <?php foreach ($allActivities as $act):
+                $cat = strtolower(trim($act['category'] ?? 'wdc'));
+                $evYear = !empty($act['activity_date']) ? date('Y', strtotime($act['activity_date'])) : '2026';
+                $eventDate = !empty($act['activity_date']) ? date('M d, Y', strtotime($act['activity_date'])) : 'Official Initiative';
+                $photoSrc = !empty($act['image_url']) 
+                    ? ((strpos($act['image_url'], 'http') === 0) ? htmlspecialchars($act['image_url']) : htmlspecialchars($root_path . ltrim($act['image_url'], '/'))) 
+                    : ($root_path . 'images/hero_campus_1.jpg');
+                $modalId = 'actModal_' . $act['id'];
+                $catBadge = ($cat === 'wdc') ? 'WDC Cell' : 'UBA 2.0';
+            ?>
+                <article class="act-card act-reveal" data-type="<?= htmlspecialchars($cat) ?>" data-year="<?= htmlspecialchars($evYear) ?>">
+                    <div class="act-card-media">
+                        <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($act['title']) ?>" loading="lazy" onerror="this.src='<?= $root_path ?>images/hero_campus_1.jpg'">
+                        <span style="position: absolute; top: 12px; left: 12px; background: rgba(17, 24, 39, 0.85); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.04em; text-transform: uppercase;">
+                            <?= $catBadge ?>
+                        </span>
+                    </div>
+
+                    <div class="act-card-body">
+                        <div class="act-card-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span><?= $eventDate ?></span>
+                        </div>
+
+                        <h3 class="act-card-title"><?= htmlspecialchars($act['title']) ?></h3>
+
+                        <p class="act-card-desc">
+                            <?= nl2br(htmlspecialchars(mb_strimwidth($act['description'] ?? '', 0, 160, '...'))) ?>
+                        </p>
+
+                        <div class="act-card-footer">
+                            <button type="button" class="act-btn-view" onclick="openActModal('<?= $modalId ?>')">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
+                                <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="act-link-ext">
+                                    <i class="fas fa-external-link-alt"></i> Link
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Full Detail Modal -->
+                <div class="act-modal-backdrop" id="<?= $modalId ?>" role="dialog" aria-modal="true" aria-labelledby="<?= $modalId ?>_title">
+                    <div class="act-modal-dialog">
+                        <?php if (!empty($act['image_url'])): ?>
+                            <div class="act-modal-media">
+                                <img src="<?= $photoSrc ?>" alt="<?= htmlspecialchars($act['title']) ?>">
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="act-modal-header">
+                            <button type="button" class="act-modal-close" onclick="closeActModal('<?= $modalId ?>')" aria-label="Close modal">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="act-card-date" style="display:block; margin:6px 0;">
+                                <i class="far fa-calendar-alt"></i> <?= $eventDate ?> &bull; <strong><?= $catBadge ?></strong>
+                            </div>
+                            <h2 id="<?= $modalId ?>_title" style="font-size:1.45rem; font-weight:800; color:#111; margin:6px 0 0; line-height:1.3;">
+                                <?= htmlspecialchars($act['title']) ?>
+                            </h2>
+                        </div>
+
+                        <div class="act-modal-body">
+                            <?= nl2br(htmlspecialchars($act['description'] ?? 'No detailed description available.')) ?>
+                        </div>
+
+                        <div class="act-modal-footer">
+                            <?php if (!empty($act['external_url']) && $act['external_url'] !== '#'): ?>
+                                <a href="<?= htmlspecialchars($act['external_url']) ?>" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding:8px 18px; font-size:0.88rem;">
+                                    <i class="fas fa-external-link-alt"></i> View Circular / Report
+                                </a>
+                            <?php endif; ?>
+                            <button type="button" class="btn btn-secondary" onclick="closeActModal('<?= $modalId ?>')" style="padding:8px 18px; font-size:0.88rem;">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+
+            <!-- Empty State Container -->
+            <div class="act-empty-state" id="emptyState" style="display: none;">
+                <i class="fas fa-calendar-times act-empty-icon"></i>
+                <h4 class="act-empty-title">No Activities Found</h4>
+                <p class="act-empty-desc">No activities match the selected initiative and year filter.</p>
+                <button type="button" class="btn btn-primary" id="emptyResetBtn" style="margin-top: 16px; padding: 8px 22px; font-size: 0.86rem; border-radius: 9999px;">
+                    <i class="fas fa-undo"></i> Show All Activities
+                </button>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // Scroll Reveal System
+    const revealSelectors = ['.act-card', '.act-toolbar-strip', '.act-hero-inner'];
+    let revealObserver = null;
+    if ('IntersectionObserver' in window) {
+        revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { root: null, rootMargin: '0px 0px -40px 0px', threshold: 0.08 });
+        revealSelectors.forEach(selector => {
+            document.querySelectorAll(selector).forEach(el => revealObserver.observe(el));
+        });
+    } else {
+        document.querySelectorAll(revealSelectors.join(',')).forEach(el => el.classList.add('is-revealed'));
+    }
+
+    // Dynamic Filter by Type (WDC vs UBA) and Year
+    const switcherButtons = document.querySelectorAll('.act-switch-btn');
+    const cards = document.querySelectorAll('#activitiesGrid .act-card');
+    const countNum = document.getElementById('countNum');
+    const emptyState = document.getElementById('emptyState');
+    const yearDropdownWrap = document.getElementById('yearDropdownWrap');
+    const yearDropdownTrigger = document.getElementById('yearDropdownTrigger');
+    const yearDropdownMenu = document.getElementById('yearDropdownMenu');
+    const yearSelectedLabel = document.getElementById('yearSelectedLabel');
+
+    let currentType = '<?= $selectedType ?>';
+    let currentYear = '<?= $selectedYear ?>';
+
+    function filterGrid() {
+        let visibleCount = 0;
+        cards.forEach(card => {
+            const cardType = card.getAttribute('data-type');
+            const cardYear = card.getAttribute('data-year');
+            const typeMatch = (currentType === 'all' || cardType === currentType);
+            const yearMatch = (currentYear === 'ALL' || cardYear === currentYear);
+
+            if (typeMatch && yearMatch) {
+                card.style.display = 'flex';
+                visibleCount++;
+                setTimeout(() => card.classList.add('is-revealed'), 50);
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (countNum) countNum.textContent = visibleCount;
+        if (emptyState) emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
+    }
+
+    // Switcher click listener
+    switcherButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            switcherButtons.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            currentType = btn.getAttribute('data-type');
+
+            if (history.replaceState) {
+                history.replaceState(null, '', '?type=' + currentType + (currentYear !== 'ALL' ? '&year=' + currentYear : ''));
+            }
+            filterGrid();
+        });
+    });
+
+    // Year Dropdown logic
+    if (yearDropdownTrigger && yearDropdownWrap && yearDropdownMenu) {
+        yearDropdownTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            yearDropdownWrap.classList.toggle('is-open');
+        });
+
+        yearDropdownMenu.querySelectorAll('.custom-select-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentYear = option.getAttribute('data-value');
+                yearSelectedLabel.textContent = option.textContent.trim();
+                yearDropdownMenu.querySelectorAll('.custom-select-option').forEach(opt => opt.classList.remove('is-selected'));
+                option.classList.add('is-selected');
+                yearDropdownWrap.classList.remove('is-open');
+                filterGrid();
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!yearDropdownWrap.contains(e.target)) {
+                yearDropdownWrap.classList.remove('is-open');
+            }
+        });
+    }
+
+    // Reset button
+    const emptyResetBtn = document.getElementById('emptyResetBtn');
+    if (emptyResetBtn) {
+        emptyResetBtn.addEventListener('click', () => {
+            currentYear = 'ALL';
+            if (yearSelectedLabel) yearSelectedLabel.textContent = 'All Years';
+            filterGrid();
+        });
+    }
+
+    // Apply initial filter
+    filterGrid();
+});
+
+// Modal helpers
+function openActModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeActModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.act-modal-backdrop.is-open').forEach(m => {
+            m.classList.remove('is-open');
+        });
+        document.body.style.overflow = '';
+    }
+});
+</script>
+
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

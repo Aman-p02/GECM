@@ -58,8 +58,7 @@ foreach ($calendarList as $item) {
         $groupedYears[$yr] = [
             'year' => $yr,
             'Odd' => null,
-            'Even' => null,
-            'Full Year' => null
+            'Even' => null
         ];
     }
     $groupedYears[$yr][$sem] = $item;
@@ -67,7 +66,6 @@ foreach ($calendarList as $item) {
 
 // Calculate Metrics
 $totalYearsCount = count($groupedYears);
-$totalDocsCount = count($calendarList);
 $latestYear = array_key_first($groupedYears) ?? '2026-27';
 ?>
 
@@ -123,7 +121,7 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                             $evenDoc = $yearData['Even'];
                             $isCurrentYear = ($yearKey === $latestYear);
                         ?>
-                            <tr class="cal-row" data-year="<?= htmlspecialchars(strtolower($yearKey)) ?>" data-has-odd="<?= $oddDoc ? '1' : '0' ?>" data-has-even="<?= $evenDoc ? '1' : '0' ?>">
+                            <tr class="cal-row" data-year="<?= htmlspecialchars(strtolower($yearKey)) ?>">
                                 <!-- Academic Year Column -->
                                 <td>
                                     <div class="cal-year-title">
@@ -182,7 +180,7 @@ $latestYear = array_key_first($groupedYears) ?? '2026-27';
                     $evenDoc = $yearData['Even'];
                     $isCurrentYear = ($yearKey === $latestYear);
                 ?>
-                    <div class="cal-mobile-card cal-row act-reveal" data-year="<?= htmlspecialchars(strtolower($yearKey)) ?>" data-has-odd="<?= $oddDoc ? '1' : '0' ?>" data-has-even="<?= $evenDoc ? '1' : '0' ?>">
+                    <div class="cal-mobile-card cal-row act-reveal" data-year="<?= htmlspecialchars(strtolower($yearKey)) ?>">
                         <div class="cal-mobile-header">
                             <span class="cal-mobile-year"><?= htmlspecialchars($yearKey) ?></span>
                             <?php if ($isCurrentYear): ?>

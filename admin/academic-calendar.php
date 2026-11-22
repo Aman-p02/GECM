@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/includes/auth.php';
-require_once __DIR__ . '/includes/upload_helper.php';
 checkAdminAuth();
 
 $pdo = getDBConnection();

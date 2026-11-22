@@ -241,6 +241,64 @@
     box-shadow: 0 1px 4px rgba(15, 23, 42, 0.02);
 }
 
+/* Dual Initiative Switcher Button Group (SSIP & DIC, WDC & UBA) */
+.act-type-switcher {
+    display: inline-flex;
+    align-items: center;
+    background: #f1f5f9;
+    padding: 3px;
+    border-radius: 8px;
+    gap: 3px;
+    border: 1px solid #e2e8f0;
+}
+
+.act-switch-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 16px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    font-family: var(--act-font-display);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.act-switch-btn:hover {
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.act-switch-btn.active {
+    background: #ffffff;
+    color: #ff8800;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.act-switch-btn i {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .act-type-switcher {
+        width: 100%;
+        display: flex;
+    }
+    .act-switch-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 8px 10px;
+        font-size: 0.82rem;
+    }
+}
+
 .act-toolbar-meta {
     display: flex;
     align-items: center;
