@@ -241,61 +241,103 @@
     box-shadow: 0 1px 4px rgba(15, 23, 42, 0.02);
 }
 
-/* Dual Initiative Switcher Button Group (SSIP & DIC, WDC & UBA) */
-.act-type-switcher {
-    display: inline-flex;
-    align-items: center;
-    background: #f1f5f9;
-    padding: 3px;
-    border-radius: 8px;
-    gap: 3px;
-    border: 1px solid #e2e8f0;
-}
-
-.act-switch-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 7px 16px;
-    border: none;
-    background: transparent;
-    border-radius: 6px;
-    font-family: var(--act-font-display);
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #475569;
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    outline: none;
-    white-space: nowrap;
-    text-decoration: none;
-}
-
-.act-switch-btn:hover {
-    color: #0f172a;
-    background: rgba(255, 255, 255, 0.6);
-}
-
-.act-switch-btn.active {
+/* ==========================================================================
+   HORIZONTAL SUB-NAVBAR (MATCHES MANDATORY DISCLOSURE & CENTRAL LIBRARY)
+   ========================================================================== */
+.act-subnav-bar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: var(--site-main-nav-height, 52px);
+    z-index: 950;
     background: #ffffff;
+    border-top: 1px solid #e5eaf0;
+    border-bottom: 1px solid #e5eaf0;
+    margin-bottom: 0;
+    box-shadow: 0 1px 0 #e5eaf0, 0 3px 10px rgba(18, 59, 104, 0.04);
+}
+
+.act-subnav-wrap {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.act-subnav-list {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.act-subnav-list::-webkit-scrollbar {
+    display: none;
+}
+
+.act-subnav-item {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.act-subnav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 18px;
+    font-family: var(--act-font-display, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.94rem;
+    font-weight: 500;
+    color: #4b5563;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    transition: color 0.18s ease;
+}
+
+.act-subnav-link:hover {
     color: #ff8800;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.act-switch-btn i {
-    font-size: 0.85rem;
+.act-subnav-link.active,
+.act-subnav-link.is-current {
+    color: #ff8800;
+    font-weight: 700;
 }
 
-@media (max-width: 640px) {
-    .act-type-switcher {
-        width: 100%;
-        display: flex;
+.act-subnav-link.active::after,
+.act-subnav-link.is-current::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 8px;
+    right: 8px;
+    height: 2.5px;
+    background: #ff8800;
+    border-radius: 2px 2px 0 0;
+}
+
+@media (max-width: 768px) {
+    .act-subnav-bar {
+        position: sticky;
+        top: 0 !important;
+        z-index: 999;
+        background: #ffffff !important;
     }
-    .act-switch-btn {
-        flex: 1;
-        justify-content: center;
-        padding: 8px 10px;
-        font-size: 0.82rem;
+    .act-subnav-wrap {
+        padding: 0 12px;
+    }
+    .act-subnav-link {
+        padding: 12px 14px;
+        font-size: 0.88rem;
     }
 }
 
@@ -698,7 +740,8 @@ body.act-modal-open {
     touch-action: none;
 }
 
-.act-modal-backdrop.is-active {
+.act-modal-backdrop.is-active,
+.act-modal-backdrop.is-open {
     display: flex;
     opacity: 1;
 }
@@ -707,20 +750,20 @@ body.act-modal-open {
     background: #ffffff;
     border-radius: 16px;
     width: 100%;
-    max-width: 680px;
-    max-height: 90vh;
+    max-width: 860px;
+    max-height: 92vh;
     overflow-y: auto;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 25px 60px -10px rgba(15, 23, 42, 0.35);
     display: flex;
     flex-direction: column;
-    animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: modalPop 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     overscroll-behavior: contain;
     touch-action: auto;
 }
 
 @keyframes modalPop {
     from {
-        transform: scale(0.95) translateY(10px);
+        transform: scale(0.92) translateY(14px);
         opacity: 0;
     }
     to {
@@ -731,8 +774,8 @@ body.act-modal-open {
 
 .act-modal-media {
     width: 100%;
-    max-height: 320px;
-    background: #000;
+    max-height: 440px;
+    background: #0f172a;
     overflow: hidden;
     position: relative;
 }
@@ -740,7 +783,7 @@ body.act-modal-open {
 .act-modal-media img {
     width: 100%;
     height: 100%;
-    max-height: 320px;
+    max-height: 440px;
     object-fit: cover;
     display: block;
 }
