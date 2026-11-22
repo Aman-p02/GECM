@@ -679,9 +679,6 @@ require_once __DIR__ . '/../includes/header.php';
         </div>
     </div>
 
-        </div>
-    </main>
-
 </div>
 
 <script>
@@ -924,49 +921,28 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }, {
             root: null,
-            rootMargin: '0px 0px -60px 0px',
-            threshold: 0.12
+            rootMargin: '0px 0px 20px 0px',
+            threshold: 0.02
         });
     }
 
     function setupRevealElements(container = document) {
         if (!container) return;
 
-        const gridSelectors = [
-            '.lib-zones-grid',
-            '.lib-eresources-grid',
-            '.lib-rules-grid',
-            '.lib-gallery-grid',
-            '.dept-stats-strip'
-        ];
-
-        gridSelectors.forEach(sel => {
-            container.querySelectorAll(sel).forEach(grid => {
-                Array.from(grid.children).forEach((child, idx) => {
-                    child.classList.add(`stagger-${(idx % 4) + 1}`);
-                });
-            });
-        });
-
         const elements = container.querySelectorAll(revealSelectors.join(', '));
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
         elements.forEach(el => {
             if (!el.classList.contains('dept-reveal')) {
                 el.classList.add('dept-reveal');
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    setTimeout(() => el.classList.add('is-revealed'), 120);
-                } else if (revealObserver) {
-                    revealObserver.observe(el);
-                } else {
-                    el.classList.add('is-revealed');
-                }
-            } else if (!el.classList.contains('is-revealed')) {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    setTimeout(() => el.classList.add('is-revealed'), 60);
-                } else if (revealObserver) {
-                    revealObserver.observe(el);
-                }
+            }
+            const rect = el.getBoundingClientRect();
+            if (rect.top < viewportHeight - 30 && rect.bottom > 0) {
+                setTimeout(() => el.classList.add('is-revealed'), 80);
+            } else if (revealObserver) {
+                revealObserver.observe(el);
+            } else {
+                el.classList.add('is-revealed');
             }
         });
     }
