@@ -346,16 +346,6 @@ if (substr($adminBaseUrl, -1) !== '/') {
                                 <span>Faculty Activities</span>
                             </a>
                         </li>
-                        <li class="submenu-item <?= ($current_page === 'cell-activities') ? 'active' : '' ?>">
-                            <a href="cell-activities.php" class="submenu-link">
-                                <span>Cells &amp; Initiatives</span>
-                            </a>
-                        </li>
-                        <li class="submenu-item <?= ($current_page === 'achievements') ? 'active' : '' ?>">
-                            <a href="achievements.php" class="submenu-link">
-                                <span>Achievements &amp; Clubs</span>
-                            </a>
-                        </li>
                     </ul>
                 </li>
 
@@ -368,14 +358,14 @@ if (substr($adminBaseUrl, -1) !== '/') {
                         <i class="fas fa-chevron-down submenu-arrow"></i>
                     </a>
                     <ul class="submenu-list">
-                        <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'all') ? 'active' : '' ?>">
-                            <a href="cell-activities.php?category=all" class="submenu-link">
-                                <span>All Initiatives</span>
+                        <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'ssip') ? 'active' : '' ?>">
+                            <a href="cell-activities.php?category=ssip" class="submenu-link">
+                                <span>SSIP Activities</span>
                             </a>
                         </li>
-                        <li class="submenu-item <?= ($isCellsActive && in_array($currentCategory, ['ssip', 'dic'])) ? 'active' : '' ?>">
-                            <a href="cell-activities.php?category=ssip" class="submenu-link">
-                                <span>SSIP &amp; DIC</span>
+                        <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'dic') ? 'active' : '' ?>">
+                            <a href="cell-activities.php?category=dic" class="submenu-link">
+                                <span>DIC Activities</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'rusa') ? 'active' : '' ?>">
@@ -393,9 +383,14 @@ if (substr($adminBaseUrl, -1) !== '/') {
                                 <span>Finishing School</span>
                             </a>
                         </li>
-                        <li class="submenu-item <?= ($isCellsActive && in_array($currentCategory, ['wdc', 'uba'])) ? 'active' : '' ?>">
+                        <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'wdc') ? 'active' : '' ?>">
                             <a href="cell-activities.php?category=wdc" class="submenu-link">
-                                <span>WDC &amp; UBA</span>
+                                <span>WDC Activities</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'uba') ? 'active' : '' ?>">
+                            <a href="cell-activities.php?category=uba" class="submenu-link">
+                                <span>UBA Activities</span>
                             </a>
                         </li>
                         <li class="submenu-item <?= ($isCellsActive && $currentCategory === 'anchor_nodal') ? 'active' : '' ?>">
@@ -413,12 +408,7 @@ if (substr($adminBaseUrl, -1) !== '/') {
                         <i class="fas fa-chevron-down submenu-arrow"></i>
                     </a>
                     <ul class="submenu-list">
-                        <li class="submenu-item <?= ($isAchievementsActive && $currentCategory === 'all') ? 'active' : '' ?>">
-                            <a href="achievements.php?category=all" class="submenu-link">
-                                <span>All Achievements</span>
-                            </a>
-                        </li>
-                        <li class="submenu-item <?= ($isAchievementsActive && $currentCategory === 'student_achievements') ? 'active' : '' ?>">
+                        <li class="submenu-item <?= ($isAchievementsActive && in_array($currentCategory, ['student_achievements', 'all'])) ? 'active' : '' ?>">
                             <a href="achievements.php?category=student_achievements" class="submenu-link">
                                 <span>Student Achievements</span>
                             </a>
@@ -438,6 +428,13 @@ if (substr($adminBaseUrl, -1) !== '/') {
                                 <span>Patents</span>
                             </a>
                         </li>
+                        <li class="submenu-item <?= ($isAchievementsActive && $currentCategory === 'technopreneur_club') ? 'active' : '' ?>">
+                            <a href="achievements.php?category=technopreneur_club" class="submenu-link">
+                                <span>Technopreneur Club</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                         <li class="submenu-item <?= ($isAchievementsActive && $currentCategory === 'technopreneur_club') ? 'active' : '' ?>">
                             <a href="achievements.php?category=technopreneur_club" class="submenu-link">
                                 <span>Technopreneur Club</span>

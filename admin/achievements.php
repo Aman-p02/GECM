@@ -46,9 +46,9 @@ $categories = [
     ]
 ];
 
-$selectedCategory = strtolower(trim($_GET['category'] ?? 'all'));
-if ($selectedCategory !== 'all' && !isset($categories[$selectedCategory])) {
-    $selectedCategory = 'all';
+$selectedCategory = strtolower(trim($_GET['category'] ?? 'student_achievements'));
+if ($selectedCategory === 'all' || !isset($categories[$selectedCategory])) {
+    $selectedCategory = 'student_achievements';
 }
 
 $editItem = null;
@@ -327,11 +327,6 @@ require_once __DIR__ . '/includes/header.php';
 
     <!-- Category Selector Pill Tabs -->
     <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 14px;">
-        <a href="achievements.php?category=all" 
-           class="btn btn-sm <?= ($selectedCategory === 'all') ? 'btn-primary' : 'btn-light' ?>" 
-           style="border-radius: 9999px; padding: 6px 14px; font-size: 0.82rem; font-weight: 600; text-decoration: none;">
-            All Achievements
-        </a>
         <?php foreach ($categories as $catKey => $catMeta): ?>
             <a href="achievements.php?category=<?= $catKey ?>" 
                class="btn btn-sm <?= ($selectedCategory === $catKey) ? 'btn-primary' : 'btn-light' ?>" 

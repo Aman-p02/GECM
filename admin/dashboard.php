@@ -44,10 +44,10 @@ if ($pdo) {
             </p>
         </div>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <a href="achievements.php" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+            <a href="achievements.php?category=student_achievements" class="btn btn-primary" style="background: #ff8800; border-color: #ff8800; color: #fff; font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
                 <i class="fas fa-trophy"></i> Manage Achievements
             </a>
-            <a href="cell-activities.php" class="btn btn-secondary" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25); color: #fff; font-weight: 600; padding: 10px 18px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+            <a href="cell-activities.php?category=ssip" class="btn btn-secondary" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25); color: #fff; font-weight: 600; padding: 10px 18px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
                 <i class="fas fa-rocket"></i> Cells &amp; Initiatives
             </a>
         </div>
@@ -69,7 +69,7 @@ if ($pdo) {
                     <span style="font-size: 12px; color: #64748b;">Accolades, hackathon winners, patents &amp; clubs</span>
                 </div>
             </div>
-            <a href="achievements.php" class="btn btn-sm btn-primary" style="background: #ff8800; border-color: #ff8800; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 6px; text-decoration: none;">
+            <a href="achievements.php?category=student_achievements" class="btn btn-sm btn-primary" style="background: #ff8800; border-color: #ff8800; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 6px; text-decoration: none;">
                 + Add / Manage
             </a>
         </div>
@@ -104,13 +104,16 @@ if ($pdo) {
                     <span style="font-size: 12px; color: #64748b;">SSIP, DIC, RUSA, Gymkhana, WDC, Anchor Nodal</span>
                 </div>
             </div>
-            <a href="cell-activities.php" class="btn btn-sm btn-primary" style="background: #0284c7; border-color: #0284c7; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 6px; text-decoration: none;">
+            <a href="cell-activities.php?category=ssip" class="btn btn-sm btn-primary" style="background: #0284c7; border-color: #0284c7; font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 6px; text-decoration: none;">
                 + Add / Manage
             </a>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid #e2e8f0;">
             <a href="cell-activities.php?category=ssip" class="btn btn-sm btn-light" style="font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 6px; padding: 6px 10px;">
-                SSIP &amp; DIC
+                SSIP Activities
+            </a>
+            <a href="cell-activities.php?category=dic" class="btn btn-sm btn-light" style="font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 6px; padding: 6px 10px;">
+                DIC Activities
             </a>
             <a href="cell-activities.php?category=rusa" class="btn btn-sm btn-light" style="font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 6px; padding: 6px 10px;">
                 RUSA Grants
@@ -122,7 +125,10 @@ if ($pdo) {
                 Finishing School
             </a>
             <a href="cell-activities.php?category=wdc" class="btn btn-sm btn-light" style="font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 6px; padding: 6px 10px;">
-                WDC &amp; UBA
+                WDC Activities
+            </a>
+            <a href="cell-activities.php?category=uba" class="btn btn-sm btn-light" style="font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 6px; padding: 6px 10px;">
+                UBA Activities
             </a>
             <a href="cell-activities.php?category=anchor_nodal" class="btn btn-sm btn-light" style="font-size: 12px; font-weight: 600; text-decoration: none; border-radius: 6px; padding: 6px 10px;">
                 Anchor Nodal

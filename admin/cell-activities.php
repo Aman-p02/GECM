@@ -61,42 +61,12 @@ $categories = [
         'badge' => 'Anchor Nodal',
         'cell' => 'Anchor Nodal Institute Cell',
         'live_url' => '../activities/anchor-nodal-activities.php'
-    ],
-    'student_achievements' => [
-        'name' => 'Student Achievements',
-        'badge' => 'Students',
-        'cell' => 'Student Accolades & Hackathons',
-        'live_url' => '../activities/student-achievements.php'
-    ],
-    'faculty_achievements' => [
-        'name' => 'Faculty Achievements',
-        'badge' => 'Faculty',
-        'cell' => 'Faculty Research & Awards',
-        'live_url' => '../activities/faculty-achievements.php'
-    ],
-    'institute_achievements' => [
-        'name' => 'Institute Achievements',
-        'badge' => 'Institute',
-        'cell' => 'Institutional Accreditations & Honours',
-        'live_url' => '../activities/institute-achievements.php'
-    ],
-    'patents' => [
-        'name' => 'Patents & IPR',
-        'badge' => 'Patents',
-        'cell' => 'Intellectual Property & Patents',
-        'live_url' => '../activities/patents.php'
-    ],
-    'technopreneur_club' => [
-        'name' => 'Technopreneur Club',
-        'badge' => 'Club',
-        'cell' => 'Student Technical & Entrepreneurship Club',
-        'live_url' => '../activities/technopreneur-club.php'
     ]
 ];
 
-$selectedCategory = strtolower(trim($_GET['category'] ?? 'all'));
-if ($selectedCategory !== 'all' && !isset($categories[$selectedCategory])) {
-    $selectedCategory = 'all';
+$selectedCategory = strtolower(trim($_GET['category'] ?? 'ssip'));
+if ($selectedCategory === 'all' || !isset($categories[$selectedCategory])) {
+    $selectedCategory = 'ssip';
 }
 
 $editItem = null;
@@ -348,7 +318,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="card-title-group">
             <h2 class="card-title">Manage Cells &amp; Initiatives Activities</h2>
             <p style="font-size: 0.85rem; color: #64748b; margin: 4px 0 0;">
-                Publish and manage official events, workshops, and achievements for SSIP, DIC, RUSA, Gymkhana, Finishing School, WDC, UBA, Anchor Nodal, and Student/Faculty/Institute Achievements.
+                Publish and manage official events, workshops, and student initiatives for SSIP, DIC, RUSA, Gymkhana, Finishing School, WDC, UBA, and Anchor Nodal.
             </p>
         </div>
         <div style="display: flex; gap: 10px; align-items: center; margin-left: auto;">
@@ -365,11 +335,6 @@ require_once __DIR__ . '/includes/header.php';
 
     <!-- Category Selector Pill Tabs -->
     <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 14px;">
-        <a href="cell-activities.php?category=all" 
-           class="btn btn-sm <?= ($selectedCategory === 'all') ? 'btn-primary' : 'btn-light' ?>" 
-           style="border-radius: 9999px; padding: 6px 14px; font-size: 0.82rem; font-weight: 600; text-decoration: none;">
-            All Initiatives
-        </a>
         <?php foreach ($categories as $catKey => $catMeta): ?>
             <a href="cell-activities.php?category=<?= $catKey ?>" 
                class="btn btn-sm <?= ($selectedCategory === $catKey) ? 'btn-primary' : 'btn-light' ?>" 
