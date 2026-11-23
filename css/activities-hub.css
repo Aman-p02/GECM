@@ -1,5 +1,5 @@
 /* --------------------------------------------------------------------------
-   ACTIVITIES HUB STYLESHEET
+   ACTIVITIES 
    GEC Modasa - College Activities, Departmental Activities & Faculty Activities
    -------------------------------------------------------------------------- */
 
@@ -21,7 +21,7 @@
 }
 
 /* ==========================================================================
-   Scroll Reveal Animation System (Smooth Gradual Entrance on Scroll)
+   Scroll Reveal Animation System 
    ========================================================================== */
 .act-reveal {
     opacity: 0;
@@ -90,7 +90,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   CLEAN & SIMPLE DROPDOWN (MATCHES GECM MAIN NAVBAR)
+   CLEAN & SIMPLE DROPDOWN 
    -------------------------------------------------------------------------- */
 .custom-select-wrap {
     position: relative;
@@ -194,7 +194,7 @@
     display: block;
 }
 
-/* Dropdown Option - Clean, like .hdr-dd-link */
+/* Dropdown Option  */
 .custom-select-option {
     display: block;
     padding: 8px 14px;
@@ -242,7 +242,7 @@
 }
 
 /* ==========================================================================
-   HORIZONTAL SUB-NAVBAR (MATCHES MANDATORY DISCLOSURE & CENTRAL LIBRARY)
+   HORIZONTAL SUB-NAVBAR 
    ========================================================================== */
 .act-subnav-bar {
     position: -webkit-sticky;
@@ -332,9 +332,11 @@
         z-index: 999;
         background: #ffffff !important;
     }
+
     .act-subnav-wrap {
         padding: 0 12px;
     }
+
     .act-subnav-link {
         padding: 12px 14px;
         font-size: 0.88rem;
@@ -439,16 +441,65 @@
 }
 
 /* Exact Official Department Accent Colors */
-.act-dept-badge.badge-ce { background: #ff8800; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
-.act-dept-badge.badge-it { background: #15803d; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
-.act-dept-badge.badge-me { background: #2563eb; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
-.act-dept-badge.badge-civil { background: #ca8a04; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
-.act-dept-badge.badge-ee { background: #d97706; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
-.act-dept-badge.badge-ec { background: #7c3aed; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
-.act-dept-badge.badge-ae { background: #dc2626; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
-.act-dept-badge.badge-am { background: #0f766e; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
-.act-dept-badge.badge-sh { background: #4f46e5; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
-.act-dept-badge.badge-college { background: #009dff; border-color: rgba(255, 255, 255, 0.35); color: #ffffff; }
+.act-dept-badge.badge-ce {
+    background: #ff8800;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.act-dept-badge.badge-it {
+    background: #15803d;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.act-dept-badge.badge-me {
+    background: #2563eb;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.act-dept-badge.badge-civil {
+    background: #ca8a04;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.act-dept-badge.badge-ee {
+    background: #d97706;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.act-dept-badge.badge-ec {
+    background: #7c3aed;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.act-dept-badge.badge-ae {
+    background: #dc2626;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.act-dept-badge.badge-am {
+    background: #0f766e;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.act-dept-badge.badge-sh {
+    background: #4f46e5;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
+
+.act-dept-badge.badge-college {
+    background: #009dff;
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+}
 
 /* Department Dynamic Card Color Variables */
 .act-card.dept-card-ce,
@@ -655,16 +706,65 @@
 }
 
 /* Department Color Coordination */
-.dept-link-ce { color: #ea580c; background: #fff7ed; border-color: #fed7aa; }
-.dept-link-it { color: #15803d; background: #f0fdf4; border-color: #bbf7d0; }
-.dept-link-me { color: #2563eb; background: #eff6ff; border-color: #bfdbfe; }
-.dept-link-civil { color: #ca8a04; background: #fefce8; border-color: #fef08a; }
-.dept-link-ee { color: #d97706; background: #fffbeb; border-color: #fde68a; }
-.dept-link-ec { color: #7c3aed; background: #f5f3ff; border-color: #ddd6fe; }
-.dept-link-ae { color: #dc2626; background: #fef2f2; border-color: #fecaca; }
-.dept-link-am { color: #0f766e; background: #f0fdfa; border-color: #99f6e4; }
-.dept-link-sh { color: #4f46e5; background: #eef2ff; border-color: #c7d2fe; }
-.dept-link-college { color: #009dff; background: #f0f9ff; border-color: #bae6fd; }
+.dept-link-ce {
+    color: #ea580c;
+    background: #fff7ed;
+    border-color: #fed7aa;
+}
+
+.dept-link-it {
+    color: #15803d;
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.dept-link-me {
+    color: #2563eb;
+    background: #eff6ff;
+    border-color: #bfdbfe;
+}
+
+.dept-link-civil {
+    color: #ca8a04;
+    background: #fefce8;
+    border-color: #fef08a;
+}
+
+.dept-link-ee {
+    color: #d97706;
+    background: #fffbeb;
+    border-color: #fde68a;
+}
+
+.dept-link-ec {
+    color: #7c3aed;
+    background: #f5f3ff;
+    border-color: #ddd6fe;
+}
+
+.dept-link-ae {
+    color: #dc2626;
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+
+.dept-link-am {
+    color: #0f766e;
+    background: #f0fdfa;
+    border-color: #99f6e4;
+}
+
+.dept-link-sh {
+    color: #4f46e5;
+    background: #eef2ff;
+    border-color: #c7d2fe;
+}
+
+.dept-link-college {
+    color: #009dff;
+    background: #f0f9ff;
+    border-color: #bae6fd;
+}
 
 .dept-link-ce:hover,
 .dept-link-it:hover,
@@ -766,6 +866,7 @@ body.act-modal-open {
         transform: scale(0.92) translateY(14px);
         opacity: 0;
     }
+
     to {
         transform: scale(1) translateY(0);
         opacity: 1;
@@ -872,7 +973,7 @@ body.act-modal-open {
 }
 
 /* ==========================================================================
-   REFINED GLASSMORPHIC SLIDER DOT INDICATORS (CLEAN DESIGN, NO GLOW)
+   REFINED GLASSMORPHIC SLIDER DOT INDICATORS 
    ========================================================================== */
 .act-slider-dots {
     position: absolute;
@@ -970,6 +1071,7 @@ body.act-modal-open {
     .act-modal-slider-wrap {
         height: 280px;
     }
+
     .act-slider-arrow {
         width: 34px;
         height: 34px;
@@ -1161,7 +1263,7 @@ body.act-modal-open {
 }
 
 /* --------------------------------------------------------------------------
-   FACULTY ACTIVITIES SUB-NAVBAR (MATCHES DEPARTMENT SUB-NAVBAR STYLE)
+   FACULTY ACTIVITIES SUB-NAVBAR 
    -------------------------------------------------------------------------- */
 .fac-subnav-bar {
     position: sticky;
@@ -1406,7 +1508,7 @@ body.act-modal-open {
         padding: 0 14px !important;
     }
 
-    /* Mobile Table-to-Card Transformation (No horizontal slide/scroll!) */
+    /* Mobile Table-to-Card Transformation  */
     .fac-table-card {
         background: transparent !important;
         border: none !important;
@@ -1515,4 +1617,3 @@ body.act-modal-open {
         padding: 36px 16px;
     }
 }
-
