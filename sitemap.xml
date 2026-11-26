@@ -1,75 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-    <!-- 1. Homepage -->
+    <!-- 1. Homepage (Primary Institutional Landing) -->
     <url>
         <loc>https://gecmodasa.ac.in/</loc>
-        <lastmod>2026-11-13</lastmod>
+        <lastmod>2026-11-26</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.00</priority>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/logos/logo.png</image:loc>
+            <image:title>Government Engineering College, Modasa Official Logo</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/images/hero_campus_1.jpg</image:loc>
+            <image:title>GEC Modasa Campus Main Building</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/images/hero_campus_2.jpg</image:loc>
+            <image:title>Government Engineering College Modasa Campus View</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/images/hero_campus_3.jpg</image:loc>
+            <image:title>GEC Modasa Academic Infrastructure</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/images/hero_campus_4.jpg</image:loc>
+            <image:title>GEC Modasa Student Campus Grounds</image:title>
+        </image:image>
     </url>
 
     <!-- 2. About Section -->
     <url>
         <loc>https://gecmodasa.ac.in/about/overview</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/about/vision-mission</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/about/principal-message</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/about/idp</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/about/facilities</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/about/e-newsletters</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/about/brochure</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/about/mandatory-disclosure</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/about/rankings</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/about/mou</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
@@ -77,25 +98,25 @@
     <!-- 3. Administration Section -->
     <url>
         <loc>https://gecmodasa.ac.in/administration/principal</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/administration/council-of-heads</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/administration/hostel-mess</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/administration/committees</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
@@ -103,21 +124,37 @@
     <!-- 4. Academic & Admissions -->
     <url>
         <loc>https://gecmodasa.ac.in/academics/courses</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/academics/admission</loc>
-        <lastmod>2026-11-17</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/academics/academic-calendar</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/academics/central-library</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/images/library/library_reading_room.jpg</image:loc>
+            <image:title>GEC Modasa Central Library Reading Room</image:title>
+        </image:image>
     </url>
 
     <!-- 5. Student Corner -->
     <url>
         <loc>https://gecmodasa.ac.in/student-corner/student-section</loc>
-        <lastmod>2026-11-18</lastmod>
+        <lastmod>2026-11-26</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
@@ -151,93 +188,201 @@
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/student-corner/hostel-admission</loc>
+        <lastmod>2026-11-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
 
-    <!-- 6. Campus & Faculty Activities -->
+    <!-- 6. Campus Activities, Cells & Achievements -->
     <url>
         <loc>https://gecmodasa.ac.in/activities/college-activities</loc>
-        <lastmod>2026-11-18</lastmod>
+        <lastmod>2026-11-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/activities/departmental-activities</loc>
-        <lastmod>2026-11-18</lastmod>
+        <lastmod>2026-11-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/activities/faculty-activities</loc>
-        <lastmod>2026-11-18</lastmod>
+        <lastmod>2026-11-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
-
-    <!-- 6. Institutional Information & Developers -->
     <url>
-        <loc>https://gecmodasa.ac.in/contact</loc>
-        <lastmod>2026-11-17</lastmod>
+        <loc>https://gecmodasa.ac.in/activities/ssip-dic-activities</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/activities/rusa-activities</loc>
+        <lastmod>2026-11-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://gecmodasa.ac.in/developers</loc>
-        <lastmod>2026-11-17</lastmod>
+        <loc>https://gecmodasa.ac.in/activities/gymkhana-activities</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/activities/finishing-school-activities</loc>
+        <lastmod>2026-11-22</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.70</priority>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/activities/wdc-uba-activities</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/activities/anchor-nodal-activities</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/activities/student-achievements</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/activities/faculty-achievements</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/activities/institute-achievements</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/activities/patents</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/activities/technopreneur-club</loc>
+        <lastmod>2026-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
     </url>
 
-    <!-- 7. Academic Departments -->
+    <!-- 7. Institutional Information & Developers -->
+    <url>
+        <loc>https://gecmodasa.ac.in/contact</loc>
+        <lastmod>2026-11-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://gecmodasa.ac.in/developers/</loc>
+        <lastmod>2026-11-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.70</priority>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/images/developers/Aman5.png</image:loc>
+            <image:title>Prajapati Aman Jayeshbhai - Full Stack Developer, GEC Modasa</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/images/developers/Vanit.png</image:loc>
+            <image:title>Dantani Vanit Nitinbhai - Full Stack Developer, GEC Modasa</image:title>
+        </image:image>
+    </url>
+
+    <!-- 8. Academic Departments -->
     <url>
         <loc>https://gecmodasa.ac.in/departments/applied-mechanics/</loc>
-        <lastmod>2026-11-13</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/departments/automobile/</loc>
-        <lastmod>2026-11-13</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/logos/automobile-department.png</image:loc>
+            <image:title>Automobile Engineering Department - GEC Modasa</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/departments/civil/</loc>
-        <lastmod>2026-11-13</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/logos/civil-department.png</image:loc>
+            <image:title>Civil Engineering Department - GEC Modasa</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/departments/computer/</loc>
-        <lastmod>2026-11-13</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/logos/computer-department.png</image:loc>
+            <image:title>Computer Engineering Department - GEC Modasa</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/departments/electrical/</loc>
-        <lastmod>2026-11-13</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/logos/electrical-department.png</image:loc>
+            <image:title>Electrical Engineering Department - GEC Modasa</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/departments/electronics-and-communication/</loc>
-        <lastmod>2026-11-13</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/logos/ec-department.png</image:loc>
+            <image:title>Electronics and Communication Engineering Department - GEC Modasa</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/departments/information-technology/</loc>
-        <lastmod>2026-11-13</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/logos/it-department.png</image:loc>
+            <image:title>Information Technology Department - GEC Modasa</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/departments/mechanical/</loc>
-        <lastmod>2026-11-13</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
+        <image:image>
+            <image:loc>https://gecmodasa.ac.in/logos/mechanical-department.png</image:loc>
+            <image:title>Mechanical Engineering Department - GEC Modasa</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://gecmodasa.ac.in/departments/science-and-humanities/</loc>
-        <lastmod>2026-11-13</lastmod>
+        <lastmod>2026-11-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>

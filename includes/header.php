@@ -45,18 +45,25 @@ trackUniqueVisitorVisit($page_title);
     <meta name="author" content="Government Engineering College, Modasa">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="<?= $root_path ?>sitemap.xml">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="<?= $root_path ?>logos/logo.png">
     <link rel="shortcut icon" href="<?= $root_path ?>logos/logo.png">
     <link rel="apple-touch-icon" href="<?= $root_path ?>logos/logo.png">
 
+<?php
+$ogScheme = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
+$ogHost = $_SERVER['HTTP_HOST'] ?? 'gecmodasa.ac.in';
+$ogBasePrefix = function_exists('gecmGetAppBasePrefix') ? gecmGetAppBasePrefix() : '';
+$ogLogoUrl = $ogScheme . '://' . $ogHost . rtrim($ogBasePrefix, '/') . '/logos/logo.png';
+?>
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo htmlspecialchars($canonical_url); ?>">
     <meta property="og:title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($page_description); ?>">
-    <meta property="og:image" content="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'gecmodasa.ac.in') . '/' . ltrim($root_path, '/') ?>images/logo/gec-logo.png">
+    <meta property="og:image" content="<?= htmlspecialchars($ogLogoUrl); ?>">
     <meta property="og:site_name" content="Government Engineering College, Modasa">
     <meta property="og:locale" content="en_IN">
 
@@ -65,7 +72,7 @@ trackUniqueVisitorVisit($page_title);
     <meta name="twitter:url" content="<?php echo htmlspecialchars($canonical_url); ?>">
     <meta name="twitter:title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars($page_description); ?>">
-    <meta name="twitter:image" content="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'gecmodasa.ac.in') . '/' . ltrim($root_path, '/') ?>images/logo/gec-logo.png">
+    <meta name="twitter:image" content="<?= htmlspecialchars($ogLogoUrl); ?>">
 
     <!-- JSON-LD Structured Data: CollegeOrUniversity -->
     <script type="application/ld+json">
@@ -75,7 +82,7 @@ trackUniqueVisitorVisit($page_title);
       "name": "Government Engineering College, Modasa",
       "alternateName": ["GEC Modasa", "GECM"],
       "url": "https://gecmodasa.ac.in",
-      "logo": "https://gecmodasa.ac.in/images/logo/gec-logo.png",
+      "logo": "https://gecmodasa.ac.in/logos/logo.png",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Shamlaji Road",
