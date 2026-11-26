@@ -151,7 +151,23 @@
    - Built dual-tab workflow into `student-corner/grievance-portal.php` enabling students to both submit new grievances and track live redressal status by entering their Reference Ticket Number or Enrollment ID.
    - Display department resolution remarks, timestamps, and current stage badges directly on the public tracking interface.
 
+---
 
+## Update: 26-Nov-2026 - Unique Visitor Counter & Super Admin Page Analytics (Phase 1)
 
-
+### Completed:
+1. **Database Migration (`database/migrate_visitor_analytics.php`)**:
+   - Created 4 reversible analytics tables: `site_visitor_stats`, `site_visitors`, `page_analytics`, and `page_visitor_logs`.
+   - Zero raw IP PII stored; utilizes salted SHA-256 cookie tokens and 24h fingerprint fallback hashes.
+2. **Silent Hybrid Visitor Tracker (`includes/visitor_tracker.php`)**:
+   - Hooked into `includes/header.php` before HTML output (with active `ob_start()`).
+   - Sets silent 5-year `HttpOnly`, `SameSite=Lax` cookie (`gecm_vid`), filters bots/crawlers/assets/admin paths, normalizes clean URLs, and updates overall + per-page unique counts atomically.
+3. **Public Footer Counter (`includes/footer.php`, `css/global.css`)**:
+   - Displays total unique visitors pill cleanly in `.footer-bottom`.
+4. **Super Admin Analytics Module (`admin/most-visited-pages.php`, `admin/includes/header.php`)**:
+   - Added `Most Visited Pages` link under `Analytics` in Super Admin sidebar (strictly `super_admin` access guarded).
+   - Mode 1: Overall ranked table of most visited pages with unique visitors, total views, and search/pagination.
+   - Mode 2: Clicking any page opens its separate unique visitors breakdown (`#VIS-XXXXXXXX`, device type, browser/OS, first/last visit timestamps, hit count).
+5. **Next (Phase 2 - Pending)**:
+   - Add Day-wise, Month-wise, and Year-wise date breakdown filters to Super Admin analytics.
 

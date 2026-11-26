@@ -24,6 +24,10 @@ $canonical_url = $canonical_url ?? ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS
 if (!isset($active_page)) {
     $active_page = "home";
 }
+
+// Track unique visitor and per-page analytics silently before HTML output
+require_once __DIR__ . '/visitor_tracker.php';
+trackUniqueVisitorVisit($page_title);
 ?>
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">

@@ -977,11 +977,50 @@ h4 {
 }
 
 .footer-bottom {
-    text-align: center;
-    padding: 22px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    padding: 22px 62px 0 0;
     border-top: 1px solid #222222;
     font-size: 0.9rem;
     color: #888888;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-visitor-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.visitor-stat-label {
+    color: #888888;
+    font-weight: 400;
+}
+
+.visitor-stat-value {
+    color: #ffffff;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 20px 0 0;
+    }
 }
 
 /* Responsive layout rules */

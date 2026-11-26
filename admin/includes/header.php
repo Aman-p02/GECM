@@ -498,6 +498,13 @@ if (substr($adminBaseUrl, -1) !== '/') {
                     </ul>
                 </li>
 
+                <li class="menu-category">Analytics</li>
+                <li class="menu-item <?= ($current_page === 'most-visited-pages') ? 'active' : '' ?>">
+                    <a href="most-visited-pages" class="menu-link">
+                        <span>Most Visited Pages</span>
+                    </a>
+                </li>
+
                 <li class="menu-category">System & Settings</li>
                 <li class="menu-item <?= ($current_page === 'settings') ? 'active' : '' ?>">
                     <a href="settings" class="menu-link">
