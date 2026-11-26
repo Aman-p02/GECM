@@ -41,7 +41,7 @@
                             <span>Shamlaji Road, Modasa,<br>Dist. Aravalli, Gujarat - 383315</span>
                         </li>
                         <li>
-                            <i class="fas fa-phone-alt"></i>
+                            <i class="fas fa-phone"></i>
                             <span>+91 2774 242631</span>
                         </li>
                         <li>
