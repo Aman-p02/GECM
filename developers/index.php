@@ -24,9 +24,8 @@ include_once __DIR__ . '/../includes/header.php';
 
         <!-- Header -->
         <header class="dev-header">
-            <span class="dev-kicker">GEC MODASA</span>
             <h1>Meet the Developers</h1>
-            <p>The engineering minds behind the architecture and development of the<br>GEC Modasa Website.</p>
+            <p>Engineering minds behind the GEC Modasa Portal.</p>
         </header>
 
         <div class="dev-grid">
@@ -72,7 +71,7 @@ include_once __DIR__ . '/../includes/header.php';
                         <i class="fa-solid fa-bullseye" style="color: #e05638;"></i> Key Contributions:
                     </div>
                     <div class="dev-contributions-desc">
-                        Architected the modular PHP/MySQL CMS with 3-Tier RBAC, approval workflows, and database migrations. Implemented Clean URL routing (301 redirects), Technical SEO, responsive UI/UX, and student portals.
+                        Architected the modular PHP/MySQL CMS with 3-Tier RBAC, approval workflows, and database migrations. Implemented Clean URL routing (301 redirects), Technical SEO, responsive UI/UX, student portals, CI/CD pipelines, and production deployment.
                     </div>
 
                     <!-- Tech Stack -->
@@ -98,12 +97,13 @@ include_once __DIR__ . '/../includes/header.php';
                         <span class="dev-badge dev-badge-purple">Technical SEO &amp; Schema</span>
                     </div>
 
-                    <!-- Tools & Workflow -->
-                    <div class="dev-stack-category">Tools &amp; Workflow:</div>
+                    <!-- Tools & Deployment -->
+                    <div class="dev-stack-category">Tools &amp; Deployment:</div>
                     <div class="dev-pills-wrap">
                         <span class="dev-badge dev-badge-red">Git &amp; Version Control</span>
                         <span class="dev-badge dev-badge-red">Apache (.htaccess)</span>
-                        <span class="dev-badge dev-badge-red">DB Migrations</span>
+                        <span class="dev-badge dev-badge-red">CI/CD Pipeline</span>
+                        <span class="dev-badge dev-badge-red">Production Deployment</span>
                     </div>
                 </div>
 
