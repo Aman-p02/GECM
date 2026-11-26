@@ -93,7 +93,8 @@
     font-size: clamp(1.5rem, 4.8vw, 3.25rem);
     color: var(--dev-heading);
     margin: 0 0 10px;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
+    word-spacing: 0.1em;
     line-height: 1.1;
 }
 
@@ -221,6 +222,7 @@
     color: var(--dev-primary);
     margin-bottom: 0.25rem;
     letter-spacing: 0.02em;
+    word-spacing: 0.12em;
     line-height: 1.35;
     text-transform: uppercase;
 }
@@ -605,7 +607,7 @@
     }
 
     .dev-header h1 {
-        font-size: clamp(1.45rem, 6.5vw, 1.85rem);
+        font-size: clamp(1.4rem, 6.2vw, 1.8rem);
     }
 
     .dev-header p {
