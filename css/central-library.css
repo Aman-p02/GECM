@@ -1,8 +1,3 @@
-/* ==========================================================================
-   GEC MODASA - CENTRAL LIBRARY STYLESHEET
-   Follows GECM Institutional Department Design Language (100% Match)
-   ========================================================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
@@ -34,7 +29,7 @@
 }
 
 /* ==========================================================================
-   Scroll Reveal Animation System (Smooth Gradual Entrance on Scroll)
+   Scroll Reveal Animation System 
    ========================================================================== */
 .dept-reveal {
     opacity: 0;
@@ -67,7 +62,7 @@
     box-sizing: border-box;
 }
 
-/* Hero Section (White Background, Two-Column Department Layout) */
+/* Hero Section  */
 .dept-about-hero {
     padding-top: 8px;
     margin-bottom: 48px;
@@ -161,9 +156,9 @@
     line-height: 1.4;
 }
 
-/* ==========================================================================
-   Library Sub-Navigation Bar (Identical to Main Navbar Design System)
-   ========================================================================== */
+/* =====================================
+   Library Sub-Navigation Bar 
+   ===================================== */
 .lib-subnav-bar {
     position: -webkit-sticky;
     position: sticky;
@@ -276,7 +271,7 @@
     color: #ff8800;
 }
 
-/* Dropdown Menu - Clean, scoped, exactly matching Main Navbar appearance */
+/* Dropdown Menu */
 .lib-dropdown {
     position: absolute;
     top: calc(100% - 1px);
@@ -563,7 +558,7 @@
     margin-bottom: 18px;
 }
 
-/* Facilities Grid Layout (LRC Zones) */
+/* Facilities Grid Layout  */
 .lib-zones-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1007,9 +1002,9 @@
     }
 }
 
-/* ==========================================================================
+/* ====================================
    Library at a Glance (Photo Gallery)
-   ========================================================================== */
+   ==================================== */
 .lib-gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

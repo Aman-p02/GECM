@@ -1,7 +1,6 @@
-/* ==========================================================================
+/* ===================================================
    GEC MODASA - HOSTEL & MESS FACILITY STYLESHEET
-   Department-grade Editorial Aesthetic, Fully Responsive & Clean
-   ========================================================================== */
+   =================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -46,7 +45,7 @@
     min-width: 0;
 }
 
-/* Hero banner header - Department Style */
+/* Hero banner header */
 .hostel-hero-banner {
     padding: 16px 0 28px;
     border-bottom: 1px solid var(--hostel-border);
@@ -157,7 +156,7 @@
     color: var(--hostel-muted);
 }
 
-/* Sticky Sub-Navigation Bar (Department Style - Placed right under main website navbar) */
+/* Sticky Sub-Navigation Bar  */
 .dept-subnav-bar {
     position: -webkit-sticky;
     position: sticky;
@@ -239,7 +238,7 @@
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover and active expanding indicator - Main Navbar Institutional Orange (#ff8800) */
+/* Hover and active expanding indicator - */
 .dept-subnav-link::after {
     content: '';
     position: absolute;
@@ -422,7 +421,7 @@
 }
 
 /* ==========================================================================
-   Governance & Statutory Committees (Clean Institutional Dual Panel)
+   Governance & Statutory Committees 
    ========================================================================== */
 .hostel-governance-panels {
     display: grid;
@@ -578,7 +577,7 @@
 }
 
 /* ==========================================================================
-   Hostel Executive Leadership (3-Column Officer Showcase)
+   Hostel Executive Leadership 
    ========================================================================== */
 .hostel-leadership-cards {
     display: grid;
@@ -1060,9 +1059,9 @@
     box-shadow: 0 4px 14px rgba(0, 157, 255, 0.28);
 }
 
-/* ==========================================================================
-   PHOTO GALLERY & LIGHTBOX (GEC Modasa Institutional Aesthetic)
-   ========================================================================== */
+/* ===========================
+   PHOTO GALLERY 
+   =========================== */
 /* Large Prominent Grid */
 .hostel-photo-grid {
     display: grid;
@@ -1144,8 +1143,13 @@
 }
 
 @keyframes hostelLightboxFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .hostel-lightbox-backdrop {
