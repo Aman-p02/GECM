@@ -1,8 +1,5 @@
 /* ==========================================================================
    Mandatory Disclosures & Campus Committees Stylesheet - GEC Modasa
-   Theme: Plus Jakarta Sans / Inter Typography
-   Colors: Institutional Orange (#ff8800), Accent Blue (#009dff), Slate (#0f172a / #334155)
-   Design System: Clean Institutional Surfaces, Zero Box-Shadow Glows, Fully Responsive
    ========================================================================== */
 
 .md-page-wrapper {
@@ -57,7 +54,7 @@
 }
 
 /* ==========================================================================
-   HORIZONTAL SUB-NAVBAR WITH AUTO-HOVER DROPDOWNS (MATCHES CENTRAL LIBRARY)
+   HORIZONTAL SUB-NAVBAR WITH AUTO-HOVER DROPDOWNS 
    ========================================================================== */
 .md-subnav-bar {
     position: -webkit-sticky;
@@ -116,12 +113,12 @@
     outline: none !important;
 }
 
-.md-subnav-toggle > span {
+.md-subnav-toggle>span {
     position: relative;
     display: inline-block;
 }
 
-.md-subnav-toggle > span::after {
+.md-subnav-toggle>span::after {
     content: '';
     position: absolute;
     bottom: -15px;
@@ -141,10 +138,10 @@
     color: #ff8800 !important;
 }
 
-.md-subnav-toggle:hover > span::after,
-.md-subnav-item.is-open .md-subnav-toggle > span::after,
-.md-subnav-item:hover .md-subnav-toggle > span::after,
-.md-subnav-toggle.is-current > span::after {
+.md-subnav-toggle:hover>span::after,
+.md-subnav-item.is-open .md-subnav-toggle>span::after,
+.md-subnav-item:hover .md-subnav-toggle>span::after,
+.md-subnav-toggle.is-current>span::after {
     width: 100% !important;
 }
 
@@ -555,7 +552,7 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (MOBILE & TABLET)
+   RESPONSIVE DESIGN 
    ========================================================================== */
 @media (max-width: 768px) {
     .md-container {
@@ -583,7 +580,7 @@
         line-height: 1.55;
     }
 
-    /* Sub-Navbar Mobile (Matches Central Library) */
+    /* Sub-Navbar Mobile  */
     .md-subnav-bar {
         position: sticky;
         top: 0 !important;
@@ -634,7 +631,7 @@
         box-sizing: border-box;
     }
 
-    .md-subnav-toggle > span::after {
+    .md-subnav-toggle>span::after {
         display: block !important;
         bottom: -12px;
     }
