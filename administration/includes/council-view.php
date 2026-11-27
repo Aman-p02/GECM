@@ -317,7 +317,7 @@ require_once __DIR__ . '/../../includes/header.php';
                                 <td class="coh-primary-cell"><?= htmlspecialchars($row['organization_name']) ?></td>
                                 <td>
                                     <a href="tel:<?= preg_replace('/[^0-9+]/', '', $row['contact_number']) ?>" class="coh-phone-link">
-                                        <i class="fas fa-phone-alt" style="font-size: 0.8rem;" aria-hidden="true"></i>
+                                        <i class="fas fa-phone" style="font-size: 0.8rem;" aria-hidden="true"></i>
                                         <span><?= htmlspecialchars($row['contact_number']) ?></span>
                                     </a>
                                 </td>

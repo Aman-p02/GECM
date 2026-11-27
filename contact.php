@@ -79,7 +79,7 @@ require_once __DIR__ . '/includes/header.php';
                             </li>
                             <li class="contact-item">
                                 <div class="contact-item-icon">
-                                    <i class="fas fa-phone-alt"></i>
+                                    <i class="fas fa-phone"></i>
                                 </div>
                                 <div class="contact-item-content">
                                     <span class="contact-item-label">Phone Numbers</span>

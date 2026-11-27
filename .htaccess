@@ -1,11 +1,64 @@
-# Default Index
+# Default Index & Disable Directory Browsing
 DirectoryIndex index.php index.html
+Options -Indexes
 
-# Prevent direct access to sensitive files
+# Prevent direct access to sensitive dotfiles and backup files
 <FilesMatch "^\.">
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+<FilesMatch "\.(sql|bak|log|md|sh|bat)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# --------------------------------------------------------------
+# PERFORMANCE: Gzip Compression (mod_deflate)
+# --------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
+    AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/rss+xml
+    AddOutputFilterByType DEFLATE image/svg+xml font/ttf font/otf image/x-icon
+</IfModule>
+
+# --------------------------------------------------------------
+# PERFORMANCE: Browser Caching for Static Assets (mod_expires)
+# --------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/xml "access plus 1 day"
+    ExpiresByType text/xml "access plus 1 day"
+    ExpiresByType text/plain "access plus 1 day"
+</IfModule>
+
+# --------------------------------------------------------------
+# SECURITY & SEO HEADERS (mod_headers)
+# --------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    <FilesMatch "\.(css|js|jpg|jpeg|png|webp|gif|svg|woff|woff2)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+    <FilesMatch "^(sitemap\.xml|robots\.txt)$">
+        Header set Cache-Control "public, max-age=86400"
+    </FilesMatch>
+</IfModule>
 
 # --------------------------------------------------------------
 # CLEAN URL ENGINE (Pretty URLs for GEC Modasa)

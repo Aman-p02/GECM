@@ -41,7 +41,7 @@
                             <span>Shamlaji Road, Modasa,<br>Dist. Aravalli, Gujarat - 383315</span>
                         </li>
                         <li>
-                            <i class="fas fa-phone-alt"></i>
+                            <i class="fas fa-phone"></i>
                             <span>+91 2774 242631</span>
                         </li>
                         <li>
@@ -67,8 +67,16 @@
                     </div>
                 </div>
             </div>
+<?php
+$footerVisitorStats = function_exists('getSiteVisitorSummary') ? getSiteVisitorSummary() : ['total_unique_visitors' => 0];
+$totalUniqueVisitors = (int)($footerVisitorStats['total_unique_visitors'] ?? 0);
+?>
             <div class="footer-bottom">
                 <p>&copy; <?php echo date('Y'); ?> Government Engineering College, Modasa. All Rights Reserved. Designed for GEC Modasa.</p>
+                <div class="footer-visitor-stat" title="Total unique devices visited">
+                    <span class="visitor-stat-label">Unique Visitors:</span>
+                    <span class="visitor-stat-value"><?php echo number_format($totalUniqueVisitors); ?></span>
+                </div>
             </div>
         </div>
     </footer>

@@ -1,15 +1,24 @@
 User-agent: *
 Allow: /
 
-# Disallow sensitive internal and admin areas
-Disallow: /admin/
-Disallow: /config/
-Disallow: /database/
-Disallow: /backup*/
+# Allow essential public asset and media folders for search rendering
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /logos/
 
-# Crawl delay to protect server during peak hours
-Crawl-delay: 1
+# Disallow administrative portals, internal helpers, and migration files
+Disallow: /admin/
+Disallow: /dept-admin/
+Disallow: /fac-admin/
+Disallow: /includes/
+Disallow: /database/
+Disallow: /config/
+Disallow: /docs/
+Disallow: /scratch/
+Disallow: /hostel/
+Disallow: /backup*/
+Disallow: /*.sql$
 
 # Sitemap declaration
 Sitemap: https://gecmodasa.ac.in/sitemap.xml
-

@@ -17,7 +17,7 @@
     position: relative;
     background: #f8fafc;
     min-height: 85vh;
-    padding: 30px 16px 80px;
+    padding: 16px 16px 60px;
     font-family: var(--dev-font-body);
     color: var(--dev-secondary);
     overflow-x: clip;
@@ -70,7 +70,7 @@
 /* Page Header - Aligned to Department Showcase Style */
 .dev-header {
     text-align: center;
-    padding: 2.5rem 1rem 2.2rem;
+    padding: 1rem 1rem 1.25rem;
     position: relative;
     max-width: 780px;
     margin: 0 auto;
@@ -90,18 +90,19 @@
 .dev-header h1 {
     font-family: var(--dev-font-display);
     font-weight: 800;
-    font-size: clamp(2.5rem, 4.8vw, 3.8rem);
+    font-size: clamp(1.5rem, 4.8vw, 3.25rem);
     color: var(--dev-heading);
-    margin: 0 0 18px;
-    letter-spacing: -0.03em;
-    line-height: 1.08;
+    margin: 0 0 10px;
+    letter-spacing: -0.02em;
+    word-spacing: 0.1em;
+    line-height: 1.1;
 }
 
 .dev-header p {
     font-family: var(--dev-font-body);
     color: #4b5563;
-    font-size: 1.1rem;
-    line-height: 1.65;
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    line-height: 1.5;
     max-width: 680px;
     margin: 0 auto;
     font-weight: 400;
@@ -221,6 +222,7 @@
     color: var(--dev-primary);
     margin-bottom: 0.25rem;
     letter-spacing: 0.02em;
+    word-spacing: 0.12em;
     line-height: 1.35;
     text-transform: uppercase;
 }
@@ -597,15 +599,19 @@
 
 @media (max-width: 480px) {
     .dev-main-section {
-        padding: 20px 12px 60px;
+        padding: 10px 12px 48px;
     }
 
     .dev-header {
-        padding: 1.5rem 0.5rem 1.25rem;
+        padding: 0.6rem 0.25rem 0.85rem;
     }
 
     .dev-header h1 {
-        font-size: 2.35rem;
+        font-size: clamp(1.4rem, 6.2vw, 1.8rem);
+    }
+
+    .dev-header p {
+        font-size: 0.92rem;
     }
 
     .dev-card {
