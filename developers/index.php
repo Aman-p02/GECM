@@ -134,7 +134,7 @@ include_once __DIR__ . '/../includes/header.php';
                         <div class="dev-intro">
                             <h2 class="dev-name">DANTANI VANIT NITINBHAI</h2>
                             <div class="dev-role">Full Stack Developer</div>
-                            <p class="dev-quote">"Transforming complex data into intuitive dashboards and seamless user experiences."</p>
+                            <p class="dev-quote">"Engineering scalable interfaces, modular CMS workflows, and resilient web experiences."</p>
                         </div>
                     </div>
 
@@ -165,7 +165,7 @@ include_once __DIR__ . '/../includes/header.php';
                         <i class="fa-solid fa-bullseye" style="color: #e05638;"></i> Key Contributions:
                     </div>
                     <div class="dev-contributions-desc">
-                        Developed statistics page, super admin panel &amp; UI design. Handled backend logic &amp; database architecture. Developed interactive resume builder tool and worked on student panel.
+                        Engineered the Global UI/UX System, Main Navigation, and responsive architecture across all 9 Engineering Departments, Academics, Administration, About &amp; Mandatory Disclosure, and Activities/Patents/Technopreneur Club modules. Built dynamic PHP/MySQL Admin CMS workflows and implemented a Cache-Aside layer with event-driven invalidation and stale fallback for high-traffic resilience.
                     </div>
 
                     <!-- Tech Stack -->
@@ -176,26 +176,29 @@ include_once __DIR__ . '/../includes/header.php';
                     <!-- Frontend UI -->
                     <div class="dev-stack-category">Frontend UI:</div>
                     <div class="dev-pills-wrap">
-                        <span class="dev-badge dev-badge-blue">HTML/CSS</span>
-                        <span class="dev-badge dev-badge-blue">Bootstrap 5</span>
-                        <span class="dev-badge dev-badge-blue">JavaScript</span>
+                        <span class="dev-badge dev-badge-blue">HTML5 / CSS3</span>
+                        <span class="dev-badge dev-badge-blue">JavaScript (ES6+)</span>
+                        <span class="dev-badge dev-badge-blue">Responsive UI/UX</span>
+                        <span class="dev-badge dev-badge-blue">Design System</span>
                     </div>
 
-                    <!-- Backend & AI / ML -->
-                    <div class="dev-stack-category">Backend &amp; AI / ML:</div>
+                    <!-- Backend & System Design -->
+                    <div class="dev-stack-category">Backend &amp; System Design:</div>
                     <div class="dev-pills-wrap">
-                        <span class="dev-badge dev-badge-green">PHP</span>
-                        <span class="dev-badge dev-badge-green">MySQL</span>
-                        <span class="dev-badge dev-badge-purple">Machine Learning</span>
-                        <span class="dev-badge dev-badge-purple">API Integration</span>
+                        <span class="dev-badge dev-badge-green">PHP &amp; MySQL (PDO)</span>
+                        <span class="dev-badge dev-badge-green">Cache-Aside Architecture</span>
+                        <span class="dev-badge dev-badge-green">Event-Driven Invalidation</span>
+                        <span class="dev-badge dev-badge-purple">Dynamic Admin CMS</span>
+                        <span class="dev-badge dev-badge-purple">Modular Multi-Page UI</span>
                     </div>
 
-                    <!-- Tools & APIs -->
-                    <div class="dev-stack-category">Tools &amp; APIs:</div>
+                    <!-- Tools & Performance -->
+                    <div class="dev-stack-category">Tools &amp; Performance:</div>
                     <div class="dev-pills-wrap">
-                        <span class="dev-badge dev-badge-red">Git</span>
-                        <span class="dev-badge dev-badge-red">GitHub</span>
-                        <span class="dev-badge dev-badge-red">REST API</span>
+                        <span class="dev-badge dev-badge-red">Git &amp; GitHub</span>
+                        <span class="dev-badge dev-badge-red">Stale-Fallback Caching</span>
+                        <span class="dev-badge dev-badge-red">JSON File Storage</span>
+                        <span class="dev-badge dev-badge-red">Performance Optimization</span>
                     </div>
                 </div>
 
