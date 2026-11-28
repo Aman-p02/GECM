@@ -32,101 +32,6 @@ include_once __DIR__ . '/../includes/header.php';
 
             <article class="dev-card">
                 <div>
-                    <!-- Top Row: Avatar + Intro -->
-                    <div class="dev-header-flex">
-                        <div class="dev-img-wrapper" onclick="openDevImageModal('developers_pic/Aman5.png')" title="Click to view full photo">
-                            <img src="developers_pic/Aman5.png" alt="Prajapati Aman Jayeshbhai" class="dev-img" loading="eager">
-                        </div>
-                        <div class="dev-intro">
-                            <h2 class="dev-name">PRAJAPATI AMAN JAYESHBHAI</h2>
-                            <div class="dev-role">Full Stack Developer</div>
-                            <p class="dev-quote">"Transforming ideas into digital reality through modern web technologies."</p>
-                        </div>
-                    </div>
-
-                    <!-- Info Box -->
-                    <div class="dev-info">
-                        <div class="dev-info-item">
-                            <i class="fa-solid fa-id-badge"></i>
-                            <span><strong>Enrollment:</strong> 250163107021</span>
-                        </div>
-                        <div class="dev-info-item">
-                            <i class="fa-solid fa-laptop-code"></i>
-                            <span><strong>Branch:</strong> Computer Engineering</span>
-                        </div>
-                        <div class="dev-info-item">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <span><strong>Batch:</strong> 2025 - 2028</span>
-                        </div>
-                        <div class="dev-info-item">
-                            <i class="fa-solid fa-envelope"></i>
-                            <span><strong>Email:</strong> <a href="mailto:amanjp5711@gmail.com">amanjp5711@gmail.com</a></span>
-                        </div>
-                    </div>
-
-                    <hr class="dev-divider">
-
-                    <!-- Key Contributions -->
-                    <div class="dev-section-title">
-                        <i class="fa-solid fa-bullseye" style="color: #e05638;"></i> Key Contributions:
-                    </div>
-                    <div class="dev-contributions-desc">
-                        Architected the modular PHP/MySQL CMS with 3-Tier RBAC, approval workflows, and database migrations. Implemented Clean URL routing (301 redirects), Technical SEO, responsive UI/UX, student portals, CI/CD pipelines, and production deployment.
-                    </div>
-
-                    <!-- Tech Stack -->
-                    <div class="dev-tech-heading">
-                        <i class="fa-solid fa-code" style="color: #2563eb;"></i> Tech Stack I used in this portal:
-                    </div>
-
-                    <!-- Frontend UI -->
-                    <div class="dev-stack-category">Frontend UI:</div>
-                    <div class="dev-pills-wrap">
-                        <span class="dev-badge dev-badge-blue">HTML5 / CSS3</span>
-                        <span class="dev-badge dev-badge-blue">JavaScript / AJAX</span>
-                        <span class="dev-badge dev-badge-blue">Responsive UI/UX</span>
-                    </div>
-
-                    <!-- Backend & Architecture -->
-                    <div class="dev-stack-category">Backend &amp; Architecture:</div>
-                    <div class="dev-pills-wrap">
-                        <span class="dev-badge dev-badge-green">PHP &amp; MySQL (PDO)</span>
-                        <span class="dev-badge dev-badge-green">Modular System Design</span>
-                        <span class="dev-badge dev-badge-green">3-Tier RBAC</span>
-                        <span class="dev-badge dev-badge-purple">URL Rewriting (301)</span>
-                        <span class="dev-badge dev-badge-purple">Technical SEO &amp; Schema</span>
-                    </div>
-
-                    <!-- Tools & Deployment -->
-                    <div class="dev-stack-category">Tools &amp; Deployment:</div>
-                    <div class="dev-pills-wrap">
-                        <span class="dev-badge dev-badge-red">Git &amp; Version Control</span>
-                        <span class="dev-badge dev-badge-red">Apache (.htaccess)</span>
-                        <span class="dev-badge dev-badge-red">CI/CD Pipeline</span>
-                        <span class="dev-badge dev-badge-red">Production Deployment</span>
-                    </div>
-                </div>
-
-                <!-- Connect Links -->
-                <div>
-                    <div class="connect-heading">Let's Connect</div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/amanprajapati2" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn" aria-label="Aman's LinkedIn">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/Aman-p02" target="_blank" rel="noopener noreferrer" class="social-btn github" title="GitHub" aria-label="Aman's GitHub">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="https://amanprajapati2.vercel.app/" target="_blank" rel="noopener noreferrer" class="social-btn portfolio" title="Portfolio Website" aria-label="Aman's Portfolio">
-                            <i class="fa-solid fa-globe"></i>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="dev-card">
-                <div>
-                    <!-- Top Row: Avatar + Intro -->
                     <div class="dev-header-flex">
                         <div class="dev-img-wrapper" onclick="openDevImageModal('developers_pic/Vanit.png')" title="Click to view full photo">
                             <img src="developers_pic/Vanit.png" alt="DANTANI VANIT NITINBHAI" class="dev-img" loading="eager">
@@ -138,7 +43,6 @@ include_once __DIR__ . '/../includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Info Box -->
                     <div class="dev-info">
                         <div class="dev-info-item">
                             <i class="fa-solid fa-id-badge"></i>
@@ -160,7 +64,6 @@ include_once __DIR__ . '/../includes/header.php';
 
                     <hr class="dev-divider">
 
-                    <!-- Key Contributions -->
                     <div class="dev-section-title">
                         <i class="fa-solid fa-bullseye" style="color: #e05638;"></i> Key Contributions:
                     </div>
@@ -168,12 +71,10 @@ include_once __DIR__ . '/../includes/header.php';
                         Engineered the Global UI/UX System, Main Navigation, and responsive architecture across all 9 Engineering Departments, Academics, Administration, About &amp; Mandatory Disclosure, and Activities/Patents/Technopreneur Club modules. Built dynamic PHP/MySQL Admin CMS workflows and implemented a Cache-Aside layer with event-driven invalidation and stale fallback for high-traffic resilience.
                     </div>
 
-                    <!-- Tech Stack -->
                     <div class="dev-tech-heading">
                         <i class="fa-solid fa-code" style="color: #2563eb;"></i> Tech Stack I used in this portal:
                     </div>
 
-                    <!-- Frontend UI -->
                     <div class="dev-stack-category">Frontend UI:</div>
                     <div class="dev-pills-wrap">
                         <span class="dev-badge dev-badge-blue">HTML5 / CSS3</span>
@@ -182,7 +83,6 @@ include_once __DIR__ . '/../includes/header.php';
                         <span class="dev-badge dev-badge-blue">Design System</span>
                     </div>
 
-                    <!-- Backend & System Design -->
                     <div class="dev-stack-category">Backend &amp; System Design:</div>
                     <div class="dev-pills-wrap">
                         <span class="dev-badge dev-badge-green">PHP &amp; MySQL (PDO)</span>
@@ -192,7 +92,6 @@ include_once __DIR__ . '/../includes/header.php';
                         <span class="dev-badge dev-badge-purple">Modular Multi-Page UI</span>
                     </div>
 
-                    <!-- Tools & Performance -->
                     <div class="dev-stack-category">Tools &amp; Performance:</div>
                     <div class="dev-pills-wrap">
                         <span class="dev-badge dev-badge-red">Git &amp; GitHub</span>
@@ -202,7 +101,6 @@ include_once __DIR__ . '/../includes/header.php';
                     </div>
                 </div>
 
-                <!-- Connect Links -->
                 <div>
                     <div class="connect-heading">Let's Connect</div>
                     <div class="social-links">
@@ -213,6 +111,92 @@ include_once __DIR__ . '/../includes/header.php';
                             <i class="fa-brands fa-github"></i>
                         </a>
                         <a href="https://vanitdantaniportfolio.netlify.app/" target="_blank" rel="noopener noreferrer" class="social-btn portfolio" title="Portfolio Website" aria-label="Vanit's Portfolio">
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="dev-card">
+                <div>
+                    <div class="dev-header-flex">
+                        <div class="dev-img-wrapper" onclick="openDevImageModal('developers_pic/Aman5.png')" title="Click to view full photo">
+                            <img src="developers_pic/Aman5.png" alt="Prajapati Aman Jayeshbhai" class="dev-img" loading="eager">
+                        </div>
+                        <div class="dev-intro">
+                            <h2 class="dev-name">PRAJAPATI AMAN JAYESHBHAI</h2>
+                            <div class="dev-role">Full Stack Developer</div>
+                            <p class="dev-quote">"Transforming ideas into digital reality through modern web technologies."</p>
+                        </div>
+                    </div>
+
+                    <div class="dev-info">
+                        <div class="dev-info-item">
+                            <i class="fa-solid fa-id-badge"></i>
+                            <span><strong>Enrollment:</strong> 250163107021</span>
+                        </div>
+                        <div class="dev-info-item">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <span><strong>Branch:</strong> Computer Engineering</span>
+                        </div>
+                        <div class="dev-info-item">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span><strong>Batch:</strong> 2025 - 2028</span>
+                        </div>
+                        <div class="dev-info-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span><strong>Email:</strong> <a href="mailto:amanjp5711@gmail.com">amanjp5711@gmail.com</a></span>
+                        </div>
+                    </div>
+
+                    <hr class="dev-divider">
+
+                    <div class="dev-section-title">
+                        <i class="fa-solid fa-bullseye" style="color: #e05638;"></i> Key Contributions:
+                    </div>
+                    <div class="dev-contributions-desc">
+                        Architected the modular PHP/MySQL CMS with 3-Tier RBAC, approval workflows, and database migrations. Implemented Clean URL routing (301 redirects), Technical SEO, responsive UI/UX, student portals, CI/CD pipelines, and production deployment.
+                    </div>
+
+                    <div class="dev-tech-heading">
+                        <i class="fa-solid fa-code" style="color: #2563eb;"></i> Tech Stack I used in this portal:
+                    </div>
+
+                    <div class="dev-stack-category">Frontend UI:</div>
+                    <div class="dev-pills-wrap">
+                        <span class="dev-badge dev-badge-blue">HTML5 / CSS3</span>
+                        <span class="dev-badge dev-badge-blue">JavaScript / AJAX</span>
+                        <span class="dev-badge dev-badge-blue">Responsive UI/UX</span>
+                    </div>
+
+                    <div class="dev-stack-category">Backend &amp; Architecture:</div>
+                    <div class="dev-pills-wrap">
+                        <span class="dev-badge dev-badge-green">PHP &amp; MySQL (PDO)</span>
+                        <span class="dev-badge dev-badge-green">Modular System Design</span>
+                        <span class="dev-badge dev-badge-green">3-Tier RBAC</span>
+                        <span class="dev-badge dev-badge-purple">URL Rewriting (301)</span>
+                        <span class="dev-badge dev-badge-purple">Technical SEO &amp; Schema</span>
+                    </div>
+
+                    <div class="dev-stack-category">Tools &amp; Deployment:</div>
+                    <div class="dev-pills-wrap">
+                        <span class="dev-badge dev-badge-red">Git &amp; Version Control</span>
+                        <span class="dev-badge dev-badge-red">Apache (.htaccess)</span>
+                        <span class="dev-badge dev-badge-red">CI/CD Pipeline</span>
+                        <span class="dev-badge dev-badge-red">Production Deployment</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="connect-heading">Let's Connect</div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/amanprajapati2" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn" aria-label="Aman's LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/Aman-p02" target="_blank" rel="noopener noreferrer" class="social-btn github" title="GitHub" aria-label="Aman's GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://amanprajapati2.vercel.app/" target="_blank" rel="noopener noreferrer" class="social-btn portfolio" title="Portfolio Website" aria-label="Aman's Portfolio">
                             <i class="fa-solid fa-globe"></i>
                         </a>
                     </div>
