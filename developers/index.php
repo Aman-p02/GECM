@@ -68,7 +68,7 @@ include_once __DIR__ . '/../includes/header.php';
                         <i class="fa-solid fa-bullseye" style="color: #e05638;"></i> Key Contributions:
                     </div>
                     <div class="dev-contributions-desc">
-                        Engineered the Global UI/UX System, Main Navigation, and responsive architecture across all 9 Engineering Departments, Academics, Administration, About &amp; Mandatory Disclosure, and Activities/Patents/Technopreneur Club modules. Built dynamic PHP/MySQL Admin CMS workflows and implemented a Cache-Aside layer with event-driven invalidation and stale fallback for high-traffic resilience.
+                        Engineered the Global UI/UX System, Main Navigation, and responsive architecture across all 9 Engineering Departments, Academics, Administration, About &amp; Mandatory Disclosure,Library module, Hostel &amp mess and Activities. Built dynamic PHP/MySQL Admin CMS workflows and implemented a Cache-Aside layer with event-driven invalidation and stale fallback for high-traffic resilience.
                     </div>
 
                     <div class="dev-tech-heading">
@@ -95,6 +95,7 @@ include_once __DIR__ . '/../includes/header.php';
                     <div class="dev-stack-category">Tools &amp; Performance:</div>
                     <div class="dev-pills-wrap">
                         <span class="dev-badge dev-badge-red">Git &amp; GitHub</span>
+                        <span class="dev-badge dev-badge-red">CI/CD Pipeline</span>
                         <span class="dev-badge dev-badge-red">Stale-Fallback Caching</span>
                         <span class="dev-badge dev-badge-red">JSON File Storage</span>
                         <span class="dev-badge dev-badge-red">Performance Optimization</span>

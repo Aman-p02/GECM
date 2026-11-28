@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mobile Navigation Toggle
     const hdrHamburger = document.getElementById("hamburgerBtn");
     const hdrNavList   = document.getElementById("mainNavLinks");
-    const legacyHamburger = document.querySelector(".hamburger:not(#hamburgerBtn)");
-    const legacyNavLinks  = document.querySelector(".nav-links");
 
     function resetMobileSubpanels() {
         document.querySelectorAll(".hdr-nav-item.has-dropdown.is-sub-open").forEach(item => {
@@ -121,19 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (legacyHamburger && legacyNavLinks) {
-        legacyHamburger.addEventListener("click", () => {
-            legacyHamburger.classList.toggle("active");
-            legacyNavLinks.classList.toggle("active");
-        });
-        legacyNavLinks.querySelectorAll("li a").forEach(link => {
-            link.addEventListener("click", () => {
-                legacyHamburger.classList.remove("active");
-                legacyNavLinks.classList.remove("active");
-            });
-        });
-    }
-
     // Dismiss menu on outside click
     document.addEventListener("click", (e) => {
         if (!e.target.closest(".hdr-nav-item.has-dropdown")) {
@@ -150,16 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 resetMobileSubpanels();
             }
         }
-        if (legacyHamburger && legacyNavLinks && legacyNavLinks.classList.contains("active")) {
-            if (!legacyHamburger.contains(e.target) && !legacyNavLinks.contains(e.target)) {
-                legacyHamburger.classList.remove("active");
-                legacyNavLinks.classList.remove("active");
-            }
-        }
     });
 
     // Navigation link active & click state (Main nav + sub-options)
-    const allNavLinks = document.querySelectorAll(".hdr-nav-link, .hdr-dd-link, .nav-links li a");
+    const allNavLinks = document.querySelectorAll(".hdr-nav-link, .hdr-dd-link");
     const currentPath = window.location.pathname.replace(/\/$/, "");
     const currentHash = window.location.hash;
 

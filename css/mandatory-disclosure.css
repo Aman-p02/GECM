@@ -18,9 +18,9 @@
     box-sizing: border-box;
 }
 
-/* ==========================================================================
+/* =====================
    Page Hero Section
-   ========================================================================== */
+   ===================== */
 .md-hero {
     padding: 32px 0 20px;
 }
@@ -42,14 +42,6 @@
     color: #0f172a;
     line-height: 1.18;
     letter-spacing: -0.025em;
-    margin: 0;
-}
-
-.md-lead {
-    font-size: 1.02rem;
-    color: #475569;
-    line-height: 1.7;
-    max-width: 900px;
     margin: 0;
 }
 
@@ -264,16 +256,6 @@
 /* Header Area */
 .rti-header-block {
     margin-bottom: 26px;
-}
-
-.rti-kicker {
-    display: inline-block;
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #ff8800;
-    margin-bottom: 8px;
 }
 
 .rti-main-title {
@@ -528,29 +510,6 @@
     color: #0077cc;
 }
 
-/* Institutional Back Link on Committee Sub-Pages */
-.md-back-home-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #64748b;
-    text-decoration: none;
-    margin-bottom: 20px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    transition: all 0.2s ease;
-}
-
-.md-back-home-link:hover {
-    color: #009dff;
-    background: #f0f9ff;
-    border-color: #bae6fd;
-}
-
 /* ==========================================================================
    RESPONSIVE DESIGN 
    ========================================================================== */
@@ -573,11 +532,6 @@
         font-size: 1.55rem;
         line-height: 1.22;
         margin-bottom: 8px;
-    }
-
-    .md-lead {
-        font-size: 0.88rem;
-        line-height: 1.55;
     }
 
     /* Sub-Navbar Mobile  */

@@ -93,10 +93,8 @@ require_once __DIR__ . '/../includes/header.php';
                             
                             $catClass = (strtolower(trim($pCat)) === 'design') ? 'cat-design' : 'cat-utility';
                             $statClass = (strtolower(trim($pStat)) === 'granted') ? 'status-granted' : 'status-published';
-                            
-                            $searchHaystack = strtolower($row['title'] . ' ' . $pFac . ' ' . $pDept . ' ' . $pYear . ' ' . $pCat . ' ' . $pStat);
                         ?>
-                            <tr class="patent-data-row" data-search="<?= htmlspecialchars($searchHaystack) ?>">
+                            <tr class="patent-data-row">
                                 <!-- Sr. No. Badge -->
                                 <td class="cell-sr">
                                     <span class="sr-badge"><?= sprintf('%02d', $sr++) ?></span>
@@ -241,39 +239,6 @@ require_once __DIR__ . '/../includes/header.php';
     margin-left: auto;
 }
 
-/* Live Search Box */
-.patent-search-box {
-    position: relative;
-    min-width: 250px;
-}
-
-.search-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94a3b8;
-    font-size: 0.85rem;
-    pointer-events: none;
-}
-
-.patent-search-box input {
-    width: 100%;
-    background: #ffffff;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    padding: 8px 12px 8px 34px;
-    font-size: 0.88rem;
-    color: #0f172a;
-    outline: none;
-    transition: border-color 0.18s ease, box-shadow 0.18s ease;
-}
-
-.patent-search-box input:focus {
-    border-color: #ff8800;
-    box-shadow: 0 0 0 3px rgba(255, 136, 0, 0.12);
-}
-
 .patent-count-chip {
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -286,28 +251,6 @@ require_once __DIR__ . '/../includes/header.php';
 }
 
 .patent-count-chip strong {
-    color: #0f172a;
-}
-
-.patent-btn-print {
-    background: #ffffff;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    padding: 7px 14px;
-    font-size: 0.84rem;
-    font-weight: 600;
-    color: #334155;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.15s ease;
-    height: 36px;
-}
-
-.patent-btn-print:hover {
-    background: #f8fafc;
-    border-color: #94a3b8;
     color: #0f172a;
 }
 
@@ -545,57 +488,6 @@ require_once __DIR__ . '/../includes/header.php';
     font-weight: 700;
     padding: 2px 7px;
     border-radius: 4px;
-}
-
-/* Empty State */
-.patent-empty-state {
-    padding: 56px 20px;
-    text-align: center;
-}
-
-.empty-icon-circle {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background: #f1f5f9;
-    color: #94a3b8;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.35rem;
-    margin-bottom: 12px;
-}
-
-.empty-title {
-    font-size: 1.10rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin: 0 0 5px;
-}
-
-.empty-subtitle {
-    font-size: 0.88rem;
-    color: #64748b;
-    margin: 0 0 16px;
-}
-
-.btn-reset-search {
-    background: #ff8800;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 16px;
-    font-size: 0.84rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: background 0.15s ease;
-}
-
-.btn-reset-search:hover {
-    background: #ea580c;
 }
 
 /* --------------------------------------------------------------------------
