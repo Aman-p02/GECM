@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($name) && !empty($company) && !empty($photo_url)) {
             $stmt = $pdo->prepare("INSERT INTO alumni (name, branch, graduation_year, company, photo_url, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute([$name, $branch, $graduation_year, $company, $photo_url, $display_order, $is_active]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Alumni record added successfully!');
             header('Location: alumni.php');
             exit;
@@ -66,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($name) && !empty($company) && !empty($photo_url) && $id > 0) {
             $stmt = $pdo->prepare("UPDATE alumni SET name = ?, branch = ?, graduation_year = ?, company = ?, photo_url = ?, display_order = ?, is_active = ? WHERE id = ?");
             $stmt->execute([$name, $branch, $graduation_year, $company, $photo_url, $display_order, $is_active, $id]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Alumni record updated successfully!');
             header('Location: alumni.php');
             exit;
@@ -83,6 +85,7 @@ if (isset($_GET['delete'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("DELETE FROM alumni WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('success', 'Alumni record deleted!');
         header('Location: alumni.php');
         exit;
@@ -99,6 +102,7 @@ if (isset($_GET['toggle'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("UPDATE alumni SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('info', 'Alumni status toggled!');
         header('Location: alumni.php');
         exit;

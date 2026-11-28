@@ -13,6 +13,9 @@ Options -Indexes
     Deny from all
 </FilesMatch>
 
+# Block direct HTTP access to internal runtime storage/cache
+RedirectMatch 403 ^(.*/)?storage/
+
 # --------------------------------------------------------------
 # PERFORMANCE: Gzip Compression (mod_deflate)
 # --------------------------------------------------------------

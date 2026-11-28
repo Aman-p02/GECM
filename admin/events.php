@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($title) && !empty($image_url)) {
             $stmt = $pdo->prepare("INSERT INTO events (title, description, image_url, event_date, view_url, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute([$title, $description, $image_url, $event_date, $view_url, $display_order, $is_active]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Event added successfully!');
             header('Location: events.php');
             exit;
@@ -59,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
 
+                gecmCacheInvalidate('homepage_bundle');
                 setFlashMessage('success', 'Event has been permanently deleted from the database!');
             } catch (Exception $e) {
                 error_log("Event delete error: " . $e->getMessage());
@@ -90,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($title) && !empty($image_url) && $id > 0) {
             $stmt = $pdo->prepare("UPDATE events SET title = ?, description = ?, image_url = ?, event_date = ?, view_url = ?, display_order = ?, is_active = ? WHERE id = ?");
             $stmt->execute([$title, $description, $image_url, $event_date, $view_url, $display_order, $is_active, $id]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Event updated successfully!');
             header('Location: events.php');
             exit;
@@ -123,6 +126,7 @@ if (isset($_GET['delete'])) {
                 }
             }
 
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Event has been permanently deleted from the database!');
         } catch (Exception $e) {
             error_log("Event delete error: " . $e->getMessage());
@@ -143,6 +147,7 @@ if (isset($_GET['toggle'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("UPDATE events SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('info', 'Event status updated!');
         header('Location: events.php');
         exit;

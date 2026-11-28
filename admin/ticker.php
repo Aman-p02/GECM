@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($message)) {
             $stmt = $pdo->prepare("INSERT INTO news_ticker (message, link_url, display_order, is_active) VALUES (?, ?, ?, ?)");
             $stmt->execute([$message, $link_url, $display_order, $is_active]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Ticker update added successfully!');
             header('Location: ticker.php');
             exit;
@@ -38,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($message) && $id > 0) {
             $stmt = $pdo->prepare("UPDATE news_ticker SET message = ?, link_url = ?, display_order = ?, is_active = ? WHERE id = ?");
             $stmt->execute([$message, $link_url, $display_order, $is_active, $id]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Ticker update saved!');
             header('Location: ticker.php');
             exit;
@@ -55,6 +57,7 @@ if (isset($_GET['delete'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("DELETE FROM news_ticker WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('success', 'Ticker item deleted!');
         header('Location: ticker.php');
         exit;
@@ -71,6 +74,7 @@ if (isset($_GET['toggle'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("UPDATE news_ticker SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('info', 'Ticker status toggled!');
         header('Location: ticker.php');
         exit;

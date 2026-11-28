@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($title)) {
             $stmt = $pdo->prepare("INSERT INTO notices (title, category, badge, publish_date, link_url, is_active) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->execute([$title, $category, $badge, $publish_date, $link_url, $is_active]);
+            $newId = $pdo->lastInsertId();
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Notice added successfully!');
             header('Location: notices.php');
             exit;
@@ -43,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($title) && $id > 0) {
             $stmt = $pdo->prepare("UPDATE notices SET title = ?, category = ?, badge = ?, publish_date = ?, link_url = ?, is_active = ? WHERE id = ?");
             $stmt->execute([$title, $category, $badge, $publish_date, $link_url, $is_active, $id]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Notice updated successfully!');
             header('Location: notices.php');
             exit;
@@ -61,6 +64,7 @@ if (isset($_GET['delete'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("DELETE FROM notices WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('success', 'Notice deleted successfully!');
         header('Location: notices.php');
         exit;
@@ -77,6 +81,7 @@ if (isset($_GET['toggle'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("UPDATE notices SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('info', 'Notice status updated!');
         header('Location: notices.php');
         exit;

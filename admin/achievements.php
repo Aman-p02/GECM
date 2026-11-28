@@ -124,6 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ");
             $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active, $patent_category, $patent_status, $faculty_name, $department, $pub_year]);
+            gecmCacheInvalidate('cell_activities_');
             setFlashMessage('success', "Record '{$title}' added successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
@@ -219,6 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ");
                 $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active, $patent_category, $patent_status, $faculty_name, $department, $pub_year]);
             }
+            gecmCacheInvalidate('cell_activities_');
             setFlashMessage('success', "Record updated successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
@@ -247,6 +249,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 VALUES (?, ?, ?, ?, ?, ?)
             ");
             $stmt->execute([$group_type, $name, $designation_or_role, $department, $display_order, $is_active]);
+            gecmCacheInvalidate('technopreneur_team_');
             setFlashMessage('success', "Member '{$name}' added to team successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
@@ -278,6 +281,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 WHERE id = ?
             ");
             $stmt->execute([$group_type, $name, $designation_or_role, $department, $display_order, $is_active, $id]);
+            gecmCacheInvalidate('technopreneur_team_');
             setFlashMessage('success', "Member '{$name}' updated successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
@@ -301,6 +305,7 @@ if (isset($_GET['delete_team_member'])) {
         initTechnopreneurTeamTable($pdo);
         $stmt = $pdo->prepare("DELETE FROM technopreneur_team WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('technopreneur_team_');
         setFlashMessage('success', 'Team member deleted successfully.');
     } catch (Exception $e) {
         setFlashMessage('danger', 'Delete error: ' . $e->getMessage());
@@ -323,6 +328,7 @@ if (isset($_GET['toggle_team_member'])) {
         initTechnopreneurTeamTable($pdo);
         $stmt = $pdo->prepare("UPDATE technopreneur_team SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('technopreneur_team_');
         setFlashMessage('success', 'Member status updated successfully.');
     } catch (Exception $e) {
         setFlashMessage('danger', 'Toggle error: ' . $e->getMessage());
@@ -359,6 +365,7 @@ if (isset($_GET['delete'])) {
     try {
         $stmt = $pdo->prepare("DELETE FROM cell_activities WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('cell_activities_');
         setFlashMessage('success', 'Achievement deleted successfully.');
     } catch (Exception $e) {
         setFlashMessage('danger', 'Delete error: ' . $e->getMessage());
@@ -380,6 +387,7 @@ if (isset($_GET['toggle'])) {
     try {
         $stmt = $pdo->prepare("UPDATE cell_activities SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('cell_activities_');
         setFlashMessage('success', 'Status toggled successfully.');
     } catch (Exception $e) {
         setFlashMessage('danger', 'Toggle error: ' . $e->getMessage());

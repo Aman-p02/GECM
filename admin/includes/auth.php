@@ -8,6 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 ob_start();
 
 require_once __DIR__ . '/../../includes/db.php';
+require_once __DIR__ . '/../../includes/cache_helper.php';
 
 function checkAdminAuth() {
     if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {

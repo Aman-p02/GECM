@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
                 $stmt = $pdo->prepare("INSERT INTO departments (name, code, icon_class, learn_more_url, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?)");
                 $stmt->execute([$name, $code, $icon_class, $learn_more_url, $display_order, $is_active]);
+                gecmCacheInvalidate('homepage_bundle');
                 setFlashMessage('success', 'Department added successfully!');
                 header('Location: departments.php');
                 exit;
@@ -47,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
                 $stmt = $pdo->prepare("UPDATE departments SET name = ?, code = ?, icon_class = ?, learn_more_url = ?, display_order = ?, is_active = ? WHERE id = ?");
                 $stmt->execute([$name, $code, $icon_class, $learn_more_url, $display_order, $is_active, $id]);
+                gecmCacheInvalidate('homepage_bundle');
                 setFlashMessage('success', 'Department updated successfully!');
                 header('Location: departments.php');
                 exit;
@@ -67,6 +69,7 @@ if (isset($_GET['delete'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("DELETE FROM departments WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('success', 'Department deleted successfully!');
         header('Location: departments.php');
         exit;
@@ -83,6 +86,7 @@ if (isset($_GET['toggle'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("UPDATE departments SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('info', 'Department status toggled!');
         header('Location: departments.php');
         exit;

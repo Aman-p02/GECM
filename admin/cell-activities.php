@@ -135,6 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             ");
             $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active]);
+            gecmCacheInvalidate('cell_activities_');
             setFlashMessage('success', "Activity '{$title}' added successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
@@ -215,6 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ");
                 $stmt->execute([$category, $title, $activity_date, $photo_url, $gallery_images, $description, $external_url, $display_order, $is_active]);
             }
+            gecmCacheInvalidate('cell_activities_');
             setFlashMessage('success', "Activity updated successfully!");
         } catch (Exception $e) {
             setFlashMessage('danger', 'Database error: ' . $e->getMessage());
@@ -249,6 +251,7 @@ if (isset($_GET['delete'])) {
                         @unlink($physicalFile);
                     }
                 }
+                gecmCacheInvalidate('cell_activities_');
                 setFlashMessage('success', 'Activity permanently deleted.');
             }
         } catch (Exception $e) {
@@ -271,6 +274,7 @@ if (isset($_GET['toggle'])) {
         try {
             $stmt = $pdo->prepare("UPDATE cell_activities SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
             $stmt->execute([$id]);
+            gecmCacheInvalidate('cell_activities_');
             setFlashMessage('info', 'Status updated successfully.');
         } catch (Exception $e) {
             setFlashMessage('danger', 'Status update failed: ' . $e->getMessage());

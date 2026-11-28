@@ -4,32 +4,39 @@ $active_page = "home";
 $extra_css = "css/home.css";
 $extra_js = "js/home.js";
 
-// Database connection
+// Database connection & Application Cache Layer
 require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/includes/cache_helper.php';
 $pdo = getDBConnection();
 
-// Fetch content from database
-$heroSlides = null;
-$newsTickers = null;
-$noticesList = null;
-$recentEvents = null;
-$latestShots = null;
-$departmentsList = null;
-$alumniList = null;
-
-if ($pdo) {
+// Fetch content via Cache-Aside (15m TTL + stale fallback on DB outage)
+$homeBundle = gecmCacheRemember('homepage_bundle', 900, function () use ($pdo) {
+    if (!$pdo) {
+        return null;
+    }
     try {
-        $heroSlides = $pdo->query("SELECT * FROM hero_slides WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
-        $newsTickers = $pdo->query("SELECT * FROM news_ticker WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
-        $noticesList = $pdo->query("SELECT * FROM notices WHERE is_active = 1 ORDER BY publish_date DESC, id DESC")->fetchAll();
-        $recentEvents = $pdo->query("SELECT * FROM events WHERE is_active = 1 ORDER BY event_date DESC, id DESC LIMIT 4")->fetchAll();
-        $latestShots = $pdo->query("SELECT * FROM latest_shots WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
-        $departmentsList = $pdo->query("SELECT * FROM departments WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
-        $alumniList = $pdo->query("SELECT * FROM alumni WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll();
+        return [
+            'heroSlides'      => $pdo->query("SELECT * FROM hero_slides WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll(),
+            'newsTickers'     => $pdo->query("SELECT * FROM news_ticker WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll(),
+            'noticesList'     => $pdo->query("SELECT * FROM notices WHERE is_active = 1 ORDER BY publish_date DESC, id DESC")->fetchAll(),
+            'recentEvents'    => $pdo->query("SELECT * FROM events WHERE is_active = 1 ORDER BY event_date DESC, id DESC LIMIT 4")->fetchAll(),
+            'latestShots'     => $pdo->query("SELECT * FROM latest_shots WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll(),
+            'departmentsList' => $pdo->query("SELECT * FROM departments WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll(),
+            'alumniList'      => $pdo->query("SELECT * FROM alumni WHERE is_active = 1 ORDER BY display_order ASC, id ASC")->fetchAll()
+        ];
     } catch (Exception $e) {
         error_log("DB Query Error: " . $e->getMessage());
+        return null;
     }
-}
+});
+
+$heroSlides      = is_array($homeBundle) ? ($homeBundle['heroSlides'] ?? null) : null;
+$newsTickers     = is_array($homeBundle) ? ($homeBundle['newsTickers'] ?? null) : null;
+$noticesList     = is_array($homeBundle) ? ($homeBundle['noticesList'] ?? null) : null;
+$recentEvents    = is_array($homeBundle) ? ($homeBundle['recentEvents'] ?? null) : null;
+$latestShots     = is_array($homeBundle) ? ($homeBundle['latestShots'] ?? null) : null;
+$departmentsList = is_array($homeBundle) ? ($homeBundle['departmentsList'] ?? null) : null;
+$alumniList      = is_array($homeBundle) ? ($homeBundle['alumniList'] ?? null) : null;
 
 // Fallback hero banner slides
 if (empty($heroSlides)) {

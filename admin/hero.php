@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($image_url)) {
             $stmt = $pdo->prepare("INSERT INTO hero_slides (title, subtitle, image_url, label, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->execute([$title, $subtitle, $image_url, $label, $display_order, $is_active]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Hero slide added successfully!');
             header('Location: hero.php');
             exit;
@@ -61,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($image_url) && $id > 0) {
             $stmt = $pdo->prepare("UPDATE hero_slides SET title = ?, subtitle = ?, image_url = ?, label = ?, display_order = ?, is_active = ? WHERE id = ?");
             $stmt->execute([$title, $subtitle, $image_url, $label, $display_order, $is_active, $id]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Hero slide updated successfully!');
             header('Location: hero.php');
             exit;
@@ -79,6 +81,7 @@ if (isset($_GET['delete'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("DELETE FROM hero_slides WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('success', 'Slide deleted successfully!');
         header('Location: hero.php');
         exit;
@@ -95,6 +98,7 @@ if (isset($_GET['toggle'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("UPDATE hero_slides SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('info', 'Slide status updated!');
         header('Location: hero.php');
         exit;

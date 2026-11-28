@@ -5,6 +5,7 @@
  */
 
 require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/cache_helper.php';
 
 /**
  * Ensure cell_activities table exists in database with gallery_images column
@@ -872,10 +873,14 @@ function getActivityImages($activity, $root_path = '') {
 }
 
 /**
- * Fetch activities for a specific category
+ * Fetch activities for a specific category (Cache-Aside 30m TTL + stale fallback)
  */
 function getCellActivities($category, $pdo = null) {
-    if ($pdo) {
+    $cacheKey = 'cell_activities_' . $category;
+    $cached = gecmCacheRemember($cacheKey, 1800, function () use ($category, $pdo) {
+        if (!$pdo) {
+            return null;
+        }
         initCellActivitiesTable($pdo);
         try {
             $orderBy = ($category === 'patents') ? "display_order ASC, id ASC" : "activity_date DESC, id DESC";
@@ -886,12 +891,15 @@ function getCellActivities($category, $pdo = null) {
             ");
             $stmt->execute([$category]);
             $dbRows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if (!empty($dbRows)) {
-                return $dbRows;
-            }
+            return !empty($dbRows) ? $dbRows : null;
         } catch (Exception $e) {
             error_log("Cell activities query error for {$category}: " . $e->getMessage());
+            return null;
         }
+    });
+
+    if (is_array($cached) && !empty($cached)) {
+        return $cached;
     }
 
     $allFallbacks = getCellActivitiesFallbackData();
@@ -902,8 +910,11 @@ function getCellActivities($category, $pdo = null) {
  * Fetch activities for multiple combined categories (e.g. ['ssip', 'dic'] or ['wdc', 'uba'])
  */
 function getCombinedCellActivities($categories, $pdo = null) {
-    $result = [];
-    if ($pdo) {
+    $cacheKey = 'cell_activities_combined_' . implode('_', $categories);
+    $cached = gecmCacheRemember($cacheKey, 1800, function () use ($categories, $pdo) {
+        if (!$pdo || empty($categories)) {
+            return null;
+        }
         initCellActivitiesTable($pdo);
         try {
             $placeholders = implode(',', array_fill(0, count($categories), '?'));
@@ -914,14 +925,18 @@ function getCombinedCellActivities($categories, $pdo = null) {
             ");
             $stmt->execute($categories);
             $dbRows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if (!empty($dbRows)) {
-                return $dbRows;
-            }
+            return !empty($dbRows) ? $dbRows : null;
         } catch (Exception $e) {
             error_log("Combined cell activities error: " . $e->getMessage());
+            return null;
         }
+    });
+
+    if (is_array($cached) && !empty($cached)) {
+        return $cached;
     }
 
+    $result = [];
     $allFallbacks = getCellActivitiesFallbackData();
     foreach ($categories as $cat) {
         if (!empty($allFallbacks[$cat])) {
@@ -1265,10 +1280,14 @@ function getTechnopreneurTeamFallbackData() {
 }
 
 /**
- * Fetch Technopreneur Team members from Database or fallback
+ * Fetch Technopreneur Team members from Database or fallback (Cache-Aside 30m TTL)
  */
 function getTechnopreneurTeam($groupType = null, $pdo = null) {
-    if ($pdo) {
+    $cacheKey = 'technopreneur_team_' . ($groupType ?: 'all');
+    $cached = gecmCacheRemember($cacheKey, 1800, function () use ($groupType, $pdo) {
+        if (!$pdo) {
+            return null;
+        }
         initTechnopreneurTeamTable($pdo);
         try {
             if ($groupType) {
@@ -1286,12 +1305,15 @@ function getTechnopreneurTeam($groupType = null, $pdo = null) {
                 ");
             }
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if (!empty($rows)) {
-                return $rows;
-            }
+            return !empty($rows) ? $rows : null;
         } catch (Exception $e) {
             error_log("getTechnopreneurTeam error: " . $e->getMessage());
+            return null;
         }
+    });
+
+    if (is_array($cached) && !empty($cached)) {
+        return $cached;
     }
 
     $allFallback = getTechnopreneurTeamFallbackData();

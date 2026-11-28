@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($title) && !empty($image_url)) {
             $stmt = $pdo->prepare("INSERT INTO latest_shots (title, description, image_url, display_order, is_active) VALUES (?, ?, ?, ?, ?)");
             $stmt->execute([$title, $description, $image_url, $display_order, $is_active]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Campus shot added successfully!');
             header('Location: shots.php');
             exit;
@@ -60,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($title) && !empty($image_url) && $id > 0) {
             $stmt = $pdo->prepare("UPDATE latest_shots SET title = ?, description = ?, image_url = ?, display_order = ?, is_active = ? WHERE id = ?");
             $stmt->execute([$title, $description, $image_url, $display_order, $is_active, $id]);
+            gecmCacheInvalidate('homepage_bundle');
             setFlashMessage('success', 'Campus shot updated successfully!');
             header('Location: shots.php');
             exit;
@@ -77,6 +79,7 @@ if (isset($_GET['delete'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("DELETE FROM latest_shots WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('success', 'Shot deleted successfully!');
         header('Location: shots.php');
         exit;
@@ -93,6 +96,7 @@ if (isset($_GET['toggle'])) {
     if ($id > 0) {
         $stmt = $pdo->prepare("UPDATE latest_shots SET is_active = IF(is_active = 1, 0, 1) WHERE id = ?");
         $stmt->execute([$id]);
+        gecmCacheInvalidate('homepage_bundle');
         setFlashMessage('info', 'Shot status updated!');
         header('Location: shots.php');
         exit;
